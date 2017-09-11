@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <groupId>com.wixpress.infra</groupId>
-    <artifactId>wix-style-react</artifactId>
-    <name>wix ui</name>
-    <description>Common React UI components for all Wix verticals developing in React</description>
+    <artifactId>wix-ui-backoffice</artifactId>
+    <name>wix-ui-backoffice</name>
+    <description>Common UI components library</description>
 
     <parent>
         <groupId>com.wixpress.common</groupId>
