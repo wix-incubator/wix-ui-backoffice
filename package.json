@@ -32,6 +32,7 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
+    "@storybook/addon-options": "3.2.13",
     "@storybook/react": "~3.1.0",
     "@storybook/storybook-deployer": "~2.0.0",
     "babel-jest": "^21.2.0",
@@ -57,16 +58,31 @@
   },
   "babel": {
     "presets": [
-      "env",
+      [
+        "es2015",
+        {
+          "modules": false
+        }
+      ],
       "react",
-      "stage-3"
-    ],
-    "plugins": [
-      "transform-runtime"
+      "stage-2"
     ]
   },
   "eslintConfig": {
-    "extends": "wix/react"
+    "extends": "wix/react",
+    "env": {
+      "jest": true
+    },
+    "rules": {
+      "react/jsx-handler-names": 0,
+      "react/no-find-dom-node": 0,
+      "react/no-string-refs": 0,
+      "react/jsx-boolean-value": 2,
+      "comma-dangle": [
+        "error",
+        "never"
+      ]
+    }
   },
   "publishConfig": {
     "registry": "http://repo.dev.wix/artifactory/api/npm/npm-local/"
