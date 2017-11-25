@@ -18,7 +18,7 @@
     "build": ":",
     "precommit": "yoshi lint",
     "pretest": "yoshi build && build-storybook",
-    "test": "yoshi test",
+    "test": "yoshi test --jest && yoshi test --protractor",
     "posttest": "yoshi lint",
     "start": "yoshi start & npm run storybook",
     "release": "yoshi release && gh-pages-auto-release --dist=storybook-static",
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@storybook/react": "~3.1.0",
     "@storybook/storybook-deployer": "~2.0.0",
+    "babel-jest": "^21.2.0",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.5.0",
@@ -41,19 +42,27 @@
     "enzyme": "^2.3.0",
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-react": "^6.8.0",
-    "gh-pages-auto-release": "^1.1.2",
     "express": "^4.13.4",
+    "gh-pages-auto-release": "^1.1.2",
+    "husky": "^0.13.4",
+    "identity-obj-proxy": "^3.0.0",
     "jsdom": "^9.4.1",
     "prop-types": "^15.5.4",
     "react": "^15.5.0",
     "react-dom": "^15.5.0",
     "react-test-renderer": "^15.5.4",
-    "husky": "^0.13.4",
+    "react-test-utils": "0.0.1",
     "yoshi": "latest"
   },
   "babel": {
-    "presets": ["env", "react", "stage-3"],
-    "plugins": ["transform-runtime"]
+    "presets": [
+      "env",
+      "react",
+      "stage-3"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ]
   },
   "eslintConfig": {
     "extends": "wix/react"
@@ -68,5 +77,18 @@
     "externals": {
       "react": "React"
     }
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|scss)$": "identity-obj-proxy"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist/",
+      "<rootDir>/node_modules/"
+    ],
+    "testEnvironment": "node",
+    "setupFiles": [
+      "<rootDir>/node_modules/babel-polyfill"
+    ]
   }
 }
