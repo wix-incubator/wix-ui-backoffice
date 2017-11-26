@@ -31,7 +31,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.22.0",
     "lodash": "^4.17.4",
-    "wix-ui-core": "^1.0.1"
+    "wix-ui-core": "^1.0.5"
   },
   "devDependencies": {
     "@storybook/addon-options": "3.2.13",
@@ -101,7 +101,7 @@
     "setupFiles": [
       "<rootDir>/node_modules/babel-polyfill"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/testkit/setup-jest",    
+    "setupTestFrameworkScriptFile": "wix-ui-core/dist/test/jest-setup",
     "moduleNameMapper": {
       "\\.(css|less|scss)$": "identity-obj-proxy"
     },
