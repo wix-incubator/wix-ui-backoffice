@@ -101,7 +101,7 @@
     "setupFiles": [
       "<rootDir>/node_modules/babel-polyfill"
     ],
-    "setupTestFrameworkScriptFile": "wix-ui-test-utils/dist/src/jest-setup",
+    "setupTestFrameworkScriptFile": "wix-ui-test-utils/src/jest-setup",
     "moduleNameMapper": {
       "\\.(css|less|scss)$": "identity-obj-proxy"
     },
