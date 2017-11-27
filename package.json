@@ -56,6 +56,7 @@
     "react-dom": "^15.5.0",
     "react-test-renderer": "^15.5.4",
     "react-test-utils": "0.0.1",
+    "wix-ui-test-utils": "^1.0.0",
     "yoshi": "latest"
   },
   "babel": {
@@ -101,7 +102,7 @@
     "setupFiles": [
       "<rootDir>/node_modules/babel-polyfill"
     ],
-    "setupTestFrameworkScriptFile": "wix-ui-core/dist/test/jest-setup",
+    "setupTestFrameworkScriptFile": "wix-ui-test-utils/dist/src/jest-setup",
     "moduleNameMapper": {
       "\\.(css|less|scss)$": "identity-obj-proxy"
     },
