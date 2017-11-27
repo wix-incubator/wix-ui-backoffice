@@ -42,7 +42,6 @@
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-3": "^6.5.0",
-    "chai": "^3.5.0",
     "enzyme": "^2.3.0",
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-react": "^6.8.0",
