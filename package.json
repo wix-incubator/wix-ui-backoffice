@@ -31,7 +31,8 @@
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.22.0",
     "lodash": "^4.17.4",
-    "wix-ui-core": "latest"
+    "wix-ui-core": "latest",
+    "wix-ui-theme": "latest"
   },
   "devDependencies": {
     "@storybook/addon-options": "3.2.13",
@@ -86,7 +87,7 @@
       ]
     }
   },
-  "license": "MIT",  
+  "license": "MIT",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
