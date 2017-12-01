@@ -1,4 +1,4 @@
-import {pallete} from '../../pallete';
+import {palette} from '../../palette';
 
 const sizeToOuterLabelWidth = {
   'x-small': '28px',
@@ -37,39 +37,39 @@ const sizeTotoggleIconDisplay = {
 };
 
 const skinToBackgroundColor = {
-  standard: pallete.tableSelected,
-  success: pallete.successNotifications,
-  error: pallete.dangerNotifications
+  standard: palette.tableSelected,
+  success: palette.successNotifications,
+  error: palette.dangerNotifications
 };
 
 const skinToBackgroundColorChecked = {
-  standard: pallete.main,
-  success: pallete.ctaHover,
-  error: pallete.danger
+  standard: palette.main,
+  success: palette.ctaHover,
+  error: palette.danger
 };
 
 const skinToColor = {
-  standard: pallete.tableSelected,
-  success: pallete.successNotifications,
-  error: pallete.dangerNotifications
+  standard: palette.tableSelected,
+  success: palette.successNotifications,
+  error: palette.dangerNotifications
 };
 
 const skinToColorChecked = {
-  standard: pallete.main,
-  success: pallete.ctaHover,
-  error: pallete.danger
+  standard: palette.main,
+  success: palette.ctaHover,
+  error: palette.danger
 };
 
 const skinToHoverBackgroundColor = {
-  standard: pallete.mainHover,
-  success: pallete.successHover,
-  error: pallete.dangerHover
+  standard: palette.mainHover,
+  success: palette.successHover,
+  error: palette.dangerHover
 };
 
 const skinToHoverColor = {
-  standard: pallete.mainHover,
-  success: pallete.successHover,
-  error: pallete.dangerHover
+  standard: palette.mainHover,
+  success: palette.successHover,
+  error: palette.dangerHover
 };
 
 export const theme = ({size, skin}) => ({
@@ -78,19 +78,19 @@ export const theme = ({size, skin}) => ({
 
   innerLabelWidth: sizeToInnerLabelWidth[size],
   innerLabelHeight: sizeToInnerLabelHeight[size],
-  innerLabelBackgroundColor: pallete.white,
+  innerLabelBackgroundColor: palette.white,
 
   labelMovementRange: sizeTolabelMovementRange[size],
   toggleIconDisplay: sizeTotoggleIconDisplay[size],
 
   backgroundColor: skinToBackgroundColor[skin],
   backgroundColorChecked: skinToBackgroundColorChecked[skin],
-  backgroundColorDisabled: pallete.disabledButton,
+  backgroundColorDisabled: palette.disabledButton,
   backgroundColorHover: skinToHoverBackgroundColor[skin],
 
   color: skinToColor[skin],
   colorChecked: skinToColorChecked[skin],
-  colorDisabled: pallete.disabledDividers,
-  colorCheckedDisabled: pallete.disabledButton,
+  colorDisabled: palette.disabledDividers,
+  colorCheckedDisabled: palette.disabledButton,
   colorHover: skinToHoverColor[skin]
 });
