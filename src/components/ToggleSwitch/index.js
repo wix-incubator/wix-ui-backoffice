@@ -1,7 +1,7 @@
 import React from 'react';
 import {oneOf} from 'prop-types';
-import CoreToggleSwitch from 'wix-ui-core/dist/src/components/ToggleSwitch';
-import {ThemedComponent} from 'wix-ui-theme/dist/src';
+import CoreToggleSwitch from 'wix-ui-core/ToggleSwitch';
+import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
 
 const ToggleSwitch = ({size, skin, ...coreProps}) => (
