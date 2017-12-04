@@ -19,13 +19,13 @@
     "url": "git+https://github.com/wix/wix-ui.git"
   },
   "scripts": {
-    "build": "yoshi build && import-path --path src/components",
-    "precommit": "yoshi lint",
+    "build": "haste build && import-path --path src/components",
+    "precommit": "haste lint",
     "pretest": "npm run build && build-storybook",
-    "test": "yoshi test --jest && yoshi test --protractor",
-    "posttest": "yoshi lint",
-    "start": "yoshi start & npm run storybook",
-    "release": "yoshi release && gh-pages-auto-release --dist=storybook-static",
+    "test": "haste test --jest && haste test --protractor",
+    "posttest": "haste lint",
+    "start": "haste start & npm run storybook",
+    "release": "haste release && gh-pages-auto-release --dist=storybook-static",
     "storybook": "start-storybook -p 6006"
   },
   "peerDependencies": {
@@ -60,7 +60,8 @@
     "react-test-renderer": "^15.5.4",
     "react-test-utils": "0.0.1",
     "wix-ui-test-utils": "^1.0.0",
-    "yoshi": "latest"
+    "haste-preset-yoshi": "latest",
+    "haste-cli": "~0.1.16"
   },
   "babel": {
     "presets": [
@@ -109,5 +110,8 @@
       "<rootDir>/dist/",
       "<rootDir>/node_modules/"
     ]
+  },
+  "haste": {
+    "preset": "yoshi"
   }
 }
