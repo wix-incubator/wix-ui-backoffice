@@ -14,7 +14,7 @@ VBox.propTypes = {
   ...CoreVBox.propTypes,
 
   /** spacing between the elements */
-  spacing: oneOf(['small', 'medium', 'large']),
+  spacing: string,
 
   /** Similar to textAlign */
   horizontalAlignment: oneOf(['left', 'center', 'right']),
