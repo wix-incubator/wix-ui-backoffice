@@ -4,8 +4,8 @@ import CoreHBox from 'wix-ui-core/HBox';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
 
-const HBox = ({spacing, verticalAlignment, height, width, ...coreProps}) => (
-  <ThemedComponent theme={theme} spacing={spacing} height={height} width={width} verticalAlignment={verticalAlignment}>
+const HBox = ({spacing, verticalAlignment, ...coreProps}) => (
+  <ThemedComponent theme={theme} spacing={spacing} verticalAlignment={verticalAlignment}>
     <CoreHBox {...coreProps}/>
   </ThemedComponent>
 );
@@ -17,13 +17,7 @@ HBox.propTypes = {
   spacing: string,
 
   /** Similar to flexbox vertical-align */
-  verticalAlignment: oneOf(['top', 'center', 'bottom']),
-
-  /** Height of the HBox container */
-  height: string,
-
-  /** Width of the HBox container */
-  width: string
+  verticalAlignment: oneOf(['top', 'center', 'bottom'])
 };
 
 export default HBox;

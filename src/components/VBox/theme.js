@@ -1,6 +1,1 @@
-export const theme = ({spacing, horizontalAlignment, width, height}) => ({
-  spacing,
-  horizontalAlignment,
-  width,
-  height
-});
+export const theme = ({spacing, horizontalAlignment}) => ({spacing, horizontalAlignment});
