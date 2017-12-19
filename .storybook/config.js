@@ -11,6 +11,6 @@ configure(loadStories, module);
 setOptions({
   showDownPanel: false,
   name: 'wix-ui-backoffice',
-  url: 'https://github.com/wix/wix-ui/packages/wix-ui-backoffice',
+  url: 'https://github.com/wix/wix-ui-backoffice',
   sidebarAnimations: true
 });
