@@ -1,5 +1,5 @@
 import React from 'react';
-import {oneOfType} from 'prop-types';
+import {oneOf} from 'prop-types';
 import CoreBadge from 'wix-ui-core/Badge';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
@@ -16,7 +16,7 @@ const CounterBadge = coreProps => (
 
 CounterBadge.propTypes = {
   /** The type of the badge */
-  skin: oneOfType(['default', 'standard', 'urgent', 'success'])
+  skin: oneOf(['default', 'standard', 'urgent', 'success'])
 };
 
 CounterBadge.defaultProps = {
