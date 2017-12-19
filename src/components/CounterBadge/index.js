@@ -1,5 +1,5 @@
 import React from 'react';
-import {oneOf} from 'prop-types';
+import {oneOfType} from 'prop-types';
 import CoreBadge from 'wix-ui-core/Badge';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
@@ -9,14 +9,14 @@ import {SKIN} from './constants';
 const CounterBadge = coreProps => (
   <ThemedComponent theme={theme}>
     <CoreBadge>
-      <UIText dataClass="badge-content">{coreProps.children}</UIText>
+      <UIText appearance="T5" dataClass="badge-content">{coreProps.children}</UIText>
     </CoreBadge>
   </ThemedComponent>
 );
 
 CounterBadge.propTypes = {
   /** The type of the badge */
-  skin: oneOf(Object.keys(SKIN))
+  skin: oneOfType(['default', 'standard', 'urgent', 'success'])
 };
 
 CounterBadge.defaultProps = {

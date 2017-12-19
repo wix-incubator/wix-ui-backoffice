@@ -2,6 +2,7 @@ import {SKIN} from './constants';
 import {D20, B10, R15, G10} from '../../colors';
 
 const HEIGHT = '18px';
+const PADDING = '3px 6px';
 const BORDER_RADIUS = '12px';
 
 const typeToColor = {
@@ -13,6 +14,7 @@ const typeToColor = {
 
 export const theme = skin => ({
   height: HEIGHT,
+  padding: PADDING,
   borderRadius: BORDER_RADIUS,
   backgroundColor: typeToColor[skin],
   borderColor: typeToColor[skin]
