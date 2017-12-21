@@ -3,10 +3,13 @@ import {oneOf} from 'prop-types';
 import CoreToggleSwitch from 'wix-ui-core/ToggleSwitch';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
+import UIText from '../UIText';
 
-const ToggleSwitch = ({size, skin, ...coreProps}) => (
+const ToggleSwitch = ({size, skin, children, ...coreProps}) => (
   <ThemedComponent theme={theme} size={size} skin={skin}>
-    <CoreToggleSwitch {...coreProps}/>
+    <CoreToggleSwitch {...coreProps}>
+      <UIText appearance="T1.1" dataClass="toggle-switch-content">{children}</UIText>
+    </CoreToggleSwitch>
   </ThemedComponent>
 );
 

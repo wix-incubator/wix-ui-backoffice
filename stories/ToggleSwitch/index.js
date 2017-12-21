@@ -10,6 +10,7 @@ export const story = () => createStory({
   component: ToggleSwitch,
   componentProps: (setState, getState) => ({
     checked: false,
+    children: 'Toggle',
     onChange: () => setState({checked: !getState().checked})
   }),
   source: ToggleSwitchSource
