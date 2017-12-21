@@ -1,5 +1,5 @@
 import React from 'react';
-import {oneOf} from 'prop-types';
+import {any, oneOf} from 'prop-types';
 import CoreToggleSwitch from 'wix-ui-core/ToggleSwitch';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
@@ -20,7 +20,10 @@ ToggleSwitch.propTypes = {
   size: oneOf(['x-small', 'small', 'large']),
 
   /** Color for disabled toggle switch */
-  skin: oneOf(['standard', 'error', 'success'])
+  skin: oneOf(['standard', 'error', 'success']),
+
+  /** Content of the badge */
+  children: any
 };
 
 ToggleSwitch.defaultProps = {

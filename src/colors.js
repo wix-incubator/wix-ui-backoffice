@@ -39,6 +39,7 @@ export const O20 = '#ff9a48';
 export const R00 = '#d6453d';
 export const R05 = '#d8504c';
 export const R10 = '#ee5951';
+export const R15 = '#f4553e';
 export const R20 = '#ff6666';
 export const R30 = '#ffd7d7';
 export const R40 = '#ffe1e1';
