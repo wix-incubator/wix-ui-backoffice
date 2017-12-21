@@ -2,7 +2,7 @@ export const textOfMaxTwoSymbols = (props, propName, componentName = 'CounterBad
   const value = props[propName];
 
   if (!value) {
-    return null;
+    return;
   }
 
   if (typeof value !== 'string' && typeof value !== 'number') {
@@ -12,6 +12,4 @@ export const textOfMaxTwoSymbols = (props, propName, componentName = 'CounterBad
   if (value.toString().length > 2) {
     return new Error(`${propName} in ${componentName} should not be longer than two characters`);
   }
-
-  return null;
 };

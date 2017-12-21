@@ -18,11 +18,11 @@ describe('CounterBadge content validation', () => {
     const resultOfCorrectInput = getResult('12');
     expect(resultOfString instanceof Error).toBeTruthy();
     expect(resultOfNumber instanceof Error).toBeTruthy();
-    expect(resultOfCorrectInput).toBeNull();
+    expect(resultOfCorrectInput).toBeFalsy();
   });
 
   it('should not return an error when content value is not provided', () => {
     const result = getResult(undefined);
-    expect(result).toBeNull();
+    expect(result).toBeFalsy();
   });
 });

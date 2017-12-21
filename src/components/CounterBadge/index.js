@@ -8,9 +8,9 @@ import {theme} from './theme';
 import UIText from '../UIText';
 import {SKIN} from './constants';
 
-const CounterBadge = ({skin, children}) => (
+const CounterBadge = ({skin, children, ...coreProps}) => (
   <ThemedComponent theme={theme} skin={skin}>
-    <CoreBadge>
+    <CoreBadge {...coreProps}>
       <UIText appearance="T5" dataClass="badge-content">{children}</UIText>
     </CoreBadge>
   </ThemedComponent>
@@ -20,7 +20,9 @@ CounterBadge.propTypes = {
   /** Type of the badge */
   skin: oneOf(['default', 'standard', 'urgent', 'success']),
   /** Content of the badge */
-  children: textOfMaxTwoSymbols
+  children: textOfMaxTwoSymbols,
+
+  ...CoreBadge.propTypes
 };
 
 CounterBadge.defaultProps = {
