@@ -1,6 +1,6 @@
 import {mount} from 'enzyme';
 import CounterBadge from './';
-import React from 'react';
+import * as React from 'react';
 
 describe('CounterBadge', () => {
   let wrapper;
