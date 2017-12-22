@@ -10,7 +10,12 @@ import {SKIN} from './constants';
 
 const CounterBadge = ({skin, children, ...coreProps}) => {
   const isValid = isStringOrNumber(children) && isUnderThreeSymbols(children);
-  return isValid && (
+
+  if (!isValid) {
+    return null;
+  }
+
+  return (
     <ThemedComponent theme={theme} skin={skin}>
       <CoreBadge {...coreProps}>
         <UIText appearance="T5" dataClass="badge-content">{children}</UIText>
