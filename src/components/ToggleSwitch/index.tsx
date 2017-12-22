@@ -6,10 +6,10 @@ import UIText from '../UIText';
 
 interface Props { // TODO: extend CoreToggleSwitchProps,
   /** size of the toggle switch */
-  size: 'x-small' | 'small' | 'large';
+  size?: 'x-small' | 'small' | 'large';
 
   /** Color for disabled toggle switch */
-  skin: 'standard' | 'error' | 'success';
+  skin?: 'standard' | 'error' | 'success';
 };
 
 

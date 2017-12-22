@@ -6,13 +6,13 @@ import {theme} from './theme';
 
 interface Props {
   /** skin color of the heading */
-  skin: 'dark' | 'light';
+  skin?: 'dark' | 'light';
 
   /** typography of the heading */
-  appearance: 'H0' | 'H1' | 'H2' | 'H3';
+  appearance?: 'H0' | 'H1' | 'H2' | 'H3';
 
   /** The text to show */
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 interface State {

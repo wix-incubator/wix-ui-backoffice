@@ -5,10 +5,10 @@ import {theme} from './theme';
 
 interface Props { // TODO: extend CoreInputProps,
   /** size of the input component */
-  size: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large';
 
   /** Color schemes for the inpus component */
-  skin: 'standard' | 'error';
+  skin?: 'standard' | 'error';
 };
 
 export default class Input extends React.PureComponent<Props> {
