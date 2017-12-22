@@ -1,6 +1,7 @@
 import {SIZE} from './constants';
+import {Appearance} from '../UIText';
 
-const sizeToAppearance = {
+const sizeToAppearance: {[index: string]: Appearance} = { // TODO: Strictly type SIZE index, please
   [SIZE.tiny]: 'T4',
   [SIZE.small]: 'T3',
   [SIZE.medium]: 'T1',

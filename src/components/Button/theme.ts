@@ -47,7 +47,7 @@ const greyscaleActive = hexToRgba(c.D10, 0.36);
 const transparentGrey = createBaseColorSkin(c.D80, greyscale, c.TRANSPARENT, c.D80, greyscaleHover, c.TRANSPARENT, c.D80, greyscaleActive, c.TRANSPARENT, c.D80, c.D55, c.D55);
 const secondaryGrey = createBaseColorSkin(c.D40, c.TRANSPARENT, c.D40, c.D80, c.D20, c.D20, c.D80, c.D10, c.D10, c.D80, c.D55, c.D55);
 
-const skins = {
+const skins: any = { // TODO: strictly type skins
   transparentGrey,
   secondaryGrey,
   primaryStandard: createPrimaryColorSkin(c.B10, c.B20),
