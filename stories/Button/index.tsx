@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import createStory from '../create-story';
 
 import Button from '../../src/components/Button';
