@@ -38,7 +38,6 @@ const sizeToFontSize = {
 };
 
 export const theme = ({size, skin}) => ({
-
   color: skinToColor[skin],
   backgroundColor: palette.white,
   borderColor: skinToBorderColor[skin],
