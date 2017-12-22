@@ -13,7 +13,7 @@ interface Props {
 
   /** The text to show */
   children?: React.ReactNode;
-};
+}
 
 interface State {
   tagName: string;
@@ -48,7 +48,6 @@ export default class Heading extends React.PureComponent<Props, State> {
     );
   }
 }
-
 
 function getType(appearance) {
   return [

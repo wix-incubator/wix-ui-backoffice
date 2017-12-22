@@ -11,8 +11,7 @@ interface Props { // TODO: extend CoreBadgeProps,
 
   /** Content of the badge */
   children?: string | number;
-};
-
+}
 
 export default class CounterBadge extends React.PureComponent<Props> {
   static defaultProps = {

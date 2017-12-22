@@ -10,8 +10,7 @@ interface Props { // TODO: extend CoreToggleSwitchProps,
 
   /** Color for disabled toggle switch */
   skin?: 'standard' | 'error' | 'success';
-};
-
+}
 
 export default class ToggleSwitch extends React.PureComponent<Props>  {
   static defaultProps = {
@@ -31,4 +30,3 @@ export default class ToggleSwitch extends React.PureComponent<Props>  {
     );
   }
 }
-

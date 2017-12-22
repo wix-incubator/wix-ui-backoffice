@@ -1,7 +1,7 @@
 import createStory from '../create-story';
 
 import ToggleSwitch from '../../src/components/ToggleSwitch';
-import ToggleSwitchSource from '!raw-loader!../../src/components/ToggleSwitch';
+// import ToggleSwitchSource from '!raw-loader!../../src/components/ToggleSwitch';
 
 export const story = () => createStory({
   category: 'Components',
@@ -13,5 +13,5 @@ export const story = () => createStory({
     children: 'Toggle',
     onChange: () => setState({checked: !getState().checked})
   }),
-  source: ToggleSwitchSource
+  // source: ToggleSwitchSource
 });

@@ -70,7 +70,7 @@ interface Props { // TODO: extend CoreButtonProps
 
   /** Makes the button look like the icon */
   isIcon?: boolean;
-};
+}
 
 export default class Button extends React.PureComponent<Props> {
   static defaultProps = {

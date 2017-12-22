@@ -51,4 +51,4 @@ export default class UIText extends React.PureComponent<Props> {
       </ThemedComponent>
     );
   }
-};
+}

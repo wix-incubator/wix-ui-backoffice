@@ -7,7 +7,6 @@ const createTypography = (fontFamily, fontSize, lineHeight) => ({
   lineHeight
 });
 
-
 const typographies = {
   H0: createTypography(t.fontUltraThin, '48px', '54px'),
   H1: createTypography(t.fontThin, '36px', '48px'),
@@ -28,4 +27,3 @@ export const theme = ({appearance, skin}) => ({
   ...typographies[appearance],
   color: colors[appearance][skin]
 });
-

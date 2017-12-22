@@ -9,7 +9,7 @@ interface Props { // TODO: extend CoreInputProps,
 
   /** Color schemes for the inpus component */
   skin?: 'standard' | 'error';
-};
+}
 
 export default class Input extends React.PureComponent<Props> {
   static defaultProps = {
@@ -24,6 +24,6 @@ export default class Input extends React.PureComponent<Props> {
       <ThemedComponent {...{theme, size, skin}}>
         <CoreInput {...coreProps}/>
       </ThemedComponent>
-    )
+    );
   }
 }
