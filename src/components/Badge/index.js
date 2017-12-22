@@ -34,10 +34,9 @@ const Badge = ({skin, form, children, prefixIcon, suffixIcon}) => (
 Badge.propTypes = {
   ...CoreBadge.propTypes,
   /** Form (type) of the badge */
-  form: oneOf(['solid', 'outlined', 'transparent']),
+  form: oneOf(Object.keys(FORM)),
   /** Skin of the badge */
-  skin: oneOf(['default', 'standard', 'danger', 'success', 'grey', 'warning',
-    'urgent', 'neutralStandard', 'neutralSuccess', 'neutralDanger']),
+  skin: oneOf(Object.keys(SKIN)),
   /** The prefix icon of the badge */
   prefixIcon: node,
   /** The suffix icon of the badge */
