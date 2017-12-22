@@ -1,18 +1,14 @@
 import React from 'react';
-import {oneOf} from 'prop-types';
+import {oneOf, oneOfType, string, number} from 'prop-types';
 import CoreBadge from 'wix-ui-core/Badge';
 import {ThemedComponent} from 'wix-ui-theme';
-
-import {textOfMaxTwoSymbols, isStringOrNumber, isUnderThreeSymbols} from './content-validation';
 import {theme} from './theme';
 import UIText from '../UIText';
 import {SKIN} from './constants';
 
 const CounterBadge = ({skin, children, ...coreProps}) => {
-  const isValid = isStringOrNumber(children) && isUnderThreeSymbols(children);
-
-  if (!isValid) {
-    return null;
+  if (children.toString().length > 2) {
+    throw new Error('CounterBadge children max length must be less than 2');
   }
 
   return (
@@ -25,12 +21,12 @@ const CounterBadge = ({skin, children, ...coreProps}) => {
 };
 
 CounterBadge.propTypes = {
+  ...CoreBadge.propTypes,
+
   /** Type of the badge */
   skin: oneOf(['default', 'standard', 'urgent', 'success']),
   /** Content of the badge */
-  children: textOfMaxTwoSymbols,
-
-  ...CoreBadge.propTypes
+  children: oneOfType([string, number])
 };
 
 CounterBadge.defaultProps = {
