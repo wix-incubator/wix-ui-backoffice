@@ -10,3 +10,9 @@ export const SKIN = {
   neutralSuccess: 'neutralSuccess',
   nutralDanger: 'neutralDanger'
 };
+
+export const FORM = {
+  solid: 'solid',
+  outlined: 'outlined',
+  transparent: 'transparent'
+};
