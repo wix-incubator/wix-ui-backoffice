@@ -42,8 +42,8 @@ export default class UIText extends React.PureComponent<Props> {
     } = this.props;
 
     return (
-      <ThemedComponent theme={theme} appearance={appearance}>
-        <CoreText forceHideTitle={forceHideTitle} ellipsis={ellipsis} tagName={tagName} dataClass={dataClass}>
+      <ThemedComponent {...{theme, appearance}}>
+        <CoreText {...{forceHideTitle, ellipsis, tagName, dataClass}}>
           {children}
         </CoreText>
       </ThemedComponent>
