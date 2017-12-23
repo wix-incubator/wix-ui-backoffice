@@ -57,6 +57,7 @@
     "react-dom": "^15.6.2",
     "react-test-renderer": "^15.5.4",
     "wix-storybook-utils": "^1.0.0",
+    "wix-ui-jss": "^1.0.4",
     "wix-ui-test-utils": "^1.0.0"
   },
   "babel": {
