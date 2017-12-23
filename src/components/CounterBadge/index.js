@@ -24,7 +24,7 @@ CounterBadge.propTypes = {
   ...CoreBadge.propTypes,
 
   /** Type of the badge */
-  skin: oneOf(['default', 'standard', 'urgent', 'success']),
+  skin: oneOf(Object.keys(SKIN)),
   /** Content of the badge */
   children: oneOfType([string, number])
 };
