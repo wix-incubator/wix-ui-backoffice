@@ -19,7 +19,7 @@ const createButtonIcon = (type, icon, size) => (
     null
 );
 
-const Button = ({height: size, theme: skin, isIcon, prefixIcon, suffixIcon, ...coreProps}) => (
+const Button = ({height: size, skin, isIcon, prefixIcon, suffixIcon, ...coreProps}) => (
   <ThemedComponent theme={theme} size={size} skin={skin} isIcon={isIcon}>
     <CoreButton {...coreProps}>
       <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -37,8 +37,8 @@ Button.propTypes = {
   /** The height of the button */
   height: oneOf(['tiny', 'small', 'medium', 'large']),
 
-  /** The theme of the button */
-  theme: oneOf([
+  /** The skin of the button */
+  skin: oneOf([
     'primaryStandard',
     'primaryError',
     'primaryPremium',
@@ -91,7 +91,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   height: 'medium',
-  theme: 'primaryStandard'
+  skin: 'primaryStandard'
 };
 
 export default Button;
