@@ -15,7 +15,7 @@ export default config =>
   story({
     storiesOf,
     moduleName: 'wix-ui-backoffice',
-    repoBaseURL: 'https://github.com/wix/wix-ui/tree/master/packages/wix-ui-backoffice/src/components/',
+    repoBaseURL: 'https://github.com/wix/wix-ui-backoffice/tree/master/src/components/',
     contextualImport: importWith(contextualImport),
     rawContextualImport: importWith(rawContextualImport),
     ...config
