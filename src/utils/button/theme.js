@@ -1,8 +1,14 @@
 import * as c from '../../colors';
-import {SIZE} from './constants';
-import {hexToRgba} from '../../utils';
+import {hexToRgba} from '../';
 
-const createBaseColorSkin = (color, bg, border, hoverColor, hoverBg, hoverBc, activeColor, activeBg, activeBc, disabledColor, disabledBg, disabledBc) => ({
+export const SIZE = {
+  tiny: 'tiny',
+  small: 'small',
+  medium: 'medium',
+  large: 'large'
+};
+
+export const createBaseColorSkin = (color, bg, border, hoverColor, hoverBg, hoverBc, activeColor, activeBg, activeBc, disabledColor, disabledBg, disabledBc) => ({
   color,
   backgroundColor: bg,
   borderColor: border,
@@ -23,16 +29,8 @@ const createBaseColorSkin = (color, bg, border, hoverColor, hoverBg, hoverBc, ac
   }
 });
 
-const iconStyle = {
-  borderRadius: '50px',
-  width: '36px'
-};
-
-// TODO complete all skins
-const createPrimaryColorSkin = (color, hoverColor) => ({
-  ...createBaseColorSkin(c.D80, color, color, c.D80, hoverColor, hoverColor, c.D80, color, color, c.D80, c.D55, c.D55),
-  ...iconStyle
-});
+const createPrimaryColorSkin = (color, hoverColor) =>
+  createBaseColorSkin(c.D80, color, color, c.D80, hoverColor, hoverColor, c.D80, color, color, c.D80, c.D55, c.D55);
 
 const createSecondaryColorSkin = (color, hoverColor) =>
   createBaseColorSkin(color, c.TRANSPARENT, color, c.D80, hoverColor, hoverColor, c.D80, color, color, c.D55, c.TRANSPARENT, c.D55);
@@ -55,16 +53,17 @@ const greyscaleActive = hexToRgba(c.D10, 0.36);
 const transparentGrey = createBaseColorSkin(c.D80, greyscale, c.TRANSPARENT, c.D80, greyscaleHover, c.TRANSPARENT, c.D80, greyscaleActive, c.TRANSPARENT, c.D80, c.D55, c.D55);
 const secondaryGrey = createBaseColorSkin(c.D40, c.TRANSPARENT, c.D40, c.D80, c.D20, c.D20, c.D80, c.D10, c.D10, c.D80, c.D55, c.D55);
 
-const skins = {
+export const skins = {
+  transparentGrey,
+  secondaryGrey,
   primaryStandard: createPrimaryColorSkin(c.B10, c.B20),
   primaryError: createPrimaryColorSkin(c.R10, c.R20),
+  primaryPremium: createPrimaryColorSkin(c.P10, c.P20),
   primaryWhite: createPrimaryWhiteColorSkin(c.B10, c.B50, c.B40),
   secondaryStandard: createSecondaryColorSkin(c.B10, c.B20),
   secondaryError: createSecondaryColorSkin(c.R10, c.R20),
+  secondaryPremium: createSecondaryColorSkin(c.P10, c.P20),
   secondaryWhite: createSecondaryWhiteColorSkin(c.B10, c.B50, c.B40),
-
-  transparentGrey,
-  secondaryGrey,
   tertiaryStandard: createTertiaryColorSkin(c.B10, c.B20),
   'close-standard': createTransparentColorSkin(c.B10, c.B20, c.B10),
   'close-dark': createTransparentColorSkin(c.D10, c.D10, c.D10),
@@ -73,7 +72,25 @@ const skins = {
   'close-transparent': transparentGrey
 };
 
-console.log(skins.primaryStandard);
+//**************************  deprecated themes (support for wix-react-style) **************************
+skins.transparent = skins.transparentGrey;
+skins.fullred = skins.primaryError;
+skins.fullgreen = createPrimaryColorSkin(c.G10, c.G20);
+skins.fullblue = skins.primaryStandard;
+skins.fullpurple = skins.primaryPremium;
+skins.emptyred = skins.secondaryError;
+skins.emptygreen = createSecondaryColorSkin(c.G10, c.G20);
+skins.emptyblue = skins.transparentblue = skins.secondaryStandard;
+skins.emptypurple = skins.secondaryPremium;
+skins.emptybluesecondary = skins.primaryWhite;
+skins.whiteblue = skins.tertiaryStandard;
+skins.whiteblueprimary = skins.primaryWhite;
+skins.whitebluesecondary = skins.secondaryWhite;
+skins['icon-standard'] = skins.primaryStandard;
+skins['icon-standardsecondary'] = skins.secondaryStandard;
+skins['icon-greybackground'] = skins.tertiaryStandard;
+skins['icon-white'] = skins.primaryWhite;
+skins['icon-whitesecondary'] = skins.secondaryWhite;
 
 const sizes = {
   [SIZE.tiny]: {
@@ -146,7 +163,7 @@ export const theme = ({skin, size, isIcon}) => {
   const sizeAttributes = getSizeAttributes(skin, size, isIcon);
 
   if (!sizeAttributes) {
-    throw new Error(`ButtonIcon height "${size}" is not supported for these props: theme - "${skin}", isIcon - ${isIcon}`);
+    throw new Error(`Button height "${size}" is not supported for these props: theme - "${skin}", isIcon - ${isIcon}`);
   }
 
   return {

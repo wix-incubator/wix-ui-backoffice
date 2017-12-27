@@ -2,7 +2,7 @@ import React from 'react';
 import {node, oneOf} from 'prop-types';
 import CoreButton from 'wix-ui-core/Button';
 import {ThemedComponent} from 'wix-ui-theme';
-import {theme} from './theme';
+import {theme} from '../../utils/button/theme';
 import {appearance, iconSize} from './appearance';
 import UIText from '../UIText';
 

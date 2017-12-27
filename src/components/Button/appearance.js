@@ -1,4 +1,4 @@
-import {SIZE} from './constants';
+import {SIZE} from '../../utils/button/theme';
 
 const sizeToAppearance = {
   [SIZE.tiny]: 'T4',
