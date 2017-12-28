@@ -7,7 +7,7 @@ import {theme} from '../../utils/button/theme';
 const getSize = size => size === 'small' ? '8px' : size === 'medium' ? '12px' : '16px';
 
 const ButtonIcon = ({height: size, skin, icon, ...coreProps}) => (
-  <ThemedComponent theme={theme} size={size} skin={skin} isIcon>
+  <ThemedComponent theme={theme} size={size} skin={skin}>
     <CoreButton {...coreProps}>
       <span>
         {React.cloneElement(icon, {size: getSize(size)})}
