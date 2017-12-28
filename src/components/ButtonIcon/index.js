@@ -4,9 +4,7 @@ import CoreButton from 'wix-ui-core/Button';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from '../../utils/button/theme';
 
-const getSize = size => {
-  return size === 'small' ? '8px' : size === 'medium' ? '12px' : '16px';
-};
+const getSize = size => size === 'small' ? '8px' : size === 'medium' ? '12px' : '16px';
 
 const ButtonIcon = ({height: size, skin, icon, ...coreProps}) => (
   <ThemedComponent theme={theme} size={size} skin={skin} isIcon>
