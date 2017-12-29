@@ -87,6 +87,7 @@ export const theme = ({size, skin}) => ({
   backgroundColorChecked: skinToBackgroundColorChecked[skin],
   backgroundColorDisabled: palette.disabledButton,
   backgroundColorHover: skinToHoverBackgroundColor[skin],
+  backgroundColorFocus: skinToHoverBackgroundColor[skin],
 
   color: skinToColor[skin],
   colorChecked: skinToColorChecked[skin],
