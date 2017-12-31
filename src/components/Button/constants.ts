@@ -1,6 +1,6 @@
-export const SIZE = {
-  tiny: 'tiny',
-  small: 'small',
-  medium: 'medium',
-  large: 'large'
-};
+export enum Size {
+  TINY = 'tiny',
+  SMALL = 'small',
+  MEDIUM = 'medium',
+  LARGE = 'large'
+}
