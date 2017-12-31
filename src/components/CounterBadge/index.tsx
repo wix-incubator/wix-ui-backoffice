@@ -3,6 +3,7 @@ import CoreBadge from 'wix-ui-core/Badge';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
 import UIText from '../UIText';
+import {oneOf, oneOfType, string, number} from 'prop-types';
 import {SKIN} from './constants';
 
 interface Props { // TODO: extend CoreBadgeProps,
@@ -14,6 +15,15 @@ interface Props { // TODO: extend CoreBadgeProps,
 }
 
 export default class CounterBadge extends React.PureComponent<Props> {
+  propTypes = {
+    ...CoreBadge.propTypes,
+
+    /** Type of the badge */
+    skin: oneOf(['default', 'standard', 'urgent', 'success']),
+    /** Content of the badge */
+    children: oneOfType([string, number])
+  };
+
   static defaultProps = {
     skin: SKIN.default
   };

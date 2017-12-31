@@ -1,6 +1,7 @@
 import * as React from 'react';
 import CoreToggleSwitch from 'wix-ui-core/ToggleSwitch';
 import {ThemedComponent} from 'wix-ui-theme';
+import {oneOf} from 'prop-types';
 import {theme} from './theme';
 import UIText from '../UIText';
 
@@ -13,6 +14,16 @@ interface Props { // TODO: extend CoreToggleSwitchProps,
 }
 
 export default class ToggleSwitch extends React.PureComponent<Props>  {
+  propTypes = {
+    ...CoreToggleSwitch.propTypes,
+
+    /** size of the toggle switch */
+    size: oneOf(['x-small', 'small', 'large']),
+
+    /** Color for disabled toggle switch */
+    skin: oneOf(['standard', 'error', 'success'])
+  };
+
   static defaultProps = {
     size: 'large',
     skin: 'standard'

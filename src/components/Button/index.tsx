@@ -1,6 +1,7 @@
 import * as React from 'react';
 import CoreButton from 'wix-ui-core/Button';
 import {ThemedComponent} from 'wix-ui-theme';
+import {bool, node, oneOf} from 'prop-types';
 import {theme} from './theme';
 import {appearance, iconSize} from './appearance';
 import UIText from '../UIText';
@@ -23,8 +24,7 @@ interface Props { // TODO: extend CoreButtonProps
   height?: 'tiny' | 'small' | 'medium' | 'large';
 
   /** The theme of the button */
-  theme?:
-    'primaryStandard' |
+  theme?: 'primaryStandard' |
     'primaryError' |
     'primaryPremium' |
     'primaryWhite' |
@@ -76,6 +76,64 @@ export default class Button extends React.PureComponent<Props> {
   static defaultProps = {
     height: 'medium',
     theme: 'primaryStandard',
+  };
+
+  propTypes = {
+    ...CoreButton.propTypes,
+
+    /** The height of the button */
+    height: oneOf(['tiny', 'small', 'medium', 'large']),
+
+    /** The theme of the button */
+    theme: oneOf([
+      'primaryStandard',
+      'primaryError',
+      'primaryPremium',
+      'primaryWhite',
+      'transparentGrey',
+      'secondaryGrey',
+      'secondaryStandard',
+      'secondaryError',
+      'secondaryPremium',
+      'secondaryWhite',
+      'tertiaryStandard',
+
+      'close-standard',
+      'close-dark',
+      'close-white',
+      'close-lightBlue',
+      'close-transparent',
+
+      '************************** BELOW ARE DEPRECATED (supported for wix-style-react) **************************',
+      'transparent',
+      'fullred',
+      'fullgreen',
+      'fullpurple',
+      'emptyred',
+      'emptygreen',
+      'emptybluesecondary',
+      'emptyblue',
+      'emptypurple',
+      'fullblue',
+      'transparentblue',
+      'whiteblue',
+      'whiteblueprimary',
+      'whitebluesecondary',
+      'icon-greybackground',
+      'icon-standard',
+      'icon-standardsecondary',
+      'icon-white',
+      'icon-whitesecondary'
+    ]),
+
+    /** The prefix icon of the button */
+    prefixIcon: node,
+
+    /** The suffix icon of the button */
+    suffixIcon: node,
+
+    /** Makes the button look like the icon */
+    isIcon: bool
   };
 
   render() {

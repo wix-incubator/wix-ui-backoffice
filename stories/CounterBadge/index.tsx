@@ -1,6 +1,6 @@
 import createStory from '../create-story';
 import CounterBadge from '../../src/components/CounterBadge';
-// import CounterBadgeSource from '!raw-loader!../../src/components/CounterBadge';
+import * as CounterBadgeSource from '!raw-loader!../../src/components/CounterBadge/index.tsx';
 
 export const story = () => createStory({
   category: 'Components',
@@ -10,5 +10,5 @@ export const story = () => createStory({
   componentProps: () => ({
     children: '12'
   }),
-  // source: CounterBadgeSource
+  source: CounterBadgeSource
 });

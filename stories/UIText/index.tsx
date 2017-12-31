@@ -1,6 +1,6 @@
 import createStory from '../create-story';
 import UIText from '../../src/components/UIText';
-// import UITextSource from '!raw-loader!../../src/components/UIText';
+import * as UITextSource from '!raw-loader!../../src/components/UIText/index.tsx';
 
 export const story = () => createStory({
   category: 'Components',
@@ -13,5 +13,5 @@ export const story = () => createStory({
     forceHideTitle: false,
     children: 'Some text'
   }),
-  // source: UITextSource
+  source: UITextSource
 });

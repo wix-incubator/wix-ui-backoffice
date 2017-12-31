@@ -1,6 +1,6 @@
 import createStory from '../create-story';
 import Heading from '../../src/components/Heading';
-// import HeadingSource from '!raw-loader!../../src/components/Heading';
+import * as HeadingSource from '!raw-loader!../../src/components/Heading/index.tsx';
 
 export const story = () => createStory({
   category: 'Components',
@@ -12,5 +12,5 @@ export const story = () => createStory({
     skin: 'dark',
     children: 'Some text'
   }),
-  // source: HeadingSource
+  source: HeadingSource
 });

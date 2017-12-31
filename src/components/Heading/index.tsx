@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import {oneOf, node} from 'prop-types';
+import {oneOf, node} from 'prop-types';
 import CoreText from 'wix-ui-core/Text';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
@@ -20,6 +20,17 @@ interface State {
 }
 
 export default class Heading extends React.PureComponent<Props, State> {
+  propTypes = {
+    /** skin color of the heading */
+    skin: oneOf(['dark', 'light']),
+
+    /** typography of the heading */
+    appearance: oneOf(['H0', 'H1', 'H2', 'H3']),
+
+    /** The text to show */
+    children: node
+  };
+
   static defaultProps = {
     appearance: 'H0',
     skin: 'dark'
