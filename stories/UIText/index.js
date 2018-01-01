@@ -11,7 +11,8 @@ export const story = () => createStory({
     appearance: 'T1.1',
     ellipsis: true,
     forceHideTitle: false,
-    children: 'Some text'
+    children: 'Some text',
+    dataHook: 'storybook-ui-text'
   }),
   source: UITextSource
 });

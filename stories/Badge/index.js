@@ -12,7 +12,8 @@ export const story = () => createStory({
   storyName: 'Badge',
   component: Badge,
   componentProps: () => ({
-    children: 'I\'M A BADGE!'
+    children: 'I\'M A BADGE!',
+    dataHook: 'storybook-badge'
   }),
   exampleProps: {
     prefixIcon: icons,
