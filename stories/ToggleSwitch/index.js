@@ -11,7 +11,8 @@ export const story = () => createStory({
   componentProps: (setState, getState) => ({
     checked: false,
     children: 'Toggle',
-    onChange: () => setState({checked: !getState().checked})
+    onChange: () => setState({checked: !getState().checked}),
+    dataHook: 'storybook-toggle-switch'
   }),
   source: ToggleSwitchSource
 });

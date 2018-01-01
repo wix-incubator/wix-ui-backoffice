@@ -12,7 +12,8 @@ export const story = () => createStory({
   storyName: 'Button',
   component: Button,
   componentProps: () => ({
-    children: 'Click me'
+    children: 'Click me',
+    dataHook: 'storybook-button'
   }),
   exampleProps: {
     prefixIcon: icons,

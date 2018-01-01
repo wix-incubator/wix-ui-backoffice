@@ -10,7 +10,8 @@ export const story = () => createStory({
   componentProps: () => ({
     appearance: 'H0',
     skin: 'dark',
-    children: 'Some text'
+    children: 'Some text',
+    dataHook: 'storybook-heading'
   }),
   source: HeadingSource
 });
