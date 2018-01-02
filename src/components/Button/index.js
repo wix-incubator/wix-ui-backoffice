@@ -1,8 +1,8 @@
 import React from 'react';
-import {bool, node, oneOf} from 'prop-types';
+import {node, oneOf} from 'prop-types';
 import CoreButton from 'wix-ui-core/Button';
 import {ThemedComponent} from 'wix-ui-theme';
-import {theme} from './theme';
+import {theme} from '../../utils/button/theme';
 import {appearance, iconSize} from './appearance';
 import UIText from '../UIText';
 
@@ -12,15 +12,13 @@ const iconStyles = {
 };
 
 const createButtonIcon = (type, icon, size) => (
-  icon ?
-    <span style={iconStyles[type]}>
-      {React.cloneElement(icon, {size})}
-    </span> :
-    null
+  <span style={iconStyles[type]}>
+    {React.cloneElement(icon, {size})}
+  </span>
 );
 
-const Button = ({height: size, theme: skin, isIcon, prefixIcon, suffixIcon, ...coreProps}) => (
-  <ThemedComponent theme={theme} size={size} skin={skin} isIcon={isIcon}>
+const Button = ({height: size, skin, prefixIcon, suffixIcon, ...coreProps}) => (
+  <ThemedComponent theme={theme} size={size} skin={skin}>
     <CoreButton {...coreProps}>
       <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         {prefixIcon && createButtonIcon('prefix', prefixIcon, iconSize(size))}
@@ -37,8 +35,8 @@ Button.propTypes = {
   /** The height of the button */
   height: oneOf(['tiny', 'small', 'medium', 'large']),
 
-  /** The theme of the button */
-  theme: oneOf([
+  /** The skin of the button */
+  skin: oneOf([
     'primaryStandard',
     'primaryError',
     'primaryPremium',
@@ -55,43 +53,19 @@ Button.propTypes = {
     'close-dark',
     'close-white',
     'close-lightBlue',
-    'close-transparent',
-
-    '************************** BELOW ARE DEPRECATED (supported for wix-style-react) **************************',
-    'transparent',
-    'fullred',
-    'fullgreen',
-    'fullpurple',
-    'emptyred',
-    'emptygreen',
-    'emptybluesecondary',
-    'emptyblue',
-    'emptypurple',
-    'fullblue',
-    'transparentblue',
-    'whiteblue',
-    'whiteblueprimary',
-    'whitebluesecondary',
-    'icon-greybackground',
-    'icon-standard',
-    'icon-standardsecondary',
-    'icon-white',
-    'icon-whitesecondary'
+    'close-transparent'
   ]),
 
   /** The prefix icon of the button */
   prefixIcon: node,
 
   /** The suffix icon of the button */
-  suffixIcon: node,
-
-  /** Makes the button look like the icon */
-  isIcon: bool
+  suffixIcon: node
 };
 
 Button.defaultProps = {
   height: 'medium',
-  theme: 'primaryStandard'
+  skin: 'primaryStandard'
 };
 
 export default Button;

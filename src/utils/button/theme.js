@@ -1,8 +1,14 @@
 import * as c from '../../colors';
-import {SIZE} from './constants';
-import {hexToRgba} from '../../utils';
+import {hexToRgba} from '../';
 
-const createBaseColorSkin = (color, bg, border, hoverColor, hoverBg, hoverBc, activeColor, activeBg, activeBc, disabledColor, disabledBg, disabledBc) => ({
+export const SIZE = {
+  tiny: 'tiny',
+  small: 'small',
+  medium: 'medium',
+  large: 'large'
+};
+
+export const createBaseColorSkin = (color, bg, border, hoverColor, hoverBg, hoverBc, activeColor, activeBg, activeBc, disabledColor, disabledBg, disabledBc) => ({
   color,
   backgroundColor: bg,
   borderColor: border,
@@ -47,7 +53,7 @@ const greyscaleActive = hexToRgba(c.D10, 0.36);
 const transparentGrey = createBaseColorSkin(c.D80, greyscale, c.TRANSPARENT, c.D80, greyscaleHover, c.TRANSPARENT, c.D80, greyscaleActive, c.TRANSPARENT, c.D80, c.D55, c.D55);
 const secondaryGrey = createBaseColorSkin(c.D40, c.TRANSPARENT, c.D40, c.D80, c.D20, c.D20, c.D80, c.D10, c.D10, c.D80, c.D55, c.D55);
 
-const skins = {
+export const skins = {
   transparentGrey,
   secondaryGrey,
   primaryStandard: createPrimaryColorSkin(c.B10, c.B20),
