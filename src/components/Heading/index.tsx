@@ -2,14 +2,14 @@ import * as React from 'react';
 import {oneOf, node} from 'prop-types';
 import CoreText from 'wix-ui-core/Text';
 import {ThemedComponent} from 'wix-ui-theme';
-import {theme} from './theme';
+import {theme, Skin, Appearance} from './theme';
 
 interface Props {
   /** skin color of the heading */
-  skin?: 'dark' | 'light';
+  skin?: Skin;
 
   /** typography of the heading */
-  appearance?: 'H0' | 'H1' | 'H2' | 'H3';
+  appearance?: Appearance;
 
   /** The text to show */
   children?: React.ReactNode;
@@ -36,7 +36,7 @@ export default class Heading extends React.PureComponent<Props, State> {
     skin: 'dark'
   };
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     this.state = {tagName: getType(props.appearance)};
   }
@@ -60,7 +60,7 @@ export default class Heading extends React.PureComponent<Props, State> {
   }
 }
 
-function getType(appearance) {
+function getType(appearance: Appearance) {
   return [
     {type: 'h1', candidates: ['H0']},
     {type: 'h2', candidates: ['H1']},

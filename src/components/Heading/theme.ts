@@ -1,6 +1,9 @@
 import * as t from '../../typography';
 import {palette} from '../../palette';
 
+export type Appearance = 'H0' | 'H1' | 'H2' | 'H3';
+export type Skin = 'dark' | 'light';
+
 const createTypography = (fontFamily, fontSize, lineHeight) => ({
   fontFamily,
   fontSize,
@@ -23,7 +26,7 @@ const colors = {
   H4: {dark: palette.heading4Dark, light: palette.heading4Light}
 };
 
-export const theme = ({appearance, skin}) => ({
+export const theme = ({appearance, skin}: {appearance: Appearance, skin: Skin}) => ({
   ...typographies[appearance],
   color: colors[appearance][skin]
 });
