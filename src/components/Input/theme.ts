@@ -1,5 +1,8 @@
 import {palette} from '../../palette';
 
+export type Size = 'small' | 'medium' | 'large';
+export type Skin = 'standard' | 'error';
+
 const skinToColor = {
   standard: palette.mainInputText,
   error: palette.mainInputText
@@ -37,7 +40,7 @@ const sizeToFontSize = {
   large: 22
 };
 
-export const theme = ({size, skin}) => ({
+export const theme = ({size, skin}: {size: Size, skin: Skin}) => ({
   color: skinToColor[skin],
   backgroundColor: palette.white,
   borderColor: skinToBorderColor[skin],
