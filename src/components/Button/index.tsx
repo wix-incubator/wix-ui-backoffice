@@ -5,13 +5,14 @@ import {bool, node, oneOf} from 'prop-types';
 import {theme} from './theme';
 import {appearance, iconSize} from './appearance';
 import UIText from '../UIText';
+import {Size} from './constants';
 
 const iconStyles = {
   suffix: {paddingRight: '10px', display: 'flex'},
   prefix: {paddingLeft: '10px', display: 'flex'}
 };
 
-const createButtonIcon = (type, icon, size) => (
+const createButtonIcon = (type: 'suffix' | 'prefix', icon, size: string) => (
   icon ?
     <span style={iconStyles[type]}>
       {React.cloneElement(icon, {size})}
@@ -21,7 +22,7 @@ const createButtonIcon = (type, icon, size) => (
 
 interface Props { // TODO: extend CoreButtonProps
   /** The height of the button */
-  height?: 'tiny' | 'small' | 'medium' | 'large';
+  height?: Size;
 
   /** The theme of the button */
   theme?: 'primaryStandard' |
