@@ -8,6 +8,13 @@ const createTypography = (fontFamily, fontSize, lineHeight, color) => ({
   color
 });
 
+export type Appearance =
+    'T1' | 'T1.1' | 'T1.2' | 'T1.3' | 'T1.4' | 'T1.5' | 'T1.6' | 'T1.7' |
+    'T2' | 'T2.1' | 'T2.2' | 'T2.3' | 'T2.4' |
+    'T3' | 'T3.1' | 'T3.2' | 'T3.3' | 'T3.4' | 'T3.5' | 'T3.6' | 'T3.7' |
+    'T4' | 'T4.1' | 'T4.2' | 'T4.3' | 'T4.4' | 'T4.5' | 'T4.6' | 'T4.7' |
+    'T5' | 'T5.1';
+
 const classes = {
   T1: createTypography(t.fontLight, '16px', '24px', colors.D10),
   'T1.1': createTypography(t.fontLight, '16px', '24px', colors.D20),
@@ -42,4 +49,4 @@ const classes = {
   'T5.1': {...createTypography(t.fontMedium, '10px', '12px', colors.D80), textTransform: 'uppercase', letterSpacing: '1px'}
 };
 
-export const theme = props => classes[props.appearance];
+export const theme = ({appearance}: {appearance: Appearance}) => classes[appearance];
