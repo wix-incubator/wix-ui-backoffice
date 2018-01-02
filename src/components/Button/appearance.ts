@@ -1,5 +1,6 @@
 import {Size} from './constants';
-import {Appearance} from '../UIText';
+
+type Appearance = 'T1' | 'T2' | 'T3' | 'T4';
 
 const sizeToAppearance: {[index: string]: Appearance} = { // TODO: Strictly type SIZE index, please
   [Size.TINY]: 'T4',
@@ -15,6 +16,6 @@ const sizeToIconSize = {
   [Size.LARGE]: '16px'
 };
 
-export const appearance = (size: Size): string => sizeToAppearance[size];
+export const appearance = (size: Size): Appearance => sizeToAppearance[size];
 
 export const iconSize = (size: Size): string => sizeToIconSize[size];
