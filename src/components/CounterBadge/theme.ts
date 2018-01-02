@@ -1,18 +1,18 @@
-import {SKIN} from './constants';
+import {Skin} from './constants';
 import {D20, B10, R10, G10} from '../../colors';
 
-const HEIGHT = '18px';
-const PADDING = '3px 6px';
-const BORDER_RADIUS = '12px';
+const HEIGHT: string = '18px';
+const PADDING: string = '3px 6px';
+const BORDER_RADIUS: string = '12px';
 
 const typeToColor = {
-  [SKIN.default]: D20,
-  [SKIN.standard]: B10,
-  [SKIN.urgent]: R10,
-  [SKIN.success]: G10
+  [Skin.DEFAULT]: D20,
+  [Skin.STANDARD]: B10,
+  [Skin.URGENT]: R10,
+  [Skin.SUCCESS]: G10
 };
 
-export const theme = ({skin}) => ({
+export const theme = ({skin}: {skin: Skin}) => ({
   height: HEIGHT,
   padding: PADDING,
   borderRadius: BORDER_RADIUS,

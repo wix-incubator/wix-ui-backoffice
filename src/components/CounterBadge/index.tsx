@@ -4,11 +4,11 @@ import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
 import UIText from '../UIText';
 import {oneOf, oneOfType, string, number} from 'prop-types';
-import {SKIN} from './constants';
+import {Skin} from './constants';
 
 interface Props { // TODO: extend CoreBadgeProps,
   /** Type of the badge */
-  skin?: 'default' | 'standard' | 'urgent' | 'success';
+  skin?: Skin;
 
   /** Content of the badge */
   children?: string | number;
@@ -25,7 +25,7 @@ export default class CounterBadge extends React.PureComponent<Props> {
   };
 
   static defaultProps = {
-    skin: SKIN.default
+    skin: Skin.DEFAULT
   };
 
   render() {

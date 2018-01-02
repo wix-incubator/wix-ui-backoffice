@@ -1,6 +1,6 @@
-export const SKIN = {
-  default: 'default',
-  standard: 'standard',
-  urgent: 'urgent',
-  success: 'success'
-};
+export enum Skin {
+    DEFAULT = 'default',
+    STANDARD = 'standard',
+    URGENT = 'urgent',
+    SUCCESS = 'success'
+}
