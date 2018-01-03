@@ -1,6 +1,7 @@
 import * as c from '../../colors';
 import {Size} from './constants';
 import {hexToRgba} from '../../utils';
+import {Color} from '../../colors';
 
 export type Skin =
     'primaryStandard' | 'primaryError' | 'primaryPremium' | 'primaryWhite' | 'transparentGrey' | 'secondaryGrey' |
@@ -32,58 +33,59 @@ class BaseColorSkinOverrides {
   }
 }
 
-const createPrimaryColorSkin: Function = (color: string, hoverColor: string): BaseColorSkin =>
-  new BaseColorSkin(c.D80, color, color, c.D80, hoverColor, hoverColor, c.D80, color, color, c.D80, c.D55, c.D55);
+interface SizeConfig {
+    height: string;
+    width?: string;
+    borderRadius: string;
+    padding: string | 0;
+    contentPadding?: string;
+}
 
-const createSecondaryColorSkin: Function = (color: string, hoverColor: string): BaseColorSkin =>
-  new BaseColorSkin(color, c.TRANSPARENT, color, c.D80, hoverColor, hoverColor, c.D80, color, color, c.D55, c.TRANSPARENT, c.D55);
+const colors: { [key: string]: Color } = {
+    greyscale: hexToRgba(c.D10, 0.24),
+    greyscaleHover: hexToRgba(c.D10, 0.3),
+    greyscaleActive: hexToRgba(c.D10, 0.36)
+};
 
-const createTertiaryColorSkin: Function = (color: string, hoverColor: string): BaseColorSkin =>
-  new BaseColorSkin(color, c.D80, c.D80, c.D80, hoverColor, hoverColor, c.D80, color, color, c.D55, c.TRANSPARENT, c.D55);
+const skinConfig = {
+  createPrimaryColorSkin: (color: string, hoverColor: string): BaseColorSkin => new BaseColorSkin(c.D80, color, color, c.D80, hoverColor, hoverColor, c.D80, color, color, c.D80, c.D55, c.D55),
+  createSecondaryColorSkin: (color: string, hoverColor: string): BaseColorSkin => new BaseColorSkin(color, c.TRANSPARENT, color, c.D80, hoverColor, hoverColor, c.D80, color, color, c.D55, c.TRANSPARENT, c.D55),
+  createTertiaryColorSkin: (color: string, hoverColor: string): BaseColorSkin => new BaseColorSkin(color, c.D80, c.D80, c.D80, hoverColor, hoverColor, c.D80, color, color, c.D55, c.TRANSPARENT, c.D55),
+  createPrimaryWhiteColorSkin: (color: string, hoverColor: string, activeColor: string): BaseColorSkin => new BaseColorSkin(color, c.D80, c.D80, color, hoverColor, hoverColor, color, activeColor, activeColor, c.D80, c.D55, c.D55),
+  createSecondaryWhiteColorSkin: (color: string, hoverColor: string, activeColor: string): BaseColorSkin => new BaseColorSkin(c.D80, c.TRANSPARENT, c.D80, color, hoverColor, hoverColor, color, activeColor, activeColor, c.D55, c.TRANSPARENT, c.D55),
+  createTransparentColorSkin: (color: string, hover: string, active: string): BaseColorSkin => new BaseColorSkin(color, c.TRANSPARENT, c.TRANSPARENT, hover, c.TRANSPARENT, c.TRANSPARENT, active, c.TRANSPARENT, c.TRANSPARENT, c.D55, c.TRANSPARENT, c.TRANSPARENT),
+  transparentGrey: new BaseColorSkin(c.D80, colors.greyscale, c.TRANSPARENT, c.D80, colors.greyscaleHover, c.TRANSPARENT, c.D80, colors.greyscaleActive, c.TRANSPARENT, c.D80, c.D55, c.D55),
+  secondaryGrey: new BaseColorSkin(c.D40, c.TRANSPARENT, c.D40, c.D80, c.D20, c.D20, c.D80, c.D10, c.D10, c.D80, c.D55, c.D55)
+};
 
-const createPrimaryWhiteColorSkin: Function = (color: string, hoverColor: string, activeColor: string): BaseColorSkin =>
-  new BaseColorSkin(color, c.D80, c.D80, color, hoverColor, hoverColor, color, activeColor, activeColor, c.D80, c.D55, c.D55);
-
-const createSecondaryWhiteColorSkin: Function = (color: string, hoverColor: string, activeColor: string): BaseColorSkin =>
-  new BaseColorSkin(c.D80, c.TRANSPARENT, c.D80, color, hoverColor, hoverColor, color, activeColor, activeColor, c.D55, c.TRANSPARENT, c.D55);
-
-const createTransparentColorSkin: Function = (color: string, hover: string, active: string): BaseColorSkin =>
-  new BaseColorSkin(color, c.TRANSPARENT, c.TRANSPARENT, hover, c.TRANSPARENT, c.TRANSPARENT, active, c.TRANSPARENT, c.TRANSPARENT, c.D55, c.TRANSPARENT, c.TRANSPARENT);
-
-const greyscale: string = hexToRgba(c.D10, 0.24);
-const greyscaleHover: string = hexToRgba(c.D10, 0.3);
-const greyscaleActive: string = hexToRgba(c.D10, 0.36);
-const transparentGrey: BaseColorSkin = new BaseColorSkin(c.D80, greyscale, c.TRANSPARENT, c.D80, greyscaleHover, c.TRANSPARENT, c.D80, greyscaleActive, c.TRANSPARENT, c.D80, c.D55, c.D55);
-const secondaryGrey: BaseColorSkin = new BaseColorSkin(c.D40, c.TRANSPARENT, c.D40, c.D80, c.D20, c.D20, c.D80, c.D10, c.D10, c.D80, c.D55, c.D55);
-
-const skins: {[index: string]: BaseColorSkin} = {
-  transparentGrey,
-  secondaryGrey,
-  primaryStandard: createPrimaryColorSkin(c.B10, c.B20),
-  primaryError: createPrimaryColorSkin(c.R10, c.R20),
-  primaryPremium: createPrimaryColorSkin(c.P10, c.P20),
-  primaryWhite: createPrimaryWhiteColorSkin(c.B10, c.B50, c.B40),
-  secondaryStandard: createSecondaryColorSkin(c.B10, c.B20),
-  secondaryError: createSecondaryColorSkin(c.R10, c.R20),
-  secondaryPremium: createSecondaryColorSkin(c.P10, c.P20),
-  secondaryWhite: createSecondaryWhiteColorSkin(c.B10, c.B50, c.B40),
-  tertiaryStandard: createTertiaryColorSkin(c.B10, c.B20),
-  'close-standard': createTransparentColorSkin(c.B10, c.B20, c.B10),
-  'close-dark': createTransparentColorSkin(c.D10, c.D10, c.D10),
-  'close-white': createTransparentColorSkin(c.B40, c.B50, c.B40),
+const skins: { [index: string]: BaseColorSkin } = {
+  transparentGrey: skinConfig.transparentGrey,
+  secondaryGrey: skinConfig.secondaryGrey,
+  primaryStandard: skinConfig.createPrimaryColorSkin(c.B10, c.B20),
+  primaryError: skinConfig.createPrimaryColorSkin(c.R10, c.R20),
+  primaryPremium: skinConfig.createPrimaryColorSkin(c.P10, c.P20),
+  primaryWhite: skinConfig.createPrimaryWhiteColorSkin(c.B10, c.B50, c.B40),
+  secondaryStandard: skinConfig.createSecondaryColorSkin(c.B10, c.B20),
+  secondaryError: skinConfig.createSecondaryColorSkin(c.R10, c.R20),
+  secondaryPremium: skinConfig.createSecondaryColorSkin(c.P10, c.P20),
+  secondaryWhite: skinConfig.createSecondaryWhiteColorSkin(c.B10, c.B50, c.B40),
+  tertiaryStandard: skinConfig.createTertiaryColorSkin(c.B10, c.B20),
+  'close-standard': skinConfig.createTransparentColorSkin(c.B10, c.B20, c.B10),
+  'close-dark': skinConfig.createTransparentColorSkin(c.D10, c.D10, c.D10),
+  'close-white': skinConfig.createTransparentColorSkin(c.B40, c.B50, c.B40),
   'close-lightBlue': new BaseColorSkin(c.B10, c.B30, c.B30, c.B10, c.B40, c.B40, c.B10, c.B30, c.B30, c.D80, c.D55, c.D55),
-  'close-transparent': transparentGrey
+  'close-transparent': skinConfig.transparentGrey
 };
 
 // **************************  deprecated themes (support for wix-react-style) **************************
 
 skins.transparent = skins.transparentGrey;
 skins.fullred = skins.primaryError;
-skins.fullgreen = createPrimaryColorSkin(c.G10, c.G20);
+skins.fullgreen = skinConfig.createPrimaryColorSkin(c.G10, c.G20);
 skins.fullblue = skins.primaryStandard;
 skins.fullpurple = skins.primaryPremium;
 skins.emptyred = skins.secondaryError;
-skins.emptygreen = createSecondaryColorSkin(c.G10, c.G20);
+skins.emptygreen = skinConfig.createSecondaryColorSkin(c.G10, c.G20);
 skins.emptyblue = skins.transparentblue = skins.secondaryStandard;
 skins.emptypurple = skins.secondaryPremium;
 skins.emptybluesecondary = skins.primaryWhite;
@@ -95,14 +97,6 @@ skins['icon-standardsecondary'] = skins.secondaryStandard;
 skins['icon-greybackground'] = skins.tertiaryStandard;
 skins['icon-white'] = skins.primaryWhite;
 skins['icon-whitesecondary'] = skins.secondaryWhite;
-
-interface SizeConfig {
-    height: string;
-    width?: string;
-    borderRadius: string;
-    padding: string | 0;
-    contentPadding?: string;
-}
 
 const sizes: { [index: string]: SizeConfig } = {
   [Size.TINY]: {
