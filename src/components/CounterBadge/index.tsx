@@ -15,7 +15,7 @@ interface Props { // TODO: extend CoreBadgeProps,
 }
 
 export default class CounterBadge extends React.PureComponent<Props> {
-  propTypes = {
+  static propTypes = {
     ...CoreBadge.propTypes,
 
     /** Type of the badge */

@@ -1,6 +1,6 @@
 import * as colors from './colors';
 
-export const palette = {
+export const palette: {[name: string]: colors.Color} = {
   heading0Dark: colors.D10,
   heading0Light: colors.D80,
   heading1Dark: colors.D10,

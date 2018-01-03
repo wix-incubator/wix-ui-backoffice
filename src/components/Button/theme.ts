@@ -3,56 +3,17 @@ import {Size} from './constants';
 import {hexToRgba} from '../../utils';
 
 export type Skin =
-
-'primaryStandard' |
-'primaryError' |
-'primaryPremium' |
-'primaryWhite' |
-'transparentGrey' |
-'secondaryGrey' |
-'secondaryStandard' |
-'secondaryError' |
-'secondaryPremium' |
-'secondaryWhite' |
-'tertiaryStandard' |
-'close-standard' |
-'close-dark' |
-'close-white' |
-'close-lightBlue' |
-'close-transparent';
+    'primaryStandard' | 'primaryError' | 'primaryPremium' | 'primaryWhite' | 'transparentGrey' | 'secondaryGrey' |
+    'secondaryStandard' | 'secondaryError' | 'secondaryPremium' | 'secondaryWhite' | 'tertiaryStandard' |
+    'close-standard' | 'close-dark' | 'close-white' | 'close-lightBlue' | 'close-transparent';
 
 // ************************** BELOW ARE DEPRECATED (supported for wix-style-react) **************************
+
 export type DeprecatedSkin =
-
-'transparent' |
-'fullred' |
-'fullgreen' |
-'fullpurple' |
-'emptyred' |
-'emptygreen' |
-'emptybluesecondary' |
-'emptyblue' |
-'emptypurple' |
-'fullblue' |
-'transparentblue' |
-'whiteblue' |
-'whiteblueprimary' |
-'whitebluesecondary' |
-'icon-greybackground' |
-'icon-standard' |
-'icon-standardsecondary' |
-'icon-white' |
-'icon-whitesecondary';
-
-
-
-
-
-
-
-
-
-
+    'transparent' | 'fullred' | 'fullgreen' | 'fullpurple' | 'emptyred' | 'emptygreen' | 'emptybluesecondary' |
+    'emptyblue' | 'emptypurple' | 'fullblue' | 'transparentblue' | 'whiteblue' | 'whiteblueprimary' |
+    'whitebluesecondary' | 'icon-greybackground' | 'icon-standard' | 'icon-standardsecondary' | 'icon-white' |
+    'icon-whitesecondary';
 
 class BaseColorSkin {
   hover: BaseColorSkinOverrides;
@@ -114,7 +75,8 @@ const skins: {[index: string]: BaseColorSkin} = {
   'close-transparent': transparentGrey
 };
 
-//**************************  deprecated themes (support for wix-react-style) **************************
+// **************************  deprecated themes (support for wix-react-style) **************************
+
 skins.transparent = skins.transparentGrey;
 skins.fullred = skins.primaryError;
 skins.fullgreen = createPrimaryColorSkin(c.G10, c.G20);

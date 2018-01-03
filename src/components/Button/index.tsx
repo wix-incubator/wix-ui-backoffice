@@ -62,14 +62,11 @@ export default class Button extends React.PureComponent<Props> {
       'secondaryPremium',
       'secondaryWhite',
       'tertiaryStandard',
-
       'close-standard',
       'close-dark',
       'close-white',
       'close-lightBlue',
       'close-transparent',
-
-      '************************** BELOW ARE DEPRECATED (supported for wix-style-react) **************************',
       'transparent',
       'fullred',
       'fullgreen',

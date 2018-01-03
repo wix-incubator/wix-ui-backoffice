@@ -1,65 +1,68 @@
 import {palette} from '../../palette';
+import {Color} from '../../colors';
 
-export type Size = 'small' | 'medium' | 'large';
-export type Skin = 'standard' | 'error';
+interface SizeConfig {
+    small: number;
+    medium: number;
+    large: number;
+}
 
-const skinToColor = {
-  standard: palette.mainInputText,
-  error: palette.mainInputText
+interface SkinConfig {
+    standard: Color;
+    error: Color;
+}
+
+export type Size = keyof SizeConfig;
+export type Skin = keyof SkinConfig;
+
+const skins: { [key: string]: SkinConfig } = {
+    skinToColor: {
+        standard: palette.mainInputText,
+        error: palette.mainInputText
+    },
+    skinToHoverBackgroundColor: {
+        standard: palette.dividers,
+        error: palette.dividers
+    },
+    skinToBorderColor: {
+        standard: palette.notifications,
+        error: palette.danger
+    },
+    skinToHoverBorderColor: {
+        standard: palette.notifications,
+        error: palette.danger
+    },
+    skinToFocusBorderColor: {
+        standard: palette.mainHover,
+        error: palette.danger
+    }
 };
 
-const skinToHoverBackgroundColor = {
-  standard: palette.dividers,
-  error: palette.dividers
-};
-
-const skinToBorderColor = {
-  standard: palette.notifications,
-  error: palette.danger
-};
-
-const skinToHoverBorderColor = {
-  standard: palette.notifications,
-  error: palette.danger
-};
-
-const skinToFocusBorderColor = {
-  standard: palette.mainHover,
-  error: palette.danger
-};
-
-const sizeToHeight = {
-  small: 30,
-  medium: 36,
-  large: 60
-};
-
-const sizeToFontSize = {
-  small: 14,
-  medium: 16,
-  large: 22
+const sizes: { [key: string]: SizeConfig } = {
+    sizeToHeight: {small: 30, medium: 36, large: 60},
+    sizeToFontSize: {small: 14, medium: 16, large: 22}
 };
 
 export const theme = ({size, skin}: {size: Size, skin: Skin}) => ({
-  color: skinToColor[skin],
+  color: skins.skinToColor[skin],
   backgroundColor: palette.white,
-  borderColor: skinToBorderColor[skin],
+  borderColor: skins.skinToBorderColor[skin],
 
-  height: sizeToHeight[size],
-  lineHeight: `${sizeToHeight[size] - 2}px`,
-  fontSize: sizeToFontSize[size],
+  height: sizes.sizeToHeight[size],
+  lineHeight: `${sizes.sizeToHeight[size] - 2}px`,
+  fontSize: sizes.sizeToFontSize[size],
 
   hover: {
-    color: skinToColor[skin],
-    borderColor: skinToHoverBorderColor[skin],
-    backgroundColor: skinToHoverBackgroundColor[skin]
+    color: skins.skinToColor[skin],
+    borderColor: skins.skinToHoverBorderColor[skin],
+    backgroundColor: skins.skinToHoverBackgroundColor[skin]
   },
 
   focus: {
-    color: skinToColor[skin],
-    borderColor: skinToFocusBorderColor[skin],
+    color: skins.skinToColor[skin],
+    borderColor: skins.skinToFocusBorderColor[skin],
     backgroundColor: palette.white,
-    hoverBackgroundColor: skinToHoverBackgroundColor[skin]
+    hoverBackgroundColor: skins.skinToHoverBackgroundColor[skin]
   },
 
   disabled: {

@@ -1,99 +1,82 @@
 import {palette} from '../../palette';
+import {Color} from '../../colors';
 
-const sizeToOuterLabelWidth = {
-  'x-small': '28px',
-  small: '36px',
-  large: '45px'
+interface SizeConfig {
+    'x-small': string;
+    small: string;
+    large: string;
+}
+
+interface SkinConfig {
+    standard: Color;
+    success: Color;
+    error: Color;
+}
+
+export type Size = keyof SizeConfig;
+export type Skin = keyof SkinConfig;
+
+const sizes: { [key: string]: SizeConfig } = {
+    sizeToOuterLabelWidth: {'x-small': '28px', small: '36px', large: '45px'},
+    sizeToOuterLabelHeight: {'x-small': '15px', small: '20px', large: '24px'},
+    sizeToInnerLabelWidth: {'x-small': '13px', small: '18px', large: '21px'},
+    sizeToInnerLabelHeight: {'x-small': '13px', small: '18px', large: '22px'},
+    sizeTolabelMovementRange: {'x-small': '14px', small: '17px', large: '23px'},
+    sizeTotoggleIconDisplay: {'x-small': 'none !important', small: 'block', large: 'block'}
 };
 
-const sizeToOuterLabelHeight = {
-  'x-small': '15px',
-  small: '20px',
-  large: '24px'
+const skins: { [key: string]: SkinConfig } = {
+    skinToBackgroundColor: {
+        standard: palette.tableSelected,
+        success: palette.successNotifications,
+        error: palette.dangerNotifications
+    },
+    skinToBackgroundColorChecked: {
+        standard: palette.main,
+        success: palette.ctaHover,
+        error: palette.danger
+    },
+    skinToColor: {
+        standard: palette.tableSelected,
+        success: palette.successNotifications,
+        error: palette.dangerNotifications
+    },
+    skinToColorChecked: {
+        standard: palette.main,
+        success: palette.ctaHover,
+        error: palette.danger
+    },
+    skinToHoverBackgroundColor: {
+        standard: palette.mainHover,
+        success: palette.successHover,
+        error: palette.dangerHover
+    },
+    skinToHoverColor: {
+        standard: palette.mainHover,
+        success: palette.successHover,
+        error: palette.dangerHover
+    }
 };
 
-const sizeToInnerLabelWidth = {
-  'x-small': '13px',
-  small: '18px',
-  large: '21px'
-};
+export const theme = ({size, skin}: { size: Size, skin: Skin }) => ({
+    outerLabelWidth: sizes.sizeToOuterLabelWidth[size],
+    outerLabelHeight: sizes.sizeToOuterLabelHeight[size],
 
-const sizeToInnerLabelHeight = {
-  'x-small': '13px',
-  small: '18px',
-  large: '22px'
-};
+    innerLabelWidth: sizes.sizeToInnerLabelWidth[size],
+    innerLabelHeight: sizes.sizeToInnerLabelHeight[size],
+    innerLabelBackgroundColor: palette.white,
 
-const sizeTolabelMovementRange = {
-  'x-small': '14px',
-  small: '17px',
-  large: '23px'
-};
+    labelMovementRange: sizes.sizeTolabelMovementRange[size],
+    toggleIconDisplay: sizes.sizeTotoggleIconDisplay[size],
 
-const sizeTotoggleIconDisplay = {
-  'x-small': 'none !important',
-  small: 'block',
-  large: 'block'
-};
+    backgroundColor: skins.skinToBackgroundColor[skin],
+    backgroundColorChecked: skins.skinToBackgroundColorChecked[skin],
+    backgroundColorDisabled: palette.disabledButton,
+    backgroundColorHover: skins.skinToHoverBackgroundColor[skin],
 
-const skinToBackgroundColor = {
-  standard: palette.tableSelected,
-  success: palette.successNotifications,
-  error: palette.dangerNotifications
-};
-
-const skinToBackgroundColorChecked = {
-  standard: palette.main,
-  success: palette.ctaHover,
-  error: palette.danger
-};
-
-const skinToColor = {
-  standard: palette.tableSelected,
-  success: palette.successNotifications,
-  error: palette.dangerNotifications
-};
-
-const skinToColorChecked = {
-  standard: palette.main,
-  success: palette.ctaHover,
-  error: palette.danger
-};
-
-const skinToHoverBackgroundColor = {
-  standard: palette.mainHover,
-  success: palette.successHover,
-  error: palette.dangerHover
-};
-
-const skinToHoverColor = {
-  standard: palette.mainHover,
-  success: palette.successHover,
-  error: palette.dangerHover
-};
-
-export type Size = 'x-small' | 'small' | 'large';
-export type Skin = 'standard' | 'success' | 'error';
-
-export const theme = ({size, skin}: {size: Size, skin: Skin}) => ({
-  outerLabelWidth: sizeToOuterLabelWidth[size],
-  outerLabelHeight: sizeToOuterLabelHeight[size],
-
-  innerLabelWidth: sizeToInnerLabelWidth[size],
-  innerLabelHeight: sizeToInnerLabelHeight[size],
-  innerLabelBackgroundColor: palette.white,
-
-  labelMovementRange: sizeTolabelMovementRange[size],
-  toggleIconDisplay: sizeTotoggleIconDisplay[size],
-
-  backgroundColor: skinToBackgroundColor[skin],
-  backgroundColorChecked: skinToBackgroundColorChecked[skin],
-  backgroundColorDisabled: palette.disabledButton,
-  backgroundColorHover: skinToHoverBackgroundColor[skin],
-
-  color: skinToColor[skin],
-  colorChecked: skinToColorChecked[skin],
-  colorDisabled: palette.disabledDividers,
-  colorCheckedDisabled: palette.disabledButton,
-  colorHover: skinToHoverColor[skin]
+    color: skins.skinToColor[skin],
+    colorChecked: skins.skinToColorChecked[skin],
+    colorDisabled: palette.disabledDividers,
+    colorCheckedDisabled: palette.disabledButton,
+    colorHover: skins.skinToHoverColor[skin]
 });
