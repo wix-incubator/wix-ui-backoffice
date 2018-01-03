@@ -58,7 +58,7 @@ const skins: { [key: string]: SkinConfig } = {
     }
 };
 
-export const theme = ({size, skin}: { size: Size, skin: Skin }) => ({
+export const theme: Function = ({size, skin}: { size: Size, skin: Skin }) => ({
     outerLabelWidth: sizes.sizeToOuterLabelWidth[size],
     outerLabelHeight: sizes.sizeToOuterLabelHeight[size],
 

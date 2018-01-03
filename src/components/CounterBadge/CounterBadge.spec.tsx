@@ -1,5 +1,5 @@
 import {mount} from 'enzyme';
-import CounterBadge from './';
+import {CounterBadge} from './';
 import * as React from 'react';
 
 describe('CounterBadge', () => {

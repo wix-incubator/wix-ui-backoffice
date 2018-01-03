@@ -4,6 +4,7 @@ import CoreText from 'wix-ui-core/Text';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme, Skin, Appearance} from './theme';
 
+export {Skin, Appearance};
 interface Props {
   /** skin color of the heading */
   skin?: Skin;
@@ -19,7 +20,7 @@ interface State {
   tagName: string;
 }
 
-export default class Heading extends React.PureComponent<Props, State> {
+export class Heading extends React.PureComponent<Props, State> {
   propTypes = {
     /** skin color of the heading */
     skin: oneOf(['dark', 'light']),
@@ -31,7 +32,7 @@ export default class Heading extends React.PureComponent<Props, State> {
     children: node
   };
 
-  static defaultProps = {
+  static defaultProps: Props = {
     appearance: 'H0',
     skin: 'dark'
   };

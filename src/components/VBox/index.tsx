@@ -4,7 +4,8 @@ import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
 import {Alignment} from './constants';
 
-interface Props {  // TODO: extend CoreVBoxProps
+export {Alignment};
+export interface Props {  // TODO: extend CoreVBoxProps
   spacing?: string;
   horizontalAlignment?: Alignment;
 }

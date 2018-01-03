@@ -4,7 +4,8 @@ import CoreInput from 'wix-ui-core/Input';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme, Skin, Size} from './theme';
 
-interface Props { // TODO: extend CoreInputProps,
+export {Size, Skin};
+export interface Props { // TODO: extend CoreInputProps,
   /** size of the input component */
   size?: Size;
 
@@ -12,7 +13,7 @@ interface Props { // TODO: extend CoreInputProps,
   skin?: Skin;
 }
 
-export default class Input extends React.PureComponent<Props> {
+export class Input extends React.PureComponent<Props> {
   propTypes = {
     ...CoreInput.propTypes,
 
@@ -23,7 +24,7 @@ export default class Input extends React.PureComponent<Props> {
     skin: oneOf(['standard', 'error'])
   };
 
-  static defaultProps = {
+  static defaultProps: Props = {
     size: 'medium',
     skin: 'standard'
   };

@@ -12,7 +12,7 @@ const typeToColor: { [key: string]: Color} = {
   [Skin.SUCCESS]: G10
 };
 
-export const theme = ({skin}: {skin: Skin}) => ({
+export const theme: Function = ({skin}: {skin: Skin}) => ({
   height: HEIGHT,
   padding: PADDING,
   borderRadius: BORDER_RADIUS,

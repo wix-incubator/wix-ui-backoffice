@@ -1,5 +1,5 @@
 import createStory from '../create-story';
-import UIText from '../../src/components/UIText';
+import {UIText} from '../../src/components/UIText';
 import * as UITextSource from '!raw-loader!../../src/components/UIText/index.tsx';
 
 export const story = () => createStory({

@@ -4,15 +4,15 @@ import {ThemedComponent} from 'wix-ui-theme';
 import {bool, node, oneOf} from 'prop-types';
 import {theme, Skin, DeprecatedSkin} from './theme';
 import {appearance, iconSize} from './appearance';
-import UIText from '../UIText';
+import {UIText} from '../UIText';
 import {Size} from './constants';
 
-const iconStyles = {
+const iconStyles: Object = {
   suffix: {paddingRight: '10px', display: 'flex'},
   prefix: {paddingLeft: '10px', display: 'flex'}
 };
 
-const createButtonIcon = (type: 'suffix' | 'prefix', icon, size: string) => (
+const createButtonIcon: Function = (type: 'suffix' | 'prefix', icon, size: string): React.ReactNode | null => (
   icon ?
     <span style={iconStyles[type]}>
       {React.cloneElement(icon, {size})}
@@ -20,12 +20,15 @@ const createButtonIcon = (type: 'suffix' | 'prefix', icon, size: string) => (
     null
 );
 
-interface Props { // TODO: extend CoreButtonProps
+export {Size};
+export type Theme = Skin | DeprecatedSkin;
+
+export interface Props { // TODO: extend CoreButtonProps
   /** The height of the button */
   height?: Size;
 
   /** The theme of the button */
-  theme?: Skin | DeprecatedSkin;
+  theme?: Theme;
 
   /** The prefix icon of the button */
   prefixIcon?: React.ReactNode;
@@ -37,9 +40,9 @@ interface Props { // TODO: extend CoreButtonProps
   isIcon?: boolean;
 }
 
-export default class Button extends React.PureComponent<Props> {
-  static defaultProps = {
-    height: 'medium',
+export class Button extends React.PureComponent<Props> {
+  static defaultProps: Props = {
+    height: Size.MEDIUM,
     theme: 'primaryStandard',
   };
 

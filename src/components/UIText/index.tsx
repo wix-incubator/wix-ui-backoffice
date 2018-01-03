@@ -4,6 +4,9 @@ import CoreText from 'wix-ui-core/Text';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme, Appearance} from './theme';
 
+export {Appearance};
+export type TagName = 'div' | 'span';
+
 interface Props { // TODO: import CoreTextProps adn extend it when wix-ui-core will expose it
   /** typography of the text */
   appearance?: Appearance;
@@ -15,12 +18,12 @@ interface Props { // TODO: import CoreTextProps adn extend it when wix-ui-core w
   forceHideTitle?: boolean;
 
   /** the tag name to be used */
-  tagName?: 'div' | 'span';
+  tagName?: TagName;
 
   dataClass?: string;
 }
 
-export default class UIText extends React.PureComponent<Props> {
+export class UIText extends React.PureComponent<Props> {
   static propTypes = {
     ...CoreText.propTypes,
 
@@ -45,7 +48,7 @@ export default class UIText extends React.PureComponent<Props> {
     dataClass: string
   };
 
-  static defaultProps = {
+  static defaultProps: Props = {
     appearance: 'T1.1',
     dataClass: 'uitext'
   };

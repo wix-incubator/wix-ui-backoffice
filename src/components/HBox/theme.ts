@@ -1,6 +1,6 @@
 import {Alignment} from './constants';
 
-export const theme = ({spacing, verticalAlignment}: { spacing: string, verticalAlignment: Alignment }) => ({
+export const theme: Function = ({spacing, verticalAlignment}: { spacing: string, verticalAlignment: Alignment }) => ({
     spacing,
     verticalAlignment
 });

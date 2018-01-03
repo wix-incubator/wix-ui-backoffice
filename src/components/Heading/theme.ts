@@ -18,7 +18,7 @@ interface TypographyConfig {
     letterSpacing?: string;
 }
 
-const createTypography = (fontFamily: t.Typography, fontSize: string, lineHeight: string): TypographyConfig => ({
+const createTypography: Function = (fontFamily: t.Typography, fontSize: string, lineHeight: string): TypographyConfig => ({
   fontFamily,
   fontSize,
   lineHeight
@@ -40,7 +40,7 @@ const colors: { [key: string]: ColorsConfig} = {
   H4: {dark: palette.heading4Dark, light: palette.heading4Light}
 };
 
-export const theme = ({appearance, skin}: {appearance: Appearance, skin: Skin}) => ({
+export const theme: Function = ({appearance, skin}: {appearance: Appearance, skin: Skin}) => ({
   ...typographies[appearance],
   color: colors[appearance][skin]
 });

@@ -3,9 +3,10 @@ import CoreToggleSwitch from 'wix-ui-core/ToggleSwitch';
 import {ThemedComponent} from 'wix-ui-theme';
 import {oneOf} from 'prop-types';
 import {theme, Size, Skin} from './theme';
-import UIText from '../UIText';
+import {UIText} from '../UIText';
 
-interface Props { // TODO: extend CoreToggleSwitchProps,
+export {Size, Skin};
+export interface Props { // TODO: extend CoreToggleSwitchProps,
   /** size of the toggle switch */
   size?: Size;
 
@@ -13,7 +14,7 @@ interface Props { // TODO: extend CoreToggleSwitchProps,
   skin?: Skin;
 }
 
-export default class ToggleSwitch extends React.PureComponent<Props>  {
+export class ToggleSwitch extends React.PureComponent<Props>  {
   propTypes = {
     ...CoreToggleSwitch.propTypes,
 
@@ -24,7 +25,7 @@ export default class ToggleSwitch extends React.PureComponent<Props>  {
     skin: oneOf(['standard', 'error', 'success'])
   };
 
-  static defaultProps = {
+  static defaultProps: Props = {
     size: 'large',
     skin: 'standard'
   };

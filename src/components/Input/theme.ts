@@ -43,7 +43,7 @@ const sizes: { [key: string]: SizeConfig } = {
     sizeToFontSize: {small: 14, medium: 16, large: 22}
 };
 
-export const theme = ({size, skin}: {size: Size, skin: Skin}) => ({
+export const theme: Function = ({size, skin}: {size: Size, skin: Skin}) => ({
   color: skins.skinToColor[skin],
   backgroundColor: palette.white,
   borderColor: skins.skinToBorderColor[skin],

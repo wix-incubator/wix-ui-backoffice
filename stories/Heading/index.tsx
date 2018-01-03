@@ -1,5 +1,5 @@
 import createStory from '../create-story';
-import Heading from '../../src/components/Heading';
+import {Heading} from '../../src/components/Heading';
 import * as HeadingSource from '!raw-loader!../../src/components/Heading/index.tsx';
 
 export const story = () => createStory({

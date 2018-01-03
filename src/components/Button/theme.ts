@@ -32,22 +32,22 @@ class BaseColorSkinOverrides {
   }
 }
 
-const createPrimaryColorSkin = (color: string, hoverColor: string): BaseColorSkin =>
+const createPrimaryColorSkin: Function = (color: string, hoverColor: string): BaseColorSkin =>
   new BaseColorSkin(c.D80, color, color, c.D80, hoverColor, hoverColor, c.D80, color, color, c.D80, c.D55, c.D55);
 
-const createSecondaryColorSkin = (color: string, hoverColor: string): BaseColorSkin =>
+const createSecondaryColorSkin: Function = (color: string, hoverColor: string): BaseColorSkin =>
   new BaseColorSkin(color, c.TRANSPARENT, color, c.D80, hoverColor, hoverColor, c.D80, color, color, c.D55, c.TRANSPARENT, c.D55);
 
-const createTertiaryColorSkin = (color: string, hoverColor: string): BaseColorSkin =>
+const createTertiaryColorSkin: Function = (color: string, hoverColor: string): BaseColorSkin =>
   new BaseColorSkin(color, c.D80, c.D80, c.D80, hoverColor, hoverColor, c.D80, color, color, c.D55, c.TRANSPARENT, c.D55);
 
-const createPrimaryWhiteColorSkin = (color: string, hoverColor: string, activeColor: string): BaseColorSkin =>
+const createPrimaryWhiteColorSkin: Function = (color: string, hoverColor: string, activeColor: string): BaseColorSkin =>
   new BaseColorSkin(color, c.D80, c.D80, color, hoverColor, hoverColor, color, activeColor, activeColor, c.D80, c.D55, c.D55);
 
-const createSecondaryWhiteColorSkin = (color: string, hoverColor: string, activeColor: string): BaseColorSkin =>
+const createSecondaryWhiteColorSkin: Function = (color: string, hoverColor: string, activeColor: string): BaseColorSkin =>
   new BaseColorSkin(c.D80, c.TRANSPARENT, c.D80, color, hoverColor, hoverColor, color, activeColor, activeColor, c.D55, c.TRANSPARENT, c.D55);
 
-const createTransparentColorSkin = (color: string, hover: string, active: string): BaseColorSkin =>
+const createTransparentColorSkin: Function = (color: string, hover: string, active: string): BaseColorSkin =>
   new BaseColorSkin(color, c.TRANSPARENT, c.TRANSPARENT, hover, c.TRANSPARENT, c.TRANSPARENT, active, c.TRANSPARENT, c.TRANSPARENT, c.D55, c.TRANSPARENT, c.TRANSPARENT);
 
 const greyscale: string = hexToRgba(c.D10, 0.24);
@@ -96,6 +96,14 @@ skins['icon-greybackground'] = skins.tertiaryStandard;
 skins['icon-white'] = skins.primaryWhite;
 skins['icon-whitesecondary'] = skins.secondaryWhite;
 
+interface SizeConfig {
+    height: string;
+    width?: string;
+    borderRadius: string;
+    padding: string | 0;
+    contentPadding?: string;
+}
+
 const sizes: { [index: string]: SizeConfig } = {
   [Size.TINY]: {
     height: '24px',
@@ -122,14 +130,6 @@ const sizes: { [index: string]: SizeConfig } = {
     contentPadding: '0 30px'
   }
 };
-
-interface SizeConfig {
-  height: string;
-  width?: string;
-  borderRadius: string;
-  padding: string | 0;
-  contentPadding?: string;
-}
 
 const iconSizes: { [index: string]: SizeConfig } = {
   [Size.SMALL]: {
@@ -161,7 +161,7 @@ const closeSizes: { [index: string]: SizeConfig } = {
   }
 };
 
-const getSizeAttributes = (skin: string, size: Size, isIcon: boolean): SizeConfig => {
+const getSizeAttributes: Function = (skin: string, size: Size, isIcon: boolean): SizeConfig => {
   if (skin.startsWith('close')) {
     return closeSizes[size];
   }
@@ -171,7 +171,7 @@ const getSizeAttributes = (skin: string, size: Size, isIcon: boolean): SizeConfi
   return sizes[size];
 };
 
-export const theme = ({skin, size, isIcon}: { skin: Skin | DeprecatedSkin, size: Size, isIcon: boolean }): SizeConfig & BaseColorSkin => {
+export const theme: Function = ({skin, size, isIcon}: { skin: Skin | DeprecatedSkin, size: Size, isIcon: boolean }) => {
   const sizeAttributes = getSizeAttributes(skin, size, isIcon);
 
   if (!sizeAttributes) {

@@ -4,12 +4,13 @@ import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
 import {Alignment} from './constants';
 
+export {Alignment};
 interface Props { // TODO: extend CoreHBoxProps
   spacing?: string;
   verticalAlignment?: Alignment;
 }
 
-export default class HBox extends React.PureComponent<Props> {
+export class HBox extends React.PureComponent<Props> {
   render() {
     const {spacing, verticalAlignment, ...coreProps} = this.props;
 

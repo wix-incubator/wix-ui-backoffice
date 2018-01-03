@@ -1,7 +1,16 @@
 import * as t from '../../typography';
 import * as colors from '../../colors';
 
-const createTypography = (fontFamily, fontSize, lineHeight, color) => ({
+interface TypographyConfig {
+    fontFamily: t.Typography;
+    fontSize: string;
+    lineHeight: string;
+    color: colors.Color;
+    textTransform?: string;
+    letterSpacing?: string;
+}
+
+const createTypography: Function = (fontFamily: t.Typography, fontSize: string, lineHeight: string, color: colors.Color): TypographyConfig => ({
   fontFamily,
   fontSize,
   lineHeight,
@@ -15,7 +24,7 @@ export type Appearance =
     'T4' | 'T4.1' | 'T4.2' | 'T4.3' | 'T4.4' | 'T4.5' | 'T4.6' | 'T4.7' |
     'T5' | 'T5.1';
 
-const classes = {
+const classes: { [key: string]: TypographyConfig } = {
   T1: createTypography(t.fontLight, '16px', '24px', colors.D10),
   'T1.1': createTypography(t.fontLight, '16px', '24px', colors.D20),
   'T1.2': createTypography(t.fontLight, '16px', '24px', colors.D80),
@@ -49,4 +58,4 @@ const classes = {
   'T5.1': {...createTypography(t.fontMedium, '10px', '12px', colors.D80), textTransform: 'uppercase', letterSpacing: '1px'}
 };
 
-export const theme = ({appearance}: {appearance: Appearance}) => classes[appearance];
+export const theme: Function = ({appearance}: {appearance: Appearance}) => classes[appearance];

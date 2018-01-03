@@ -1,5 +1,5 @@
 import createStory from '../create-story';
-import CounterBadge from '../../src/components/CounterBadge';
+import {CounterBadge} from '../../src/components/CounterBadge';
 import * as CounterBadgeSource from '!raw-loader!../../src/components/CounterBadge/index.tsx';
 
 export const story = () => createStory({
