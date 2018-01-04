@@ -1,3 +1,4 @@
+import React from 'react';
 import createStory from '../create-story';
 
 import Box from '../../src/components/Box';
@@ -9,7 +10,19 @@ export const story = () => createStory({
   storyName: 'Box',
   component: Box,
   componentProps: () => ({
-    children: ['Vertical', 'Box'],
+    crossAxisAlignment: 'start',
+    spacing: '0px',
+    lastItemTakesRemainingWidth: true,
+    children: [' corrugated box ', ' folding carton ', ' rigid paperboard ', ' crate ', ' bulk box '].map(
+      (boxName, index, boxArray) => {
+        const last = index === boxArray.length - 1;
+        let color = 'lightblue';
+        if (last) {
+          color = 'red';
+          return (<input key={index} style={{display: 'block'}} defaultValue={boxName}/>);
+        }
+        return (<div key={index} style={{backgroundColor: color, display: 'block'}}>{boxName}</div>);
+      }),
     dataHook: 'storybook-box'
   }),
   source: BoxSource
