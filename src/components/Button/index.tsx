@@ -1,5 +1,5 @@
 import * as React from 'react';
-import CoreButton from 'wix-ui-core/Button';
+import {Button as CoreButton, ButtonProps as CoreButtonProps} from 'wix-ui-core/Button';
 import {ThemedComponent} from 'wix-ui-theme';
 import {bool, node, oneOf} from 'prop-types';
 import {theme, Skin, DeprecatedSkin} from './theme';
@@ -23,7 +23,7 @@ const createButtonIcon: Function = (type: 'suffix' | 'prefix', icon, size: strin
 export {Size};
 export type Theme = Skin | DeprecatedSkin;
 
-export interface Props { // TODO: extend CoreButtonProps
+export interface Props extends CoreButtonProps {
   /** The height of the button */
   height?: Size;
 

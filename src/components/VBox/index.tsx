@@ -1,11 +1,11 @@
 import * as React from 'react';
-import CoreVBox from 'wix-ui-core/VBox';
+import {VBox as CoreVBox, VBoxProps as CoreVBoxProps} from 'wix-ui-core/VBox';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
 import {Alignment} from './constants';
 
 export {Alignment};
-export interface Props {  // TODO: extend CoreVBoxProps
+export interface Props extends CoreVBoxProps {
   spacing?: string;
   horizontalAlignment?: Alignment;
 }

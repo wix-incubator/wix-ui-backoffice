@@ -1,11 +1,11 @@
 import * as React from 'react';
-import CoreHBox from 'wix-ui-core/HBox';
+import {HBox as CoreHBox, HBoxProps as CoreHBoxProps} from 'wix-ui-core/HBox';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
 import {Alignment} from './constants';
 
 export {Alignment};
-interface Props { // TODO: extend CoreHBoxProps
+interface Props extends CoreHBoxProps {
   spacing?: string;
   verticalAlignment?: Alignment;
 }

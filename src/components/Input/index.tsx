@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {oneOf} from 'prop-types';
-import CoreInput from 'wix-ui-core/Input';
+import {Input as CoreInput, InputProps as CoreInputProps} from 'wix-ui-core/Input';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme, Skin, Size} from './theme';
 
 export {Size, Skin};
-export interface Props { // TODO: extend CoreInputProps,
+export interface Props extends CoreInputProps {
   /** size of the input component */
   size?: Size;
 

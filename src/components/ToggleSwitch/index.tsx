@@ -1,12 +1,12 @@
 import * as React from 'react';
-import CoreToggleSwitch from 'wix-ui-core/ToggleSwitch';
+import {ToggleSwitch as CoreToggleSwitch, ToggleSwitchProps as CoreToggleSwitchProps} from 'wix-ui-core/ToggleSwitch';
 import {ThemedComponent} from 'wix-ui-theme';
 import {oneOf} from 'prop-types';
 import {theme, Size, Skin} from './theme';
 import {UIText} from '../UIText';
 
 export {Size, Skin};
-export interface Props { // TODO: extend CoreToggleSwitchProps,
+export interface Props extends CoreToggleSwitchProps {
   /** size of the toggle switch */
   size?: Size;
 

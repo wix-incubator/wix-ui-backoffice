@@ -1,5 +1,5 @@
 import * as React from 'react';
-import CoreBadge from 'wix-ui-core/Badge';
+import {Badge as CoreBadge, BadgeProps as CoreBadgeProps} from 'wix-ui-core/Badge';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
 import {UIText} from '../UIText';
@@ -7,7 +7,7 @@ import {oneOf, oneOfType, string, number} from 'prop-types';
 import {Skin} from './constants';
 
 export {Skin};
-interface Props { // TODO: extend CoreBadgeProps,
+interface Props extends CoreBadgeProps {
   /** Type of the badge */
   skin?: Skin;
 

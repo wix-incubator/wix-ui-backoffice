@@ -20,7 +20,7 @@
     "url": "git+https://github.com/wix/wix-ui-backoffice.git"
   },
   "scripts": {
-    "build": "haste build && import-path --path src/components",
+    "build": "haste build && import-path --path src/components --dts",
     "pretest": "npm run build && build-storybook",
     "test": "haste test --jest && haste test --protractor",
     "posttest": "haste lint",
@@ -36,7 +36,6 @@
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.22.0",
     "lodash": "^4.17.4",
-    "wix-ui-core": "^1.0.0",
     "wix-ui-theme": "^1.0.0"
   },
   "devDependencies": {
@@ -56,14 +55,14 @@
     "haste-preset-yoshi": "latest",
     "identity-obj-proxy": "^3.0.0",
     "import-path": "^0.0.11",
-    "prop-types": "^15.5.4",
+    "prop-types": "^15.6.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-test-renderer": "^15.5.4",
     "ts-jest": "^21.2.4",
     "typescript": "^2.6.2",
     "wix-storybook-utils": "^1.0.0",
-    "wix-ui-test-utils": "^1.0.0"
+    "wix-ui-test-utils": "^1.0.20"
   },
   "license": "MIT",
   "publishConfig": {

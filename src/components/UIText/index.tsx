@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {oneOf, bool, string} from 'prop-types';
-import CoreText from 'wix-ui-core/Text';
+import {Text as CoreText, TextProps as CoreTextProps} from 'wix-ui-core/Text';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme, Appearance} from './theme';
 
 export {Appearance};
 export type TagName = 'div' | 'span';
 
-interface Props { // TODO: import CoreTextProps adn extend it when wix-ui-core will expose it
+export interface Props extends CoreTextProps {
   /** typography of the text */
   appearance?: Appearance;
 
