@@ -17,10 +17,7 @@ Box.propTypes = {
   spacing: string,
 
   /** sets alignment on secondary axis */
-  crossAxisAlignment: oneOf(['start', 'center', 'end']),
-
-  /** last Item Takes Remaining Width */
-  lastItemTakesRemainingWidth: bool
+  crossAxisAlignment: oneOf(['start', 'center', 'end'])
 };
 
 export default Box;
