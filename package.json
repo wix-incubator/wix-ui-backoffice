@@ -20,7 +20,8 @@
     "url": "git+https://github.com/wix/wix-ui-backoffice.git"
   },
   "scripts": {
-    "build": "haste build && import-path --path src/components",
+    "export-icons": "node ./scripts/export-icons",
+    "build": "haste build && import-path --path src/components && npm run export-icons",
     "pretest": "npm run build && build-storybook",
     "test": "haste test --jest && haste test --protractor",
     "posttest": "haste lint",
@@ -58,6 +59,7 @@
     "react-dom": "^15.6.2",
     "react-test-renderer": "^15.5.4",
     "wix-storybook-utils": "^1.0.0",
+    "wix-ui-icons": "^1.0.0",
     "wix-ui-test-utils": "^1.0.0"
   },
   "babel": {

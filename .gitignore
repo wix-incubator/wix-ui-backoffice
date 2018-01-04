@@ -16,3 +16,4 @@ storybook-static
 /*.js
 !wallaby.js
 !protractor.conf.js
+/Icons
