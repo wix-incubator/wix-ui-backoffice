@@ -35,6 +35,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.22.0",
+    "eyes.it": "^2.0.1",
     "lodash": "^4.17.4",
     "wix-ui-theme": "^1.0.0"
   },
@@ -52,7 +53,7 @@
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-react": "^6.8.0",
     "gh-pages-auto-release": "^1.1.2",
-    "haste-preset-yoshi": "latest",
+    "haste-preset-yoshi": "^1.0.19",
     "identity-obj-proxy": "^3.0.0",
     "import-path": "^0.0.11",
     "prop-types": "^15.6.0",

@@ -1,23 +1,23 @@
-import * as React from 'react';
+import React from 'react';
 import createStory from '../create-story';
 
-import {Button} from '../../src/components/Button';
-import * as ButtonSource from '!raw-loader!../../src/components/Button/index.tsx';
+import Badge from '../../src/components/Badge';
+import BadgeSource from '!raw-loader!../../src/components/Badge';
 
 const icons = [<span key="1">+</span>, <span key="2">-</span>]; // just to see if it's working
 
 export const story = () => createStory({
   category: 'Components',
-  name: 'Button',
-  storyName: 'Button',
-  component: Button,
+  name: 'Badge',
+  storyName: 'Badge',
+  component: Badge,
   componentProps: () => ({
-    children: 'Click me',
-    dataHook: 'storybook-button'
+    children: 'I\'M A BADGE!',
+    dataHook: 'storybook-badge'
   }),
   exampleProps: {
     prefixIcon: icons,
     suffixIcon: icons
   },
-  source: ButtonSource
+  source: BadgeSource
 });
