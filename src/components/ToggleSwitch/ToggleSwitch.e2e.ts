@@ -1,4 +1,4 @@
-import eyes from 'eyes.it';
+import * as eyes from 'eyes.it';
 import {getStoryUrl} from 'wix-ui-test-utils';
 import {toggleSwitchTestkitFactory} from 'wix-ui-core/dist/src/testkit/protractor';
 

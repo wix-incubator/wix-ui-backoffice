@@ -1,3 +1,5 @@
+export type Skin = 'default' | 'standard' | 'danger' | 'success' | 'grey' | 'warning' | 'urgent'  | 'neutralStandard' | 'neutralSuccess' | 'nutralDanger';
+export type Form = 'solid' | 'outlined' | 'transparent';
 export const SKIN = {
   default: 'default',
   standard: 'standard',

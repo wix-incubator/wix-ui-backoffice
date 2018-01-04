@@ -3,7 +3,6 @@ import {ToggleSwitch as CoreToggleSwitch, ToggleSwitchProps as CoreToggleSwitchP
 import {ThemedComponent} from 'wix-ui-theme';
 import {oneOf} from 'prop-types';
 import {theme, Size, Skin} from './theme';
-import {UIText} from '../UIText';
 
 export {Size, Skin};
 export interface Props extends CoreToggleSwitchProps {
@@ -31,13 +30,11 @@ export class ToggleSwitch extends React.PureComponent<Props>  {
   };
 
   render() {
-    const {size, skin, children, ...coreProps} = this.props;
+    const {size, skin, ...coreProps} = this.props;
 
     return (
       <ThemedComponent {...{theme, size, skin}}>
-        <CoreToggleSwitch {...coreProps}>
-          <UIText appearance="T1.1" dataClass="toggle-switch-content">{children}</UIText>
-        </CoreToggleSwitch>
+        <CoreToggleSwitch {...coreProps}/>
       </ThemedComponent>
     );
   }
