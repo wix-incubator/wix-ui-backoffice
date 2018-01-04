@@ -37,7 +37,7 @@
     "babel-runtime": "^6.22.0",
     "eyes.it": "^2.0.1",
     "lodash": "^4.17.4",
-    "wix-ui-core": "^1.0.68",
+    "wix-ui-core": "^1.0.0",
     "wix-ui-theme": "^1.0.0"
   },
   "devDependencies": {
@@ -58,7 +58,7 @@
     "react-dom": "^15.6.2",
     "react-test-renderer": "^15.5.4",
     "wix-storybook-utils": "^1.0.0",
-    "wix-ui-test-utils": "^1.0.24"
+    "wix-ui-test-utils": "^1.0.0"
   },
   "babel": {
     "presets": [
