@@ -11,7 +11,7 @@ export const story = () => createStory({
   component: Box,
   componentProps: () => ({
     crossAxisAlignment: 'start',
-    spacing: '0px',
+    spacing: '1%',
     lastItemTakesRemainingWidth: true,
     children: [' corrugated box ', ' folding carton ', ' rigid paperboard ', ' crate ', ' bulk box '].map(
       (boxName, index, boxArray) => {
