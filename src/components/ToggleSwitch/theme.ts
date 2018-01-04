@@ -68,6 +68,8 @@ export const theme: Function = ({size, skin}: { size: Size, skin: Skin }) => ({
 
     labelMovementRange: sizes.sizeTolabelMovementRange[size],
     toggleIconDisplay: sizes.sizeTotoggleIconDisplay[size],
+    toggleIconWidth: '10px',
+    toggleIconFontSize: '10px',
 
     backgroundColor: skins.skinToBackgroundColor[skin],
     backgroundColorChecked: skins.skinToBackgroundColorChecked[skin],

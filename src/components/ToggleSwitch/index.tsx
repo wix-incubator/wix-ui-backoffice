@@ -3,6 +3,8 @@ import {ToggleSwitch as CoreToggleSwitch, ToggleSwitchProps as CoreToggleSwitchP
 import {ThemedComponent} from 'wix-ui-theme';
 import {oneOf} from 'prop-types';
 import {theme, Size, Skin} from './theme';
+import ToggleOn from '../../Icons/dist/components/ToggleOn';
+import ToggleOff from '../../Icons/dist/components/ToggleOff';
 
 export {Size, Skin};
 export interface Props extends CoreToggleSwitchProps {
@@ -34,7 +36,7 @@ export class ToggleSwitch extends React.PureComponent<Props>  {
 
     return (
       <ThemedComponent {...{theme, size, skin}}>
-        <CoreToggleSwitch {...coreProps}/>
+        <CoreToggleSwitch IconOn={ToggleOn} IconOff={ToggleOff} {...coreProps}/>
       </ThemedComponent>
     );
   }
