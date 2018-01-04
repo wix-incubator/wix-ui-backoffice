@@ -1,5 +1,5 @@
 import React from 'react';
-import {oneOf, string} from 'prop-types';
+import {oneOf, string, bool} from 'prop-types';
 import CoreBox from 'wix-ui-core/Box';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
@@ -17,7 +17,10 @@ Box.propTypes = {
   spacing: string,
 
   /** sets alignment on secondary axis */
-  crossAxisAlignment: oneOf(['start', 'center', 'end'])
+  crossAxisAlignment: oneOf(['start', 'center', 'end']),
+
+  /** last Item Takes Remaining Width */
+  lastItemTakesRemainingWidth: bool
 };
 
 export default Box;
