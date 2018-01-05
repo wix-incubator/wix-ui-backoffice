@@ -36,7 +36,7 @@ export class ToggleSwitch extends React.PureComponent<Props>  {
 
     return (
       <ThemedComponent {...{theme, size, skin}}>
-        <CoreToggleSwitch IconOn={ToggleOn} IconOff={ToggleOff} {...coreProps}/>
+        <CoreToggleSwitch iconOn={<ToggleOn/>} iconOff={<ToggleOff/>} {...coreProps}/>
       </ThemedComponent>
     );
   }
