@@ -15,7 +15,7 @@ import CustomeIconRaw from '!raw-loader!./CustomIcon';
 import RTLIcon from './RTLIcon';
 import RTLIconRaw from '!raw-loader!./RTLIcon';
 
-const fixRawPath = path => path.replace('../../src/components', 'wix-ui-backoffice');
+const fixRawPath = raw => raw.replace('../../src/components', 'wix-ui-backoffice');
 
 export const story = () => {
   storiesOf('Components', module)
