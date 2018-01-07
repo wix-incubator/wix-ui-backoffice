@@ -63,7 +63,7 @@
     "ts-jest": "^21.2.4",
     "typescript": "^2.6.2",
     "wix-storybook-utils": "^1.0.0",
-    "wix-ui-test-utils": "^1.0.20"
+    "wix-ui-test-utils": "^1.0.0"
   },
   "license": "MIT",
   "publishConfig": {
