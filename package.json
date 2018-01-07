@@ -55,7 +55,7 @@
     "gh-pages-auto-release": "^1.1.2",
     "haste-preset-yoshi": "^1.0.19",
     "identity-obj-proxy": "^3.0.0",
-    "import-path": "^0.0.11",
+    "import-path": "^0.0.14",
     "prop-types": "^15.6.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
