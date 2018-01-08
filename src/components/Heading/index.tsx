@@ -21,7 +21,7 @@ interface State {
 }
 
 export class Heading extends React.PureComponent<Props, State> {
-  propTypes = {
+  static propTypes = {
     /** skin color of the heading */
     skin: oneOf(['dark', 'light']),
 

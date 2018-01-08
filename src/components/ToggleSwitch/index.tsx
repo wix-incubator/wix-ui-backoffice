@@ -14,7 +14,7 @@ export interface Props extends CoreToggleSwitchProps {
 }
 
 export class ToggleSwitch extends React.PureComponent<Props>  {
-  propTypes = {
+  static propTypes = {
     ...CoreToggleSwitch.propTypes,
 
     /** size of the toggle switch */
