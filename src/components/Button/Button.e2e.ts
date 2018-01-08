@@ -1,4 +1,5 @@
 import * as eyes from 'eyes.it';
+import {browser} from 'protractor';
 import {getStoryUrl} from 'wix-ui-test-utils';
 import {buttonTestkitFactory} from 'wix-ui-core/dist/src/testkit/protractor';
 
