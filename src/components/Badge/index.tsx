@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {node, any} from 'prop-types';
+import {oneOf, node} from 'prop-types';
 import {Badge as CoreBadge} from 'wix-ui-core/Badge';
 import {ThemedComponent} from 'wix-ui-theme';
 
@@ -32,9 +32,9 @@ export class Badge extends React.PureComponent<Props> {
   static propTypes = {
     ...CoreBadge.propTypes,
     /** Form (type) of the badge */
-    form: any,
+    form: oneOf(['solid', 'outlined', 'transparent']),
     /** Skin of the badge */
-    skin: any,
+    skin: oneOf(['default', 'standard', 'danger', 'success', 'grey', 'warning', 'urgent', 'neutralStandard', 'neutralSuccess', 'nutralDanger']),
     /** The prefix icon of the badge */
     prefixIcon: node,
     /** The suffix icon of the badge */
