@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {oneOf, node, any} from 'prop-types';
+import {node, any} from 'prop-types';
 import {Badge as CoreBadge} from 'wix-ui-core/Badge';
 import {ThemedComponent} from 'wix-ui-theme';
 
@@ -22,8 +22,8 @@ const createBadgeIcon = (type, icon, size) => (
 );
 
 export interface Props {
-  form: any;
-  skin: any;
+  form: Form;
+  skin: Skin;
   prefixIcon: any;
   suffixIcon: any;
 }
