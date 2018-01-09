@@ -17,3 +17,4 @@ storybook-static
 !wallaby.js
 !protractor.conf.js
 .DS_Store
+.idea
