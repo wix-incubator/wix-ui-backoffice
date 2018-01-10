@@ -63,6 +63,7 @@
     "react-test-renderer": "^15.5.4",
     "ts-jest": "^21.2.4",
     "typescript": "^2.6.2",
+    "svg2react-icon": "^1.0.51",
     "wix-storybook-utils": "^1.0.0",
     "wix-ui-test-utils": "^1.0.0"
   },
