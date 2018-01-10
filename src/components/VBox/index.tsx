@@ -10,7 +10,7 @@ export interface Props extends CoreVBoxProps {
   horizontalAlignment?: Alignment;
 }
 
-export default class VBox extends React.PureComponent<Props> {
+export class VBox extends React.PureComponent<Props> {
   render() {
     const {spacing, horizontalAlignment, ...coreProps} = this.props;
     return (

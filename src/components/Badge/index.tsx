@@ -22,8 +22,8 @@ const createBadgeIcon = (type, icon, size) => (
 );
 
 export interface Props {
-  form: keyof Form;
-  skin: keyof Skin;
+  form: Form;
+  skin: Skin;
   prefixIcon: any;
   suffixIcon: any;
 }
@@ -32,9 +32,9 @@ export class Badge extends React.PureComponent<Props> {
   static propTypes = {
     ...CoreBadge.propTypes,
     /** Form (type) of the badge */
-    form: oneOf(Object.keys(FORM)),
+    form: oneOf(['solid', 'outlined', 'transparent']),
     /** Skin of the badge */
-    skin: oneOf(Object.keys(SKIN)),
+    skin: oneOf(['default', 'standard', 'danger', 'success', 'grey', 'warning', 'urgent', 'neutralStandard', 'neutralSuccess', 'nutralDanger']),
     /** The prefix icon of the badge */
     prefixIcon: node,
     /** The suffix icon of the badge */
@@ -59,7 +59,4 @@ export class Badge extends React.PureComponent<Props> {
       </ThemedComponent>
     );
   }
-
 }
-
-export default Badge;

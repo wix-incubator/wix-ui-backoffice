@@ -1,6 +1,7 @@
 import * as eyes from 'eyes.it';
 import {getStoryUrl} from 'wix-ui-test-utils';
 import {toggleSwitchTestkitFactory} from 'wix-ui-core/dist/src/testkit/protractor';
+import {browser} from 'protractor';
 
 describe('ToggleSwitch', () => {
   const storyUrl = getStoryUrl('Components', 'ToggleSwitch');

@@ -14,7 +14,7 @@ export interface Props extends CoreInputProps {
 }
 
 export class Input extends React.PureComponent<Props> {
-  propTypes = {
+  static propTypes = {
     ...CoreInput.propTypes,
 
     /** size of the input component */

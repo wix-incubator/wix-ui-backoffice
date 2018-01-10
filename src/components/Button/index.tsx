@@ -12,7 +12,7 @@ const iconStyles: Object = {
   prefix: {paddingLeft: '10px', display: 'flex'}
 };
 
-const createButtonIcon: Function = (type: 'suffix' | 'prefix', icon, size: string): React.ReactNode | null => (
+const createButtonIcon = (type: 'suffix' | 'prefix', icon, size: string) => (
   icon ?
     <span style={iconStyles[type]}>
       {React.cloneElement(icon, {size})}
