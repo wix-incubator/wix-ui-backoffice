@@ -59,7 +59,7 @@
     "react-dom": "^15.6.2",
     "react-test-renderer": "^15.5.4",
     "wix-storybook-utils": "^1.0.0",
-    "wix-ui-icons": "^1.0.0",
+    "wix-ui-icons-common": "^1.0.0",
     "wix-ui-test-utils": "^1.0.0"
   },
   "babel": {
