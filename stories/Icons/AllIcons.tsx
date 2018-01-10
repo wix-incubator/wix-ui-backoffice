@@ -1,6 +1,6 @@
-import React from 'react';
-import * as Icons from '../../src/components/Icons';
-import s from './style.scss';
+import * as React from 'react';
+import * as Icons from 'wix-ui-icons-common';
+const s = require('./style.scss');
 
 const renderIcon = name => {
   return (

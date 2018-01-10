@@ -1,8 +1,17 @@
-# `<Icons/>`
+This folder intentionally left blank.
 
-## Properties
+Icons are exported at build time from `wix-ui-icons-common`.
 
-| propName | propType | defaultValue | isRequired | description |
-|----------|----------|--------------|------------|-------------|
-| size | string | 1em | - | Set the size of the icon |
-| ***All other Props are passed to the SVG element*** | | | | |
+Import them locally vi:
+```js
+import {Add} from `wix-ui-icons-common`;
+// or
+import Add from `wix-ui-icons-common/Add`;
+```
+
+System icons are available via:
+```js
+import {AddMediaAdd} from `wix-ui-icons-common/system`;
+// or
+import AddMediaAdd from `wix-ui-icons-common/system/AddMediaAdd`;
+```

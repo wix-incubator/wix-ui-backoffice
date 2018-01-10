@@ -1,21 +1,21 @@
-import React from 'react';
+import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import CodeBlock from 'wix-storybook-utils/CodeBlock';
 import Markdown from 'wix-storybook-utils/Markdown';
 import CodeExample from 'wix-storybook-utils/CodeExample';
 
-import Readme from '../../src/components/Icons/README.md';
+const Readme = require('./README.md');
 
 import AllIcons from './AllIcons';
-import AllIconsRaw from '!raw-loader!./AllIcons';
+const AllIconsRaw = require('!raw-loader!./AllIcons');
 
 import CustomeIcon from './CustomIcon';
-import CustomeIconRaw from '!raw-loader!./CustomIcon';
+const CustomeIconRaw = require('!raw-loader!./CustomIcon');
 
 import RTLIcon from './RTLIcon';
-import RTLIconRaw from '!raw-loader!./RTLIcon';
+const RTLIconRaw = require('!raw-loader!./RTLIcon');
 
-const fixRawPath = raw => raw.replace('../../src/components', 'wix-ui-backoffice');
+const fixRawPath = raw => raw.replace('wix-ui-icons-common', 'wix-ui-backoffice/Icons');
 
 export const story = () => {
   storiesOf('Components', module)

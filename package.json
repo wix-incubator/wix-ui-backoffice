@@ -13,7 +13,8 @@
     "src",
     "*.js",
     "!wallaby.js",
-    "!protractor.conf.js"
+    "!protractor.conf.js",
+    "/Icons"
   ],
   "repository": {
     "type": "git",

@@ -15,5 +15,12 @@ removeFolder(exportFolder);
 fs.mkdirSync(exportFolder);
 Object.keys(icons)
   .forEach(icon =>
-    fs.writeFileSync(`${exportFolder}/${icon}.js`, `module.exports = require('wix-ui-icons-common/${icon}');\n`)
+    fs.writeFileSync(
+      `${exportFolder}/${icon}.js`,
+      `module.exports = require('wix-ui-icons-common/${icon}');\n`
+    )
   );
+fs.writeFileSync(
+  `${exportFolder}/index.js`,
+  `module.exports = require('wix-ui-icons-common');\n`
+)
