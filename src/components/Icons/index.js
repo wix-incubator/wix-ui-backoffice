@@ -1,1 +1,1 @@
-export * from 'wix-ui-icons';
+export * from 'wix-ui-icons-common';

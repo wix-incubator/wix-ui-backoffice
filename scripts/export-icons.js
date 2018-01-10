@@ -2,7 +2,7 @@
 require.extensions['.scss'] = () => {};
 
 const fs = require('fs');
-const icons = require('wix-ui-icons');
+const icons = require('wix-ui-icons-common');
 const exportFolder = 'Icons';
 const removeFolder = path => {
   if (fs.existsSync(path)) {
@@ -15,5 +15,5 @@ removeFolder(exportFolder);
 fs.mkdirSync(exportFolder);
 Object.keys(icons)
   .forEach(icon =>
-    fs.writeFileSync(`${exportFolder}/${icon}.js`, `module.exports = require('wix-ui-icons/${icon}');\n`)
+    fs.writeFileSync(`${exportFolder}/${icon}.js`, `module.exports = require('wix-ui-icons-common/${icon}');\n`)
   );
