@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Icons from 'wix-ui-icons-common';
-const s = require('./style.scss');
+import * as s from './style.scss';
 
 const renderIcon = name => {
   return (

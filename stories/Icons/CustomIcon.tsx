@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Duplicate from 'wix-ui-icons-common/Duplicate';
-const s = require('./style.scss');
+import * as s from './style.scss';
 
 export default () => {
   const style = {
