@@ -39,7 +39,7 @@
     "babel-runtime": "^6.22.0",
     "eyes.it": "^2.0.1",
     "lodash": "^4.17.4",
-    "wix-ui-core": "^1.0.76",
+    "wix-ui-core": "^1.0.87",
     "wix-ui-theme": "^1.0.0"
   },
   "devDependencies": {
@@ -52,7 +52,8 @@
     "babel-jest": "^21.2.0",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-wix": "^1.0.2",
-    "enzyme": "^2.3.0",
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-15": "^1.0.5",
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-react": "^6.8.0",
     "gh-pages-auto-release": "^1.1.2",
@@ -86,6 +87,9 @@
       "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "setupTestFrameworkScriptFile": "wix-ui-test-utils/dist/src/jest-setup",
+    "setupFiles": [
+      "<rootDir>/test/enzyme-setup.js"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",

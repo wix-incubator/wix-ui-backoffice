@@ -18,3 +18,4 @@ storybook-static
 !protractor.conf.js
 .DS_Store
 /Icons
+.idea
