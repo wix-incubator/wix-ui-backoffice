@@ -84,9 +84,6 @@
       "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "setupTestFrameworkScriptFile": "wix-ui-test-utils/dist/src/jest-setup",
-    "setupFiles": [
-      "<rootDir>/test/enzyme-setup.js"
-    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
