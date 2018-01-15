@@ -1,0 +1,63 @@
+:vars {
+  D10: #162d3d;
+  D20: #32536A;
+  D30: #577083;
+  D40: #7a92a5;
+  D50: #b6c1cd;
+  D55: #cbd3dc;
+  D60: #dfe5eb;
+  D70: #f0f4f7;
+  D80: #ffffff;
+
+  B00: #2b81cb;
+  B05: #308ddd;
+  B10: #3899ec;
+  B20: #4eb7f5;
+  B25: #A1D7FB;
+  B27: #b3e0fb;
+  B30: #c1e4fe;
+  B40: #daeffe;
+  B50: #eaf7ff;
+  B60: #f4fafe;
+
+  GR30: #f1f1f1;
+  GR20: #dadada;
+  GR10: #c8c8c8;
+  GR40: #cbd3dc;
+  GR50: #eff1f2;
+  GR60: #a3abb0;
+
+  P00: #8e21b1;
+  P10: #aa4dc8;
+  P20: #cd68ed;
+  P30: #e5c9ee;
+  P40: #eedbf4;
+
+  O00: #ea5f0e;
+  O10: #fb7d33;
+  O20: #ff9a48;
+
+  R00: #d6453d;
+  R05: #d8504c;
+  R10: #ee5951;
+  R20: #ff6666;
+  R30: #ffd7d7;
+  R40: #ffe1e1;
+
+  G00: #44823f;
+  G05: #61ad5a;
+  G10: #60bc57;
+  G20: #80c979;
+  G30: #c9eebc;
+
+  Y00: #c68801;
+  Y05: #eda200;
+  Y10: #fdb10c;
+  Y20: #fac249;
+  Y30: #fef0ba;
+  Y40: #fef4cd;
+
+  WR00: #e05050;
+
+  TRANSPARENT: transparent;
+}

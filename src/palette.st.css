@@ -1,0 +1,24 @@
+:import {
+  -st-from: "./colors.st.css";
+  -st-named: 
+  B10, B20, B30, B40, B50,
+  G10, G20, G30,
+  R10, R20, R30,
+  D55, D60;
+}
+
+:vars {
+  main: value(B10);
+  mainHover: value(B20);
+  notifications: value(B30);
+  tableSelected: value(B40);
+  dividers: value(B50);
+  successNotifications: value(G30);
+  dangerNotifications: value(R30);
+  ctaHover: value(G10);
+  danger: value(R10);
+  successHover: value(G20);
+  dangerHover: value(R20);
+  disabled: value(D55);
+  disabledDividers: value(D60);
+}
