@@ -13,14 +13,16 @@
     "src",
     "*.js",
     "!wallaby.js",
-    "!protractor.conf.js"
+    "!protractor.conf.js",
+    "/Icons"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wix/wix-ui-backoffice.git"
   },
   "scripts": {
-    "build": "haste build && import-path --path src/components --dts",
+    "export-icons": "node ./scripts/export-icons",
+    "build": "haste build && import-path --path src/components --dts && npm run export-icons",
     "pretest": "npm run build && build-storybook",
     "test": "haste test --jest && haste test --protractor",
     "posttest": "haste lint",
@@ -65,6 +67,7 @@
     "ts-jest": "^21.2.4",
     "typescript": "^2.6.2",
     "wix-storybook-utils": "^1.0.0",
+    "wix-ui-icons-common": "^1.0.0",
     "wix-ui-test-utils": "^1.0.0"
   },
   "license": "MIT",
