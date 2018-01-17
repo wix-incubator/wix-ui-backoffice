@@ -1,8 +1,8 @@
-import CoreToggleSwitch from 'wix-ui-core/dist/src/components/StylableToggleSwitch/ToggleSwitch';
+import {ToggleSwitch as CoreToggleSwitch} from 'wix-ui-core/StylableToggleSwitch';
 import style from './ToggleSwitch.st.css';
 import {withStylable} from 'wix-ui-core';
 
-export const ToggleSwitch: any = withStylable(
+export const ToggleSwitch = withStylable(
   CoreToggleSwitch,
   style,
   ({size, skin}) => ({[size]: true, [skin]: true})
