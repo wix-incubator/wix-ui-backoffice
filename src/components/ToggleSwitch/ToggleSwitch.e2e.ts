@@ -1,17 +1,21 @@
 import * as eyes from 'eyes.it';
 import {getStoryUrl} from 'wix-ui-test-utils';
 import {toggleSwitchTestkitFactory} from 'wix-ui-core/dist/src/testkit/protractor';
+import * as autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 import {browser} from 'protractor';
 
 describe('ToggleSwitch', () => {
   const storyUrl = getStoryUrl('Components', 'ToggleSwitch');
-  const dataHook = 'storybook-toggle-switch';
+  const toggleSwitchDriver = toggleSwitchTestkitFactory({dataHook: 'storybook-toggle-switch'});
 
-  beforeEach(() => browser.get(storyUrl));
+  beforeAll(() => browser.get(storyUrl));
+  afterEach(() => autoExampleDriver.reset());
 
-  eyes.it('should render', () => {
-    const driver = toggleSwitchTestkitFactory({dataHook});
+  eyes.it('should react to `checked` prop', () => {
+    autoExampleDriver.setProps({checked: true});
+    expect(toggleSwitchDriver.isChecked()).toBe(true)
 
-    expect(driver.element().isDisplayed()).toBe(true);
+    autoExampleDriver.setProps({checked: false});
+    expect(toggleSwitchDriver.isChecked()).toBe(false);
   });
 });
