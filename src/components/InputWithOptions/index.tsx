@@ -1,10 +1,10 @@
-import {ToggleSwitch as CoreToggleSwitch} from 'wix-ui-core/StylableToggleSwitch';
-import style from './ToggleSwitch.st.css';
+import {InputWithOptions as CoreInputWithOptions} from 'wix-ui-core/InputWithOptions';
+import style from './InputWithOptions.st.css';
 import {appendStylable} from 'wix-ui-core';
 
-export class ToggleSwitch extends CoreToggleSwitch {
+export class InputWithOptions extends CoreInputWithOptions {
   static defaultProps = {
-    ...CoreToggleSwitch.defaultProps,
+    ...CoreInputWithOptions.defaultProps,
     skin: 'standard',
     size: 'large'
   };
