@@ -9,5 +9,3 @@ export const ToggleSwitch = withStylable(
 );
 
 ToggleSwitch.defaultProps = {skin: 'standard', size: 'large'};
-
-const amir = () => <ToggleSwitch   />
