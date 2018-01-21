@@ -15,7 +15,12 @@ export class ToggleSwitch extends CoreToggleSwitch<ToggleSwitchProps> {
   };
 
   render() {
+    const {size, skin} = this.props;
     const root = super.render();
-    return withStylable(this, root, style, ({size, skin}) => ({[size]: true, [skin]: true}));
+    return withStylable(
+      root,
+      style,
+      {[size]: true, [skin]: true}
+    );
   }
 }
