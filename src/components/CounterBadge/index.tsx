@@ -7,6 +7,7 @@ import {UIText} from '../UIText';
 import {Skin} from './constants';
 
 export {Skin};
+
 interface Props extends CoreBadgeProps {
   /** Type of the badge */
   skin?: Skin;
@@ -32,14 +33,19 @@ export class CounterBadge extends React.PureComponent<Props> {
   render() {
     const {skin, children, ...coreProps} = this.props;
     const content = (React.Children.map(children, child => child))[0];
-    if ((typeof content === 'string' || typeof content === 'number') && content.toString().length > 2) {
+    const isNode = typeof content !== 'string' && typeof content !== 'number';
+    if (!isNode && content.toString().length > 2) {
       throw new Error('CounterBadge children max length must be less than 2');
     }
 
     return (
       <ThemedComponent {...{theme, skin}}>
         <CoreBadge {...coreProps}>
-          <UIText appearance="T5" dataClass="badge-content">{content}</UIText>
+          {
+            isNode ?
+              content :
+              <UIText appearance="T5" dataClass="badge-content">{content}</UIText>
+          }
         </CoreBadge>
       </ThemedComponent>
     );
