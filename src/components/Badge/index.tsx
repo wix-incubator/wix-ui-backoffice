@@ -5,8 +5,7 @@ import {ThemedComponent} from 'wix-ui-theme';
 
 import {theme} from './theme';
 import {UIText} from '../UIText';
-import {SKIN, FORM, Form} from './constants';
-import {Skin} from '../Input/theme';
+import {SKIN, FORM, Form, Skin} from './constants';
 
 const iconStyles = {
   prefix: {paddingRight: '8px'},
@@ -22,10 +21,10 @@ const createBadgeIcon = (type, icon, size) => (
 );
 
 export interface Props {
-  form: Form;
-  skin: Skin;
-  prefixIcon: any;
-  suffixIcon: any;
+  form?: Form;
+  skin?: Skin;
+  prefixIcon?: any;
+  suffixIcon?: any;
 }
 
 export class Badge extends React.PureComponent<Props> {
@@ -34,7 +33,7 @@ export class Badge extends React.PureComponent<Props> {
     /** Form (type) of the badge */
     form: oneOf(['solid', 'outlined', 'transparent']),
     /** Skin of the badge */
-    skin: oneOf(['default', 'standard', 'danger', 'success', 'grey', 'warning', 'urgent', 'neutralStandard', 'neutralSuccess', 'nutralDanger']),
+    skin: oneOf(['default', 'standard', 'danger', 'success', 'grey', 'warning', 'urgent', 'neutralStandard', 'neutralSuccess', 'neutralDanger']),
     /** The prefix icon of the badge */
     prefixIcon: node,
     /** The suffix icon of the badge */
