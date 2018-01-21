@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {oneOf, any} from 'prop-types';
+import {oneOf, node} from 'prop-types';
 import {ThemedComponent} from 'wix-ui-theme';
 import {Badge as CoreBadge, BadgeProps as CoreBadgeProps} from 'wix-ui-core/Badge';
 import {theme} from './theme';
@@ -22,7 +22,7 @@ export class CounterBadge extends React.PureComponent<Props> {
     /** Type of the badge */
     skin: oneOf(['default', 'standard', 'urgent', 'success']),
     /** Content of the badge */
-    children: any
+    children: node
   };
 
   static defaultProps: Props = {
