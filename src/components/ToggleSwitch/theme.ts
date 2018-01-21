@@ -73,11 +73,13 @@ export const theme: Function = ({size, skin}: { size: Size, skin: Skin }) => ({
     backgroundColorChecked: skins.skinToBackgroundColorChecked[skin],
     backgroundColorDisabled: palette.disabledButton,
     backgroundColorHover: skins.skinToHoverBackgroundColor[skin],
+    backgroundColorHoverChecked: skins.skinToHoverBackgroundColor[skin],
     backgroundColorFocus: skins.skinToHoverBackgroundColor[skin],
 
     color: skins.skinToColor[skin],
     colorChecked: skins.skinToColorChecked[skin],
     colorDisabled: palette.disabledDividers,
     colorCheckedDisabled: palette.disabledButton,
-    colorHover: skins.skinToHoverColor[skin]
+    colorHover: skins.skinToHoverColor[skin],
+    colorHoverChecked: skins.skinToHoverColor[skin]
 });
