@@ -32,28 +32,33 @@ const skinToTextColor = {
 };
 
 const formAndSkinToColor = (form, skin) => {
+  let coloring = {};
   switch (form) {
     case FORM.solid:
-      return {
+      coloring = {
         color: skinToTextColor[skin],
         backgroundColor: skinToColor[skin],
         borderColor: skinToColor[skin]
       };
+      break;
     case FORM.outlined:
-      return {
+      coloring = {
         color: skinToColor[skin],
         backgroundColor: D80,
         borderColor: skinToColor[skin]
       };
+      break;
     case FORM.transparent:
-      return {
+      coloring = {
         color: skinToColor[skin],
         backgroundColor: 'transparent',
         borderColor: 'transparent'
       };
+      break;
     default:
       break;
   }
+  return {...coloring, hover: coloring}
 };
 
 export const theme = ({form, skin}) => {

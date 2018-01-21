@@ -1,10 +1,6 @@
 import {Skin} from './constants';
 import {D20, B10, R10, G10, Color} from '../../colors';
 
-const HEIGHT: string = '18px';
-const PADDING: string = '3px 6px';
-const BORDER_RADIUS: string = '12px';
-
 const typeToColor: { [key: string]: Color} = {
   [Skin.DEFAULT]: D20,
   [Skin.STANDARD]: B10,
@@ -13,9 +9,13 @@ const typeToColor: { [key: string]: Color} = {
 };
 
 export const theme: Function = ({skin}: {skin: Skin}) => ({
-  height: HEIGHT,
-  padding: PADDING,
-  borderRadius: BORDER_RADIUS,
+  height: '18px',
+  padding: '3px 6px',
+  borderRadius: '12px',
   backgroundColor: typeToColor[skin],
-  borderColor: typeToColor[skin]
+  borderColor: typeToColor[skin],
+  hover: {
+    backgroundColor: typeToColor[skin],
+    borderColor: typeToColor[skin],
+  }
 });
