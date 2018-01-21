@@ -2,7 +2,7 @@ import {ToggleSwitch as CoreToggleSwitch, ToggleSwitchProps as CoreToggleSwitchP
 import style from './ToggleSwitch.st.css';
 import {withStylable} from 'wix-ui-core';
 
-export interface ToggleSwitchProps extends CoreToggleSwitchProps {
+export interface ToggleSwitchProps {
   skin?: 'standard' | 'error' | 'success';
   size?: 'large' | 'small' | 'x-small';
 }
@@ -12,7 +12,7 @@ const defaultProps = {
   size: 'large'
 };
 
-export const ToggleSwitch = withStylable<ToggleSwitchProps>(
+export const ToggleSwitch = withStylable<CoreToggleSwitchProps, ToggleSwitchProps>(
   CoreToggleSwitch,
   style,
   ({skin, size}) => ({[size]: true, [skin]: true}),
