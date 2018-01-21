@@ -1,6 +1,6 @@
 import {InputWithOptions as CoreInputWithOptions, InputWithOptionsProps as CoreInputWithOptionsProps} from 'wix-ui-core/InputWithOptions';
 import style from './InputWithOptions.st.css';
-import {appendStylable} from 'wix-ui-core';
+import {withStylable} from 'wix-ui-core';
 
 export interface InputWithOptionsProps extends CoreInputWithOptionsProps {
   skin?: 'standard' | 'error' | 'success';
@@ -12,7 +12,7 @@ const defaultProps = {
   size: 'large'
 };
 
-export const InputWithOptions = appendStylable<InputWithOptionsProps>(
+export const InputWithOptions = withStylable<InputWithOptionsProps>(
   CoreInputWithOptions,
   style,
   ({skin, size}) => ({[size]: true, [skin]: true}),
