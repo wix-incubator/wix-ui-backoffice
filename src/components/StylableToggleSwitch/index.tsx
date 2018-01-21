@@ -1,8 +1,13 @@
 import {ToggleSwitch as CoreToggleSwitch} from 'wix-ui-core/StylableToggleSwitch';
 import style from './ToggleSwitch.st.css';
-import {appendStylable} from 'wix-ui-core';
+import {withStylable} from 'wix-ui-core';
 
-export class ToggleSwitch extends CoreToggleSwitch {
+export interface ToggleSwitchProps {
+  skin?: 'standard' | 'error' | 'success';
+  size?: 'large' | 'small' | 'x-small';
+}
+
+export class ToggleSwitch extends CoreToggleSwitch<ToggleSwitchProps> {
   static defaultProps = {
     ...CoreToggleSwitch.defaultProps,
     skin: 'standard',
@@ -11,6 +16,6 @@ export class ToggleSwitch extends CoreToggleSwitch {
 
   render() {
     const root = super.render();
-    return appendStylable(this, root, style, ({size, skin}) => ({[size]: true, [skin]: true}));
+    return withStylable(this, root, style, ({size, skin}) => ({[size]: true, [skin]: true}));
   }
 }
