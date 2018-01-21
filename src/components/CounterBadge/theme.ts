@@ -9,7 +9,7 @@ const typeToColor: { [key: string]: Color} = {
 };
 
 export const theme: Function = ({skin}: {skin: Skin}) => ({
-  height: '18px',
+  height: 'initial',
   padding: '3px 6px',
   borderRadius: '12px',
   backgroundColor: typeToColor[skin],

@@ -1,10 +1,6 @@
 import {SKIN, FORM} from './constants';
 import {B20, B40, D20, D40, D80, G10, G30, O10, R10, R30, Y10} from '../../colors';
 
-const HEIGHT = '24px';
-const PADDING = '6px 12px';
-const BORDER_RADIUS = '2px';
-
 const skinToColor = {
   [SKIN.default]: D20,
   [SKIN.standard]: B20,
@@ -65,9 +61,9 @@ export const theme = ({form, skin}) => {
   const colorAttributes = formAndSkinToColor(form, skin);
 
   return {
-    height: HEIGHT,
-    padding: PADDING,
-    borderRadius: BORDER_RADIUS,
+    height: 'initial',
+    padding: '6px 12px',
+    borderRadius: '2px',
     ...colorAttributes
   };
 };
