@@ -54,16 +54,11 @@ const formAndSkinToColor = (form, skin) => {
     default:
       break;
   }
-  return {...coloring, hover: coloring}
+  return coloring
 };
 
 export const theme = ({form, skin}) => {
-  const colorAttributes = formAndSkinToColor(form, skin);
-
   return {
-    height: 'initial',
-    padding: '6px 12px',
-    borderRadius: '2px',
-    ...colorAttributes
+    ...formAndSkinToColor(form, skin)
   };
 };
