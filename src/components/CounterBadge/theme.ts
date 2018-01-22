@@ -8,14 +8,12 @@ const typeToColor: { [key: string]: Color} = {
   [Skin.SUCCESS]: G10
 };
 
-export const theme: Function = ({skin}: {skin: Skin}) => ({
-  height: 'initial',
-  padding: '3px 6px',
-  borderRadius: '12px',
+export const theme = ({skin}: {skin: Skin}) => ({
+  border: 'initial',
+  height: '18px',
+  width: '18px',
+  borderRadius: '50%',
+  padding: '0',
   backgroundColor: typeToColor[skin],
   borderColor: typeToColor[skin],
-  hover: {
-    backgroundColor: typeToColor[skin],
-    borderColor: typeToColor[skin],
-  }
 });
