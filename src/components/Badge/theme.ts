@@ -54,7 +54,7 @@ const formAndSkinToColor = (form, skin) => {
     default:
       break;
   }
-  return coloring
+  return coloring;
 };
 
 export const theme = ({form, skin}) => {

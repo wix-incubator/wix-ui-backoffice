@@ -13,7 +13,7 @@ export const theme = ({skin, canGrow}: {skin: Skin, canGrow: boolean}) => ({
   height: '18px',
   minWidth: '18px',
   borderRadius: '12px',
-  padding: canGrow ? '3px 6px': '0',
+  padding: canGrow ? '3px 6px' : '0',
   backgroundColor: typeToColor[skin],
   borderColor: typeToColor[skin],
 });
