@@ -1,6 +1,6 @@
 import {Divider as CoreDivider, DividerProps as CoreDividerProps} from 'wix-ui-core/Divider';
 import style from './Divider.st.css';
-import {withStylableStateless} from 'wix-ui-core';
+import {withStylable} from 'wix-ui-core';
 
 export interface DividerProps {
   skin?: 'standard' | 'error' | 'success';
@@ -12,7 +12,7 @@ const defaultProps = {
   size: 'large'
 };
 
-export const Divider = withStylableStateless<CoreDividerProps, DividerProps>(
+export const Divider = withStylable<CoreDividerProps, DividerProps>(
   CoreDivider,
   style,
   ({skin, size}) => ({[size]: true, [skin]: true}),
