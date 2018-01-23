@@ -82,5 +82,5 @@ export const theme: Function = ({size, skin}: { size: Size, skin: Skin }) => ({
     colorCheckedDisabled: palette.disabledButton,
     colorHover: skins.skinToHoverColor[skin],
     colorHoverChecked: skins.skinToHoverColor[skin],
-    colorFocus: skins.skinToHoverColor[skin]
+    colorFocus: skins.skinToHoverColor[skin],
 });

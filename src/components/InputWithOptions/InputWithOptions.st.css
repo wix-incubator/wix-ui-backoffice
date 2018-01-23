@@ -1,0 +1,10 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/components/InputWithOptions/InputWithOptionsStyle.st.css";
+  -st-default: InputWithOptions;
+}
+
+.root {
+  -st-mixin: InputWithOptions(
+    contentBackgroundColor red
+  );
+}
