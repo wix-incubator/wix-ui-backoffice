@@ -10,36 +10,36 @@ export type Point = {
 };
 
 export interface TooltipProps {
-  textAlign: string;
-  children: any;
+  textAlign?: string;
+  children?: any;
   content: any; // isRequired
-  placement: 'top' | 'right' | 'bottom' | 'left';
-  alignment: 'top' | 'right' | 'bottom' | 'left' | 'center';
-  theme: 'light' | 'dark' | 'error';
-  showDelay: number;
-  hideDelay: number;
-  showTrigger: 'custom' | 'mouseenter' | 'mouseleave' | 'click' | 'focus' | 'blur';
-  hideTrigger: 'custom' | 'mouseenter' | 'mouseleave' | 'click' | 'focus' | 'blur';
-  active: boolean;
-  bounce: boolean;
-  disabled: boolean;
-  maxWidth: string | number;
-  minWidth: string | number;
-  onClickOutside: Function;
-  color: string;
-  lineHeight: string;
-  onShow: Function;
-  onHide: Function;
-  zIndex: number;
-  appendToParent: boolean;
-  appendTo: any;
-  moveBy: Point;
-  moveArrowTo: number;
-  size: 'normal' | 'large';
-  shouldCloseOnClickOutside: boolean;
-  relative: boolean;
-  padding: string | number;
-  shouldUpdatePosition: boolean;
+  placement?: 'top' | 'right' | 'bottom' | 'left';
+  alignment?: 'top' | 'right' | 'bottom' | 'left' | 'center';
+  theme?: 'light' | 'dark' | 'error';
+  showDelay?: number;
+  hideDelay?: number;
+  showTrigger?: 'custom' | 'mouseenter' | 'mouseleave' | 'click' | 'focus' | 'blur';
+  hideTrigger?: 'custom' | 'mouseenter' | 'mouseleave' | 'click' | 'focus' | 'blur';
+  active?: boolean;
+  bounce?: boolean;
+  disabled?: boolean;
+  maxWidth?: string | number;
+  minWidth?: string | number;
+  onClickOutside?: Function;
+  color?: string;
+  lineHeight?: string;
+  onShow?: Function;
+  onHide?: Function;
+  zIndex?: number;
+  appendToParent?: boolean;
+  appendTo?: any;
+  moveBy?: Point;
+  moveArrowTo?: number;
+  size?: 'normal' | 'large';
+  shouldCloseOnClickOutside?: boolean;
+  relative?: boolean;
+  padding?: string | number;
+  shouldUpdatePosition?: boolean;
 }
 
 const defaultProps = {

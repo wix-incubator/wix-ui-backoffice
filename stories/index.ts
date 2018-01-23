@@ -6,4 +6,5 @@ require('./Input').story();
 require('./InputWithOptions').story();
 require('./StylableToggleSwitch').story();
 require('./ToggleSwitch').story();
+require('./Tooltip').story();
 require('./UIText').story();
