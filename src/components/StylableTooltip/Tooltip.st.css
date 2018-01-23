@@ -1,0 +1,13 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/components/Tooltip/TooltipStyle.st.css";
+  -st-default: Tooltip;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: tableSelected, main, mainHover, disabled, successNotifications, dangerNotifications, ctaHover, danger, successHover, dangerHover, disabledDividers;
+}
+
+.root {
+  -st-extends: Tooltip;
+}
