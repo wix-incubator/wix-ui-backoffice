@@ -8,12 +8,12 @@ const typeToColor: { [key: string]: Color} = {
   [Skin.SUCCESS]: G10
 };
 
-export const theme = ({skin}: {skin: Skin}) => ({
+export const theme = ({skin, canGrow}: {skin: Skin, canGrow: boolean}) => ({
   border: 'initial',
   height: '18px',
-  width: '18px',
-  borderRadius: '50%',
-  padding: '0',
+  minWidth: '18px',
+  borderRadius: '12px',
+  padding: canGrow ? '3px 6px': '0',
   backgroundColor: typeToColor[skin],
   borderColor: typeToColor[skin],
 });

@@ -29,7 +29,7 @@ describe('CounterBadge', () => {
 
   describe('validations', () => {
     it('should throw when children length is more than 2', () => {
-      expect(() => render({children: 123})).toThrow('CounterBadge children max length must be less than 2');
+      expect(() => render({children: 123})).toThrow('CounterBadge children max length can not be more than 2');
     });
   });
 });

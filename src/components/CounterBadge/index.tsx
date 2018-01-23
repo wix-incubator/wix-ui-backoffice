@@ -8,6 +8,8 @@ import {Skin} from './constants';
 
 export {Skin};
 
+const maxContentLength = 2;
+
 interface Props extends CoreBadgeProps {
   /** Type of the badge */
   skin?: Skin;
@@ -33,16 +35,25 @@ export class CounterBadge extends React.PureComponent<Props> {
   render() {
     const {skin, children, ...coreProps} = this.props;
     const content = (React.Children.map(children, child => child))[0];
-    const isNode = typeof content !== 'string' && typeof content !== 'number';
-    if (!isNode && content.toString().length > 2) {
-      throw new Error('CounterBadge children max length must be less than 2');
-    }
+    const isIcon = typeof content !== 'string' && typeof content !== 'number';
 
+    let canGrow = false;
+
+    if (!isIcon) {
+      const contentLength = content.toString().length;
+      if (contentLength > maxContentLength) {
+        throw new Error(`CounterBadge children max length can not be more than ${maxContentLength}`);
+      }
+
+      if (contentLength === maxContentLength) {
+        canGrow = true;
+      }
+    }
     return (
-      <ThemedComponent {...{theme, skin}}>
+      <ThemedComponent {...{theme, skin, canGrow}}>
         <CoreBadge {...coreProps}>
           {
-            isNode ?
+            isIcon ?
               content :
               <UIText appearance="T5" dataClass="badge-content">{content}</UIText>
           }
