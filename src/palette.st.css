@@ -4,7 +4,8 @@
   B10, B20, B30, B40, B50,
   G10, G20, G30,
   R10, R20, R30,
-  D55, D60;
+  D55, D60,
+  GR40;
 }
 
 :vars {
@@ -21,4 +22,5 @@
   dangerHover: value(R20);
   disabled: value(D55);
   disabledDividers: value(D60);
+  disabledButton: value(GR40);
 }
