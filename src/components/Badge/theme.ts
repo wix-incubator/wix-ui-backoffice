@@ -1,10 +1,6 @@
 import {SKIN, FORM} from './constants';
 import {B20, B40, D20, D40, D80, G10, G30, O10, R10, R30, Y10} from '../../colors';
 
-const HEIGHT = '24px';
-const PADDING = '6px 12px';
-const BORDER_RADIUS = '2px';
-
 const skinToColor = {
   [SKIN.default]: D20,
   [SKIN.standard]: B20,
@@ -32,37 +28,37 @@ const skinToTextColor = {
 };
 
 const formAndSkinToColor = (form, skin) => {
+  let coloring = {};
   switch (form) {
     case FORM.solid:
-      return {
+      coloring = {
         color: skinToTextColor[skin],
         backgroundColor: skinToColor[skin],
         borderColor: skinToColor[skin]
       };
+      break;
     case FORM.outlined:
-      return {
+      coloring = {
         color: skinToColor[skin],
         backgroundColor: D80,
         borderColor: skinToColor[skin]
       };
+      break;
     case FORM.transparent:
-      return {
+      coloring = {
         color: skinToColor[skin],
         backgroundColor: 'transparent',
         borderColor: 'transparent'
       };
+      break;
     default:
       break;
   }
+  return coloring;
 };
 
 export const theme = ({form, skin}) => {
-  const colorAttributes = formAndSkinToColor(form, skin);
-
   return {
-    height: HEIGHT,
-    padding: PADDING,
-    borderRadius: BORDER_RADIUS,
-    ...colorAttributes
+    ...formAndSkinToColor(form, skin)
   };
 };

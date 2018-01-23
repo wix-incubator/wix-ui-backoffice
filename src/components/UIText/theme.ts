@@ -54,8 +54,8 @@ const classes: { [key: string]: TypographyConfig } = {
   'T4.5': createTypography(t.fontRoman, '14px', '18px', colors.D55),
   'T4.6': createTypography(t.fontRoman, '14px', '18px', colors.R10),
   'T4.7': createTypography(t.fontRoman, '14px', '18px', colors.G10),
-  T5: {...createTypography(t.fontMedium, '10px', '12px', colors.D20), textTransform: 'uppercase', letterSpacing: '1px'},
-  'T5.1': {...createTypography(t.fontMedium, '10px', '12px', colors.D80), textTransform: 'uppercase', letterSpacing: '1px'}
+  T5: {...createTypography(t.fontMedium, '10px', '12px', colors.D20), textTransform: 'uppercase', letterSpacing: '1px', margin: '0 -1px 0 0'},
+  'T5.1': {...createTypography(t.fontMedium, '10px', '12px', colors.D80), textTransform: 'uppercase', letterSpacing: '1px', margin: '0 -1px 0 0'}
 };
 
 export const theme: Function = ({appearance}: {appearance: Appearance}) => classes[appearance];
