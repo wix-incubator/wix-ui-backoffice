@@ -10,7 +10,7 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: tableSelected, main, mainHover, disabled, successNotifications, dangerNotifications, ctaHover, danger, successHover, dangerHover, disabledDividers;
+  -st-named: tableSelected, main, mainHover, disabled, successNotifications, dangerNotifications, ctaHover, danger, successHover, dangerHover, disabledDividers, disabledButton;
 }
 
 .root {
@@ -33,9 +33,20 @@
 
     backgroundColor value(tableSelected),
     backgroundColorChecked value(main),
-    disabled value(disabled),
+    backgroundColorDisabled value(disabled),
     backgroundColorHover value(mainHover),
-    backgroundColorFocus value(mainHover)
+    backgroundColorFocus value(mainHover),
+
+    color value(tableSelected),
+    colorChecked value(main),
+    colorDisabled value(disabledDividers),
+    colorCheckedDisabled value(disabledButton),
+    colorHover value(mainHover),
+    colorFocus value(mainHover),
+
+    toggleIconWidth 8px,
+    toggleIconHeight 6px,
+    toggleIconDisplay block
   );
 }
 
