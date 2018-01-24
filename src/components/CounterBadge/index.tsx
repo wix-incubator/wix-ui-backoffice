@@ -29,7 +29,8 @@ export class CounterBadge extends React.PureComponent<Props> {
   };
 
   static defaultProps: Props = {
-    skin: Skin.DEFAULT
+    skin: Skin.DEFAULT,
+    children: ''
   };
 
   render() {
