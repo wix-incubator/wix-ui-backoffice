@@ -4,7 +4,8 @@ import {Tooltip} from '../../src/components/Tooltip';
 
 function createTooltip(direction) {
   return (
-    <Tooltip data-hook={`story-tooltip-${direction}`} placement={direction} minWidth={'350px'}
+    <Tooltip data-hook={`story-tooltip-${direction}`} placement={direction}
+             minWidth={'200px'} textAlign={'center'} padding={'5px'}
              content={<p>This is my tooltip</p>}>
       <span>I need a tooltip</span>
     </Tooltip>
@@ -13,7 +14,7 @@ function createTooltip(direction) {
 
 class FullTooltip extends React.Component<any, {shown: boolean}> {
   render() {
-    return <div>{createTooltip('right')}</div>;
+    return <div style={{margin: '5em'}}>{createTooltip('right')}</div>;
   }
 }
 
