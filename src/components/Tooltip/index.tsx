@@ -12,7 +12,7 @@ export type Point = {
 export interface TooltipProps {
   textAlign?: string;
   children?: any;
-  content: any; // isRequired
+  content?: any;
   placement?: 'top' | 'right' | 'bottom' | 'left';
   alignment?: 'top' | 'right' | 'bottom' | 'left' | 'center';
   theme?: 'light' | 'dark' | 'error';
