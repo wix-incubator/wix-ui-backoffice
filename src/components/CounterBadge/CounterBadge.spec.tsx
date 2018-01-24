@@ -1,35 +1,65 @@
-import {mount} from 'enzyme';
-import {CounterBadge} from './';
 import * as React from 'react';
+import {counterBadgeDriverFactory} from './CounterBadge.driver';
+import {CounterBadge} from './';
+import {createDriverFactory} from 'wix-ui-test-utils/dist/src/createDriverFactory'
+import {isTestkitExists} from 'wix-ui-test-utils/dist/src/testkit-helpers/vanilla';
+import {isEnzymeTestkitExists} from 'wix-ui-test-utils/dist/src/testkit-helpers/enzyme';
+import {counterBadgeTestkitFactory} from '../../testkit';
+import {counterBadgeTestkitFactory as enzymeCounterBadgeTestkitFactory} from '../../testkit/enzyme';
+import {mount} from 'enzyme';
 
 describe('CounterBadge', () => {
-  let wrapper;
-
-  const render = (props = {}) => mount(
-    <CounterBadge {...props}/>,
-    {attachTo: document.createElement('div')}
-  );
+  const createDriver = createDriverFactory(counterBadgeDriverFactory);
 
   describe('general', () => {
-    afterEach(() => wrapper.detach());
-
     describe('children prop', () => {
 
       it('should render the children', () => {
-        wrapper = render({children: 12});
-        expect(wrapper.text()).toBe('12');
+        const driver = createDriver(
+          <CounterBadge>
+            12
+          </CounterBadge>,
+        );
+        expect(driver.getContentText()).toBe('12');
       });
 
       it('should render the children as a component', () => {
-        wrapper = render({children: <div data-hook="comp">12</div>});
-        expect(wrapper.find('[data-hook="comp"]').text()).toBe('12');
+        const driver = createDriver(
+          <CounterBadge>
+            <div data-hook="comp">12</div>
+          </CounterBadge>,
+        );
+        expect(driver.getContentText()).toBe('12');
+      });
+
+      it('should render a default empty child', () => {
+        const driver = createDriver(
+          <CounterBadge/>,
+        );
+        expect(driver.getContentText()).toBe('');
       });
     });
   });
 
   describe('validations', () => {
     it('should throw when children length is more than 2', () => {
-      expect(() => render({children: 123})).toThrow('CounterBadge children max length can not be more than 2');
+      expect(() => mount(
+        <CounterBadge>
+          123
+        </CounterBadge>,
+      )).toThrow('CounterBadge children max length can not be more than 2');
+    });
+  });
+
+  describe('testkit', () => {
+    it('should exist', () => {
+      expect(isTestkitExists(<CounterBadge>12</CounterBadge>, counterBadgeTestkitFactory)).toBe(true);
+    });
+  });
+
+  describe('enzyme testkit', () => {
+    it('should exist', () => {
+      expect(isEnzymeTestkitExists(<CounterBadge>12</CounterBadge>, enzymeCounterBadgeTestkitFactory, mount)).toBe(true);
     });
   });
 });
