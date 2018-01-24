@@ -12,19 +12,8 @@ describe('CounterBadge', () => {
 
   eyes.it('should display correct content', async () => {
     const driver = counterBadgeTestkitFactory({dataHook: 'storybook-counterBadge'});
-    // await browser.wait(ExpectedConditions.visibilityOf(driver.element()), 10000, 'Cannot find CounterBadge');
-    // expect(await driver.getTextContent()).toBe('12');
-
     await waitForVisibilityOf(driver.element(), 'Cannot find Badge');
-    await autoExampleDriver.setProps({children: () => '34'});
-    await wait(5000);
+    await autoExampleDriver.setProps({children: '34'});
     expect(await driver.getTextContent()).toBe('34');
   });
 });
-
-
-function wait (time) {
-  return new Promise(fulfill => {
-    setTimeout(() => fulfill() ,time);
-  });
-}
