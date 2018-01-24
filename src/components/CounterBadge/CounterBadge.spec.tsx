@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {counterBadgeDriverFactory} from './CounterBadge.driver';
 import {CounterBadge} from './';
-import {createDriverFactory} from 'wix-ui-test-utils/dist/src/createDriverFactory'
+import {createDriverFactory} from 'wix-ui-test-utils/dist/src/createDriverFactory';
 import {isTestkitExists} from 'wix-ui-test-utils/dist/src/testkit-helpers/vanilla';
 import {isEnzymeTestkitExists} from 'wix-ui-test-utils/dist/src/testkit-helpers/enzyme';
 import {counterBadgeTestkitFactory} from '../../testkit';
