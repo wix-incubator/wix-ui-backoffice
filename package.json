@@ -25,7 +25,7 @@
     "test": "haste test --jest && haste test --protractor",
     "posttest": "haste lint",
     "test:watch": "haste test --jest --watch",
-    "start": "haste start --no-test & npm run storybook",
+    "start": "npm run storybook & haste start",
     "release": "haste release && gh-pages-auto-release --dist=storybook-static",
     "storybook": "start-storybook -p 6006"
   },
@@ -37,9 +37,10 @@
     "babel-runtime": "^6.22.0",
     "eyes.it": "^2.0.1",
     "lodash": "^4.17.4",
-    "stylable": "^5.1.0",
+    "stylable": "^5.1.2",
     "stylable-integration": "^6.0.3",
     "wix-ui-core": "^1.0.87",
+    "wix-ui-icons-common": "^1.0.3",
     "wix-ui-theme": "^1.0.0"
   },
   "devDependencies": {
@@ -74,9 +75,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "yoshi": {
-    "entry": {
-      "app": "index.ts"
-    },
     "externals": {
       "react": "React"
     }

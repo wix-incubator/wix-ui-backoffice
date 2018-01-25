@@ -1,24 +1,66 @@
 :import {
   -st-from: "./colors.st.css";
   -st-named: 
-  B10, B20, B30, B40, B50,
-  G10, G20, G30,
-  R10, R20, R30,
-  D55, D60;
+  B00, B10, B20, B30, B40, B50,
+  G10, G20, G30, G40,
+  R10, R20, R30, R40,
+  D10, D20, D40, D50, D60, D70,
+  P10, P20, P30, P40,
+  Y10, Y20, Y30, Y40,
+  WHITE;
 }
 
+/* main */
 :vars {
+  backgroundPrimary: value(D70);
+  backgroundSecondary: value(WHITE);
+  brandPrimary: value(B10);
+  brandSecondary: value(D10);
+
+  disabled: value(D50);
+  focus: value(B00);
+  
   main: value(B10);
-  mainHover: value(B20);
-  notifications: value(B30);
-  tableSelected: value(B40);
-  dividers: value(B50);
-  successNotifications: value(G30);
-  dangerNotifications: value(R30);
-  ctaHover: value(G10);
-  danger: value(R10);
-  successHover: value(G20);
-  dangerHover: value(R20);
-  disabled: value(D55);
-  disabledDividers: value(D60);
+  success:	value(G10);
+  warning:	value(Y10);
+  danger:	value(R10);
+  premium:	value(P10);
+
+  mainHover:	value(B20);
+  successHover:	value(G20);
+  warningHover:	value(Y20);
+  dangerHover:	value(R20);
+  premiumHover:	value(P20);
+
+  mainMuted:	value(B40);
+  successMuted:	value(G40);
+  warningMuted:	value(Y40);
+  dangerMuted:	value(R40);
+  premiumMuted:	value(P40);
+
+  mainMutedHover:	value(B30);
+  successMutedHover:	value(G30);
+  warningMutedHover:	value(Y30);
+  dangerMutedHover:	value(R30);
+  premiumMutedHover:	value(P30);
+}
+
+/* typography */
+:vars {
+  primaryText: value(D10);
+  secondaryText: value(D20);
+  placeholderText: value(D40);
+  disabledText: value(D50);
+
+  linkedText: value(brandPrimary);
+  linkedTextHover: value(brandPrimary);
+
+  headingText: value(primaryText);
+  subheadingText: value(secondaryText);
+}
+
+/* layout */
+:vars {
+  cardBackground: value(backgroundSecondary);
+  dividerColor: value(D60);
 }

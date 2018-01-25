@@ -1,10 +1,6 @@
 import {Skin} from './constants';
 import {D20, B10, R10, G10, Color} from '../../colors';
 
-const HEIGHT: string = '18px';
-const PADDING: string = '3px 6px';
-const BORDER_RADIUS: string = '12px';
-
 const typeToColor: { [key: string]: Color} = {
   [Skin.DEFAULT]: D20,
   [Skin.STANDARD]: B10,
@@ -12,10 +8,12 @@ const typeToColor: { [key: string]: Color} = {
   [Skin.SUCCESS]: G10
 };
 
-export const theme: Function = ({skin}: {skin: Skin}) => ({
-  height: HEIGHT,
-  padding: PADDING,
-  borderRadius: BORDER_RADIUS,
+export const theme = ({skin, canGrow}: {skin: Skin, canGrow: boolean}) => ({
+  border: 'initial',
+  height: '18px',
+  minWidth: '18px',
+  borderRadius: '12px',
+  padding: canGrow ? '3px 6px' : '0',
   backgroundColor: typeToColor[skin],
-  borderColor: typeToColor[skin]
+  borderColor: typeToColor[skin],
 });
