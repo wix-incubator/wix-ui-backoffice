@@ -1,5 +1,6 @@
 require('./Badge').story();
 require('./Button').story();
+require('./Checkbox').story();
 require('./CounterBadge').story();
 require('./Heading').story();
 require('./Input').story();
