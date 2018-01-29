@@ -3,7 +3,7 @@ import {getStoryUrl} from 'wix-ui-test-utils';
 import {inputTestkitFactory} from 'wix-ui-core/dist/src/testkit/protractor';
 import {browser} from 'protractor';
 
-describe('Input', () => {
+xdescribe('Input', () => {
   const storyUrl = getStoryUrl('Components', 'Input');
   const dataHook = 'storybook-input';
 
