@@ -14,4 +14,21 @@ describe('Checkbox', () => {
 
     expect(driver.element()).toBeDefined();
   });
+
+  eyes.it('should be unchecked and not disabled by default', () => {
+    const driver = checkboxTestkitFactory({dataHook});
+
+    expect(driver.isChecked()).toBe(false);
+    expect(driver.isDisabled()).toBe(false);
+  });
+
+  eyes.it('should become checked', () => {
+    const driver = checkboxTestkitFactory({dataHook});
+
+    expect(driver.isChecked()).toBe(false);
+
+    driver.click();
+
+    expect(driver.isChecked()).toBe(true);
+  });
 });
