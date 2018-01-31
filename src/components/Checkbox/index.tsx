@@ -5,13 +5,11 @@ import {withStylable} from 'wix-ui-core';
 export interface CheckboxProps {
   skin?: 'standard' | 'error' | 'success';
   size?: 'large' | 'small' | 'x-small';
-  dataHook?: string;
 }
 
 const defaultProps = {
   skin: 'standard',
-  size: 'large',
-  dataHook: 'storybook-checkbox'
+  size: 'large'
 };
 
 export const Checkbox = withStylable<CoreCheckboxProps, CheckboxProps>(

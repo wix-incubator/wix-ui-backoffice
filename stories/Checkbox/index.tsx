@@ -1,16 +1,22 @@
-import createStory from '../create-story';
+import {storiesOf} from '@storybook/react';
 import {Checkbox} from '../../src/components/Checkbox';
-import * as CheckboxSource from '!raw-loader!../../src/components/Checkbox/index.tsx';
+import * as React from 'react';
 
-export const story = () => createStory({
-  category: 'Components',
-  name: 'Checkbox',
-  storyName: 'Checkbox',
-  component: Checkbox,
-  componentProps: (setState, getState) => ({
-    checked: false,
-    onChange: () => setState({checked: !getState().checked}),
-    dataHook: 'storybook-checkbox'
-  }),
-  source: CheckboxSource
-});
+class ControlledCheckbox extends React.Component<any, { checked: boolean }> {
+  constructor(props) {
+    super(props);
+    this.state = {checked: false};
+  }
+  render() {
+    return <Checkbox {...this.props} checked={this.state.checked} onChange={() => this.setState({checked: !this.state.checked})} />;
+  }
+}
+
+export const story = () => storiesOf('Components', module)
+  .add('Checkbox', () => (
+    <div style={{width: '50px'}}>
+      <ControlledCheckbox dataHook="story-checkbox">
+        Hello
+      </ControlledCheckbox>
+    </div>
+  ));
