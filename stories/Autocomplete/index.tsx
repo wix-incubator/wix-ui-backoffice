@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-import {InputWithOptions} from '../../src/components/InputWithOptions';
+import {Autocomplete} from '../../src/components/Autocomplete';
 import {OptionFactory} from 'wix-ui-core/dist/src/baseComponents/DropdownOption';
 
 const dropdownOptions =
@@ -9,8 +9,11 @@ const dropdownOptions =
       index === 5 ? OptionFactory.createDivider() : OptionFactory.create(index, index === 3, true, index === 15 ? 'fdsf sdf sdf sdf sdf sdfsd fsdf sdf ds' : `value${index}`));
 
 export const story = () => storiesOf('Components', module)
-  .add('InputWithOptions', () => (
+  .add('Autocomplete', () => (
     <div style={{width: '50px'}}>
-      <InputWithOptions options={dropdownOptions} data-hook="story-input-with-options" />
+      <Autocomplete
+        onSelect={() => null}
+        options={dropdownOptions}
+        data-hook="story-autocomplete" />
     </div>
   ));

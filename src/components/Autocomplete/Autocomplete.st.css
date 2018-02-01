@@ -6,3 +6,8 @@
 .root {
   -st-extends: InputWithOptions;
 }
+/* 
+.root::dropdownOption:hovered {
+  background: #eaf7ff;
+  color: #162d3d;
+} */
