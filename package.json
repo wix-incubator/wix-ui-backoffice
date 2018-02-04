@@ -22,10 +22,11 @@
   "scripts": {
     "build": "haste build && import-path --path src/components --dts",
     "pretest": "npm run build && build-storybook",
-    "test": "haste test --jest && haste test --protractor",
+    "test": "haste test --jest && npm run test:e2e",
     "posttest": "haste lint",
     "test:watch": "haste test --jest --watch",
-    "start": "npm run storybook & haste start",
+    "test:e2e": "haste test --protractor",
+    "start": "haste start --no-test & npm run storybook",
     "release": "haste release && gh-pages-auto-release --dist=storybook-static",
     "storybook": "start-storybook -p 6006"
   },
