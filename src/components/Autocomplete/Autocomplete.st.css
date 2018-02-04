@@ -15,7 +15,14 @@
 
 .root::option {
   cursor: pointer;
-  }
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  font-size: 16px;
+  color: #162d3d;
+  max-width: 250px;
+  white-space: nowrap;
+  padding: 8px 0;
 }
 
 .root::option:hovered {
