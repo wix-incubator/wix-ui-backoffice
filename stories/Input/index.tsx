@@ -9,7 +9,7 @@ export const story = () => createStory({
   storyName: 'Input',
   component: Input,
   componentProps: () => ({
-    dataHook: 'storybook-input'
+    'data-hook': 'storybook-input'
   }),
   source: InputSource
 });

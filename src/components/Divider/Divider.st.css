@@ -1,4 +1,8 @@
 :import {
   -st-from: "wix-ui-core/dist/src/components/Divider/Divider.st.css";
-  -st-default: InputWithOptions;
+  -st-default: Divider;
+}
+
+.root {
+  -st-extends: Divider;
 }

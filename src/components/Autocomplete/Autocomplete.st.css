@@ -1,0 +1,38 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/components/InputWithOptions/InputWithOptions.st.css";
+  -st-default: InputWithOptions;
+}
+
+.root {
+  -st-extends: InputWithOptions;
+}
+
+.root::popoverContentContainer {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
+}
+
+.root::dropdownContent::dropdownOption {
+  cursor: pointer;
+}
+
+.root::dropdownContent::dropdownOption:hovered {
+  background: #eaf7ff;
+  color: #162d3d;
+}
+
+.root::dropdownContent::dropdownOption:selected {
+  background: #3899ec;
+  color: #ffffff;
+}
+
+.root::dropdownContent::dropdownOption:selected:hovered {
+  background: #4eb7f5;
+  color: #ffffff;
+}
+
+.root::dropdownContent::dropdownOption:disabled {
+  color: #b6c1cd;
+  cursor: default;
+}
