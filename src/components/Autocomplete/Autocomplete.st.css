@@ -7,32 +7,33 @@
   -st-extends: InputWithOptions;
 }
 
-.root::popoverContentContainer {
+.root::contentContainer {
   border: none;
   border-radius: 8px;
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
 }
 
-.root::dropdownContent::dropdownOption {
+.root::option {
   cursor: pointer;
+  }
 }
 
-.root::dropdownContent::dropdownOption:hovered {
+.root::option:hovered {
   background: #eaf7ff;
   color: #162d3d;
 }
 
-.root::dropdownContent::dropdownOption:selected {
+.root::option:selected {
   background: #3899ec;
   color: #ffffff;
 }
 
-.root::dropdownContent::dropdownOption:selected:hovered {
+.root::option:selected:hovered {
   background: #4eb7f5;
   color: #ffffff;
 }
 
-.root::dropdownContent::dropdownOption:disabled {
+.root::option:disabled {
   color: #b6c1cd;
   cursor: default;
 }
