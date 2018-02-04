@@ -81,8 +81,10 @@
   },
   "jest": {
     "transform": {
-      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
+      "\\.(st.css)$": "stylable-integration/jest"
     },
+    "transformIgnorePatterns": [],
     "setupTestFrameworkScriptFile": "wix-ui-test-utils/dist/src/jest-setup",
     "setupFiles": [
       "<rootDir>/test/enzyme-setup.js"
