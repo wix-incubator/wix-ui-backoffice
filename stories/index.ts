@@ -1,10 +1,10 @@
+require('./Autocomplete').story();
 require('./Badge').story();
 require('./Button').story();
 require('./Checkbox').story();
 require('./CounterBadge').story();
 require('./Heading').story();
 require('./Input').story();
-require('./InputWithOptions').story();
 require('./StylableToggleSwitch').story();
 require('./ToggleSwitch').story();
 require('./UIText').story();
