@@ -10,7 +10,7 @@
 
   :import {
     -st-from: "../../palette.st.css";
-    -st-named: primaryText, mainMutedHover;
+    -st-named: primaryText, mainHover, mainMutedHover, dividers;
   }
 
   :vars {
@@ -31,6 +31,16 @@
     line-height: 58px;
     font-size: 22px;
   }
+
+  .root:hover {
+    background-color: value(dividers);
+  }
+
+  .root:focus {
+    border-color: value(mainHover);
+  }
+
+
 
   /* .root:small {
     -st-extends: BaseInput;

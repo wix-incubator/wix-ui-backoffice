@@ -61,6 +61,7 @@
 
 /* layout */
 :vars {
+  dividers: value(B50);
   cardBackground: value(backgroundSecondary);
   dividerColor: value(D60);
 }
