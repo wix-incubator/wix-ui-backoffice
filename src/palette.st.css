@@ -45,6 +45,14 @@
   premiumMutedHover:	value(P30);
 }
 
+/* Input colors */
+:vars {
+  inputBackground: value(WHITE);
+  inputBorderColor: value(mainMutedHover);
+  inputHover: value(B50);
+  inputFocusBorderColor: value(mainHover);
+}
+
 /* typography */
 :vars {
   primaryText: value(D10);
@@ -61,7 +69,6 @@
 
 /* layout */
 :vars {
-  dividers: value(B50);
   cardBackground: value(backgroundSecondary);
   dividerColor: value(D60);
 }

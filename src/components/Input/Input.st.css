@@ -10,7 +10,7 @@
 
   :import {
     -st-from: "../../palette.st.css";
-    -st-named: primaryText, mainHover, mainMutedHover, dividers;
+    -st-named: primaryText, inputBackground, inputBorderColor, inputHover, inputFocusBorderColor;
   }
 
   :vars {
@@ -34,16 +34,16 @@
     border-radius: value(borderRadius);
     border: value(border);
     color: value(primaryText);
-    background-color: white;
-    border-color: value(mainMutedHover);
+    background-color: value(inputBackground);
+    border-color: value(inputBorderColor);
   }
 
   .root:hover {
-    background-color: value(dividers);
+    background-color: value(inputHover);
   }
 
   .root:focus {
-    border-color: value(mainHover);
+    border-color: value(inputFocusBorderColor);
   }
 
   .root:large {
