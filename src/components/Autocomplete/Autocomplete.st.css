@@ -6,8 +6,41 @@
 .root {
   -st-extends: InputWithOptions;
 }
-/* 
-.root::dropdownOption:hovered {
+
+.root::contentContainer {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
+}
+
+.root::option {
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  font-size: 16px;
+  color: #162d3d;
+  max-width: 250px;
+  white-space: nowrap;
+  padding: 8px 0;
+}
+
+.root::option:hovered {
   background: #eaf7ff;
   color: #162d3d;
-} */
+}
+
+.root::option:selected {
+  background: #3899ec;
+  color: #ffffff;
+}
+
+.root::option:selected:hovered {
+  background: #4eb7f5;
+  color: #ffffff;
+}
+
+.root::option:disabled {
+  color: #b6c1cd;
+  cursor: default;
+}
