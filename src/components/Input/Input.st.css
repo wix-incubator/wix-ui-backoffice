@@ -10,7 +10,7 @@
 
   :import {
     -st-from: "../../palette.st.css";
-    -st-named: primaryText, inputBackground, inputBorderColor, inputHover, inputFocusBorderColor;
+    -st-named: primaryText, inputBackground, inputBorderColor, inputHover, inputFocusBorderColor, danger;
   }
 
   :vars {
@@ -29,7 +29,7 @@
   
   .root {
     -st-extends: BaseInput;
-    -st-states: large, x-small, small;
+    -st-states: error, large, x-small, small;
     padding: value(padding);
     border-radius: value(borderRadius);
     border: value(border);
@@ -44,6 +44,11 @@
 
   .root:focus {
     border-color: value(inputFocusBorderColor);
+  }
+
+  .root:error {
+    color: value(danger);
+    border-color: value(danger);
   }
 
   .root:large {
