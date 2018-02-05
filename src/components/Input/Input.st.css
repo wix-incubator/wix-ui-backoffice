@@ -17,19 +17,25 @@
     borderRadius: 6px;
     border: 1px solid;
     padding: 0 12px;
-  }
+    
+    largeFont: 22px;
+    medFont: 16px;
+    smallFont: 14px;
 
+    largeHeight: 60px;
+    medHeight: 36px;
+    smallHeight: 30px;
+  }
+  
   .root {
     -st-extends: BaseInput;
+    -st-states: large, x-small, small;
     padding: value(padding);
     border-radius: value(borderRadius);
     border: value(border);
     color: value(primaryText);
     background-color: white;
     border-color: value(mainMutedHover);
-    height: 60px;
-    line-height: 58px;
-    font-size: 22px;
   }
 
   .root:hover {
@@ -40,27 +46,20 @@
     border-color: value(mainHover);
   }
 
+  .root:large {
+    height: value(largeHeight);
+    line-height: calc(value(largeHeight) - 2px);
+    font-size: value(largeFont);
+  }
 
-
-  /* .root:small {
-    -st-extends: BaseInput;
-    padding: value(padding);
-    border-radius: value(borderRadius);
-    border: value(border);
-    color: value(primaryText);
-    background-color: white;
-    border-color: value(mainMutedHover);
-    height: 36px;
-    line-height: 34px;
-    font-size: 16px;
+  .root:small {
+    height: value(medHeight);
+    line-height: calc(value(medHeight) - 2px);
+    font-size: value(medFont);
   }
 
   .root:x-small {
-    -st-extends: BaseInput;
-    color: value(primaryText);
-    background-color: white;
-    border-color: value(mainMutedHover);
-    height: 30px;
-    line-height: 28px;
-    font-size: 14px;
-  } */
+    height: value(smallHeight);
+    line-height: calc(value(smallHeight) - 2px);
+    font-size: value(smallFont);
+  }
