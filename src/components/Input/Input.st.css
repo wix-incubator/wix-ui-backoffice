@@ -1,0 +1,56 @@
+:import {
+    -st-from: "wix-ui-core/dist/src/components/Input/InputStyle.st.css";
+    -st-default: Input;
+  }
+  
+  :import {
+    -st-from: "wix-ui-core/dist/src/components/Input/Input.st.css";
+    -st-default: BaseInput;
+  }
+
+  :import {
+    -st-from: "../../palette.st.css";
+    -st-named: primaryText, mainMutedHover;
+  }
+
+  :vars {
+    borderRadius: 6px;
+    border: 1px solid;
+    padding: 0 12px;
+  }
+
+  .root {
+    -st-extends: BaseInput;
+    padding: value(padding);
+    border-radius: value(borderRadius);
+    border: value(border);
+    color: value(primaryText);
+    background-color: white;
+    border-color: value(mainMutedHover);
+    height: 60px;
+    line-height: 58px;
+    font-size: 22px;
+  }
+
+  /* .root:small {
+    -st-extends: BaseInput;
+    padding: value(padding);
+    border-radius: value(borderRadius);
+    border: value(border);
+    color: value(primaryText);
+    background-color: white;
+    border-color: value(mainMutedHover);
+    height: 36px;
+    line-height: 34px;
+    font-size: 16px;
+  }
+
+  .root:x-small {
+    -st-extends: BaseInput;
+    color: value(primaryText);
+    background-color: white;
+    border-color: value(mainMutedHover);
+    height: 30px;
+    line-height: 28px;
+    font-size: 14px;
+  } */
