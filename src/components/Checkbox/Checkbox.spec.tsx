@@ -29,12 +29,12 @@ describe('Checkbox', () => {
 
   it('should have an error state', () => {
     const driver = createDriver(<Checkbox error />);
-    expect(driver.hasError()).toBeTruthy();
+    expect(driver.hasStyleState('error')).toBeTruthy();
   });
 
   it('should have a label', () => {
     const driver = createDriver(<Checkbox disabled>Hey</Checkbox>);
-    expect(driver.getLabel()).toBe('Hey');
+    expect(driver.children()[0].textContent).toBe('Hey');
   });
 
   it('should call onChange when clicking the Checkbox', () => {
