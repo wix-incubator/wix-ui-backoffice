@@ -14,7 +14,7 @@ function createTooltip(direction) {
 
 class FullTooltip extends React.Component<{direction: string}> {
   render() {
-    return <div style={{margin: '5em 15em'}}>{createTooltip(this.props.direction)}</div>;
+    return <div style={{margin: '10em 15em'}}>{createTooltip(this.props.direction)}</div>;
   }
 }
 
@@ -27,22 +27,3 @@ export const story = () => storiesOf('Components', module)
       <FullTooltip direction="bottom"/>
     </div>
   ));
-
-/**
- import createStory from '../create-story';
- import {Tooltip} from '../../src/components/Tooltip';
- import * as TooltipSource from '!raw-loader!../../src/components/Tooltip';
-
- export const story = () => createStory({
-  category: 'Components',
-  name: 'Tooltip',
-  storyName: 'Tooltip',
-  component: Tooltip,
-  componentProps: () => ({
-    dataHook: 'story-tooltip-bo',
-    direction: 'right'
-  }),
-  source: TooltipSource
-});
-
- */

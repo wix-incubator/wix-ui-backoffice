@@ -13,30 +13,43 @@
   -st-extends: Tooltip;
 }
 
-.contentWrap {}
-
-.root:bounce .contentWrap {
-
+.root:bounce::contentWrap {
+  animation-duration: 1.15s;
+  animation-iteration-count: infinite;
 }
 
-.root:bounce:right .contentWrap {
-  animation: right-bounce 1.5s infinite;
+.root:bounce:right::contentWrap {
+  animation-name: right-bounce;
 }
 
-.root:bounce:left .contentWrap {
-  background-color: red;
+.root:bounce:left::contentWrap {
+  animation-name: left-bounce;
 }
 
-.root:bounce:top .contentWrap {
-  background-color: red;
+.root:bounce:top::contentWrap {
+  animation-name: top-bounce;
 }
 
-.root:bounce:bottom .contentWrap {
-  background-color: red;
+.root:bounce:bottom::contentWrap {
+  animation-name: bottom-bounce;
 }
 
 @keyframes right-bounce {
-  0%     { transform: translateX(-5px); }
-  50%    { transform: translateX(45px); }
-  100%   { transform: translateX(-5px); }
+  0%, 100% { left: 5px;   }
+  50%      { left: -5px; }
+}
+
+@keyframes left-bounce {
+  0%, 100% { left: -5px;   }
+  50%      { left: 5px; }
+}
+
+@keyframes top-bounce {
+  0%, 100% { top: -5px;   }
+  50%      { top: 5px; }
+}
+
+@keyframes bottom-bounce {
+  0%, 100% { top: 5px;   }
+  50%      { top: -5px; }
 }
