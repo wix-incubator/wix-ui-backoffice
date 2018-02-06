@@ -1,8 +1,15 @@
 import * as React from 'react';
 import style from './Autocomplete.st.css';
 import {InputWithOptions, InputWithOptionsProps} from 'wix-ui-core/InputWithOptions';
-import {withStylable} from 'wix-ui-core';
 import {Option, OptionFactory} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionFactory';
+
+const createOption = (id: string | number, isDisabled: boolean, isSelectable: boolean, value: string) =>
+  OptionFactory.create(
+    id,
+    isDisabled,
+    isSelectable,
+    value,
+    val => <div className={style.option}>{val}</div>);
 
 export interface AutocompleteProps {
   options: Array<Option>;
@@ -15,6 +22,9 @@ export interface AutocompleteState {
 }
 
 export class Autocomplete extends React.PureComponent<AutocompleteProps, AutocompleteState> {
+
+  static createOption = createOption;
+
   constructor(props: AutocompleteProps) {
     super(props);
 
