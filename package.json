@@ -32,7 +32,7 @@
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
-    "wix-ui-core": "^1.0.87",
+    "wix-ui-core": "^1.0.0",
     "wix-ui-theme": "^1.0.0"
   },
   "devDependencies": {
@@ -54,7 +54,7 @@
     "ts-jest": "^22.0.3",
     "typescript": "^2.6.2",
     "wix-storybook-utils": "^1.0.0",
-    "wix-ui-icons-common": "^1.0.3",
+    "wix-ui-icons-common": "^1.0.0",
     "wix-ui-test-utils": "^1.0.0"
   },
   "license": "MIT",
