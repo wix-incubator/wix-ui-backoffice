@@ -42,7 +42,6 @@ const defaultProps = {
   shouldCloseOnClickOutside: false,
   textAlign: 'left',
   relative: false,
-  shouldUpdatePosition: false
 };
 
 const TooltipBO = withStylable<CoreTooltipProps, TooltipProps>(
