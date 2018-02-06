@@ -8,7 +8,7 @@ const dropdownOptions =
   Array.from(Array(20))
     .map((x, index) => Autocomplete.createOption(index, false, true, `value${index}`));
 
-dropdownOptions[2].isDisabled = true;
+dropdownOptions[2] = Autocomplete.createOption(2, true, true, `Disabled item`);
 dropdownOptions[5] = OptionFactory.createCustomDivider(<Divider />);
 dropdownOptions[8].value = 'This is a very very very very very long option';
 dropdownOptions[12] = OptionFactory.createCustomDivider(<Divider>Divider</Divider>);

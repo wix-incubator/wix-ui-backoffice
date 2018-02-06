@@ -51,15 +51,20 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
     onSelect(option);
   }
 
+  filterOptions(inputValue: string, options: Array<Option>): Array<Option> {
+    const lowerValue = inputValue.toLowerCase();
+    return options
+    .filter((option: Option) =>
+      (!option.isSelectable && option.value) ||
+      (option.isSelectable && option.value && option.value.toLowerCase().includes(lowerValue)))
+    .map((option: Option) =>
+      option.isSelectable ? OptionFactory.createHighlighted(option, inputValue) : option);
+  }
+
   render() {
     const {options} = this.props;
     const {inputValue} = this.state;
-    const lowerValue = inputValue.toLowerCase();
-    const displayedOptions =
-    options
-        .filter((option: Option) => !option.value || option.value.toLowerCase().includes(lowerValue))
-        .map((option: Option, index: number) =>
-          OptionFactory.createHighlighted(option, inputValue));
+    const displayedOptions = inputValue ? this.filterOptions(inputValue, options) : options;
 
     return (
       <InputWithOptions
