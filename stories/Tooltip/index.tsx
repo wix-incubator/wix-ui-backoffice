@@ -6,7 +6,7 @@ function createTooltip(direction) {
   return (
     <Tooltip data-hook={`story-tooltip-${direction}`} placement={direction}
              minWidth={'100px'} textAlign={'center'} padding={'5px'}
-             content={<p>This is my tooltip</p>}>
+             content={<p>This is my tooltip</p>} bounce={true}>
       <span>I need a tooltip</span>
     </Tooltip>
   );
@@ -27,3 +27,22 @@ export const story = () => storiesOf('Components', module)
       <FullTooltip direction="bottom"/>
     </div>
   ));
+
+/**
+ import createStory from '../create-story';
+ import {Tooltip} from '../../src/components/Tooltip';
+ import * as TooltipSource from '!raw-loader!../../src/components/Tooltip';
+
+ export const story = () => createStory({
+  category: 'Components',
+  name: 'Tooltip',
+  storyName: 'Tooltip',
+  component: Tooltip,
+  componentProps: () => ({
+    dataHook: 'story-tooltip-bo',
+    direction: 'right'
+  }),
+  source: TooltipSource
+});
+
+ */

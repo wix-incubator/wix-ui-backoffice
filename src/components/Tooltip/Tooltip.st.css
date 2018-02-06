@@ -9,5 +9,34 @@
 }
 
 .root {
+  -st-states: bounce, right, left, top, bottom;
   -st-extends: Tooltip;
+}
+
+.contentWrap {}
+
+.root:bounce .contentWrap {
+
+}
+
+.root:bounce:right .contentWrap {
+  animation: right-bounce 1.5s infinite;
+}
+
+.root:bounce:left .contentWrap {
+  background-color: red;
+}
+
+.root:bounce:top .contentWrap {
+  background-color: red;
+}
+
+.root:bounce:bottom .contentWrap {
+  background-color: red;
+}
+
+@keyframes right-bounce {
+  0%     { transform: translateX(-5px); }
+  50%    { transform: translateX(45px); }
+  100%   { transform: translateX(-5px); }
 }

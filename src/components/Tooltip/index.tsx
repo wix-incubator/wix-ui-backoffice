@@ -5,7 +5,7 @@ import {withStylable} from 'wix-ui-core';
 
 const noop = () => {};
 
-export interface TooltipProps {
+interface TooltipProps {
   textAlign?: string;
   theme?: 'light' | 'dark' | 'error';
   bounce?: boolean;
@@ -42,6 +42,7 @@ const defaultProps = {
   shouldCloseOnClickOutside: false,
   textAlign: 'left',
   relative: false,
+  bounce: false
 };
 
 const TooltipBO = withStylable<CoreTooltipProps, TooltipProps>(
@@ -57,7 +58,8 @@ const TooltipBO = withStylable<CoreTooltipProps, TooltipProps>(
 
 export const Tooltip = (props: CoreTooltipProps & TooltipProps) => {
   const {minWidth, textAlign, maxWidth, color, lineHeight, zIndex, padding, content, ...rest} = props;
-  const wrappedContent = <div style={{minWidth, textAlign, maxWidth, color, lineHeight, zIndex, padding}}>{content}</div>;
+  const wrappedContent = <div className={style.contentWrap}
+                              style={{minWidth, textAlign, maxWidth, color, lineHeight, zIndex, padding}}>{content}</div>;
   return <TooltipBO {...rest} content={wrappedContent} />;
 };
 
