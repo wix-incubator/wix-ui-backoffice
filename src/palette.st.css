@@ -47,7 +47,7 @@
 
 /* Input colors */
 :vars {
-  inputBackground: value(WHITE);
+  inputBackground: value(backgroundSecondary);
   inputBorderColor: value(mainMutedHover);
   inputHover: value(B50);
   inputFocusBorderColor: value(mainHover);
