@@ -72,7 +72,7 @@
       "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
       "\\.(css)$": "stylable-integration/jest"
     },
-    "setupTestFrameworkScriptFile": "wix-ui-test-utils/dist/src/jest-setup",
+    "setupTestFrameworkScriptFile": "wix-ui-test-utils/jest-setup",
     "setupFiles": [
       "<rootDir>/test/enzyme-setup"
     ],

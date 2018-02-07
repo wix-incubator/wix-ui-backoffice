@@ -1,6 +1,6 @@
 import * as eyes from 'eyes.it';
 import {browser} from 'protractor';
-import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils';
+import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
 import * as autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 import {counterBadgeTestkitFactory} from '../../testkit/protractor';
 

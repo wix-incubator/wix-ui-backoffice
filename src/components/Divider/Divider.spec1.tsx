@@ -2,7 +2,7 @@ import * as React from 'react';
 import {dividerDriverFactory} from './Divider.driver';
 import {Divider} from './';
 import {mount} from 'enzyme';
-import {createDriverFactory} from 'wix-ui-test-utils';
+import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
 
 describe('Divider', () => {
   const createDriver = createDriverFactory(dividerDriverFactory);
