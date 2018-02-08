@@ -7,7 +7,7 @@ describe('Divider', () => {
   const createDriver = createDriverFactory(dividerDriverFactory);
 
   it('should render divider', () => {
-    let wrapper = createDriver(<Divider/>);
+    const wrapper = createDriver(<Divider/>);
     expect(wrapper.exists()).toBeTruthy();
   });
 });
