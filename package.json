@@ -68,9 +68,9 @@
   "jest": {
     "transform": {
       "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
-      "\\.(css)$": "stylable-integration/jest"
+      "\\.(st.css)$": "stylable-integration/jest"
     },
-    "transformIgnorePatterns": [],
+    "transformIgnorePatterns": ["node_modules\/((?!wix-ui).)*$"],
     "moduleFileExtensions": [
       "ts",
       "tsx",
