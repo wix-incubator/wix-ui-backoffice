@@ -7,8 +7,6 @@
     "name": "Wix",
     "email": "fed-infra@wix.com"
   },
-  "main": "./dist/src/index.js",
-  "types": "./dist/src/index.d.js",
   "files": [
     "dist",
     "*.js",
@@ -70,12 +68,9 @@
   "jest": {
     "transform": {
       "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
-      "\\.(css)$": "stylable-integration/jest"
+      "\\.(st.css)$": "stylable-integration/jest"
     },
-    "setupTestFrameworkScriptFile": "wix-ui-test-utils/jest-setup",
-    "setupFiles": [
-      "<rootDir>/test/enzyme-setup"
-    ],
+    "transformIgnorePatterns": [],
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -85,7 +80,11 @@
       "<rootDir>/dist/",
       "<rootDir>/node_modules/"
     ],
-    "testRegex": "/src/.*\\.spec\\.(ts|tsx)$"
+    "testRegex": "/src/.*\\.spec\\.(ts|tsx)$",
+    "setupTestFrameworkScriptFile": "wix-ui-test-utils/jest-setup",
+    "setupFiles": [
+      "<rootDir>/test/enzyme-setup.js"
+    ]
   },
   "haste": {
     "preset": "yoshi"
