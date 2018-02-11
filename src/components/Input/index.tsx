@@ -2,40 +2,22 @@ import * as React from 'react';
 import {oneOf} from 'prop-types';
 import {Input as CoreInput, InputProps as CoreInputProps} from 'wix-ui-core/Input';
 import {ThemedComponent} from 'wix-ui-theme';
-import {theme, Skin, Size} from './theme';
+import {withStylable} from 'wix-ui-core';
+import style from './Input.st.css';
 
-export {Size, Skin};
-export interface Props extends CoreInputProps {
-  /** size of the input component */
-  size?: Size;
-
-  /** Color schemes for the input component */
-  skin?: Skin;
+export interface InputProps {
+  skin?: 'standard' | 'error' | 'success';
+  size?: 'large' | 'small' | 'x-small';
 }
 
-export class Input extends React.PureComponent<Props> {
-  static propTypes = {
-    ...CoreInput.propTypes,
+const defaultProps = {
+  skin: 'standard',
+  size: 'large'
+};
 
-    /** size of the input component */
-    size: oneOf(['small', 'medium', 'large']),
-
-    /** Color schemes for the inpus component */
-    skin: oneOf(['standard', 'error'])
-  };
-
-  static defaultProps: Props = {
-    size: 'medium',
-    skin: 'standard'
-  };
-
-  render() {
-    const {size, skin, ...coreProps} = this.props;
-
-    return (
-      <ThemedComponent {...{theme, size, skin}}>
-        <CoreInput {...coreProps}/>
-      </ThemedComponent>
-    );
-  }
-}
+export const Input = withStylable<CoreInputProps, InputProps>(
+  CoreInput,
+  style,
+  ({skin, size}) => ({[size]: true, [skin]: true}),
+  defaultProps
+);
