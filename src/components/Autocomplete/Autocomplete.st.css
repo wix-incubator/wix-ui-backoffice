@@ -11,18 +11,22 @@
   border: none;
   border-radius: 8px;
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
+  max-width: 250px;
+}
+
+.option {
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 8px 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .root::option {
-  cursor: pointer;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: left;
   font-size: 16px;
   color: #162d3d;
-  max-width: 250px;
-  white-space: nowrap;
-  padding: 8px 0;
+  overflow: hidden;
+  text-align: left;
 }
 
 .root::option:hovered {

@@ -5,5 +5,5 @@ import {withStylable} from 'wix-ui-core';
 export const Divider = withStylable<CoreDividerProps, {}>(
   CoreDivider,
   style,
-  ({skin, size}) => ({[size]: true, [skin]: true})
+  () => ({})
 );
