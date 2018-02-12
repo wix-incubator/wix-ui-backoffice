@@ -1,8 +1,15 @@
 import * as React from 'react';
 import style from './Autocomplete.st.css';
 import {InputWithOptions, InputWithOptionsProps} from 'wix-ui-core/InputWithOptions';
-import {withStylable} from 'wix-ui-core';
 import {Option, OptionFactory} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionFactory';
+
+const createOption = (id: string | number, isDisabled: boolean, isSelectable: boolean, value: string) =>
+  OptionFactory.create(
+    id,
+    isDisabled,
+    isSelectable,
+    value,
+    val => <div className={style.option}>{val}</div>);
 
 export interface AutocompleteProps {
   options: Array<Option>;
@@ -15,6 +22,9 @@ export interface AutocompleteState {
 }
 
 export class Autocomplete extends React.PureComponent<AutocompleteProps, AutocompleteState> {
+
+  static createOption = createOption;
+
   constructor(props: AutocompleteProps) {
     super(props);
 
@@ -41,15 +51,20 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
     onSelect(option);
   }
 
+  filterOptions(inputValue: string, options: Array<Option>): Array<Option> {
+    const lowerValue = inputValue.toLowerCase();
+    return options
+    .filter((option: Option) =>
+      (!option.isSelectable && option.value) ||
+      (option.isSelectable && option.value && option.value.toLowerCase().includes(lowerValue)))
+    .map((option: Option) =>
+      option.isSelectable ? OptionFactory.createHighlighted(option, inputValue) : option);
+  }
+
   render() {
     const {options} = this.props;
     const {inputValue} = this.state;
-    const lowerValue = inputValue.toLowerCase();
-    const displayedOptions =
-    options
-        .filter((option: Option) => !option.value || option.value.toLowerCase().includes(lowerValue))
-        .map((option: Option, index: number) =>
-          OptionFactory.createHighlighted(option, inputValue));
+    const displayedOptions = inputValue ? this.filterOptions(inputValue, options) : options;
 
     return (
       <InputWithOptions

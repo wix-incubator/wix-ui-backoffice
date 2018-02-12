@@ -5,4 +5,12 @@
 
 .root {
   -st-extends: Divider;
+
+  background-color: #e5e5e5;
+  display: flex;
+  flex: 1;
+}
+
+.root:customDivider {
+  padding: 8px 0;
 }

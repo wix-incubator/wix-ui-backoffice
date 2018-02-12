@@ -1,17 +1,16 @@
 {
   "private": false,
   "name": "wix-ui-backoffice",
-  "version": "1.0.0",
   "description": "Components for Wix backoffice applications",
+  "version": "1.0.0",
   "author": {
-    "name": "Lior Belinsky",
-    "email": "liorbe@wix.com"
+    "name": "Wix",
+    "email": "fed-infra@wix.com"
   },
-  "main": "./dist/src/index.js",
   "files": [
     "dist",
-    "src",
     "*.js",
+    "*.d.ts",
     "!wallaby.js",
     "!protractor.conf.js"
   ],
@@ -30,47 +29,31 @@
     "release": "haste release && gh-pages-auto-release --dist=storybook-static",
     "storybook": "start-storybook -p 6006"
   },
-  "peerDependencies": {
-    "react": "^15.4.0"
-  },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "babel-runtime": "^6.22.0",
-    "eyes.it": "^2.0.1",
-    "lodash": "^4.17.4",
-    "stylable": "^5.1.2",
-    "stylable-integration": "^6.0.3",
-    "wix-ui-core": "^1.0.87",
-    "wix-ui-icons-common": "^1.0.3",
-    "wix-ui-theme": "^1.0.0"
+    "wix-ui-core": "latest",
+    "wix-ui-theme": "latest"
   },
   "devDependencies": {
-    "@storybook/addon-options": "^3.2.13",
-    "@storybook/react": "^3.2.13",
-    "@types/enzyme": "^3.1.8",
+    "@storybook/addon-options": "^3.3.7",
+    "@storybook/react": "^3.3.7",
     "@types/jest": "^22.1.1",
-    "@types/prop-types": "^15.5.2",
     "@types/react": "^15.6.8",
-    "@types/react-dom": "^15.5.6",
-    "babel-jest": "^22.1.0",
-    "babel-plugin-transform-runtime": "^6.22.0",
-    "babel-preset-wix": "^1.0.2",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-15": "^1.0.5",
-    "eslint-plugin-babel": "^4.1.2",
-    "eslint-plugin-react": "^7.6.1",
-    "gh-pages-auto-release": "^1.1.2",
-    "haste-preset-yoshi": "^1.0.19",
-    "identity-obj-proxy": "^3.0.0",
-    "import-path": "^1.0.0",
+    "eyes.it": "latest",
+    "gh-pages-auto-release": "latest",
+    "haste-preset-yoshi": "latest",
+    "import-path": "latest",
     "prop-types": "^15.6.0",
-    "react": "^15.6.2",
-    "react-dom": "^15.6.2",
+    "protractor": "^5.3.0",
+    "react": "^15.5.0",
+    "react-dom": "^15.5.0",
     "react-test-renderer": "^15.5.4",
     "ts-jest": "^22.0.3",
     "typescript": "^2.6.2",
-    "wix-storybook-utils": "^1.0.0",
-    "wix-ui-test-utils": "^1.0.0"
+    "wix-storybook-utils": "latest",
+    "wix-ui-icons-common": "latest",
+    "wix-ui-test-utils": "latest"
   },
   "license": "MIT",
   "publishConfig": {
@@ -78,7 +61,8 @@
   },
   "yoshi": {
     "externals": {
-      "react": "React"
+      "react": "react",
+      "react-dom": "reactDOM"
     }
   },
   "jest": {
@@ -87,23 +71,20 @@
       "\\.(st.css)$": "stylable-integration/jest"
     },
     "transformIgnorePatterns": [],
-    "setupTestFrameworkScriptFile": "wix-ui-test-utils/dist/src/jest-setup",
-    "setupFiles": [
-      "<rootDir>/test/enzyme-setup.js"
-    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
       "js"
     ],
-    "moduleNameMapper": {
-      "\\.(css|less|scss)$": "identity-obj-proxy"
-    },
     "testPathIgnorePatterns": [
       "<rootDir>/dist/",
       "<rootDir>/node_modules/"
     ],
-    "testRegex": "/src/.*\\.spec\\.(ts|tsx)$"
+    "testRegex": "/src/.*\\.spec\\.(ts|tsx)$",
+    "setupTestFrameworkScriptFile": "wix-ui-test-utils/jest-setup",
+    "setupFiles": [
+      "<rootDir>/test/enzyme-setup.js"
+    ]
   },
   "haste": {
     "preset": "yoshi"

@@ -3,7 +3,7 @@ import {Tooltip as CoreTooltip, TooltipProps as CoreTooltipProps} from 'wix-ui-c
 import style from './Tooltip.st.css';
 import {withStylable} from 'wix-ui-core';
 
-const noop = () => {};
+const noop = () => null;
 
 interface TooltipProps {
   textAlign?: string;
@@ -61,4 +61,3 @@ export const Tooltip = (props: CoreTooltipProps & TooltipProps) => {
   const wrappedContent = <div style={{minWidth, textAlign, maxWidth, color, lineHeight, zIndex, padding}}>{content}</div>;
   return <TooltipBO {...rest} content={wrappedContent} />;
 };
-
