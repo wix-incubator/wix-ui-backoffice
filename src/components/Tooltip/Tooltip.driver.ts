@@ -5,8 +5,6 @@ export const toolTipDriverFactory = ({element, component, eventTrigger, wrapper}
   return {
     exists: () => driver.exists(),
     mouseEnter: () => driver.mouseEnter(),
-    // mouseEnter: () => eventTrigger.mouseEnter(element),
-    // mouseLeave: () => eventTrigger.mouseLeave(element),
     mouseLeave: () => driver.mouseLeave(),
     isOpen: () => driver.isContentExists()
   };
