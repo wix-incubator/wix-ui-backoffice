@@ -1,9 +1,10 @@
 import * as React from 'react';
 import style from './Autocomplete.st.css';
-import {InputWithOptions, InputWithOptionsProps} from 'wix-ui-core/InputWithOptions';
+import {InputWithOptions} from 'wix-ui-core/InputWithOptions';
 import {Option, OptionFactory} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionFactory';
 import {InputProps} from 'wix-ui-core/Input';
 import {Divider} from '../Divider';
+import {Input} from '../Input';
 import {func , bool, object, arrayOf, number, string, oneOfType, node} from 'prop-types';
 
 const createOption = (id: string | number, isDisabled: boolean, isSelectable: boolean, value: string) =>
@@ -56,7 +57,7 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
     /** Makes the component disabled */
     disabled: bool,
     /** Input prop types */
-    inputProps: object.isRequired
+    inputProps: object
   };
 
   static createOption = createOption;
@@ -107,6 +108,16 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
       option.isSelectable ? OptionFactory.createHighlighted(option, inputValue) : option);
   }
 
+  createInputProps() {
+    let {inputProps} = this.props;
+    const {inputValue} = this.state;
+
+    inputProps = inputProps || {};
+    inputProps.value = inputValue;
+    inputProps.onChange = this.onInputChange;
+    return inputProps;
+  }
+
   render() {
     const {options} = this.props;
     const {inputValue, isEditing} = this.state;
@@ -119,10 +130,8 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
         onSelect={this.onSelect}
         options={displayedOptions}
         onEditingChanged={this.onEditingChanged}
-        inputProps={{
-          value: inputValue,
-          onChange: this.onInputChange
-        }}
+        InputComponent={Input}
+        inputProps={this.createInputProps()}
       />
     );
   }
