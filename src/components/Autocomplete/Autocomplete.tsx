@@ -4,6 +4,7 @@ import {InputWithOptions, InputWithOptionsProps} from 'wix-ui-core/InputWithOpti
 import {Option, OptionFactory} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionFactory';
 import {InputProps} from 'wix-ui-core/Input';
 import {Divider} from '../Divider';
+import {func , bool, object, arrayOf, number, string, oneOfType, node} from 'prop-types';
 
 const createOption = (id: string | number, isDisabled: boolean, isSelectable: boolean, value: string) =>
   OptionFactory.create(
@@ -26,6 +27,8 @@ export interface AutocompleteProps {
   fixedFooter?: React.ReactNode;
   /** Callback when the user pressed the Enter key or Tab key after he wrote in the Input field - meaning the user selected something not in the list  */
   onManualInput?: (value: string) => void;
+  /** Makes the component disabled */
+  disabled?: boolean;
   /** Input prop types */
   inputProps?: InputProps;
 }
@@ -36,6 +39,25 @@ export interface AutocompleteState {
 }
 
 export class Autocomplete extends React.PureComponent<AutocompleteProps, AutocompleteState> {
+
+  static propTypes = {
+    /** The dropdown options array */
+    options: arrayOf(object).isRequired,
+    /** Handler for when an option is selected */
+    onSelect: func,
+    /** initial selected option ids */
+    initialSelectedIds: oneOfType([arrayOf(number), arrayOf(string)]),
+    /** An element that always appears at the top of the options */
+    fixedHeader: node,
+    /** An element that always appears at the bottom of the options */
+    fixedFooter: node,
+    /** Callback when the user pressed the Enter key or Tab key after he wrote in the Input field - meaning the user selected something not in the list  */
+    onManualInput: func,
+    /** Makes the component disabled */
+    disabled: bool,
+    /** Input prop types */
+    inputProps: object.isRequired
+  };
 
   static createOption = createOption;
   static createDivider = (value: React.ReactNode = null) =>
