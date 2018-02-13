@@ -3,6 +3,7 @@ import style from './Autocomplete.st.css';
 import {InputWithOptions, InputWithOptionsProps} from 'wix-ui-core/InputWithOptions';
 import {Option, OptionFactory} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionFactory';
 import {InputProps} from 'wix-ui-core/Input';
+import {Divider} from '../Divider';
 
 const createOption = (id: string | number, isDisabled: boolean, isSelectable: boolean, value: string) =>
   OptionFactory.create(
@@ -37,6 +38,8 @@ export interface AutocompleteState {
 export class Autocomplete extends React.PureComponent<AutocompleteProps, AutocompleteState> {
 
   static createOption = createOption;
+  static createDivider = (value: React.ReactNode = null) =>
+    OptionFactory.createCustomDivider(value ? <Divider>{value}</Divider> : <Divider />)
 
   constructor(props: AutocompleteProps) {
     super(props);
