@@ -13,24 +13,24 @@
   -st-extends: Tooltip;
 }
 
-.root:bounce::contentWrap {
+.root:bounce::popover {
   animation-duration: 1.15s;
   animation-iteration-count: infinite;
 }
 
-.root:bounce:placement-right::contentWrap {
+.root:bounce:placement-right::popover {
   animation-name: right-bounce;
 }
 
-.root:bounce:placement-left::contentWrap {
+.root:bounce:placement-left::popover {
   animation-name: left-bounce;
 }
 
-.root:bounce:placement-top::contentWrap {
+.root:bounce:placement-top::popover {
   animation-name: top-bounce;
 }
 
-.root:bounce:placement-bottom::contentWrap {
+.root:bounce:placement-bottom::popover {
   animation-name: bottom-bounce;
 }
 
