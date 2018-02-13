@@ -9,7 +9,7 @@
 }
 
 .root {
-  -st-states: bounce, right, left, top, bottom;
+  -st-states: bounce, placement-right, placement-left, placement-top, placement-bottom;
   -st-extends: Tooltip;
 }
 
@@ -18,19 +18,19 @@
   animation-iteration-count: infinite;
 }
 
-.root:bounce:right::contentWrap {
+.root:bounce:placement-right::contentWrap {
   animation-name: right-bounce;
 }
 
-.root:bounce:left::contentWrap {
+.root:bounce:placement-left::contentWrap {
   animation-name: left-bounce;
 }
 
-.root:bounce:top::contentWrap {
+.root:bounce:placement-top::contentWrap {
   animation-name: top-bounce;
 }
 
-.root:bounce:bottom::contentWrap {
+.root:bounce:placement-bottom::contentWrap {
   animation-name: bottom-bounce;
 }
 

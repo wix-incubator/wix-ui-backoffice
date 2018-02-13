@@ -50,7 +50,7 @@ const TooltipBO = withStylable<CoreTooltipProps, TooltipProps>(
   style,
   ({placement, alignment, theme, showTrigger, hideTrigger, active,
     bounce, disabled, appendToParent, size, relative, shouldUpdatePosition}) => ({
-      [placement]: true, [alignment]: true, [theme]: true, [showTrigger]: true, [hideTrigger]: true,
+      [`placement-${placement}`]: true, [alignment]: true, [theme]: true, [showTrigger]: true, [hideTrigger]: true,
       active, bounce, disabled, appendToParent, [size]: true, relative, shouldUpdatePosition
     }),
   defaultProps
