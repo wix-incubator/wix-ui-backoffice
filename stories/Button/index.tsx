@@ -2,7 +2,7 @@ import * as React from 'react';
 import createStory from '../create-story';
 
 import {Button} from '../../src/components/Button';
-import * as ButtonSource from '!raw-loader!../../src/components/Button/index.tsx';
+import * as ButtonSource from '!raw-loader!../../src/components/Button/Button.tsx';
 
 const icons = [<span key="1">+</span>, <span key="2">-</span>]; // just to see if it's working
 

@@ -4,13 +4,12 @@ import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
 import {Alignment} from './constants';
 
-export {Alignment};
-export interface Props extends CoreVBoxProps {
+interface VBoxProps extends CoreVBoxProps {
   spacing?: string;
   horizontalAlignment?: Alignment;
 }
 
-export class VBox extends React.PureComponent<Props> {
+export class VBox extends React.PureComponent<VBoxProps> {
   render() {
     const {spacing, horizontalAlignment, ...coreProps} = this.props;
     return (

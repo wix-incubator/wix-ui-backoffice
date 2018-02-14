@@ -20,10 +20,8 @@ const createButtonIcon = (type: 'suffix' | 'prefix', icon, size: string) => (
     null
 );
 
-export {Size};
-export type Theme = Skin | DeprecatedSkin;
-
-export interface Props extends CoreButtonProps {
+type Theme = Skin | DeprecatedSkin;
+interface ButtonProps extends CoreButtonProps {
   /** The height of the button */
   height?: Size;
 
@@ -40,8 +38,8 @@ export interface Props extends CoreButtonProps {
   isIcon?: boolean;
 }
 
-export class Button extends React.PureComponent<Props> {
-  static defaultProps: Props = {
+export class Button extends React.PureComponent<ButtonProps> {
+  static defaultProps: ButtonProps = {
     height: Size.MEDIUM,
     theme: 'primaryStandard',
   };

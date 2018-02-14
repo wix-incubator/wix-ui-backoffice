@@ -4,10 +4,9 @@ import {Text as CoreText, TextProps as CoreTextProps} from 'wix-ui-core/Text';
 import {ThemedComponent} from 'wix-ui-theme';
 import {theme, Appearance} from './theme';
 
-export {Appearance};
-export type TagName = 'div' | 'span';
+type TagName = 'div' | 'span';
 
-export interface Props extends CoreTextProps {
+interface UITextProps extends CoreTextProps {
   /** typography of the text */
   appearance?: Appearance;
 
@@ -23,7 +22,7 @@ export interface Props extends CoreTextProps {
   dataClass?: string;
 }
 
-export class UIText extends React.PureComponent<Props> {
+export class UIText extends React.PureComponent<UITextProps> {
   static propTypes = {
     ...CoreText.propTypes,
 
@@ -48,7 +47,7 @@ export class UIText extends React.PureComponent<Props> {
     dataClass: string
   };
 
-  static defaultProps: Props = {
+  static defaultProps: Partial<UITextProps> = {
     appearance: 'T1.1',
     dataClass: 'uitext'
   };

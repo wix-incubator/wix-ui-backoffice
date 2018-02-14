@@ -15,7 +15,7 @@ const createOption = (id: string | number, isDisabled: boolean, isSelectable: bo
     value,
     val => <div className={style.option}>{val}</div>);
 
-export interface AutocompleteProps {
+interface AutocompleteProps {
   /** The dropdown options array */
   options: Array<Option>;
   /** Handler for when an option is selected */
@@ -34,7 +34,7 @@ export interface AutocompleteProps {
   inputProps?: InputProps;
 }
 
-export interface AutocompleteState {
+interface AutocompleteState {
   inputValue: string;
   isEditing: boolean;
 }

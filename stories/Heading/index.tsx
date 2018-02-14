@@ -1,6 +1,6 @@
 import createStory from '../create-story';
 import {Heading} from '../../src/components/Heading';
-import * as HeadingSource from '!raw-loader!../../src/components/Heading/index.tsx';
+import * as HeadingSource from '!raw-loader!../../src/components/Heading/Heading.tsx';
 
 export const story = () => createStory({
   category: 'Components',
