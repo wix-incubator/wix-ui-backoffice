@@ -20,14 +20,14 @@ const createBadgeIcon = (type, icon, size) => (
     null
 );
 
-export interface Props {
+interface BadgeProps {
   form?: Form;
   skin?: Skin;
   prefixIcon?: any;
   suffixIcon?: any;
 }
 
-export class Badge extends React.PureComponent<Props> {
+export class Badge extends React.PureComponent<BadgeProps> {
   static propTypes = {
     ...CoreBadge.propTypes,
     /** Form (type) of the badge */

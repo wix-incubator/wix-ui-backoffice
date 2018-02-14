@@ -45,6 +45,14 @@
   premiumMutedHover:	value(P30);
 }
 
+/* Input colors */
+:vars {
+  inputBackground: value(backgroundSecondary);
+  inputBorderColor: value(mainMutedHover);
+  inputHover: value(B50);
+  inputFocusBorderColor: value(mainHover);
+}
+
 /* typography */
 :vars {
   primaryText: value(D10);

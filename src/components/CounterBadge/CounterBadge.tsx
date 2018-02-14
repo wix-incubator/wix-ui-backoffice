@@ -6,11 +6,9 @@ import {theme} from './theme';
 import {UIText} from '../UIText';
 import {Skin} from './constants';
 
-export {Skin};
-
 const maxContentLength = 2;
 
-interface Props extends CoreBadgeProps {
+interface CounterBadgeProps extends CoreBadgeProps {
   /** Type of the badge */
   skin?: Skin;
 
@@ -18,7 +16,7 @@ interface Props extends CoreBadgeProps {
   children?: any;
 }
 
-export class CounterBadge extends React.PureComponent<Props> {
+export class CounterBadge extends React.PureComponent<CounterBadgeProps> {
   static propTypes = {
     ...CoreBadge.propTypes,
 
@@ -28,7 +26,7 @@ export class CounterBadge extends React.PureComponent<Props> {
     children: node
   };
 
-  static defaultProps: Props = {
+  static defaultProps: Partial<CounterBadgeProps> = {
     skin: Skin.DEFAULT,
     children: ''
   };

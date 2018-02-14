@@ -6,10 +6,12 @@ import {OptionFactory} from 'wix-ui-core/dist/src/baseComponents/DropdownOption'
 
 const dropdownOptions =
   Array.from(Array(20))
-    .map((x, index) =>
-      index === 5 ?
-      OptionFactory.createCustomDivider(<Divider />) :
-      OptionFactory.create(index, index === 3, true, index === 15 ? 'This is a very very very very very long option' : `value${index}`));
+    .map((x, index) => Autocomplete.createOption(index, false, true, `value${index}`));
+
+dropdownOptions[2] = Autocomplete.createOption(2, true, true, `Disabled item`);
+dropdownOptions[5] = OptionFactory.createCustomDivider(<Divider />);
+dropdownOptions[8].value = 'This is a very very very very very long option';
+dropdownOptions[12] = OptionFactory.createCustomDivider(<Divider>Divider</Divider>);
 
 export const story = () => storiesOf('Components', module)
   .add('Autocomplete', () => (
