@@ -3,6 +3,7 @@
   -st-named: 
   B00, B10, B20, B30, B40, B50,
   G10, G20, G30, G40,
+  GR10, GR20, GR30, GR40, GR50, GR60,
   R10, R20, R30, R40,
   D10, D20, D40, D50, D60, D70,
   P10, P20, P30, P40,
@@ -44,6 +45,8 @@
   warningMutedHover:	value(Y30);
   dangerMutedHover:	value(R30);
   premiumMutedHover:	value(P30);
+
+  disabledFields: value(GR20);
 }
 
 /* Input colors */
