@@ -4,7 +4,7 @@ import {withStylable} from 'wix-ui-core';
 
 interface CheckboxProps {
   skin?: 'standard' | 'error' | 'success';
-  size?: 'large' | 'small' | 'x-small';
+  size?: 'large' | 'small';
 }
 
 const defaultProps = {

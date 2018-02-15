@@ -10,38 +10,56 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: mainMuted, main, mainHover, disabled, successMutedHover, dangerMutedHover, success, danger, successHover, dangerHover, dividerColor, disabled;
+  -st-named: backgroundSecondary, mainMutedBackground, mainMuted, main, mainHover, disabled, successMutedHover, dangerMutedHover, success, danger, successHover, dangerHover, dividerColor, disabled;
+}
+
+:vars {
+  large: 20px;
+  small: 14px;
+  iconTick: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTExLjggNEw2LjUgOS4yIDQuMiA3IDMgOC4ybDMuNSAzLjZMMTMgNS4yIi8+PC9zdmc+);
 }
 
 .root {
   -st-extends: BaseCheckbox;
-  -st-states: error, success, x-small, small;
-  -st-mixin: Checkbox(
-    rootWidth initial,
-    rootHeight initial,
+  -st-states: error, success, large, small;
+  width: initial;
+  height: initial;
+  display: flex;
+  align-items: center;
+}
 
-    outerLabelWidth 45px,
-    outerLabelHeight 24px,
+.root::box {
+  background: value(backgroundSecondary);
+  border: value(mainMuted);
+  border-radius: 4px;
+  border: solid 1px #4eb7f5;
+  box-sizing: border-box;
+}
 
-    innerLabelWidth 21px,
-    innerLabelHeight 22px,
-    innerLabelBackgroundColor white,
+.root:large::box {
+  width: value(large);
+  height: value(large);
+}
 
-    backgroundColor value(mainMuted),
-    backgroundColorChecked value(main),
-    backgroundColorDisabled value(disabled),
-    backgroundColorHover value(mainHover),
-    backgroundColorFocus value(mainHover),
+.root:small::box {
+  width: value(small);
+  height: value(small);
+}
 
-    color value(mainMuted),
-    colorChecked value(main),
-    colorDisabled value(dividerColor),
-    colorCheckedDisabled value(disabled),
-    colorHover value(mainHover),
-    colorFocus value(mainHover),
+.root::childContainer {
+  padding-left: 12px;
+}
 
-    toggleIconWidth 8px,
-    toggleIconHeight 6px,
-    toggleIconDisplay block
-  );
+.root:hover::box {
+  color: value(mainHover);
+  background-color: value(mainMutedBackground);
+}
+
+.root:checked::box {
+  color: value(main);
+  background-color: value(main);
+}
+
+.root::tickIcon {
+  background-image: value(iconTick);
 }
