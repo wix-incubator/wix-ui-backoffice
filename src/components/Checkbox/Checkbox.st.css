@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: backgroundPrimary, backgroundSecondary, mainMutedBackground, mainMuted, main, mainHover, dangerMutedHover, danger, disabledFields;
+  -st-named: backgroundPrimary, backgroundSecondary, mainMutedBackground, mainMuted, main, mainHover, dangerMutedHover, danger, disabledFields, dividerColor;
 }
 
 :vars {
@@ -13,6 +13,8 @@
   small: 14px;
   iconTick: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTExLjggNEw2LjUgOS4yIDQuMiA3IDMgOC4ybDMuNSAzLjZMMTMgNS4yIi8+PC9zdmc+);
   iconTickDisabled: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iI2M4YzhjOCIgZD0iTTExLjggNEw2LjUgOS4yIDQuMiA3IDMgOC4ybDMuNSAzLjZMMTMgNS4yIi8+PC9zdmc+);
+  iconIntermediate: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTQgN2g4djJINHoiLz48L3N2Zz4=);
+  iconIntermediateDisabled: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iI2M4YzhjOCIgZD0iTTQgN2g4djJINHoiLz48L3N2Zz4=);
 }
 
 .root {
@@ -32,6 +34,10 @@
   box-sizing: border-box;
 }
 
+.root::childContainer {
+  padding-left: 12px;
+}
+
 .root:large::box {
   width: value(large);
   height: value(large);
@@ -46,17 +52,25 @@
   background-color: value(backgroundPrimary);
   border-color: value(disabledFields);
 }
+.root:hover:disabled:checked::box,
+.root:disabled:checked::box {
+  border-color: value(dividerColor);
+}
+
+.root:disabled {
+  pointer-events: none;
+}
 
 .root:disabled::icon {
   background-color: value(backgroundPrimary);
 }
 
-.root:error::box {
-  border-color: value(danger);
+.root:disabled::childContainer {
+  color: value(backgroundPrimary);
 }
 
-.root::childContainer {
-  padding-left: 12px;
+.root:error::box {
+  border-color: value(danger);
 }
 
 .root:hover::box {
@@ -73,6 +87,14 @@
   background-image: value(iconTick);
 }
 
+.root:indeterminate:checked::indeterminateIcon {
+  background-image: value(iconIntermediate);
+}
+
 .root:disabled::tickIcon {
   background-image: value(iconTickDisabled);
+}
+
+.root:disabled:indeterminate::indeterminateIcon {
+  background-image: value(iconIntermediateDisabled);
 }
