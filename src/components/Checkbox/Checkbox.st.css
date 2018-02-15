@@ -21,7 +21,7 @@
 
 .root {
   -st-extends: BaseCheckbox;
-  -st-states: error, success, large, small;
+  -st-states: large, small;
   width: initial;
   height: initial;
   display: flex;
@@ -32,7 +32,7 @@
   background: value(backgroundSecondary);
   border: value(mainMuted);
   border-radius: 4px;
-  border: solid 1px #4eb7f5;
+  border: solid 1px value(mainHover);
   box-sizing: border-box;
 }
 
@@ -44,6 +44,10 @@
 .root:small::box {
   width: value(small);
   height: value(small);
+}
+
+.root:error::box {
+  border-color: value(danger);
 }
 
 .root::childContainer {

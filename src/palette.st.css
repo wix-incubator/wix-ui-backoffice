@@ -33,6 +33,7 @@
   premiumHover:	value(P20);
 
   mainMuted:	value(B40);
+  mainMutedBackground: value(B50);
   successMuted:	value(G40);
   warningMuted:	value(Y40);
   dangerMuted:	value(R40);
@@ -49,7 +50,7 @@
 :vars {
   inputBackground: value(backgroundSecondary);
   inputBorderColor: value(mainMutedHover);
-  inputHover: value(B50);
+  inputHover: value(mainMutedBackground);
   inputFocusBorderColor: value(mainHover);
 }
 
