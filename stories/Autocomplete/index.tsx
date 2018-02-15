@@ -26,5 +26,9 @@ export const story = () => createStory({
   componentProps: {
     'data-hook': 'storybook-autocomplete',
     options: dropdownOptions
+  },
+  exampleProps: {
+    fixedFooter: [null, <div>Fixed Footer</div>],
+    fixedHeader: [null, <div>Fixed Header</div>]
   }
 });
