@@ -23,15 +23,15 @@ describe('Checkbox', () => {
     expect(driver.isChecked()).toBeTruthy();
   });
 
-  it('should be disabled', () => {
-    const driver = createDriver(<Checkbox disabled/>);
-    expect(driver.isDisabled()).toBeTruthy();
-  });
-
-  // it('should have an error state', () => {
-  //   const driver = createDriver(<Checkbox error />);
-  //   expect(driver.hasStyleState('error')).toBeTruthy();
+  // it('should be disabled', () => {
+  //   const driver = createDriver(<Checkbox disabled/>);
+  //   expect(driver.isDisabled()).toBeTruthy();
   // });
+
+  it('should have an error state', () => {
+    const driver = createDriver(<Checkbox error />);
+    expect(driver.hasErrorState()).toBeTruthy();
+  });
 
   it('should have a label', () => {
     const driver = createDriver(<Checkbox disabled>Hey</Checkbox>);
