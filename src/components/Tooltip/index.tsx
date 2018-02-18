@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Tooltip as CoreTooltip, TooltipProps as CoreTooltipProps} from 'wix-ui-core/Tooltip';
 import style from './Tooltip.st.css';
-import {withStylable} from 'wix-ui-core';
+import {withStylable} from 'wix-ui-core/withStylable';
 
 const noop = () => null;
 
