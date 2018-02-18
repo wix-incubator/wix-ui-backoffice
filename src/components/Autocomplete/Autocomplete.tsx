@@ -99,7 +99,7 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
       (!option.isSelectable && option.value) ||
       (option.isSelectable && option.value && option.value.toLowerCase().includes(lowerValue)))
     .map((option: Option) =>
-      option.isSelectable ? OptionFactory.createHighlighted(option, inputValue) : option);
+      option.isSelectable && option.value ? OptionFactory.createHighlighted(option, inputValue) : option);
   }
 
   createInputProps() {

@@ -15,8 +15,6 @@ dropdownOptions[5] = OptionFactory.createCustomDivider(<Divider />);
 dropdownOptions[8].value = 'This is a very very very very very long option';
 dropdownOptions[12] = OptionFactory.createCustomDivider(<Divider>Divider</Divider>);
 
-dropdownOptions.forEach(x => x.render = null);
-
 export const story = () => createStory({
   category: 'Components',
   name: 'Autocomplete',
