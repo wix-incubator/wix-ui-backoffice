@@ -10,7 +10,7 @@
 
 :vars {
   large: 20px;
-  small: 14px;
+  medium: 14px;
   iconTick: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTExLjggNEw2LjUgOS4yIDQuMiA3IDMgOC4ybDMuNSAzLjZMMTMgNS4yIi8+PC9zdmc+);
   iconTickDisabled: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iI2M4YzhjOCIgZD0iTTExLjggNEw2LjUgOS4yIDQuMiA3IDMgOC4ybDMuNSAzLjZMMTMgNS4yIi8+PC9zdmc+);
   iconIntermediate: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTQgN2g4djJINHoiLz48L3N2Zz4=);
@@ -19,7 +19,7 @@
 
 .root {
   -st-extends: Checkbox;
-  -st-states: large, small;
+  -st-states: large, medium;
   width: initial;
   height: initial;
   display: flex;
@@ -43,9 +43,9 @@
   height: value(large);
 }
 
-.root:small::box {
-  width: value(small);
-  height: value(small);
+.root:medium::box {
+  width: value(medium);
+  height: value(medium);
 }
 
 .root::box:active {
