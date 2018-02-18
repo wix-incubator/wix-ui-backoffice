@@ -25,11 +25,16 @@ interface State {
   tagName: string;
 }
 
+const defaultProps: Props = {
+  appearance: 'H1',
+  skin: 'dark'
+};
+
 const StyledText = withStylable<CoreTextProps, Props>(
   CoreText,
   style,
   ({skin, appearance}) => ({[skin]: true, [appearance]: true}),
-  {appearance: 'H1', skin: 'dark'}
+  defaultProps
 );
 
 export class Heading extends React.PureComponent<Props, State> {
@@ -43,10 +48,7 @@ export class Heading extends React.PureComponent<Props, State> {
     appearance: oneOf(['H1', 'H2', 'H3', 'H4', 'H5']),
   };
 
-  static defaultProps: Props = {
-    appearance: 'H1',
-    skin: 'dark'
-  };
+  static defaultProps: Props = defaultProps;
 
   constructor(props: Props) {
     super(props);
@@ -55,7 +57,7 @@ export class Heading extends React.PureComponent<Props, State> {
 
   render() {
     return (
-    <StyledText tagName={this.state.tagName}>
+    <StyledText {...this.props} tagName={this.state.tagName}>
       {this.props.children}
     </StyledText>
     );
