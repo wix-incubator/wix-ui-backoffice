@@ -47,12 +47,16 @@
   width: value(small);
   height: value(small);
 }
-.root:hover:disabled::box,
+
+.root::box:active {
+  background-color: value(mainHover);
+}
+
 .root:disabled::box {
   background-color: value(backgroundPrimary);
   border-color: value(disabledFields);
 }
-.root:hover:disabled:checked::box,
+
 .root:disabled:checked::box {
   border-color: value(dividerColor);
 }
@@ -73,13 +77,11 @@
   border-color: value(danger);
 }
 
-.root:hover::box {
-  color: value(mainHover);
+.root:hover:not(:disabled):not(:checked):not(:active)::box {
   background-color: value(mainMutedBackground);
 }
 
-.root:checked::box {
-  color: value(main);
+.root:checked:not(:active)::box {
   background-color: value(main);
 }
 

@@ -5,6 +5,7 @@ import {withStylable} from 'wix-ui-core';
 interface CheckboxProps {
   skin?: 'standard' | 'error' | 'success';
   size?: 'large' | 'small';
+  active?: boolean;
 }
 
 const defaultProps = {
@@ -15,6 +16,6 @@ const defaultProps = {
 export const Checkbox = withStylable<CoreCheckboxProps, CheckboxProps>(
   CoreCheckbox,
   style,
-  ({skin, size}) => ({[size]: true, [skin]: true}),
+  ({skin, size, active}) => ({[size]: true, [skin]: true}),
   defaultProps
 );
