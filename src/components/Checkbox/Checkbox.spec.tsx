@@ -15,7 +15,7 @@ describe('Checkbox', () => {
   it('should be unchecked and not disabled by default', () => {
     const driver = createDriver(<Checkbox/>);
     expect(driver.isChecked()).toBeFalsy();
-    expect(driver.isDisabled()).toBeFalsy();
+    expect(driver.hasDisabledState()).toBeFalsy();
   });
 
   it('should be checked', () => {
@@ -23,10 +23,10 @@ describe('Checkbox', () => {
     expect(driver.isChecked()).toBeTruthy();
   });
 
-  // it('should be disabled', () => {
-  //   const driver = createDriver(<Checkbox disabled/>);
-  //   expect(driver.isDisabled()).toBeTruthy();
-  // });
+  it('should be disabled', () => {
+    const driver = createDriver(<Checkbox disabled/>);
+    expect(driver.hasDisabledState()).toBeTruthy();
+  });
 
   it('should have an error state', () => {
     const driver = createDriver(<Checkbox error />);
