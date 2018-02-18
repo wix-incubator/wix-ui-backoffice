@@ -1,72 +1,63 @@
 import * as React from 'react';
-import {oneOf, node} from 'prop-types';
+import {oneOf} from 'prop-types';
 import {Text as CoreText, TextProps as CoreTextProps} from 'wix-ui-core/Text';
-import {ThemedComponent} from 'wix-ui-theme';
-import {theme, Skin, Appearance} from './theme';
+import style from './Heading.st.css';
+import {withStylable} from 'wix-ui-core';
+import {Color} from '../../colors';
 
-interface HeadingProps extends CoreTextProps {
+interface ColorsConfig {
+  dark: Color;
+  light: Color;
+}
+
+export type Appearance = 'H1' | 'H2' | 'H3' | 'H4' | 'H5';
+export type Skin = keyof ColorsConfig;
+
+interface Props {
   /** skin color of the heading */
   skin?: Skin;
 
   /** typography of the heading */
   appearance?: Appearance;
-
-  /** The text to show */
-  children?: React.ReactNode;
 }
 
 interface State {
   tagName: string;
 }
 
-export class Heading extends React.PureComponent<HeadingProps, State> {
+const StyledText = withStylable<CoreTextProps, Props>(
+  CoreText,
+  style,
+  ({skin, appearance}) => ({[skin]: true, [appearance]: true}),
+  {appearance: 'H1', skin: 'dark'}
+);
+
+export class Heading extends React.PureComponent<Props, State> {
   static propTypes = {
+    ...CoreText.propTypes,
+
     /** skin color of the heading */
     skin: oneOf(['dark', 'light']),
 
     /** typography of the heading */
-    appearance: oneOf(['H0', 'H1', 'H2', 'H3']),
-
-    /** The text to show */
-    children: node
+    appearance: oneOf(['H1', 'H2', 'H3', 'H4', 'H5']),
   };
 
-  static defaultProps: Partial<HeadingProps> = {
-    appearance: 'H0',
+  static defaultProps: Props = {
+    appearance: 'H1',
     skin: 'dark'
   };
 
-  constructor(props: HeadingProps) {
+  constructor(props: Props) {
     super(props);
-    this.state = {tagName: getType(props.appearance)};
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.appearance !== nextProps.appearance) {
-      this.setState({tagName: getType(nextProps.appearance)});
-    }
+    this.state = {tagName: props.appearance.toLowerCase()};
   }
 
   render() {
-    const {children, appearance, skin} = this.props;
-
     return (
-      <ThemedComponent {...{theme, appearance, skin}}>
-        <CoreText tagName={this.state.tagName}>
-          {children}
-        </CoreText>
-      </ThemedComponent>
+    <StyledText tagName={this.state.tagName}>
+      {this.props.children}
+    </StyledText>
     );
   }
-}
-
-function getType(appearance: Appearance) {
-  return [
-    {type: 'h1', candidates: ['H0']},
-    {type: 'h2', candidates: ['H1']},
-    {type: 'h3', candidates: ['H2']},
-    {type: 'h4', candidates: ['H3']}
-  ]
-    .filter(({candidates}) => candidates.indexOf(appearance) !== -1)
-    .reduceRight((acc, {type}) => type, 'span');
 }

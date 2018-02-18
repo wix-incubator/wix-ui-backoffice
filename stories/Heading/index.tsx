@@ -1,17 +1,12 @@
-import createStory from '../create-story';
+import {storiesOf} from '@storybook/react';
 import {Heading} from '../../src/components/Heading';
-import * as HeadingSource from '!raw-loader!../../src/components/Heading/Heading.tsx';
+import * as React from 'react';
 
-export const story = () => createStory({
-  category: 'Components',
-  name: 'Heading',
-  storyName: 'Heading',
-  component: Heading,
-  componentProps: () => ({
-    appearance: 'H0',
-    skin: 'dark',
-    children: 'Some text',
-    dataHook: 'storybook-heading'
-  }),
-  source: HeadingSource
-});
+export const story = () => storiesOf('Components', module)
+  .add('Heading', () => (
+    <div style={{width: '1000px', height: '500px'}}>
+      <Heading appearance="H2" skin="dark" data-hook="storybook-heading">
+        Some text
+      </Heading>
+    </div>
+  ));

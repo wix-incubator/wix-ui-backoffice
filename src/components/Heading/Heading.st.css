@@ -1,0 +1,122 @@
+:import {
+    -st-from: "wix-ui-core/dist/src/components/StylableText/TextStyle.st.css";
+    -st-default: Text;
+  }
+  
+  :import {
+    -st-from: "wix-ui-core/dist/src/components/StylableText/Text.st.css";
+    -st-default: BaseText;
+  }
+  
+  :import {
+    -st-from: "../../palette.st.css";
+    -st-named: headingText, subheadingText, lightHeadingText, lightSubheadingText;
+  }
+
+  :import {
+    -st-from: "../../typography.st.css";
+    -st-named: fontUltraThin, fontThin, fontLight;
+  }
+  
+  .root {
+    -st-extends: BaseText;
+    -st-states: H1, H2, H3, H4, H5, dark, light;
+  }
+
+  .root:H1:dark {
+    -st-mixin: Text(
+      color value(headingText),
+      fontFamily value(fontUltraThin),
+      fontSize 48px,
+      lineHeight 54px
+    );
+  }
+
+  .root:H2:dark {
+    -st-mixin: Text(
+      color value(headingText),
+      fontFamily value(fontThin),
+      fontSize 36px,
+      lineHeight 48px
+    );
+  }
+
+  .root:H3:dark {
+    -st-mixin: Text(
+      color value(headingText),
+      fontFamily value(fontLight),
+      fontSize 20px,
+      lineHeight 36px
+    );
+  }
+
+  .root:H4:dark {
+    -st-mixin: Text(
+      color value(subheadingText),
+      fontFamily value(fontLight),
+      fontSize 13px,
+      lineHeight 24px,
+      textTransform uppercase,
+      letterSpacing 2px
+    );
+  }
+
+  .root:H5:dark {
+    -st-mixin: Text(
+      color value(subheadingText)
+      fontFamily value(fontLight),
+      fontSize 10px,
+      lineHeight 20px,
+      textTransform uppercase,
+      letterSpacing 2px
+    );
+  }
+
+  .root:H1:light {
+    -st-mixin: Text(
+      color value(lightheadingText)
+      fontFamily value(fontUltraThin),
+      fontSize 48px,
+      lineHeight 54px
+    );
+  }
+
+  .root:H2:light {
+    -st-mixin: Text(
+      color value(lightheadingText)
+      fontFamily value(fontThin),
+      fontSize 36px,
+      lineHeight 48px
+    );
+  }
+
+  .root:H3:light {
+    -st-mixin: Text(
+      color value(lightheadingText),
+      fontFamily value(fontLight),
+      fontSize 20px,
+      lineHeight 36px
+    );
+  }
+
+  .root:H4:light {
+    -st-mixin: Text(
+      color value(lightSubheadingText),
+      fontFamily value(fontLight),
+      fontSize 13px,
+      lineHeight 24px,
+      textTransform uppercase,
+      letterSpacing 2px
+    );
+  }
+
+  .root:H5:light {
+    -st-mixin: Text(
+      color value(lightSubheadingText),
+      fontFamily value(fontLight),
+      fontSize 10px,
+      lineHeight 20px,
+      textTransform uppercase,
+      letterSpacing 2px
+    );
+  }
