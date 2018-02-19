@@ -17,7 +17,7 @@ interface Props {
   appearance?: Appearance;
 }
 
-interface State { tagName: TagName; } 
+interface State { tagName: TagName; }
 
 const defaultProps: Props = {
   appearance: 'H1',
