@@ -16,14 +16,14 @@ describe('Heading', () => {
     it('should render a h1 tag by default', () => {
       const wrapper = createDriver(<Heading>Hello</Heading>);
       expect(wrapper.getTagName()).toBe('H1');
-      expect(wrapper.isTagNameState('H1').toBe(true));
+      expect(wrapper.isTagNameState('H1')).toBe(true);
     });
 
     ['H2', 'H3', 'H4', 'H5'].forEach((appearance: Appearance) => {
       it(`should render a ${appearance.toLowerCase()} tag`, () => {
         const wrapper = createDriver(<Heading appearance={appearance}>Hello</Heading>);
         expect(wrapper.getTagName()).toBe(appearance);
-        expect(wrapper.isTagNameState(appearance).toBe(true));
+        expect(wrapper.isTagNameState(appearance)).toBe(true);
       });
     });
   });
