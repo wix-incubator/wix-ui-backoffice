@@ -32,6 +32,15 @@
     );
   }
 
+  .root:H1:light {
+    -st-mixin: Text(
+      color value(lightHeadingText),
+      fontFamily value(fontUltraThin),
+      fontSize 48px,
+      lineHeight 54px
+    );
+  }
+
   .root:H2:dark {
     -st-mixin: Text(
       color value(headingText),
@@ -41,9 +50,27 @@
     );
   }
 
+  .root:H2:light {
+    -st-mixin: Text(
+      color value(lightHeadingText),
+      fontFamily value(fontThin),
+      fontSize 36px,
+      lineHeight 48px
+    );
+  }
+
   .root:H3:dark {
     -st-mixin: Text(
       color value(headingText),
+      fontFamily value(fontLight),
+      fontSize 20px,
+      lineHeight 36px
+    );
+  }
+
+  .root:H3:light {
+    -st-mixin: Text(
+      color value(lightHeadingText),
       fontFamily value(fontLight),
       fontSize 20px,
       lineHeight 36px
@@ -61,50 +88,23 @@
     );
   }
 
-  .root:H5:dark {
-    -st-mixin: Text(
-      color value(subheadingText),
-      fontFamily value(fontLight),
-      fontSize 10px,
-      lineHeight 20px,
-      textTransform uppercase,
-      letterSpacing 2px
-    );
-  }
-
-  .root:H1:light {
-    -st-mixin: Text(
-      color value(lightHeadingText),
-      fontFamily value(fontUltraThin),
-      fontSize 48px,
-      lineHeight 54px
-    );
-  }
-
-  .root:H2:light {
-    -st-mixin: Text(
-      color value(lightHeadingText),
-      fontFamily value(fontThin),
-      fontSize 36px,
-      lineHeight 48px
-    );
-  }
-
-  .root:H3:light {
-    -st-mixin: Text(
-      color value(lightHeadingText),
-      fontFamily value(fontLight),
-      fontSize 20px,
-      lineHeight 36px
-    );
-  }
-
   .root:H4:light {
     -st-mixin: Text(
       color value(lightSubheadingText),
       fontFamily value(fontLight),
       fontSize 13px,
       lineHeight 24px,
+      textTransform uppercase,
+      letterSpacing 2px
+    );
+  }
+
+  .root:H5:dark {
+    -st-mixin: Text(
+      color value(subheadingText),
+      fontFamily value(fontLight),
+      fontSize 10px,
+      lineHeight 20px,
       textTransform uppercase,
       letterSpacing 2px
     );
