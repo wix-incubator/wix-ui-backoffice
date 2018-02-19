@@ -1,6 +1,6 @@
 import {Checkbox as CoreCheckbox, CheckboxProps as CoreCheckboxProps} from 'wix-ui-core/Checkbox';
 import style from './Checkbox.st.css';
-import {withStylable} from 'wix-ui-core';
+import {withStylable} from 'wix-ui-core/withStylable';
 
 interface CheckboxProps {
   skin?: 'standard' | 'error' | 'success';
