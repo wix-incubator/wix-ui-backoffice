@@ -17,7 +17,7 @@ interface Props {
 }
 
 interface State {
-  tagName: string;
+  tagName: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
 }
 
 const defaultProps: Props = {
