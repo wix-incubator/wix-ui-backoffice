@@ -5,13 +5,8 @@ import style from './Heading.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 import {Color} from '../../colors';
 
-interface ColorsConfig {
-  dark: Color;
-  light: Color;
-}
-
 export type Appearance = 'H1' | 'H2' | 'H3' | 'H4' | 'H5';
-export type Skin = keyof ColorsConfig;
+export type Skin = 'dark' | 'light';
 
 interface Props {
   /** skin color of the heading */
