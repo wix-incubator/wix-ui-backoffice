@@ -6,6 +6,7 @@ import {withStylable} from 'wix-ui-core/withStylable';
 import {Color} from '../../colors';
 
 export type Appearance = 'H1' | 'H2' | 'H3' | 'H4' | 'H5';
+type TagName = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
 export type Skin = 'dark' | 'light';
 
 interface Props {
@@ -16,9 +17,7 @@ interface Props {
   appearance?: Appearance;
 }
 
-interface State {
-  tagName: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
-}
+interface State { tagName: TagName; } 
 
 const defaultProps: Props = {
   appearance: 'H1',
@@ -47,7 +46,7 @@ export class Heading extends React.PureComponent<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.state = {tagName: props.appearance.toLowerCase()};
+    this.state = {tagName: (props.appearance.toLowerCase()) as TagName};
   }
 
   render() {
