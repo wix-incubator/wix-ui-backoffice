@@ -56,10 +56,9 @@ export class Heading extends React.PureComponent<Props, State> {
   }
 
   render() {
+    const {appearance, skin, ...rest} = this.props;
     return (
-    <StyledText {...this.props} tagName={this.state.tagName}>
-      {this.props.children}
-    </StyledText>
+    <StyledText {...rest} tagName={this.state.tagName}/>
     );
   }
 }
