@@ -4,7 +4,7 @@
   B00, B10, B20, B30, B40, B50,
   G10, G20, G30, G40,
   R10, R20, R30, R40,
-  D10, D20, D40, D50, D60, D70,
+  D10, D20, D40, D50, D60, D70, D80,
   P10, P20, P30, P40,
   Y10, Y20, Y30, Y40,
   WHITE;
@@ -59,12 +59,16 @@
   secondaryText: value(D20);
   placeholderText: value(D40);
   disabledText: value(D50);
-
+  primaryLightText: value(D80);
+  
   linkedText: value(brandPrimary);
   linkedTextHover: value(brandPrimary);
 
   headingText: value(primaryText);
   subheadingText: value(secondaryText);
+
+  lightHeadingText: value(primaryLightText);
+  lightSubheadingText: value(disabledText);
 }
 
 /* layout */
