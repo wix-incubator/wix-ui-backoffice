@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {oneOf} from 'prop-types';
-import {Text as CoreText, TextProps as CoreTextProps} from 'wix-ui-core/Text';
+import {Text as CoreText, TextProps as CoreTextProps} from 'wix-ui-core/StylableText';
 import style from './Heading.st.css';
-import {withStylable} from 'wix-ui-core';
+import {withStylable} from 'wix-ui-core/withStylable';
 import {Color} from '../../colors';
 
 interface ColorsConfig {
@@ -58,7 +58,7 @@ export class Heading extends React.PureComponent<Props, State> {
   render() {
     const {appearance, skin, ...rest} = this.props;
     return (
-    <StyledText {...rest} tagName={this.state.tagName}/>
+      <StyledText {...rest} tagName={this.state.tagName}/>
     );
   }
 }
