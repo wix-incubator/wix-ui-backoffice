@@ -63,7 +63,7 @@
 
   .root:H5:dark {
     -st-mixin: Text(
-      color value(subheadingText)
+      color value(subheadingText),
       fontFamily value(fontLight),
       fontSize 10px,
       lineHeight 20px,
@@ -74,7 +74,7 @@
 
   .root:H1:light {
     -st-mixin: Text(
-      color value(lightHeadingText)
+      color value(lightHeadingText),
       fontFamily value(fontUltraThin),
       fontSize 48px,
       lineHeight 54px
@@ -83,7 +83,7 @@
 
   .root:H2:light {
     -st-mixin: Text(
-      color value(lightHeadingText)
+      color value(lightHeadingText),
       fontFamily value(fontThin),
       fontSize 36px,
       lineHeight 48px
