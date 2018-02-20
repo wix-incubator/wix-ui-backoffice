@@ -14,7 +14,7 @@ class ControlledCheckbox extends React.Component<any, { checked: boolean }> {
 
 export const story = () => storiesOf('Components', module)
   .add('Checkbox', () => (
-    <div>
+    <div style={{width: '50px'}}>
       <ControlledCheckbox data-hook="storybook-checkbox">
         Hello
       </ControlledCheckbox>
