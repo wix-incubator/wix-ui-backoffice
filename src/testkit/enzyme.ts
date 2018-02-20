@@ -5,3 +5,6 @@ export const counterBadgeTestkitFactory = enzymeTestkitFactoryCreator(counterBad
 
 import {headingDriverFactory} from '../components/Heading/Heading.driver';
 export const headingTestkitFactory = enzymeTestkitFactoryCreator(headingDriverFactory);
+
+import {checkboxDriverFactory} from '../components/Checkbox/Checkbox.driver';
+export const checkboxTestkitFactory = enzymeTestkitFactoryCreator(checkboxDriverFactory);

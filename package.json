@@ -65,7 +65,9 @@
       "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
       "\\.(st.css)$": "stylable-integration/jest"
     },
-    "transformIgnorePatterns": [],
+    "transformIgnorePatterns": [
+      "\/node_modules\/.*(?<!\\.st\\.css)$"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
