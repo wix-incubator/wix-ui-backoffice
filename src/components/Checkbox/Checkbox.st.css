@@ -18,6 +18,7 @@
   height: initial;
   display: flex;
   align-items: center;
+  outline: 0;
 }
 
 .root::box {
@@ -31,11 +32,16 @@
 }
 
 .root::childContainer {
+  font-size: 16px;
   padding-left: 12px;
 }
 
 .root::box:active {
   background-color: value(mainHover);
+}
+
+.root:focus:not(:active)::box {
+  outline: value(mainHover) auto 5px;
 }
 
 .root:disabled::box {
@@ -76,6 +82,10 @@
   right: 0;
   margin: auto;
   text-align: center;
+}
+
+.root:hover:indeterminate:not(:disabled):not(:checked):not(:active)::box > svg {
+  fill: value(mainMutedBackground);
 }
 
 .root:disabled::box > svg {
