@@ -7,15 +7,10 @@ import {Divider} from '../Divider';
 import {Input} from '../Input';
 import {func , bool, object, arrayOf, number, string, oneOfType, node} from 'prop-types';
 
-const createOption = (id: string | number, isDisabled: boolean, isSelectable: boolean, value: string) =>
-  OptionFactory.create(
-    id,
-    isDisabled,
-    isSelectable,
-    value,
-    val => <div className={style.option}>{val}</div>);
+const createDivider = (value = null) =>
+  OptionFactory.createCustomDivider(value ? <Divider>{value}</Divider> : <Divider />);
 
-interface AutocompleteProps {
+export interface AutocompleteProps {
   /** The dropdown options array */
   options: Array<Option>;
   /** Handler for when an option is selected */
@@ -34,7 +29,7 @@ interface AutocompleteProps {
   inputProps?: InputProps;
 }
 
-interface AutocompleteState {
+export interface AutocompleteState {
   inputValue: string;
   isEditing: boolean;
 }
@@ -60,9 +55,8 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
     inputProps: object
   };
 
-  static createOption = createOption;
-  static createDivider = (value: React.ReactNode = null) =>
-    OptionFactory.createCustomDivider(value ? <Divider>{value}</Divider> : <Divider />)
+  static createOption = OptionFactory.create;
+  static createDivider = createDivider;
 
   constructor(props: AutocompleteProps) {
     super(props);
@@ -89,7 +83,7 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
     });
 
     const {onSelect} = this.props;
-    onSelect(option);
+    onSelect && onSelect(option);
   }
 
   onEditingChanged(isEditing: boolean) {
@@ -105,7 +99,7 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
       (!option.isSelectable && option.value) ||
       (option.isSelectable && option.value && option.value.toLowerCase().includes(lowerValue)))
     .map((option: Option) =>
-      option.isSelectable ? OptionFactory.createHighlighted(option, inputValue) : option);
+      option.isSelectable && option.value ? OptionFactory.createHighlighted(option, inputValue) : option);
   }
 
   createInputProps() {
@@ -119,7 +113,7 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
   }
 
   render() {
-    const {options} = this.props;
+    const {options, disabled, initialSelectedIds, fixedHeader, fixedFooter, onManualInput} = this.props;
     const {inputValue, isEditing} = this.state;
     const displayedOptions =
       inputValue && isEditing ? this.filterOptions(inputValue, options) : options;
@@ -128,6 +122,11 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
       <InputWithOptions
         {...style('root', {}, this.props)}
         onSelect={this.onSelect}
+        disabled={disabled}
+        initialSelectedIds={initialSelectedIds}
+        fixedHeader={fixedHeader}
+        fixedFooter={fixedFooter}
+        onManualInput={onManualInput}
         options={displayedOptions}
         onEditingChanged={this.onEditingChanged}
         InputComponent={Input}
