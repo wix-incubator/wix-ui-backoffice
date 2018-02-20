@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import {checkboxDriverFactory} from 'wix-ui-core/dist/src/components/Checkbox/Checkbox.driver';
 import {checkboxDriverFactory} from './Checkbox.driver';
 import {Checkbox} from './';
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
