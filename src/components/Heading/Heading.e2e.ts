@@ -8,7 +8,7 @@ describe('Heading', () => {
 
   beforeEach(() => browser.get(storyUrl));
   eyes.it('should display correct content', () => {
-    const dataHook = 'storybook-heading';
+    const dataHook = 'storybook-stylable-heading';
     const driver = headingTestkitFactory({dataHook});
 
     return waitForVisibilityOf(driver.element(), 'Cannot find Heading')
