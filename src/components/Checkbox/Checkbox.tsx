@@ -4,8 +4,8 @@ import style from './Checkbox.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 
 const defaultProps = {
-  tickIcon: CheckboxChecked({width: '9px', height: '9px'}),
-  indeterminateIcon: CheckboxIndeterminate({width: '8px', height: '8px'})
+  tickIcon: CheckboxChecked({className: style.tickIcon}),
+  indeterminateIcon: CheckboxIndeterminate({className: style.indeterminateIcon})
 };
 
 export const Checkbox = withStylable<CoreCheckboxProps, {}>(

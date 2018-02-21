@@ -9,7 +9,7 @@
 }
 
 :vars {
-  medium: 14px;
+  medium: 16px;
 }
 
 .root {
@@ -31,6 +31,16 @@
   height: value(medium);
 }
 
+.tickIcon {
+  width: 9px;
+  height: 9px;
+}
+
+.indeterminateIcon {
+  width: 8px;
+  height: 8px;
+}
+
 .root::childContainer {
   font-size: 16px;
   padding-left: 12px;
@@ -41,7 +51,9 @@
 }
 
 .root:focus:not(:active)::box {
-  outline: value(mainHover) auto 5px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 3px #aadbfc;
+  border: solid 1px #3899ec;
 }
 
 .root:disabled::box {

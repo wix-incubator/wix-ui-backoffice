@@ -65,7 +65,7 @@
       "\\.(st.css)$": "stylable-integration/jest"
     },
     "transformIgnorePatterns": [
-      "\/node_modules\/.*(?<!\\.st\\.css)$"
+      "/node_modules/.*(?<!\\.st\\.css)$"
     ],
     "moduleFileExtensions": [
       "ts",
