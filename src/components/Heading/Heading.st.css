@@ -20,10 +20,10 @@
   
   .root {
     -st-extends: BaseText;
-    -st-states: H1, H2, H3, H4, H5, dark, light;
+    -st-states: appearance(string), skin(string);
   }
 
-  .root:H1:dark {
+  .root:appearance(H1):skin(dark) {
     -st-mixin: Text(
       color value(headingText),
       fontFamily value(fontUltraThin),
@@ -32,7 +32,7 @@
     );
   }
 
-  .root:H1:light {
+  .root:appearance(H1):skin(light) {
     -st-mixin: Text(
       color value(lightHeadingText),
       fontFamily value(fontUltraThin),
@@ -41,7 +41,7 @@
     );
   }
 
-  .root:H2:dark {
+  .root:appearance(H2):skin(dark) {
     -st-mixin: Text(
       color value(headingText),
       fontFamily value(fontThin),
@@ -50,7 +50,7 @@
     );
   }
 
-  .root:H2:light {
+  .root:appearance(H2):skin(light) {
     -st-mixin: Text(
       color value(lightHeadingText),
       fontFamily value(fontThin),
@@ -59,7 +59,7 @@
     );
   }
 
-  .root:H3:dark {
+  .root:appearance(H3):skin(dark) {
     -st-mixin: Text(
       color value(headingText),
       fontFamily value(fontLight),
@@ -68,7 +68,7 @@
     );
   }
 
-  .root:H3:light {
+  .root:appearance(H3):skin(light) {
     -st-mixin: Text(
       color value(lightHeadingText),
       fontFamily value(fontLight),
@@ -77,7 +77,7 @@
     );
   }
 
-  .root:H4:dark {
+  .root:appearance(H4):skin(dark) {
     -st-mixin: Text(
       color value(subheadingText),
       fontFamily value(fontLight),
@@ -88,7 +88,7 @@
     );
   }
 
-  .root:H4:light {
+  .root:appearance(H4):skin(light) {
     -st-mixin: Text(
       color value(lightSubheadingText),
       fontFamily value(fontLight),
@@ -99,7 +99,7 @@
     );
   }
 
-  .root:H5:dark {
+  .root:appearance(H5):skin(dark) {
     -st-mixin: Text(
       color value(subheadingText),
       fontFamily value(fontLight),
@@ -110,7 +110,7 @@
     );
   }
 
-  .root:H5:light {
+  .root:appearance(H5):skin(light) {
     -st-mixin: Text(
       color value(lightSubheadingText),
       fontFamily value(fontLight),
