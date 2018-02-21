@@ -1,122 +1,122 @@
 :import {
-    -st-from: "wix-ui-core/dist/src/components/StylableText/TextStyle.st.css";
-    -st-default: Text;
-  }
+  -st-from: "wix-ui-core/dist/src/components/StylableText/TextStyle.st.css";
+  -st-default: Text;
+}
+
+:import {
+  -st-from: "wix-ui-core/dist/src/components/StylableText/Text.st.css";
+  -st-default: BaseText;
+}
   
-  :import {
-    -st-from: "wix-ui-core/dist/src/components/StylableText/Text.st.css";
-    -st-default: BaseText;
-  }
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: headingText, subheadingText, lightHeadingText, lightSubheadingText;
+}
+
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontUltraThin, fontThin, fontLight;
+}
   
-  :import {
-    -st-from: "../../palette.st.css";
-    -st-named: headingText, subheadingText, lightHeadingText, lightSubheadingText;
-  }
+.root {
+  -st-extends: BaseText;
+  -st-states: appearance(string), skin(string);
+}
 
-  :import {
-    -st-from: "../../typography.st.css";
-    -st-named: fontUltraThin, fontThin, fontLight;
-  }
-  
-  .root {
-    -st-extends: BaseText;
-    -st-states: appearance(string), skin(string);
-  }
+.root:appearance(H1):skin(dark) {
+  -st-mixin: Text(
+    color value(headingText),
+    fontFamily value(fontUltraThin),
+    fontSize 48px,
+    lineHeight 54px
+  );
+}
 
-  .root:appearance(H1):skin(dark) {
-    -st-mixin: Text(
-      color value(headingText),
-      fontFamily value(fontUltraThin),
-      fontSize 48px,
-      lineHeight 54px
-    );
-  }
+.root:appearance(H1):skin(light) {
+  -st-mixin: Text(
+    color value(lightHeadingText),
+    fontFamily value(fontUltraThin),
+    fontSize 48px,
+    lineHeight 54px
+  );
+}
 
-  .root:appearance(H1):skin(light) {
-    -st-mixin: Text(
-      color value(lightHeadingText),
-      fontFamily value(fontUltraThin),
-      fontSize 48px,
-      lineHeight 54px
-    );
-  }
+.root:appearance(H2):skin(dark) {
+  -st-mixin: Text(
+    color value(headingText),
+    fontFamily value(fontThin),
+    fontSize 36px,
+    lineHeight 48px
+  );
+}
 
-  .root:appearance(H2):skin(dark) {
-    -st-mixin: Text(
-      color value(headingText),
-      fontFamily value(fontThin),
-      fontSize 36px,
-      lineHeight 48px
-    );
-  }
+.root:appearance(H2):skin(light) {
+  -st-mixin: Text(
+    color value(lightHeadingText),
+    fontFamily value(fontThin),
+    fontSize 36px,
+    lineHeight 48px
+  );
+}
 
-  .root:appearance(H2):skin(light) {
-    -st-mixin: Text(
-      color value(lightHeadingText),
-      fontFamily value(fontThin),
-      fontSize 36px,
-      lineHeight 48px
-    );
-  }
+.root:appearance(H3):skin(dark) {
+  -st-mixin: Text(
+    color value(headingText),
+    fontFamily value(fontLight),
+    fontSize 20px,
+    lineHeight 36px
+  );
+}
 
-  .root:appearance(H3):skin(dark) {
-    -st-mixin: Text(
-      color value(headingText),
-      fontFamily value(fontLight),
-      fontSize 20px,
-      lineHeight 36px
-    );
-  }
+.root:appearance(H3):skin(light) {
+  -st-mixin: Text(
+    color value(lightHeadingText),
+    fontFamily value(fontLight),
+    fontSize 20px,
+    lineHeight 36px
+  );
+}
 
-  .root:appearance(H3):skin(light) {
-    -st-mixin: Text(
-      color value(lightHeadingText),
-      fontFamily value(fontLight),
-      fontSize 20px,
-      lineHeight 36px
-    );
-  }
+.root:appearance(H4):skin(dark) {
+  -st-mixin: Text(
+    color value(subheadingText),
+    fontFamily value(fontLight),
+    fontSize 13px,
+    lineHeight 24px,
+    textTransform uppercase,
+    letterSpacing 2px
+  );
+}
 
-  .root:appearance(H4):skin(dark) {
-    -st-mixin: Text(
-      color value(subheadingText),
-      fontFamily value(fontLight),
-      fontSize 13px,
-      lineHeight 24px,
-      textTransform uppercase,
-      letterSpacing 2px
-    );
-  }
+.root:appearance(H4):skin(light) {
+  -st-mixin: Text(
+    color value(lightSubheadingText),
+    fontFamily value(fontLight),
+    fontSize 13px,
+    lineHeight 24px,
+    textTransform uppercase,
+    letterSpacing 2px
+  );
+}
 
-  .root:appearance(H4):skin(light) {
-    -st-mixin: Text(
-      color value(lightSubheadingText),
-      fontFamily value(fontLight),
-      fontSize 13px,
-      lineHeight 24px,
-      textTransform uppercase,
-      letterSpacing 2px
-    );
-  }
+.root:appearance(H5):skin(dark) {
+  -st-mixin: Text(
+    color value(subheadingText),
+    fontFamily value(fontLight),
+    fontSize 10px,
+    lineHeight 20px,
+    textTransform uppercase,
+    letterSpacing 2px
+  );
+}
 
-  .root:appearance(H5):skin(dark) {
-    -st-mixin: Text(
-      color value(subheadingText),
-      fontFamily value(fontLight),
-      fontSize 10px,
-      lineHeight 20px,
-      textTransform uppercase,
-      letterSpacing 2px
-    );
-  }
-
-  .root:appearance(H5):skin(light) {
-    -st-mixin: Text(
-      color value(lightSubheadingText),
-      fontFamily value(fontLight),
-      fontSize 10px,
-      lineHeight 20px,
-      textTransform uppercase,
-      letterSpacing 2px
-    );
-  }
+.root:appearance(H5):skin(light) {
+  -st-mixin: Text(
+    color value(lightSubheadingText),
+    fontFamily value(fontLight),
+    fontSize 10px,
+    lineHeight 20px,
+    textTransform uppercase,
+    letterSpacing 2px
+  );
+}
