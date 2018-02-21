@@ -4,7 +4,7 @@ import {UIText} from '../../src/components/StylableUIText';
 
 export const story = () => storiesOf('Components', module)
   .add('StylableUIText', () => (
-    <UIText appearance="T1.1" data-hook="storybook-uiText">
+    <UIText appearance="T1.1" data-hook="storybook-stylable-uiText">
       Some text
     </UIText>
   ));
