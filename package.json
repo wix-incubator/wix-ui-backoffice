@@ -62,12 +62,11 @@
   },
   "jest": {
     "transform": {
-      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
-      "\\.(st.css)$": "stylable-integration/jest"
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "transformIgnorePatterns": [
-      "postcss-safe-parser"
-    ],
+    "moduleNameMapper": {
+      "\\.(st.css)$": "<rootDir>/test/utils/stylable-jest.js"
+    },
     "moduleFileExtensions": [
       "ts",
       "tsx",
