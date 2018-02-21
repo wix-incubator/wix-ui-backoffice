@@ -4,7 +4,7 @@ import {Heading} from '../../src/components/Heading';
 
 export const story = () => storiesOf('Components', module)
   .add('Heading', () => (
-    <Heading appearance="H1" skin="dark" data-hook="storybook-stylable-heading">
+    <Heading appearance="H1" skin="dark" data-hook="storybook-heading">
       Some text
     </Heading>
   ));
