@@ -5,3 +5,6 @@ export const counterBadgeTestkitFactory = protractorTestkitFactoryCreator(counte
 
 import {headingDriverFactory} from '../components/Heading/Heading.protractor.driver';
 export const headingTestkitFactory = protractorTestkitFactoryCreator(headingDriverFactory);
+
+import {uiTextDriverFactory} from '../components/StylableUIText/UIText.protractor.driver';
+export const uiTextTestkitFactory = protractorTestkitFactoryCreator(uiTextDriverFactory);
