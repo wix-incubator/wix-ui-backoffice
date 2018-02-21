@@ -16,7 +16,7 @@ type TagName = 'div' | 'span';
 interface UITextProps {
   /** typography of the text */
   appearance?: Appearance;
- 
+
   /** the tag name to be used */
   tagName?: TagName;
 }
