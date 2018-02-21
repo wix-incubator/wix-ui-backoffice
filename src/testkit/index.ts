@@ -5,3 +5,6 @@ export const counterBadgeTestkitFactory = testkitFactoryCreator(counterBadgeDriv
 
 import {checkboxDriverFactory} from '../components/Checkbox/Checkbox.driver';
 export const checkboxTestkitFactory = testkitFactoryCreator(checkboxDriverFactory);
+
+import {uiTextDriverFactory} from '../components/StylableUIText/UIText.driver';
+export const uiTextTestkitFactory = testkitFactoryCreator(uiTextDriverFactory);
