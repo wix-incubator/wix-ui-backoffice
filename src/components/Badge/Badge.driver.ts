@@ -6,7 +6,6 @@ import style from './Badge.st.css';
 export const badgeDriverFactory = ({element}) => {
   const coreBadgeDriver = coreBadgeDriverFactory({element});
   const stylableDOMUtil = new StylableDOMUtil(style, element);
-
   const uiTextDriver = uiTextDriverFactory({element: stylableDOMUtil.select('.text')});
 
   return {
