@@ -6,22 +6,11 @@ import {withStylable} from 'wix-ui-core/withStylable';
 import {UIText} from '../StylableUIText';
 import {SKIN, TYPE, Type, Skin} from './constants';
 
-const iconStyles = {
-  prefix: {paddingRight: '8px'},
-  suffix: {paddingLeft: '8px'}
-};
-
-const createBadgeIcon = (type, icon) => (
-  <span style={iconStyles[type]}>
-    {React.cloneElement(icon, {size: '12px'})}
-  </span>
-);
-
 interface BadgeProps {
   type?: Type;
   skin?: Skin;
-  prefixIcon?: any;
-  suffixIcon?: any;
+  prefixIcon?: React.ReactNode;
+  suffixIcon?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -55,9 +44,9 @@ export class Badge extends React.PureComponent<BadgeProps> {
     const {children, prefixIcon, suffixIcon, ...rest} = this.props;
     return (
       <StyledBadge {...rest}>
-        {prefixIcon && createBadgeIcon('prefix', prefixIcon)}
-        <UIText appearance="T5">{children}</UIText>
-        {suffixIcon && createBadgeIcon('suffix', suffixIcon)}
+        {prefixIcon && <span className={style.prefix}>{prefixIcon}</span>}
+        <UIText className={style.text} appearance="T5">{children}</UIText>
+        {suffixIcon && <span className={style.suffix}>{suffixIcon}</span>}
       </StyledBadge>
     );
   }

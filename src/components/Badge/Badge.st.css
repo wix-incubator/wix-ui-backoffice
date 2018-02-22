@@ -9,11 +9,6 @@
 }
 
 :import {
-  -st-from: "../StylableUIText/UIText.st.css";
-  -st-default: UIText;
-}
-
-:import {
   -st-from: "../../palette.st.css";
   -st-named: secondaryText, primaryLightText, mainHover, danger, success, placeholderText, warning, urgent, mainMuted, successMutedHover, backgroundSecondary, dangerMutedHover;
 }
@@ -23,62 +18,149 @@
   -st-states: skin(string), type(string);
 }
 
-/* UIText color when type = solid */
-.root:type(solid):skin(default) UIText,
-.root:type(solid):skin(standard) UIText,
-.root:type(solid):skin(danger) UIText,
-.root:type(solid):skin(success) UIText,
-.root:type(solid):skin(grey) UIText,
-.root:type(solid):skin(warning) UIText,
-.root:type(solid):skin(urgent) UIText {
+.root >:not(:last-child) {
+  margin-right: 8px;
+}
+
+.prefix, .suffix {
+  width: 12px;
+  height: 12px;
+}
+
+/* children color when type = solid */
+.root:type(solid):skin(default) .text,
+.root:type(solid):skin(standard) .text,
+.root:type(solid):skin(danger) .text,
+.root:type(solid):skin(success) .text,
+.root:type(solid):skin(grey) .text,
+.root:type(solid):skin(warning) .text,
+.root:type(solid):skin(urgent) .text {
   color: value(primaryLightText);
 }
 
-.root:type(solid):skin(neutralStandard) UIText,
-.root:type(solid):skin(neutralSuccess) UIText,
-.root:type(solid):skin(neutralDanger) UIText {
+.root:type(solid):skin(default) .prefix svg,
+.root:type(solid):skin(standard) .prefix svg,
+.root:type(solid):skin(danger) .prefix svg,
+.root:type(solid):skin(success) .prefix svg,
+.root:type(solid):skin(grey) .prefix svg,
+.root:type(solid):skin(warning) .prefix svg,
+.root:type(solid):skin(urgent) .prefix svg,
+
+.root:type(solid):skin(default) .suffix svg,
+.root:type(solid):skin(standard) .suffix svg,
+.root:type(solid):skin(danger) .suffix svg,
+.root:type(solid):skin(success) .suffix svg,
+.root:type(solid):skin(grey) .suffix svg,
+.root:type(solid):skin(warning) .suffix svg,
+.root:type(solid):skin(urgent) .suffix svg {
+  fill: value(primaryLightText);
+}
+
+.root:type(solid):skin(neutralStandard) .text,
+.root:type(solid):skin(neutralSuccess) .text,
+.root:type(solid):skin(neutralDanger) .text {
   color: value(secondaryText);
 }
 
-/* UIText color when type != solid */
-.root:skin(default) UIText {
+.root:type(solid):skin(neutralStandard) .prefix svg,
+.root:type(solid):skin(neutralSuccess) .prefix svg,
+.root:type(solid):skin(neutralDanger) .prefix svg,
+
+.root:type(solid):skin(neutralStandard) .suffix svg,
+.root:type(solid):skin(neutralSuccess) .suffix svg,
+.root:type(solid):skin(neutralDanger) .suffix svg {
+  fill: value(secondaryText);
+}
+
+/* children color when type != solid */
+.root:skin(default) .text {
   color: value(secondaryText);
 }
 
-.root:skin(standard) UIText {
+.root:skin(default) .prefix svg,
+.root:skin(default) .suffix svg {
+  fill: value(secondaryText);
+}
+
+.root:skin(standard) .text {
   color: value(mainHover);
 }
 
-.root:skin(danger) UIText {
+.root:skin(standard) .prefix svg,
+.root:skin(standard) .suffix svg {
+  fill: value(mainHover);
+}
+
+.root:skin(danger) .text {
   color: value(danger);
 }
 
-.root:skin(success) UIText {
+.root:skin(danger) .prefix svg,
+.root:skin(danger) .suffix svg {
+  fill: value(danger);
+}
+
+.root:skin(success) .text {
   color: value(success);
 }
 
-.root:skin(grey) UIText {
+.root:skin(success) .prefix svg,
+.root:skin(success) .suffix svg {
+  fill: value(success);
+}
+
+.root:skin(grey) .text {
   color: value(placeholderText);
 }
 
-.root:skin(warning) UIText {
+.root:skin(grey) .prefix svg,
+.root:skin(grey) .suffix svg {
+  fill: value(placeholderText);
+}
+
+.root:skin(warning) .text {
   color: value(warning);
 }
 
-.root:skin(urgent) UIText {
+.root:skin(warning) .prefix svg,
+.root:skin(warning) .suffix svg {
+  fill: value(warning);
+}
+
+.root:skin(urgent) .text {
   color: value(urgent);
 }
 
-.root:skin(neutralStandard) UIText {
+.root:skin(urgent) .prefix svg,
+.root:skin(urgent) .suffix svg {
+  fill: value(urgent);
+}
+
+.root:skin(neutralStandard) .text {
   color: value(mainMuted);
 }
 
-.root:skin(neutralSuccess) UIText {
+.root:skin(neutralStandard) .prefix svg,
+.root:skin(neutralStandard) .suffix svg {
+  fill: value(mainMuted);
+}
+
+.root:skin(neutralSuccess) .text {
   color: value(successMutedHover);
 }
 
-.root:skin(neutralDanger) UIText {
+.root:skin(neutralSuccess) .prefix svg,
+.root:skin(neutralSuccess) .suffix svg {
+  fill: value(successMutedHover);
+}
+
+.root:skin(neutralDanger) .text {
   color: value(dangerMutedHover);
+}
+
+.root:skin(neutralDanger) .prefix svg,
+.root:skin(neutralDanger) .suffix svg {
+  fill: value(dangerMutedHover);
 }
 
 /* background & border when type = solid */
