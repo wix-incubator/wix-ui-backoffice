@@ -16,7 +16,7 @@ describe('Badge', () => {
   describe('type prop', () => {
     it('should be solid by default', () => {
       const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.getType()).toBe('solid');
+      expect(wrapper.getType()).toBe(TYPE.solid);
     });
 
     Object.keys(TYPE).forEach((type: Type) => {
@@ -30,7 +30,7 @@ describe('Badge', () => {
   describe('skin prop', () => {
     it('should be default by default', () => {
       const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.getSkin()).toBe('default');
+      expect(wrapper.getSkin()).toBe(SKIN.default);
     });
 
     Object.keys(SKIN).forEach((skin: Skin) => {
