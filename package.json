@@ -50,6 +50,7 @@
     "react": "^15.5.0",
     "react-dom": "^15.5.0",
     "react-test-renderer": "^15.5.4",
+    "stylable": "latest",
     "ts-jest": "^22.0.3",
     "typescript": "^2.6.2",
     "wix-storybook-utils": "latest",
@@ -62,8 +63,7 @@
   },
   "jest": {
     "transform": {
-      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
-      "\\.(st.css)$": "stylable-integration/jest"
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "moduleNameMapper": {
       "\\.(st.css)$": "wix-ui-test-utils/stylable-proxy",

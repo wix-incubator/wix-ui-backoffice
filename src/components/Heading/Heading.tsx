@@ -27,7 +27,7 @@ const defaultProps: Props = {
 const StyledText = withStylable<CoreTextProps, Props>(
   CoreText,
   style,
-  ({skin, appearance}) => ({[skin]: true, [appearance]: true}),
+  ({skin, appearance}) => ({skin, appearance}),
   defaultProps
 );
 
