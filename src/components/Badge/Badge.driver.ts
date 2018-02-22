@@ -1,5 +1,5 @@
 import {badgeDriverFactory as coreBadgeDriverFactory} from 'wix-ui-core/dist/src/components/StylableBadge/Badge.driver';
-import {uiTextDriverFactory} from '../StylableUIText/UiText.driver';
+import {uiTextDriverFactory} from '../StylableUIText/UIText.driver';
 import {StylableDOMUtil} from 'stylable/test-utils';
 import style from './Badge.st.css';
 
