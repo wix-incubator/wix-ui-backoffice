@@ -5,7 +5,7 @@ import {ThemedComponent} from 'wix-ui-theme';
 import {withStylable} from 'wix-ui-core/withStylable';
 import style from './Input.st.css';
 
-interface InputProps {
+export interface InputProps {
   skin?: 'standard' | 'error' | 'success';
   size?: 'large' | 'small' | 'x-small';
 }
