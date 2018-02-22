@@ -1,23 +1,26 @@
 import * as React from 'react';
-import createStory from '../create-story';
-
+import {storiesOf} from '@storybook/react';
 import {Badge} from '../../src/components/Badge';
-import * as BadgeSource from '!raw-loader!../../src/components/Badge/Badge.tsx';
 
-const icons = [null, <span key="1">+</span>, <span key="2">-</span>]; // just to see if it's working
+class ControlledBadgeExample extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
+    this.state = {skin: 'default', type: 'solid'};
+  }
+  render() {
+    return(
+      <div>
+        skin: <input value={this.state.skin} onChange={e => this.setState({skin: e.target.value})}/><br/><br/>
+        type: <input value={this.state.type} onChange={e => this.setState({type: e.target.value})}/><br/><br/>
+        <Badge skin={this.state.skin} type={this.state.type} data-hook="storybook-badge">
+          I'M A BADGE!
+        </Badge>
+      </div>
+    );
+  }
+}
 
-export const story = () => createStory({
-  category: 'Components',
-  name: 'Badge',
-  storyName: 'Badge',
-  component: Badge,
-  componentProps: () => ({
-    children: 'I\'M A BADGE!',
-    dataHook: 'storybook-badge'
-  }),
-  exampleProps: {
-    prefixIcon: icons,
-    suffixIcon: icons
-  },
-  source: BadgeSource
-});
+export const story = () => storiesOf('Components', module)
+  .add('Badge', () => (
+    <ControlledBadgeExample/>
+  ));

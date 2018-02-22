@@ -7,6 +7,7 @@
   D10, D20, D40, D50, D60, D70,
   P10, P20, P30, P40,
   Y10, Y20, Y30, Y40,
+  O10,
   WHITE;
 }
 
@@ -43,6 +44,8 @@
   warningMutedHover:	value(Y30);
   dangerMutedHover:	value(R30);
   premiumMutedHover:	value(P30);
+
+  urgent: value(O10);
 }
 
 /* Input colors */
