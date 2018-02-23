@@ -9,8 +9,8 @@ import {SKIN, TYPE, Type, Skin} from './constants';
 interface BadgeProps {
   type?: Type;
   skin?: Skin;
-  prefixIcon?: React.ReactNode;
-  suffixIcon?: React.ReactNode;
+  prefixIcon?: any;
+  suffixIcon?: any;
 }
 
 const defaultProps = {
@@ -44,9 +44,9 @@ export class Badge extends React.PureComponent<BadgeProps> {
     const {children, prefixIcon, suffixIcon, ...rest} = this.props;
     return (
       <StyledBadge {...rest}>
-        {prefixIcon && <span className={style.prefix}>{prefixIcon}</span>}
+        {prefixIcon && React.cloneElement(prefixIcon, {className: style.prefix})}
         <UIText className={style.text} appearance="T5">{children}</UIText>
-        {suffixIcon && <span className={style.suffix}>{suffixIcon}</span>}
+        {suffixIcon && React.cloneElement(suffixIcon, {className: style.suffix})}
       </StyledBadge>
     );
   }

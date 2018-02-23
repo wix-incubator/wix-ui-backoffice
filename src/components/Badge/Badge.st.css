@@ -38,21 +38,21 @@
   color: value(primaryLightText);
 }
 
-.root:type(solid):skin(default) .prefix svg,
-.root:type(solid):skin(standard) .prefix svg,
-.root:type(solid):skin(danger) .prefix svg,
-.root:type(solid):skin(success) .prefix svg,
-.root:type(solid):skin(grey) .prefix svg,
-.root:type(solid):skin(warning) .prefix svg,
-.root:type(solid):skin(urgent) .prefix svg,
+.root:type(solid):skin(default) .prefix,
+.root:type(solid):skin(standard) .prefix,
+.root:type(solid):skin(danger) .prefix,
+.root:type(solid):skin(success) .prefix,
+.root:type(solid):skin(grey) .prefix,
+.root:type(solid):skin(warning) .prefix,
+.root:type(solid):skin(urgent) .prefix,
 
-.root:type(solid):skin(default) .suffix svg,
-.root:type(solid):skin(standard) .suffix svg,
-.root:type(solid):skin(danger) .suffix svg,
-.root:type(solid):skin(success) .suffix svg,
-.root:type(solid):skin(grey) .suffix svg,
-.root:type(solid):skin(warning) .suffix svg,
-.root:type(solid):skin(urgent) .suffix svg {
+.root:type(solid):skin(default) .suffix,
+.root:type(solid):skin(standard) .suffix,
+.root:type(solid):skin(danger) .suffix,
+.root:type(solid):skin(success) .suffix,
+.root:type(solid):skin(grey) .suffix,
+.root:type(solid):skin(warning) .suffix,
+.root:type(solid):skin(urgent) .suffix {
   fill: value(primaryLightText);
 }
 
@@ -62,13 +62,13 @@
   color: value(secondaryText);
 }
 
-.root:type(solid):skin(neutralStandard) .prefix svg,
-.root:type(solid):skin(neutralSuccess) .prefix svg,
-.root:type(solid):skin(neutralDanger) .prefix svg,
+.root:type(solid):skin(neutralStandard) .prefix,
+.root:type(solid):skin(neutralSuccess) .prefix,
+.root:type(solid):skin(neutralDanger) .prefix,
 
-.root:type(solid):skin(neutralStandard) .suffix svg,
-.root:type(solid):skin(neutralSuccess) .suffix svg,
-.root:type(solid):skin(neutralDanger) .suffix svg {
+.root:type(solid):skin(neutralStandard) .suffix,
+.root:type(solid):skin(neutralSuccess) .suffix,
+.root:type(solid):skin(neutralDanger) .suffix {
   fill: value(secondaryText);
 }
 
@@ -77,8 +77,8 @@
   color: value(secondaryText);
 }
 
-.root:skin(default) .prefix svg,
-.root:skin(default) .suffix svg {
+.root:skin(default) .prefix,
+.root:skin(default) .suffix {
   fill: value(secondaryText);
 }
 
@@ -86,8 +86,8 @@
   color: value(mainHover);
 }
 
-.root:skin(standard) .prefix svg,
-.root:skin(standard) .suffix svg {
+.root:skin(standard) .prefix,
+.root:skin(standard) .suffix {
   fill: value(mainHover);
 }
 
@@ -95,8 +95,8 @@
   color: value(danger);
 }
 
-.root:skin(danger) .prefix svg,
-.root:skin(danger) .suffix svg {
+.root:skin(danger) .prefix,
+.root:skin(danger) .suffix {
   fill: value(danger);
 }
 
@@ -104,8 +104,8 @@
   color: value(success);
 }
 
-.root:skin(success) .prefix svg,
-.root:skin(success) .suffix svg {
+.root:skin(success) .prefix,
+.root:skin(success) .suffix {
   fill: value(success);
 }
 
@@ -113,8 +113,8 @@
   color: value(placeholderText);
 }
 
-.root:skin(grey) .prefix svg,
-.root:skin(grey) .suffix svg {
+.root:skin(grey) .prefix,
+.root:skin(grey) .suffix {
   fill: value(placeholderText);
 }
 
@@ -122,8 +122,8 @@
   color: value(warning);
 }
 
-.root:skin(warning) .prefix svg,
-.root:skin(warning) .suffix svg {
+.root:skin(warning) .prefix,
+.root:skin(warning) .suffix {
   fill: value(warning);
 }
 
@@ -131,8 +131,8 @@
   color: value(urgent);
 }
 
-.root:skin(urgent) .prefix svg,
-.root:skin(urgent) .suffix svg {
+.root:skin(urgent) .prefix,
+.root:skin(urgent) .suffix {
   fill: value(urgent);
 }
 
@@ -140,8 +140,8 @@
   color: value(mainMuted);
 }
 
-.root:skin(neutralStandard) .prefix svg,
-.root:skin(neutralStandard) .suffix svg {
+.root:skin(neutralStandard) .prefix,
+.root:skin(neutralStandard) .suffix {
   fill: value(mainMuted);
 }
 
@@ -149,8 +149,8 @@
   color: value(successMutedHover);
 }
 
-.root:skin(neutralSuccess) .prefix svg,
-.root:skin(neutralSuccess) .suffix svg {
+.root:skin(neutralSuccess) .prefix,
+.root:skin(neutralSuccess) .suffix {
   fill: value(successMutedHover);
 }
 
@@ -158,8 +158,8 @@
   color: value(dangerMutedHover);
 }
 
-.root:skin(neutralDanger) .prefix svg,
-.root:skin(neutralDanger) .suffix svg {
+.root:skin(neutralDanger) .prefix,
+.root:skin(neutralDanger) .suffix {
   fill: value(dangerMutedHover);
 }
 
