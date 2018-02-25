@@ -1,6 +1,6 @@
   :import {
     -st-from: "wix-ui-core/dist/src/components/Input/Input.st.css";
-    -st-default: BaseInput;
+    -st-default: Input;
   }
 
   :import {
@@ -23,7 +23,7 @@
   }
   
   .root {
-    -st-extends: BaseInput;
+    -st-extends: Input;
     -st-states: error, large, x-small, small;
     padding: value(padding);
     border-radius: value(borderRadius);
