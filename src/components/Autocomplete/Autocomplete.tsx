@@ -75,18 +75,22 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
   }
 
   _onInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({
-      inputValue: event.target.value
-    });
+    if (this.state.inputValue !== event.target.value) {
+      this.setState({
+        inputValue: event.target.value
+      });
+    }
   }
 
   _onSelect(option: Option) {
-    this.setState({
-      inputValue: option.value
-    });
+    if (this.state.inputValue !== option.value) {
+      this.setState({
+        inputValue: option.value
+      });
 
-    const {onSelect} = this.props;
-    onSelect && onSelect(option);
+      const {onSelect} = this.props;
+      onSelect && onSelect(option);
+    }
   }
 
   _onEditingChanged(isEditing: boolean) {
