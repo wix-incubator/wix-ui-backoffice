@@ -13,7 +13,6 @@ export const badgeDriverFactory = ({element}) => {
     getType: () => stylableDOMUtil.getStyleState(element, 'type'),
     getSkin: () => stylableDOMUtil.getStyleState(element, 'skin'),
     getUIText: () => uiTextDriver,
-    textContent: () => element.textContent,
     getPrefixIcon: () => stylableDOMUtil.select('.prefix'),
     getSuffixIcon: () => stylableDOMUtil.select('.suffix')
   };
