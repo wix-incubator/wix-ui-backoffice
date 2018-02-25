@@ -19,8 +19,8 @@
   max-width: 250px;
 }
 
-.root::input {
-  -st-mixin: Input();
+.input {
+  -st-mixin: Input;
 }
 
 .root::option {
