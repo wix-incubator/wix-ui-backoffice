@@ -291,8 +291,7 @@
     lineHeight 12px,
     color value(secondaryText),
     textTransform uppercase,
-    letterSpacing 1px,
-    margin 0 -1px 0 0
+    letterSpacing 1px
   );
 }
 
@@ -303,7 +302,6 @@
     lineHeight 12px,
     color value(primaryLightText),
     textTransform uppercase,
-    letterSpacing 1px,
-    margin 0 -1px 0 0
+    letterSpacing 1px
   );
 }
