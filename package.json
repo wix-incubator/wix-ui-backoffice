@@ -65,7 +65,7 @@
       "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "moduleNameMapper": {
-      "\\.(st.css)$": "wix-ui-test-utils/stylable-proxy"
+      "\\.(st.css|scss)$": "wix-ui-test-utils/stylable-proxy"
     },
     "moduleFileExtensions": [
       "ts",
