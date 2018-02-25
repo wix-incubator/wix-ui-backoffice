@@ -15,14 +15,14 @@ describe('Checkbox', () => {
     expect(driver.element()).toBeDefined();
   });
 
-  eyes.it('should be unchecked and not disabled by default', () => {
+  xit('should be unchecked and not disabled by default', () => {
     const driver = checkboxTestkitFactory({dataHook});
 
     expect(driver.isChecked()).toBe(false);
     expect(driver.isDisabled()).toBe(false);
   });
 
-  eyes.it('should become checked', () => {
+  xit('should become checked', () => {
     const driver = checkboxTestkitFactory({dataHook});
 
     expect(driver.isChecked()).toBe(false);
