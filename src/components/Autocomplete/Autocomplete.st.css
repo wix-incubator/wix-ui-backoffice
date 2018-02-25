@@ -8,8 +8,14 @@
   -st-default: Input;
 }
 
+:import {
+  -st-from: "../Input/InputStates.st.css";
+  -st-named: input-large, input-small, input-x-small;
+}
+
 .root {
   -st-extends: InputWithOptions;
+  -st-states: size(enum(large, x-small, small));
 }
 
 .root::contentContainer {
@@ -21,6 +27,18 @@
 
 .input {
   -st-mixin: Input;
+}
+
+.root:size(large) .input {
+  -st-mixin: input-large;
+}
+
+.root:size(small) .input {
+  -st-mixin: input-small;
+}
+
+.root:size(x-small) .input {
+  -st-mixin: input-x-small;
 }
 
 .root::option {

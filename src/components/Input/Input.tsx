@@ -16,6 +16,6 @@ const defaultProps = {
 export const Input = withStylable<CoreInputProps, InputProps>(
   CoreInput,
   style,
-  ({skin, size}) => ({[size]: true, [skin]: true}),
+  ({skin, size}) => ({size, skin}),
   defaultProps
 );

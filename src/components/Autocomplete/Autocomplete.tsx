@@ -4,7 +4,7 @@ import {InputWithOptions} from 'wix-ui-core/InputWithOptions';
 import {Option, OptionFactory} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionFactory';
 import {InputProps} from 'wix-ui-core/Input';
 import {Divider} from '../Divider';
-import {func , bool, object, arrayOf, number, string, oneOfType, node} from 'prop-types';
+import {func , bool, object, arrayOf, number, string, oneOfType, node, oneOf} from 'prop-types';
 
 const createDivider = (value = null) =>
   OptionFactory.createCustomDivider(value ? <Divider>{value}</Divider> : <Divider />);
@@ -24,6 +24,8 @@ export interface AutocompleteProps {
   onManualInput?: (value: string) => void;
   /** Input prop types */
   inputProps?: InputProps;
+  /** Input size */
+  size?: 'large' | 'small' | 'x-small';
 }
 
 export interface AutocompleteState {
@@ -32,6 +34,10 @@ export interface AutocompleteState {
 }
 
 export class Autocomplete extends React.PureComponent<AutocompleteProps, AutocompleteState> {
+
+  static defaultProps = {
+    size: 'large'
+  };
 
   static propTypes = {
     /** The dropdown options array */
@@ -47,7 +53,9 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
     /** Callback when the user pressed the Enter key or Tab key after he wrote in the Input field - meaning the user selected something not in the list  */
     onManualInput: func,
     /** Input prop types */
-    inputProps: object
+    inputProps: object,
+    /** Input size */
+    size: oneOf(['large', 'small', 'x-small'])
   };
 
   static createOption = OptionFactory.create;
@@ -61,18 +69,18 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
       inputValue: (props.inputProps && props.inputProps.value) || ''
     };
 
-    this.onSelect = this.onSelect.bind(this);
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onEditingChanged = this.onEditingChanged.bind(this);
+    this._onSelect = this._onSelect.bind(this);
+    this._onInputChange = this._onInputChange.bind(this);
+    this._onEditingChanged = this._onEditingChanged.bind(this);
   }
 
-  onInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+  _onInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({
       inputValue: event.target.value
     });
   }
 
-  onSelect(option: Option) {
+  _onSelect(option: Option) {
     this.setState({
       inputValue: option.value
     });
@@ -81,13 +89,13 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
     onSelect && onSelect(option);
   }
 
-  onEditingChanged(isEditing: boolean) {
+  _onEditingChanged(isEditing: boolean) {
     if (this.state.isEditing !== isEditing) {
       this.setState({isEditing});
     }
   }
 
-  filterOptions(inputValue: string, options: Array<Option>): Array<Option> {
+  _filterOptions(inputValue: string, options: Array<Option>): Array<Option> {
     const lowerValue = inputValue.toLowerCase();
     return options
     .filter((option: Option) =>
@@ -97,34 +105,34 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
       option.isSelectable && option.value ? OptionFactory.createHighlighted(option, inputValue) : option);
   }
 
-  createInputProps() {
+  _createInputProps() {
     let {inputProps} = this.props;
     const {inputValue} = this.state;
 
     inputProps = inputProps || {};
     inputProps.value = inputValue;
-    inputProps.onChange = this.onInputChange;
+    inputProps.onChange = this._onInputChange;
     inputProps.className = `${style.input} ${inputProps.className ? inputProps.className : ''}`.trim();
     return inputProps;
   }
 
   render() {
-    const {options, initialSelectedIds, fixedHeader, fixedFooter, onManualInput} = this.props;
+    const {options, initialSelectedIds, fixedHeader, fixedFooter, onManualInput, size} = this.props;
     const {inputValue, isEditing} = this.state;
-    const inputProps = this.createInputProps();
+    const inputProps = this._createInputProps();
     const displayedOptions =
-      inputValue && isEditing ? this.filterOptions(inputValue, options) : options;
+      inputValue && isEditing ? this._filterOptions(inputValue, options) : options;
 
     return (
       <InputWithOptions
-        {...style('root', {}, this.props)}
-        onSelect={this.onSelect}
+        {...style('root', {size}, this.props)}
+        onSelect={this._onSelect}
         initialSelectedIds={initialSelectedIds}
         fixedHeader={fixedHeader}
         fixedFooter={fixedFooter}
         onManualInput={onManualInput}
         options={displayedOptions}
-        onEditingChanged={this.onEditingChanged}
+        onEditingChanged={this._onEditingChanged}
         inputProps={inputProps}
       />
     );

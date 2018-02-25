@@ -22,7 +22,7 @@
 
 .root {
   -st-extends: Input;
-  -st-states: error, large, x-small, small;
+  -st-states: skin(enum(standard, success, error)), size(enum(large, x-small, small));
 
   padding: value(padding);
   border-radius: value(borderRadius);
@@ -41,14 +41,14 @@
   border-color: value(inputFocusBorderColor);
 }
 
-.root:large {
+.root:size(large) {
   -st-mixin: input-large;
 }
 
-.root:small {
+.root:size(small) {
   -st-mixin: input-small;
 }
 
-.root:x-small {
+.root:size(x-small) {
   -st-mixin: input-x-small;
 }
