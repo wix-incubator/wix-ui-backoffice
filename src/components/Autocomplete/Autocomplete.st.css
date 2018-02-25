@@ -3,6 +3,11 @@
   -st-default: InputWithOptions;
 }
 
+:import {
+  -st-from: "../Input/Input.st.css";
+  -st-default: Input;
+}
+
 .root {
   -st-extends: InputWithOptions;
 }
@@ -12,6 +17,10 @@
   border-radius: 8px;
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
   max-width: 250px;
+}
+
+.input {
+  -st-mixin: Input;
 }
 
 .root::option {

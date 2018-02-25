@@ -4,7 +4,6 @@ import {InputWithOptions} from 'wix-ui-core/InputWithOptions';
 import {Option, OptionFactory} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionFactory';
 import {InputProps} from 'wix-ui-core/Input';
 import {Divider} from '../Divider';
-import {Input} from '../Input';
 import {func , bool, object, arrayOf, number, string, oneOfType, node} from 'prop-types';
 
 const createDivider = (value = null) =>
@@ -23,8 +22,6 @@ export interface AutocompleteProps {
   fixedFooter?: React.ReactNode;
   /** Callback when the user pressed the Enter key or Tab key after he wrote in the Input field - meaning the user selected something not in the list  */
   onManualInput?: (value: string) => void;
-  /** Makes the component disabled */
-  disabled?: boolean;
   /** Input prop types */
   inputProps?: InputProps;
 }
@@ -49,8 +46,6 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
     fixedFooter: node,
     /** Callback when the user pressed the Enter key or Tab key after he wrote in the Input field - meaning the user selected something not in the list  */
     onManualInput: func,
-    /** Makes the component disabled */
-    disabled: bool,
     /** Input prop types */
     inputProps: object
   };
@@ -109,12 +104,14 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
     inputProps = inputProps || {};
     inputProps.value = inputValue;
     inputProps.onChange = this.onInputChange;
+    inputProps.className = `${style.input} ${inputProps.className ? inputProps.className : ''}`.trim();
     return inputProps;
   }
 
   render() {
-    const {options, disabled, initialSelectedIds, fixedHeader, fixedFooter, onManualInput} = this.props;
+    const {options, initialSelectedIds, fixedHeader, fixedFooter, onManualInput} = this.props;
     const {inputValue, isEditing} = this.state;
+    const inputProps = this.createInputProps();
     const displayedOptions =
       inputValue && isEditing ? this.filterOptions(inputValue, options) : options;
 
@@ -122,15 +119,13 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
       <InputWithOptions
         {...style('root', {}, this.props)}
         onSelect={this.onSelect}
-        disabled={disabled}
         initialSelectedIds={initialSelectedIds}
         fixedHeader={fixedHeader}
         fixedFooter={fixedFooter}
         onManualInput={onManualInput}
         options={displayedOptions}
         onEditingChanged={this.onEditingChanged}
-        InputComponent={Input}
-        inputProps={this.createInputProps()}
+        inputProps={inputProps}
       />
     );
   }
