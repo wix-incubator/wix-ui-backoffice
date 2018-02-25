@@ -12,6 +12,6 @@ describe('Badge', () => {
     const driver = badgeTestkitFactory({dataHook});
 
     return waitForVisibilityOf(driver.element(), 'Cannot find Badge')
-      .then(() => expect(driver.getTextContent()).toBe('I\'M A BADGE!'));
+      .then(() => expect(driver.text()).toBe('I\'M A BADGE!'));
   });
 });

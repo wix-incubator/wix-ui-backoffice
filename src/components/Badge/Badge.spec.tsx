@@ -51,7 +51,7 @@ describe('Badge', () => {
   describe('children prop', () => {
     it('should render the text given as a children prop', () => {
       const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.textContent()).toBe('Hello');
+      expect(wrapper.text()).toBe('Hello');
     });
 
     it('should not have any icons by default', () => {
