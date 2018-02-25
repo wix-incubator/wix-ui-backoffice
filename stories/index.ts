@@ -11,3 +11,4 @@ require('./ToggleSwitch').story();
 require('./Tooltip').story();
 require('./UIText').story();
 require('./StylableUIText').story();
+require('./TimePicker').story();
