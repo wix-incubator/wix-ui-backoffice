@@ -71,7 +71,7 @@
   color: value(primaryLightText);
 }
 
-.root::option:isDisabled {
+.root::option:disabled {
   color: value(disabledText);
   cursor: default;
 }

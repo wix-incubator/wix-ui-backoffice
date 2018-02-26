@@ -5,7 +5,7 @@ import {Autocomplete} from '.';
 import {Divider} from '../Divider';
 import {OptionFactory} from 'wix-ui-core/dist/src/baseComponents/DropdownOption';
 
-export const options =
+const options =
   Array.from(Array(20))
     .map((x, index) => Autocomplete.createOption(index, false, true, `value${index}`));
 

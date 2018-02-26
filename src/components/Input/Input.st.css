@@ -5,7 +5,15 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: primaryText, inputBackground, inputBorderColor, inputHover, inputFocusBorderColor;
+  -st-named:
+    primaryText,
+    inputBackground,
+    inputBorderColor,
+    inputHover,
+    inputFocusBorderColor,
+    inputDisabledColor,
+    inputDisabledBorderColor,
+    inputDisabledHoverBorderColor;
 }
 
 :import {
@@ -35,6 +43,16 @@
 
 .root:hover {
   background-color: value(inputHover);
+}
+
+.root:disabled {
+  color: value(inputDisabledColor);
+  border-color: value(inputDisabledBorderColor);
+}
+
+.root:disabled:hover {
+  background-color: value(inputBackground);
+  border-color: value(inputDisabledHoverBorderColor);
 }
 
 .root:focus {

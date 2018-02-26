@@ -3,7 +3,17 @@ import {storiesOf} from '@storybook/react';
 import {Autocomplete} from '../../src/components/Autocomplete';
 import * as AutocompleteSource from '!raw-loader!../../src/components/Autocomplete/Autocomplete.tsx';
 import createStory from '../create-story';
-import {options} from '../../src/components/Autocomplete/Autocomplete.spec';
+import {OptionFactory} from 'wix-ui-core/dist/src/baseComponents/DropdownOption';
+import {Divider} from '../../src/components/Divider';
+
+const options =
+  Array.from(Array(20))
+    .map((x, index) => Autocomplete.createOption(index, false, true, `value${index}`));
+
+options[2] = Autocomplete.createOption(2, true, true, `Disabled item`);
+options[5] = OptionFactory.createCustomDivider(<Divider />);
+options[8].value = 'This is a very very very very very long option';
+options[12] = OptionFactory.createCustomDivider(<Divider>Divider</Divider>);
 
 export const story = () => createStory({
   category: 'Components',
