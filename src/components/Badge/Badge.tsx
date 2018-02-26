@@ -9,8 +9,8 @@ import {SKIN, TYPE, Type, Skin} from './constants';
 interface BadgeProps {
   type?: Type;
   skin?: Skin;
-  prefixIcon?: any;
-  suffixIcon?: any;
+  prefixIcon?: React.ReactElement<any>;
+  suffixIcon?: React.ReactElement<any>;
 }
 
 const defaultProps = {
