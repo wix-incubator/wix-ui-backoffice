@@ -18,12 +18,8 @@
   -st-states: skin(string), type(string);
 }
 
-.prefix {
+.root >:not(:last-child) {
   margin-right: 8px;
-}
-
-.suffix {
-  margin-left: 8px;
 }
 
 .prefix, .suffix {

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {oneOf, node} from 'prop-types';
 import {Badge as CoreBadge, BadgeProps as CoreBadgeProps} from 'wix-ui-core/StylableBadge';
-import style from './Badge.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 import {UIText} from '../StylableUIText';
 import {SKIN, TYPE, Type, Skin} from './constants';
+import style from './Badge.st.css';
 
 interface BadgeProps {
   type?: Type;
