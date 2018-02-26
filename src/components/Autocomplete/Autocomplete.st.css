@@ -67,7 +67,12 @@
   color: #ffffff;
 }
 
-.root::option:disabled {
+.root::option:isDisabled {
   color: #b6c1cd;
+  cursor: default;
+}
+
+.root::option:not(:selectable) {
+  padding: 0;
   cursor: default;
 }
