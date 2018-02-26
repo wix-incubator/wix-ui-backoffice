@@ -4,6 +4,11 @@
 }
 
 :import {
+  -st-from: "../../palette.st.css";
+  -st-named: primaryText, mainHover, main, disabledText, inputHover, primaryLightText;
+}
+
+:import {
   -st-from: "../Input/Input.st.css";
   -st-default: Input;
 }
@@ -47,28 +52,27 @@
   padding: 8px 0;
   text-overflow: ellipsis;
   font-size: 16px;
-  color: #162d3d;
+  color: value(primaryText);
   overflow: hidden;
   text-align: left;
 }
 
 .root::option:hovered {
-  background: #eaf7ff;
-  color: #162d3d;
+  background: value(inputHover);
 }
 
 .root::option:selected {
-  background: #3899ec;
-  color: #ffffff;
+  background: value(main);
+  color: value(primaryLightText);
 }
 
 .root::option:selected:hovered {
-  background: #4eb7f5;
-  color: #ffffff;
+  background: value(mainHover);
+  color: value(primaryLightText);
 }
 
 .root::option:isDisabled {
-  color: #b6c1cd;
+  color: value(disabledText);
   cursor: default;
 }
 
