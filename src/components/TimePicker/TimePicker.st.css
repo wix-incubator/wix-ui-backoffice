@@ -3,8 +3,23 @@
   -st-named: main, inputBackground, inputBorderColor, inputHover, inputFocusBorderColor;
 }
 
+:import {
+  -st-from: "../Input/Input.st.css";
+  -st-default: Input;
+}
+
+:import {
+  -st-from: "../Input/InputStates.st.css";
+  -st-named: input-small;
+}
+
 .root {
   position: relative;
+}
+
+.coreTimePicker {
+  -st-mixin: Input, input-small;
+  
 }
 
 .tickerGroup {
