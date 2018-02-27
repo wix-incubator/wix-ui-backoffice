@@ -9,6 +9,11 @@
 }
 
 :import {
+  -st-from: "../StylableUIText/UIText.st.css";
+  -st-default: UIText;
+}
+
+:import {
   -st-from: "../../palette.st.css";
   -st-named: secondaryText, primaryLightText, mainHover, danger, success, placeholderText, warning, urgent, mainMuted, successMutedHover, backgroundSecondary, dangerMutedHover;
 }
@@ -25,292 +30,254 @@
 .prefix, .suffix {
   width: 12px;
   height: 12px;
+  fill: currentColor;
 }
 
-/* children color when type = solid */
-.root:type(solid):skin(default) .text,
-.root:type(solid):skin(standard) .text,
-.root:type(solid):skin(danger) .text,
-.root:type(solid):skin(success) .text,
-.root:type(solid):skin(grey) .text,
-.root:type(solid):skin(warning) .text,
-.root:type(solid):skin(urgent) .text {
-  color: value(primaryLightText);
+.text {
+  -st-extends: UIText;
+  color: currentColor;
 }
 
-.root:type(solid):skin(default) .prefix,
-.root:type(solid):skin(standard) .prefix,
-.root:type(solid):skin(danger) .prefix,
-.root:type(solid):skin(success) .prefix,
-.root:type(solid):skin(grey) .prefix,
-.root:type(solid):skin(warning) .prefix,
-.root:type(solid):skin(urgent) .prefix,
-
-.root:type(solid):skin(default) .suffix,
-.root:type(solid):skin(standard) .suffix,
-.root:type(solid):skin(danger) .suffix,
-.root:type(solid):skin(success) .suffix,
-.root:type(solid):skin(grey) .suffix,
-.root:type(solid):skin(warning) .suffix,
-.root:type(solid):skin(urgent) .suffix {
-  fill: value(primaryLightText);
+/* type = transparent */
+.root:type(transparent):skin(default) {
+  -st-mixin: Badge(
+    backgroundColor transparent,
+    borderColor transparent,
+    color value(secondaryText)
+  );
 }
 
-.root:type(solid):skin(neutralStandard) .text,
-.root:type(solid):skin(neutralSuccess) .text,
-.root:type(solid):skin(neutralDanger) .text {
-  color: value(secondaryText);
+.root:type(transparent):skin(standard) {
+  -st-mixin: Badge(
+    backgroundColor transparent,
+    borderColor transparent,
+    color value(mainHover)
+  );
 }
 
-.root:type(solid):skin(neutralStandard) .prefix,
-.root:type(solid):skin(neutralSuccess) .prefix,
-.root:type(solid):skin(neutralDanger) .prefix,
-
-.root:type(solid):skin(neutralStandard) .suffix,
-.root:type(solid):skin(neutralSuccess) .suffix,
-.root:type(solid):skin(neutralDanger) .suffix {
-  fill: value(secondaryText);
+.root:type(transparent):skin(danger) {
+  -st-mixin: Badge(
+    backgroundColor transparent,
+    borderColor transparent,
+    color value(danger)
+  );
 }
 
-/* children color when type != solid */
-.root:skin(default) .text {
-  color: value(secondaryText);
+.root:type(transparent):skin(success) {
+  -st-mixin: Badge(
+    backgroundColor transparent,
+    borderColor transparent,
+    color value(success)
+  );
 }
 
-.root:skin(default) .prefix,
-.root:skin(default) .suffix {
-  fill: value(secondaryText);
+.root:type(transparent):skin(grey) {
+  -st-mixin: Badge(
+    backgroundColor transparent,
+    borderColor transparent,
+    color value(placeholderText)
+  );
 }
 
-.root:skin(standard) .text {
-  color: value(mainHover);
+.root:type(transparent):skin(warning) {
+  -st-mixin: Badge(
+    backgroundColor transparent,
+    borderColor transparent,
+    color value(warning)
+  );
 }
 
-.root:skin(standard) .prefix,
-.root:skin(standard) .suffix {
-  fill: value(mainHover);
+.root:type(transparent):skin(urgent) {
+  -st-mixin: Badge(
+    backgroundColor transparent,
+    borderColor transparent,
+    color value(urgent)
+  );
 }
 
-.root:skin(danger) .text {
-  color: value(danger);
+.root:type(transparent):skin(neutralStandard) {
+  -st-mixin: Badge(
+    backgroundColor transparent,
+    borderColor transparent,
+    color value(mainMuted)
+  );
 }
 
-.root:skin(danger) .prefix,
-.root:skin(danger) .suffix {
-  fill: value(danger);
+.root:type(transparent):skin(neutralSuccess) {
+  -st-mixin: Badge(
+    backgroundColor transparent,
+    borderColor transparent,
+    color value(successMutedHover)
+  );
 }
 
-.root:skin(success) .text {
-  color: value(success);
+.root:type(transparent):skin(neutralDanger) {
+  -st-mixin: Badge(
+    backgroundColor transparent,
+    borderColor transparent,
+    color value(dangerMutedHover)
+  );
 }
 
-.root:skin(success) .prefix,
-.root:skin(success) .suffix {
-  fill: value(success);
-}
-
-.root:skin(grey) .text {
-  color: value(placeholderText);
-}
-
-.root:skin(grey) .prefix,
-.root:skin(grey) .suffix {
-  fill: value(placeholderText);
-}
-
-.root:skin(warning) .text {
-  color: value(warning);
-}
-
-.root:skin(warning) .prefix,
-.root:skin(warning) .suffix {
-  fill: value(warning);
-}
-
-.root:skin(urgent) .text {
-  color: value(urgent);
-}
-
-.root:skin(urgent) .prefix,
-.root:skin(urgent) .suffix {
-  fill: value(urgent);
-}
-
-.root:skin(neutralStandard) .text {
-  color: value(mainMuted);
-}
-
-.root:skin(neutralStandard) .prefix,
-.root:skin(neutralStandard) .suffix {
-  fill: value(mainMuted);
-}
-
-.root:skin(neutralSuccess) .text {
-  color: value(successMutedHover);
-}
-
-.root:skin(neutralSuccess) .prefix,
-.root:skin(neutralSuccess) .suffix {
-  fill: value(successMutedHover);
-}
-
-.root:skin(neutralDanger) .text {
-  color: value(dangerMutedHover);
-}
-
-.root:skin(neutralDanger) .prefix,
-.root:skin(neutralDanger) .suffix {
-  fill: value(dangerMutedHover);
-}
-
-/* background & border when type = solid */
+/* type = solid */
 .root:type(solid):skin(default) {
   -st-mixin: Badge(
     backgroundColor value(secondaryText),
-    borderColor value(secondaryText)
+    borderColor value(secondaryText),
+    color value(primaryLightText)
   );
 }
 
 .root:type(solid):skin(standard) {
   -st-mixin: Badge(
     backgroundColor value(mainHover),
-    borderColor value(mainHover)
+    borderColor value(mainHover),
+    color value(primaryLightText)
   );
 }
 
 .root:type(solid):skin(danger) {
   -st-mixin: Badge(
     backgroundColor value(danger),
-    borderColor value(danger)
+    borderColor value(danger),
+    color value(primaryLightText)
   );
 }
 
 .root:type(solid):skin(success) {
   -st-mixin: Badge(
     backgroundColor value(success),
-    borderColor value(success)
+    borderColor value(success),
+    color value(primaryLightText)
   );
 }
 
 .root:type(solid):skin(grey) {
   -st-mixin: Badge(
     backgroundColor value(placeholderText),
-    borderColor value(placeholderText)
+    borderColor value(placeholderText),
+    color value(primaryLightText)
   );
 }
 
 .root:type(solid):skin(warning) {
   -st-mixin: Badge(
     backgroundColor value(warning),
-    borderColor value(warning)
+    borderColor value(warning),
+    color value(primaryLightText)
   );
 }
 
 .root:type(solid):skin(urgent) {
   -st-mixin: Badge(
     backgroundColor value(urgent),
-    borderColor value(urgent)
+    borderColor value(urgent),
+    color value(primaryLightText)
   );
 }
 
 .root:type(solid):skin(neutralStandard) {
   -st-mixin: Badge(
     backgroundColor value(mainMuted),
-    borderColor value(mainMuted)
+    borderColor value(mainMuted),
+    color value(secondaryText)
   );
 }
 
 .root:type(solid):skin(neutralSuccess) {
   -st-mixin: Badge(
     backgroundColor value(successMutedHover),
-    borderColor value(successMutedHover)
+    borderColor value(successMutedHover),
+    color value(secondaryText)
   );
 }
 
 .root:type(solid):skin(neutralDanger) {
   -st-mixin: Badge(
     backgroundColor value(dangerMutedHover),
-    borderColor value(dangerMutedHover)
+    borderColor value(dangerMutedHover),
+    color value(secondaryText)
   );
 }
 
 
-/* background & border when type = transparent */
-.root:type(transparent) {
-  -st-mixin: Badge(
-    backgroundColor transparent,
-    borderColor transparent
-  );
-}
-
-
-/* background & border when type = outlined */
+/* type = outlined */
 .root:type(outlined):skin(default) {
   -st-mixin: Badge(
     borderColor value(secondaryText),
-    backgroundColor value(backgroundSecondary)
+    backgroundColor value(backgroundSecondary),
+    color value(secondaryText)
   );
 }
 
 .root:type(outlined):skin(standard) {
   -st-mixin: Badge(
     borderColor value(mainHover),
-    backgroundColor value(backgroundSecondary)
+    backgroundColor value(backgroundSecondary),
+    color value(mainHover)
   );
 }
 
 .root:type(outlined):skin(danger) {
   -st-mixin: Badge(
     borderColor value(danger),
-    backgroundColor value(backgroundSecondary)
+    backgroundColor value(backgroundSecondary),
+    color value(danger)
   );
 }
 
 .root:type(outlined):skin(success) {
   -st-mixin: Badge(
     borderColor value(success),
-    backgroundColor value(backgroundSecondary)
+    backgroundColor value(backgroundSecondary),
+    color value(success)
   );
 }
 
 .root:type(outlined):skin(grey) {
   -st-mixin: Badge(
     borderColor value(placeholderText),
-    backgroundColor value(backgroundSecondary)
+    backgroundColor value(backgroundSecondary),
+    color value(placeholderText)
   );
 }
 
 .root:type(outlined):skin(warning) {
   -st-mixin: Badge(
     borderColor value(warning),
-    backgroundColor value(backgroundSecondary)
+    backgroundColor value(backgroundSecondary),
+    color value(warning)
   );
 }
 
 .root:type(outlined):skin(urgent) {
   -st-mixin: Badge(
     borderColor value(urgent),
-    backgroundColor value(backgroundSecondary)
+    backgroundColor value(backgroundSecondary),
+    color value(urgent)
   );
 }
 
 .root:type(outlined):skin(neutralStandard) {
   -st-mixin: Badge(
     borderColor value(mainMuted),
-    backgroundColor value(backgroundSecondary)
+    backgroundColor value(backgroundSecondary),
+    color value(mainMuted)
   );
 }
 
 .root:type(outlined):skin(neutralSuccess) {
   -st-mixin: Badge(
     borderColor value(successMutedHover),
-    backgroundColor value(backgroundSecondary)
+    backgroundColor value(backgroundSecondary),
+    color value(successMutedHover)
   );
 }
 
 .root:type(outlined):skin(neutralDanger) {
   -st-mixin: Badge(
     borderColor value(dangerMutedHover),
-    backgroundColor value(backgroundSecondary)
+    backgroundColor value(backgroundSecondary),
+    color value(dangerMutedHover)
   );
 }
