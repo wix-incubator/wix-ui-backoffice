@@ -12,7 +12,6 @@ const typeOptions = Object.keys(TYPE).map(value => Autocomplete.createOption(val
 
 const iconsOptions = ['none', 'Email'].map(value => Autocomplete.createOption(value, false, true, value));
 
-
 class ControlledBadgeExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
@@ -26,7 +25,6 @@ class ControlledBadgeExample extends React.Component<any, any> {
   }
 
   render() {
-    console.log(this.state.skin);
     return(
       <div style={{display: 'flex'}}>
         <div style={{marginRight: '120px'}}>
@@ -43,8 +41,8 @@ class ControlledBadgeExample extends React.Component<any, any> {
           <Badge
             skin={this.state.skin}
             type={this.state.type}
-            prefixIcon={this.state.prefixIcon == 'Email' ? <Email/> : null}
-            suffixIcon={this.state.suffixIcon == 'Email' ? <Email/> : null}
+            prefixIcon={this.state.prefixIcon === 'Email' ? <Email/> : null}
+            suffixIcon={this.state.suffixIcon === 'Email' ? <Email/> : null}
             data-hook="storybook-badge"
             >
             {this.state.children}
