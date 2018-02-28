@@ -45,8 +45,9 @@ class ControlledBadgeExample extends React.Component<any, any> {
             type={this.state.type}
             prefixIcon={this.state.prefixIcon == 'Email' ? <Email/> : null}
             suffixIcon={this.state.suffixIcon == 'Email' ? <Email/> : null}
-            data-hook="storybook-badge">
-            I'M A BADGE!
+            data-hook="storybook-badge"
+            >
+            {this.state.children}
           </Badge>
         </div>
       </div>
