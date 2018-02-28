@@ -14,8 +14,8 @@ export interface AutocompleteProps {
   options: Array<Option>;
   /** Handler for when an option is selected */
   onSelect?: (option: Option) => void;
-  /** initial selected option ids */
-  initialSelectedIds?: Array<string | number>;
+  /** initial selected option id */
+  initialSelectedId?: string | number;
   /** An element that always appears at the top of the options */
   fixedHeader?: React.ReactNode;
   /** An element that always appears at the bottom of the options */
@@ -45,7 +45,7 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
     /** Handler for when an option is selected */
     onSelect: func,
     /** initial selected option ids */
-    initialSelectedIds: oneOfType([arrayOf(number), arrayOf(string)]),
+    initialSelectedId: oneOfType([number, string]),
     /** An element that always appears at the top of the options */
     fixedHeader: node,
     /** An element that always appears at the bottom of the options */
@@ -72,6 +72,7 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
     this._onSelect = this._onSelect.bind(this);
     this._onInputChange = this._onInputChange.bind(this);
     this._onEditingChanged = this._onEditingChanged.bind(this);
+    this._onInitialSelectedOptionsSet = this._onInitialSelectedOptionsSet.bind(this);
   }
 
   _onInputChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -120,8 +121,17 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
     return inputProps;
   }
 
+  _onInitialSelectedOptionsSet(options: Array<Option>) {
+    const selectedValue = options[0].value;
+    if (this.state.inputValue !== selectedValue) {
+      this.setState({
+        inputValue: selectedValue
+      });
+    }
+  }
+
   render() {
-    const {options, initialSelectedIds, fixedHeader, fixedFooter, onManualInput, size} = this.props;
+    const {options, initialSelectedId, fixedHeader, fixedFooter, onManualInput, size} = this.props;
     const {inputValue, isEditing} = this.state;
     const inputProps = this._createInputProps();
     const displayedOptions =
@@ -131,7 +141,8 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
       <InputWithOptions
         {...style('root', {size}, this.props)}
         onSelect={this._onSelect}
-        initialSelectedIds={initialSelectedIds}
+        initialSelectedIds={initialSelectedId || initialSelectedId === 0 ? [initialSelectedId] : []}
+        onInitialSelectedOptionsSet={this._onInitialSelectedOptionsSet}
         fixedHeader={fixedHeader}
         fixedFooter={fixedFooter}
         onManualInput={onManualInput}

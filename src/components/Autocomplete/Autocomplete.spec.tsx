@@ -22,4 +22,9 @@ describe('Autocomplete', () => {
     expect(driver.isTargetElementExists()).toBeTruthy();
     expect(driver.isContentElementExists()).toBeFalsy();
   });
+
+  it('should initialize autocomplete with value', () => {
+    const driver = createDriver(<Autocomplete initialSelectedId={1} options={options} />);
+    expect(driver.getValue()).toEqual('value1');
+  });
 });
