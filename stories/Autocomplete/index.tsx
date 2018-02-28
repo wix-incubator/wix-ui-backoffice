@@ -3,7 +3,7 @@ import {storiesOf} from '@storybook/react';
 import {Autocomplete} from '../../src/components/Autocomplete';
 import * as AutocompleteSource from '!raw-loader!../../src/components/Autocomplete/Autocomplete.tsx';
 import createStory from '../create-story';
-import {OptionFactory} from 'wix-ui-core/dist/src/baseComponents/DropdownOption';
+import {OptionFactory, Option} from 'wix-ui-core/dist/src/baseComponents/DropdownOption';
 import {Divider} from '../../src/components/Divider';
 
 const options =
@@ -27,6 +27,9 @@ export const story = () => createStory({
   },
   exampleProps: {
     fixedFooter: [null, <div>Fixed Footer</div>],
-    fixedHeader: [null, <div>Fixed Header</div>]
+    fixedHeader: [null, <div>Fixed Header</div>],
+    onSelect: (option: Option) => option.value,
+    initialSelectedId: [null, 1],
+    onManualInput: (value: string) => `Manual input: ${value}`
   }
 });

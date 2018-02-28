@@ -30,11 +30,11 @@ class ControlledBadgeExample extends React.Component<any, any> {
         <div style={{marginRight: '120px'}}>
           <Heading> Props </Heading><br/><br/><br/>
           <Heading appearance="H3">children: </Heading> <Input value={this.state.children} onChange={e => this.setState({children: e.target.value})}/><br/><br/>
-          <Heading appearance="H3">skin: </Heading> <Autocomplete options={skinOptions} onSelect={({value}) => this.setState({skin: value})} initialSelectedIds={[this.state.skin]}/><br/><br/>
-          <Heading appearance="H3">type: </Heading> <Autocomplete options={typeOptions} onSelect={({value}) => this.setState({type: value})} initialSelectedIds={[this.state.type]}/><br/><br/>
+          <Heading appearance="H3">skin: </Heading> <Autocomplete options={skinOptions} onSelect={({value}) => this.setState({skin: value})} initialSelectedId={this.state.skin}/><br/><br/>
+          <Heading appearance="H3">type: </Heading> <Autocomplete options={typeOptions} onSelect={({value}) => this.setState({type: value})} initialSelectedId={this.state.type}/><br/><br/>
 
-          <Heading appearance="H3">prefixIcon: </Heading><Autocomplete options={iconsOptions} onSelect={({value}) => this.setState({prefixIcon: value})} initialSelectedIds={[this.state.prefixIcon]}/><br/><br/>
-          <Heading appearance="H3">suffixIcon: </Heading><Autocomplete options={iconsOptions} onSelect={({value}) => this.setState({suffixIcon: value})} initialSelectedIds={[this.state.suffixIcon]}/><br/><br/>
+          <Heading appearance="H3">prefixIcon: </Heading><Autocomplete options={iconsOptions} onSelect={({value}) => this.setState({prefixIcon: value})} initialSelectedId={this.state.prefixIcon}/><br/><br/>
+          <Heading appearance="H3">suffixIcon: </Heading><Autocomplete options={iconsOptions} onSelect={({value}) => this.setState({suffixIcon: value})} initialSelectedId={this.state.suffixIcon}/><br/><br/>
         </div>
         <div>
           <Heading> Preview </Heading><br/><br/><br/><br/><br/><br/><br/><br/><br/>
