@@ -122,7 +122,7 @@ export class Autocomplete extends React.PureComponent<AutocompleteProps, Autocom
   }
 
   _onInitialSelectedOptionsSet(options: Array<Option>) {
-    const selectedValue = options[0].value;
+    const selectedValue = options.length ? options[0].value : '';
     if (this.state.inputValue !== selectedValue) {
       this.setState({
         inputValue: selectedValue
