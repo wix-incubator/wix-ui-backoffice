@@ -30,7 +30,7 @@
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
-    "wix-ui-core": "^1.0.263",
+    "wix-ui-core": "latest",
     "wix-ui-theme": "latest"
   },
   "devDependencies": {
