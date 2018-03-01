@@ -1,6 +1,6 @@
 import * as eyes from 'eyes.it';
 import {getStoryUrl} from 'wix-ui-test-utils/protractor';
-import {inputWithOptionsTestkitFactory} from 'wix-ui-core/dist/src/testkit/protractor';
+import {autocompleteTestkitFactory} from '../../testkit/protractor';
 import {browser} from 'protractor';
 
 describe('Autocomplete', () => {
@@ -10,7 +10,7 @@ describe('Autocomplete', () => {
   beforeEach(() => browser.get(storyUrl));
 
   eyes.it('should render', () => {
-    const driver = inputWithOptionsTestkitFactory({dataHook});
+    const driver = autocompleteTestkitFactory({dataHook});
 
     expect(driver.element()).toBeDefined();
   });

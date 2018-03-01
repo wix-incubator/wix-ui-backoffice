@@ -14,3 +14,6 @@ export const checkboxTestkitFactory = testkitFactoryCreator(checkboxDriverFactor
 
 import {uiTextDriverFactory} from '../components/StylableUIText/UIText.driver';
 export const uiTextTestkitFactory = testkitFactoryCreator(uiTextDriverFactory);
+
+import {autocompleteDriverFactory} from '../components/Autocomplete/Autocomplete.driver';
+export const autocompleteTestkitFactory = testkitFactoryCreator(autocompleteDriverFactory);

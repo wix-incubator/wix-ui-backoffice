@@ -11,3 +11,6 @@ export const headingTestkitFactory = protractorTestkitFactoryCreator(headingDriv
 
 import {uiTextDriverFactory} from '../components/StylableUIText/UIText.protractor.driver';
 export const uiTextTestkitFactory = protractorTestkitFactoryCreator(uiTextDriverFactory);
+
+import {autocompleteDriverFactory} from '../components/Autocomplete/Autocomplete.protractor.driver';
+export const autocompleteTestkitFactory = protractorTestkitFactoryCreator(autocompleteDriverFactory);
