@@ -8,12 +8,11 @@ describe('CounterBadge', () => {
   const storyUrl = getStoryUrl('Components', 'CounterBadge');
 
   beforeEach(() => browser.get(storyUrl));
-  afterEach(() => autoExampleDriver.reset());
+  eyes.it('should display correct content', () => {
+    const dataHook = 'storybook-counterBadge';
+    const driver = counterBadgeTestkitFactory({dataHook});
 
-  eyes.it('should display correct content', async () => {
-    const driver = counterBadgeTestkitFactory({dataHook: 'storybook-counterBadge'});
-    await waitForVisibilityOf(driver.element(), 'Cannot find Badge');
-    await autoExampleDriver.setProps({children: '34'});
-    expect(await driver.getTextContent()).toBe('34');
+    return waitForVisibilityOf(driver.element(), 'Cannot find CounterBadge')
+      .then(() => expect(driver.text()).toBe('12'));
   });
 });
