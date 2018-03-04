@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {oneOf, bool, string} from 'prop-types';
-import {Text as CoreText, TextProps as CoreTextProps} from 'wix-ui-core/StylableText';
+import {Text as CoreText, TextProps as CoreTextProps} from 'wix-ui-core/Text';
 import style from './UIText.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 

@@ -1,4 +1,4 @@
-import {textDriverFactory} from 'wix-ui-core/dist/src/components/StylableText/Text.driver';
+import {textDriverFactory} from 'wix-ui-core/dist/src/components/Text/Text.driver';
 import {StylableDOMUtil} from 'stylable/test-utils';
 import style from './Heading.st.css';
 import {Appearance} from './Heading';
