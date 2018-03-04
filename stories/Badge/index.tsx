@@ -6,11 +6,12 @@ import {Email, Facebook} from 'wix-ui-icons-common';
 import {Input} from '../../src/components/Input';
 import {Autocomplete} from '../../src/components/Autocomplete';
 import {Heading} from '../../src/components/Heading';
+import {OptionFactory} from 'wix-ui-core/dist/src/baseComponents/DropdownOption';
 
-const skinOptions = Object.keys(SKIN).map(value => Autocomplete.createOption({id: value, value}));
-const typeOptions = Object.keys(TYPE).map(value => Autocomplete.createOption({id: value, value}));
+const skinOptions = Object.keys(SKIN).map(value => OptionFactory.create({id: value, value}));
+const typeOptions = Object.keys(TYPE).map(value => OptionFactory.create({id: value, value}));
 
-const iconsOptions = ['none', 'Email'].map(value => Autocomplete.createOption({id: value, value}));
+const iconsOptions = ['none', 'Email'].map(value => OptionFactory.create({id: value, value}));
 
 class ControlledBadgeExample extends React.Component<any, any> {
   constructor(props) {
