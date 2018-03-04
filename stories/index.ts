@@ -2,6 +2,7 @@ require('./Autocomplete').story();
 require('./Badge').story();
 require('./Checkbox').story();
 require('./CounterBadge').story();
+require('./StylableCounterBadge').story();
 require('./Heading').story();
 require('./Input').story();
 require('./StylableToggleSwitch').story();

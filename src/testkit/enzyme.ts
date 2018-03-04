@@ -17,3 +17,6 @@ export const uiTextTestkitFactory = enzymeTestkitFactoryCreator(uiTextDriverFact
 
 import {autocompleteDriverFactory} from '../components/Autocomplete/Autocomplete.driver';
 export const autocompleteTestkitFactory = enzymeTestkitFactoryCreator(autocompleteDriverFactory);
+
+import {counterBadgeDriverFactory as stylableCounterBadgeDriverFactory} from '../components/StylableCounterBadge/CounterBadge.driver';
+export const stylableCounterBadgeTestkitFactory = enzymeTestkitFactoryCreator(stylableCounterBadgeDriverFactory);
