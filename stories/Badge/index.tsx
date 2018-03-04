@@ -7,10 +7,10 @@ import {Input} from '../../src/components/Input';
 import {Autocomplete} from '../../src/components/Autocomplete';
 import {Heading} from '../../src/components/Heading';
 
-const skinOptions = Object.keys(SKIN).map(value => Autocomplete.createOption(value, false, true, value));
-const typeOptions = Object.keys(TYPE).map(value => Autocomplete.createOption(value, false, true, value));
+const skinOptions = Object.keys(SKIN).map(value => Autocomplete.createOption({id: value, value}));
+const typeOptions = Object.keys(TYPE).map(value => Autocomplete.createOption({id: value, value}));
 
-const iconsOptions = ['none', 'Email'].map(value => Autocomplete.createOption(value, false, true, value));
+const iconsOptions = ['none', 'Email'].map(value => Autocomplete.createOption({id: value, value}));
 
 class ControlledBadgeExample extends React.Component<any, any> {
   constructor(props) {
