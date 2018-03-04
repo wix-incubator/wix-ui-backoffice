@@ -12,7 +12,7 @@ export const headingTestkitFactory = enzymeTestkitFactoryCreator(headingDriverFa
 import {checkboxDriverFactory} from '../components/Checkbox/Checkbox.driver';
 export const checkboxTestkitFactory = enzymeTestkitFactoryCreator(checkboxDriverFactory);
 
-import {uiTextDriverFactory} from '../components/StylableUIText/UIText.driver';
+import {uiTextDriverFactory} from '../components/UIText/UIText.driver';
 export const uiTextTestkitFactory = enzymeTestkitFactoryCreator(uiTextDriverFactory);
 
 import {autocompleteDriverFactory} from '../components/Autocomplete/Autocomplete.driver';

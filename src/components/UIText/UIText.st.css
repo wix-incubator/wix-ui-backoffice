@@ -1,10 +1,10 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/StylableText/TextStyle.st.css";
+  -st-from: "wix-ui-core/dist/src/components/Text/TextStyle.st.css";
   -st-default: Text;
 }
   
 :import {
-  -st-from: "wix-ui-core/dist/src/components/StylableText/Text.st.css";
+  -st-from: "wix-ui-core/dist/src/components/Text/Text.st.css";
   -st-default: BaseText;
 }
   
