@@ -9,5 +9,5 @@ export const badgeTestkitFactory = protractorTestkitFactoryCreator(badgeDriverFa
 import {headingDriverFactory} from '../components/Heading/Heading.protractor.driver';
 export const headingTestkitFactory = protractorTestkitFactoryCreator(headingDriverFactory);
 
-import {uiTextDriverFactory} from '../components/StylableUIText/UIText.protractor.driver';
+import {uiTextDriverFactory} from '../components/UIText/UIText.protractor.driver';
 export const uiTextTestkitFactory = protractorTestkitFactoryCreator(uiTextDriverFactory);

@@ -9,7 +9,7 @@
 }
 
 :import {
-  -st-from: "../StylableUIText/UIText.st.css";
+  -st-from: "../UIText/UIText.st.css";
   -st-default: UIText;
 }
 

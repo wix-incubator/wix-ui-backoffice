@@ -1,18 +1,10 @@
-import createStory from '../create-story';
+import * as React from 'react';
+import {storiesOf} from '@storybook/react';
 import {UIText} from '../../src/components/UIText';
-import * as UITextSource from '!raw-loader!../../src/components/UIText/UIText.tsx';
 
-export const story = () => createStory({
-  category: 'Components',
-  name: 'UIText',
-  storyName: 'UIText',
-  component: UIText,
-  componentProps: () => ({
-    appearance: 'T1.1',
-    ellipsis: true,
-    forceHideTitle: false,
-    children: 'Some text',
-    dataHook: 'storybook-ui-text'
-  }),
-  source: UITextSource
-});
+export const story = () => storiesOf('Components', module)
+  .add('UIText', () => (
+    <UIText appearance="T1.1" data-hook="storybook-uiText">
+      Some text
+    </UIText>
+  ));
