@@ -11,6 +11,7 @@ export const counterBadgeDriverFactory = ({element}) => {
   return {
     ...coreBadgeDriver,
     getSkin: () => stylableDOMUtil.getStyleState(element, 'skin'),
+    isWide: () => stylableDOMUtil.hasStyleState(element, 'wide'),
     getUIText: () => uiTextDriver,
     getIcon: () => stylableDOMUtil.select('.icon')
   };
