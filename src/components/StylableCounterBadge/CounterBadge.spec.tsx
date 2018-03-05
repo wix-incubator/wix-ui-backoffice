@@ -50,6 +50,23 @@ describe('CounterBadge', () => {
     });
   });
 
+  describe('width', () => {
+    it('should be wide when content is string with length > 1', () => {
+      const wrapper = createDriver(<CounterBadge>12</CounterBadge>);
+      expect(wrapper.isWide()).toBe(true);
+    });
+
+    it('should not be wide when content is string with length <= 1', () => {
+      const wrapper = createDriver(<CounterBadge>1</CounterBadge>);
+      expect(wrapper.isWide()).toBe(false);
+    });
+
+    it('should not be wide when content is an icon', () => {
+      const wrapper = createDriver(<CounterBadge><Email/></CounterBadge>);
+      expect(wrapper.isWide()).toBe(false);
+    });
+  });
+
   describe('UIText', () => {
     it('should be rendered with T5 appearance', () => {
       const wrapper = createDriver(<CounterBadge>12</CounterBadge>);

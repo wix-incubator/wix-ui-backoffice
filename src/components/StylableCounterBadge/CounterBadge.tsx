@@ -22,10 +22,10 @@ const defaultProps: CounterBadgeProps = {
   children: ''
 };
 
-const StyledCounterBadge = withStylable<CoreBadgeProps, CounterBadgeProps>(
+const StyledCounterBadge = withStylable<CoreBadgeProps, CounterBadgeProps & {wide: boolean}>(
   CoreBadge,
   style,
-  ({skin}) => ({skin}),
+  ({skin, wide}) => ({skin, wide}),
   defaultProps
 );
 
@@ -45,7 +45,7 @@ export class CounterBadge extends React.PureComponent<CounterBadgeProps> {
     const {children, ...rest} = this.props;
 
     return (
-      <StyledCounterBadge {...rest} className={isWide(children) ? style.wide : ''}>
+      <StyledCounterBadge {...rest} wide={isWide(children)}>
         {
           isIcon(children) ?
             React.cloneElement(children as React.ReactElement<any>, {className: style.icon}) :
