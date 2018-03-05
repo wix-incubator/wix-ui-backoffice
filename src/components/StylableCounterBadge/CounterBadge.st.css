@@ -21,8 +21,6 @@
 .root {
   -st-extends: BaseBadge;
   -st-states: skin(string), wide;
-  min-width: 18px;
-  justify-content: center;
 }
 
 .text {
@@ -34,120 +32,51 @@
 
 .root:skin(default) {
   -st-mixin: Badge(
-    borderRadius 12px,
-    border initial,
-    height 18px,
-
     backgroundColor value(secondaryText),
-    borderColor value(secondaryText),
-    padding 2px
+    borderColor value(secondaryText)
   );
 }
 
 .root:skin(standard) {
   -st-mixin: Badge(
-    borderRadius 12px,
-    border initial,
-    height 18px,
-
     backgroundColor value(brandPrimary),
-    borderColor value(brandPrimary),
-    padding 2px
+    borderColor value(brandPrimary)
   );
 }
 
 .root:skin(danger) {
   -st-mixin: Badge(
-    borderRadius 12px,
-    border initial,
-    height 18px,
-
     backgroundColor value(danger),
-    borderColor value(danger),
-    padding 2px
+    borderColor value(danger)
   );
 }
 
 .root:skin(warning) {
   -st-mixin: Badge(
-    borderRadius 12px,
-    border initial,
-    height 18px,
-
     backgroundColor value(warning),
-    borderColor value(warning),
-    padding 2px
+    borderColor value(warning)
   );
 }
 
 .root:skin(success) {
   -st-mixin: Badge(
-    borderRadius 12px,
-    border initial,
-    height 18px,
-
     backgroundColor value(success),
-    borderColor value(success),
-    padding 2px
+    borderColor value(success)
   );
 }
 
-.root:skin(default).wide {
-  -st-mixin: Badge(
-    borderRadius 12px,
-    border initial,
-    height 18px,
-
-    backgroundColor value(secondaryText),
-    borderColor value(secondaryText),
-    padding 2px 6px
-  );
+.root:skin(default),
+.root:skin(standard),
+.root:skin(danger),
+.root:skin(warning),
+.root:skin(success) {
+  min-width: 18px;
+  border-radius: 12px;
+  border: initial;
+  height: 18px;
+  padding: 2px;
 }
 
-.root:skin(standard).wide {
-  -st-mixin: Badge(
-    borderRadius 12px,
-    border initial,
-    height 18px,
-
-    backgroundColor value(brandPrimary),
-    borderColor value(brandPrimary),
-    padding 2px 6px
-  );
-}
-
-.root:skin(danger).wide {
-  -st-mixin: Badge(
-    borderRadius 12px,
-    border initial,
-    height 18px,
-
-    backgroundColor value(danger),
-    borderColor value(danger),
-    padding 2px 6px
-  );
-}
-
-.root:skin(warning).wide {
-  -st-mixin: Badge(
-    borderRadius 12px,
-    border initial,
-    height 18px,
-
-    backgroundColor value(warning),
-    borderColor value(warning),
-    padding 2px 6px
-  );
-}
-
-.root:skin(success).wide {
-  -st-mixin: Badge(
-    borderRadius 12px,
-    border initial,
-    height 18px,
-
-    backgroundColor value(success),
-    borderColor value(success),
-    padding 2px 6px
-  );
+.root:wide {
+  padding: 2px 6px;
 }
