@@ -1,13 +1,13 @@
-export type Skin = 'default' | 'standard' | 'danger' | 'success' | 'grey' | 'warning' | 'urgent'  | 'neutralStandard' | 'neutralSuccess' | 'nutralDanger';
+export type Skin = 'general' | 'standard' | 'danger' | 'success' | 'neutral' | 'warning' | 'urgent'  | 'neutralStandard' | 'neutralSuccess' | 'nutralDanger';
 
 export type Type = 'solid' | 'outlined' | 'transparent';
 
 export const SKIN = {
-  default: 'default',
+  general: 'general',
   standard: 'standard',
   danger: 'danger',
   success: 'success',
-  grey: 'grey',
+  neutral: 'neutral',
   warning: 'warning',
   urgent: 'urgent',
   neutralStandard: 'neutralStandard',

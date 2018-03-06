@@ -15,7 +15,7 @@ interface BadgeProps {
 
 const defaultProps = {
   type: TYPE.solid,
-  skin: SKIN.default
+  skin: SKIN.general
 };
 
 const StyledBadge = withStylable<CoreBadgeProps, BadgeProps>(

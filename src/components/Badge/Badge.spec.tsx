@@ -28,9 +28,9 @@ describe('Badge', () => {
   });
 
   describe('skin prop', () => {
-    it('should be default by default', () => {
+    it('should be general by default', () => {
       const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.getSkin()).toBe(SKIN.default);
+      expect(wrapper.getSkin()).toBe(SKIN.general);
     });
 
     Object.keys(SKIN).forEach((skin: Skin) => {

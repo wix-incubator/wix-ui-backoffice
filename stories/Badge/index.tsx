@@ -16,7 +16,7 @@ class ControlledBadgeExample extends React.Component<any, any> {
   constructor() {
     super();
     this.state = {
-      skin: SKIN.default,
+      skin: SKIN.general,
       type: TYPE.solid,
       children: 'I\'M A BADGE!',
       prefixIcon: 'none',

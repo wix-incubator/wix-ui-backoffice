@@ -24,7 +24,7 @@
 }
 
 .root >:not(:last-child) {
-  margin-right: 8px;
+  margin-right: 6px;
 }
 
 .prefix, .suffix {
@@ -39,7 +39,7 @@
 }
 
 /* type = transparent */
-.root:type(transparent):skin(default) {
+.root:type(transparent):skin(general) {
   -st-mixin: Badge(
     backgroundColor transparent,
     borderColor transparent,
@@ -71,7 +71,7 @@
   );
 }
 
-.root:type(transparent):skin(grey) {
+.root:type(transparent):skin(neutral) {
   -st-mixin: Badge(
     backgroundColor transparent,
     borderColor transparent,
@@ -120,7 +120,7 @@
 }
 
 /* type = solid */
-.root:type(solid):skin(default) {
+.root:type(solid):skin(general) {
   -st-mixin: Badge(
     backgroundColor value(secondaryText),
     borderColor value(secondaryText),
@@ -152,7 +152,7 @@
   );
 }
 
-.root:type(solid):skin(grey) {
+.root:type(solid):skin(neutral) {
   -st-mixin: Badge(
     backgroundColor value(placeholderText),
     borderColor value(placeholderText),
@@ -202,7 +202,7 @@
 
 
 /* type = outlined */
-.root:type(outlined):skin(default) {
+.root:type(outlined):skin(general) {
   -st-mixin: Badge(
     borderColor value(secondaryText),
     backgroundColor value(backgroundSecondary),
@@ -234,7 +234,7 @@
   );
 }
 
-.root:type(outlined):skin(grey) {
+.root:type(outlined):skin(neutral) {
   -st-mixin: Badge(
     borderColor value(placeholderText),
     backgroundColor value(backgroundSecondary),
