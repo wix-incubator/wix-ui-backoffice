@@ -28,7 +28,10 @@
   color: currentColor;
 }
 
-.icon {}
+.icon {
+  width: 12px;
+  height: 12px;
+}
 
 .root:skin(default) {
   -st-mixin: Badge(
