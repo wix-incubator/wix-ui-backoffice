@@ -15,7 +15,7 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: secondaryText, brandPrimary, danger, warning, success;
+  -st-named: secondaryText, brandPrimary, danger, warning, urgent, success;
 }
 
 .root {
@@ -58,6 +58,13 @@
   );
 }
 
+.root:skin(urgent) {
+  -st-mixin: Badge(
+    backgroundColor value(urgent),
+    borderColor value(urgent)
+  );
+}
+
 .root:skin(success) {
   -st-mixin: Badge(
     backgroundColor value(success),
@@ -69,6 +76,7 @@
 .root:skin(standard),
 .root:skin(danger),
 .root:skin(warning),
+.root:skin(urgent),
 .root:skin(success) {
   min-width: 18px;
   border-radius: 12px;
