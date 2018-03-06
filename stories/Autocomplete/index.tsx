@@ -14,7 +14,7 @@ type ControlledAutocompleteExampleState = {
   withFixedFooter: boolean;
   manualInput: string;
   placeholder: string;
-  isDisabled: boolean;
+  disabled: boolean;
 };
 
 class ControlledAutocompleteExample extends React.Component<{}, ControlledAutocompleteExampleState> {
@@ -28,7 +28,7 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
       withFixedFooter: false,
       manualInput: 'No value.',
       placeholder: '',
-      isDisabled: false,
+      disabled: false,
     };
   }
 
@@ -40,7 +40,7 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
       withFixedFooter,
       manualInput,
       placeholder,
-      isDisabled
+      disabled
     } = this.state;
     return (
       <div style={{display: 'flex'}}>
@@ -52,7 +52,7 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
           <Heading appearance="H3">fixedHeader: </Heading><ToggleSwitch checked={withFixedHeader} onChange={() => this.setState({withFixedHeader: !this.state.withFixedHeader})} />
           <Heading appearance="H3">fixedFooter: </Heading><ToggleSwitch checked={withFixedFooter} onChange={() => this.setState({withFixedFooter: !this.state.withFixedFooter})} />
           <Heading appearance="H3">placeholder: </Heading><Input size="small" value={placeholder} onChange={evt => this.setState({placeholder: evt.target.value})} />
-          <Heading appearance="H3">isDisabled: </Heading><ToggleSwitch checked={isDisabled} onChange={() => this.setState({isDisabled: !this.state.isDisabled})} />
+          <Heading appearance="H3">disabled: </Heading><ToggleSwitch checked={disabled} onChange={() => this.setState({disabled: !this.state.disabled})} />
         </div>
         <div>
           <Heading> Preview </Heading><br/><br/><br/>
@@ -65,7 +65,7 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
             fixedFooter={withFixedFooter ? <Heading appearance="H4">Fixed Footer</Heading> : null}
             onManualInput={value => this.setState({manualInput: value})}
             inputProps={{
-              disabled: isDisabled,
+              disabled,
               placeholder
             }}
           />
