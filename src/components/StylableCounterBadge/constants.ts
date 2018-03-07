@@ -1,7 +1,7 @@
-export type Skin = 'default' | 'standard' | 'danger' | 'warning' | 'urgent' | 'success';
+export type Skin = 'general' | 'standard' | 'danger' | 'warning' | 'urgent' | 'success';
 
 export enum SKIN {
-  default = 'default',
+  general = 'general',
   standard = 'standard',
   danger = 'danger',
   warning = 'warning',

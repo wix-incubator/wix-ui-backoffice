@@ -33,7 +33,7 @@
   height: 12px;
 }
 
-.root:skin(default) {
+.root:skin(general) {
   -st-mixin: Badge(
     backgroundColor value(secondaryText),
     borderColor value(secondaryText)
@@ -75,7 +75,7 @@
   );
 }
 
-.root:skin(default),
+.root:skin(general),
 .root:skin(standard),
 .root:skin(danger),
 .root:skin(warning),

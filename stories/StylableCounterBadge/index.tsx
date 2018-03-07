@@ -14,7 +14,7 @@ class ControlleCounterdBadgeExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      skin: SKIN.default,
+      skin: SKIN.general,
       children: '12'
     };
   }

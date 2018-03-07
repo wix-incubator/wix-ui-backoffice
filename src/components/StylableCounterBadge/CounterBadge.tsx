@@ -18,7 +18,7 @@ interface CounterBadgeProps {
 }
 
 const defaultProps: CounterBadgeProps = {
-  skin: SKIN.default,
+  skin: SKIN.general,
   children: ''
 };
 
