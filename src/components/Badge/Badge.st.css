@@ -262,7 +262,7 @@
   -st-mixin: Badge(
     borderColor value(mainMuted),
     backgroundColor value(backgroundSecondary),
-    color value(mainMuted)
+    color value(secondaryText)
   );
 }
 
@@ -270,7 +270,7 @@
   -st-mixin: Badge(
     borderColor value(successMutedHover),
     backgroundColor value(backgroundSecondary),
-    color value(successMutedHover)
+    color value(secondaryText)
   );
 }
 
@@ -278,6 +278,6 @@
   -st-mixin: Badge(
     borderColor value(dangerMutedHover),
     backgroundColor value(backgroundSecondary),
-    color value(dangerMutedHover)
+    color value(secondaryText)
   );
 }
