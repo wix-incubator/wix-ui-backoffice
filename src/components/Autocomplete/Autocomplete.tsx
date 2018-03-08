@@ -11,7 +11,6 @@ export type AutocompleteType = React.ComponentClass<CoreAutocompleteProps> & {
 
 export const Autocomplete: AutocompleteType =
   Object.assign(
-    {},
     withStylable<CoreAutocompleteProps>(
       CoreAutocomplete as React.ComponentClass<CoreAutocompleteProps>,
       style),
