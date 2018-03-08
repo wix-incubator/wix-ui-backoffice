@@ -9,10 +9,13 @@ export type AutocompleteType = React.ComponentClass<CoreAutocompleteProps> & {
   createDivider: (value?: React.ReactNode) => Option;
 };
 
-export const Autocomplete: AutocompleteType = Object.assign(withStylable<CoreAutocompleteProps>(
-  CoreAutocomplete,
-  style
-) as React.ComponentClass<CoreAutocompleteProps>, {
-  createOption: CoreAutocomplete.createOption,
-  createDivider: CoreAutocomplete.createDivider
-});
+export const Autocomplete: AutocompleteType =
+  Object.assign(
+    {},
+    withStylable<CoreAutocompleteProps>(
+      CoreAutocomplete as React.ComponentClass<CoreAutocompleteProps>,
+      style),
+    {
+      createOption: CoreAutocomplete.createOption,
+      createDivider: CoreAutocomplete.createDivider
+    }) as AutocompleteType;

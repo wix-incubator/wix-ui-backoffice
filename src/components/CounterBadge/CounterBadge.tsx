@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {oneOf, node} from 'prop-types';
+import {oneOf, node, Requireable} from 'prop-types';
 import {ThemedComponent} from 'wix-ui-theme';
 import {ThemedComponentProps} from 'wix-ui-jss';
 import {Badge as CoreBadge, BadgeProps as CoreBadgeProps} from 'wix-ui-core/Badge';
