@@ -1,11 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/Checkbox/CheckboxStyle.st.css";
-  -st-default: Checkbox;
-}
-
-:import {
-  -st-from: "wix-ui-core/dist/src/components/Checkbox/Checkbox.st.css";
-  -st-default: BaseCheckbox;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Checkbox, CheckboxStyle;
 }
 
 :import {
@@ -14,9 +9,9 @@
 }
 
 .root {
-  -st-extends: BaseCheckbox;
+  -st-extends: Checkbox;
   -st-states: error, success, x-small, small;
-  -st-mixin: Checkbox(
+  -st-mixin: CheckboxStyle(
     rootWidth initial,
     rootHeight initial,
 

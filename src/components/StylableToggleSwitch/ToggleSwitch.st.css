@@ -1,21 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/StylableToggleSwitch/ToggleSwitch.st.css";
-  -st-default: ToggleSwitch;
-}
-
-:import {
-  -st-from: "wix-ui-core/dist/src/components/StylableToggleSwitch/ToggleSwitchStyle.st.css";
-  -st-default: ToggleSwitchStyle;
-}
-
-:import {
-  -st-from: "wix-ui-core/dist/src/components/StylableToggleSwitch/ToggleSwitchLayout.st.css";
-  -st-default: ToggleSwitchLayout;
-}
-
-:import {
-  -st-from: "wix-ui-core/dist/src/components/StylableToggleSwitch/ToggleSwitchColor.st.css";
-  -st-default: ToggleSwitchColor;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: ToggleSwitch, ToggleSwitchStyle, ToggleSwitchLayout, ToggleSwitchColor;
 }
 
 :import {

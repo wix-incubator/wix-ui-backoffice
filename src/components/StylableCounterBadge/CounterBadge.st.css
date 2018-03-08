@@ -1,11 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/StylableBadge/BadgeStyle.st.css";
-  -st-default: Badge;
-}
-
-:import {
-  -st-from: "wix-ui-core/dist/src/components/StylableBadge/Badge.st.css";
-  -st-default: BaseBadge;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Badge, BadgeStyle;
 }
 
 :import {
@@ -19,7 +14,7 @@
 }
 
 .root {
-  -st-extends: BaseBadge;
+  -st-extends: Badge;
   -st-states: skin(string), wide;
 }
 
@@ -34,42 +29,42 @@
 }
 
 .root:skin(general) {
-  -st-mixin: Badge(
+  -st-mixin: BadgeStyle(
     backgroundColor value(secondaryText),
     borderColor value(secondaryText)
   );
 }
 
 .root:skin(standard) {
-  -st-mixin: Badge(
+  -st-mixin: BadgeStyle(
     backgroundColor value(brandPrimary),
     borderColor value(brandPrimary)
   );
 }
 
 .root:skin(danger) {
-  -st-mixin: Badge(
+  -st-mixin: BadgeStyle(
     backgroundColor value(danger),
     borderColor value(danger)
   );
 }
 
 .root:skin(warning) {
-  -st-mixin: Badge(
+  -st-mixin: BadgeStyle(
     backgroundColor value(warning),
     borderColor value(warning)
   );
 }
 
 .root:skin(urgent) {
-  -st-mixin: Badge(
+  -st-mixin: BadgeStyle(
     backgroundColor value(urgent),
     borderColor value(urgent)
   );
 }
 
 .root:skin(success) {
-  -st-mixin: Badge(
+  -st-mixin: BadgeStyle(
     backgroundColor value(success),
     borderColor value(success)
   );

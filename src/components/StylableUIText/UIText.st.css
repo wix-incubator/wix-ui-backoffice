@@ -1,11 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/StylableText/TextStyle.st.css";
-  -st-default: Text;
-}
-  
-:import {
-  -st-from: "wix-ui-core/dist/src/components/StylableText/Text.st.css";
-  -st-default: BaseText;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Text, TextStyle;
 }
   
 :import {
@@ -19,12 +14,12 @@
 }
 
 .root {
-  -st-extends: BaseText;
+  -st-extends: Text;
   -st-states: appearance(string);
 }
 
 .root:appearance(T1) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
     lineHeight 24px,
@@ -33,7 +28,7 @@
 }
 
 .root:appearance(T1.1) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
     lineHeight 24px,
@@ -42,7 +37,7 @@
 }
 
 .root:appearance(T1.2) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
     lineHeight 24px,
@@ -51,7 +46,7 @@
 }
 
 .root:appearance(T1.3) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
     lineHeight 24px,
@@ -60,7 +55,7 @@
 }
 
 .root:appearance(T1.4) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
     lineHeight 24px,
@@ -69,7 +64,7 @@
 }
 
 .root:appearance(T1.5) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
     lineHeight 24px,
@@ -78,7 +73,7 @@
 }
 
 .root:appearance(T1.6) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
     lineHeight 24px,
@@ -87,7 +82,7 @@
 }
 
 .root:appearance(T1.7) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
     lineHeight 24px,
@@ -96,7 +91,7 @@
 }
 
 .root:appearance(T2) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 16px,
     lineHeight 24px,
@@ -105,7 +100,7 @@
 }
 
 .root:appearance(T2.1) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 16px,
     lineHeight 24px,
@@ -114,7 +109,7 @@
 }
 
 .root:appearance(T2.2) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 16px,
     lineHeight 24px,
@@ -123,7 +118,7 @@
 }
 
 .root:appearance(T2.3) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 16px,
     lineHeight 24px,
@@ -132,7 +127,7 @@
 }
 
 .root:appearance(T2.4) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 16px,
     lineHeight 24px,
@@ -141,7 +136,7 @@
 }
 
 .root:appearance(T3) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
     lineHeight 18px,
@@ -150,7 +145,7 @@
 }
 
 .root:appearance(T3.1) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
     lineHeight 18px,
@@ -159,7 +154,7 @@
 }
 
 .root:appearance(T3.2) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
     lineHeight 18px,
@@ -168,7 +163,7 @@
 }
 
 .root:appearance(T3.3) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
     lineHeight 18px,
@@ -177,7 +172,7 @@
 }
 
 .root:appearance(T3.4) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
     lineHeight 18px,
@@ -186,7 +181,7 @@
 }
 
 .root:appearance(T3.5) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
     lineHeight 18px,
@@ -195,7 +190,7 @@
 }
 
 .root:appearance(T3.6) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
     lineHeight 18px,
@@ -204,7 +199,7 @@
 }
 
 .root:appearance(T3.7) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
     lineHeight 18px,
@@ -213,7 +208,7 @@
 }
 
 .root:appearance(T4) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
     lineHeight 18px,
@@ -222,7 +217,7 @@
 }
 
 .root:appearance(T4.1) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
     lineHeight 18px,
@@ -231,7 +226,7 @@
 }
 
 .root:appearance(T4.2) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
     lineHeight 18px,
@@ -240,7 +235,7 @@
 }
 
 .root:appearance(T4.3) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
     lineHeight 18px,
@@ -249,7 +244,7 @@
 }
 
 .root:appearance(T4.4) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
     lineHeight 18px,
@@ -258,7 +253,7 @@
 }
 
 .root:appearance(T4.5) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
     lineHeight 18px,
@@ -267,7 +262,7 @@
 }
 
 .root:appearance(T4.6) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
     lineHeight 18px,
@@ -276,7 +271,7 @@
 }
 
 .root:appearance(T4.7) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
     lineHeight 18px,
@@ -285,7 +280,7 @@
 }
 
 .root:appearance(T5) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontMedium),
     fontSize 10px,
     lineHeight 12px,
@@ -297,7 +292,7 @@
 }
 
 .root:appearance(T5.1) {
-  -st-mixin: Text(
+  -st-mixin: TextStyle(
     fontFamily value(fontMedium),
     fontSize 10px,
     lineHeight 12px,
