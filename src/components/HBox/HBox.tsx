@@ -4,7 +4,7 @@ import {ThemedComponent} from 'wix-ui-theme';
 import {theme} from './theme';
 import {Alignment} from './constants';
 
-interface HBoxProps extends CoreHBoxProps {
+export interface HBoxProps extends CoreHBoxProps {
   spacing?: string;
   verticalAlignment?: Alignment;
 }

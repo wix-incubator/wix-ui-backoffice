@@ -11,9 +11,9 @@ export type Appearance =
     'T4' | 'T4.1' | 'T4.2' | 'T4.3' | 'T4.4' | 'T4.5' | 'T4.6' | 'T4.7' |
     'T5' | 'T5.1';
 
-type TagName = 'div' | 'span';
+export type TagName = 'div' | 'span';
 
-interface UITextProps {
+export interface UITextProps {
   /** typography of the text */
   appearance?: Appearance;
 

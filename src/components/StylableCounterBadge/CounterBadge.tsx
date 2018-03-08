@@ -7,9 +7,9 @@ import {Skin, SKIN} from './constants';
 import {isIcon, isWide} from './utils';
 import style from './CounterBadge.st.css';
 
-type Content = string | number | React.ReactElement<any>;
+export type Content = string | number | React.ReactElement<any>;
 
-interface CounterBadgeProps {
+export interface CounterBadgeProps {
   /** Skin of the badge */
   skin?: Skin;
 

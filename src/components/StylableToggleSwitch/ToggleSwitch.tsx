@@ -9,7 +9,7 @@ import {ToggleOff, ToggleOn} from 'wix-ui-icons-common/system';
 
 import {withStylable} from 'wix-ui-core/withStylable';
 
-interface ToggleSwitchProps {
+export interface ToggleSwitchProps {
   skin?: 'standard' | 'error' | 'success';
   size?: 'small' | 'medium' | 'large';
 }

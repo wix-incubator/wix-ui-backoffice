@@ -2,7 +2,7 @@
   "compilerOptions": {
     "sourceMap": true,
     "module": "commonjs",
-    "declaration": false,
+    "declaration": true,
     "strict": false,
     "moduleResolution": "node",
     "target": "es5",

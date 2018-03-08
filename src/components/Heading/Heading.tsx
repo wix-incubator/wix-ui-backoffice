@@ -6,10 +6,10 @@ import {withStylable} from 'wix-ui-core/withStylable';
 import {Color} from '../../colors';
 
 export type Appearance = 'H1' | 'H2' | 'H3' | 'H4' | 'H5';
-type TagName = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+export type TagName = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
 export type Skin = 'dark' | 'light';
 
-interface Props {
+export interface Props {
   /** skin color of the heading */
   skin?: Skin;
 
@@ -17,7 +17,7 @@ interface Props {
   appearance?: Appearance;
 }
 
-interface State { tagName: TagName; }
+export interface State { tagName: TagName; }
 
 const defaultProps: Props = {
   appearance: 'H1',

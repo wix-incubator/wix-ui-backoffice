@@ -1,13 +1,13 @@
 import {palette} from '../../palette';
 import {Color} from '../../colors';
 
-interface SizeConfig {
+export interface SizeConfig {
     'x-small': string;
     small: string;
     large: string;
 }
 
-interface SkinConfig {
+export interface SkinConfig {
     standard: Color;
     success: Color;
     error: Color;
@@ -16,7 +16,7 @@ interface SkinConfig {
 export type Size = keyof SizeConfig;
 export type Skin = keyof SkinConfig;
 
-const sizes: { [key: string]: SizeConfig } = {
+export const sizes: { [key: string]: SizeConfig } = {
     sizeToOuterLabelWidth: {'x-small': '28px', small: '36px', large: '45px'},
     sizeToOuterLabelHeight: {'x-small': '15px', small: '20px', large: '24px'},
     sizeToInnerLabelWidth: {'x-small': '13px', small: '18px', large: '21px'},
@@ -25,7 +25,7 @@ const sizes: { [key: string]: SizeConfig } = {
     sizeTotoggleIconDisplay: {'x-small': 'none !important', small: 'block', large: 'block'}
 };
 
-const skins: { [key: string]: SkinConfig } = {
+export const skins: { [key: string]: SkinConfig } = {
     skinToBackgroundColor: {
         standard: palette.tableSelected,
         success: palette.successNotifications,

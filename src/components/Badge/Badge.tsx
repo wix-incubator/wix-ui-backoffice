@@ -6,7 +6,7 @@ import {UIText} from '../StylableUIText';
 import {SKIN, TYPE, Type, Skin} from './constants';
 import style from './Badge.st.css';
 
-interface BadgeProps {
+export interface BadgeProps {
   type?: Type;
   skin?: Skin;
   prefixIcon?: React.ReactElement<any>;

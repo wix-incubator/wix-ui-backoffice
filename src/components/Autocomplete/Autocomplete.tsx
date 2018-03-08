@@ -4,7 +4,7 @@ import {withStylable} from 'wix-ui-core/withStylable';
 import style from './Autocomplete.st.css';
 import {Option} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionFactory';
 
-type AutocompleteType = React.ComponentClass<CoreAutocompleteProps> & {
+export type AutocompleteType = React.ComponentClass<CoreAutocompleteProps> & {
   createOption: (option?: Partial<Option>) => Option;
   createDivider: (value?: React.ReactNode) => Option;
 };

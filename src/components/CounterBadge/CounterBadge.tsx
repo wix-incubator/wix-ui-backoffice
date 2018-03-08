@@ -1,14 +1,16 @@
 import * as React from 'react';
 import {oneOf, node} from 'prop-types';
 import {ThemedComponent} from 'wix-ui-theme';
+import {ThemedComponentProps} from 'wix-ui-jss';
 import {Badge as CoreBadge, BadgeProps as CoreBadgeProps} from 'wix-ui-core/Badge';
 import {theme} from './theme';
 import {UIText} from '../UIText';
 import {Skin} from './constants';
+import {WixComponentProps} from 'wix-ui-core/dist/src/createHOC';
 
 const maxContentLength = 2;
 
-interface CounterBadgeProps extends CoreBadgeProps {
+export interface CounterBadgeProps extends CoreBadgeProps {
   /** Type of the badge */
   skin?: Skin;
 
