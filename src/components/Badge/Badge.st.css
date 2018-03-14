@@ -10,7 +10,7 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: secondaryText, primaryLightText, mainHover, danger, success, placeholderText, warning, urgent, mainMuted, successMutedHover, backgroundSecondary, dangerMutedHover;
+  -st-named: secondaryText, primaryLightText, danger, success, warning, urgent, general, standard, neutral, mainMutedHover, successMutedHover, dangerMutedHover, backgroundSecondary;
 }
 
 .root {
@@ -38,7 +38,7 @@
   -st-mixin: BadgeStyle(
     backgroundColor transparent,
     borderColor transparent,
-    color value(secondaryText)
+    color value(general)
   );
 }
 
@@ -46,7 +46,7 @@
   -st-mixin: BadgeStyle(
     backgroundColor transparent,
     borderColor transparent,
-    color value(mainHover)
+    color value(standard)
   );
 }
 
@@ -70,7 +70,7 @@
   -st-mixin: BadgeStyle(
     backgroundColor transparent,
     borderColor transparent,
-    color value(placeholderText)
+    color value(neutral)
   );
 }
 
@@ -94,7 +94,7 @@
   -st-mixin: BadgeStyle(
     backgroundColor transparent,
     borderColor transparent,
-    color value(mainMuted)
+    color value(mainMutedHover)
   );
 }
 
@@ -117,16 +117,16 @@
 /* type = solid */
 .root:type(solid):skin(general) {
   -st-mixin: BadgeStyle(
-    backgroundColor value(secondaryText),
-    borderColor value(secondaryText),
+    backgroundColor value(general),
+    borderColor value(general),
     color value(primaryLightText)
   );
 }
 
 .root:type(solid):skin(standard) {
   -st-mixin: BadgeStyle(
-    backgroundColor value(mainHover),
-    borderColor value(mainHover),
+    backgroundColor value(standard),
+    borderColor value(standard),
     color value(primaryLightText)
   );
 }
@@ -149,8 +149,8 @@
 
 .root:type(solid):skin(neutral) {
   -st-mixin: BadgeStyle(
-    backgroundColor value(placeholderText),
-    borderColor value(placeholderText),
+    backgroundColor value(neutral),
+    borderColor value(neutral),
     color value(primaryLightText)
   );
 }
@@ -173,8 +173,8 @@
 
 .root:type(solid):skin(neutralStandard) {
   -st-mixin: BadgeStyle(
-    backgroundColor value(mainMuted),
-    borderColor value(mainMuted),
+    backgroundColor value(mainMutedHover),
+    borderColor value(mainMutedHover),
     color value(secondaryText)
   );
 }
@@ -199,17 +199,17 @@
 /* type = outlined */
 .root:type(outlined):skin(general) {
   -st-mixin: BadgeStyle(
-    borderColor value(secondaryText),
+    borderColor value(general),
     backgroundColor value(backgroundSecondary),
-    color value(secondaryText)
+    color value(general)
   );
 }
 
 .root:type(outlined):skin(standard) {
   -st-mixin: BadgeStyle(
-    borderColor value(mainHover),
+    borderColor value(standard),
     backgroundColor value(backgroundSecondary),
-    color value(mainHover)
+    color value(standard)
   );
 }
 
@@ -231,9 +231,9 @@
 
 .root:type(outlined):skin(neutral) {
   -st-mixin: BadgeStyle(
-    borderColor value(placeholderText),
+    borderColor value(neutral),
     backgroundColor value(backgroundSecondary),
-    color value(placeholderText)
+    color value(neutral)
   );
 }
 
@@ -255,7 +255,7 @@
 
 .root:type(outlined):skin(neutralStandard) {
   -st-mixin: BadgeStyle(
-    borderColor value(mainMuted),
+    borderColor value(mainMutedHover),
     backgroundColor value(backgroundSecondary),
     color value(secondaryText)
   );
