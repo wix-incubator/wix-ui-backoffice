@@ -27,6 +27,10 @@
   warning:	value(Y10);
   danger:	value(R10);
   premium:	value(P10);
+  urgent: value(O10);
+  standard:  value(B20);
+  general: value(D20);
+  neutral: value(D40);
 
   mainHover:	value(B20);
   successHover:	value(G20);
@@ -45,8 +49,6 @@
   warningMutedHover:	value(Y30);
   dangerMutedHover:	value(R30);
   premiumMutedHover:	value(P30);
-
-  urgent: value(O10);
 }
 
 /* Input colors */
