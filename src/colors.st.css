@@ -72,6 +72,9 @@
   Y50: #fdf7df;
   Y60: #FFFCF0;
 
+  /* Focus */
+  F00: #aadbfc;
+
   /* Helpers */
   TRANSPARENT: transparent;
   WHITE: #ffffff;

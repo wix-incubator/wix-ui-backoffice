@@ -9,7 +9,8 @@
   Y10, Y20, Y30, Y40,
   GR20,
   O10,
-  WHITE;
+  WHITE,
+  F00;
 }
 
 /* main */
@@ -84,4 +85,9 @@
 :vars {
   cardBackground: value(backgroundSecondary);
   dividerColor: value(D60);
+}
+
+/* shadow-box */
+:vars {
+  focusShadow: value(F00);
 }
