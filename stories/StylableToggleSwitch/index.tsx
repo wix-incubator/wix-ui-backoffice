@@ -49,8 +49,8 @@ class ControlleToggleSwitchExample extends React.Component<any, any> {
             checked={this.state.checked}
             disabled={this.state.disabled}
             onChange={() => this.setState({checked: !this.state.checked})}
-            checkedIcon={this.state.checkedIcon == 'v' ? undefined : <VideoCamera/>}
-            uncheckedIcon={this.state.uncheckedIcon == 'Minus' ? undefined : <Music/>}
+            checkedIcon={this.state.checkedIcon === 'v' ? undefined : <VideoCamera/>}
+            uncheckedIcon={this.state.uncheckedIcon === 'Minus' ? undefined : <Music/>}
             dataHook="storybook-ToggleSwitch"
             />
         </div>
