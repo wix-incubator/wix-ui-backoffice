@@ -9,7 +9,8 @@
     disabled,
     main, mainHover, mainMuted,
     danger, dangerHover, dangerMutedHover,
-    success, successHover, successMutedHover;
+    success, successHover, successMutedHover,
+    focusShadow;
 }
 
 .root {
@@ -26,6 +27,10 @@
     rootWidth 28px,
     rootHeight 16px
   );
+}
+
+.root:size(small)::knobIcon {
+  display: none;
 }
 
 .root:size(medium) {
@@ -70,4 +75,8 @@
     colorCheckedHover   value(dangerHover),
     colorDisabled       value(disabled)
   );
+}
+
+.root:focus-visible::track {
+	box-shadow: 0 0 0 3px value(focusShadow);
 }
