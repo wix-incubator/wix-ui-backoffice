@@ -57,6 +57,7 @@
     "stylable-integration": "latest",
     "ts-jest": "^22.0.3",
     "typescript": "^2.6.2",
+    "wait-for-cond": "^1.5.1",
     "wix-storybook-utils": "latest",
     "wix-ui-icons-common": "latest",
     "wix-ui-test-utils": "latest"
