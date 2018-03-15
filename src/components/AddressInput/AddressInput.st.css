@@ -64,13 +64,3 @@
 .root::option:not(:selectable) {
   padding: 0;
 }
-
-.root::divider {
-  background-color: #e5e5e5;
-  display: flex;
-  flex: 1;
-}
-
-.root::divider:customDivider {
-  padding: 8px 20px;
-}
