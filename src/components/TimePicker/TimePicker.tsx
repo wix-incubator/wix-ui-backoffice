@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {TimePicker as CoreTimePicker, TimePickerProps as CoreTimePickerProps} from 'wix-ui-core/TimePicker';
-import {ThemedComponent} from 'wix-ui-theme';
 import {oneOf, bool, Requireable} from 'prop-types';
 import style from './TimePicker.st.css';
 
@@ -61,15 +60,6 @@ export class TimePicker extends React.PureComponent<TimePickerProps>  {
 
     return (
       <div className={style.root}>
-        <CoreTimePicker
-          {...coreProps}
-          {...style('coreTimePicker', {}, {}) }
-          ref={ref => this.timePickerRef = ref}
-          disabled={disabled}
-          value={actualValue}
-          useAmPm={!disableAmPm}
-        />
-
         <div className={style.tickerGroup}>
           <button onClick={() => this.timePickerRef.increment()} {...style('ticker', {top: true}, {})}>
             <ArrowUp/>
@@ -78,6 +68,15 @@ export class TimePicker extends React.PureComponent<TimePickerProps>  {
             <ArrowDown/>
           </button>
         </div>
+
+        <CoreTimePicker
+          {...coreProps}
+          {...style('coreTimePicker', {}, {}) }
+          ref={ref => this.timePickerRef = ref}
+          disabled={disabled}
+          value={actualValue}
+          useAmPm={!disableAmPm}
+        />
 
       </div>
     );

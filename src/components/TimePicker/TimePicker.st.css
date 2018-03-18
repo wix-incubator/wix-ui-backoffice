@@ -1,6 +1,6 @@
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: main, mainHover, inputBorderColor, inputHover, inputFocusBorderColor;
+  -st-named: main, mainHover, inputHover, focusShadow;
 }
 
 :import {
@@ -14,19 +14,8 @@
 }
 
 .root {
-  border-radius: 6px;
-  overflow: hidden;
+  /* border-radius: 6px; */
   position: relative;
-}
-
-.root:hover > .coreTimePicker {
-  /* Copied over from Input.st.css */
-  background-color: value(inputHover);
-}
-
-.coreTimePicker {
-  -st-mixin: Input, input-small;
-  font-family: "HelveticaNeueW01-55Roma";
 }
 
 .tickerGroup {
@@ -36,6 +25,20 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.tickerGroup:hover + .coreTimePicker {
+  /* Copied over from Input.st.css */
+  background-color: value(inputHover);
+}
+
+.coreTimePicker {
+  -st-mixin: Input, input-small;
+  font-family: "HelveticaNeueW01-55Roma";
+}
+
+.coreTimePicker:focus {
+	box-shadow: 0 0 0 3px value(focusShadow);
 }
 
 .ticker {
