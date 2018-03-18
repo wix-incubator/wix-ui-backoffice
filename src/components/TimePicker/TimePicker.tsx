@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { TimePicker as CoreTimePicker, TimePickerProps as CoreTimePickerProps } from 'wix-ui-core/TimePicker';
-import { ThemedComponent } from 'wix-ui-theme';
-import { oneOf, bool, Requireable } from 'prop-types';
+import {TimePicker as CoreTimePicker, TimePickerProps as CoreTimePickerProps} from 'wix-ui-core/TimePicker';
+import {ThemedComponent} from 'wix-ui-theme';
+import {oneOf, bool, Requireable} from 'prop-types';
 import style from './TimePicker.st.css';
 
 const ArrowUp = props => (
@@ -61,7 +61,6 @@ export class TimePicker extends React.PureComponent<TimePickerProps>  {
 
     return (
       <div className={style.root}>
-        
         <CoreTimePicker
           {...coreProps}
           {...style('coreTimePicker', {}, {}) }
