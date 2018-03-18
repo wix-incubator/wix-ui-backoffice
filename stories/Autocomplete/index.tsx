@@ -64,10 +64,8 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
             fixedHeader={withFixedHeader ? <Heading appearance="H4">Fixed Header</Heading> : null}
             fixedFooter={withFixedFooter ? <Heading appearance="H4">Fixed Footer</Heading> : null}
             onManualInput={value => this.setState({manualInput: value})}
-            inputProps={{
-              disabled,
-              placeholder
-            }}
+            disabled={disabled}
+            placeholder={placeholder}
           />
         </div>
       </div>
