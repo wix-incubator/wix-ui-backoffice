@@ -1,7 +1,7 @@
 import {palette} from '../../palette';
 import {Color} from '../../colors';
 
-interface SkinConfig {
+export interface SkinConfig {
     standard: Color;
     success: Color;
     error: Color;

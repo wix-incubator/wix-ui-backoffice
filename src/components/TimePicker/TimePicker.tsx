@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { TimePicker as CoreTimePicker, TimePickerProps as CoreTimePickerProps } from 'wix-ui-core/TimePicker';
 import { ThemedComponent } from 'wix-ui-theme';
-import { oneOf, bool } from 'prop-types';
+import { oneOf, bool, Requireable } from 'prop-types';
 import style from './TimePicker.st.css';
 
 const ArrowUp = props => (
@@ -18,15 +18,15 @@ const ArrowDown = props => (
   </svg>
 );
 
-interface TimePickerProps extends CoreTimePickerProps {
+export interface TimePickerProps extends CoreTimePickerProps {
   /** Disable the component */
-  disabled?: bool;
+  disabled?: boolean;
 
   /** Show dashes instead of time when component is disabled */
-  dashesWhenDisabled?: bool;
+  dashesWhenDisabled?: boolean;
 
   /** Use 24-hour format instead of 12-hour */
-  disableAmPm?: bool;
+  disableAmPm?: boolean;
 }
 
 export class TimePicker extends React.PureComponent<TimePickerProps>  {
