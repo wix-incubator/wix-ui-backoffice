@@ -1,42 +1,66 @@
 import * as React from 'react';
-import {ToggleSwitch as CoreToggleSwitch, ToggleSwitchProps as CoreToggleSwitchProps} from 'wix-ui-core/ToggleSwitch';
-import {ThemedComponent} from 'wix-ui-theme';
-import {oneOf, Requireable} from 'prop-types';
-import {ThemedComponentProps} from 'wix-ui-jss';
-import {theme, Size, Skin} from './theme';
-import {WixComponentProps} from 'wix-ui-core/dist/src/createHOC';
+import * as PropTypes from 'prop-types';
+import {
+  ToggleSwitch as CoreToggleSwitch,
+  ToggleSwitchProps as CoreToggleSwitchProps
+} from 'wix-ui-core/StylableToggleSwitch';
+import style from './ToggleSwitch.st.css';
+import {Skin, Size, SKIN, SIZE} from './constants';
+import {ToggleOff, ToggleOn, SmallToggleOff, SmallToggleOn} from 'wix-ui-icons-common/system';
+import {withStylable} from 'wix-ui-core/withStylable';
+import {omit} from 'lodash';
 
-export interface ToggleSwitchProps extends CoreToggleSwitchProps {
-  /** size of the toggle switch */
-  size?: Size;
-
-  /** Color for disabled toggle switch */
+export interface ToggleSwitchProps {
   skin?: Skin;
+  size?: Size;
 }
 
-export class ToggleSwitch extends React.PureComponent<ToggleSwitchProps>  {
+const defaultProps = {
+  skin: SKIN.standard,
+  size: SIZE.large
+};
+
+const checkedIconMap = {
+  [SIZE.small]: undefined,
+  [SIZE.medium]: <SmallToggleOn/>,
+  [SIZE.large]: <ToggleOn/>
+};
+
+const uncheckedIconMap = {
+  [SIZE.small]: undefined,
+  [SIZE.medium]: <SmallToggleOff/>,
+  [SIZE.large]: <ToggleOff/>
+};
+
+const StyledToggleSwitch = withStylable<CoreToggleSwitchProps, ToggleSwitchProps>(
+  CoreToggleSwitch,
+  style,
+  ({size, skin}) => ({size, skin}),
+  defaultProps
+);
+
+const {checkedIcon, uncheckedIcon, styles, ...legalCoreProps} = CoreToggleSwitch.propTypes;
+
+export class ToggleSwitch extends React.PureComponent<ToggleSwitchProps & CoreToggleSwitchProps> {
   static propTypes = {
-    ...CoreToggleSwitch.propTypes,
-
-    /** size of the toggle switch */
-    size: oneOf(['x-small', 'small', 'large']),
-
-    /** Color for disabled toggle switch */
-    skin: oneOf(['standard', 'error', 'success'])
+    ...legalCoreProps,
+    /** Size of the ToggleSwitch */
+    size: PropTypes.oneOf(Object.keys(SIZE)),
+    /** Skin of the ToggleSwitch */
+    skin: PropTypes.oneOf(Object.keys(SKIN))
   };
 
-  static defaultProps: Partial<ToggleSwitchProps> = {
-    size: 'large',
-    skin: 'standard'
-  };
+  static defaultProps = defaultProps;
 
   render() {
-    const {size, skin, ...coreProps} = this.props;
+    const desiredProps = omit(this.props, 'styles');
 
     return (
-      <ThemedComponent {...{theme, size, skin}}>
-        <CoreToggleSwitch {...coreProps}/>
-      </ThemedComponent>
+      <StyledToggleSwitch
+        {...desiredProps}
+        checkedIcon={checkedIconMap[this.props.size]}
+        uncheckedIcon={uncheckedIconMap[this.props.size]}
+        />
     );
   }
 }

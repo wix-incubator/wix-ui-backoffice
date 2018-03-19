@@ -4,7 +4,7 @@ import {Autocomplete} from '../../src/components/Autocomplete';
 import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionsExample';
 import {Heading} from '../../src/components/Heading';
 import {Input} from '../../src/components/Input';
-import {ToggleSwitch} from '../../src/components/StylableToggleSwitch';
+import {ToggleSwitch} from '../../src/components/ToggleSwitch';
 import {UIText} from '../../src/components/StylableUIText';
 
 type ControlledAutocompleteExampleState = {

@@ -1,16 +1,55 @@
-import createStory from '../create-story';
+import * as React from 'react';
+import {storiesOf} from '@storybook/react';
 import {ToggleSwitch} from '../../src/components/ToggleSwitch';
-import * as ToggleSwitchSource from '!raw-loader!../../src/components/ToggleSwitch/ToggleSwitch.tsx';
+import {Autocomplete} from '../../src/components/Autocomplete';
+import {Heading} from '../../src/components/Heading';
+import {UIText} from '../../src/components/StylableUIText';
+import {SIZE, SKIN} from '../../src/components/ToggleSwitch/constants';
 
-export const story = () => createStory({
-  category: 'Components',
-  name: 'ToggleSwitch',
-  storyName: 'ToggleSwitch',
-  component: ToggleSwitch,
-  componentProps: (setState, getState) => ({
-    checked: false,
-    onChange: () => setState({checked: !getState().checked}),
-    dataHook: 'storybook-toggle-switch'
-  }),
-  source: ToggleSwitchSource
-});
+const skinOptions = Object.keys(SKIN).map(value => Autocomplete.createOption({id: value, value}));
+const sizeOptions = Object.keys(SIZE).map(value => Autocomplete.createOption({id: value, value}));
+
+class ControlleToggleSwitchExample extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      skin: SKIN.standard,
+      size: SIZE.large,
+      checked: false,
+      disabled: false
+    };
+  }
+
+  render() {
+    return(
+      <div style={{display: 'flex'}}>
+        <div style={{marginRight: '120px'}}>
+          <Heading> Props </Heading><br/><br/><br/>
+          <Heading appearance="H3">size: </Heading> <Autocomplete options={sizeOptions} onSelect={({value}) => this.setState({size: value})} initialSelectedId={this.state.size}/><br/><br/>
+          <Heading appearance="H3">skin: </Heading> <Autocomplete options={skinOptions} onSelect={({value}) => this.setState({skin: value})} initialSelectedId={this.state.skin}/><br/><br/>
+          <Heading appearance="H3">checked: </Heading> <ToggleSwitch size="small" checked={this.state.checked} onChange={() => this.setState({checked: !this.state.checked})}/><br/><br/>
+          <Heading appearance="H3">disabled: </Heading> <ToggleSwitch size="small" checked={this.state.disabled} onChange={() => this.setState({disabled: !this.state.disabled})}/><br/><br/>
+          <Heading appearance="H3">tabIndex: </Heading> <UIText appearance="T2.4">Tab Index</UIText><br/><br/>
+          <Heading appearance="H3">onChange: </Heading> <UIText appearance="T2.4">Callback function when User changes the value of the component</UIText><br/><br/>
+          <Heading appearance="H3">id: </Heading> <UIText appearance="T2.4">The ID attribute to put on the toggle</UIText><br/><br/>
+        </div>
+        <div>
+          <Heading> Preview </Heading><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <ToggleSwitch
+            size={this.state.size}
+            skin={this.state.skin}
+            checked={this.state.checked}
+            disabled={this.state.disabled}
+            onChange={() => this.setState({checked: !this.state.checked})}
+            dataHook="storybook-ToggleSwitch"
+            />
+        </div>
+      </div>
+    );
+  }
+}
+
+export const story = () => storiesOf('Components', module)
+  .add('ToggleSwitch', () => (
+    <ControlleToggleSwitchExample/>
+  ));
