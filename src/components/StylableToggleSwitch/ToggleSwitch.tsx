@@ -1,12 +1,11 @@
-import React = require('react');
-import PropTypes = require('prop-types');
+import * as React from 'react';
 import {
   ToggleSwitch as CoreToggleSwitch,
   ToggleSwitchProps as CoreToggleSwitchProps
 } from 'wix-ui-core/StylableToggleSwitch';
 import style from './ToggleSwitch.st.css';
 import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
-import Toggleff from 'wix-ui-icons-common/system/Toggleff';
+import ToggleOff from 'wix-ui-icons-common/system/ToggleOff';
 
 import {withStylable} from 'wix-ui-core/withStylable';
 
