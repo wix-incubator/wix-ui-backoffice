@@ -4,10 +4,13 @@
   B00, B10, B20, B30, B40, B50,
   G10, G20, G30, G40,
   R10, R20, R30, R40,
-  D10, D20, D40, D50, D60, D70,
+  D10, D20, D40, D50, D55, D60, D70,
   P10, P20, P30, P40,
   Y10, Y20, Y30, Y40,
-  WHITE;
+  GR20,
+  O10,
+  WHITE,
+  F00;
 }
 
 /* main */
@@ -25,6 +28,10 @@
   warning:	value(Y10);
   danger:	value(R10);
   premium:	value(P10);
+  urgent: value(O10);
+  standard:  value(B20);
+  general: value(D20);
+  neutral: value(D40);
 
   mainHover:	value(B20);
   successHover:	value(G20);
@@ -45,22 +52,42 @@
   premiumMutedHover:	value(P30);
 }
 
+/* Input colors */
+:vars {
+  inputBackground: value(backgroundSecondary);
+  inputBorderColor: value(mainMutedHover);
+  inputHover: value(B50);
+  inputFocusBorderColor: value(mainHover);
+  inputDisabledColor: value(D55);
+  inputDisabledBorderColor: value(D60);
+  inputDisabledHoverBorderColor: value(GR20);
+}
+
 /* typography */
 :vars {
   primaryText: value(D10);
   secondaryText: value(D20);
   placeholderText: value(D40);
   disabledText: value(D50);
-
+  primaryLightText: value(WHITE);
+  
   linkedText: value(brandPrimary);
   linkedTextHover: value(brandPrimary);
 
   headingText: value(primaryText);
   subheadingText: value(secondaryText);
+
+  lightHeadingText: value(primaryLightText);
+  lightSubheadingText: value(disabledText);
 }
 
 /* layout */
 :vars {
   cardBackground: value(backgroundSecondary);
   dividerColor: value(D60);
+}
+
+/* shadow-box */
+:vars {
+  focusShadow: value(F00);
 }

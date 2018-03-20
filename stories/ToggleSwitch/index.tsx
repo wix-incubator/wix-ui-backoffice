@@ -1,6 +1,6 @@
 import createStory from '../create-story';
 import {ToggleSwitch} from '../../src/components/ToggleSwitch';
-import * as ToggleSwitchSource from '!raw-loader!../../src/components/ToggleSwitch/index.tsx';
+import * as ToggleSwitchSource from '!raw-loader!../../src/components/ToggleSwitch/ToggleSwitch.tsx';
 
 export const story = () => createStory({
   category: 'Components',

@@ -1,13 +1,13 @@
 import {palette} from '../../palette';
 import {Color} from '../../colors';
 
-interface SizeConfig {
+export interface SizeConfig {
     small: number;
     medium: number;
     large: number;
 }
 
-interface SkinConfig {
+export interface SkinConfig {
     standard: Color;
     error: Color;
 }
@@ -15,7 +15,7 @@ interface SkinConfig {
 export type Size = keyof SizeConfig;
 export type Skin = keyof SkinConfig;
 
-const skins: { [key: string]: SkinConfig } = {
+export const skins: { [key: string]: SkinConfig } = {
     skinToColor: {
         standard: palette.mainInputText,
         error: palette.mainInputText
@@ -38,7 +38,7 @@ const skins: { [key: string]: SkinConfig } = {
     }
 };
 
-const sizes: { [key: string]: SizeConfig } = {
+export const sizes: { [key: string]: SizeConfig } = {
     sizeToHeight: {small: 30, medium: 36, large: 60},
     sizeToFontSize: {small: 14, medium: 16, large: 22}
 };

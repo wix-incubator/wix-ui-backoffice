@@ -1,7 +1,7 @@
 import * as React from 'react';
 import createStory from '../create-story';
 import {CounterBadge} from '../../src/components/CounterBadge';
-import * as CounterBadgeSource from '!raw-loader!../../src/components/CounterBadge/index.tsx';
+import * as CounterBadgeSource from '!raw-loader!../../src/components/CounterBadge/CounterBadge.tsx';
 import Add from 'wix-ui-icons-common/Add';
 
 export const story = () => createStory({

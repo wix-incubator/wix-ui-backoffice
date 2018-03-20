@@ -1,0 +1,88 @@
+:import {
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Badge, BadgeStyle;
+}
+
+:import {
+  -st-from: "../StylableUIText/UIText.st.css";
+  -st-default: UIText;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: secondaryText, brandPrimary, danger, warning, urgent, success;
+}
+
+.root {
+  -st-extends: Badge;
+  -st-states: skin(string), wide;
+}
+
+.text {
+  -st-extends: UIText;
+  color: currentColor;
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
+}
+
+.root:skin(general) {
+  -st-mixin: BadgeStyle(
+    backgroundColor value(secondaryText),
+    borderColor value(secondaryText)
+  );
+}
+
+.root:skin(standard) {
+  -st-mixin: BadgeStyle(
+    backgroundColor value(brandPrimary),
+    borderColor value(brandPrimary)
+  );
+}
+
+.root:skin(danger) {
+  -st-mixin: BadgeStyle(
+    backgroundColor value(danger),
+    borderColor value(danger)
+  );
+}
+
+.root:skin(warning) {
+  -st-mixin: BadgeStyle(
+    backgroundColor value(warning),
+    borderColor value(warning)
+  );
+}
+
+.root:skin(urgent) {
+  -st-mixin: BadgeStyle(
+    backgroundColor value(urgent),
+    borderColor value(urgent)
+  );
+}
+
+.root:skin(success) {
+  -st-mixin: BadgeStyle(
+    backgroundColor value(success),
+    borderColor value(success)
+  );
+}
+
+.root:skin(general),
+.root:skin(standard),
+.root:skin(danger),
+.root:skin(warning),
+.root:skin(urgent),
+.root:skin(success) {
+  min-width: 18px;
+  border-radius: 12px;
+  border: initial;
+  height: 18px;
+  padding: 2px;
+}
+
+.root:wide {
+  padding: 2px 6px;
+}

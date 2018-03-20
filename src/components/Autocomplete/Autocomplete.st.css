@@ -1,46 +1,76 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/InputWithOptions/InputWithOptions.st.css";
-  -st-default: InputWithOptions;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Autocomplete;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: primaryText, mainHover, main, disabledText, inputHover, primaryLightText;
+}
+
+:import {
+  -st-from: "../Input/Input.st.css";
+  -st-default: Input;
+}
+
+:import {
+  -st-from: "../Input/InputStates.st.css";
+  -st-named: input-small;
 }
 
 .root {
-  -st-extends: InputWithOptions;
+  -st-extends: Autocomplete;
 }
 
 .root::contentContainer {
   border: none;
   border-radius: 8px;
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
+  max-width: 250px;
+  min-width: 100%;
+}
+
+.root::input {
+  -st-mixin: Input, input-small;
 }
 
 .root::option {
-  cursor: pointer;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: left;
-  font-size: 16px;
-  color: #162d3d;
-  max-width: 250px;
   white-space: nowrap;
-  padding: 8px 0;
+  padding: 8px 20px;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  color: value(primaryText);
+  overflow: hidden;
 }
 
 .root::option:hovered {
-  background: #eaf7ff;
-  color: #162d3d;
+  background: value(inputHover);
 }
 
 .root::option:selected {
-  background: #3899ec;
-  color: #ffffff;
+  background: value(main);
+  color: value(primaryLightText);
 }
 
 .root::option:selected:hovered {
-  background: #4eb7f5;
-  color: #ffffff;
+  background: value(mainHover);
+  color: value(primaryLightText);
 }
 
 .root::option:disabled {
-  color: #b6c1cd;
-  cursor: default;
+  color: value(disabledText);
+}
+
+.root::option:not(:selectable) {
+  padding: 0;
+}
+
+.root::divider {
+  background-color: #e5e5e5;
+  display: flex;
+  flex: 1;
+}
+
+.root::divider:customDivider {
+  padding: 8px 20px;
 }

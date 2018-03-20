@@ -1,210 +1,82 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/StylableToggleSwitch/ToggleSwitchStyle.st.css";
-  -st-default: ToggleSwitch;
-}
-
-:import {
-  -st-from: "wix-ui-core/dist/src/components/StylableToggleSwitch/ToggleSwitch.st.css";
-  -st-default: BaseToggleSwitch;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: ToggleSwitch, ToggleSwitchStyle, ToggleSwitchLayout, ToggleSwitchColor;
 }
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: mainMuted, main, mainHover, disabled, successMutedHover, dangerMutedHover, success, danger, successHover, dangerHover, dividerColor, disabled;
+  -st-named:
+    disabled,
+    main, mainHover, mainMuted,
+    danger, dangerHover, dangerMutedHover,
+    success, successHover, successMutedHover,
+    focusShadow;
 }
 
 .root {
-  -st-extends: BaseToggleSwitch;
-  -st-states: error, success, x-small, small;
-  -st-mixin: ToggleSwitch(
-    rootWidth initial,
-    rootHeight initial,
+  -st-extends: ToggleSwitch;
+  -st-states:
+    size(enum(small, medium, large)),
+    skin(enum(standard, success, error));
 
-    transitionSpeed 0.3s,
-    borderRadius 50px,
-    labelMovementRange 23px,
+  -st-mixin: ToggleSwitchStyle;
+}
 
-    outerLabelWidth 45px,
-    outerLabelHeight 24px,
-
-    innerLabelWidth 21px,
-    innerLabelHeight 22px,
-    innerLabelBackgroundColor white,
-
-    backgroundColor value(mainMuted),
-    backgroundColorChecked value(main),
-    backgroundColorDisabled value(disabled),
-    backgroundColorHover value(mainHover),
-    backgroundColorFocus value(mainHover),
-
-    color value(mainMuted),
-    colorChecked value(main),
-    colorDisabled value(dividerColor),
-    colorCheckedDisabled value(disabled),
-    colorHover value(mainHover),
-    colorFocus value(mainHover),
-
-    toggleIconWidth 8px,
-    toggleIconHeight 6px,
-    toggleIconDisplay block
+.root:size(small) {
+  -st-mixin: ToggleSwitchLayout(
+    rootWidth 28px,
+    rootHeight 16px
   );
 }
 
-.root:x-small {
-  -st-mixin: ToggleSwitch(
-    outerLabelWidth 28px,
-    outerLabelHeight 15px,
-    innerLabelWidth 13px,
-    innerLabelHeight 13px,
-    
+.root:size(small)::knobIcon {
+  display: none;
+}
 
-    rootWidth initial,
-    rootHeight initial,
-
-    transitionSpeed 0.3s,
-    borderRadius 50px,
-    labelMovementRange 23px,
-
-    innerLabelWidth 21px,
-    innerLabelHeight 22px,
-    innerLabelBackgroundColor white,
-
-    backgroundColor value(mainMuted),
-    backgroundColorChecked value(main),
-    backgroundColorDisabled value(disabled),
-    backgroundColorHover value(mainHover),
-    backgroundColorFocus value(mainHover),
-
-    color value(mainMuted),
-    colorChecked value(main),
-    colorDisabled value(dividerColor),
-    colorCheckedDisabled value(disabled),
-    colorHover value(mainHover),
-    colorFocus value(mainHover),
-
-    toggleIconWidth 8px,
-    toggleIconHeight 6px,
-    toggleIconDisplay block
+.root:size(medium) {
+  -st-mixin: ToggleSwitchLayout(
+    rootWidth 36px,
+    rootHeight 20px
   );
 }
 
-.root:small {
-  -st-mixin: ToggleSwitch(
-    outerLabelWidth 36px,
-    outerLabelHeight 20px,
-    innerLabelWidth 18px,
-    innerLabelHeight 18px,
-    
-
-    rootWidth initial,
-    rootHeight initial,
-
-    transitionSpeed 0.3s,
-    borderRadius 50px,
-    labelMovementRange 23px,
-
-
-    innerLabelBackgroundColor white,
-
-    backgroundColor value(mainMuted),
-    backgroundColorChecked value(main),
-    backgroundColorDisabled value(disabled),
-    backgroundColorHover value(mainHover),
-    backgroundColorFocus value(mainHover),
-
-    color value(mainMuted),
-    colorChecked value(main),
-    colorDisabled value(dividerColor),
-    colorCheckedDisabled value(disabled),
-    colorHover value(mainHover),
-    colorFocus value(mainHover),
-
-    toggleIconWidth 8px,
-    toggleIconHeight 6px,
-    toggleIconDisplay block
+.root:size(large) {
+  -st-mixin: ToggleSwitchLayout(
+    rootWidth 45px,
+    rootHeight 24px
   );
 }
 
-.root:error {
-  -st-mixin: ToggleSwitch(
-    backgroundColor value(dangerMutedHover),
-    backgroundColorChecked value(danger),
-    backgroundColorHover value(dangerHover),
-    backgroundColorDisabled value(disabled),
-    
-    color value(dangerMutedHover),
-    colorChecked value(danger),
-    colorHover value(dangerHover),
-    colorDisabled value(dividerColor),
-    colorCheckedDisabled value(dividerColor),
-
-
-    rootWidth initial,
-    rootHeight initial,
-
-    transitionSpeed 0.3s,
-    borderRadius 50px,
-    labelMovementRange 23px,
-
-    outerLabelWidth 45px,
-    outerLabelHeight 24px,
-
-    innerLabelWidth 21px,
-    innerLabelHeight 22px,
-    innerLabelBackgroundColor white,
-
-    backgroundColorFocus value(mainHover),
-
-    colorFocus value(mainHover),
-
-    toggleIconWidth 8px,
-    toggleIconHeight 6px,
-    toggleIconDisplay block
+.root:skin(standard) {
+  -st-mixin: ToggleSwitchColor(
+    colorUnchecked      value(mainMuted),
+    colorChecked        value(main),
+    colorUncheckedHover value(mainHover),
+    colorCheckedHover   value(mainHover),
+    colorDisabled       value(disabled)
   );
 }
 
-.root:success {
-  -st-mixin: ToggleSwitch(
-    backgroundColor value(successMutedHover),
-    backgroundColorChecked value(success),
-    backgroundColorHover value(successHover),
-    backgroundColorDisabled value(disabled),
-    
-    color value(successMutedHover),
-    colorChecked value(success),
-    colorHover value(successHover),
-    colorDisabled value(dividerColor),
-    colorCheckedDisabled value(dividerColor),
-
-
-    rootWidth initial,
-    rootHeight initial,
-
-    transitionSpeed 0.3s,
-    borderRadius 50px,
-    labelMovementRange 23px,
-
-    outerLabelWidth 45px,
-    outerLabelHeight 24px,
-
-    innerLabelWidth 21px,
-    innerLabelHeight 22px,
-    innerLabelBackgroundColor white,
-
-    backgroundColorFocus value(mainHover),
-
-    colorFocus value(mainHover),
-
-    toggleIconWidth 8px,
-    toggleIconHeight 6px,
-    toggleIconDisplay block
+.root:skin(success) {
+  -st-mixin: ToggleSwitchColor(
+    colorUnchecked      value(successMutedHover),
+    colorChecked        value(success),
+    colorUncheckedHover value(successHover),
+    colorCheckedHover   value(successHover),
+    colorDisabled       value(disabled)
   );
 }
 
-.root:checked:small::innerLabel {
-  left: 17px;
+.root:skin(error) {
+  -st-mixin: ToggleSwitchColor(
+    colorUnchecked      value(dangerMutedHover),
+    colorChecked        value(danger),
+    colorUncheckedHover value(dangerHover),
+    colorCheckedHover   value(dangerHover),
+    colorDisabled       value(disabled)
+  );
 }
 
-.root:checked:x-small::innerLabel {
-  left: 13px;
+.root:focus-visible::track {
+	box-shadow: 0 0 0 3px value(focusShadow);
 }
