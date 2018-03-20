@@ -1,1 +1,1 @@
-export {UILabel} from './UILabel';
+export {Label} from './Label';

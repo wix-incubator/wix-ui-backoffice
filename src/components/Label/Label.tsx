@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {oneOf, bool, string} from 'prop-types';
 import {Label as CoreLabel, LabelProps as CoreLabelProps} from 'wix-ui-core/StylableLabel';
-import style from './UILabel.st.css';
+import style from './Label.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 
 export type Appearance =
@@ -11,15 +10,14 @@ export type Appearance =
     'T4' | 'T4.1' | 'T4.2' | 'T4.3' | 'T4.4' | 'T4.5' | 'T4.6' | 'T4.7' |
     'T5' | 'T5.1';
 
-
-export interface UILabelProps {
+export interface LabelProps {
   /** typography of the label */
   appearance?: Appearance;
 }
 
-const defaultProps: UILabelProps = {appearance: 'T1.1'};
+const defaultProps: LabelProps = {appearance: 'T1.1'};
 
-export const UILabel = withStylable<CoreLabelProps, UILabelProps>(
+export const Label = withStylable<CoreLabelProps, LabelProps>(
   CoreLabel,
   style,
   ({appearance}) => ({appearance}),

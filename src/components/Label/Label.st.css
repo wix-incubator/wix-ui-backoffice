@@ -1,0 +1,37 @@
+:import {
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Label, LabelStyle;
+}
+  
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: primaryLabel, secondaryLabel, primaryLightLabel, linkedLabel, disabledLabel, danger, premium, success, placeholderLabel;
+}
+
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontLight, fontRoman, fontMedium;
+}
+
+.root {
+  -st-extends: Label;
+  -st-states: appearance(string);
+}
+
+.root:appearance(T1.1) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 16px,
+    lineHeight 24px,
+    color value(secondaryLabel)
+  );
+}
+
+.root:appearance(T3.1) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(secondaryLabel)
+  );
+}
