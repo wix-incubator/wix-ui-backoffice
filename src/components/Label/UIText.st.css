@@ -1,0 +1,302 @@
+:import {
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Label, LabelStyle;
+}
+  
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: primaryLabel, secondaryLabel, primaryLightLabel, linkedLabel, disabledLabel, danger, premium, success, placeholderLabel;
+}
+
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontLight, fontRoman, fontMedium;
+}
+
+.root {
+  -st-extends: Label;
+  -st-states: appearance(string);
+}
+
+.root:appearance(T1) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 16px,
+    lineHeight 24px,
+    color value(primaryLabel)
+  );
+}
+
+.root:appearance(T1.1) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 16px,
+    lineHeight 24px,
+    color value(secondaryLabel)
+  );
+}
+
+.root:appearance(T1.2) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 16px,
+    lineHeight 24px,
+    color value(primaryLightLabel)
+  );
+}
+
+.root:appearance(T1.3) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 16px,
+    lineHeight 24px,
+    color value(linkedLabel)
+  );
+}
+
+.root:appearance(T1.4) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 16px,
+    lineHeight 24px,
+    color value(disabledLabel)
+  );
+}
+
+.root:appearance(T1.5) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 16px,
+    lineHeight 24px,
+    color value(danger)
+  );
+}
+
+.root:appearance(T1.6) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 16px,
+    lineHeight 24px,
+    color value(premium)
+  );
+}
+
+.root:appearance(T1.7) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 16px,
+    lineHeight 24px,
+    color value(success)
+  );
+}
+
+.root:appearance(T2) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontRoman),
+    fontSize 16px,
+    lineHeight 24px,
+    color value(primaryLabel)
+  );
+}
+
+.root:appearance(T2.1) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontRoman),
+    fontSize 16px,
+    lineHeight 24px,
+    color value(placeholderLabel)
+  );
+}
+
+.root:appearance(T2.2) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontRoman),
+    fontSize 16px,
+    lineHeight 24px,
+    color value(primaryLightLabel)
+  );
+}
+
+.root:appearance(T2.3) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontRoman),
+    fontSize 16px,
+    lineHeight 24px,
+    color value(linkedLabel)
+  );
+}
+
+.root:appearance(T2.4) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontRoman),
+    fontSize 16px,
+    lineHeight 24px,
+    color value(disabledLabel)
+  );
+}
+
+.root:appearance(T3) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(primaryLabel)
+  );
+}
+
+.root:appearance(T3.1) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(secondaryLabel)
+  );
+}
+
+.root:appearance(T3.2) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(primaryLightLabel)
+  );
+}
+
+.root:appearance(T3.3) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(linkedLabel)
+  );
+}
+
+.root:appearance(T3.4) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(disabledLabel)
+  );
+}
+
+.root:appearance(T3.5) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(danger)
+  );
+}
+
+.root:appearance(T3.6) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(premium)
+  );
+}
+
+.root:appearance(T3.7) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontLight),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(success)
+  );
+}
+
+.root:appearance(T4) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontRoman),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(primaryLabel)
+  );
+}
+
+.root:appearance(T4.1) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontRoman),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(secondaryLabel)
+  );
+}
+
+.root:appearance(T4.2) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontRoman),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(primaryLightLabel)
+  );
+}
+
+.root:appearance(T4.3) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontRoman),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(linkedLabel)
+  );
+}
+
+.root:appearance(T4.4) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontRoman),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(placeholderLabel)
+  );
+}
+
+.root:appearance(T4.5) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontRoman),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(disabledLabel)
+  );
+}
+
+.root:appearance(T4.6) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontRoman),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(danger)
+  );
+}
+
+.root:appearance(T4.7) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontRoman),
+    fontSize 14px,
+    lineHeight 18px,
+    color value(success)
+  );
+}
+
+.root:appearance(T5) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontMedium),
+    fontSize 10px,
+    lineHeight 12px,
+    color value(secondaryLabel),
+    labelTransform uppercase,
+    letterSpacing 1px
+  );
+}
+
+.root:appearance(T5.1) {
+  -st-mixin: LabelStyle(
+    fontFamily value(fontMedium),
+    fontSize 10px,
+    lineHeight 12px,
+    color value(primaryLightLabel),
+    labelTransform uppercase,
+    letterSpacing 1px
+  );
+}
