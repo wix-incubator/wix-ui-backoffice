@@ -2,7 +2,7 @@ import * as eyes from 'eyes.it';
 import {browser} from 'protractor';
 import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
 import {toggleSwitchTestkitFactory} from '../../testkit/protractor';
-import {Key} from 'selenium-webdriver';
+import {protractor} from 'protractor';
 
 describe('ToggleSwitch', () => {
   const storyUrl = getStoryUrl('Components', 'ToggleSwitch');
@@ -36,13 +36,13 @@ describe('ToggleSwitch', () => {
         .mouseMove({x: 0, y: -20})
         .mouseDown()
         .mouseUp()
-        .sendKeys(Key.TAB)
-        .sendKeys(Key.SPACE)
+        .sendKeys(protractor.Key.TAB)
+        .sendKeys(protractor.Key.SPACE)
         .perform();
 
       expect(driver.isChecked()).toBe(true);
 
-      browser.actions().sendKeys(Key.SPACE).perform();
+      browser.actions().sendKeys(protractor.Key.SPACE).perform();
       expect(driver.isChecked()).toBe(false);
     });
   });
