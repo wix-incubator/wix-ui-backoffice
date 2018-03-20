@@ -15,7 +15,7 @@ export interface CounterBadgeProps extends CoreBadgeProps {
   skin?: Skin;
 
   /** Content of the badge */
-  children?: any;
+  children?: React.ReactNode;
 }
 
 export class CounterBadge extends React.PureComponent<CounterBadgeProps> {

@@ -2,7 +2,7 @@ require('./AddressInput').story();
 require('./Autocomplete').story();
 require('./Badge').story();
 require('./Checkbox').story();
-require('./CounterBadge').story();
+require('./CounterBadge.story.tsx');
 require('./StylableCounterBadge').story();
 require('./Heading').story();
 require('./Input').story();
