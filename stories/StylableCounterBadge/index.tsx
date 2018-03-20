@@ -2,7 +2,7 @@ import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {CounterBadge} from '../../src/components/StylableCounterBadge';
 import {SKIN} from '../../src/components/StylableCounterBadge/constants';
-import {Facebook} from 'wix-ui-icons-common';
+import Facebook from 'wix-ui-icons-common/Facebook';
 import {Autocomplete} from '../../src/components/Autocomplete';
 import {Heading} from '../../src/components/Heading';
 
