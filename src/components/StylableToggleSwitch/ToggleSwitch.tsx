@@ -6,7 +6,7 @@ import {
 } from 'wix-ui-core/StylableToggleSwitch';
 import style from './ToggleSwitch.st.css';
 import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
-import Toggleff from 'wix-ui-icons-common/system/Toggleff';
+import ToggleOff from 'wix-ui-icons-common/system/ToggleOff';
 
 import {withStylable} from 'wix-ui-core/withStylable';
 
