@@ -30,7 +30,16 @@ describe('ToggleSwitch', () => {
 
     return waitForVisibilityOf(driver.element(), 'Cannot find ToggleSwitch')
     .then(() => {
-      browser.actions().sendKeys(Key.TAB, Key.TAB, Key.TAB, Key.TAB, Key.TAB, Key.SPACE).perform();
+      browser
+        .actions()
+        .mouseMove(driver.element())
+        .mouseMove({x: 0, y: -20})
+        .mouseDown()
+        .mouseUp()
+        .sendKeys(Key.TAB)
+        .sendKeys(Key.SPACE)
+        .perform();
+
       expect(driver.isChecked()).toBe(true);
 
       browser.actions().sendKeys(Key.SPACE).perform();

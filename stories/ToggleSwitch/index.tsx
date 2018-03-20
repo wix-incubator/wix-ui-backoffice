@@ -42,6 +42,7 @@ class ControlleToggleSwitchExample extends React.Component<any, any> {
             disabled={this.state.disabled}
             onChange={() => this.setState({checked: !this.state.checked})}
             dataHook="storybook-toggleSwitch"
+            tabIndex={1}
             />
         </div>
       </div>
