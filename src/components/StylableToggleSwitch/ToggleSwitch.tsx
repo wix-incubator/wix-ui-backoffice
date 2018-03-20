@@ -1,5 +1,4 @@
-import React = require('react');
-import PropTypes = require('prop-types');
+import * as React from 'react';
 import {
   ToggleSwitch as CoreToggleSwitch,
   ToggleSwitchProps as CoreToggleSwitchProps
