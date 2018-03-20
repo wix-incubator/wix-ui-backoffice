@@ -6,7 +6,7 @@ import {Key} from 'selenium-webdriver';
 
 describe('ToggleSwitch', () => {
   const storyUrl = getStoryUrl('Components', 'ToggleSwitch');
-  const dataHook = 'story-toggleswitch';
+  const dataHook = 'storybook-toggleSwitch';
 
   beforeEach(() => browser.get(storyUrl));
 
@@ -30,15 +30,10 @@ describe('ToggleSwitch', () => {
 
     return waitForVisibilityOf(driver.element(), 'Cannot find ToggleSwitch')
     .then(() => {
-      expect(driver.isChecked()).toBe(false);
-
-      browser.actions().sendKeys(Key.TAB, Key.SPACE).perform();
+      browser.actions().sendKeys(Key.TAB, Key.TAB, Key.TAB, Key.TAB, Key.TAB, Key.SPACE).perform();
       expect(driver.isChecked()).toBe(true);
 
       browser.actions().sendKeys(Key.SPACE).perform();
-      expect(driver.isChecked()).toBe(false);
-
-      browser.actions().sendKeys(Key.CONTROL).perform();
       expect(driver.isChecked()).toBe(false);
     });
   });
