@@ -5,7 +5,7 @@ import {
   ToggleSwitchProps as CoreToggleSwitchProps
 } from 'wix-ui-core/StylableToggleSwitch';
 import style from './ToggleSwitch.st.css';
-import {Skin, Size, SKIN, SIZE} from './constants';
+import {Skin, Size, SKINS, SIZES} from './constants';
 import {ToggleOff, ToggleOn, SmallToggleOff, SmallToggleOn} from 'wix-ui-icons-common/system';
 import {withStylable} from 'wix-ui-core/withStylable';
 import {omit} from 'lodash';
@@ -16,20 +16,20 @@ export interface ToggleSwitchProps {
 }
 
 const defaultProps = {
-  skin: SKIN.standard,
-  size: SIZE.large
+  skin: SKINS.standard,
+  size: SIZES.large
 };
 
 const checkedIconMap = {
-  [SIZE.small]: undefined,
-  [SIZE.medium]: <SmallToggleOn/>,
-  [SIZE.large]: <ToggleOn/>
+  [SIZES.small]: undefined,
+  [SIZES.medium]: <SmallToggleOn/>,
+  [SIZES.large]: <ToggleOn/>
 };
 
 const uncheckedIconMap = {
-  [SIZE.small]: undefined,
-  [SIZE.medium]: <SmallToggleOff/>,
-  [SIZE.large]: <ToggleOff/>
+  [SIZES.small]: undefined,
+  [SIZES.medium]: <SmallToggleOff/>,
+  [SIZES.large]: <ToggleOff/>
 };
 
 const StyledToggleSwitch = withStylable<CoreToggleSwitchProps, ToggleSwitchProps>(
@@ -39,15 +39,15 @@ const StyledToggleSwitch = withStylable<CoreToggleSwitchProps, ToggleSwitchProps
   defaultProps
 );
 
-const {checkedIcon, uncheckedIcon, styles, ...legalCoreProps} = CoreToggleSwitch.propTypes;
+const {checkedIcon, uncheckedIcon, styles, ...legalCorePropTypes} = CoreToggleSwitch.propTypes;
 
 export class ToggleSwitch extends React.PureComponent<ToggleSwitchProps & CoreToggleSwitchProps> {
   static propTypes = {
-    ...legalCoreProps,
+    ...legalCorePropTypes,
     /** Size of the ToggleSwitch */
-    size: PropTypes.oneOf(Object.keys(SIZE)),
+    size: PropTypes.oneOf(Object.keys(SIZES)),
     /** Skin of the ToggleSwitch */
-    skin: PropTypes.oneOf(Object.keys(SKIN))
+    skin: PropTypes.oneOf(Object.keys(SKINS))
   };
 
   static defaultProps = defaultProps;

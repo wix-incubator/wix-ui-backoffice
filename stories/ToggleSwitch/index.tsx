@@ -4,17 +4,17 @@ import {ToggleSwitch} from '../../src/components/ToggleSwitch';
 import {Autocomplete} from '../../src/components/Autocomplete';
 import {Heading} from '../../src/components/Heading';
 import {UIText} from '../../src/components/StylableUIText';
-import {SIZE, SKIN} from '../../src/components/ToggleSwitch/constants';
+import {SIZES, SKINS} from '../../src/components/ToggleSwitch/constants';
 
-const skinOptions = Object.keys(SKIN).map(value => Autocomplete.createOption({id: value, value}));
-const sizeOptions = Object.keys(SIZE).map(value => Autocomplete.createOption({id: value, value}));
+const skinOptions = Object.keys(SKINS).map(value => Autocomplete.createOption({id: value, value}));
+const sizeOptions = Object.keys(SIZES).map(value => Autocomplete.createOption({id: value, value}));
 
 class ControlleToggleSwitchExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      skin: SKIN.standard,
-      size: SIZE.large,
+      skin: SKINS.standard,
+      size: SIZES.large,
       checked: false,
       disabled: false
     };

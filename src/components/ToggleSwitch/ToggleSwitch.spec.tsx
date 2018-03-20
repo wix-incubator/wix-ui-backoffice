@@ -7,19 +7,19 @@ import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
 import {mount} from 'enzyme';
 import {toggleSwitchTestkitFactory} from '../../testkit';
 import {toggleSwitchTestkitFactory as enzymeToggleSwitchTestkitFactory} from '../../testkit/enzyme';
-import {SKIN, SIZE, Skin, Size} from './constants';
+import {SKINS, SIZES, Skin, Size} from './constants';
 import {ToggleOff, ToggleOn, SmallToggleOff, SmallToggleOn} from 'wix-ui-icons-common/system';
 
 describe('ToggleSwitch', () => {
   const createDriver = createDriverFactory(toggleSwitchDriverFactory);
 
   describe('skin prop', () => {
-    it(`should be ${SKIN.standard} by default`, () => {
+    it(`should be ${SKINS.standard} by default`, () => {
       const wrapper = createDriver(<ToggleSwitch/>);
-      expect(wrapper.getSkin()).toBe(SKIN.standard);
+      expect(wrapper.getSkin()).toBe(SKINS.standard);
     });
 
-    Object.keys(SKIN).forEach((skin: Skin) => {
+    Object.keys(SKINS).forEach((skin: Skin) => {
       it(`should be ${skin}`, () => {
         const wrapper = createDriver(<ToggleSwitch skin={skin}/>);
         expect(wrapper.getSkin()).toBe(skin);
@@ -28,12 +28,12 @@ describe('ToggleSwitch', () => {
   });
 
   describe('size prop', () => {
-    it(`should be ${SIZE.large} by default`, () => {
+    it(`should be ${SIZES.large} by default`, () => {
       const wrapper = createDriver(<ToggleSwitch/>);
-      expect(wrapper.getSize()).toBe(SIZE.large);
+      expect(wrapper.getSize()).toBe(SIZES.large);
     });
 
-    Object.keys(SIZE).forEach((size: Size) => {
+    Object.keys(SIZES).forEach((size: Size) => {
       it(`should be ${size}`, () => {
         const wrapper = createDriver(<ToggleSwitch size={size}/>);
         expect(wrapper.getSize()).toBe(size);
