@@ -8,7 +8,7 @@ import style from './ToggleSwitch.st.css';
 import {Skin, Size, SKINS, SIZES} from './constants';
 import {ToggleOff, ToggleOn, SmallToggleOff, SmallToggleOn} from 'wix-ui-icons-common/system';
 import {withStylable} from 'wix-ui-core/withStylable';
-import {omit} from 'lodash';
+import omit from 'lodash/omit';
 
 export interface ToggleSwitchProps {
   skin?: Skin;
