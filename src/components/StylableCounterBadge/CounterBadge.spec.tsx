@@ -8,7 +8,7 @@ import {stylableCounterBadgeTestkitFactory as counterBadgeTestkitFactory} from '
 import {stylableCounterBadgeTestkitFactory as enzymeCounterBadgeTestkitFactory} from '../../testkit/enzyme';
 import {mount} from 'enzyme';
 import {SKIN, Skin} from './constants';
-import {Email} from 'wix-ui-icons-common';
+import Email from 'wix-ui-icons-common/Email';
 
 describe('CounterBadge', () => {
   const createDriver = createDriverFactory(counterBadgeDriverFactory);
