@@ -32,31 +32,41 @@
   -st-extends: Input;
   -st-states: skin(enum(standard, success, error)), size(enum(large, x-small, small));
 
-  padding: value(padding);
-  border-radius: value(borderRadius);
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
   color: value(primaryText);
-  background-color: value(inputBackground);
-  border-width: value(borderWidth);
-  border-style: value(borderStyle);
-  border-color: value(inputBorderColor);
 }
 
-.root:hover {
+.root:hover::input {
   background-color: value(inputHover);
 }
 
-.root:disabled {
+.root:disabled::input {
   color: value(inputDisabledColor);
   border-color: value(inputDisabledBorderColor);
 }
 
-.root:disabled:hover {
+.root:disabled:hover::input {
   background-color: value(inputBackground);
   border-color: value(inputDisabledHoverBorderColor);
 }
 
-.root:focus {
+.root:focus::input {
   border-color: value(inputFocusBorderColor);
+}
+
+.root::input {
+  background-color: value(inputBackground);
+  border-color: value(inputBorderColor);
+  border-radius: value(borderRadius);
+  border-style: value(borderStyle);
+  border-width: value(borderWidth);
+  box-sizing: border-box;
+  color: inherit;
+  outline: none;
+  padding: value(padding);
+  width: 100%;
 }
 
 .root:size(large) {

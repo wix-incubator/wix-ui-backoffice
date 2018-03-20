@@ -3,6 +3,11 @@
   -st-named: danger;
 }
 
+:import {
+  -st-from: "./Input.st.css";
+  -st-named: Input;
+}
+
 :vars {
   largeFont: 22px;
   medFont: 16px;
@@ -19,18 +24,30 @@
 }
 
 .input-large {
+  -st-extends: Input;
+}
+
+.input-large::input {
   height: value(largeHeight);
   line-height: calc(value(largeHeight) - 2px);
   font-size: value(largeFont);
 }
 
 .input-small {
+  -st-extends: Input;
+}
+
+.input-small::input {
   height: value(medHeight);
   line-height: calc(value(medHeight) - 2px);
   font-size: value(medFont);
 }
 
 .input-x-small {
+  -st-extends: Input;
+}
+
+.input-x-small::input {
   height: value(smallHeight);
   line-height: calc(value(smallHeight) - 2px);
   font-size: value(smallFont);

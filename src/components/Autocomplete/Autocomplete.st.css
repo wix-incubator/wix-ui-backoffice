@@ -74,3 +74,11 @@
 .root::divider:customDivider {
   padding: 8px 20px;
 }
+
+.root::icon {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 11px;
+  right: 20px;
+}
