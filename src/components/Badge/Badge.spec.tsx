@@ -8,7 +8,7 @@ import {mount} from 'enzyme';
 import {badgeTestkitFactory} from '../../testkit';
 import {badgeTestkitFactory as enzymeBadgeTestkitFactory} from '../../testkit/enzyme';
 import {SKIN, TYPE, Skin, Type} from './constants';
-import {Email} from 'wix-ui-icons-common';
+import Email from 'wix-ui-icons-common/Email';
 
 describe('Badge', () => {
   const createDriver = createDriverFactory(badgeDriverFactory);
