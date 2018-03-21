@@ -4,18 +4,16 @@ import {withStylable} from 'wix-ui-core/withStylable';
 import style from './Input.st.css';
 
 export interface InputProps {
-  skin?: 'standard' | 'error' | 'success';
   size?: 'large' | 'medium' | 'small';
 }
 
 const defaultProps = {
-  skin: 'standard',
   size: 'medium'
 };
 
 export const Input = withStylable<CoreInputProps, InputProps>(
   CoreInput,
   style,
-  ({skin, size}) => ({size, skin}),
+  ({size}) => ({size}),
   defaultProps
 );

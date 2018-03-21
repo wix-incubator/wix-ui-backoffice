@@ -13,7 +13,8 @@
     inputFocusBorderColor,
     inputDisabledColor,
     inputDisabledBorderColor,
-    inputDisabledHoverBorderColor;
+    inputDisabledHoverBorderColor,
+    danger;
 }
 
 :import {
@@ -30,12 +31,17 @@
 
 .root {
   -st-extends: Input;
-  -st-states: skin(enum(standard, success, error)), size(enum(large, medium, small));
+  -st-states: size(enum(large, medium, small));
 
   display: inline-block;
   position: relative;
   box-sizing: border-box;
   color: value(primaryText);
+}
+
+.root:error::nativeInput,
+.root:error:focus::nativeInput {
+  border-color: value(danger);
 }
 
 .root:hover::nativeInput {
