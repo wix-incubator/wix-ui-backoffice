@@ -5,12 +5,12 @@ import style from './Input.st.css';
 
 export interface InputProps {
   skin?: 'standard' | 'error' | 'success';
-  size?: 'large' | 'small' | 'x-small';
+  size?: 'large' | 'medium' | 'small';
 }
 
 const defaultProps = {
   skin: 'standard',
-  size: 'large'
+  size: 'medium'
 };
 
 export const Input = withStylable<CoreInputProps, InputProps>(

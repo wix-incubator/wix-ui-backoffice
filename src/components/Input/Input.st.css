@@ -18,7 +18,7 @@
 
 :import {
   -st-from: "./InputStates.st.css";
-  -st-named: input-large, input-small, input-x-small;
+  -st-named: input-large, input-medium, input-small;
 }
 
 :vars {
@@ -30,7 +30,7 @@
 
 .root {
   -st-extends: Input;
-  -st-states: skin(enum(standard, success, error)), size(enum(large, x-small, small));
+  -st-states: skin(enum(standard, success, error)), size(enum(large, medium, small));
 
   display: inline-block;
   position: relative;
@@ -73,10 +73,10 @@
   -st-mixin: input-large;
 }
 
-.root:size(small) {
-  -st-mixin: input-small;
+.root:size(medium) {
+  -st-mixin: input-medium;
 }
 
-.root:size(x-small) {
-  -st-mixin: input-x-small;
+.root:size(small) {
+  -st-mixin: input-small;
 }
