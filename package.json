@@ -30,6 +30,7 @@
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
+    "lodash": "^4.17.5",
     "wix-ui-core": "latest",
     "wix-ui-theme": "latest"
   },
