@@ -15,6 +15,9 @@ export const uiTextTestkitFactory = protractorTestkitFactoryCreator(uiTextDriver
 import {autocompleteDriverFactory} from '../components/Autocomplete/Autocomplete.protractor.driver';
 export const autocompleteTestkitFactory = protractorTestkitFactoryCreator(autocompleteDriverFactory);
 
+import {toggleSwitchDriverFactory} from '../components/ToggleSwitch/ToggleSwitch.protractor.driver';
+export const toggleSwitchTestkitFactory = protractorTestkitFactoryCreator(toggleSwitchDriverFactory);
+
 import {counterBadgeDriverFactory as stylableCounterBadgeDriverFactory} from '../components/StylableCounterBadge/CounterBadge.protractor.driver';
 export const stylableCounterBadgeTestkitFactory = protractorTestkitFactoryCreator(stylableCounterBadgeDriverFactory);
 

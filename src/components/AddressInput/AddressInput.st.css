@@ -15,11 +15,12 @@
 
 :import {
   -st-from: "../Input/InputStates.st.css";
-  -st-named: input-small;
+  -st-named: input-large, input-medium, input-small;
 }
 
 .root {
   -st-extends: AddressInput;
+  -st-states: skin(enum(standard, success, error)), size(enum(large, medium, small));
 }
 
 .root::contentContainer {
@@ -30,8 +31,20 @@
   min-width: 100%;
 }
 
-.root::input {
-  -st-mixin: Input, input-small;
+.root::inputComponent {
+  -st-mixin: Input;
+}
+
+.root:size(large)::inputComponent {
+  -st-mixin: input-large;
+}
+
+.root:size(medium)::inputComponent {
+  -st-mixin: input-medium;
+}
+
+.root:size(small)::inputComponent {
+  -st-mixin: input-small;
 }
 
 .root::option {

@@ -18,7 +18,7 @@
 
 :import {
   -st-from: "./InputStates.st.css";
-  -st-named: input-large, input-small, input-x-small;
+  -st-named: input-large, input-medium, input-small;
 }
 
 :vars {
@@ -30,43 +30,53 @@
 
 .root {
   -st-extends: Input;
-  -st-states: skin(enum(standard, success, error)), size(enum(large, x-small, small));
+  -st-states: skin(enum(standard, success, error)), size(enum(large, medium, small));
 
-  padding: value(padding);
-  border-radius: value(borderRadius);
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
   color: value(primaryText);
-  background-color: value(inputBackground);
-  border-width: value(borderWidth);
-  border-style: value(borderStyle);
-  border-color: value(inputBorderColor);
 }
 
-.root:hover {
+.root:hover::nativeInput {
   background-color: value(inputHover);
 }
 
-.root:disabled {
+.root:disabled::nativeInput {
   color: value(inputDisabledColor);
   border-color: value(inputDisabledBorderColor);
 }
 
-.root:disabled:hover {
+.root:disabled:hover::nativeInput {
   background-color: value(inputBackground);
   border-color: value(inputDisabledHoverBorderColor);
 }
 
-.root:focus {
+.root:focus::nativeInput {
   border-color: value(inputFocusBorderColor);
+}
+
+.root::nativeInput {
+  background-color: value(inputBackground);
+  border-color: value(inputBorderColor);
+  border-radius: value(borderRadius);
+  border-style: value(borderStyle);
+  border-width: value(borderWidth);
+  box-sizing: border-box;
+  color: inherit;
+  outline: none;
+  padding: value(padding);
+  width: 100%;
 }
 
 .root:size(large) {
   -st-mixin: input-large;
 }
 
-.root:size(small) {
-  -st-mixin: input-small;
+.root:size(medium) {
+  -st-mixin: input-medium;
 }
 
-.root:size(x-small) {
-  -st-mixin: input-x-small;
+.root:size(small) {
+  -st-mixin: input-small;
 }

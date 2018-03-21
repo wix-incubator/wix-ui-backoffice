@@ -4,7 +4,7 @@ import {Autocomplete} from '../../src/components/Autocomplete';
 import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionsExample';
 import {Heading} from '../../src/components/Heading';
 import {Input} from '../../src/components/Input';
-import {ToggleSwitch} from '../../src/components/StylableToggleSwitch';
+import {ToggleSwitch} from '../../src/components/ToggleSwitch';
 import {UIText} from '../../src/components/StylableUIText';
 
 type ControlledAutocompleteExampleState = {
@@ -51,12 +51,12 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
           <Heading> Props </Heading><br/><br/><br/>
           <Heading appearance="H3">onSelect: </Heading><UIText>{currentSelected}</UIText>
           <Heading appearance="H3">onManualInput: </Heading><UIText>{manualInput}</UIText>
-          <Heading appearance="H3">initialSelectedId: </Heading><Input size="small" value={initialSelectedId} onChange={evt => this.setState({initialSelectedId: evt.target.value})} />
+          <Heading appearance="H3">initialSelectedId: </Heading><Input value={initialSelectedId} onChange={evt => this.setState({initialSelectedId: evt.target.value})} />
           <Heading appearance="H3">fixedHeader: </Heading><ToggleSwitch checked={withFixedHeader} onChange={() => this.setState({withFixedHeader: !this.state.withFixedHeader})} />
           <Heading appearance="H3">fixedFooter: </Heading><ToggleSwitch checked={withFixedFooter} onChange={() => this.setState({withFixedFooter: !this.state.withFixedFooter})} />
           <Heading appearance="H3">autoFocus: </Heading><ToggleSwitch checked={autoFocus} onChange={() => this.setState({autoFocus: !this.state.autoFocus})} />
           <Heading appearance="H3">disabled: </Heading><ToggleSwitch checked={disabled} onChange={() => this.setState({disabled: !this.state.disabled})} />
-          <Heading appearance="H3">placeholder: </Heading><Input size="small" value={placeholder} onChange={evt => this.setState({placeholder: evt.target.value})} />
+          <Heading appearance="H3">placeholder: </Heading><Input value={placeholder} onChange={evt => this.setState({placeholder: evt.target.value})} />
         </div>
         <div>
           <Heading> Preview </Heading><br/><br/><br/>

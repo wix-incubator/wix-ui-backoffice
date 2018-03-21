@@ -29,10 +29,6 @@
   );
 }
 
-.root:size(small)::knobIcon {
-  display: none;
-}
-
 .root:size(medium) {
   -st-mixin: ToggleSwitchLayout(
     rootWidth 36px,
