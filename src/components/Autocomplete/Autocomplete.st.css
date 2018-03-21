@@ -102,3 +102,8 @@
 .root:disabled::icon {
   fill: value(inputDisabledBorderColor);
 }
+
+/* temp */
+.root:error::icon {
+  fill: red;
+}
