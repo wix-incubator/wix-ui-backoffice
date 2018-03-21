@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: primaryText, mainHover, main, disabledText, inputHover, primaryLightText;
+  -st-named: primaryText, mainHover, main, disabledText, inputHover, primaryLightText, inputBorderColor, inputDisabledBorderColor;
 }
 
 :import {
@@ -76,9 +76,16 @@
 }
 
 .root::icon {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  top: 11px;
-  right: 20px;
+  width: 24px;
+  height: 24px;
+  margin: 0 -30px -7px;
+  fill: value(inputBorderColor);
+}
+
+.root::input::input {
+  padding-right: 30px;
+}
+
+.root:disabled::icon {
+  fill: value(inputDisabledBorderColor);
 }
