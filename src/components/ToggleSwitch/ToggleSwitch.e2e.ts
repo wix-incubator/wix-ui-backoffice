@@ -15,13 +15,13 @@ describe('ToggleSwitch', () => {
 
     return waitForVisibilityOf(driver.element(), 'Cannot find ToggleSwitch')
     .then(() => {
-      expect(driver.isChecked()).toBeFalsy();
+      expect(driver.checked()).toBeFalsy();
 
       driver.click();
-      expect(driver.isChecked()).toBeTruthy();
+      expect(driver.checked()).toBeTruthy();
 
       driver.click();
-      expect(driver.isChecked()).toBeFalsy();
+      expect(driver.checked()).toBeFalsy();
     });
   });
 
@@ -40,10 +40,10 @@ describe('ToggleSwitch', () => {
         .sendKeys(protractor.Key.SPACE)
         .perform();
 
-      expect(driver.isChecked()).toBe(true);
+      expect(driver.checked()).toBe(true);
 
       browser.actions().sendKeys(protractor.Key.SPACE).perform();
-      expect(driver.isChecked()).toBe(false);
+      expect(driver.checked()).toBe(false);
     });
   });
 });
