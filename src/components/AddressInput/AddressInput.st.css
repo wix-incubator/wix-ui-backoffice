@@ -30,7 +30,7 @@
   min-width: 100%;
 }
 
-.root::input {
+.root::inputComponent {
   -st-mixin: Input, input-small;
 }
 

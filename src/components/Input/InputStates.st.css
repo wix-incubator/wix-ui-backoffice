@@ -27,7 +27,7 @@
   -st-extends: Input;
 }
 
-.input-large::input {
+.input-large::nativeInput {
   height: value(largeHeight);
   line-height: calc(value(largeHeight) - 2px);
   font-size: value(largeFont);
@@ -37,7 +37,7 @@
   -st-extends: Input;
 }
 
-.input-small::input {
+.input-small::nativeInput {
   height: value(medHeight);
   line-height: calc(value(medHeight) - 2px);
   font-size: value(medFont);
@@ -47,7 +47,7 @@
   -st-extends: Input;
 }
 
-.input-x-small::input {
+.input-x-small::nativeInput {
   height: value(smallHeight);
   line-height: calc(value(smallHeight) - 2px);
   font-size: value(smallFont);

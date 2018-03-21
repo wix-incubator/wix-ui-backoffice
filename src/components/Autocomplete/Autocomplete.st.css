@@ -30,7 +30,7 @@
   min-width: 100%;
 }
 
-.root::input {
+.root::inputComponent {
   -st-mixin: Input, input-small;
 }
 
@@ -82,7 +82,7 @@
   fill: value(inputBorderColor);
 }
 
-.root::input::input {
+.root::inputComponent::nativeInput {
   padding-right: 30px;
 }
 

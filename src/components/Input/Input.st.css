@@ -38,25 +38,25 @@
   color: value(primaryText);
 }
 
-.root:hover::input {
+.root:hover::nativeInput {
   background-color: value(inputHover);
 }
 
-.root:disabled::input {
+.root:disabled::nativeInput {
   color: value(inputDisabledColor);
   border-color: value(inputDisabledBorderColor);
 }
 
-.root:disabled:hover::input {
+.root:disabled:hover::nativeInput {
   background-color: value(inputBackground);
   border-color: value(inputDisabledHoverBorderColor);
 }
 
-.root:focus::input {
+.root:focus::nativeInput {
   border-color: value(inputFocusBorderColor);
 }
 
-.root::input {
+.root::nativeInput {
   background-color: value(inputBackground);
   border-color: value(inputBorderColor);
   border-radius: value(borderRadius);
