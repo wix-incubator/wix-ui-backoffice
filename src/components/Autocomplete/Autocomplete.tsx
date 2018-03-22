@@ -1,9 +1,7 @@
 import * as React from 'react';
 import {string} from 'prop-types';
 import {Autocomplete as CoreAutocomplete, AutocompleteProps as CoreAutocompleteProps} from 'wix-ui-core/Autocomplete';
-import {withStylable} from 'wix-ui-core/withStylable';
 import style from './Autocomplete.st.css';
-import {Option} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionFactory';
 import ArrowDown from 'wix-ui-icons-common/ArrowDown';
 
 export interface AutocompleteProps {
@@ -11,8 +9,8 @@ export interface AutocompleteProps {
 }
 
 export type AutocompleteType = React.SFC<CoreAutocompleteProps & AutocompleteProps> & {
-  createOption: (option?: Partial<Option>) => Option;
-  createDivider: (value?: React.ReactNode) => Option;
+  createOption: typeof CoreAutocomplete.createOption;
+  createDivider: typeof CoreAutocomplete.createDivider;
 };
 
 export const Autocomplete: AutocompleteType = ((props: CoreAutocompleteProps & AutocompleteProps) => {
