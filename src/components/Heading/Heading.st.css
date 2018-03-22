@@ -59,7 +59,7 @@
     color value(headingText),
     fontFamily value(fontLight),
     fontSize 20px,
-    lineHeight 36px
+    lineHeight 24px
   );
 }
 
@@ -68,7 +68,7 @@
     color value(lightHeadingText),
     fontFamily value(fontLight),
     fontSize 20px,
-    lineHeight 36px
+    lineHeight 24px
   );
 }
 
@@ -99,7 +99,7 @@
     color value(subheadingText),
     fontFamily value(fontLight),
     fontSize 10px,
-    lineHeight 20px,
+    lineHeight 18px,
     textTransform uppercase,
     letterSpacing 2px
   );
@@ -110,7 +110,7 @@
     color value(lightSubheadingText),
     fontFamily value(fontLight),
     fontSize 10px,
-    lineHeight 20px,
+    lineHeight 18px,
     textTransform uppercase,
     letterSpacing 2px
   );
