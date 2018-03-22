@@ -47,22 +47,8 @@
   -st-mixin: input-small;
 }
 
-
 .root::inputComponent::nativeInput {
   padding-right: 30px;
-}
-
-.arrowIcon {
-  position: absolute;
-  right: 6px;
-  top: 6px;
-  width: 24px;
-  height: 24px;
-  fill: value(inputBorderColor);
-}
-
-.root:disabled .arrowIcon {
-  fill: value(inputDisabledBorderColor);
 }
 
 .root::option {
@@ -104,4 +90,17 @@
 
 .root::divider:customDivider {
   padding: 8px 20px;
+}
+
+.arrowIcon {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  width: 24px;
+  height: 24px;
+  fill: value(inputBorderColor);
+}
+
+.root:disabled .arrowIcon {
+  fill: value(inputDisabledBorderColor);
 }
