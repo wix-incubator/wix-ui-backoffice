@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Label as CoreLabel, LabelProps as CoreLabelProps} from 'wix-ui-core/StylableLabel';
+import {Label as CoreLabel, LabelProps as CoreLabelProps} from 'wix-ui-core/Label';
 import style from './Label.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 

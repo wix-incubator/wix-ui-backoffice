@@ -26,3 +26,6 @@ export const stylableCounterBadgeTestkitFactory = testkitFactoryCreator(stylable
 
 import {addressInputDriverFactory} from '../components/AddressInput/AddressInput.driver';
 export const addressInputTestkitFactory = testkitFactoryCreator(addressInputDriverFactory);
+
+import {labelDriverFactory} from '../components/Label/Label.driver';
+export const labelTestkitFactory = testkitFactoryCreator(labelDriverFactory);

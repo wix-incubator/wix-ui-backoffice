@@ -23,3 +23,6 @@ export const stylableCounterBadgeTestkitFactory = protractorTestkitFactoryCreato
 
 import {addressInputDriverFactory} from '../components/AddressInput/AddressInput.protractor.driver';
 export const addressInputTestkitFactory = protractorTestkitFactoryCreator(addressInputDriverFactory);
+
+import {labelDriverFactory} from '../components/Label/Label.protractor.driver';
+export const labelTestkitFactory = protractorTestkitFactoryCreator(labelDriverFactory);

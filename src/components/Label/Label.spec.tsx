@@ -7,7 +7,7 @@ import {isEnzymeTestkitExists} from 'wix-ui-test-utils/enzyme';
 import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
 import {mount} from 'enzyme';
 import {labelTestkitFactory} from '../../testkit';
-import {LabelTestkitFactory as enzymeLabelTestkitFactory} from '../../testkit/enzyme';
+import {labelTestkitFactory as enzymeLabelTestkitFactory} from '../../testkit/enzyme';
 
 describe('Label', () => {
   const createDriver = createDriverFactory(labelDriverFactory);

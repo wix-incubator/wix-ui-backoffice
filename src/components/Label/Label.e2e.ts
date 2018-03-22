@@ -3,7 +3,7 @@ import {browser} from 'protractor';
 import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
 import {labelTestkitFactory} from '../../testkit/protractor';
 
-describe('UILabel', () => {
+describe('Label', () => {
   const storyUrl = getStoryUrl('Components', 'Label');
 
   beforeEach(() => browser.get(storyUrl));
@@ -12,6 +12,6 @@ describe('UILabel', () => {
     const driver = labelTestkitFactory({dataHook});
 
     return waitForVisibilityOf(driver.element(), 'Cannot find Label')
-      .then(() => expect(driver.getLabelContent()).toBe('Some label'));
+      .then(() => expect(driver.getLabelText()).toBe('Some label'));
   });
 });
