@@ -26,7 +26,7 @@ export interface UITextProps extends CoreTextProps {
 
 export class UIText extends React.PureComponent<UITextProps> {
   static propTypes = {
-    ...CoreText.propTypes as any,
+    ...CoreText.propTypes,
 
     /** typography of the text */
     appearance: oneOf([
