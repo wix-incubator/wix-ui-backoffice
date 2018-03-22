@@ -20,7 +20,7 @@
 
 .root {
   -st-extends: Autocomplete;
-  -st-states: skin(enum(standard, success, error)), size(enum(large, medium, small));
+  -st-states: size(enum(large, medium, small));
 }
 
 .root::contentContainer {
@@ -101,4 +101,9 @@
 
 .root:disabled::icon {
   fill: value(inputDisabledBorderColor);
+}
+
+/* temp */
+.root:error::icon {
+  fill: red;
 }

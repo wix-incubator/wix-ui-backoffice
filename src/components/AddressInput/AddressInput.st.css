@@ -20,7 +20,7 @@
 
 .root {
   -st-extends: AddressInput;
-  -st-states: skin(enum(standard, success, error)), size(enum(large, medium, small));
+  -st-states: size(enum(large, medium, small));
 }
 
 .root::contentContainer {

@@ -5,12 +5,10 @@ import style from './Autocomplete.st.css';
 import {Option} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionFactory';
 
 export interface AutocompleteProps {
-  skin?: 'standard' | 'error' | 'success';
   size?: 'large' | 'medium' | 'small';
 }
 
 const defaultProps = {
-  skin: 'standard',
   size: 'medium'
 };
 
@@ -24,7 +22,7 @@ export const Autocomplete: AutocompleteType =
     withStylable<CoreAutocompleteProps, AutocompleteProps>(
       CoreAutocomplete as React.ComponentClass<CoreAutocompleteProps & AutocompleteProps>,
       style,
-      ({skin, size}) => ({size, skin}),
+      ({size}) => ({size}),
       defaultProps),
     {
       createOption: CoreAutocomplete.createOption,

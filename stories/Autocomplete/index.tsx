@@ -15,7 +15,9 @@ type ControlledAutocompleteExampleState = {
   manualInput: string;
   autoFocus: boolean;
   disabled: boolean;
+  error: boolean;
   placeholder: string;
+  size: 'small' | 'medium' | 'large';
 };
 
 class ControlledAutocompleteExample extends React.Component<{}, ControlledAutocompleteExampleState> {
@@ -30,7 +32,9 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
       manualInput: 'No value.',
       autoFocus: false,
       disabled: false,
-      placeholder: ''
+      placeholder: '',
+      error: false,
+      size: 'medium'
     };
   }
 
@@ -43,6 +47,8 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
       manualInput,
       autoFocus,
       disabled,
+      error,
+      size,
       placeholder
     } = this.state;
     return (
@@ -56,7 +62,9 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
           <Heading appearance="H3">fixedFooter: </Heading><ToggleSwitch checked={withFixedFooter} onChange={() => this.setState({withFixedFooter: !this.state.withFixedFooter})} />
           <Heading appearance="H3">autoFocus: </Heading><ToggleSwitch checked={autoFocus} onChange={() => this.setState({autoFocus: !this.state.autoFocus})} />
           <Heading appearance="H3">disabled: </Heading><ToggleSwitch checked={disabled} onChange={() => this.setState({disabled: !this.state.disabled})} />
+          <Heading appearance="H3">error: </Heading><ToggleSwitch checked={error} onChange={() => this.setState({error: !this.state.error})} />
           <Heading appearance="H3">placeholder: </Heading><Input value={placeholder} onChange={evt => this.setState({placeholder: evt.target.value})} />
+          <Heading appearance="H3">size: </Heading><Autocomplete options={['small', 'medium', 'large'].map(value => Autocomplete.createOption({value}))} onSelect={option => this.setState({size: option.value as any})} />
         </div>
         <div>
           <Heading> Preview </Heading><br/><br/><br/>
@@ -70,6 +78,8 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
             onManualInput={val => this.setState({manualInput: val})}
             autoFocus={autoFocus}
             disabled={disabled}
+            error={error}
+            size={size}
             placeholder={placeholder}
           />
         </div>
