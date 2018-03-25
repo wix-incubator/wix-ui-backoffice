@@ -27,7 +27,14 @@
   borderRadius: 6px;
   borderStyle: solid;
   borderWidth: 1px;
-  padding: 0 12px;
+  paddingTop: 0px;
+  paddingBottom: 0px;
+  paddingRight: 12px;
+  paddingLeft: 12px;
+  marginTop: 0px;
+  marginBottom: 0px;
+  marginRight: 0px;
+  marginLeft: 0px;
 }
 
 .root {
@@ -43,6 +50,8 @@
 .root:error::nativeInput,
 .root:error:focus::nativeInput {
   border-color: value(danger);
+  padding-right: 30px;
+  margin-right: -18px;
 }
 
 .root:hover::nativeInput {
@@ -72,7 +81,14 @@
   box-sizing: border-box;
   color: inherit;
   outline: none;
-  padding: value(padding);
+  padding-top: value(paddingTop);
+  padding-bottom: value(paddingBottom);
+  padding-left: value(paddingLeft);
+  padding-right: value(paddingRight);
+  margin-top: value(marginTop);
+  margin-bottom: value(marginBottom);
+  margin-left: value(marginLeft);
+  margin-right: value(marginRight);
   width: 100%;
 }
 
@@ -104,6 +120,8 @@
 .errorIcon svg {
   margin-top: -1px;
   shape-rendering: crispEdges;
+  width: 2px;
+  height: 11px;
 }
 
 .errorIcon svg path {

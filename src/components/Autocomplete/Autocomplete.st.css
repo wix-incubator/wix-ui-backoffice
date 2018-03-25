@@ -32,7 +32,10 @@
 }
 
 .root::inputComponent {
-  -st-mixin: Input;
+  -st-mixin: Input(
+    paddingRight 30px,
+    marginRight -18px
+  );
 }
 
 .root:size(large)::inputComponent {
@@ -45,10 +48,6 @@
 
 .root:size(small)::inputComponent {
   -st-mixin: input-small;
-}
-
-.root::inputComponent::nativeInput {
-  padding-right: 30px;
 }
 
 .root::option {

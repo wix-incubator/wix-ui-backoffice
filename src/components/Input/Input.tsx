@@ -23,7 +23,7 @@ export const StyledInput = withStylable<CoreInputProps, InputProps>(
   defaultProps
 );
 
-const renderSuffix = ({error, errorMessage, suffix}) => {
+export const renderSuffix = ({error, errorMessage, suffix}) => {
   if (!error) {
     return suffix;
   }
