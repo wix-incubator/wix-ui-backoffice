@@ -104,21 +104,3 @@
 .root:disabled .arrowIcon {
   fill: value(inputDisabledBorderColor);
 }
-
-.errorIcon {
-  position: absolute;
-  right: 6px;
-  top: 8px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: value(danger);
-}
-
-.errorIcon svg {
-  stroke: value(backgroundSecondary);
-  margin-top: -1px;
-}

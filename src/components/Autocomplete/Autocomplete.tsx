@@ -28,29 +28,12 @@ export type AutocompleteType = React.SFC<CoreAutocompleteProps & AutocompletePro
   createDivider: typeof CoreAutocomplete.createDivider;
 };
 
-const renderSuffix = ({error, errorMessage}) => {
-  if (error) {
-    const errorIcon = <div className={style.errorIcon}><Exclamation /></div>;
-    if (!errorMessage) {
-      return errorIcon;
-    }
-
-    return (
-      <Tooltip content={errorMessage}>
-        {errorIcon}
-      </Tooltip>
-    );
-  }
-
-  return <ArrowDown className={style.arrowIcon} />;
-};
-
 export const Autocomplete: AutocompleteType =
   ((props: CoreAutocompleteProps & AutocompleteProps) => {
     const {error, errorMessage} = props;
     return (
       <StyledAutocomplete
-        suffix={renderSuffix({error, errorMessage})}
+        suffix={error ? null : <ArrowDown className={style.arrowIcon} />}
         {...props}
       />
     );
