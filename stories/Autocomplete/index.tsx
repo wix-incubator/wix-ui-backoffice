@@ -18,12 +18,14 @@ type ControlledAutocompleteExampleState = {
   error: boolean;
   placeholder: string;
   size: 'small' | 'medium' | 'large';
+  shouldDisplay: boolean;
 };
 
 class ControlledAutocompleteExample extends React.Component<{}, ControlledAutocompleteExampleState> {
   constructor() {
     super();
 
+    this.rerenderComponent = this.rerenderComponent.bind(this);
     this.state = {
       currentSelected: 'No value.',
       initialSelectedId: '',
@@ -34,8 +36,13 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
       disabled: false,
       placeholder: '',
       error: false,
-      size: 'medium'
+      size: 'medium',
+      shouldDisplay: true
     };
+  }
+
+  rerenderComponent() {
+    this.setState({shouldDisplay: false}, () => this.setState({shouldDisplay: true}));
   }
 
   render() {
@@ -49,7 +56,8 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
       disabled,
       error,
       size,
-      placeholder
+      placeholder,
+      shouldDisplay
     } = this.state;
     return (
       <div style={{display: 'flex'}}>
@@ -57,10 +65,10 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
           <Heading> Props </Heading><br/><br/><br/>
           <Heading appearance="H3">onSelect: </Heading><UIText>{currentSelected}</UIText>
           <Heading appearance="H3">onManualInput: </Heading><UIText>{manualInput}</UIText>
-          <Heading appearance="H3">initialSelectedId: </Heading><Input value={initialSelectedId} onChange={evt => this.setState({initialSelectedId: evt.target.value})} />
+          <Heading appearance="H3">initialSelectedId: </Heading><Input value={initialSelectedId} onChange={evt => this.setState({initialSelectedId: evt.target.value}, this.rerenderComponent)} />
           <Heading appearance="H3">fixedHeader: </Heading><ToggleSwitch checked={withFixedHeader} onChange={() => this.setState({withFixedHeader: !this.state.withFixedHeader})} />
           <Heading appearance="H3">fixedFooter: </Heading><ToggleSwitch checked={withFixedFooter} onChange={() => this.setState({withFixedFooter: !this.state.withFixedFooter})} />
-          <Heading appearance="H3">autoFocus: </Heading><ToggleSwitch checked={autoFocus} onChange={() => this.setState({autoFocus: !this.state.autoFocus})} />
+          <Heading appearance="H3">autoFocus: </Heading><ToggleSwitch checked={autoFocus} onChange={() => this.setState({autoFocus: !this.state.autoFocus}, this.rerenderComponent)} />
           <Heading appearance="H3">disabled: </Heading><ToggleSwitch checked={disabled} onChange={() => this.setState({disabled: !this.state.disabled})} />
           <Heading appearance="H3">error: </Heading><ToggleSwitch checked={error} onChange={() => this.setState({error: !this.state.error})} />
           <Heading appearance="H3">placeholder: </Heading><Input value={placeholder} onChange={evt => this.setState({placeholder: evt.target.value})} />
@@ -68,20 +76,24 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
         </div>
         <div>
           <Heading> Preview </Heading><br/><br/><br/>
-          <Autocomplete
-            data-hook="storybook-autocomplete"
-            options={generateOptions((args = {}) => Autocomplete.createDivider(args.value))}
-            onSelect={option => this.setState({currentSelected: option.value})}
-            initialSelectedId={initialSelectedId}
-            fixedHeader={withFixedHeader ? <Heading appearance="H4">Fixed Header</Heading> : null}
-            fixedFooter={withFixedFooter ? <Heading appearance="H4">Fixed Footer</Heading> : null}
-            onManualInput={val => this.setState({manualInput: val})}
-            autoFocus={autoFocus}
-            disabled={disabled}
-            error={error}
-            size={size}
-            placeholder={placeholder}
-          />
+          {
+            shouldDisplay &&
+              <Autocomplete
+                data-hook="storybook-autocomplete"
+                options={generateOptions((args = {}) => Autocomplete.createDivider(args.value))}
+                onSelect={option => this.setState({currentSelected: option.value})}
+                initialSelectedId={parseInt(initialSelectedId)}
+                fixedHeader={withFixedHeader ? <Heading appearance="H4">Fixed Header</Heading> : null}
+                fixedFooter={withFixedFooter ? <Heading appearance="H4">Fixed Footer</Heading> : null}
+                onManualInput={val => this.setState({manualInput: val})}
+                autoFocus={autoFocus}
+                disabled={disabled}
+                error={error}
+                errorMessage="This is an error message regarding the autocomplete"
+                size={size}
+                placeholder={placeholder}
+            />
+          }
         </div>
       </div>
     );

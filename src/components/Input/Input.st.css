@@ -107,7 +107,7 @@
 .errorIconPosition {
   position: absolute;
   right: 6px;
-  top: 8px;
+  top: calc(50% - 10px);
 }
 
 .errorIconContainer {

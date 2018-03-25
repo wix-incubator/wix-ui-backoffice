@@ -27,7 +27,7 @@
   border: none;
   border-radius: 8px;
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
-  max-width: 250px;
+  max-width: 100%;
   min-width: 100%;
 }
 
@@ -94,7 +94,7 @@
 .arrowIcon {
   position: absolute;
   right: 6px;
-  top: 6px;
+  top: calc(50% - 12px);
   width: 24px;
   height: 24px;
   fill: value(inputBorderColor);
