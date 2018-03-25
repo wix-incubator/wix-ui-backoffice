@@ -33,7 +33,7 @@ export const renderSuffix = ({error, errorMessage, suffix}) => {
   }
 
   return (
-    <Tooltip placement="right" className={style.errorIconPosition} content={errorMessage}>
+    <Tooltip className={style.errorIconPosition} content={errorMessage}>
       <div className={style.errorIconContainer}><Exclamation /></div>
     </Tooltip>
   );
