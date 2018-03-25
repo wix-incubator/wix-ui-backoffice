@@ -38,10 +38,6 @@
   );
 }
 
-.root::inputComponent::nativeInput { 
-  background: red !important;
-}
-
 .root:size(large)::inputComponent {
   -st-mixin: input-large;
 }
