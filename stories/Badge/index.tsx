@@ -2,7 +2,6 @@ import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {Badge} from '../../src/components/Badge';
 import {SKIN, TYPE} from '../../src/components/Badge/constants';
-import Email from 'wix-ui-icons-common/Email';
 import Facebook from 'wix-ui-icons-common/Facebook';
 import ArrowDown from 'wix-ui-icons-common/ArrowDown';
 import {Input} from '../../src/components/Input';
@@ -12,7 +11,7 @@ import {Heading} from '../../src/components/Heading';
 const skinOptions = Object.keys(SKIN).map(value => Autocomplete.createOption({id: value, value}));
 const typeOptions = Object.keys(TYPE).map(value => Autocomplete.createOption({id: value, value}));
 
-const iconsOptions = ['none', 'Email'].map(value => Autocomplete.createOption({id: value, value}));
+const iconsOptions = ['none', 'ArrowDown'].map(value => Autocomplete.createOption({id: value, value}));
 
 class ControlledBadgeExample extends React.Component<any, any> {
   constructor() {
@@ -43,8 +42,8 @@ class ControlledBadgeExample extends React.Component<any, any> {
           <Badge
             skin={this.state.skin}
             type={this.state.type}
-            prefixIcon={this.state.prefixIcon === 'Email' ? <ArrowDown/> : null}
-            suffixIcon={this.state.suffixIcon === 'Email' ? <ArrowDown/> : null}
+            prefixIcon={this.state.prefixIcon === 'ArrowDown' ? <ArrowDown/> : null}
+            suffixIcon={this.state.suffixIcon === 'ArrowDown' ? <ArrowDown/> : null}
             dataHook="storybook-badge"
             >
             {this.state.children}

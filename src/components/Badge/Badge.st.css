@@ -22,6 +22,11 @@
   margin-right: 6px;
 }
 
+:global([dir="rtl"]) .root >:not(:last-child) {
+  margin-left: 6px;
+  margin-right: 0;
+}
+
 .prefix, .suffix {
   width: 12px;
   height: 12px;
