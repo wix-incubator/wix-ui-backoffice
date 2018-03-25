@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import {
   ToggleSwitch as CoreToggleSwitch,
   ToggleSwitchProps as CoreToggleSwitchProps
-} from 'wix-ui-core/StylableToggleSwitch';
+} from 'wix-ui-core/ToggleSwitch';
 import style from './ToggleSwitch.st.css';
 import {Skin, Size, SKINS, SIZES} from './constants';
 import {ToggleOff, ToggleOn, SmallToggleOff, SmallToggleOn} from 'wix-ui-icons-common/system';
