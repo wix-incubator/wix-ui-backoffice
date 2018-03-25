@@ -5,5 +5,5 @@ import {Input} from '../../src/components/Input';
 
 export const story = () => storiesOf('Components', module)
   .add('Input', () => (
-      <Input data-hook="storybook-input"/>
+      <Input error errorMessage="LA LA lA lAL ASDl ds" data-hook="storybook-input"/>
   ));

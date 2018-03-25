@@ -104,10 +104,13 @@
   -st-mixin: input-small;
 }
 
-.errorIcon {
+.errorIconPosition {
   position: absolute;
   right: 6px;
   top: 8px;
+}
+
+.errorIconContainer {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -117,14 +120,14 @@
   background: value(danger);
 }
 
-.errorIcon svg {
+.errorIconContainer svg {
   margin-top: -1px;
   shape-rendering: crispEdges;
   width: 2px;
   height: 11px;
 }
 
-.errorIcon svg path {
+.errorIconContainer svg path {
   stroke-width: 1px;
   stroke: value(backgroundSecondary);
 }

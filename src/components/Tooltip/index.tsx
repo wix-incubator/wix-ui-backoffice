@@ -6,6 +6,7 @@ import {withStylable} from 'wix-ui-core/withStylable';
 const noop = () => null;
 
 export interface TooltipProps {
+  className?: string;
   textAlign?: string;
   theme?: 'light' | 'dark' | 'error';
   bounce?: boolean;
