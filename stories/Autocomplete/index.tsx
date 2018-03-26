@@ -22,7 +22,8 @@ type ControlledAutocompleteExampleState = {
   shouldDisplay: boolean;
 };
 
-const options = ['small', 'medium', 'large'].map(value => Autocomplete.createOption({value}));
+const sizes = ['small', 'medium', 'large'].map(value => Autocomplete.createOption({value}));
+const options = generateOptions((args = {}) => Autocomplete.createDivider(args.value));
 
 class ControlledAutocompleteExample extends React.Component<{}, ControlledAutocompleteExampleState> {
   constructor() {
@@ -39,7 +40,7 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
       disabled: false,
       placeholder: '',
       error: false,
-      size: options[1],
+      size: sizes[1],
       shouldDisplay: true
     };
   }
@@ -75,7 +76,7 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
           <Heading appearance="H3">disabled: </Heading><ToggleSwitch checked={disabled} onChange={() => this.setState({disabled: !this.state.disabled})} />
           <Heading appearance="H3">error: </Heading><ToggleSwitch checked={error} onChange={() => this.setState({error: !this.state.error})} />
           <Heading appearance="H3">placeholder: </Heading><Input value={placeholder} onChange={evt => this.setState({placeholder: evt.target.value})} />
-          <Heading appearance="H3">size: </Heading><Autocomplete options={options} onSelect={option => this.setState({size: option})} initialSelectedId={this.state.size.id} />
+          <Heading appearance="H3">size: </Heading><Autocomplete options={sizes} onSelect={option => this.setState({size: option})} initialSelectedId={this.state.size.id} />
         </div>
         <div>
           <Heading> Preview </Heading><br/><br/><br/>
@@ -83,7 +84,7 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
             shouldDisplay &&
               <Autocomplete
                 data-hook="storybook-autocomplete"
-                options={generateOptions((args = {}) => Autocomplete.createDivider(args.value))}
+                options={options}
                 onSelect={option => this.setState({currentSelected: option.value})}
                 initialSelectedId={parseInt(initialSelectedId)}
                 fixedHeader={withFixedHeader ? <Heading appearance="H4">Fixed Header</Heading> : null}
