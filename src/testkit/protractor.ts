@@ -20,6 +20,3 @@ export const toggleSwitchTestkitFactory = protractorTestkitFactoryCreator(toggle
 
 import {counterBadgeDriverFactory as stylableCounterBadgeDriverFactory} from '../components/StylableCounterBadge/CounterBadge.protractor.driver';
 export const stylableCounterBadgeTestkitFactory = protractorTestkitFactoryCreator(stylableCounterBadgeDriverFactory);
-
-import {addressInputDriverFactory} from '../components/AddressInput/AddressInput.protractor.driver';
-export const addressInputTestkitFactory = protractorTestkitFactoryCreator(addressInputDriverFactory);

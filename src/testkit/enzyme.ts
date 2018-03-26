@@ -23,6 +23,3 @@ export const toggleSwitchTestkitFactory = enzymeTestkitFactoryCreator(toggleSwit
 
 import {counterBadgeDriverFactory as stylableCounterBadgeDriverFactory} from '../components/StylableCounterBadge/CounterBadge.driver';
 export const stylableCounterBadgeTestkitFactory = enzymeTestkitFactoryCreator(stylableCounterBadgeDriverFactory);
-
-import {addressInputDriverFactory} from '../components/AddressInput/AddressInput.driver';
-export const addressInputTestkitFactory = enzymeTestkitFactoryCreator(addressInputDriverFactory);

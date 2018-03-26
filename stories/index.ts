@@ -1,4 +1,3 @@
-require('./AddressInput').story();
 require('./Autocomplete').story();
 require('./Badge').story();
 require('./Checkbox').story();

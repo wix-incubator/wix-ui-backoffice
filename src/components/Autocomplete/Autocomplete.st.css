@@ -23,12 +23,11 @@
   -st-states: size(enum(large, medium, small));
 }
 
-.root::popoverContent {
+.root > [data-hook="popover-content"] {
   border: none;
   border-radius: 8px;
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
-  max-width: 100%;
-  min-width: 100%;
+  width: 100%;
 }
 
 .root::inputComponent {
