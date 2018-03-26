@@ -25,6 +25,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  z-index: 1;
 }
 
 .tickerGroup:hover + .coreTimePicker {
@@ -62,5 +63,5 @@
 }
 
 .ticker:bottom {
-  padding-bottom: 19px;
+  padding-bottom: 16px;
 }
