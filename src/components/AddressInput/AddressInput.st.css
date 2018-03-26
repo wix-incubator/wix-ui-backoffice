@@ -23,7 +23,7 @@
   -st-states: size(enum(large, medium, small));
 }
 
-.root::contentContainer {
+.root::popoverContent {
   border: none;
   border-radius: 8px;
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
@@ -47,7 +47,7 @@
   -st-mixin: input-small;
 }
 
-.root::option {
+.root::dropdownContent::dropdownOption {
   white-space: nowrap;
   padding: 8px 20px;
   text-overflow: ellipsis;
@@ -56,24 +56,24 @@
   overflow: hidden;
 }
 
-.root::option:hovered {
+.root::dropdownContent::dropdownOption:hovered {
   background: value(inputHover);
 }
 
-.root::option:selected {
+.root::dropdownContent::dropdownOption:selected {
   background: value(main);
   color: value(primaryLightText);
 }
 
-.root::option:selected:hovered {
+.root::dropdownContent::dropdownOption:selected:hovered {
   background: value(mainHover);
   color: value(primaryLightText);
 }
 
-.root::option:disabled {
+.root::dropdownContent::dropdownOption:disabled {
   color: value(disabledText);
 }
 
-.root::option:not(:selectable) {
+.root::dropdownContent::dropdownOption:not(:selectable) {
   padding: 0;
 }
