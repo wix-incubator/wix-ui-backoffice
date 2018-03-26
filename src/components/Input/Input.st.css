@@ -136,12 +136,5 @@
 
 .errorIconContainer svg {
   margin-top: -1px;
-  shape-rendering: crispEdges;
-  width: 2px;
-  height: 11px;
-}
-
-.errorIconContainer svg path {
-  stroke-width: 1px;
-  stroke: value(backgroundSecondary);
+  fill: value(backgroundSecondary);
 }

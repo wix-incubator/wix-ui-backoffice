@@ -2,9 +2,7 @@ import * as React from 'react';
 import {Autocomplete as CoreAutocomplete, AutocompleteProps as CoreAutocompleteProps} from 'wix-ui-core/Autocomplete';
 import {withStylable} from 'wix-ui-core/withStylable';
 import ArrowDown from 'wix-ui-icons-common/ArrowDown';
-import Exclamation from 'wix-ui-icons-common/Exclamation';
 import style from './Autocomplete.st.css';
-import {Tooltip} from '../Tooltip';
 import {getInputSuffix} from '../Input';
 
 export interface AutocompleteProps {
