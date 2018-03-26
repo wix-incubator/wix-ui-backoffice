@@ -6,6 +6,7 @@ import {Heading} from '../../src/components/Heading';
 import {Input} from '../../src/components/Input';
 import {ToggleSwitch} from '../../src/components/ToggleSwitch';
 import {UIText} from '../../src/components/StylableUIText';
+import {Option} from 'wix-ui-core/dist/src/baseComponents/DropdownOption';
 
 type ControlledAutocompleteExampleState = {
   currentSelected: string;
@@ -17,9 +18,11 @@ type ControlledAutocompleteExampleState = {
   disabled: boolean;
   error: boolean;
   placeholder: string;
-  size: 'small' | 'medium' | 'large';
+  size: Option;
   shouldDisplay: boolean;
 };
+
+const options = ['small', 'medium', 'large'].map(value => Autocomplete.createOption({value}));
 
 class ControlledAutocompleteExample extends React.Component<{}, ControlledAutocompleteExampleState> {
   constructor() {
@@ -36,7 +39,7 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
       disabled: false,
       placeholder: '',
       error: false,
-      size: 'medium',
+      size: options[1],
       shouldDisplay: true
     };
   }
@@ -72,7 +75,7 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
           <Heading appearance="H3">disabled: </Heading><ToggleSwitch checked={disabled} onChange={() => this.setState({disabled: !this.state.disabled})} />
           <Heading appearance="H3">error: </Heading><ToggleSwitch checked={error} onChange={() => this.setState({error: !this.state.error})} />
           <Heading appearance="H3">placeholder: </Heading><Input value={placeholder} onChange={evt => this.setState({placeholder: evt.target.value})} />
-          <Heading appearance="H3">size: </Heading><Autocomplete options={['small', 'medium', 'large'].map(value => Autocomplete.createOption({value}))} onSelect={option => this.setState({size: option.value as any})} />
+          <Heading appearance="H3">size: </Heading><Autocomplete options={options} onSelect={option => this.setState({size: option})} initialSelectedId={this.state.size.id} />
         </div>
         <div>
           <Heading> Preview </Heading><br/><br/><br/>
@@ -90,7 +93,7 @@ class ControlledAutocompleteExample extends React.Component<{}, ControlledAutoco
                 disabled={disabled}
                 error={error}
                 errorMessage="This is an error message regarding the autocomplete"
-                size={size}
+                size={size.value as any}
                 placeholder={placeholder}
             />
           }

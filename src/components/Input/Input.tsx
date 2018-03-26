@@ -2,8 +2,7 @@ import * as React from 'react';
 import {Input as CoreInput, InputProps as CoreInputProps} from 'wix-ui-core/Input';
 import {withStylable} from 'wix-ui-core/withStylable';
 import style from './Input.st.css';
-import Exclamation from 'wix-ui-icons-common/Exclamation';
-import {Tooltip} from '../Tooltip';
+import {getInputSuffix} from './InputSuffixes';
 
 export interface InputProps {
   // The size of the input
@@ -23,29 +22,13 @@ export const StyledInput = withStylable<CoreInputProps, InputProps>(
   defaultProps
 );
 
-export const renderSuffix = ({error, errorMessage, suffix}) => {
-  if (!error) {
-    return suffix;
-  }
-
-  if (!errorMessage) {
-    return <div className={`${style.errorIconContainer} ${style.errorIconPosition}`}><Exclamation /></div>;
-  }
-
-  return (
-    <Tooltip className={style.errorIconPosition} content={errorMessage}>
-      <div className={style.errorIconContainer}><Exclamation /></div>
-    </Tooltip>
-  );
-};
-
 export const Input: React.SFC<CoreInputProps & InputProps> =
   (props: CoreInputProps & InputProps) => {
-    const {error, errorMessage, suffix} = props;
+    const {error, errorMessage, disabled, suffix} = props;
 
     return (
       <StyledInput
-        suffix={renderSuffix({error, errorMessage, suffix})}
+        suffix={getInputSuffix({error, errorMessage, disabled, suffix})}
         {...props}
       />
     );

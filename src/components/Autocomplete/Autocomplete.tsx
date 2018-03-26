@@ -5,7 +5,7 @@ import ArrowDown from 'wix-ui-icons-common/ArrowDown';
 import Exclamation from 'wix-ui-icons-common/Exclamation';
 import style from './Autocomplete.st.css';
 import {Tooltip} from '../Tooltip';
-import {renderSuffix} from '../Input/Input';
+import {getInputSuffix} from '../Input';
 
 export interface AutocompleteProps {
   // The size of the autocomplete
@@ -31,12 +31,12 @@ export type AutocompleteType = React.SFC<CoreAutocompleteProps & AutocompletePro
 
 export const Autocomplete: AutocompleteType =
   ((props: CoreAutocompleteProps & AutocompleteProps) => {
-    const {error, errorMessage} = props;
+    const {error, errorMessage, disabled} = props;
     const suffix = <ArrowDown className={style.arrowIcon} />;
 
     return (
       <StyledAutocomplete
-        suffix={renderSuffix({error, errorMessage, suffix})}
+        suffix={getInputSuffix({error, errorMessage, disabled, suffix})}
         {...props}
       />
     );
