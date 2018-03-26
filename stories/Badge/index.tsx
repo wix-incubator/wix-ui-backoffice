@@ -3,7 +3,7 @@ import {storiesOf} from '@storybook/react';
 import {Badge} from '../../src/components/Badge';
 import {SKIN, TYPE} from '../../src/components/Badge/constants';
 import Facebook from 'wix-ui-icons-common/Facebook';
-import ArrowDown from 'wix-ui-icons-common/ArrowDown';
+import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import {Input} from '../../src/components/Input';
 import {Autocomplete} from '../../src/components/Autocomplete';
 import {Heading} from '../../src/components/Heading';
@@ -42,8 +42,8 @@ class ControlledBadgeExample extends React.Component<any, any> {
           <Badge
             skin={this.state.skin}
             type={this.state.type}
-            prefixIcon={this.state.prefixIcon === 'ArrowDown' ? <ArrowDown/> : null}
-            suffixIcon={this.state.suffixIcon === 'ArrowDown' ? <ArrowDown/> : null}
+            prefixIcon={this.state.prefixIcon === 'ArrowDown' ? <ChevronDown/> : null}
+            suffixIcon={this.state.suffixIcon === 'ArrowDown' ? <ChevronDown/> : null}
             dataHook="storybook-badge"
             >
             {this.state.children}

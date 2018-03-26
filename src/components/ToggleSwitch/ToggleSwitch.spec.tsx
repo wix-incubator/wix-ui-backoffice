@@ -8,7 +8,6 @@ import {mount} from 'enzyme';
 import {toggleSwitchTestkitFactory} from '../../testkit';
 import {toggleSwitchTestkitFactory as enzymeToggleSwitchTestkitFactory} from '../../testkit/enzyme';
 import {SKINS, SIZES, Skin, Size} from './constants';
-import {ToggleOff, ToggleOn, SmallToggleOff, SmallToggleOn} from 'wix-ui-icons-common/system';
 
 describe('ToggleSwitch', () => {
   const createDriver = createDriverFactory(toggleSwitchDriverFactory);

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Autocomplete as CoreAutocomplete, AutocompleteProps as CoreAutocompleteProps} from 'wix-ui-core/Autocomplete';
 import {withStylable} from 'wix-ui-core/withStylable';
-import ArrowDown from 'wix-ui-icons-common/ArrowDown';
+import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import style from './Autocomplete.st.css';
 import {getInputSuffix} from '../Input';
 
@@ -30,7 +30,7 @@ export type AutocompleteType = React.SFC<CoreAutocompleteProps & AutocompletePro
 export const Autocomplete: AutocompleteType =
   ((props: CoreAutocompleteProps & AutocompleteProps) => {
     const {error, errorMessage, disabled} = props;
-    const suffix = <ArrowDown className={style.arrowIcon} />;
+    const suffix = <ChevronDown className={style.arrowIcon} />;
 
     return (
       <StyledAutocomplete
