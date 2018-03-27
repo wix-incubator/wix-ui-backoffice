@@ -71,7 +71,7 @@ export class TimePicker extends React.PureComponent<TimePickerProps>  {
 
         <CoreTimePicker
           {...coreProps}
-          {...style('coreTimePicker', {}, {}) }
+          {...style('coreTimePicker', {}, this.props)}
           ref={ref => this.timePickerRef = ref}
           disabled={disabled}
           value={actualValue}

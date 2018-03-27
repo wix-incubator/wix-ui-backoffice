@@ -6,6 +6,7 @@
 :import {
   -st-from: "../Input/Input.st.css";
   -st-default: Input;
+  -st-named: borderWidth;
 }
 
 :import {
@@ -13,24 +14,42 @@
   -st-named: input-small;
 }
 
+:vars {
+  tickerInset: 12px;   
+}
+
 .root {
-  /* border-radius: 6px; */
   position: relative;
 }
 
 .tickerGroup {
+  -st-states: rtl;
   position: absolute;
-  right: 12px;
-  top: 0px;
-  height: 100%;
+  right: value(tickerInset);
+  top: value(borderWidth);
+  height: calc(100% - 2 * value(borderWidth));
   display: flex;
   flex-direction: column;
   z-index: 1;
 }
 
-.tickerGroup:hover + .coreTimePicker {
+:global(html[dir="rtl"]) .tickerGroup {
+  right: auto;
+  left: value(tickerInset);
+}
+
+.tickerGroup:rtl {
+  right: auto;
+  left: value(tickerInset);
+}
+
+.coreTimePicker::nativeInput {
+  background-color: red !important;
+}
+
+.tickerGroup:hover + .coreTimePicker::nativeInput {
   /* Copied over from Input.st.css */
-  background-color: value(inputHover);
+  background-color: value(inputHover) !important;
 }
 
 .coreTimePicker {
@@ -43,25 +62,18 @@
 }
 
 .ticker {
-  -st-states: top, bottom;
   border: none;
-  border-right: 1px solid transparent;
   outline: none;
   cursor: pointer;
   stroke: value(main);
   background-color: transparent;
-  height: 50%;
-  padding: 0px;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .ticker:hover {
   stroke: value(mainHover);
-}
-
-.ticker:top {
-  padding-top: 0px;
-}
-
-.ticker:bottom {
-  padding-bottom: 16px;
 }
