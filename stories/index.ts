@@ -1,4 +1,4 @@
-require('./Autocomplete').story();
+require('./Autocomplete.story.tsx');
 require('./Badge').story();
 require('./Checkbox').story();
 require('./CounterBadge').story();
