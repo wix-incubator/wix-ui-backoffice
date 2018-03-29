@@ -49,6 +49,11 @@ class ControlleTextExample extends React.Component<any, any> {
             </Text>
           </div>
         </div>
+        <br/><br/><br/>
+
+        <Heading>Multiline Example: </Heading><br/>
+        <Text>{`First line\nSecond line`}</Text>
+        <br/>
       </div>
     );
   }
