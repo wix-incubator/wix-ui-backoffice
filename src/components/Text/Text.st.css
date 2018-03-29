@@ -1,0 +1,52 @@
+:import {
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Text, TextStyle;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: primaryText, secondaryText, primaryLightText, disabledText;
+}
+
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontLight;
+}
+  
+.root {
+  -st-extends: Text;
+  -st-states: 
+    appearance(enum(T1, T1.1, T3, T3.1)),
+    skin(enum(dark, light));
+  white-space: pre-line;
+}
+
+.root {
+  -st-mixin: TextStyle(fontFamily value(fontLight));
+}
+
+.root:appearance(T1), .root:appearance(T1.1) {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.root:appearance(T3), .root:appearance(T3.1) {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.root:appearance(T1):skin(dark), .root:appearance(T3):skin(dark) {
+  color: value(primaryText);
+}
+
+.root:appearance(T1):skin(light), .root:appearance(T3):skin(light) {
+  color: value(primaryLightText);
+}
+
+.root:appearance(T1.1):skin(dark), .root:appearance(T3.1):skin(dark) {
+  color: value(secondaryText);
+}
+
+.root:appearance(T1.1):skin(light), .root:appearance(T3.1):skin(light) {
+  color: value(disabledText);
+}
