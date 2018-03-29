@@ -9,7 +9,7 @@ const getInputErrorSuffix = (errorMessage: string) => {
   }
 
   return (
-    <Tooltip className={style.errorIconPosition} content={errorMessage}>
+    <Tooltip moveBy={{x: 0, y: 3}} className={style.errorIconPosition} content={errorMessage}>
       <div className={style.errorIconContainer}><FormFieldError /></div>
     </Tooltip>
   );
