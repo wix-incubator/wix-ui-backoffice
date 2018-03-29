@@ -3,22 +3,22 @@ import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import {Tooltip} from '../Tooltip';
 import style from './Input.st.css';
 
-const getInputErrorSuffix = (errorMessage: string) => {
-  if (!errorMessage) {
+const getInputErrorSuffix = (error: boolean | string) => {
+  if (error === true) {
     return <div className={`${style.errorIconContainer} ${style.errorIconPosition}`}><FormFieldError /></div>;
   }
 
   return (
-    <Tooltip moveBy={{x: 0, y: 3}} className={style.errorIconPosition} content={errorMessage}>
+    <Tooltip moveBy={{x: 0, y: 3}} className={style.errorIconPosition} content={error}>
       <div className={style.errorIconContainer}><FormFieldError /></div>
     </Tooltip>
   );
 };
 
-export const getInputSuffix = ({errorMessage, disabled, suffix}) => {
-  if (!errorMessage || disabled) {
+export const getInputSuffix = ({error, disabled, suffix}) => {
+  if (!error || disabled) {
     return suffix;
   }
 
-  return getInputErrorSuffix(errorMessage);
+  return getInputErrorSuffix(error);
 };

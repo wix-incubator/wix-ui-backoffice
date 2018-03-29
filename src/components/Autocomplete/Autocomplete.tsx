@@ -8,8 +8,6 @@ import {getInputSuffix} from '../Input';
 export interface AutocompleteProps {
   // The size of the autocomplete
   size?: 'large' | 'medium' | 'small';
-  /** The error message */
-  errorMessage?: string;
 }
 
 const defaultProps = {
@@ -29,12 +27,12 @@ export type AutocompleteType = React.SFC<CoreAutocompleteProps & AutocompletePro
 
 export const Autocomplete: AutocompleteType =
   ((props: CoreAutocompleteProps & AutocompleteProps) => {
-    const {errorMessage, disabled} = props;
+    const {error, disabled} = props;
     const suffix = <ChevronDown className={style.arrowIcon} />;
 
     return (
       <StyledAutocomplete
-        suffix={getInputSuffix({errorMessage, disabled, suffix})}
+        suffix={getInputSuffix({error, disabled, suffix})}
         {...props}
       />
     );

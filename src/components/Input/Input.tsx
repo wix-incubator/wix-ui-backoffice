@@ -7,8 +7,6 @@ import {getInputSuffix} from './InputSuffixes';
 export interface InputProps {
   // The size of the input
   size?: 'large' | 'medium' | 'small';
-  /** The error message */
-  errorMessage?: string;
 }
 
 const defaultProps = {
@@ -24,11 +22,11 @@ export const StyledInput = withStylable<CoreInputProps, InputProps>(
 
 export const Input: React.SFC<CoreInputProps & InputProps> =
   (props: CoreInputProps & InputProps) => {
-    const {errorMessage, disabled, suffix} = props;
+    const {error, disabled, suffix} = props;
 
     return (
       <StyledInput
-        suffix={getInputSuffix({errorMessage, disabled, suffix})}
+        suffix={getInputSuffix({error, disabled, suffix})}
         {...props}
       />
     );
