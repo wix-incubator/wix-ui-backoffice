@@ -29,12 +29,12 @@ export type AutocompleteType = React.SFC<CoreAutocompleteProps & AutocompletePro
 
 export const Autocomplete: AutocompleteType =
   ((props: CoreAutocompleteProps & AutocompleteProps) => {
-    const {error, errorMessage, disabled} = props;
+    const {errorMessage, disabled} = props;
     const suffix = <ChevronDown className={style.arrowIcon} />;
 
     return (
       <StyledAutocomplete
-        suffix={getInputSuffix({error, errorMessage, disabled, suffix})}
+        suffix={getInputSuffix({errorMessage, disabled, suffix})}
         {...props}
       />
     );

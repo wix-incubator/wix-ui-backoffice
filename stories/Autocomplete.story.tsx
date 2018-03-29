@@ -1,6 +1,9 @@
+import * as React from 'react';
 import {Autocomplete} from '../src/components/Autocomplete';
 import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionsExample';
 import * as AutocompleteSource from '!raw-loader!../src/components/Autocomplete/Autocomplete.tsx';
+import Markdown from 'wix-storybook-utils/Markdown';
+const Readme = require('../src/components/Autocomplete/README.md');
 
 const options = generateOptions((args = {}) => Autocomplete.createDivider(args.value));
 
@@ -21,5 +24,8 @@ export default {
     onChange: () => 'Triggered onChange',
     onSelect: () => 'Triggered onSelect',
     onManualInput: () => 'Triggered onManualInput'
-  }
+  },
+  examples: [
+    <Markdown source={Readme}/>
+  ]
 };

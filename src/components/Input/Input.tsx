@@ -24,11 +24,11 @@ export const StyledInput = withStylable<CoreInputProps, InputProps>(
 
 export const Input: React.SFC<CoreInputProps & InputProps> =
   (props: CoreInputProps & InputProps) => {
-    const {error, errorMessage, disabled, suffix} = props;
+    const {errorMessage, disabled, suffix} = props;
 
     return (
       <StyledInput
-        suffix={getInputSuffix({error, errorMessage, disabled, suffix})}
+        suffix={getInputSuffix({errorMessage, disabled, suffix})}
         {...props}
       />
     );

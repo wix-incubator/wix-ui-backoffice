@@ -15,8 +15,8 @@ const getInputErrorSuffix = (errorMessage: string) => {
   );
 };
 
-export const getInputSuffix = ({error, errorMessage, disabled, suffix}) => {
-  if (!error || disabled) {
+export const getInputSuffix = ({errorMessage, disabled, suffix}) => {
+  if (!errorMessage || disabled) {
     return suffix;
   }
 
