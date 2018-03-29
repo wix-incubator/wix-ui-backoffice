@@ -3,9 +3,8 @@ import {Autocomplete} from '../src/components/Autocomplete';
 import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionsExample';
 import * as AutocompleteSource from '!raw-loader!../src/components/Autocomplete/Autocomplete.tsx';
 import Markdown from 'wix-storybook-utils/Markdown';
-const Readme = require('../src/components/Autocomplete/README.md');
-
-const options = generateOptions((args = {}) => Autocomplete.createDivider(args.value));
+import {Option, DividerArgs} from 'wix-ui-core/dist/src/baseComponents/DropdownOption';
+const Readme = require('../src/components/Autocomplete/USAGE_README.md');
 
 export default {
   category: 'Components',
@@ -15,15 +14,18 @@ export default {
   componentPath: '../src/components/Autocomplete/Autocomplete.tsx',
   componentProps: {
     'data-hook': 'storybook-autocomplete',
-    options
+    options: generateOptions((args: Partial<DividerArgs> = {}) => Autocomplete.createDivider(args.value))
   },
   exampleProps: {
-    size: ['small', 'medium', 'large'],
+    fixedFooter: [null, <div>Fixed Footer</div>],
+    fixedHeader: [null, <div>Fixed Header</div>],
+    onSelect: (option: Option) => option.value,
+    initialSelectedId: [null, 1],
+    onManualInput: (value: string) => `Manual input: ${value}`,
     onBlur: () => 'Triggered onBlur',
     onFocus: () => 'Triggered onFocus',
-    onChange: () => 'Triggered onChange',
-    onSelect: () => 'Triggered onSelect',
-    onManualInput: () => 'Triggered onManualInput'
+    onChange: evt => evt.target.value,
+    size: ['small', 'medium', 'large']
   },
   examples: [
     <Markdown source={Readme}/>
