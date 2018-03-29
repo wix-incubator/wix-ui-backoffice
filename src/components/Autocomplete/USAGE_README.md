@@ -1,5 +1,6 @@
-## Autocomplete usage
-```js
+# Autocomplete usage
+
+```ts
 import {Autocomplete} from 'wix-ui-backoffice/Autocomplete';
 
 const options = [
@@ -8,7 +9,7 @@ const options = [
   Autocomplete.createOption({id: 2, value: `value2`, isDisabled: true}),                // genrates a disabled option
   Autocomplete.createOption({id: 3, value: `value3`, isSelectable: false}),             // generates an unselectable option
   Autocomplete.createOption({id: 4, value: `value4`, render: value => {value + 's'}}),  // generates an option with a custom render function
-  
+
   Autocomplete.createDivider(),                                                         // generates default divider
   Autocomplete.createDivider('Value')                                                   // generates a divider with value
 ];
