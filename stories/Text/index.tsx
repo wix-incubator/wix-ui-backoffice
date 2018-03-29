@@ -6,16 +6,19 @@ import {Heading} from '../../src/components/Heading';
 import {UIText} from '../../src/components/StylableUIText';
 import {Input} from '../../src/components/Input';
 import {Text} from '../../src/components/Text';
+import {APPEARANCES, SKINS} from '../../src/components/Text/constants';
 
-const skinOptions = ['dark', 'light'].map(value => Autocomplete.createOption({id: value, value}));
-const appearanceOptions = ['T1', 'T1.1', 'T3', 'T3.1'].map(value => Autocomplete.createOption({id: value, value}));
+const skinOptions = Object.keys(SKINS).map(value => Autocomplete.createOption({id: value, value}));
+const appearanceOptions = Object.keys(APPEARANCES).map(value => Autocomplete.createOption({id: value, value}));
 
 class ControlleTextExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      skin: 'dark',
       appearance: 'T1',
+      skin: 'standard',
+      light: false,
+      bold: false,
       children: 'Some text'
     };
   }
@@ -29,6 +32,8 @@ class ControlleTextExample extends React.Component<any, any> {
             <Heading> Props </Heading><br/><br/><br/>
             <Heading appearance="H3">appearance: </Heading> <Autocomplete options={appearanceOptions} onSelect={({value}) => this.setState({appearance: value})} initialSelectedId={this.state.appearance}/><br/><br/>
             <Heading appearance="H3">skin: </Heading> <Autocomplete options={skinOptions} onSelect={({value}) => this.setState({skin: value})} initialSelectedId={this.state.skin}/><br/><br/>
+            <Heading appearance="H3">light: </Heading> <ToggleSwitch checked={this.state.light} onChange={() => this.setState({light: !this.state.light})}/><br/><br/>
+            <Heading appearance="H3">bold: </Heading> <ToggleSwitch checked={this.state.bold} onChange={() => this.setState({bold: !this.state.bold})}/><br/><br/>
             <Heading appearance="H3">children: </Heading> <Input onChange={e => this.setState({children: e.target.value})} value={this.state.children}/><br/><br/>
           </div>
           <div>
@@ -36,6 +41,8 @@ class ControlleTextExample extends React.Component<any, any> {
             <Text
               appearance={this.state.appearance}
               skin={this.state.skin}
+              light={this.state.light}
+              bold={this.state.bold}
               dataHook="storybook-text"
               >
               {this.state.children}

@@ -1,6 +1,6 @@
 import {textDriverFactory as coreTextDriverFctory} from 'wix-ui-core/dist/src/components/StylableText/Text.driver';
 import {StylableDOMUtil} from 'stylable/test-utils';
-import {Appearance} from './Text';
+import {Appearance} from './constants';
 import style from './Text.st.css';
 
 export const textDriverFactory = ({element}) => {
@@ -10,6 +10,8 @@ export const textDriverFactory = ({element}) => {
   return {
     ...coreTextDriver,
     getAppearance: () => stylableDOMUtil.getStyleState(element, 'appearance'),
-    getSkin: () => stylableDOMUtil.getStyleState(element, 'skin')
+    getSkin: () => stylableDOMUtil.getStyleState(element, 'skin'),
+    isLight: () => stylableDOMUtil.hasStyleState(element, 'light'),
+    isBold: () => stylableDOMUtil.hasStyleState(element, 'bold')
   };
 };

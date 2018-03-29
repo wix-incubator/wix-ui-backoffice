@@ -5,7 +5,9 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: primaryText, secondaryText, primaryLightText, disabledText;
+  -st-named: 
+    primaryText, secondaryText, primaryLightText, disabledText,
+    success, danger, premium;
 }
 
 :import {
@@ -17,7 +19,9 @@
   -st-extends: Text;
   -st-states: 
     appearance(enum(T1, T1.1, T3, T3.1)),
-    skin(enum(dark, light));
+    skin(enum(standard, success, error, premium)),
+    light,
+    bold;
 
   white-space: pre-line;
   font-family: value(fontLight);
@@ -33,18 +37,34 @@
   line-height: 18px;
 }
 
-.root:appearance(T1):skin(dark), .root:appearance(T3):skin(dark) {
+.root:appearance(T1), .root:appearance(T3) {
   color: value(primaryText);
 }
 
-.root:appearance(T1):skin(light), .root:appearance(T3):skin(light) {
+.root:appearance(T1):light, .root:appearance(T3):light {
   color: value(primaryLightText);
 }
 
-.root:appearance(T1.1):skin(dark), .root:appearance(T3.1):skin(dark) {
+.root:appearance(T1.1), .root:appearance(T3.1) {
   color: value(secondaryText);
 }
 
-.root:appearance(T1.1):skin(light), .root:appearance(T3.1):skin(light) {
+.root:appearance(T1.1):light, .root:appearance(T3.1):light {
   color: value(disabledText);
+}
+
+.root:skin(success) {
+  color: value(success);
+}
+
+.root:skin(error) {
+  color: value(danger);
+}
+
+.root:skin(premium) {
+  color: value(premium);
+}
+
+.root:bold {
+  font-family: value(fontRoman);
 }
