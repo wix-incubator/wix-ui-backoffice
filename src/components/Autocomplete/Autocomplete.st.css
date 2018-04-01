@@ -31,12 +31,21 @@
 }
 
 .root::inputComponent {
-  -st-mixin: Input(
-    paddingRight 30px,
-    marginRight -18px
-  );
+  -st-mixin: Input;
 }
 
+.root::inputComponent::nativeInput {
+  padding-right: 30px;
+  margin-right: -18px;
+}
+/*
+:global([dir="rtl"]) .root::inputComponent::nativeInput {
+  padding-left: 30px;
+  margin-left: -18px;
+  padding-right: 12px;
+  margin-right: 0px;
+}
+*/
 .root:size(large)::inputComponent {
   -st-mixin: input-large;
 }
@@ -98,7 +107,12 @@
   height: 24px;
   fill: value(inputBorderColor);
 }
-
+/*
+:global([dir="rtl"]) .arrowIcon {
+  left: 6px;
+  right: auto;
+}
+*/
 .root:disabled .arrowIcon {
   fill: value(inputDisabledBorderColor);
 }

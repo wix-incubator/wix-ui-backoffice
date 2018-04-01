@@ -59,7 +59,15 @@
   padding-right: 30px;
   margin-right: -18px;
 }
-
+/*
+:global([dir="rtl"]) .root:error::nativeInput,
+:global([dir="rtl"]) .root:error:focus::nativeInput {
+  padding-left: 30px;
+  margin-left: -18px;
+  padding-right: value(paddingRight);
+  margin-right: value(marginRight);
+}
+*/
 .root:hover::nativeInput {
   background-color: value(inputHover);
 }
@@ -123,7 +131,12 @@
   right: 6px;
   top: calc(50% - 10px);
 }
-
+/*
+:global([dir="rtl"]) .errorIconPosition {
+  left: 6px;
+  right: auto;
+}
+*/
 .errorIconContainer {
   width: 21px;
   height: 21px;
