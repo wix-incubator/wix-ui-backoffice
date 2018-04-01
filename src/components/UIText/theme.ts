@@ -1,5 +1,5 @@
-import * as t from '../../typography';
-import * as colors from '../../colors';
+import * as t from './typography';
+import * as colors from './colors';
 
 interface TypographyConfig {
     fontFamily: t.Typography;
