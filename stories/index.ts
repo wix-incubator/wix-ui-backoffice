@@ -18,3 +18,4 @@ require('./StylableUIText').story();
 require('./Thumbnail.story');
 require('./HBox/index.story');
 require('./VBox/index.story');
+require('./UIText.story.tsx');
