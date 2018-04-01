@@ -4,7 +4,7 @@ import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOptio
 import * as AutocompleteSource from '!raw-loader!../src/components/Autocomplete/Autocomplete.tsx';
 import Markdown from 'wix-storybook-utils/Markdown';
 import {Option, DividerArgs} from 'wix-ui-core/dist/src/baseComponents/DropdownOption';
-const Readme = require('../src/components/Autocomplete/USAGE_README.md');
+const CodeExample = require('../src/components/Autocomplete/CodeExample.md');
 
 export default {
   category: 'Components',
@@ -12,6 +12,7 @@ export default {
   component: Autocomplete,
   source: AutocompleteSource,
   componentPath: '../src/components/Autocomplete/Autocomplete.tsx',
+  codeBlockSource: CodeExample,
   componentProps: {
     'data-hook': 'storybook-autocomplete',
     options: generateOptions((args: Partial<DividerArgs> = {}) => Autocomplete.createDivider(args.value))
@@ -26,8 +27,5 @@ export default {
     onFocus: () => 'Triggered onFocus',
     onChange: evt => evt.target.value,
     size: ['small', 'medium', 'large']
-  },
-  examples: [
-    <Markdown source={Readme}/>
-  ]
+  }
 };
