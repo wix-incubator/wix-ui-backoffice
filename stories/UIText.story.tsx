@@ -9,7 +9,7 @@ export default {
   source: UITextSource,
   componentPath: '../src/components/StylableUIText/UIText.tsx',
   componentProps: setState => ({
-    dataHook: 'storybook-uiText',
+    'data-hook': 'storybook-uiText',
     appearance: 'T1.1',
     children: 'Some text'
   })

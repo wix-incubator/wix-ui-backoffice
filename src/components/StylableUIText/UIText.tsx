@@ -44,6 +44,6 @@ UIText.propTypes = {
 
    /** the tag name to be used */
    tagName: oneOf(['span', 'div'])
-}
+};
 
 UIText.displayName = 'UIText';
