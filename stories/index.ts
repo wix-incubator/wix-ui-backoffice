@@ -1,13 +1,13 @@
 require('./Autocomplete.story');
-require('./LabelWithOptions.story');
 require('./Badge').story();
 require('./Checkbox').story();
 require('./CounterBadge').story();
 require('./StylableCounterBadge').story();
 require('./Heading').story();
 require('./Input.story.tsx');
+require('./LabelWithOptions.story');
+require('./Text').story();
 require('./ToggleSwitch').story();
 require('./Tooltip').story();
 require('./UIText').story();
 require('./StylableUIText').story();
-require('./Text').story();
