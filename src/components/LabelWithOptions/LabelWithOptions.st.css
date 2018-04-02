@@ -58,7 +58,7 @@
     background: value(inputHover);
 }
 
-.root::selection:invalid {
+.root:error::selection {
     border-color: value(danger);
 }
 
@@ -109,11 +109,4 @@
 
 .root::divider:customDivider {
     padding: 8px 20px;
-}
-
-.root > [data-hook="popover-content"] {
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
-    width: 100%;
 }
