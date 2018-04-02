@@ -15,6 +15,7 @@ export interface Props {
   /** is the text has dark or light skin */
   light?: boolean;
 
+  /** is the text bold */
   bold?: boolean;
 }
 
