@@ -16,6 +16,7 @@
 .root {
   -st-states: bounce, placement-right, placement-left, placement-top, placement-bottom;
   -st-extends: Tooltip;
+  white-space: nowrap;
 }
 
 .root::popoverContent {
@@ -41,6 +42,7 @@
   font-size: 14px;
   line-height: 18px;
   text-align: center;
+  max-width: 230px;
 }
 
 .root:bounce::popover {
