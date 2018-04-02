@@ -6,7 +6,7 @@
 :import {
   -st-from: "../../palette.st.css";
   -st-named: 
-    primaryText, secondaryText, primaryLightText, disabledText,
+    primaryText, secondaryText, primaryLightText, secondaryLightText,
     success, danger, premium;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .root:appearance(T1.1):light, .root:appearance(T3.1):light {
-  color: value(disabledText);
+  color: value(secondaryLightText);
 }
 
 .root:skin(success) {
