@@ -3,6 +3,7 @@ import {oneOf, bool, Requireable} from 'prop-types';
 import {Text as CoreText, TextProps as CoreTextProps} from 'wix-ui-core/StylableText';
 import style from './Heading.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
+import * as omit from 'lodash/omit';
 
 export type Appearance = 'H1' | 'H2' | 'H3' | 'H4' | 'H5';
 export type TagName = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
@@ -29,15 +30,17 @@ const StyledText = withStylable<CoreTextProps, Props>(
   defaultProps
 );
 
+const legalPropTypes = omit(CoreText.propTypes, 'tagName')
+
 export class Heading extends React.PureComponent<Props, State> {
   static propTypes = {
-    ...CoreText.propTypes,
+    ...legalPropTypes,
 
     /** is the text has dark or light skin */
     light: bool,
 
     /** typography of the heading */
-    appearance: oneOf(['H1', 'H2', 'H3', 'H4', 'H5']),
+    appearance: oneOf(['H1', 'H2', 'H3', 'H4', 'H5'])
   };
 
   static defaultProps: Props = defaultProps;

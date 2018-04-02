@@ -19,7 +19,9 @@ class ControlleTextExample extends React.Component<any, any> {
       skin: 'standard',
       light: false,
       bold: false,
-      children: 'Some text'
+      children: 'Some text',
+      ellipsis: false,
+      forceHideTitle: false
     };
   }
 
@@ -35,6 +37,9 @@ class ControlleTextExample extends React.Component<any, any> {
             <Heading appearance="H3">light: </Heading> <ToggleSwitch checked={this.state.light} onChange={() => this.setState({light: !this.state.light})}/><br/><br/>
             <Heading appearance="H3">bold: </Heading> <ToggleSwitch checked={this.state.bold} onChange={() => this.setState({bold: !this.state.bold})}/><br/><br/>
             <Heading appearance="H3">children: </Heading> <Input onChange={e => this.setState({children: e.target.value})} value={this.state.children}/><br/><br/>
+            <Heading appearance="H3">ellipsis: </Heading> <ToggleSwitch size="small" checked={this.state.ellipsis} onChange={() => this.setState({ellipsis: !this.state.ellipsis})}/><br/><br/>
+            <Heading appearance="H3">forceHideTitle: </Heading> <ToggleSwitch size="small" checked={this.state.forceHideTitle} onChange={() => this.setState({forceHideTitle: !this.state.forceHideTitle})}/><br/><br/>
+
           </div>
           <div>
             <Heading> Preview </Heading><br/><br/><br/><br/><br/><br/><br/><br/><br/>
@@ -43,6 +48,8 @@ class ControlleTextExample extends React.Component<any, any> {
               skin={this.state.skin}
               light={this.state.light}
               bold={this.state.bold}
+              ellipsis={this.state.ellipsis}
+              forceHideTitle={this.state.forceHideTitle}
               dataHook="storybook-text"
               >
               {this.state.children}
