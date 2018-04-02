@@ -11,7 +11,11 @@ const appearanceOptions = ['H1', 'H2', 'H3', 'H4', 'H5'].map(value => Autocomple
 class ControlleHeadingExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
-    this.state = {...Heading.defaultProps, children: 'Some text'};
+    this.state = {
+      appearance: 'H1',
+      light: false,
+      children: 'Some text'
+    };
   }
 
   render() {
