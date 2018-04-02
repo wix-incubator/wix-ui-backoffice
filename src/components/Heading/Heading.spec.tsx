@@ -28,15 +28,15 @@ describe('Heading', () => {
     });
   });
 
-  describe('skin prop', () => {
+  describe('light prop', () => {
     it('should be dark by default', () => {
       const wrapper = createDriver(<Heading>Hello</Heading>);
-      expect(wrapper.getSkin()).toBe('dark');
+      expect(wrapper.isLight()).toBe(false);
     });
 
     it('should be light', () => {
-        const wrapper = createDriver(<Heading skin="light">Hello</Heading>);
-        expect(wrapper.getSkin()).toBe('light');
+        const wrapper = createDriver(<Heading light>Hello</Heading>);
+        expect(wrapper.isLight()).toBe(true);
       });
   });
 
