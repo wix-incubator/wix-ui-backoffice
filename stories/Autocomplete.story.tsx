@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {Autocomplete} from '../src/components/Autocomplete';
 import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionsExample';
 import * as AutocompleteSource from '!raw-loader!../src/components/Autocomplete/Autocomplete.tsx';
@@ -18,7 +19,7 @@ export default {
   exampleProps: {
     fixedFooter: [null, <div>Fixed Footer</div>],
     fixedHeader: [null, <div>Fixed Header</div>],
-    onSelect: (option: Option) => option.value,
+    onSelect: (option: Option) => alert(option.value),
     initialSelectedId: [null, 1],
     onManualInput: (value: string) => `Manual input: ${value}`,
     onBlur: () => 'Triggered onBlur',
