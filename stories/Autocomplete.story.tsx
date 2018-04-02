@@ -19,7 +19,7 @@ export default {
   exampleProps: {
     fixedFooter: [null, <div>Fixed Footer</div>],
     fixedHeader: [null, <div>Fixed Header</div>],
-    onSelect: (option: Option) => alert(option.value),
+    onSelect: (option: Option) => option.value,
     initialSelectedId: [null, 1],
     onManualInput: (value: string) => `Manual input: ${value}`,
     onBlur: () => 'Triggered onBlur',
