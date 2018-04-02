@@ -15,6 +15,9 @@ export const checkboxTestkitFactory = enzymeTestkitFactoryCreator(checkboxDriver
 import {uiTextDriverFactory} from '../components/StylableUIText/UIText.driver';
 export const uiTextTestkitFactory = enzymeTestkitFactoryCreator(uiTextDriverFactory);
 
+import {textDriverFactory} from '../components/Text/Text.driver';
+export const textTestkitFactory = enzymeTestkitFactoryCreator(textDriverFactory);
+
 import {autocompleteDriverFactory} from '../components/Autocomplete/Autocomplete.driver';
 export const autocompleteTestkitFactory = enzymeTestkitFactoryCreator(autocompleteDriverFactory);
 
