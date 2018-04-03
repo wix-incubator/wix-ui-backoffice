@@ -19,7 +19,7 @@ describe('Checkbox', () => {
 
   it('should be checked', () => {
     const driver = createDriver(<Checkbox checked/>);
-    expect(driver.input().checked).toBeTruthy();
+    expect(driver.isChecked()).toBeTruthy();
   });
 
   it('should be disabled', () => {
