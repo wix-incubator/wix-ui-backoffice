@@ -25,15 +25,23 @@ export type AutocompleteType = React.SFC<CoreAutocompleteProps & AutocompletePro
   createDivider: typeof CoreAutocomplete.createDivider;
 };
 
+const defaultSuffix = <ChevronDown className={style.arrowIcon} />;
 export const Autocomplete: AutocompleteType =
   ((props: CoreAutocompleteProps & AutocompleteProps) => {
-    const {error, disabled} = props;
-    const suffix = <ChevronDown className={style.arrowIcon} />;
+    const {error, disabled, suffix} = props;
+    const inputSuffix = getInputSuffix({error, disabled, suffix: defaultSuffix});
 
     return (
       <StyledAutocomplete
-        suffix={getInputSuffix({error, disabled, suffix})}
         {...props}
+        suffix={
+          suffix ?
+          <span>
+            {suffix}
+            {inputSuffix}
+          </span> :
+          inputSuffix
+        }
       />
     );
   }) as AutocompleteType;
