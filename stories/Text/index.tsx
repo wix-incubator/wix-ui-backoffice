@@ -3,7 +3,6 @@ import {storiesOf} from '@storybook/react';
 import {ToggleSwitch} from '../../src/components/ToggleSwitch';
 import {Autocomplete} from '../../src/components/Autocomplete';
 import {Heading} from '../../src/components/Heading';
-import {UIText} from '../../src/components/StylableUIText';
 import {Input} from '../../src/components/Input';
 import {Text} from '../../src/components/Text';
 import {APPEARANCES, SKINS} from '../../src/components/Text/constants';

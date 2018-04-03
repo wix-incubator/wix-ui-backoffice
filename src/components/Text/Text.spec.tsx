@@ -13,9 +13,9 @@ describe('Text', () => {
   const createDriver = createDriverFactory(textDriverFactory);
 
   describe('appearance prop', () => {
-    it('should be T1 by default', () => {
+    it('should be T1.1 by default', () => {
       const wrapper = createDriver(<Text>Hello</Text>);
-      expect(wrapper.getAppearance()).toBe('T1');
+      expect(wrapper.getAppearance()).toBe('T1.1');
     });
 
     Object.keys(APPEARANCES).forEach((appearance: Appearance) => {
