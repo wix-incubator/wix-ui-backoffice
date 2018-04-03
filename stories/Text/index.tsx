@@ -6,6 +6,7 @@ import {Heading} from '../../src/components/Heading';
 import {Input} from '../../src/components/Input';
 import {Text} from '../../src/components/Text';
 import {APPEARANCES, SKINS} from '../../src/components/Text/constants';
+import styles from './Text.st.css';
 
 const skinOptions = Object.keys(SKINS).map(value => Autocomplete.createOption({id: value, value}));
 const appearanceOptions = Object.keys(APPEARANCES).map(value => Autocomplete.createOption({id: value, value}));
@@ -61,7 +62,50 @@ class ControlleTextExample extends React.Component<any, any> {
 
         <Heading>Multiline Example: </Heading><br/>
         <Text>{`First line\nSecond line`}</Text>
-        <br/>
+        <br/><br/>
+
+        <Heading>Typography Example: </Heading><br/>
+        <div>
+          <h3>Text</h3>
+          <ul className={`ltr ${styles.root}`}>
+            <li><Text appearance="T1">T1 - Helvetica_45 / 16px / 24px</Text></li>
+            <li><Text appearance="T1.1">T1.1 - Helvetica_45 / 16px / 24px</Text></li>
+            <li className={styles.inverted}>
+              <Text appearance="T1" light>T1 + light - Helvetica_45 / 16px / 24px</Text>
+            </li>
+            <li><Text appearance="T1.1" light>T1.1 + light - Helvetica_45 / 16px / 24px</Text></li>
+          </ul>
+
+          <h3>Bold Text</h3>
+          <ul className={`ltr ${styles.root}`}>
+            <li><Text appearance="T1" bold>T1 + bold - Helvetica_55 / 16px / 24px</Text></li>
+            <li><Text appearance="T1.1" bold>T1.1 + bold - Helvetica_55 / 16px / 24px</Text></li>
+            <li className={styles.inverted}>
+              <Text appearance="T1" bold light>T1 + bold + light - Helvetica_55 / 16px / 24px</Text>
+            </li>
+            <li><Text appearance="T1.1" bold light>T1.1 + bold + light - Helvetica_55 / 16px / 24px</Text></li>
+          </ul>
+
+          <h3>Small Text</h3>
+          <ul className={`ltr ${styles.root}`}>
+            <li><Text appearance="T3">T3 - Helvetica_45 / 14px / 18px</Text></li>
+            <li><Text appearance="T3.1">T3.1 - Helvetica_45 / 14px / 18px</Text></li>
+            <li className={styles.inverted}>
+              <Text appearance="T3" light>T3 + light - Helvetica_45 / 14px / 18px</Text>
+            </li>
+            <li><Text appearance="T3.1" light>T3.1 + light - Helvetica_45 / 14px / 18px</Text></li>
+          </ul>
+
+          <h3>Small Bold Text</h3>
+          <ul className={`ltr ${styles.root}`}>
+            <li><Text appearance="T3" bold>T3 + bold - Helvetica_55 / 14px / 18px</Text></li>
+            <li><Text appearance="T3.1" bold>T3.1 + bold - Helvetica_55 / 14px / 18px</Text></li>
+            <li className={styles.inverted}>
+              <Text appearance="T3" bold light>T3 + bold + light - Helvetica_55 / 14px / 18px</Text>
+            </li>
+            <li><Text appearance="T3.1" bold light>T3.1 + bold - Helvetica_55 / 14px / 18px</Text></li>
+          </ul>
+        </div>
       </div>
     );
   }
