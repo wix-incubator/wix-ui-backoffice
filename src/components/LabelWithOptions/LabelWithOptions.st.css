@@ -1,0 +1,112 @@
+:import {
+    -st-from: "wix-ui-core/dist/src/components/LabelWithOptions/LabelWithOptions.st.css";
+    -st-default: LabelWithOptions;
+}
+
+:import {
+    -st-from: "../../palette.st.css";
+    -st-named: primaryText, mainHover, main, disabledText, inputHover, primaryLightText, inputBorderColor, inputBackground, inputDisabledBorderColor, danger, backgroundSecondary;
+}
+
+:import {
+    -st-from: "../Input/Input.st.css";
+    -st-named: borderRadius, borderStyle, borderWidth, paddingTop, paddingBottom, paddingRight, paddingLeft, marginTop, marginBottom, marginRight, marginLeft;
+}
+
+:import {
+    -st-from: "../Input/InputStates.st.css";
+    -st-named: largeFont, medFont, smallFont, largeHeight, medHeight, smallHeight;
+}
+
+
+.root {
+    -st-extends: LabelWithOptions;
+    width: 100%;
+}
+
+.root::label {
+    flex: 1;
+}
+
+.root::selection {
+    background-color: value(inputBackground);
+    border-color: value(inputBorderColor);
+    border-radius: value(borderRadius);
+    border-style: value(borderStyle);
+    border-width: value(borderWidth);
+    box-sizing: border-box;
+    color: inherit;
+    outline: none;
+    padding-top: value(paddingTop);
+    padding-bottom: value(paddingBottom);
+    padding-left: value(paddingLeft);
+    padding-right: value(paddingRight);
+    margin-top: value(marginTop);
+    margin-bottom: value(marginBottom);
+    margin-left: value(marginLeft);
+    margin-right: value(marginRight);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    font-size: value(medFont);
+    height: value(medHeight);
+}
+
+.root::selection:hover {
+    background: value(inputHover);
+}
+
+.root:error::selection {
+    border-color: value(danger);
+}
+
+.root > [data-hook="popover-content"] {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
+    width: 100%;
+    overflow: hidden;
+}
+
+.root::dropdownContent::dropdownOption {
+    white-space: nowrap;
+    padding: 8px 20px;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    color: value(primaryText);
+    overflow: hidden;
+}
+
+.root::dropdownContent::dropdownOption:hovered {
+    background: value(inputHover);
+}
+
+.root::dropdownContent::dropdownOption:selected {
+    background: value(main);
+    color: value(primaryLightText);
+}
+
+.root::dropdownContent::dropdownOption:selected:hovered {
+    background: value(mainHover);
+    color: value(primaryLightText);
+}
+
+.root::dropdownContent::dropdownOption:disabled {
+    color: value(disabledText);
+}
+
+.root::dropdownContent::dropdownOption:not(:selectable) {
+    padding: 0;
+}
+
+.root::divider {
+    background-color: #e5e5e5;
+    display: flex;
+    flex: 1;
+}
+
+.root::divider:customDivider {
+    padding: 8px 20px;
+}

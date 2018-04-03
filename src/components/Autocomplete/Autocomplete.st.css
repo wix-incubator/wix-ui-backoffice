@@ -1,6 +1,11 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/InputWithOptions/InputWithOptions.st.css";
-  -st-default: InputWithOptions;
+  -st-from: "wix-ui-core/dist/src/components/Autocomplete/Autocomplete.st.css";
+  -st-default: Autocomplete;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: primaryText, mainHover, main, disabledText, inputHover, primaryLightText, inputBorderColor, inputDisabledBorderColor, danger, backgroundSecondary;
 }
 
 :import {
@@ -8,48 +13,113 @@
   -st-default: Input;
 }
 
-.root {
-  -st-extends: InputWithOptions;
+:import {
+  -st-from: "../Input/InputStates.st.css";
+  -st-named: input-large, input-medium, input-small;
 }
 
-.root::contentContainer {
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontRoman;
+}
+
+.root {
+  -st-extends: Autocomplete;
+  -st-states: size(enum(large, medium, small));
+  font-family: value(fontRoman);
+}
+
+.root > [data-hook="popover-content"] {
   border: none;
   border-radius: 8px;
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
-  max-width: 250px;
+  width: 100%;
+  overflow: hidden;
 }
 
-.input {
+.root::inputComponent {
   -st-mixin: Input;
 }
 
-.root::option {
-  cursor: pointer;
+.root::inputComponent::nativeInput {
+  padding-right: 30px;
+  margin-right: -18px;
+}
+/*
+:global([dir="rtl"]) .root::inputComponent::nativeInput {
+  padding-left: 30px;
+  margin-left: -18px;
+  padding-right: 12px;
+  margin-right: 0px;
+}
+*/
+.root:size(large)::inputComponent {
+  -st-mixin: input-large;
+}
+
+.root:size(medium)::inputComponent {
+  -st-mixin: input-medium;
+}
+
+.root:size(small)::inputComponent {
+  -st-mixin: input-small;
+}
+
+.root::dropdownContent::dropdownOption {
   white-space: nowrap;
-  padding: 8px 0;
+  padding: 8px 20px;
   text-overflow: ellipsis;
   font-size: 16px;
-  color: #162d3d;
+  color: value(primaryText);
   overflow: hidden;
-  text-align: left;
 }
 
-.root::option:hovered {
-  background: #eaf7ff;
-  color: #162d3d;
+.root::dropdownContent::dropdownOption:hovered {
+  background: value(inputHover);
 }
 
-.root::option:selected {
-  background: #3899ec;
-  color: #ffffff;
+.root::dropdownContent::dropdownOption:selected {
+  background: value(main);
+  color: value(primaryLightText);
 }
 
-.root::option:selected:hovered {
-  background: #4eb7f5;
-  color: #ffffff;
+.root::dropdownContent::dropdownOption:selected:hovered {
+  background: value(mainHover);
+  color: value(primaryLightText);
 }
 
-.root::option:disabled {
-  color: #b6c1cd;
-  cursor: default;
+.root::dropdownContent::dropdownOption:disabled {
+  color: value(disabledText);
+}
+
+.root::dropdownContent::dropdownOption:not(:selectable) {
+  padding: 0;
+}
+
+.root::divider {
+  background-color: #e5e5e5;
+  display: flex;
+  flex: 1;
+}
+
+.root::divider:customDivider {
+  padding: 8px 20px;
+}
+
+.arrowIcon {
+  position: absolute;
+  right: 6px;
+  top: calc(50% - 12px);
+  width: 24px;
+  height: 24px;
+  fill: value(inputBorderColor);
+}
+/*
+:global([dir="rtl"]) .arrowIcon {
+  left: 6px;
+  right: auto;
+}
+*/
+.root:disabled .arrowIcon {
+  fill: value(inputDisabledBorderColor);
 }

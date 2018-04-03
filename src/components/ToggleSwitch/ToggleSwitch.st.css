@@ -1,0 +1,78 @@
+:import {
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: ToggleSwitch, ToggleSwitchStyle, ToggleSwitchLayout, ToggleSwitchColor;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named:
+    disabled,
+    main, mainHover, mainMuted,
+    danger, dangerHover, dangerMutedHover,
+    success, successHover, successMutedHover,
+    focusShadow;
+}
+
+.root {
+  -st-extends: ToggleSwitch;
+  -st-states:
+    size(enum(small, medium, large)),
+    skin(enum(standard, success, error));
+
+  -st-mixin: ToggleSwitchStyle;
+}
+
+.root:size(small) {
+  -st-mixin: ToggleSwitchLayout(
+    rootWidth 28px,
+    rootHeight 16px
+  );
+}
+
+.root:size(medium) {
+  -st-mixin: ToggleSwitchLayout(
+    rootWidth 36px,
+    rootHeight 20px
+  );
+}
+
+.root:size(large) {
+  -st-mixin: ToggleSwitchLayout(
+    rootWidth 45px,
+    rootHeight 24px
+  );
+}
+
+.root:skin(standard) {
+  -st-mixin: ToggleSwitchColor(
+    colorUnchecked      value(mainMuted),
+    colorChecked        value(main),
+    colorUncheckedHover value(mainHover),
+    colorCheckedHover   value(mainHover),
+    colorDisabled       value(disabled)
+  );
+}
+
+.root:skin(success) {
+  -st-mixin: ToggleSwitchColor(
+    colorUnchecked      value(successMutedHover),
+    colorChecked        value(success),
+    colorUncheckedHover value(successHover),
+    colorCheckedHover   value(successHover),
+    colorDisabled       value(disabled)
+  );
+}
+
+.root:skin(error) {
+  -st-mixin: ToggleSwitchColor(
+    colorUnchecked      value(dangerMutedHover),
+    colorChecked        value(danger),
+    colorUncheckedHover value(dangerHover),
+    colorCheckedHover   value(dangerHover),
+    colorDisabled       value(disabled)
+  );
+}
+
+.root:focus-visible::track {
+	box-shadow: 0 0 0 3px value(focusShadow);
+}

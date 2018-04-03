@@ -30,14 +30,19 @@
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
+    "lodash": "^4.17.5",
     "wix-ui-core": "latest",
     "wix-ui-theme": "latest"
   },
   "devDependencies": {
     "@storybook/addon-options": "^3.3.7",
     "@storybook/react": "^3.3.7",
+    "@types/enzyme": "^3.1.9",
     "@types/jest": "^22.1.1",
+    "@types/prop-types": "^15.5.2",
     "@types/react": "^15.6.8",
+    "@types/react-dom": "^15.0.4",
+    "@types/react-onclickoutside": "^6.0.2",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-15": "^1.0.5",
     "eyes.it": "latest",
@@ -50,9 +55,11 @@
     "react": "^15.5.0",
     "react-dom": "^15.5.0",
     "react-test-renderer": "^15.5.4",
-    "stylable": "latest",
+    "stylable": "5.3.0",
+    "stylable-integration": "latest",
     "ts-jest": "^22.0.3",
     "typescript": "^2.6.2",
+    "wait-for-cond": "^1.5.1",
     "wix-storybook-utils": "latest",
     "wix-ui-icons-common": "latest",
     "wix-ui-test-utils": "latest"
@@ -66,8 +73,7 @@
       "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "moduleNameMapper": {
-      "\\.(st.css)$": "wix-ui-test-utils/stylable-proxy",
-      "\\.(css|less|scss)$": "identity-obj-proxy"
+      "\\.(scss)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [
       "ts",

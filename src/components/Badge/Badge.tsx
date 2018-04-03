@@ -1,61 +1,53 @@
 import * as React from 'react';
-import {oneOf, node} from 'prop-types';
-import {Badge as CoreBadge} from 'wix-ui-core/Badge';
-import {ThemedComponent} from 'wix-ui-theme';
+import {oneOf, node, Requireable} from 'prop-types';
+import {Badge as CoreBadge, BadgeProps as CoreBadgeProps} from 'wix-ui-core/StylableBadge';
+import {withStylable} from 'wix-ui-core/withStylable';
+import {UIText} from '../StylableUIText';
+import {SKIN, TYPE, Type, Skin} from './constants';
+import style from './Badge.st.css';
 
-import {theme} from './theme';
-import {UIText} from '../UIText';
-import {SKIN, FORM, Form, Skin} from './constants';
+export interface BadgeProps {
+  type?: Type;
+  skin?: Skin;
+  prefixIcon?: React.ReactElement<any>;
+  suffixIcon?: React.ReactElement<any>;
+}
 
-const iconStyles = {
-  prefix: {paddingRight: '8px'},
-  suffix: {paddingLeft: '8px'}
+const defaultProps = {
+  type: TYPE.solid,
+  skin: SKIN.general
 };
 
-const createBadgeIcon = (type, icon, size) => (
-  icon ?
-    <span style={iconStyles[type]}>
-      {React.cloneElement(icon, {size})}
-    </span> :
-    null
+const StyledBadge = withStylable<CoreBadgeProps, BadgeProps>(
+  CoreBadge,
+  style,
+  ({skin, type}) => ({skin, type}),
+  defaultProps
 );
-
-interface BadgeProps {
-  form?: Form;
-  skin?: Skin;
-  prefixIcon?: any;
-  suffixIcon?: any;
-}
 
 export class Badge extends React.PureComponent<BadgeProps> {
   static propTypes = {
     ...CoreBadge.propTypes,
-    /** Form (type) of the badge */
-    form: oneOf(['solid', 'outlined', 'transparent']),
+    /** Type of the badge */
+    type: oneOf(Object.keys(TYPE)),
     /** Skin of the badge */
-    skin: oneOf(['default', 'standard', 'danger', 'success', 'grey', 'warning', 'urgent', 'neutralStandard', 'neutralSuccess', 'neutralDanger']),
+    skin: oneOf(Object.keys(SKIN)),
     /** The prefix icon of the badge */
     prefixIcon: node,
     /** The suffix icon of the badge */
     suffixIcon: node
   };
 
-  static defaultProps = {
-    form: FORM.solid,
-    skin: SKIN.default
-  };
+  static defaultProps = defaultProps;
 
   render() {
-    // form should be changed to type - once wix-style-react is deprecated
-    const {skin, form, children, prefixIcon, suffixIcon} = this.props;
+    const {children, prefixIcon, suffixIcon, ...rest} = this.props;
     return (
-      <ThemedComponent theme={theme} skin={skin} form={form}>
-        <CoreBadge>
-          {prefixIcon && createBadgeIcon('prefix', prefixIcon, '12px')}
-          <UIText appearance="T5" dataClass="badge-content">{children}</UIText>
-          {suffixIcon && createBadgeIcon('suffix', suffixIcon, '12px')}
-        </CoreBadge>
-      </ThemedComponent>
+      <StyledBadge {...rest}>
+        {prefixIcon && React.cloneElement(prefixIcon, {className: style.prefix})}
+        <UIText className={style.text} appearance="T5">{children}</UIText>
+        {suffixIcon && React.cloneElement(suffixIcon, {className: style.suffix})}
+      </StyledBadge>
     );
   }
 }

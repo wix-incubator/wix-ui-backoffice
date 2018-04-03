@@ -1,132 +1,51 @@
 import * as React from 'react';
+import {Autocomplete as CoreAutocomplete, AutocompleteProps as CoreAutocompleteProps} from 'wix-ui-core/Autocomplete';
+import {withStylable} from 'wix-ui-core/withStylable';
+import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import style from './Autocomplete.st.css';
-import {InputWithOptions} from 'wix-ui-core/InputWithOptions';
-import {Option, OptionFactory} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionFactory';
-import {InputProps} from 'wix-ui-core/Input';
-import {Divider} from '../Divider';
-import {func , bool, object, arrayOf, number, string, oneOfType, node} from 'prop-types';
-
-const createDivider = (value = null) =>
-  OptionFactory.createCustomDivider(value ? <Divider>{value}</Divider> : <Divider />);
+import {getInputSuffix} from '../Input';
 
 export interface AutocompleteProps {
-  /** The dropdown options array */
-  options: Array<Option>;
-  /** Handler for when an option is selected */
-  onSelect?: (option: Option) => void;
-  /** initial selected option ids */
-  initialSelectedIds?: Array<string | number>;
-  /** An element that always appears at the top of the options */
-  fixedHeader?: React.ReactNode;
-  /** An element that always appears at the bottom of the options */
-  fixedFooter?: React.ReactNode;
-  /** Callback when the user pressed the Enter key or Tab key after he wrote in the Input field - meaning the user selected something not in the list  */
-  onManualInput?: (value: string) => void;
-  /** Input prop types */
-  inputProps?: InputProps;
+  // The size of the autocomplete
+  size?: 'large' | 'medium' | 'small';
 }
 
-export interface AutocompleteState {
-  inputValue: string;
-  isEditing: boolean;
-}
+const defaultProps = {
+  size: 'medium'
+};
 
-export class Autocomplete extends React.PureComponent<AutocompleteProps, AutocompleteState> {
+const StyledAutocomplete = withStylable<CoreAutocompleteProps, AutocompleteProps>(
+  CoreAutocomplete,
+  style,
+  ({size}) => ({size}),
+  defaultProps);
 
-  static propTypes = {
-    /** The dropdown options array */
-    options: arrayOf(object).isRequired,
-    /** Handler for when an option is selected */
-    onSelect: func,
-    /** initial selected option ids */
-    initialSelectedIds: oneOfType([arrayOf(number), arrayOf(string)]),
-    /** An element that always appears at the top of the options */
-    fixedHeader: node,
-    /** An element that always appears at the bottom of the options */
-    fixedFooter: node,
-    /** Callback when the user pressed the Enter key or Tab key after he wrote in the Input field - meaning the user selected something not in the list  */
-    onManualInput: func,
-    /** Input prop types */
-    inputProps: object
-  };
+export type AutocompleteType = React.SFC<CoreAutocompleteProps & AutocompleteProps> & {
+  createOption: typeof CoreAutocomplete.createOption;
+  createDivider: typeof CoreAutocomplete.createDivider;
+};
 
-  static createOption = OptionFactory.create;
-  static createDivider = createDivider;
-
-  constructor(props: AutocompleteProps) {
-    super(props);
-
-    this.state = {
-      isEditing: false,
-      inputValue: (props.inputProps && props.inputProps.value) || ''
-    };
-
-    this.onSelect = this.onSelect.bind(this);
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onEditingChanged = this.onEditingChanged.bind(this);
-  }
-
-  onInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({
-      inputValue: event.target.value
-    });
-  }
-
-  onSelect(option: Option) {
-    this.setState({
-      inputValue: option.value
-    });
-
-    const {onSelect} = this.props;
-    onSelect && onSelect(option);
-  }
-
-  onEditingChanged(isEditing: boolean) {
-    if (this.state.isEditing !== isEditing) {
-      this.setState({isEditing});
-    }
-  }
-
-  filterOptions(inputValue: string, options: Array<Option>): Array<Option> {
-    const lowerValue = inputValue.toLowerCase();
-    return options
-    .filter((option: Option) =>
-      (!option.isSelectable && option.value) ||
-      (option.isSelectable && option.value && option.value.toLowerCase().includes(lowerValue)))
-    .map((option: Option) =>
-      option.isSelectable && option.value ? OptionFactory.createHighlighted(option, inputValue) : option);
-  }
-
-  createInputProps() {
-    let {inputProps} = this.props;
-    const {inputValue} = this.state;
-
-    inputProps = inputProps || {};
-    inputProps.value = inputValue;
-    inputProps.onChange = this.onInputChange;
-    inputProps.className = `${style.input} ${inputProps.className ? inputProps.className : ''}`.trim();
-    return inputProps;
-  }
-
-  render() {
-    const {options, initialSelectedIds, fixedHeader, fixedFooter, onManualInput} = this.props;
-    const {inputValue, isEditing} = this.state;
-    const inputProps = this.createInputProps();
-    const displayedOptions =
-      inputValue && isEditing ? this.filterOptions(inputValue, options) : options;
+const defaultSuffix = <ChevronDown className={style.arrowIcon} />;
+export const Autocomplete: AutocompleteType =
+  ((props: CoreAutocompleteProps & AutocompleteProps) => {
+    const {error, disabled, suffix} = props;
+    const inputSuffix = getInputSuffix({error, disabled, suffix: defaultSuffix});
 
     return (
-      <InputWithOptions
-        {...style('root', {}, this.props)}
-        onSelect={this.onSelect}
-        initialSelectedIds={initialSelectedIds}
-        fixedHeader={fixedHeader}
-        fixedFooter={fixedFooter}
-        onManualInput={onManualInput}
-        options={displayedOptions}
-        onEditingChanged={this.onEditingChanged}
-        inputProps={inputProps}
+      <StyledAutocomplete
+        {...props}
+        suffix={
+          suffix ?
+          <span>
+            {suffix}
+            {inputSuffix}
+          </span> :
+          inputSuffix
+        }
       />
     );
-  }
-}
+  }) as AutocompleteType;
+
+Autocomplete.createOption = CoreAutocomplete.createOption;
+Autocomplete.createDivider = CoreAutocomplete.createDivider;
+Autocomplete.propTypes = CoreAutocomplete.propTypes;

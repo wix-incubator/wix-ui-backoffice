@@ -1,12 +1,14 @@
 import * as React from 'react';
-import {oneOf, bool, string} from 'prop-types';
+import {oneOf, bool, string, Requireable} from 'prop-types';
 import {Text as CoreText, TextProps as CoreTextProps} from 'wix-ui-core/Text';
 import {ThemedComponent} from 'wix-ui-theme';
+import {ThemedComponentProps} from 'wix-ui-jss';
 import {theme, Appearance} from './theme';
+import {WixComponentProps} from 'wix-ui-core/dist/src/createHOC';
 
-type TagName = 'div' | 'span';
+export type TagName = 'div' | 'span';
 
-interface UITextProps extends CoreTextProps {
+export interface UITextProps extends CoreTextProps {
   /** typography of the text */
   appearance?: Appearance;
 
@@ -24,8 +26,6 @@ interface UITextProps extends CoreTextProps {
 
 export class UIText extends React.PureComponent<UITextProps> {
   static propTypes = {
-    ...CoreText.propTypes,
-
     /** typography of the text */
     appearance: oneOf([
       'T1', 'T1.1', 'T1.2', 'T1.3', 'T1.4', 'T1.5', 'T1.6', 'T1.7',

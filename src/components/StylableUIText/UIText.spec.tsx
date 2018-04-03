@@ -23,12 +23,12 @@ describe('UIText', () => {
   describe('tagName prop', () => {
     it('should render a span tag by default', () => {
       const wrapper = createDriver(<UIText>Hello</UIText>);
-      expect(wrapper.getTagName()).toBe('SPAN');
+      expect(wrapper.getTagName()).toBe('span');
     });
 
     it('should render a div tag', () => {
       const wrapper = createDriver(<UIText tagName="div">Hello</UIText>);
-      expect(wrapper.getTagName()).toBe('DIV');
+      expect(wrapper.getTagName()).toBe('div');
     });
   });
 

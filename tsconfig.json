@@ -2,12 +2,16 @@
   "compilerOptions": {
     "sourceMap": true,
     "module": "commonjs",
-    "declaration": false,
+    "declaration": true,
     "strict": false,
     "moduleResolution": "node",
     "target": "es5",
     "jsx": "react",
-    "lib": ["dom", "es2016"]
+    "lib": ["dom", "es2016"],
+    "baseUrl": "./",
+    "paths": {
+        "*": [ "node_modules/@types/*", "*"]
+    }
   },
   "include": [
     "./node_modules/wix-ui-core/dist/src/globals.d.ts",

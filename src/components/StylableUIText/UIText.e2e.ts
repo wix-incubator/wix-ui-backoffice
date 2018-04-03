@@ -12,6 +12,6 @@ describe('UIText', () => {
     const driver = uiTextTestkitFactory({dataHook});
 
     return waitForVisibilityOf(driver.element(), 'Cannot find UIText')
-      .then(() => expect(driver.getTextContent()).toBe('Some text'));
+      .then(() => expect(driver.getText()).toBe('Some text'));
   });
 });

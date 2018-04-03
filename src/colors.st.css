@@ -6,7 +6,11 @@
   D30: #577083;
   D40: #7a92a5; /* Placeholder Text */
   D50: #b6c1cd; /* Disabled - Text + System Icons */
+<<<<<<< HEAD
   D55: #cbd3dc; /* Disabled - Checkbox check */
+=======
+  D55: #cbd3dc; /* Disabled button - new version */
+>>>>>>> caf2ef381048aec1990074639afd63fe1a4a33f2
   D60: #dfe5eb; /* Dividers, Disabled - Borders */
   D70: #f0f4f7; /* Page Background, Disabled - Background */
   D80: #ffffff; /* Content box background */
@@ -45,6 +49,15 @@
   R50: #ffebeb;
   R60: #fff5f5;
 
+  /* GREY - disabled */
+  GR10: #c8c8c8; /* Disabled buttons */
+  GR20: #dadada; /* Disabled fields */
+  GR30: #f1f1f1; /* Disabled background */
+  GR40: #cbd3dc; /* Disabled button - new version - naming not final */
+  GR50: #eff1f2;
+  GR60: #a3abb0; /* placeholder for InputArea theme="amaterial" */
+
+
   /* GREEN - Success */
   G00: #44823f;
   G10: #60bc57; /* Main, Button */
@@ -63,6 +76,7 @@
   Y50: #fdf7df;
   Y60: #FFFCF0;
 
+<<<<<<< HEAD
   /* GREY - Disabled */
   GR30: #f1f1f1;
   GR20: #dadada;
@@ -70,8 +84,13 @@
   GR40: #cbd3dc;
   GR50: #eff1f2;
   GR60: #a3abb0;
+=======
+  /* Focus */
+  F00: #aadbfc;
+>>>>>>> caf2ef381048aec1990074639afd63fe1a4a33f2
 
   /* Helpers */
   TRANSPARENT: transparent;
   WHITE: #ffffff;
+  BLACK: #000000;
 }

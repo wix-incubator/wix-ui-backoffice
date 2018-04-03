@@ -1,1 +1,0 @@
-export {ToggleSwitch} from './ToggleSwitch';

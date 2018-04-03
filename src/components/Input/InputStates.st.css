@@ -1,0 +1,54 @@
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: danger;
+}
+
+:import {
+  -st-from: "./Input.st.css";
+  -st-named: Input;
+}
+
+:vars {
+  largeFont: 22px;
+  medFont: 16px;
+  smallFont: 14px;
+
+  largeHeight: 60px;
+  medHeight: 36px;
+  smallHeight: 30px;
+}
+
+.input-error {
+  color: value(danger);
+  border-color: value(danger);
+}
+
+.input-large {
+  -st-extends: Input;
+}
+
+.input-large::nativeInput {
+  height: value(largeHeight);
+  line-height: calc(value(largeHeight) - 2px);
+  font-size: value(largeFont);
+}
+
+.input-medium {
+  -st-extends: Input;
+}
+
+.input-medium::nativeInput {
+  height: value(medHeight);
+  line-height: calc(value(medHeight) - 2px);
+  font-size: value(medFont);
+}
+
+.input-small {
+  -st-extends: Input;
+}
+
+.input-small::nativeInput {
+  height: value(smallHeight);
+  line-height: calc(value(smallHeight) - 2px);
+  font-size: value(smallFont);
+}

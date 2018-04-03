@@ -33,11 +33,13 @@
 
 .tickIcon {
   width: 9px;
+  padding-left: 2.5px;
   height: 9px;
 }
 
 .indeterminateIcon {
   width: 8px;
+  padding-left: 3px;
   height: 8px;
 }
 
@@ -50,7 +52,7 @@
   background-color: value(mainHover);
 }
 
-.root:focus:not(:active)::box {
+.root:focus-visible::box {
   border-radius: 4px;
   box-shadow: 0 0 0 3px #aadbfc;
   border: solid 1px #3899ec;
@@ -90,10 +92,6 @@
   top: 50%;
   transform: translateY(-50%);
   fill: value(backgroundSecondary);
-  left: 0;
-  right: 0;
-  margin: auto;
-  text-align: center;
 }
 
 .root:hover:indeterminate:not(:disabled):not(:checked):not(:active)::box > svg {
