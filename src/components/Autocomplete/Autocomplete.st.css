@@ -18,9 +18,15 @@
   -st-named: input-large, input-medium, input-small;
 }
 
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontRoman;
+}
+
 .root {
   -st-extends: Autocomplete;
   -st-states: size(enum(large, medium, small));
+  font-family: value(fontRoman);
 }
 
 .root > [data-hook="popover-content"] {

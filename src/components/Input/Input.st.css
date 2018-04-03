@@ -25,6 +25,11 @@
 }
 
 :import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontRoman;
+}
+
+:import {
   -st-from: "./InputStates.st.css";
   -st-named: input-large, input-medium, input-small;
 }
@@ -104,6 +109,7 @@
   margin-left: value(marginLeft);
   margin-right: value(marginRight);
   width: 100%;
+  font-family: value(fontRoman);
 }
 
 .root::nativeInput::-webkit-input-placeholder { color: value(disabledText); }
