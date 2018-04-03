@@ -1,6 +1,5 @@
 import {textDriverFactory as coreTextDriverFctory} from 'wix-ui-core/dist/src/components/StylableText/Text.driver';
 import {StylableDOMUtil} from 'stylable/test-utils';
-import {Size} from './constants';
 import style from './Text.st.css';
 
 export const textDriverFactory = ({element}) => {
