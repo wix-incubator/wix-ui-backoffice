@@ -6,7 +6,7 @@ import {Heading} from '../../src/components/Heading';
 import {Input} from '../../src/components/Input';
 import {Text} from '../../src/components/Text';
 
-const appearanceOptions = ['H1', 'H2', 'H3', 'H4', 'H5'].map(value => Autocomplete.createOption({id: value, value}));
+const appearanceOptions = ['H1', 'H2', 'H3', 'H4'].map(value => Autocomplete.createOption({id: value, value}));
 
 class ControlleHeadingExample extends React.Component<any, any> {
   constructor(props) {
@@ -27,11 +27,11 @@ class ControlleHeadingExample extends React.Component<any, any> {
         <div style={{display: 'flex'}}>
           <div style={{marginRight: '120px'}}>
             <Heading> Props </Heading><br/><br/><br/>
-            <Heading appearance="H3">appearance: </Heading> <Autocomplete options={appearanceOptions} onSelect={({value}) => this.setState({appearance: value})} initialSelectedId={this.state.appearance}/><br/><br/>
-            <Heading appearance="H3">light: </Heading> <ToggleSwitch checked={this.state.light} onChange={() => this.setState({light: !this.state.light})}/><br/><br/>
-            <Heading appearance="H3">children: </Heading> <Input onChange={e => this.setState({children: e.target.value})} value={this.state.children}/><br/><br/>
-            <Heading appearance="H3">ellipsis: </Heading> <ToggleSwitch checked={this.state.ellipsis} onChange={() => this.setState({ellipsis: !this.state.ellipsis})}/><br/><br/>
-            <Heading appearance="H3">forceHideTitle: </Heading> <ToggleSwitch checked={this.state.forceHideTitle} onChange={() => this.setState({forceHideTitle: !this.state.forceHideTitle})}/><br/><br/>
+            <Heading appearance="H2">appearance: </Heading> <Autocomplete options={appearanceOptions} onSelect={({value}) => this.setState({appearance: value})} initialSelectedId={this.state.appearance}/><br/><br/>
+            <Heading appearance="H2">light: </Heading> <ToggleSwitch checked={this.state.light} onChange={() => this.setState({light: !this.state.light})}/><br/><br/>
+            <Heading appearance="H2">children: </Heading> <Input onChange={e => this.setState({children: e.target.value})} value={this.state.children}/><br/><br/>
+            <Heading appearance="H2">ellipsis: </Heading> <ToggleSwitch checked={this.state.ellipsis} onChange={() => this.setState({ellipsis: !this.state.ellipsis})}/><br/><br/>
+            <Heading appearance="H2">forceHideTitle: </Heading> <ToggleSwitch checked={this.state.forceHideTitle} onChange={() => this.setState({forceHideTitle: !this.state.forceHideTitle})}/><br/><br/>
           </div>
           <div>
             <Heading> Preview </Heading><br/><br/><br/><br/><br/><br/><br/><br/><br/>

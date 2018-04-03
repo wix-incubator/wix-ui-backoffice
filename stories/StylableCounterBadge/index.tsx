@@ -24,8 +24,8 @@ class ControlleCounterdBadgeExample extends React.Component<any, any> {
       <div style={{display: 'flex'}}>
         <div style={{marginRight: '120px'}}>
           <Heading> Props </Heading><br/><br/><br/>
-          <Heading appearance="H3">children: </Heading> <Autocomplete options={iconsOptions} onSelect={({value}) => this.setState({children: value})} initialSelectedId={this.state.children}/><br/><br/>
-          <Heading appearance="H3">skin: </Heading> <Autocomplete options={skinOptions} onSelect={({value}) => this.setState({skin: value})} initialSelectedId={this.state.skin}/><br/><br/>
+          <Heading appearance="H2">children: </Heading> <Autocomplete options={iconsOptions} onSelect={({value}) => this.setState({children: value})} initialSelectedId={this.state.children}/><br/><br/>
+          <Heading appearance="H2">skin: </Heading> <Autocomplete options={skinOptions} onSelect={({value}) => this.setState({skin: value})} initialSelectedId={this.state.skin}/><br/><br/>
         </div>
         <div>
           <Heading> Preview </Heading><br/><br/><br/><br/><br/><br/><br/><br/><br/>
