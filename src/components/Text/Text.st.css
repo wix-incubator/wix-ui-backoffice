@@ -23,8 +23,11 @@
     light,
     bold;
 
-  white-space: pre-line;
   font-family: value(fontLight);
+}
+
+.root:not(:ellipsis) {
+  white-space: pre-line;
 }
 
 .root:appearance(T1), .root:appearance(T1.1) {

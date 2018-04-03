@@ -14,7 +14,9 @@ class ControlleHeadingExample extends React.Component<any, any> {
     this.state = {
       appearance: 'H1',
       light: false,
-      children: 'Some text'
+      children: 'Some text',
+      ellipsis: false,
+      forceHideTitle: false
     };
   }
 
@@ -26,18 +28,24 @@ class ControlleHeadingExample extends React.Component<any, any> {
           <div style={{marginRight: '120px'}}>
             <Heading> Props </Heading><br/><br/><br/>
             <Heading appearance="H3">appearance: </Heading> <Autocomplete options={appearanceOptions} onSelect={({value}) => this.setState({appearance: value})} initialSelectedId={this.state.appearance}/><br/><br/>
-            <Heading appearance="H3">light: </Heading> <ToggleSwitch size="small" checked={this.state.light} onChange={() => this.setState({light: !this.state.light})}/><br/><br/>
+            <Heading appearance="H3">light: </Heading> <ToggleSwitch checked={this.state.light} onChange={() => this.setState({light: !this.state.light})}/><br/><br/>
             <Heading appearance="H3">children: </Heading> <Input onChange={e => this.setState({children: e.target.value})} value={this.state.children}/><br/><br/>
+            <Heading appearance="H3">ellipsis: </Heading> <ToggleSwitch checked={this.state.ellipsis} onChange={() => this.setState({ellipsis: !this.state.ellipsis})}/><br/><br/>
+            <Heading appearance="H3">forceHideTitle: </Heading> <ToggleSwitch checked={this.state.forceHideTitle} onChange={() => this.setState({forceHideTitle: !this.state.forceHideTitle})}/><br/><br/>
           </div>
           <div>
             <Heading> Preview </Heading><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <Heading
-              appearance={this.state.appearance}
-              light={this.state.light}
-              dataHook="storybook-heading"
-              >
-              {this.state.children}
-            </Heading>
+            <div style={this.state.ellipsis ? {width: '150px'} : {width: '300px'}}>
+              <Heading
+                appearance={this.state.appearance}
+                light={this.state.light}
+                dataHook="storybook-heading"
+                ellipsis={this.state.ellipsis}
+                forceHideTitle={this.state.forceHideTitle}
+                >
+                {this.state.children}
+              </Heading>
+            </div>
           </div>
         </div>
       </div>

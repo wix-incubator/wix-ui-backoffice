@@ -20,7 +20,7 @@ export interface Props {
 }
 
 const defaultProps: Props = {
-  appearance: 'T1',
+  appearance: 'T1.1',
   skin: 'standard',
   light: false,
   bold: false
