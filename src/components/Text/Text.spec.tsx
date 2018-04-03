@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {textDriverFactory} from './Text.driver';
 import {Text} from './';
-import {Appearance, Skin, APPEARANCES, SKINS} from './constants';
+import {Size, Skin, SIZES, SKINS} from './constants';
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
 import {isEnzymeTestkitExists} from 'wix-ui-test-utils/enzyme';
 import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
@@ -12,17 +12,29 @@ import {textTestkitFactory as enzymeTextTestkitFactory} from '../../testkit/enzy
 describe('Text', () => {
   const createDriver = createDriverFactory(textDriverFactory);
 
-  describe('appearance prop', () => {
-    it('should be T1.1 by default', () => {
+  describe('size prop', () => {
+    it('should be medium by default', () => {
       const wrapper = createDriver(<Text>Hello</Text>);
-      expect(wrapper.getAppearance()).toBe('T1.1');
+      expect(wrapper.getSize()).toBe('medium');
     });
 
-    Object.keys(APPEARANCES).forEach((appearance: Appearance) => {
-      it(`should be ${appearance.toLowerCase()}`, () => {
-        const wrapper = createDriver(<Text appearance={appearance}>Hello</Text>);
-        expect(wrapper.getAppearance()).toBe(appearance);
+    Object.keys(SIZES).forEach((size: Size) => {
+      it(`should be ${size}`, () => {
+        const wrapper = createDriver(<Text size={size}>Hello</Text>);
+        expect(wrapper.getSize()).toBe(size);
       });
+    });
+  });
+
+  describe('secondary prop', () => {
+    it('should be false by default', () => {
+      const wrapper = createDriver(<Text>Hello</Text>);
+      expect(wrapper.isSecondary()).toBe(false);
+    });
+
+    it(`should be true`, () => {
+      const wrapper = createDriver(<Text secondary>Hello</Text>);
+      expect(wrapper.isSecondary()).toBe(true);
     });
   });
 

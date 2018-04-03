@@ -5,8 +5,8 @@ import style from './Heading.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 import * as omit from 'lodash/omit';
 
-export type Appearance = 'H1' | 'H2' | 'H3' | 'H4' | 'H5';
-export type TagName = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+export type Appearance = 'H1' | 'H2' | 'H3' | 'H4';
+export type TagName = 'h1' | 'h2' | 'h3' | 'h4';
 
 export interface Props {
   /** is the text has dark or light skin */
@@ -40,7 +40,7 @@ export class Heading extends React.PureComponent<Props, State> {
     light: bool,
 
     /** typography of the heading */
-    appearance: oneOf(['H1', 'H2', 'H3', 'H4', 'H5'])
+    appearance: oneOf(['H1', 'H2', 'H3', 'H4'])
   };
 
   static defaultProps: Props = defaultProps;
