@@ -34,83 +34,52 @@
   -st-named: input-large, input-medium, input-small;
 }
 
-:vars {
-  borderRadius: 6px;
-  borderStyle: solid;
-  borderWidth: 1px;
-  paddingTop: 0px;
-  paddingBottom: 0px;
-  paddingRight: 12px;
-  paddingLeft: 12px;
-  marginTop: 0px;
-  marginBottom: 0px;
-  marginRight: 0px;
-  marginLeft: 0px;
-}
-
 .root {
   -st-extends: Input;
   -st-states: size(enum(large, medium, small));
 
-  display: inline-block;
+  display: flex;
+  align-items: center;
   position: relative;
   box-sizing: border-box;
   color: value(primaryText);
   width: 100%;
+  border-radius: 6px;
+  border: 1px solid value(inputBorderColor);
+  background-color: value(inputBackground);
+  padding: 0 6px;
 }
 
-.root:error::nativeInput,
-.root:error:focus::nativeInput {
+.root:error,
+.root:error:focus {
   border-color: value(danger);
-  padding-right: 30px;
-  margin-right: -18px;
 }
-/*
-:global([dir="rtl"]) .root:error::nativeInput,
-:global([dir="rtl"]) .root:error:focus::nativeInput {
-  padding-left: 30px;
-  margin-left: -18px;
-  padding-right: value(paddingRight);
-  margin-right: value(marginRight);
-}
-*/
-.root:hover::nativeInput {
+
+.root:hover {
   background-color: value(inputHover);
 }
 
-.root:disabled::nativeInput {
+.root:disabled {
   color: value(inputDisabledColor);
   border-color: value(inputDisabledBorderColor);
 }
 
-.root:disabled:hover::nativeInput {
+.root:disabled:hover {
   background-color: value(inputBackground);
   border-color: value(inputDisabledHoverBorderColor);
 }
 
-.root:focus::nativeInput {
+.root:focus {
   border-color: value(inputFocusBorderColor);
 }
 
 .root::nativeInput {
-  background-color: value(inputBackground);
-  border-color: value(inputBorderColor);
-  border-radius: value(borderRadius);
-  border-style: value(borderStyle);
-  border-width: value(borderWidth);
-  box-sizing: border-box;
-  color: inherit;
+  background-color: transparent;
   outline: none;
-  padding-top: value(paddingTop);
-  padding-bottom: value(paddingBottom);
-  padding-left: value(paddingLeft);
-  padding-right: value(paddingRight);
-  margin-top: value(marginTop);
-  margin-bottom: value(marginBottom);
-  margin-left: value(marginLeft);
-  margin-right: value(marginRight);
   width: 100%;
   font-family: value(fontRoman);
+  border: none;
+  padding: 0 6px;
 }
 
 .root::nativeInput::-webkit-input-placeholder { color: value(disabledText); }
@@ -133,17 +102,6 @@
   -st-mixin: input-small;
 }
 
-.errorIconPosition {
-  position: absolute;
-  right: 6px;
-  top: calc(50% - 10px);
-}
-/*
-:global([dir="rtl"]) .errorIconPosition {
-  left: 6px;
-  right: auto;
-}
-*/
 .errorIconContainer {
   width: 21px;
   height: 21px;
