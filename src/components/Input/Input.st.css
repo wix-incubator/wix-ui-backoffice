@@ -56,6 +56,7 @@
   position: relative;
   box-sizing: border-box;
   color: value(primaryText);
+  width: 100%;
 }
 
 .root:error::nativeInput,

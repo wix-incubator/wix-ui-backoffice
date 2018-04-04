@@ -27,6 +27,7 @@
   -st-extends: Autocomplete;
   -st-states: size(enum(large, medium, small));
   font-family: value(fontRoman);
+  width: 100%;
 }
 
 .root > [data-hook="popover-content"] {
