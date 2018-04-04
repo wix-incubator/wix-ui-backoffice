@@ -1,16 +1,22 @@
 import * as React from 'react';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import {Tooltip} from '../Tooltip';
-import style from './Input.st.css';
+import style from './Error.st.css';
+
+const ErrorComponent = () => (
+  <div {...style('root')}>
+    <FormFieldError />
+  </div>
+);
 
 const getInputErrorSuffix = (error: boolean | string) => {
   if (error === true) {
-    return <div className={`${style.errorIconContainer} ${style.errorIconPosition}`}><FormFieldError /></div>;
+    return <ErrorComponent/>;
   }
 
   return (
-    <Tooltip moveBy={{x: 0, y: 3}} className={style.errorIconPosition} content={error}>
-      <div className={style.errorIconContainer}><FormFieldError /></div>
+    <Tooltip moveBy={{x: 0, y: 3}} content={error}>
+      <ErrorComponent/>
     </Tooltip>
   );
 };

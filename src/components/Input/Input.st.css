@@ -101,17 +101,3 @@
 .root:size(small) {
   -st-mixin: input-small;
 }
-
-.errorIconContainer {
-  width: 21px;
-  height: 21px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: value(danger);
-}
-
-.errorIconContainer svg {
-  fill: value(backgroundSecondary);
-}
