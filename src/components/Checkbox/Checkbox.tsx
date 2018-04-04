@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Checkbox as CoreCheckbox, CheckboxProps as CoreCheckboxProps} from 'wix-ui-core/Checkbox';
-import {CheckboxChecked, CheckboxIndeterminate} from 'wix-ui-icons-common/system/';
+import CheckboxChecked from 'wix-ui-icons-common/system/CheckboxChecked';
+import CheckboxIndeterminate from 'wix-ui-icons-common/system/CheckboxIndeterminate';
 import style from './Checkbox.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 
@@ -12,7 +13,7 @@ export interface CheckboxProps {
 const defaultProps = {
   skin: 'standard',
   size: 'large',
-  checkedIcon: <CheckboxChecked className={style.tickIcon} />,
+  checkedIcon: <CheckboxChecked className={style.checkedIcon} />,
   indeterminateIcon: <CheckboxIndeterminate className={style.indeterminateIcon} />
 };
 

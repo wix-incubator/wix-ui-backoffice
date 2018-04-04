@@ -5,33 +5,80 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: backgroundPrimary, backgroundSecondary, mainMutedBackground, mainMuted, main, mainHover, dangerMutedHover, danger, disabledFields, disabledCheck, dividerColor;
+  -st-named: backgroundPrimary, backgroundSecondary, mainMutedBackground, mainMuted, main, mainHover, dangerMutedHover, danger, disabledFields, disabledCheck, inputDisabledBorderColor;
 }
 
 :vars {
-  medium: 16px;
+  boxSize: 16px;
 }
 
 .root {
   -st-extends: Checkbox;
-  width: initial;
-  height: initial;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  outline: 0;
+}
+
+.root:disabled {
+  pointer-events: none;
+}
+
+.root::childContainer {
+  font-size: 16px;
+  padding-left: 12px;
+}
+
+.root:disabled::childContainer {
+  color: value(backgroundPrimary);
 }
 
 .root::box {
   background: value(backgroundSecondary);
-  border: value(mainMuted);
   border-radius: 4px;
   border: solid 1px value(mainHover);
   box-sizing: border-box;
-  width: value(medium);
-  height: value(medium);
+  width: value(boxSize);
+  height: value(boxSize);
 }
 
-.tickIcon {
+.root:disabled::box {
+  background-color: value(backgroundPrimary);
+  border-color: value(disabledFields);
+}
+
+.root:disabled:checked::box {
+  border-color: value(inputDisabledBorderColor);
+}
+
+.root::box:active {
+  background-color: value(mainHover);
+}
+
+.root:error::box {
+  border-color: value(danger);
+}
+
+.root:focus-visible::box {
+  box-shadow: 0 0 0 3px #aadbfc;
+  border-color: #3899ec;
+}
+
+.root:hover:not(:disabled):not(:checked):not(:active)::box {
+  background-color: value(mainMutedBackground);
+}
+
+.root:checked:not(:active):not(:disabled)::box {
+  background-color: value(main);
+}
+
+.root:indeterminate:not(:disabled):not(:checked):not(:active)::box {
+  background-color: value(main);
+}
+
+.root:hover:indeterminate:not(:disabled):not(:checked):not(:active)::box {
+  color: value(mainMutedBackground);
+}
+
+.checkedIcon {
   width: 9px;
   padding-left: 2.5px;
   height: 9px;
@@ -43,61 +90,13 @@
   height: 8px;
 }
 
-.root::childContainer {
-  font-size: 16px;
-  padding-left: 12px;
-}
-
-.root::box:active {
-  background-color: value(mainHover);
-}
-
-.root:focus-visible::box {
-  border-radius: 4px;
-  box-shadow: 0 0 0 3px #aadbfc;
-  border: solid 1px #3899ec;
-}
-
-.root:disabled::box {
-  background-color: value(backgroundPrimary);
-  border-color: value(disabledFields);
-}
-
-.root:disabled:checked::box {
-  border-color: value(dividerColor);
-}
-
-.root:disabled {
-  pointer-events: none;
-}
-
-.root:disabled::childContainer {
-  color: value(backgroundPrimary);
-}
-
-.root:error::box {
-  border-color: value(danger);
-}
-
-.root:hover:not(:disabled):not(:checked):not(:active)::box {
-  background-color: value(mainMutedBackground);
-}
-
-.root:checked:not(:active):not(:disabled)::box {
-  background-color: value(main);
-}
-
-.root::box > svg {
+.root::box svg {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   fill: value(backgroundSecondary);
 }
 
-.root:hover:indeterminate:not(:disabled):not(:checked):not(:active)::box > svg {
-  fill: value(mainMutedBackground);
-}
-
-.root:disabled::box > svg {
+.root:disabled::box svg {
   fill: value(disabledCheck);
 }

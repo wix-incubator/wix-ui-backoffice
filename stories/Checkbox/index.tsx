@@ -18,5 +18,14 @@ export const story = () => storiesOf('Components', module)
       <ControlledCheckbox data-hook="storybook-checkbox">
         Hello
       </ControlledCheckbox>
+      <Checkbox disabled data-hook="storybook-checkbox-disabled">
+        Disabled
+      </Checkbox>
+      <Checkbox indeterminate data-hook="storybook-checkbox-indeterminate">
+        Indeterminate
+      </Checkbox>
+      <Checkbox error data-hook="storybook-checkbox-error">
+        Hello
+      </Checkbox>
     </div>
   ));

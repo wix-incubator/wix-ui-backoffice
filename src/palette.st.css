@@ -53,7 +53,7 @@
   dangerMutedHover:	value(R30);
   premiumMutedHover:	value(P30);
 
-  disabledFields: value(GR20);
+  disabledField: value(GR20);
   disabledCheck: value(D50);
 }
 
