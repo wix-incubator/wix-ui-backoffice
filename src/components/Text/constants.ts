@@ -1,4 +1,4 @@
-export type Appearance = 'T1' | 'T1.1' | 'T3' | 'T3.1';
+export type Size = 'small' | 'medium';
 export type Skin = 'standard' | 'success' | 'danger' | 'premium';
 
 export enum SKINS {
@@ -8,9 +8,7 @@ export enum SKINS {
   premium = 'premium'
 }
 
-export enum APPEARANCES {
-  T1 = 'T1',
-  'T1.1' = 'T1.1',
-  T3 = 'T3',
-  'T3.1' = 'T3.1'
+export enum SIZES {
+  small = 'small',
+  medium = 'medium'
 }

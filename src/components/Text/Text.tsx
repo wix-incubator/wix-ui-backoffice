@@ -2,12 +2,15 @@ import * as React from 'react';
 import {oneOf, Requireable} from 'prop-types';
 import {Text as CoreText, TextProps as CoreTextProps} from 'wix-ui-core/StylableText';
 import {withStylable} from 'wix-ui-core/withStylable';
-import {Skin, Appearance, SKINS} from './constants';
+import {Skin, Size, SKINS, SIZES} from './constants';
 import style from './Text.st.css';
 
 export interface Props {
-  /** typography of the text */
-  appearance?: Appearance;
+  /** font size of the text */
+  size?: Size;
+
+  /** is the text type is secondary. Affects the font color */
+  secondary?: boolean;
 
   /** skin color of the text */
   skin?: Skin;
@@ -20,8 +23,9 @@ export interface Props {
 }
 
 const defaultProps: Props = {
-  appearance: 'T1.1',
-  skin: 'standard',
+  size: SIZES.medium,
+  secondary: false,
+  skin: SKINS.standard,
   light: false,
   bold: false
 };
@@ -29,8 +33,9 @@ const defaultProps: Props = {
 export const Text = withStylable<CoreTextProps, Props>(
   CoreText,
   style,
-  ({appearance, skin, light, bold}) => ({
-    appearance,
+  ({size, secondary, skin, light, bold}) => ({
+    size,
+    secondary,
     skin,
     light: light && skin === SKINS.standard,
     bold

@@ -18,7 +18,8 @@
 .root {
   -st-extends: Text;
   -st-states: 
-    appearance(enum(T1, T1.1, T3, T3.1)),
+    size(enum(small, medium)),
+    secondary,
     skin(enum(standard, success, error, premium)),
     light,
     bold;
@@ -30,41 +31,47 @@
   white-space: pre-line;
 }
 
-.root:appearance(T1), .root:appearance(T1.1) {
+.root:size(medium), .root:size(medium):secondary {
   font-size: 16px;
   line-height: 24px;
 }
 
-.root:appearance(T3), .root:appearance(T3.1) {
+.root:size(small), .root:size(small):secondary {
   font-size: 14px;
   line-height: 18px;
 }
 
-.root:appearance(T1), .root:appearance(T3) {
+.root:size(medium), .root:size(small) {
   color: value(primaryText);
 }
 
-.root:appearance(T1):light, .root:appearance(T3):light {
+.root:size(medium):light, .root:size(small):light {
   color: value(primaryLightText);
 }
 
-.root:appearance(T1.1), .root:appearance(T3.1) {
+.root:size(medium):secondary, .root:size(small):secondary {
   color: value(secondaryText);
 }
 
-.root:appearance(T1.1):light, .root:appearance(T3.1):light {
+.root:size(medium):secondary:light, .root:size(small):secondary:light {
   color: value(secondaryLightText);
 }
 
-.root:skin(success) {
+.root:skin(success),
+.root:skin(success):light,
+.root:skin(success):secondary {
   color: value(success);
 }
 
-.root:skin(error) {
+.root:skin(error),
+.root:skin(error):light,
+.root:skin(error):secondary {
   color: value(danger);
 }
 
-.root:skin(premium) {
+.root:skin(premium),
+.root:skin(premium):light,
+.root:skin(premium):secondary {
   color: value(premium);
 }
 

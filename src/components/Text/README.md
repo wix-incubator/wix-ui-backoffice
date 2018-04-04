@@ -10,13 +10,13 @@ General text component with Wix styling.
 <link rel="stylesheet" href="//static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css">
 ```
 
-2. Use `<Text>` component with appropriate `appearance`:
+2. Use `<Text>` component with appropriate appearance:
 
 ```js
 import {Text} from 'wix-ui-backoffice/Text';
 
 const Component = () =>
   <div>
-    <Text appearance="T1">Text</Text>
+    <Text>Some Text</Text>
   </div>;
 ```
