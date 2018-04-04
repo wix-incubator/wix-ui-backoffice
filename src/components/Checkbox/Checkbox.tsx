@@ -5,14 +5,7 @@ import CheckboxIndeterminate from 'wix-ui-icons-common/system/CheckboxIndetermin
 import style from './Checkbox.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 
-export interface CheckboxProps {
-  skin?: 'standard' | 'error' | 'success';
-  size?: 'large' | 'small' | 'x-small';
-}
-
 const defaultProps = {
-  skin: 'standard',
-  size: 'large',
   checkedIcon: <CheckboxChecked className={style.checkedIcon} />,
   indeterminateIcon: <CheckboxIndeterminate className={style.indeterminateIcon} />
 };

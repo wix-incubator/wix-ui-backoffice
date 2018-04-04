@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: backgroundPrimary, backgroundSecondary, mainMutedBackground, mainMuted, main, mainHover, dangerMutedHover, danger, disabledFields, disabledCheck, inputDisabledBorderColor;
+  -st-named: backgroundPrimary, backgroundSecondary, mainMutedBackground, mainMuted, main, mainHover, dangerMutedHover, danger, disabledField, disabledCheck, inputDisabledBorderColor;
 }
 
 :vars {
@@ -42,7 +42,7 @@
 
 .root:disabled::box {
   background-color: value(backgroundPrimary);
-  border-color: value(disabledFields);
+  border-color: value(disabledField);
 }
 
 .root:disabled:checked::box {
@@ -80,13 +80,13 @@
 
 .checkedIcon {
   width: 9px;
-  padding-left: 2.5px;
+  margin-left: 2.5px;
   height: 9px;
 }
 
 .indeterminateIcon {
   width: 8px;
-  padding-left: 3px;
+  margin-left: 3px;
   height: 8px;
 }
 
