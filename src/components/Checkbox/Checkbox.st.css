@@ -5,11 +5,12 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: backgroundPrimary, backgroundSecondary, mainMutedBackground, mainMuted, main, mainHover, dangerMutedHover, danger, disabledField, disabledCheck, inputDisabledBorderColor;
+  -st-named: backgroundPrimary, backgroundSecondary, mainMutedBackground, mainMuted, main, mainHover, dangerMutedHover, danger, disabledField, disabledCheck, inputDisabledBorderColor, focusShadow, dangerMutedHover;
 }
 
 :vars {
   boxSize: 16px;
+  focusVisibleShadow: 0 0 0 3px;
 }
 
 .root {
@@ -58,8 +59,13 @@
 }
 
 .root:focus-visible::box {
-  box-shadow: 0 0 0 3px #aadbfc;
-  border-color: #3899ec;
+  box-shadow: value(focusVisibleShadow) value(focusShadow);
+  border-color: value(main);
+}
+
+.root:error:focus-visible::box {
+  border-color: value(danger);
+  box-shadow: value(focusVisibleShadow) value(dangerMutedHover);
 }
 
 .root:hover:not(:disabled):not(:checked):not(:active)::box {
