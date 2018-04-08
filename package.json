@@ -19,14 +19,14 @@
     "url": "git+https://github.com/wix/wix-ui-backoffice.git"
   },
   "scripts": {
-    "build": "haste build && import-path --path src/components --dts",
+    "build": "yoshi build && import-path --path src/components --dts",
     "pretest": "npm run build && build-storybook",
-    "test": "haste test --jest && npm run test:e2e",
-    "posttest": "haste lint",
-    "test:watch": "haste test --jest --watch",
-    "test:e2e": "haste test --protractor",
-    "start": "haste start --no-test & npm run storybook",
-    "release": "haste release && gh-pages-auto-release --dist=storybook-static",
+    "test": "yoshi test --jest && npm run test:e2e",
+    "posttest": "yoshi lint",
+    "test:watch": "yoshi test --jest --watch",
+    "test:e2e": "yoshi test --protractor",
+    "start": "yoshi start --no-test & npm run storybook",
+    "release": "yoshi release && gh-pages-auto-release --dist=storybook-static",
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
@@ -47,7 +47,6 @@
     "enzyme-adapter-react-15": "^1.0.5",
     "eyes.it": "latest",
     "gh-pages-auto-release": "latest",
-    "haste-preset-yoshi": "latest",
     "identity-obj-proxy": "^3.0.0",
     "import-path": "latest",
     "prop-types": "^15.6.0",
@@ -62,7 +61,8 @@
     "wait-for-cond": "^1.5.1",
     "wix-storybook-utils": "latest",
     "wix-ui-icons-common": "latest",
-    "wix-ui-test-utils": "latest"
+    "wix-ui-test-utils": "latest",
+    "yoshi": "^1.2.0"
   },
   "license": "MIT",
   "publishConfig": {
@@ -89,8 +89,5 @@
     "setupFiles": [
       "<rootDir>/test/enzyme-setup.js"
     ]
-  },
-  "haste": {
-    "preset": "yoshi"
   }
 }
