@@ -7,7 +7,7 @@ export default {
   category: 'Components',
   storyName: 'LabelWithOptions',
   component: LabelWithOptions,
-  componentPath: '../src/components/LabelWithOptions',
+  componentPath: '../src/components/LabelWithOptions/LabelWithOptions.tsx',
 
   componentProps: {
     'data-hook': 'storybook-labelwithoptions',

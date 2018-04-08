@@ -7,7 +7,7 @@ export default {
   category: 'Components',
   storyName: 'Autocomplete',
   component: Autocomplete,
-  componentPath: '../src/components/Autocomplete',
+  componentPath: '../src/components/Autocomplete/Autocomplete.tsx',
 
   componentProps: {
     'data-hook': 'storybook-autocomplete',
