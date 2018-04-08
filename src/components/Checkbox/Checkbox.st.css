@@ -1,10 +1,108 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: Checkbox, CheckboxStyle;
+  -st-from: "wix-ui-core/dist/src/components/Checkbox/Checkbox.st.css";
+  -st-default: Checkbox;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: backgroundPrimary, backgroundSecondary, mainMutedBackground, mainMuted, main, mainHover, dangerMutedHover, danger, disabledField, disabledCheck, inputDisabledBorderColor, focusShadow, dangerMutedHover;
+}
+
+:vars {
+  boxSize: 16px;
+  focusVisibleShadow: 0 0 0 3px;
 }
 
 .root {
   -st-extends: Checkbox;
-  -st-states: error, success, x-small, small;
-  -st-mixin: CheckboxStyle;
+  display: inline-flex;
+  align-items: center;
+}
+
+.root:disabled {
+  pointer-events: none;
+}
+
+.root::childContainer {
+  font-size: 16px;
+  padding-left: 12px;
+}
+
+.root:disabled::childContainer {
+  color: value(backgroundPrimary);
+}
+
+.root::box {
+  background: value(backgroundSecondary);
+  border-radius: 4px;
+  border: solid 1px value(mainHover);
+  box-sizing: border-box;
+  width: value(boxSize);
+  height: value(boxSize);
+}
+
+.root:disabled::box {
+  background-color: value(backgroundPrimary);
+  border-color: value(disabledField);
+}
+
+.root:disabled:checked::box {
+  border-color: value(inputDisabledBorderColor);
+}
+
+.root::box:active {
+  background-color: value(mainHover);
+}
+
+.root:error::box {
+  border-color: value(danger);
+}
+
+.root:focus-visible::box {
+  box-shadow: value(focusVisibleShadow) value(focusShadow);
+  border-color: value(main);
+}
+
+.root:error:focus-visible::box {
+  border-color: value(danger);
+  box-shadow: value(focusVisibleShadow) value(dangerMutedHover);
+}
+
+.root:hover:not(:disabled):not(:checked):not(:active)::box {
+  background-color: value(mainMutedBackground);
+}
+
+.root:checked:not(:active):not(:disabled)::box {
+  background-color: value(main);
+}
+
+.root:indeterminate:not(:disabled):not(:checked):not(:active)::box {
+  background-color: value(main);
+}
+
+.root:hover:indeterminate:not(:disabled):not(:checked):not(:active)::box {
+  color: value(mainMutedBackground);
+}
+
+.checkedIcon {
+  width: 9px;
+  margin-left: 2.5px;
+  height: 9px;
+}
+
+.indeterminateIcon {
+  width: 8px;
+  margin-left: 3px;
+  height: 8px;
+}
+
+.root::box svg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: value(backgroundSecondary);
+}
+
+.root:disabled::box svg {
+  fill: value(disabledCheck);
 }
