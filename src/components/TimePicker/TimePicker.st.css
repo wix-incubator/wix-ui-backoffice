@@ -1,6 +1,6 @@
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: main, mainHover, inputHover, focusShadow;
+  -st-named: main, mainHover, focusShadow;
 }
 
 :import {
@@ -32,6 +32,16 @@
 
 .root::tickers {
   -st-mixin: Tickers(tickerInset 12px);
+}
+
+/* TODO: when stylable EVER supports .root::tickers::ticker, change it to it */
+.root::tickers > button {
+  stroke: value(main) !important;
+}
+
+/* TODO: when stylable EVER supports .root::tickers::ticker, change it to it */
+.root::tickers > button:hover {
+  stroke: value(mainHover) !important;
 }
 
 .root:focus {
