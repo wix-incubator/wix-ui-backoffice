@@ -14,66 +14,26 @@
   -st-named: input-small;
 }
 
-:vars {
-  tickerInset: 12px;   
+:import {
+  -st-from: "wix-ui-core/dist/src/components/TimePicker/TimePicker.st.css";
+  -st-default: TimePicker;
+}
+
+:import {
+  -st-from: "wix-ui-core/dist/src/components/TimePicker/Tickers.st.css";
+  -st-default: Tickers;
 }
 
 .root {
-  position: relative;
-}
-
-.tickerGroup {
-  -st-states: rtl;
-  position: absolute;
-  right: value(tickerInset);
-  top: value(borderWidth);
-  height: calc(100% - 2 * value(borderWidth));
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-}
-
-:global(html[dir="rtl"]) .tickerGroup {
-  right: auto;
-  left: value(tickerInset);
-}
-
-.tickerGroup:rtl {
-  right: auto;
-  left: value(tickerInset);
-}
-
-.coreTimePicker::nativeInput {
-  background-color: red !important;
-}
-
-.tickerGroup:hover + .coreTimePicker::nativeInput {
-  /* Copied over from Input.st.css */
-  background-color: value(inputHover) !important;
-}
-
-.coreTimePicker {
+  -st-extends: TimePicker;
   -st-mixin: Input, input-small;
   font-family: "HelveticaNeueW01-55Roma";
 }
 
-.coreTimePicker:focus {
+.root::tickers {
+  -st-mixin: Tickers(tickerInset 12px);
+}
+
+.root:focus {
 	box-shadow: 0 0 0 3px value(focusShadow);
-}
-
-.ticker {
-  border: none;
-  outline: none;
-  cursor: pointer;
-  stroke: value(main);
-  background-color: transparent;
-  padding: 0;
-  margin: 0;
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.ticker:hover {
-  stroke: value(mainHover);
 }

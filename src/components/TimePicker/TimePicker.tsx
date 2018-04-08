@@ -3,20 +3,6 @@ import {TimePicker as CoreTimePicker, TimePickerProps as CoreTimePickerProps} fr
 import {oneOf, bool, Requireable} from 'prop-types';
 import style from './TimePicker.st.css';
 
-const ArrowUp = props => (
-  <svg width="10" height="5" viewBox="0 0 10 4" xmlns="http://www.w3.org/2000/svg">
-    <path d="M9 4L5 0 1 4" fill="none" fillRule="evenodd">
-    </path>
-  </svg>
-);
-
-const ArrowDown = props => (
-  <svg width="10" height="5" viewBox="0 0 10 4" xmlns="http://www.w3.org/2000/svg">
-    <path d="M9 0L5 4 1 0" fill="none" fillRule="evenodd">
-    </path>
-  </svg>
-);
-
 export interface TimePickerProps extends CoreTimePickerProps {
   /** Disable the component */
   disabled?: boolean;
@@ -59,26 +45,14 @@ export class TimePicker extends React.PureComponent<TimePickerProps>  {
     const actualValue = (disabled && dashesWhenDisabled) ? null : value;
 
     return (
-      <div className={style.root}>
-        <div className={style.tickerGroup}>
-          <button onClick={() => this.timePickerRef.increment()} {...style('ticker', {top: true}, {})}>
-            <ArrowUp/>
-          </button>
-          <button onClick={() => this.timePickerRef.decrement()} {...style('ticker', {bottom: true}, {})}>
-            <ArrowDown/>
-          </button>
-        </div>
-
-        <CoreTimePicker
-          {...coreProps}
-          {...style('coreTimePicker', {}, this.props)}
-          ref={ref => this.timePickerRef = ref}
-          disabled={disabled}
-          value={actualValue}
-          useAmPm={!disableAmPm}
-        />
-
-      </div>
+      <CoreTimePicker
+        {...coreProps}
+        {...style('root', {}, this.props)}
+        ref={ref => this.timePickerRef = ref}
+        disabled={disabled}
+        value={actualValue}
+        useAmPm={!disableAmPm}
+      />
     );
   }
 }
