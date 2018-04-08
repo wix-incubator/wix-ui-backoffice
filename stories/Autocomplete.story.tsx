@@ -1,21 +1,19 @@
 import * as React from 'react';
 import {Autocomplete} from '../src/components/Autocomplete';
 import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionsExample';
-import * as AutocompleteSource from '!raw-loader!../src/components/Autocomplete/Autocomplete.tsx';
 import {Option, DividerArgs} from 'wix-ui-core/dist/src/baseComponents/DropdownOption';
-const CodeExample = require('../src/components/Autocomplete/CodeExample.md');
 
 export default {
   category: 'Components',
   storyName: 'Autocomplete',
   component: Autocomplete,
-  source: AutocompleteSource,
-  componentPath: '../src/components/Autocomplete/Autocomplete.tsx',
-  codeBlockSource: CodeExample,
+  componentPath: '../src/components/Autocomplete',
+
   componentProps: {
     'data-hook': 'storybook-autocomplete',
     options: generateOptions((args: Partial<DividerArgs> = {}) => Autocomplete.createDivider(args.value))
   },
+
   exampleProps: {
     fixedFooter: [null, <div>Fixed Footer</div>],
     fixedHeader: [null, <div>Fixed Header</div>],
