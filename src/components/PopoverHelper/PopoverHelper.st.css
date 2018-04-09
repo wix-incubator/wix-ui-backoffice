@@ -1,0 +1,87 @@
+:import {
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Tooltip;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: tableSelected, brandSecondary, backgroundSecondary, main, mainHover, disabled, successNotifications, dangerNotifications, ctaHover, danger, successHover, dangerHover, disabledDividers;
+}
+
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontRoman;
+}
+
+.root {
+  -st-states: bounce, placement-right, placement-left, placement-top, placement-bottom;
+  -st-extends: Tooltip;
+  white-space: nowrap;
+}
+
+.root::popoverContent {
+  border: none;
+}
+
+.tooltipContent {
+  font-family: value(fontRoman);
+  border-radius: 8px;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 1.29;
+  box-shadow:
+    0 6px 6px 0 rgba(22, 45, 60, 0.06),
+    0 0 18px 0 rgba(22, 45, 60, 0.12);
+
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+
+  color: value(backgroundSecondary);
+  background: value(brandSecondary);
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  max-width: 230px;
+}
+
+.root:bounce::popover {
+  animation-duration: 1.15s;
+  animation-iteration-count: infinite;
+}
+
+.root:bounce:placement-right::popover {
+  animation-name: right-bounce;
+}
+
+.root:bounce:placement-left::popover {
+  animation-name: left-bounce;
+}
+
+.root:bounce:placement-top::popover {
+  animation-name: top-bounce;
+}
+
+.root:bounce:placement-bottom::popover {
+  animation-name: bottom-bounce;
+}
+
+@keyframes right-bounce {
+  0%, 100% { left: 5px;   }
+  50%      { left: -5px; }
+}
+
+@keyframes left-bounce {
+  0%, 100% { left: -5px;   }
+  50%      { left: 5px; }
+}
+
+@keyframes top-bounce {
+  0%, 100% { top: -5px;   }
+  50%      { top: 5px; }
+}
+
+@keyframes bottom-bounce {
+  0%, 100% { top: 5px;   }
+  50%      { top: -5px; }
+}
