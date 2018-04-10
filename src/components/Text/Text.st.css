@@ -1,6 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: Text;
+  -st-from: "wix-ui-core/dist/src/components/StylableText/Text.st.css";
+  -st-default: Text;
 }
 
 :import {
