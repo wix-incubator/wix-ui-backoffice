@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build": "yoshi build && import-path --path src/components --dts",
-    "test": ";",
+    "test": ":",
     "posttest": "yoshi lint",
     "test:watch": "yoshi test --jest --watch",
     "test:e2e": "yoshi test --protractor",
