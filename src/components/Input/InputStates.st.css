@@ -9,7 +9,7 @@
 }
 
 :import {
-  -st-from: "../../../node_modules/wix-ui-core/dist/src/mixins/calc";
+  -st-from: "wix-ui-core/dist/src/mixins/calc";
   -st-default: calc;
 }
 

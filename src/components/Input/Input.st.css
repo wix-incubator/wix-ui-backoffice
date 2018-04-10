@@ -1,5 +1,5 @@
 :import {
-  -st-from: "../../../node_modules/wix-ui-core/dist/src/components/Input/Input.st.css";
+  -st-from: "wix-ui-core/dist/src/components/Input/Input.st.css";
   -st-default: Input;
 }
 
