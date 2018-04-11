@@ -2,12 +2,13 @@ import * as React from 'react';
 import {Tooltip as CoreTooltip, TooltipProps as CoreTooltipProps} from 'wix-ui-core/Tooltip';
 import style from './Tooltip.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
+import {TextAlignProperty} from 'csstype';
 
 const noop = () => null;
 
 export interface TooltipProps {
   className?: string;
-  textAlign?: string;
+  textAlign?: TextAlignProperty;
   theme?: 'light' | 'dark' | 'error';
   bounce?: boolean;
   disabled?: boolean;
