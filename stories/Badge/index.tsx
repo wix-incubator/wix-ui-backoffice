@@ -14,8 +14,8 @@ const typeOptions = Object.keys(TYPE).map(value => Autocomplete.createOption({id
 const iconsOptions = ['none', 'ArrowDown'].map(value => Autocomplete.createOption({id: value, value}));
 
 class ControlledBadgeExample extends React.Component<any, any> {
-  constructor() {
-    super();
+  constructor(props: any) {
+    super(props);
     this.state = {
       skin: SKIN.general,
       type: TYPE.solid,
