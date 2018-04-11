@@ -3,18 +3,18 @@ import {Label as CoreLabel, LabelProps as CoreLabelProps} from 'wix-ui-core/Labe
 import style from './Label.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 
-export type Appearance = 'medium' | 'small';
+export type Size = 'medium' | 'small';
 
 export interface LabelProps {
   /** typography of the label */
-  appearance?: Appearance;
+  size?: Size;
   children?: string;
   for?: string;
   id?: string;
 }
 
 const defaultProps: LabelProps = {
-  appearance: 'medium',
+  size: 'medium',
   children: '',
   for: '',
   id: ''

@@ -15,10 +15,10 @@
 
 .root {
   -st-extends: Label;
-  -st-states: appearance(string);
+  -st-states: size(string);
 }
 
-.root:appearance(T1.1) {
+.root:size(medium) {
   -st-mixin: LabelStyle(
     fontFamily value(fontLight),
     fontSize 16px,
@@ -27,7 +27,7 @@
   );
 }
 
-.root:appearance(T3.1) {
+.root:size(small) {
   -st-mixin: LabelStyle(
     fontFamily value(fontLight),
     fontSize 14px,
