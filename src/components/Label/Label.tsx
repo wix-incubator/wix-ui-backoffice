@@ -8,9 +8,17 @@ export type Appearance = 'T1.1' | 'T3.1';
 export interface LabelProps {
   /** typography of the label */
   appearance?: Appearance;
+  children?: string;
+  for?: string;
+  id?: string;
 }
 
-const defaultProps: LabelProps = {appearance: 'T1.1'};
+const defaultProps: LabelProps = {
+  appearance: 'T1.1',
+  children: '',
+  for: '',
+  id: ''
+};
 
 export const Label = withStylable<CoreLabelProps, LabelProps>(
   CoreLabel,
