@@ -25,10 +25,31 @@
 }
 
 .root::popoverContent {
-  border: 3 px solid black;
+  border-radius: 8px;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  box-shadow:
+  0 6px 6px 0 rgba(22, 45, 60, 0.06),
+  0 0 18px 0 rgba(22, 45, 60, 0.12);
+  
+  border: none;
+  opacity: 0.95;
+  
+  /* max-width: 230px; */
+  background: value(brandSecondary);
 }
 
-.tooltipContent {
+.innerContent {
+  font-family: value(fontRoman);
+  text-align: center;
+  color: value(backgroundSecondary);
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  line-height: 1.29;
+  
+}
+/* .tooltipContent {
   font-family: value(fontRoman);
   border-radius: 8px;
   padding: 12px 24px;
@@ -48,7 +69,7 @@
   line-height: 18px;
   text-align: center;
   max-width: 230px;
-}
+} */
 
 .root:bounce::popover {
   animation-duration: 1.15s;
