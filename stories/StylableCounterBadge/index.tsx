@@ -32,7 +32,7 @@ class ControlleCounterdBadgeExample extends React.Component<any, any> {
           <CounterBadge
             skin={this.state.skin}
             dataHook="storybook-counterBadge"
-            >
+          >
             {this.state.children === 'Facebook' ? <Facebook/> : this.state.children}
           </CounterBadge>
         </div>

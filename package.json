@@ -61,6 +61,7 @@
     "stylable-integration": "latest",
     "surge-github-autorelease": "^1.0.23",
     "ts-jest": "^22.0.3",
+    "tslint-react": "^3.5.1",
     "typescript": "^2.6.2",
     "wait-for-cond": "^1.5.1",
     "wix-storybook-utils": "latest",

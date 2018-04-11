@@ -1,5 +1,15 @@
 {
   "extends": [
-    "tslint-config-wix"
-  ]
+    "tslint-config-wix",
+    "tslint-react"
+  ],
+  "rules": {
+    "space-in-brackets": ["error", "always"],
+    "array-bracket-spacing": [true, "never"],
+    "comma-dangle": ["error", "never"],
+    "jsx-no-lambda": false,
+    "jsx-no-multiline-js": false,
+    "jsx-boolean-value": false,
+    "arrow-parens": [true, "ban-single-arg-parens"]
+  }
 }
