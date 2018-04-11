@@ -43,7 +43,9 @@ export const GlobalHelper: GlobalHelperType = (props) => {
           {children}
         </Popover.Element>
         <Popover.Content>
-          {content}
+          <div className={style.innerContent}>
+            {content}
+          </div>
         </Popover.Content>
     </GlobalHelperBO>
   );
