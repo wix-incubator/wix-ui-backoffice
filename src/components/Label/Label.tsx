@@ -23,6 +23,6 @@ const defaultProps: LabelProps = {
 export const Label = withStylable<CoreLabelProps, LabelProps>(
   CoreLabel,
   style,
-  ({appearance}) => ({appearance}),
+  ({size}) => ({size}),
   defaultProps
 );

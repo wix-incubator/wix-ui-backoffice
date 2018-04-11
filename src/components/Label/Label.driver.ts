@@ -3,7 +3,7 @@ import {StylableDOMUtil} from 'stylable/test-utils';
 import style from './Label.st.css';
 
 export const labelDriverFactory = ({element}) => {
-  const coreLabelDriver = CoreLabelDriverFactory({element});
+  const coreLabelDriver = CoreLabelDriverFactory({element, eventTrigger: null});
   const stylableDOMUtil = new StylableDOMUtil(style);
 
   return {
