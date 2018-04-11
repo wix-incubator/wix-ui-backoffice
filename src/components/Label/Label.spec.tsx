@@ -13,14 +13,14 @@ describe('Label', () => {
   const createDriver = createDriverFactory(labelDriverFactory);
 
   describe('appearance prop', () => {
-    it('should be T1.1 by default', () => {
+    it('should be medium by default', () => {
       const wrapper = createDriver(<Label>Hello</Label>);
-      expect(wrapper.getAppearance()).toBe('T1.1');
+      expect(wrapper.getAppearance()).toBe('medium');
     });
 
-    it('should be T3.1', () => {
-      const wrapper = createDriver(<Label appearance={'T3.1'}>Hello</Label>);
-      expect(wrapper.getAppearance()).toBe('T3.1');
+    it('should be small', () => {
+      const wrapper = createDriver(<Label appearance="small">Hello</Label>);
+      expect(wrapper.getAppearance()).toBe('small');
     });
   });
 
