@@ -55,7 +55,7 @@ class ControlleTextExample extends React.Component<any, any> {
                 ellipsis={this.state.ellipsis}
                 forceHideTitle={this.state.forceHideTitle}
                 dataHook="storybook-text"
-                >
+              >
                 {this.state.children}
               </Text>
             </div>

@@ -4,9 +4,15 @@ import {Tooltip} from '../../src/components/Tooltip';
 
 function createTooltip(direction, bounce) {
   return (
-    <Tooltip data-hook={`story-tooltip-${direction}`} placement={direction}
-             minWidth={'100px'} textAlign={'center'} padding={'5px'}
-             content={'I am a message'} bounce={bounce}>
+    <Tooltip
+      data-hook={`story-tooltip-${direction}`}
+      placement={direction}
+      minWidth={'100px'}
+      textAlign={'center'}
+      padding={'5px'}
+      content={'I am a message'}
+      bounce={bounce}
+    >
       <span>I need a tooltip</span>
     </Tooltip>
   );

@@ -42,7 +42,7 @@ class ControlleHeadingExample extends React.Component<any, any> {
                 dataHook="storybook-heading"
                 ellipsis={this.state.ellipsis}
                 forceHideTitle={this.state.forceHideTitle}
-                >
+              >
                 {this.state.children}
               </Heading>
             </div>

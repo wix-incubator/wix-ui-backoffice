@@ -45,7 +45,7 @@ class ControlledBadgeExample extends React.Component<any, any> {
             prefixIcon={this.state.prefixIcon === 'ArrowDown' ? <ChevronDown/> : null}
             suffixIcon={this.state.suffixIcon === 'ArrowDown' ? <ChevronDown/> : null}
             dataHook="storybook-badge"
-            >
+          >
             {this.state.children}
           </Badge>
         </div>

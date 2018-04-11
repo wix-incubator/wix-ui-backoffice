@@ -60,7 +60,7 @@ export class ToggleSwitch extends React.PureComponent<ToggleSwitchProps & CoreTo
         {...desiredProps}
         checkedIcon={checkedIconMap[this.props.size]}
         uncheckedIcon={uncheckedIconMap[this.props.size]}
-        />
+      />
     );
   }
 }
