@@ -1,6 +1,10 @@
-:import {
+/* :import {
   -st-from: "wix-ui-core/index.st.css";
   -st-named: Tooltip;
+} */
+:import {
+  -st-from: "wix-ui-core/dist/src/baseComponents/Popover/Popover.st.css";
+  -st-default: Popover;
 }
 
 :import {
@@ -15,12 +19,13 @@
 
 .root {
   -st-states: bounce, placement-right, placement-left, placement-top, placement-bottom;
-  -st-extends: Tooltip;
+  /* -st-extends: Tooltip; */
+  -st-extends: Popover;
   white-space: nowrap;
 }
 
 .root::popoverContent {
-  border: none;
+  border: 3 px solid black;
 }
 
 .tooltipContent {
