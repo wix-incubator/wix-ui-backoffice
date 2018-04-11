@@ -12,19 +12,15 @@ import {labelTestkitFactory as enzymeLabelTestkitFactory} from '../../testkit/en
 describe('Label', () => {
   const createDriver = createDriverFactory(labelDriverFactory);
 
-  const appearances = ['T3.1'];
-
   describe('appearance prop', () => {
     it('should be T1.1 by default', () => {
       const wrapper = createDriver(<Label>Hello</Label>);
       expect(wrapper.getAppearance()).toBe('T1.1');
     });
 
-    appearances.forEach((appearance: Appearance) => {
-      it(`should be ${appearance}`, () => {
-        const wrapper = createDriver(<Label appearance={appearance}>Hello</Label>);
-        expect(wrapper.getAppearance()).toBe(appearance);
-      });
+    it('should be T3.1', () => {
+      const wrapper = createDriver(<Label appearance={'T3.1'}>Hello</Label>);
+      expect(wrapper.getAppearance()).toBe('T3.1');
     });
   });
 
