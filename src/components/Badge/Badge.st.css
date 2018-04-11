@@ -1,6 +1,11 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: Badge, BadgeStyle;
+  -st-from: "wix-ui-core/dist/src/components/StylableBadge/BadgeStyle.st.css";
+  -st-default: BadgeStyle;
+}
+
+:import {
+  -st-from: "wix-ui-core/dist/src/components/StylableBadge/Badge.st.css";
+  -st-default: Badge;
 }
 
 :import {
@@ -21,6 +26,11 @@
 .root >:not(:last-child) {
   margin-right: 6px;
 }
+/* 
+:global([dir="rtl"]) .root >:not(:last-child) {
+  margin-left: 6px;
+  margin-right: 0;
+} */
 
 .prefix, .suffix {
   width: 12px;

@@ -3,10 +3,10 @@ import * as PropTypes from 'prop-types';
 import {
   ToggleSwitch as CoreToggleSwitch,
   ToggleSwitchProps as CoreToggleSwitchProps
-} from 'wix-ui-core/StylableToggleSwitch';
+} from 'wix-ui-core/ToggleSwitch';
 import style from './ToggleSwitch.st.css';
 import {Skin, Size, SKINS, SIZES} from './constants';
-import {ToggleOff, ToggleOn, SmallToggleOff, SmallToggleOn} from 'wix-ui-icons-common/system';
+import {ToggleOff, ToggleOn, ToggleOffSmall, ToggleOnSmall} from 'wix-ui-icons-common/system';
 import {withStylable} from 'wix-ui-core/withStylable';
 import * as omit from 'lodash/omit';
 
@@ -22,13 +22,13 @@ const defaultProps = {
 
 const checkedIconMap = {
   [SIZES.small]: undefined,
-  [SIZES.medium]: <SmallToggleOn/>,
+  [SIZES.medium]: <ToggleOnSmall/>,
   [SIZES.large]: <ToggleOn/>
 };
 
 const uncheckedIconMap = {
   [SIZES.small]: undefined,
-  [SIZES.medium]: <SmallToggleOff/>,
+  [SIZES.medium]: <ToggleOffSmall/>,
   [SIZES.large]: <ToggleOff/>
 };
 

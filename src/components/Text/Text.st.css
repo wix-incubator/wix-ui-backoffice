@@ -1,0 +1,80 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/components/StylableText/Text.st.css";
+  -st-default: Text;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: 
+    primaryText, secondaryText, primaryLightText, secondaryLightText,
+    success, danger, premium;
+}
+
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontLight, fontRoman;
+}
+
+.root {
+  -st-extends: Text;
+  -st-states: 
+    size(enum(small, medium)),
+    secondary,
+    skin(enum(standard, success, error, premium)),
+    light,
+    bold;
+
+  font-family: value(fontLight);
+}
+
+.root:not(:ellipsis) {
+  white-space: pre-line;
+}
+
+.root:size(medium), .root:size(medium):secondary {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.root:size(small), .root:size(small):secondary {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.root:size(medium), .root:size(small) {
+  color: value(primaryText);
+}
+
+.root:size(medium):light, .root:size(small):light {
+  color: value(primaryLightText);
+}
+
+.root:size(medium):secondary, .root:size(small):secondary {
+  color: value(secondaryText);
+}
+
+.root:size(medium):secondary:light, .root:size(small):secondary:light {
+  color: value(secondaryLightText);
+}
+
+.root:skin(success),
+.root:skin(success):light,
+.root:skin(success):secondary {
+  color: value(success);
+}
+
+.root:skin(error),
+.root:skin(error):light,
+.root:skin(error):secondary {
+  color: value(danger);
+}
+
+.root:skin(premium),
+.root:skin(premium):light,
+.root:skin(premium):secondary {
+  color: value(premium);
+}
+
+.root:bold {
+  font-family: value(fontRoman);
+}

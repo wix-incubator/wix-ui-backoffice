@@ -1,5 +1,11 @@
 import {Skin} from './constants';
-import {D20, B10, R10, G10, Color} from '../../colors';
+
+type Color = string;
+
+const D20: Color = '#32536A';
+const B10: Color = '#3899ec';
+const R10: Color = '#ee5951';
+const G10: Color = '#60bc57';
 
 const typeToColor: { [key: string]: Color} = {
   [Skin.DEFAULT]: D20,

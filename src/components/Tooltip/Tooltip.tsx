@@ -2,11 +2,13 @@ import * as React from 'react';
 import {Tooltip as CoreTooltip, TooltipProps as CoreTooltipProps} from 'wix-ui-core/Tooltip';
 import style from './Tooltip.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
+import {TextAlignProperty} from 'csstype';
 
 const noop = () => null;
 
 export interface TooltipProps {
-  textAlign?: string;
+  className?: string;
+  textAlign?: TextAlignProperty;
   theme?: 'light' | 'dark' | 'error';
   bounce?: boolean;
   disabled?: boolean;
@@ -58,6 +60,6 @@ const TooltipBO = withStylable<CoreTooltipProps, TooltipProps>(
 
 export const Tooltip = (props: CoreTooltipProps & TooltipProps) => {
   const {minWidth, textAlign, maxWidth, color, lineHeight, zIndex, padding, content, ...rest} = props;
-  const wrappedContent = <div style={{minWidth, textAlign, maxWidth, color, lineHeight, zIndex, padding}}>{content}</div>;
+  const wrappedContent = <div className={style.tooltipContent} style={{minWidth, textAlign, maxWidth, color, lineHeight, zIndex, padding}}>{content}</div>;
   return <TooltipBO {...rest} content={wrappedContent} />;
 };

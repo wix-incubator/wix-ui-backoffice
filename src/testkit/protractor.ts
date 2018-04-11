@@ -12,6 +12,9 @@ export const headingTestkitFactory = protractorTestkitFactoryCreator(headingDriv
 import {uiTextDriverFactory} from '../components/StylableUIText/UIText.protractor.driver';
 export const uiTextTestkitFactory = protractorTestkitFactoryCreator(uiTextDriverFactory);
 
+import {textDriverFactory} from '../components/Text/Text.protractor.driver';
+export const textTestkitFactory = protractorTestkitFactoryCreator(textDriverFactory);
+
 import {autocompleteDriverFactory} from '../components/Autocomplete/Autocomplete.protractor.driver';
 export const autocompleteTestkitFactory = protractorTestkitFactoryCreator(autocompleteDriverFactory);
 
@@ -21,8 +24,8 @@ export const toggleSwitchTestkitFactory = protractorTestkitFactoryCreator(toggle
 import {counterBadgeDriverFactory as stylableCounterBadgeDriverFactory} from '../components/StylableCounterBadge/CounterBadge.protractor.driver';
 export const stylableCounterBadgeTestkitFactory = protractorTestkitFactoryCreator(stylableCounterBadgeDriverFactory);
 
-import {addressInputDriverFactory} from '../components/AddressInput/AddressInput.protractor.driver';
-export const addressInputTestkitFactory = protractorTestkitFactoryCreator(addressInputDriverFactory);
+import {labelWithOptionsDriverFactory} from '../components/LabelWithOptions/LabelWithOptions.protractor.driver';
+export const labelWithOptionsTestkitFactory = protractorTestkitFactoryCreator(labelWithOptionsDriverFactory);
 
 import {labelDriverFactory} from '../components/Label/Label.protractor.driver';
 export const labelTestkitFactory = protractorTestkitFactoryCreator(labelDriverFactory);

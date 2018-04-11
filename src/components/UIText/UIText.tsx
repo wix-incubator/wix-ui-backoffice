@@ -26,8 +26,6 @@ export interface UITextProps extends CoreTextProps {
 
 export class UIText extends React.PureComponent<UITextProps> {
   static propTypes = {
-    ...CoreText.propTypes as any,
-
     /** typography of the text */
     appearance: oneOf([
       'T1', 'T1.1', 'T1.2', 'T1.3', 'T1.4', 'T1.5', 'T1.6', 'T1.7',

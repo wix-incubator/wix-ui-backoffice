@@ -1,16 +1,48 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: Tooltip;
+  -st-from: "wix-ui-core/dist/src/components/Tooltip/Tooltip.st.css";
+  -st-default: Tooltip;
 }
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: tableSelected, main, mainHover, disabled, successNotifications, dangerNotifications, ctaHover, danger, successHover, dangerHover, disabledDividers;
+  -st-named: tableSelected, brandSecondary, backgroundSecondary, main, mainHover, disabled, successNotifications, dangerNotifications, ctaHover, danger, successHover, dangerHover, disabledDividers;
+}
+
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontRoman;
 }
 
 .root {
   -st-states: bounce, placement-right, placement-left, placement-top, placement-bottom;
   -st-extends: Tooltip;
+  white-space: nowrap;
+}
+
+.root::popoverContent {
+  border: none;
+}
+
+.tooltipContent {
+  font-family: value(fontRoman);
+  border-radius: 8px;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 1.29;
+  box-shadow:
+    0 6px 6px 0 rgba(22, 45, 60, 0.06),
+    0 0 18px 0 rgba(22, 45, 60, 0.12);
+
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+
+  color: value(backgroundSecondary);
+  background: value(brandSecondary);
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  max-width: 230px;
 }
 
 .root:bounce::popover {

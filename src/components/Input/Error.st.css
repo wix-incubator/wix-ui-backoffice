@@ -1,0 +1,20 @@
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named:
+    backgroundSecondary,
+    danger;
+}
+
+.root {
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: value(danger);
+}
+
+.root svg {
+  fill: value(backgroundSecondary);
+}

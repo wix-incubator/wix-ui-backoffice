@@ -1,1 +1,1 @@
-export {toggleSwitchDriverFactory} from 'wix-ui-core/dist/src/components/StylableToggleSwitch/ToggleSwitch.protractor.driver';
+export {toggleSwitchDriverFactory} from 'wix-ui-core/dist/src/components/ToggleSwitch/ToggleSwitch.protractor.driver';

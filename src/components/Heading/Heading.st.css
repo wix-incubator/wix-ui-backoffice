@@ -1,6 +1,11 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: Text, TextStyle;
+  -st-from: "wix-ui-core/dist/src/components/StylableText/TextStyle.st.css";
+  -st-default: TextStyle;
+}
+
+:import {
+  -st-from: "wix-ui-core/dist/src/components/StylableText/Text.st.css";
+  -st-default: Text;
 }
 
 :import {
@@ -15,28 +20,10 @@
   
 .root {
   -st-extends: Text;
-  -st-states: appearance(string), skin(string);
+  -st-states: appearance(string), light;
 }
 
-.root:appearance(H1):skin(dark) {
-  -st-mixin: TextStyle(
-    color value(headingText),
-    fontFamily value(fontUltraThin),
-    fontSize 48px,
-    lineHeight 54px
-  );
-}
-
-.root:appearance(H1):skin(light) {
-  -st-mixin: TextStyle(
-    color value(lightHeadingText),
-    fontFamily value(fontUltraThin),
-    fontSize 48px,
-    lineHeight 54px
-  );
-}
-
-.root:appearance(H2):skin(dark) {
+.root:appearance(H1) {
   -st-mixin: TextStyle(
     color value(headingText),
     fontFamily value(fontThin),
@@ -45,7 +32,7 @@
   );
 }
 
-.root:appearance(H2):skin(light) {
+.root:appearance(H1):light {
   -st-mixin: TextStyle(
     color value(lightHeadingText),
     fontFamily value(fontThin),
@@ -54,25 +41,25 @@
   );
 }
 
-.root:appearance(H3):skin(dark) {
+.root:appearance(H2) {
   -st-mixin: TextStyle(
     color value(headingText),
     fontFamily value(fontLight),
     fontSize 20px,
-    lineHeight 36px
+    lineHeight 24px
   );
 }
 
-.root:appearance(H3):skin(light) {
+.root:appearance(H2):light {
   -st-mixin: TextStyle(
     color value(lightHeadingText),
     fontFamily value(fontLight),
     fontSize 20px,
-    lineHeight 36px
+    lineHeight 24px
   );
 }
 
-.root:appearance(H4):skin(dark) {
+.root:appearance(H3) {
   -st-mixin: TextStyle(
     color value(subheadingText),
     fontFamily value(fontLight),
@@ -83,7 +70,7 @@
   );
 }
 
-.root:appearance(H4):skin(light) {
+.root:appearance(H3):light {
   -st-mixin: TextStyle(
     color value(lightSubheadingText),
     fontFamily value(fontLight),
@@ -94,24 +81,24 @@
   );
 }
 
-.root:appearance(H5):skin(dark) {
+.root:appearance(H4) {
   -st-mixin: TextStyle(
     color value(subheadingText),
     fontFamily value(fontLight),
     fontSize 10px,
-    lineHeight 20px,
+    lineHeight 18px,
     textTransform uppercase,
-    letterSpacing 2px
+    letterSpacing 1px
   );
 }
 
-.root:appearance(H5):skin(light) {
+.root:appearance(H4):light {
   -st-mixin: TextStyle(
     color value(lightSubheadingText),
     fontFamily value(fontLight),
     fontSize 10px,
-    lineHeight 20px,
+    lineHeight 18px,
     textTransform uppercase,
-    letterSpacing 2px
+    letterSpacing 1px
   );
 }

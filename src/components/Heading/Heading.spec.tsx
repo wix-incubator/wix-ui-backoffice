@@ -15,28 +15,28 @@ describe('Heading', () => {
   describe('appearance prop', () => {
     it('should render a h1 tag by default', () => {
       const wrapper = createDriver(<Heading>Hello</Heading>);
-      expect(wrapper.getTagName()).toBe('H1');
+      expect(wrapper.getTagName()).toBe('h1');
       expect(wrapper.getAppearance()).toBe('H1');
     });
 
-    ['H2', 'H3', 'H4', 'H5'].forEach((appearance: Appearance) => {
+    ['H2', 'H3', 'H4'].forEach((appearance: Appearance) => {
       it(`should render a ${appearance.toLowerCase()} tag`, () => {
         const wrapper = createDriver(<Heading appearance={appearance}>Hello</Heading>);
-        expect(wrapper.getTagName()).toBe(appearance);
+        expect(wrapper.getTagName()).toBe(appearance.toLocaleLowerCase());
         expect(wrapper.getAppearance()).toBe(appearance);
       });
     });
   });
 
-  describe('skin prop', () => {
+  describe('light prop', () => {
     it('should be dark by default', () => {
       const wrapper = createDriver(<Heading>Hello</Heading>);
-      expect(wrapper.getSkin()).toBe('dark');
+      expect(wrapper.isLight()).toBe(false);
     });
 
     it('should be light', () => {
-        const wrapper = createDriver(<Heading skin="light">Hello</Heading>);
-        expect(wrapper.getSkin()).toBe('light');
+        const wrapper = createDriver(<Heading light>Hello</Heading>);
+        expect(wrapper.isLight()).toBe(true);
       });
   });
 

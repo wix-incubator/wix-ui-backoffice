@@ -10,6 +10,6 @@ export const headingDriverFactory = ({element}) => {
   return {
     ...coreTextDriver,
     getAppearance: () => stylableDOMUtil.getStyleState(element, 'appearance'),
-    getSkin: () => stylableDOMUtil.getStyleState(element, 'skin')
+    isLight: () => stylableDOMUtil.hasStyleState(element, 'light'),
   };
 };

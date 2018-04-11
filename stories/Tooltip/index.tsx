@@ -6,7 +6,7 @@ function createTooltip(direction, bounce) {
   return (
     <Tooltip data-hook={`story-tooltip-${direction}`} placement={direction}
              minWidth={'100px'} textAlign={'center'} padding={'5px'}
-             content={<p>This is my tooltip</p>} bounce={bounce}>
+             content={'I am a message'} bounce={bounce}>
       <span>I need a tooltip</span>
     </Tooltip>
   );

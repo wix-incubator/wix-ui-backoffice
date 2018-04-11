@@ -1,11 +1,11 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: Autocomplete;
+  -st-from: "wix-ui-core/dist/src/components/Autocomplete/Autocomplete.st.css";
+  -st-default: Autocomplete;
 }
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: primaryText, mainHover, main, disabledText, inputHover, primaryLightText, inputBorderColor, inputDisabledBorderColor;
+  -st-named: primaryText, mainHover, main, disabledText, inputHover, primaryLightText, inputBorderColor, inputDisabledBorderColor, inputDisabledBorderColor, inputDisabledHoverBorderColor, danger, backgroundSecondary;
 }
 
 :import {
@@ -18,17 +18,24 @@
   -st-named: input-large, input-medium, input-small;
 }
 
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontRoman;
+}
+
 .root {
   -st-extends: Autocomplete;
   -st-states: size(enum(large, medium, small));
+  font-family: value(fontRoman);
+  width: 100%;
 }
 
-.root::contentContainer {
+.root > [data-hook="popover-content"] {
   border: none;
   border-radius: 8px;
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
-  max-width: 250px;
-  min-width: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .root::inputComponent {
@@ -47,7 +54,7 @@
   -st-mixin: input-small;
 }
 
-.root::option {
+.root::dropdownContent::dropdownOption {
   white-space: nowrap;
   padding: 8px 20px;
   text-overflow: ellipsis;
@@ -56,25 +63,25 @@
   overflow: hidden;
 }
 
-.root::option:hovered {
+.root::dropdownContent::dropdownOption:hovered {
   background: value(inputHover);
 }
 
-.root::option:selected {
+.root::dropdownContent::dropdownOption:selected {
   background: value(main);
   color: value(primaryLightText);
 }
 
-.root::option:selected:hovered {
+.root::dropdownContent::dropdownOption:selected:hovered {
   background: value(mainHover);
   color: value(primaryLightText);
 }
 
-.root::option:disabled {
+.root::dropdownContent::dropdownOption:disabled {
   color: value(disabledText);
 }
 
-.root::option:not(:selectable) {
+.root::dropdownContent::dropdownOption:not(:selectable) {
   padding: 0;
 }
 
@@ -88,22 +95,16 @@
   padding: 8px 20px;
 }
 
-.root::icon {
+.arrowIcon {
   width: 24px;
   height: 24px;
-  margin: 0 -30px -7px;
   fill: value(inputBorderColor);
 }
 
-.root::inputComponent::nativeInput {
-  padding-right: 30px;
-}
-
-.root:disabled::icon {
+.root:disabled .arrowIcon {
   fill: value(inputDisabledBorderColor);
 }
 
-/* temp */
-.root:error::icon {
-  fill: red;
+.root:disabled:hover .arrowIcon {
+  fill: value(inputDisabledHoverBorderColor);
 }

@@ -8,6 +8,11 @@
   -st-named: Input;
 }
 
+:import {
+  -st-from: "wix-ui-core/dist/src/mixins/calc";
+  -st-default: calc;
+}
+
 :vars {
   largeFont: 22px;
   medFont: 16px;

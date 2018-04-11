@@ -15,6 +15,9 @@ export const checkboxTestkitFactory = enzymeTestkitFactoryCreator(checkboxDriver
 import {uiTextDriverFactory} from '../components/StylableUIText/UIText.driver';
 export const uiTextTestkitFactory = enzymeTestkitFactoryCreator(uiTextDriverFactory);
 
+import {textDriverFactory} from '../components/Text/Text.driver';
+export const textTestkitFactory = enzymeTestkitFactoryCreator(textDriverFactory);
+
 import {autocompleteDriverFactory} from '../components/Autocomplete/Autocomplete.driver';
 export const autocompleteTestkitFactory = enzymeTestkitFactoryCreator(autocompleteDriverFactory);
 
@@ -24,8 +27,8 @@ export const toggleSwitchTestkitFactory = enzymeTestkitFactoryCreator(toggleSwit
 import {counterBadgeDriverFactory as stylableCounterBadgeDriverFactory} from '../components/StylableCounterBadge/CounterBadge.driver';
 export const stylableCounterBadgeTestkitFactory = enzymeTestkitFactoryCreator(stylableCounterBadgeDriverFactory);
 
-import {addressInputDriverFactory} from '../components/AddressInput/AddressInput.driver';
-export const addressInputTestkitFactory = enzymeTestkitFactoryCreator(addressInputDriverFactory);
+import {labelWithOptionsDriverFactory} from '../components/LabelWithOptions/LabelWithOptions.driver';
+export const labelWithOptionsTestkitFactory = enzymeTestkitFactoryCreator(labelWithOptionsDriverFactory);
 
 import {labelDriverFactory} from '../components/Label/Label.driver';
 export const labelTestkitFactory = enzymeTestkitFactoryCreator(labelDriverFactory);

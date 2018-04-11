@@ -1,6 +1,11 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: Input;
+  -st-from: "wix-ui-core/dist/src/components/Input/Input.st.css";
+  -st-default: Input;
+}
+
+:import {
+  -st-from: "../../colors.st.css";
+  -st-named: B40;
 }
 
 :import {
@@ -14,7 +19,14 @@
     inputDisabledColor,
     inputDisabledBorderColor,
     inputDisabledHoverBorderColor,
+    backgroundSecondary,
+    disabledText,
     danger;
+}
+
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontRoman;
 }
 
 :import {
@@ -22,58 +34,61 @@
   -st-named: input-large, input-medium, input-small;
 }
 
-:vars {
-  borderRadius: 6px;
-  borderStyle: solid;
-  borderWidth: 1px;
-  padding: 0 12px;
-}
-
 .root {
   -st-extends: Input;
   -st-states: size(enum(large, medium, small));
 
-  display: inline-block;
+  display: flex;
+  align-items: center;
   position: relative;
   box-sizing: border-box;
   color: value(primaryText);
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid value(inputBorderColor);
+  background-color: value(inputBackground);
+  padding: 0 6px;
 }
 
-.root:error::nativeInput,
-.root:error:focus::nativeInput {
+.root:error,
+.root:error:focus {
   border-color: value(danger);
 }
 
-.root:hover::nativeInput {
+.root:hover {
   background-color: value(inputHover);
 }
 
-.root:disabled::nativeInput {
+.root:disabled {
   color: value(inputDisabledColor);
   border-color: value(inputDisabledBorderColor);
 }
 
-.root:disabled:hover::nativeInput {
+.root:disabled:hover {
   background-color: value(inputBackground);
   border-color: value(inputDisabledHoverBorderColor);
 }
 
-.root:focus::nativeInput {
+.root:focus {
   border-color: value(inputFocusBorderColor);
 }
 
 .root::nativeInput {
-  background-color: value(inputBackground);
-  border-color: value(inputBorderColor);
-  border-radius: value(borderRadius);
-  border-style: value(borderStyle);
-  border-width: value(borderWidth);
-  box-sizing: border-box;
-  color: inherit;
+  background-color: transparent;
   outline: none;
-  padding: value(padding);
   width: 100%;
+  font-family: value(fontRoman);
+  border: none;
+  padding: 0 6px;
 }
+
+.root::nativeInput::-webkit-input-placeholder { color: value(disabledText); }
+.root::nativeInput:-moz-placeholder           { color: value(disabledText); }
+.root::nativeInput::-moz-placeholder          { color: value(disabledText); }
+.root::nativeInput:-ms-input-placeholder      { color: value(disabledText); }
+
+.root::nativeInput::selection                 { background: value(B40); }
+.root::nativeInput:-moz-selection             { background: value(B40); }
 
 .root:size(large) {
   -st-mixin: input-large;

@@ -15,6 +15,9 @@ export const checkboxTestkitFactory = testkitFactoryCreator(checkboxDriverFactor
 import {uiTextDriverFactory} from '../components/StylableUIText/UIText.driver';
 export const uiTextTestkitFactory = testkitFactoryCreator(uiTextDriverFactory);
 
+import {textDriverFactory} from '../components/Text/Text.driver';
+export const textTestkitFactory = testkitFactoryCreator(textDriverFactory);
+
 import {autocompleteDriverFactory} from '../components/Autocomplete/Autocomplete.driver';
 export const autocompleteTestkitFactory = testkitFactoryCreator(autocompleteDriverFactory);
 
@@ -24,8 +27,8 @@ export const toggleSwitchTestkitFactory = testkitFactoryCreator(toggleSwitchDriv
 import {counterBadgeDriverFactory as stylableCounterBadgeDriverFactory} from '../components/StylableCounterBadge/CounterBadge.driver';
 export const stylableCounterBadgeTestkitFactory = testkitFactoryCreator(stylableCounterBadgeDriverFactory);
 
-import {addressInputDriverFactory} from '../components/AddressInput/AddressInput.driver';
-export const addressInputTestkitFactory = testkitFactoryCreator(addressInputDriverFactory);
+import {labelWithOptionsDriverFactory} from '../components/LabelWithOptions/LabelWithOptions.driver';
+export const labelWithOptionsTestkitFactory = testkitFactoryCreator(labelWithOptionsDriverFactory);
 
 import {labelDriverFactory} from '../components/Label/Label.driver';
 export const labelTestkitFactory = testkitFactoryCreator(labelDriverFactory);
