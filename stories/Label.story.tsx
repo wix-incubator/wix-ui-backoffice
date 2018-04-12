@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Label} from '../src/components/Label';
 import * as LabelSource from '!raw-loader!../src/components/Label/Label.tsx';
 
