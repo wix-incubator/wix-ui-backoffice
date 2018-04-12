@@ -5,7 +5,7 @@
   
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: secondaryLabel;
+  -st-named: secondaryText;
 }
 
 :import {
@@ -14,24 +14,19 @@
 }
 
 .root {
-  -st-extends: Label;
+  -st-extends: Label, LabelStyle;
   -st-states: size(enum(small, medium));
+  color: value(secondaryText);
+  font-family: value(fontLight);
 }
 
 .root:size(medium) {
-  -st-mixin: LabelStyle(
-    fontFamily value(fontLight),
-    fontSize 16px,
-    lineHeight 24px,
-    color value(secondaryLabel)
-  );
+  font-size: 16px;
+  line-height: 24px;
+  
 }
 
 .root:size(small) {
-  -st-mixin: LabelStyle(
-    fontFamily value(fontLight),
-    fontSize 14px,
-    lineHeight 18px,
-    color value(secondaryLabel)
-  );
+  font-size: 14px;
+  line-height: 18px;
 }
