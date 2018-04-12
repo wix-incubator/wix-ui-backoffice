@@ -35,7 +35,7 @@ class ControlledLabelExample extends React.Component<any, any> {
               <Label
                 size={this.state.size}
                 dataHook="storybook-label"
-                >
+              >
                 {this.state.children}
               </Label>
             </div>
