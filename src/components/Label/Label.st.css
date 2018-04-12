@@ -1,0 +1,31 @@
+:import {
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Label, LabelStyle;
+}
+  
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: secondaryText;
+}
+
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontLight;
+}
+
+.root {
+  -st-extends: Label, LabelStyle;
+  -st-states: size(enum(small, medium));
+  color: value(secondaryText);
+  font-family: value(fontLight);
+}
+
+.root:size(medium) {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.root:size(small) {
+  font-size: 14px;
+  line-height: 18px;
+}

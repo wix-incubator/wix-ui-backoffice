@@ -29,3 +29,6 @@ export const stylableCounterBadgeTestkitFactory = enzymeTestkitFactoryCreator(st
 
 import {labelWithOptionsDriverFactory} from '../components/LabelWithOptions/LabelWithOptions.driver';
 export const labelWithOptionsTestkitFactory = enzymeTestkitFactoryCreator(labelWithOptionsDriverFactory);
+
+import {labelDriverFactory} from '../components/Label/Label.driver';
+export const labelTestkitFactory = enzymeTestkitFactoryCreator(labelDriverFactory);
