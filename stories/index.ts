@@ -9,5 +9,6 @@ require('./LabelWithOptions.story');
 require('./Text').story();
 require('./ToggleSwitch').story();
 require('./Tooltip').story();
+require('./GlobalHelper');
 require('./UIText').story();
 require('./StylableUIText').story();
