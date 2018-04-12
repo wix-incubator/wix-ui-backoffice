@@ -15,7 +15,7 @@
 
 .root {
   -st-extends: Label;
-  -st-states: size(string);
+  -st-states: size(enum(small, medium));
 }
 
 .root:size(medium) {

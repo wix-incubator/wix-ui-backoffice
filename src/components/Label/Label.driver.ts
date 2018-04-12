@@ -2,12 +2,12 @@ import {labelDriverFactory as CoreLabelDriverFactory} from 'wix-ui-core/dist/src
 import {StylableDOMUtil} from 'stylable/test-utils';
 import style from './Label.st.css';
 
-export const labelDriverFactory = ({element}) => {
-  const coreLabelDriver = CoreLabelDriverFactory({element, eventTrigger: null});
+export const labelDriverFactory = ({element, eventTrigger}) => {
+  const coreLabelDriver = CoreLabelDriverFactory({element, eventTrigger});
   const stylableDOMUtil = new StylableDOMUtil(style);
 
   return {
     ...coreLabelDriver,
-    getAppearance: () => stylableDOMUtil.getStyleState(element, 'appearance')
+    getAppearance: () => stylableDOMUtil.getStyleState(element, 'size')
   };
 };
