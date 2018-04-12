@@ -1,7 +1,3 @@
-/* :import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: Tooltip;
-} */
 :import {
   -st-from: "wix-ui-core/dist/src/baseComponents/Popover/Popover.st.css";
   -st-default: Popover;
@@ -9,7 +5,7 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: tableSelected, brandSecondary, backgroundSecondary, main, mainHover, disabled, successNotifications, dangerNotifications, ctaHover, danger, successHover, dangerHover, disabledDividers;
+  -st-named: brandSecondary, backgroundSecondary
 }
 
 :import {
@@ -24,6 +20,9 @@
   white-space: nowrap;
 }
 
+/* popoverContent and innerContent are taken from Tooltip.tooltipContent,
+ * but I split them.
+*/
 .root::popoverContent {
   border-radius: 8px;
   padding: 12px 24px;
@@ -47,29 +46,7 @@
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
   line-height: 1.29;
-  
 }
-/* .tooltipContent {
-  font-family: value(fontRoman);
-  border-radius: 8px;
-  padding: 12px 24px;
-  box-sizing: border-box;
-  font-size: 14px;
-  line-height: 1.29;
-  box-shadow:
-    0 6px 6px 0 rgba(22, 45, 60, 0.06),
-    0 0 18px 0 rgba(22, 45, 60, 0.12);
-
-  word-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-
-  color: value(backgroundSecondary);
-  background: value(brandSecondary);
-  font-size: 14px;
-  line-height: 18px;
-  text-align: center;
-  max-width: 230px;
-} */
 
 .root:bounce::popover {
   animation-duration: 1.15s;
