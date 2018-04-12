@@ -1,3 +1,4 @@
+import {FloatingHelperDriver} from './../../storybook-static/src/components/FloatingHelper/FloatingHelper.driver.d';
 import {protractorTestkitFactoryCreator} from 'wix-ui-test-utils/protractor';
 
 import {counterBadgeDriverFactory, CounterBadgeDriver} from '../components/CounterBadge/CounterBadge.protractor.driver';
@@ -39,3 +40,6 @@ export {LabelWithOptionsDriver};
 import {labelDriverFactory, LabelDriver} from '../components/Label/Label.protractor.driver';
 export const labelTestkitFactory = protractorTestkitFactoryCreator<LabelDriver>(labelDriverFactory);
 export {LabelDriver};
+
+import {globalHelperDriverFactory, GlobalHelperDriver} from '../components/GlobalHelper/GlobalHelper.protractor.driver';
+export const globalHelperTestkitFactory = protractorTestkitFactoryCreator<GlobalHelperDriver>(globalHelperDriverFactory);
