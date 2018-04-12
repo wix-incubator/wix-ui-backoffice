@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {labelDriverFactory} from './Label.driver';
 import {Label} from './';
-import {Size} from './Label';
+import {Size} from './constants';
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
 import {isEnzymeTestkitExists} from 'wix-ui-test-utils/enzyme';
 import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
