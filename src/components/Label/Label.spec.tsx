@@ -15,12 +15,12 @@ describe('Label', () => {
   describe('size prop', () => {
     it('should be medium by default', () => {
       const wrapper = createDriver(<Label>Hello</Label>);
-      expect(wrapper.getAppearance()).toBe('medium');
+      expect(wrapper.getSize()).toBe('medium');
     });
 
     it('should be small', () => {
       const wrapper = createDriver(<Label size="small">Hello</Label>);
-      expect(wrapper.getAppearance()).toBe('small');
+      expect(wrapper.getSize()).toBe('small');
     });
   });
 

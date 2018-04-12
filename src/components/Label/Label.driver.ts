@@ -8,6 +8,6 @@ export const labelDriverFactory = ({element, eventTrigger}) => {
 
   return {
     ...coreLabelDriver,
-    getAppearance: () => stylableDOMUtil.getStyleState(element, 'size')
+    getSize: () => stylableDOMUtil.getStyleState(element, 'size')
   };
 };
