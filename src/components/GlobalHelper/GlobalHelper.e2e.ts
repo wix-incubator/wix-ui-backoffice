@@ -5,7 +5,7 @@ import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
 import {globalHelperTestkitFactory} from '../../testkit/protractor';
 import {storySettings} from './../../../stories/GlobalHelper/StorySettings';
 
-fdescribe('GlobalHelper', () => {
+describe('GlobalHelper', () => {
     const storyUrl = getStoryUrl(storySettings.kind, storySettings.story);
     const driver = globalHelperTestkitFactory({dataHook: storySettings.dataHook});
 
