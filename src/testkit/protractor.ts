@@ -26,3 +26,6 @@ export const stylableCounterBadgeTestkitFactory = protractorTestkitFactoryCreato
 
 import {labelWithOptionsDriverFactory} from '../components/LabelWithOptions/LabelWithOptions.protractor.driver';
 export const labelWithOptionsTestkitFactory = protractorTestkitFactoryCreator(labelWithOptionsDriverFactory);
+
+import {globalHelperDriverFactory} from '../components/GlobalHelper/GlobalHelper.protractor.driver';
+export const globalHelperTestkitFactory = protractorTestkitFactoryCreator(globalHelperDriverFactory);

@@ -4,8 +4,6 @@ import style from './GlobalHelper.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 import {createComponentThatRendersItsChildren, ElementProps} from 'wix-ui-core/dist/src/utils';
 
-const noop = () => null;
-
 /**
  * Adapts Popover API with Popover.Element, and Popover.Content into regular props
  */

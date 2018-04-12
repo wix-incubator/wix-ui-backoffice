@@ -13,6 +13,13 @@
         "-p",
         "6006"
       ]
+    },
+    {
+      "name": "Launch Protractor",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/node_modules/yoshi/debug/protractor",
+      "cwd": "${workspaceRoot}"
     }
   ]
 }
