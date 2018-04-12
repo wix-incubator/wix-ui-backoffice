@@ -24,6 +24,13 @@ describe('Label', () => {
     });
   });
 
+  describe('children prop', () => {
+    it('renders', () => {
+      const wrapper = createDriver(<Label>Hello</Label>);
+      expect(wrapper.getLabelText()).toBe('Hello');
+    });
+  });
+
   describe('testkit', () => {
     it('should exist', () => {
       expect(isTestkitExists(<Label>Hello World</Label>, labelTestkitFactory)).toBe(true);
