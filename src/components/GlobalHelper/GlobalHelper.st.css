@@ -15,9 +15,7 @@
 
 .root {
   -st-states: bounce, placement-right, placement-left, placement-top, placement-bottom;
-  /* -st-extends: Tooltip; */
   -st-extends: Popover;
-  white-space: nowrap;
 }
 
 /* popoverContent and innerContent are taken from Tooltip.tooltipContent,
