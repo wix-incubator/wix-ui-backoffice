@@ -3,6 +3,7 @@ import {Popover, PopoverProps} from 'wix-ui-core/dist/src/baseComponents/Popover
 import style from './GlobalHelper.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 import {createComponentThatRendersItsChildren, ElementProps} from 'wix-ui-core/dist/src/utils';
+import {DataHooks} from './DataHooks';
 
 /**
  * Adapts Popover API with Popover.Element, and Popover.Content into regular props
@@ -24,7 +25,7 @@ export type GlobalHelperType = React.SFC<GlobalHelperProps>;
 const defaultProps = {
 };
 
-const getState: (p?: any, s?: any, c?: any) => StateMap = (p) => ({});
+const getState: (p?: any, s?: any, c?: any) => StateMap = p => ({});
 
 const GlobalHelperBO = withStylable<PopoverProps, GlobalHelperOwnProps>(
   Popover,
@@ -33,7 +34,7 @@ const GlobalHelperBO = withStylable<PopoverProps, GlobalHelperOwnProps>(
   defaultProps
 );
 
-export const GlobalHelper: GlobalHelperType = (props) => {
+export const GlobalHelper: GlobalHelperType = props => {
   const {children, content, ...rest} = props;
   return (
     <GlobalHelperBO {...rest}>
@@ -41,7 +42,7 @@ export const GlobalHelper: GlobalHelperType = (props) => {
           {children}
         </Popover.Element>
         <Popover.Content>
-          <div className={style.innerContent}>
+          <div data-hook={DataHooks.innerContent} className={style.innerContent}>
             {content}
           </div>
         </Popover.Content>
