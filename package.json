@@ -57,8 +57,6 @@
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-test-renderer": "^16.3.1",
-    "stylable": "5.3.0",
-    "stylable-integration": "latest",
     "surge-github-autorelease": "^1.0.23",
     "ts-jest": "^22.0.3",
     "tslint-react": "^3.5.1",
