@@ -9,35 +9,34 @@ import {DataHooks} from './DataHooks';
  * Adapts Popover API with Popover.Element, and Popover.Content into regular props
  */
 export interface PopoverAdapterProps {
+  // TODO: should this be optional? if we expose 'appandTo' and 'appendToParent'?
   /** children to render that will be the target of the tooltip */
   children: React.ReactNode;
-  /** the content to put inside the tooltip */
+  // TODO: add validation that it is a <HelperContent> component
+  /** the content to put inside the Popover. Should be a <HelperContent> component. */
   content: React.ReactNode;
 }
 
 export interface GlobalHelperOwnProps {
 }
 
-export type GlobalHelperProps = PopoverProps & PopoverAdapterProps & GlobalHelperOwnProps;
-
-export type GlobalHelperType = React.SFC<GlobalHelperProps>;
-
-const defaultProps = {
-};
+export type PickedPopoverProps = Pick<PopoverProps, 'placement'|'shown'|'moveBy'|'hideDelay'|'showDelay'|'appendTo'|'appendToParent'|'timeout'>;
+export type GlobalHelperProps = PickedPopoverProps & PopoverAdapterProps & GlobalHelperOwnProps;
 
 const getState: (p?: any, s?: any, c?: any) => StateMap = p => ({});
-
-const GlobalHelperBO = withStylable<PopoverProps, GlobalHelperOwnProps>(
+const PopoverBO = withStylable<PopoverProps, GlobalHelperOwnProps>(
   Popover,
   style,
-  getState,
-  defaultProps
+  p => ({})
 );
 
-export const GlobalHelper: GlobalHelperType = props => {
+export const GlobalHelper: React.SFC<GlobalHelperProps> = props => {
   const {children, content, ...rest} = props;
   return (
-    <GlobalHelperBO {...rest}>
+    <PopoverBO
+      {...rest}
+      showArrow={true}
+    >
       <Popover.Element>
           {children}
         </Popover.Element>
@@ -46,6 +45,6 @@ export const GlobalHelper: GlobalHelperType = props => {
             {content}
           </div>
         </Popover.Content>
-    </GlobalHelperBO>
+    </PopoverBO>
   );
 };

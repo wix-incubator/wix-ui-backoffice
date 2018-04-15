@@ -13,27 +13,34 @@
   -st-named: fontRoman;
 }
 
+:vars {
+  /* TODO: create and use a fade function */
+
+  /** background color D10 with opacity 0.95 */
+  backgroundColor: rgba(22,45,61,0.95);
+}
+
 .root {
   -st-states: bounce, placement-right, placement-left, placement-top, placement-bottom;
   -st-extends: Popover;
+  -st-mixin: Popover(
+    contentBorderColor value(backgroundColor),
+    contentBackgroundColor value(backgroundColor),
+    contentBorderWidth 0,
+    contentBorderRadius 8px,
+    contentPadding 30px 36px
+    );
 }
 
 /* popoverContent and innerContent are taken from Tooltip.tooltipContent,
  * but I split them.
 */
 .root::popoverContent {
-  border-radius: 8px;
-  padding: 12px 24px;
+  /* padding: 36px 30px; */
   box-sizing: border-box;
   box-shadow:
   0 6px 6px 0 rgba(22, 45, 60, 0.06),
   0 0 18px 0 rgba(22, 45, 60, 0.12);
-  
-  border: none;
-  opacity: 0.95;
-  
-  /* max-width: 230px; */
-  background: value(brandSecondary);
 }
 
 .innerContent {
@@ -44,45 +51,4 @@
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
   line-height: 1.29;
-}
-
-.root:bounce::popover {
-  animation-duration: 1.15s;
-  animation-iteration-count: infinite;
-}
-
-.root:bounce:placement-right::popover {
-  animation-name: right-bounce;
-}
-
-.root:bounce:placement-left::popover {
-  animation-name: left-bounce;
-}
-
-.root:bounce:placement-top::popover {
-  animation-name: top-bounce;
-}
-
-.root:bounce:placement-bottom::popover {
-  animation-name: bottom-bounce;
-}
-
-@keyframes right-bounce {
-  0%, 100% { left: 5px;   }
-  50%      { left: -5px; }
-}
-
-@keyframes left-bounce {
-  0%, 100% { left: -5px;   }
-  50%      { left: 5px; }
-}
-
-@keyframes top-bounce {
-  0%, 100% { top: -5px;   }
-  50%      { top: 5px; }
-}
-
-@keyframes bottom-bounce {
-  0%, 100% { top: 5px;   }
-  50%      { top: -5px; }
 }
