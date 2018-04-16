@@ -13,7 +13,11 @@ export default {
   componentProps: {
     'data-hook': storySettings.dataHook,
     shown: true,
-    content: <HelperContent title="This is the title"/>,
+    content: (
+              <HelperContent
+                title="This is the title"
+                text="This is the a long text which is passed in the `text` propterty"
+              />),
     children: <span>I am a GlobalHelper target</span>,
     placement: 'right'
   },

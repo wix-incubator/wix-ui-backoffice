@@ -41,11 +41,11 @@
   box-shadow:
   0 6px 6px 0 rgba(22, 45, 60, 0.06),
   0 0 18px 0 rgba(22, 45, 60, 0.12);
+  /* width: 444pt; */
 }
 
 .innerContent {
   font-family: value(fontRoman);
-  text-align: center;
   color: value(backgroundSecondary);
   word-wrap: break-word;
   -webkit-font-smoothing: antialiased;
