@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.5",
+    "stylable": "latest",
     "wix-ui-core": "latest",
     "wix-ui-theme": "latest"
   },
