@@ -28,5 +28,4 @@ export const HelperContent: React.SFC<HelperContentProps> = (props: HelperConten
       }
     </div>
   );
-
 };
