@@ -32,3 +32,6 @@ export const labelWithOptionsTestkitFactory = testkitFactoryCreator(labelWithOpt
 
 import {labelDriverFactory} from '../components/Label/Label.driver';
 export const labelTestkitFactory = testkitFactoryCreator(labelDriverFactory);
+
+import {floatingHelperDriverFactory, FloatingHelperDriver} from '../components/FloatingHelper/FloatingHelper.driver';
+export const floatingHelperTestkitFactory = testkitFactoryCreator<FloatingHelperDriver>(floatingHelperDriverFactory);
