@@ -16,7 +16,7 @@ export default {
     content: (
               <HelperContent
                 title="This is the title"
-                text="This is the a long text which is passed in the `text` propterty"
+                text="This is a long text which is passed in the `text` property"
               />),
     children: <span>I am a GlobalHelper target</span>,
     placement: 'right'
