@@ -1,12 +1,14 @@
 import {$, ElementFinder, by} from 'protractor';
 import {popoverDriverFactory, PopoverDriver} from 'wix-ui-core/dist/src/baseComponents/Popover/Popover.protractor.driver';
 import {DataHooks} from './DataHooks';
-import {helperContentDriverFactory} from './content/HelperContent.protractor.driver';
+import {helperContentDriverFactory, HelperContentDriver} from './content/HelperContent.protractor.driver';
+import {DriverFactory} from 'wix-ui-core/dist/src/common/BaseDriver.protractor';
 
-export interface GlobalHelperDriver extends PopoverDriver {
+export interface FloatingHelperDriver extends PopoverDriver {
+  getHelperContentDriver: () => HelperContentDriver;
 }
 
-export const globalHelperDriverFactory = (element: ElementFinder) => {
+export const floatingHelperDriverFactory: DriverFactory<FloatingHelperDriver> = (element: ElementFinder) => {
   return {
     ...popoverDriverFactory(element),
     getHelperContentDriver: () =>  helperContentDriverFactory(element.$(byDataHook(DataHooks.innerContent))),
@@ -16,4 +18,3 @@ export const globalHelperDriverFactory = (element: ElementFinder) => {
 export function byDataHook(hook: string) {
   return `[data-hook='${hook}']`;
 }
-

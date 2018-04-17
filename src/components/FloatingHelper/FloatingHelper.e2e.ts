@@ -2,18 +2,18 @@ import * as eyes from 'eyes.it';
 import {browser, ElementFinder} from 'protractor';
 import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
 import autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
-import {globalHelperTestkitFactory} from '../../testkit/protractor';
-import {storySettings} from './../../../stories/GlobalHelper/StorySettings';
+import {floatingHelperTestkitFactory} from '../../testkit/protractor';
+import {storySettings} from 'stories/FloatingHelper/StorySettings';
 
-describe('GlobalHelper', () => {
+describe('FloatingHelper', () => {
     const storyUrl = getStoryUrl(storySettings.kind, storySettings.story);
 
-    const driver = globalHelperTestkitFactory({dataHook: storySettings.dataHook});
+    const driver = floatingHelperTestkitFactory({dataHook: storySettings.dataHook});
 
     beforeEach(async () => {
         await browser.get(storyUrl);
         await autoExampleDriver.reset();
-        await waitForVisibilityOf(driver.element(), 'Cannot find GlobalHelper');
+        await waitForVisibilityOf(driver.element(), 'Cannot find FloatingHelper');
     });
 
     eyes.it('should display title and text', async () => {

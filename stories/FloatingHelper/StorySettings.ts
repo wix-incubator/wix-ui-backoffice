@@ -5,6 +5,6 @@ export interface StorySettings extends StoryUrlParams {
 
 export const storySettings: StorySettings = {
     kind: 'Components',
-    story: 'GlobalHelper',
-    dataHook: 'story-global-helper-right'
+    story: '8.6a FloatingHelper',
+    dataHook: 'story-floating-helper-right'
 };
