@@ -29,3 +29,6 @@ export const stylableCounterBadgeTestkitFactory = testkitFactoryCreator(stylable
 
 import {labelWithOptionsDriverFactory} from '../components/LabelWithOptions/LabelWithOptions.driver';
 export const labelWithOptionsTestkitFactory = testkitFactoryCreator(labelWithOptionsDriverFactory);
+
+import {globalHelperDriverFactory, GlobalHelperDriver} from '../components/GlobalHelper/GlobalHelper.driver';
+export const globalHelperTestkitFactory = testkitFactoryCreator<GlobalHelperDriver>(globalHelperDriverFactory);

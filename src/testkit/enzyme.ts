@@ -1,3 +1,4 @@
+import {GlobalHelperDriver} from './../components/GlobalHelper/GlobalHelper.driver';
 import {enzymeTestkitFactoryCreator, WrapperData} from 'wix-ui-test-utils/enzyme';
 
 import {counterBadgeDriverFactory} from '../components/CounterBadge/CounterBadge.driver';
@@ -29,3 +30,6 @@ export const stylableCounterBadgeTestkitFactory = enzymeTestkitFactoryCreator(st
 
 import {labelWithOptionsDriverFactory} from '../components/LabelWithOptions/LabelWithOptions.driver';
 export const labelWithOptionsTestkitFactory = enzymeTestkitFactoryCreator(labelWithOptionsDriverFactory);
+
+import {globalHelperDriverFactory} from '../components/GlobalHelper/GlobalHelper.driver';
+export const globalHelperTestkitFactory = enzymeTestkitFactoryCreator<GlobalHelperDriver>(globalHelperDriverFactory);
