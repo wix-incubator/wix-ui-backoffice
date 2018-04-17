@@ -6,10 +6,10 @@ import {DataHooks} from './DataHooks';
 export interface HelperContentProps {
   /** Adds text as the title */
   title?: string;
-  text: string;
+  text?: string;
 }
 
-export const HelperContent = (props: HelperContentProps) => {
+export const HelperContent: React.SFC<HelperContentProps> = (props: HelperContentProps) => {
   return (
     <div {...style('root', {}, props)}>
       {props.title &&
