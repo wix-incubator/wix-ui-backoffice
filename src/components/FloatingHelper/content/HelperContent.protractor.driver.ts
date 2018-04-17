@@ -1,6 +1,6 @@
 import {ElementFinder} from 'protractor';
 import {DataHooks} from './DataHooks';
-import {textDriverFactory} from '../../Text/Text.protractor.driver';
+import {textDriverFactory} from 'src/components/Text/Text.protractor.driver';
 
 export const helperContentDriverFactory = (element: ElementFinder) => {
   const title = () => element.$(byDataHook(DataHooks.title));

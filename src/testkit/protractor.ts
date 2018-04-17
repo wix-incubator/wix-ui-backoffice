@@ -30,5 +30,5 @@ export const labelWithOptionsTestkitFactory = protractorTestkitFactoryCreator(la
 import {labelDriverFactory} from '../components/Label/Label.protractor.driver';
 export const labelTestkitFactory = protractorTestkitFactoryCreator(labelDriverFactory);
 
-import {globalHelperDriverFactory} from '../components/GlobalHelper/GlobalHelper.protractor.driver';
-export const globalHelperTestkitFactory = protractorTestkitFactoryCreator(globalHelperDriverFactory);
+import {floatingHelperDriverFactory} from 'src/components/FloatingHelper/FloatingHelper.protractor.driver';
+export const floatingHelperTestkitFactory = protractorTestkitFactoryCreator(floatingHelperDriverFactory);

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Popover, PopoverProps} from 'wix-ui-core/dist/src/baseComponents/Popover/Popover';
-import style from './GlobalHelper.st.css';
+import style from './FloatingHelper.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 import {createComponentThatRendersItsChildren, ElementProps} from 'wix-ui-core/dist/src/utils';
 import {DataHooks} from './DataHooks';
@@ -17,23 +17,23 @@ export interface PopoverAdapterProps {
   content: React.ReactNode;
 }
 
-export interface GlobalHelperOwnProps {
+export interface FloatingHelperOwnProps {
 }
 
 export type PickedPopoverProps = Pick<PopoverProps, 'placement'|'shown'|'moveBy'|'hideDelay'|'showDelay'|'appendTo'|'appendToParent'|'timeout'>;
-export type GlobalHelperProps = PickedPopoverProps & PopoverAdapterProps & GlobalHelperOwnProps;
+export type FloatingHelperProps = PickedPopoverProps & PopoverAdapterProps & FloatingHelperOwnProps;
 
 const getState: (p?: any, s?: any, c?: any) => StateMap = p => ({});
-const PopoverBO = withStylable<PopoverProps, GlobalHelperOwnProps>(
+const FloatingHelperBO = withStylable<PopoverProps, FloatingHelperOwnProps>(
   Popover,
   style,
   p => ({})
 );
 // TODO: add close button behavior
-export const GlobalHelper: React.SFC<GlobalHelperProps> = props => {
+export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
   const {children, content, ...rest} = props;
   return (
-    <PopoverBO
+    <FloatingHelperBO
       {...rest}
       showArrow={true}
     >
@@ -45,6 +45,6 @@ export const GlobalHelper: React.SFC<GlobalHelperProps> = props => {
             {content}
           </div>
         </Popover.Content>
-    </PopoverBO>
+    </FloatingHelperBO>
   );
 };

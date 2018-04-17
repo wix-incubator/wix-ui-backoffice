@@ -5,12 +5,12 @@ import {helperContentDriverFactory, HelperContentDriver} from './content/HelperC
 import {EnzymeDriverFactory} from 'wix-ui-test-utils/enzyme';
 
 // TODO: add interface of PopoverDriver
-export interface GlobalHelperDriver extends BaseDriver {
+export interface FloatingHelperDriver extends BaseDriver {
   getHelperContentDriver: () => HelperContentDriver;
 }
 
-export const globalHelperDriverFactory:
-  DriverFactory<GlobalHelperDriver> | EnzymeDriverFactory<GlobalHelperDriver> =
+export const floatingHelperDriverFactory:
+  DriverFactory<FloatingHelperDriver> | EnzymeDriverFactory<FloatingHelperDriver> =
   ({wrapper, element, eventTrigger}) => {
   const innerContent = () => element.querySelector(`[data-hook='${DataHooks.innerContent}']`);
 

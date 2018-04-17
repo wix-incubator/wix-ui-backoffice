@@ -1,24 +1,24 @@
 import * as React from 'react';
-import {globalHelperDriverFactory, GlobalHelperDriver} from './GlobalHelper.driver';
-import {GlobalHelper} from '.';
+import {floatingHelperDriverFactory, FloatingHelperDriver} from './FloatingHelper.driver';
+import {FloatingHelper} from './FloatingHelper';
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
 import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
 import {isEnzymeTestkitExists} from 'wix-ui-test-utils/enzyme';
-import {globalHelperTestkitFactory} from '../../testkit';
-import {globalHelperTestkitFactory as enzymeGlobalHelperTestkitFactory} from '../../testkit/enzyme';
+import {floatingHelperTestkitFactory} from '../../testkit';
+import {floatingHelperTestkitFactory as enzymeFloatingHelperTestkitFactory} from 'src/testkit/enzyme';
 import {mount} from 'enzyme';
 
-describe('GlobalHelper', () => {
-  const createDriver = createDriverFactory(globalHelperDriverFactory);
+describe('FloatingHelper', () => {
+  const createDriver = createDriverFactory(floatingHelperDriverFactory);
 
   const element = (
-    <GlobalHelper
+    <FloatingHelper
       shown={true}
       placement="right"
       content="Hello"
     >
       <div />
-    </GlobalHelper>
+    </FloatingHelper>
   );
 
   // Skipped: need to add hasArrow() method to Popover driver.
@@ -29,13 +29,13 @@ describe('GlobalHelper', () => {
 
   describe('testkit', () => {
     it('should exist', () => {
-      expect(isTestkitExists(element, globalHelperTestkitFactory)).toBe(true);
+      expect(isTestkitExists(element, floatingHelperTestkitFactory)).toBe(true);
     });
   });
 
   describe('enzyme testkit', () => {
     it('should exist', () => {
-      expect(isEnzymeTestkitExists(element, enzymeGlobalHelperTestkitFactory, mount)).toBe(true);
+      expect(isEnzymeTestkitExists(element, enzymeFloatingHelperTestkitFactory, mount)).toBe(true);
     });
   });
 });
