@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {globalHelperDriverFactory} from './GlobalHelper.driver';
+import {globalHelperDriverFactory, GlobalHelperDriver} from './GlobalHelper.driver';
 import {GlobalHelper} from '.';
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
 import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
@@ -20,6 +20,12 @@ describe('GlobalHelper', () => {
       <div />
     </GlobalHelper>
   );
+
+  // Skipped: need to add hasArrow() method to Popover driver.
+  xit('should have arrow by default', () => {
+    const driver = createDriver(element);
+    // expect(driver.hasArrow()).toBe(true);
+  });
 
   describe('testkit', () => {
     it('should exist', () => {

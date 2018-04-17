@@ -29,7 +29,7 @@ const PopoverBO = withStylable<PopoverProps, GlobalHelperOwnProps>(
   style,
   p => ({})
 );
-
+// TODO: add close button behavior
 export const GlobalHelper: React.SFC<GlobalHelperProps> = props => {
   const {children, content, ...rest} = props;
   return (
