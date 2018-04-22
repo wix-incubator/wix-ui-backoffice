@@ -1,8 +1,8 @@
 import * as React from 'react';
+import pick = require('lodash/pick');
 import {Popover, PopoverProps} from 'wix-ui-core/dist/src/baseComponents/Popover/Popover';
-import style from './FloatingHelper.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
-import {createComponentThatRendersItsChildren, ElementProps} from 'wix-ui-core/dist/src/utils';
+import style from './FloatingHelper.st.css';
 import {DataHooks} from './DataHooks';
 
 /**
@@ -20,7 +20,8 @@ export interface PopoverAdapterProps {
 export interface FloatingHelperOwnProps {
 }
 
-export type PickedPopoverProps = Pick<PopoverProps, 'placement'|'shown'|'moveBy'|'hideDelay'|'showDelay'|'appendTo'|'appendToParent'|'timeout'>;
+const PickedPopoverPropTypes = pick(Popover.propTypes, 'placement', 'shown', 'moveBy', 'hideDelay', 'showDelay', 'appendTo', 'appendToParent', 'timeout');
+export type PickedPopoverProps = Pick<PopoverProps,    'placement'| 'shown'| 'moveBy'| 'hideDelay'| 'showDelay'| 'appendTo'| 'appendToParent'| 'timeout'>;
 export type FloatingHelperProps = PickedPopoverProps & PopoverAdapterProps & FloatingHelperOwnProps;
 
 const getState: (p?: any, s?: any, c?: any) => StateMap = p => ({});
@@ -47,4 +48,8 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
         </Popover.Content>
     </FloatingHelperBO>
   );
+};
+
+FloatingHelper.propTypes = {
+  ...PickedPopoverPropTypes
 };
