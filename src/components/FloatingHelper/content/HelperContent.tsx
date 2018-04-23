@@ -13,14 +13,14 @@ export const HelperContent: React.SFC<HelperContentProps> = (props: HelperConten
   return (
     <div {...style('root', {}, props)}>
       {props.title &&
-        <div className={style.title}>
+        <div>
           <Text dataHook={DataHooks.title} bold light>
             {props.title}
           </Text>
         </div>
       }
       {props.text &&
-        <div className={style.text}>
+        <div>
           <Text dataHook={DataHooks.text} light>
             {props.text}
           </Text>
