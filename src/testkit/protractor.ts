@@ -1,5 +1,8 @@
 import {protractorTestkitFactoryCreator} from 'wix-ui-test-utils/protractor';
 
+import {buttonDriverFactory} from '../components/Button/Button.protractor.driver';
+export const buttonTestkitFactory = protractorTestkitFactoryCreator(buttonDriverFactory);
+
 import {counterBadgeDriverFactory} from '../components/CounterBadge/CounterBadge.protractor.driver';
 export const counterBadgeTestkitFactory = protractorTestkitFactoryCreator(counterBadgeDriverFactory);
 

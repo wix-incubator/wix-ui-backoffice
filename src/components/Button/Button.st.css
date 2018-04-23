@@ -1,0 +1,16 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/components/Button/Button.st.css";
+  -st-default: Button;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: backgroundPrimary, backgroundSecondary, mainMutedBackground, mainMuted, main, mainHover, dangerMutedHover, danger, disabledField, disabledCheck, inputDisabledBorderColor, focusShadow, dangerMutedHover;
+}
+
+:vars {
+}
+
+.root {
+  -st-extends: Button;
+}

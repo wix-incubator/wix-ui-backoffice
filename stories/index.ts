@@ -1,6 +1,7 @@
 require('./Autocomplete.story');
 require('./Checkbox.story');
 require('./Badge').story();
+require('./Button.story.tsx');
 require('./CounterBadge').story();
 require('./StylableCounterBadge').story();
 require('./Heading').story();
