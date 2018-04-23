@@ -20,7 +20,7 @@ export interface StorySettings<T> extends StoryUrlParams {
 
 export const storySettings: StorySettings<ExampleParams> = {
     kind: 'Components',
-    story: '8.6a FloatingHelper',
+    story: 'FloatingHelper',
     dataHook: 'story-floating-helper-right',
     examples: {
         textOnly: {
