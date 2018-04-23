@@ -40,5 +40,6 @@ import {labelDriverFactory, LabelDriver} from '../components/Label/Label.protrac
 export const labelTestkitFactory = protractorTestkitFactoryCreator<LabelDriver>(labelDriverFactory);
 export {LabelDriver};
 
-import {floatingHelperDriverFactory, FloatingHelperDriver} from 'src/components/FloatingHelper/FloatingHelper.protractor.driver';
+import {floatingHelperDriverFactory, FloatingHelperDriver} from '../components/FloatingHelper/FloatingHelper.protractor.driver';
 export const floatingHelperTestkitFactory = protractorTestkitFactoryCreator<FloatingHelperDriver>(floatingHelperDriverFactory);
+export {FloatingHelperDriver};
