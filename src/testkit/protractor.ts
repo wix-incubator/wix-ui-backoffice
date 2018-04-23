@@ -4,6 +4,9 @@ import {counterBadgeDriverFactory, CounterBadgeDriver} from '../components/Count
 export const counterBadgeTestkitFactory = protractorTestkitFactoryCreator<CounterBadgeDriver>(counterBadgeDriverFactory);
 export {CounterBadgeDriver};
 
+import {buttonDriverFactory} from '../components/Button/Button.protractor.driver';
+export const buttonTestkitFactory = protractorTestkitFactoryCreator(buttonDriverFactory);
+
 import {badgeDriverFactory, BadgeDriver} from '../components/Badge/Badge.protractor.driver';
 export const badgeTestkitFactory = protractorTestkitFactoryCreator<BadgeDriver>(badgeDriverFactory);
 export {BadgeDriver};
