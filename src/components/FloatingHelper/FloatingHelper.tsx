@@ -17,26 +17,22 @@ export interface PopoverAdapterProps {
   content: React.ReactNode;
 }
 
-export interface FloatingHelperOwnProps {
-}
-
 const PickedPopoverPropTypes = pick(Popover.propTypes, 'placement', 'shown', 'moveBy', 'hideDelay', 'showDelay', 'appendTo', 'appendToParent', 'timeout');
 export type PickedPopoverProps = Pick<PopoverProps,    'placement'| 'shown'| 'moveBy'| 'hideDelay'| 'showDelay'| 'appendTo'| 'appendToParent'| 'timeout'>;
-export type FloatingHelperProps = PickedPopoverProps & PopoverAdapterProps & FloatingHelperOwnProps;
+export type FloatingHelperProps = PickedPopoverProps & PopoverAdapterProps;
 
-const getState: (p?: any, s?: any, c?: any) => StateMap = p => ({});
-const FloatingHelperBO = withStylable<PopoverProps, FloatingHelperOwnProps>(
+const FloatingHelperBO = withStylable<PopoverProps, {}>(
   Popover,
   style,
   p => ({})
 );
-// TODO: add close button behavior
+
 export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
   const {children, content, ...rest} = props;
   return (
     <FloatingHelperBO
       {...rest}
-      showArrow={true}
+      showArrow
     >
       <Popover.Element>
           {children}
