@@ -3,12 +3,10 @@ import {Button as CoreButton, ButtonProps as CoreButtonProps} from 'wix-ui-core/
 import style from './Button.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 
-const defaultProps = {
-};
+export interface ButtonProps extends CoreButtonProps {}
 
 export const Button = withStylable<CoreButtonProps, {}>(
   CoreButton,
   style,
-  () => null,
-  defaultProps
+  () => null
 );
