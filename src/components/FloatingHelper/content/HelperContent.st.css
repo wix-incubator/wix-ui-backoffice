@@ -1,0 +1,13 @@
+:import {
+  -st-from: "../../../palette.st.css";
+  -st-named: brandSecondary, backgroundSecondary
+}
+
+:import {
+  -st-from: "../../../typography.st.css";
+  -st-named: fontRoman;
+}
+
+.root {
+}
+

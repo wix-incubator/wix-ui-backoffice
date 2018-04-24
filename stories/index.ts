@@ -10,5 +10,6 @@ require('./LabelWithOptions.story');
 require('./Text').story();
 require('./ToggleSwitch').story();
 require('./Tooltip').story();
+require('./FloatingHelper');
 require('./UIText').story();
 require('./StylableUIText').story();
