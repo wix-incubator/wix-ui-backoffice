@@ -7,16 +7,16 @@ export interface HelperContentDriver extends BaseDriver {
   /** checks if title exists */
   hasTitle: () => boolean;
   /** checks if text content exists */
-  hasText: () => boolean;
+  hasBody: () => boolean;
   /** Get the text content of the title */
   getTitleContent: () => string;
   /** Get the text content of the helper's text */
-  getTextContent: () => string;
+  getBodyContent: () => string;
 }
 
 export const helperContentDriverFactory: DriverFactory<HelperContentDriver> = ({element}) => {
   const title = () => element.querySelector(`[data-hook='${DataHooks.title}']`);
-  const text = () => element.querySelector(`[data-hook='${DataHooks.text}']`);
+  const body = () => element.querySelector(`[data-hook='${DataHooks.body}']`);
 
   return {
     /** checks if the element exists */
@@ -24,10 +24,10 @@ export const helperContentDriverFactory: DriverFactory<HelperContentDriver> = ({
     /** checks if title exists */
     hasTitle: () => !!title(),
     /** checks if text content exists */
-    hasText: () => !!text(),
+    hasBody: () => !!body(),
     /** Get the text content of the title */
     getTitleContent: () => title().textContent,
-    /** Get the text content of the helper's text */
-    getTextContent: () => text().textContent,
+    /** Get the text content of the helper's body */
+    getBodyContent: () => body().textContent,
   };
 };

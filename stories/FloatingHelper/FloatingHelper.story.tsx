@@ -16,7 +16,7 @@ export default {
     content: (
       <HelperContent
         title="This is the title"
-        text="This is the a long text which is passed in the `text` propterty"
+        body="This is the a long text which is passed in the `text` propterty"
       />),
     children: <span>I am a FloatingHelper target</span>,
     placement: 'right'
@@ -30,7 +30,7 @@ export default {
         placement="bottom"
         content={ (
           <HelperContent
-            text={storySettings.examples.textOnly.params.text}
+            body={storySettings.examples.textOnly.params.text}
           />)}
         children={<span>I am a long long long long long long long long FloatingHelper target</span>}
       />

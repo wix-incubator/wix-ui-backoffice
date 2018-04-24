@@ -17,7 +17,7 @@ describe('FloatingHelper', () => {
         await waitForVisibilityOf(driver.element(), 'Cannot find FloatingHelper');
         expect(await driver.getHelperContentDriver().hasTitle()).toBeTruthy();
         expect(await driver.getHelperContentDriver().getTitleContent()).toBe('This is the title');
-        expect(await driver.getHelperContentDriver().getTextContent()).toBe('This is the a long text which is passed in the `text` propterty');
+        expect(await driver.getHelperContentDriver().getBodyContent()).toBe('This is the a long text which is passed in the `text` propterty');
     });
 
     eyes.it('should display text only', async () => {
@@ -25,6 +25,6 @@ describe('FloatingHelper', () => {
         const driver = floatingHelperTestkitFactory({dataHook: example.dataHook});
         await waitForVisibilityOf(driver.element(), 'Cannot find FloatingHelper');
         expect(await driver.getHelperContentDriver().hasTitle()).toBeFalsy();
-        expect(await driver.getHelperContentDriver().getTextContent()).toBe(example.params.text);
+        expect(await driver.getHelperContentDriver().getBodyContent()).toBe(example.params.text);
     });
 });

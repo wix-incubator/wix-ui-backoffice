@@ -10,7 +10,7 @@ export interface ExampleSettings<T> {
 }
 
 export interface ExampleParams {
-    text: string;
+    body?: string;
 }
 
 export interface StorySettings<T> extends StoryUrlParams {
@@ -26,7 +26,7 @@ export const storySettings: StorySettings<ExampleParams> = {
         textOnly: {
             dataHook: 'story-floating-helper-text-only',
             params: {
-                text: 'There should not be a title in this helper'
+                body: 'There should not be a title in this helper'
             }
         },
     }

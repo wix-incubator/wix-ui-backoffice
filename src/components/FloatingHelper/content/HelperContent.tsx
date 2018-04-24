@@ -6,23 +6,24 @@ import {DataHooks} from './DataHooks';
 export interface HelperContentProps {
   /** Adds text as the title */
   title?: string;
-  text?: string;
+  /** Adds text as the body */
+  body?: string;
 }
 
 export const HelperContent: React.SFC<HelperContentProps> = (props: HelperContentProps) => {
   return (
     <div {...style('root', {}, props)}>
       {props.title &&
-        <div>
+        <div className={style.title}>
           <Text dataHook={DataHooks.title} bold light>
             {props.title}
           </Text>
         </div>
       }
-      {props.text &&
+      {props.body &&
         <div>
-          <Text dataHook={DataHooks.text} light>
-            {props.text}
+          <Text dataHook={DataHooks.body} light>
+            {props.body}
           </Text>
         </div>
       }

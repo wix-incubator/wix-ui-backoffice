@@ -4,12 +4,12 @@ import {textDriverFactory} from '../../Text/Text.protractor.driver';
 
 export const helperContentDriverFactory = (element: ElementFinder) => {
   const title = () => element.$(byDataHook(DataHooks.title));
-  const text = () => element.$(byDataHook(DataHooks.text));
+  const body = () => element.$(byDataHook(DataHooks.body));
 
   return {
     hasTitle: async () => title().isPresent(),
     getTitleContent: async () => textDriverFactory(title()).getText(),
-    getTextContent: async () => textDriverFactory(text()).getText()
+    getBodyContent: async () => textDriverFactory(body()).getText()
   };
 };
 
