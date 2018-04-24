@@ -5,6 +5,7 @@ import {helperContentDriverFactory, HelperContentDriver} from './content/HelperC
 import {DriverFactory} from 'wix-ui-core/dist/src/common/BaseDriver.protractor';
 
 export interface FloatingHelperDriver extends PopoverDriver {
+  /** Get HelperContent driver */
   getHelperContentDriver: () => HelperContentDriver;
 }
 
