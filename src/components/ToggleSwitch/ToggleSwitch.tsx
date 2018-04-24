@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import omit = require('lodash/omit');
 import {
   ToggleSwitch as CoreToggleSwitch,
   ToggleSwitchProps as CoreToggleSwitchProps
@@ -8,7 +9,6 @@ import style from './ToggleSwitch.st.css';
 import {Skin, Size, SKINS, SIZES} from './constants';
 import {ToggleOff, ToggleOn, ToggleOffSmall, ToggleOnSmall} from 'wix-ui-icons-common/system';
 import {withStylable} from 'wix-ui-core/withStylable';
-import * as omit from 'lodash/omit';
 
 export interface ToggleSwitchProps {
   skin?: Skin;

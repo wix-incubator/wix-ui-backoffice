@@ -1,0 +1,53 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/baseComponents/Popover/Popover.st.css";
+  -st-default: Popover;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: brandSecondary, backgroundSecondary
+}
+
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontRoman;
+}
+
+:vars {
+  /* TODO: create and use a fade function */
+
+  /** background color D10 with opacity 0.95 */
+  backgroundColor: rgba(22,45,61,0.95);
+}
+
+.root {
+  -st-states: bounce, placement-right, placement-left, placement-top, placement-bottom;
+  -st-extends: Popover;
+  -st-mixin: Popover(
+    contentBorderColor value(backgroundColor),
+    contentBackgroundColor value(backgroundColor),
+    contentBorderWidth 0,
+    contentBorderRadius 8px,
+    contentPadding 30px 36px
+    );
+}
+
+/* popoverContent and innerContent are taken from Tooltip.tooltipContent,
+ * but I split them.
+*/
+.root::popoverContent {
+  padding: 36px 30px;
+  box-sizing: border-box;
+  box-shadow:
+  0 6px 6px 0 rgba(22, 45, 60, 0.06),
+  0 0 18px 0 rgba(22, 45, 60, 0.12);
+}
+
+.innerContent {
+  font-family: value(fontRoman);
+  color: value(backgroundSecondary);
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  line-height: 1.29;
+}
