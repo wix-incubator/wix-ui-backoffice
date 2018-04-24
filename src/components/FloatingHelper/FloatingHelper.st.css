@@ -36,12 +36,11 @@
  * but I split them.
 */
 .root::popoverContent {
-  /* padding: 36px 30px; */
+  padding: 36px 30px;
   box-sizing: border-box;
   box-shadow:
   0 6px 6px 0 rgba(22, 45, 60, 0.06),
   0 0 18px 0 rgba(22, 45, 60, 0.12);
-  /* width: 444pt; */
 }
 
 .innerContent {
