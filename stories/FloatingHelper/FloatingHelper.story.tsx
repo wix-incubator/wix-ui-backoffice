@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {FloatingHelper} from '../../src/components/FloatingHelper';
-import {HelperContent} from '../../src/components/FloatingHelper/content/HelperContent';
+import {HelperContent} from '../../src/components/FloatingHelper/HelperContent/HelperContent';
 
 import {storySettings} from './StorySettings';
 

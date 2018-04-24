@@ -1,6 +1,6 @@
 import * as React from 'react';
 import style from './HelperContent.st.css';
-import {Text} from '../../Text';
+import {Text} from '../../../components/Text';
 import {DataHooks} from './DataHooks';
 
 export interface HelperContentProps {

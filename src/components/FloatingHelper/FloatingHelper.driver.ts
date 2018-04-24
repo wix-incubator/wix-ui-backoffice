@@ -1,7 +1,7 @@
 import {BaseDriver, DriverFactory} from 'wix-ui-test-utils/driver-factory';
 import {popoverDriverFactory} from 'wix-ui-core/dist/src/baseComponents/Popover/Popover.driver';
 import {DataHooks} from './DataHooks';
-import {helperContentDriverFactory, HelperContentDriver} from './content/HelperContent.driver';
+import {helperContentDriverFactory, HelperContentDriver} from '../../components/FloatingHelper/HelperContent/HelperContent.driver';
 import {EnzymeDriverFactory} from 'wix-ui-test-utils/enzyme';
 
 // TODO: add interface of PopoverDriver

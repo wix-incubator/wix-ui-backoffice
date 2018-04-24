@@ -7,7 +7,7 @@ import {floatingHelperTestkitFactory} from '../../testkit';
 import {floatingHelperTestkitFactory as enzymeFloatingHelperTestkitFactory} from '../../testkit/enzyme';
 import {floatingHelperDriverFactory, FloatingHelperDriver} from './FloatingHelper.driver';
 import {FloatingHelper} from './FloatingHelper';
-import {HelperContent} from './content';
+import {HelperContent} from '../../components/FloatingHelper/HelperContent';
 
 describe('FloatingHelper', () => {
   const createDriver = createDriverFactory(floatingHelperDriverFactory);
