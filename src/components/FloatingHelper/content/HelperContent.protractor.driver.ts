@@ -11,13 +11,13 @@ export interface HelperContentDriver extends BaseDriver {
 
 export const helperContentDriverFactory: DriverFactory<HelperContentDriver> = (element: ElementFinder) => {
   const title = () => element.$(byDataHook(DataHooks.title));
-  const text = () => element.$(byDataHook(DataHooks.text));
+  const body = () => element.$(byDataHook(DataHooks.body));
 
   return {
     element: () => element,
     hasTitle: async () => title().isPresent(),
     getTitleContent: async () => textDriverFactory(title()).getText(),
-    getTextContent: async () => textDriverFactory(text()).getText()
+    getBodyContent: async () => textDriverFactory(body()).getText()
   };
 };
 
