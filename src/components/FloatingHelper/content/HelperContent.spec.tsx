@@ -7,7 +7,7 @@ describe('HelperContent', () => {
   const createDriver = createDriverFactory(helperContentDriverFactory);
 
   it('should be empty by default', () => {
-    const driver = createDriver(<HelperContent body="body"/>);
+    const driver = createDriver(<HelperContent/>);
     expect(driver.hasTitle()).toBeFalsy();
     expect(driver.hasBody()).toBeFalsy();
   });
@@ -17,7 +17,6 @@ describe('HelperContent', () => {
     expect(driver.hasTitle()).toBeTruthy();
     expect(driver.hasBody()).toBeTruthy();
     expect(driver.getTitleContent()).toBe('title');
-    expect(driver.getBodyContent()).toBe('text');
+    expect(driver.getBodyContent()).toBe('body');
   });
-
 });

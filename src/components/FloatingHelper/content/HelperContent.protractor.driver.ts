@@ -6,10 +6,10 @@ import {textDriverFactory} from '../../Text/Text.protractor.driver';
 export interface HelperContentDriver extends BaseDriver {
   hasTitle: () => Promise<boolean>;
   getTitleContent: () => Promise<string>;
-  getTextContent: () => Promise<string>;
+  getBodyContent: () => Promise<string>;
 }
 
-export const helperContentDriverFactory: DriverFactory<HelperContentDriver> = (element: ElementFinder) => {
+export const helperContentDriverFactory: DriverFactory<HelperContentDriver> = element => {
   const title = () => element.$(byDataHook(DataHooks.title));
   const body = () => element.$(byDataHook(DataHooks.body));
 

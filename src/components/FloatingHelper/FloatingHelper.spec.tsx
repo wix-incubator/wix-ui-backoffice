@@ -5,7 +5,7 @@ import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
 import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
 import {isEnzymeTestkitExists} from 'wix-ui-test-utils/enzyme';
 import {floatingHelperTestkitFactory} from '../../testkit';
-import {floatingHelperTestkitFactory as enzymeFloatingHelperTestkitFactory} from 'src/testkit/enzyme';
+import {floatingHelperTestkitFactory as enzymeFloatingHelperTestkitFactory} from '../../testkit/enzyme';
 import {mount} from 'enzyme';
 
 describe('FloatingHelper', () => {

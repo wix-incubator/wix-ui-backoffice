@@ -30,7 +30,7 @@ export default {
         placement="bottom"
         content={ (
           <HelperContent
-            body={storySettings.examples.textOnly.params.text}
+            body={storySettings.examples.textOnly.params.body}
           />)}
         children={<span>I am a long long long long long long long long FloatingHelper target</span>}
       />
