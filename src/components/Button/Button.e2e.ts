@@ -11,7 +11,7 @@ describe('Button', () => {
 
   eyes.it('should render', async () => {
     const driver = buttonTestkitFactory({dataHook});
-    expect(await driver.exists()).toBeTruthy();
+    expect(await driver.element().isPresent()).toBeTruthy();
   });
 
 });
