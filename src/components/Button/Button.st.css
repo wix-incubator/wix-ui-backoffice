@@ -1,0 +1,8 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/components/Button/Button.st.css";
+  -st-default: Button;
+}
+
+.root {
+  -st-extends: Button;
+}
