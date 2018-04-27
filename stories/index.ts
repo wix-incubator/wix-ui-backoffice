@@ -4,7 +4,7 @@ require('./Badge').story();
 require('./Button.story.tsx');
 require('./CounterBadge').story();
 require('./StylableCounterBadge').story();
-require('./Heading').story();
+require('./Heading.story.tsx');
 require('./Label').story();
 require('./Input.story.tsx');
 require('./LabelWithOptions.story');
