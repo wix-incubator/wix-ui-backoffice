@@ -1,5 +1,5 @@
 import {BaseDriver, DriverFactory} from 'wix-ui-test-utils/driver-factory';
-import {popoverDriverFactory} from 'wix-ui-core/dist/src/baseComponents/Popover/Popover.driver';
+import {popoverDriverFactory} from 'wix-ui-core/dist/src/components/Popover/Popover.driver';
 import {DataHooks} from './DataHooks';
 import {helperContentDriverFactory, HelperContentDriver} from '../../components/FloatingHelper/HelperContent/HelperContent.driver';
 import {EnzymeDriverFactory} from 'wix-ui-test-utils/enzyme';

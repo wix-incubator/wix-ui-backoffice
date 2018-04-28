@@ -1,5 +1,5 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/baseComponents/Popover/Popover.st.css";
+  -st-from: "wix-ui-core/dist/src/components/Popover/Popover.st.css";
   -st-default: Popover;
 }
 
