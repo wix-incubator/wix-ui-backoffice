@@ -1,10 +1,12 @@
 import * as React from 'react';
 import pick = require('lodash/pick');
+import * as classnames from 'classnames';
 import {Popover, PopoverProps} from 'wix-ui-core/Popover';
 import {withStylable} from 'wix-ui-core/withStylable';
 import style from './FloatingHelper.st.css';
 import {DataHooks} from './DataHooks';
 import {Button} from '../Button';
+import {Close as CloseIcon} from 'wix-ui-icons-common/system';
 /**
  * Adapts Popover API with Popover.Element, and Popover.Content into regular props
  */
@@ -44,7 +46,12 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
       </Popover.Element>
       <Popover.Content>
         {props.withCloseButton && (
-          <Button data-hook={DataHooks.closeButton} className={style.closeButton}/>
+          <Button
+            data-hook={DataHooks.closeButton}
+            className={classnames(style.closeButton, style.closeButtonWhiteSecondary)}
+          >
+            <CloseIcon className={classnames(style.closeIcon)}/>
+          </Button>
         )}
         <div data-hook={DataHooks.innerContent} className={style.innerContent}>
           {content}

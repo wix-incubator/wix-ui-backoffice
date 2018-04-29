@@ -18,7 +18,7 @@
 
   /** background color D10 with opacity 0.95 */
   backgroundColor: rgba(22,45,61,0.95);
-  popoverPadding: 15px;
+  closeButtonPadding: 6px;
 }
 
 .root {
@@ -29,7 +29,7 @@
     contentBackgroundColor value(backgroundColor),
     contentBorderWidth 0,
     contentBorderRadius 8px,
-    contentPadding value(popoverPadding) value(popoverPadding)
+    contentPadding 0 0
     );
 }
 
@@ -46,13 +46,26 @@
 
 .closeButton {
   position: absolute;
-  right: value(popoverPadding);
-
+  top: value(closeButtonPadding);
+  right: value(closeButtonPadding);
 }
 
 :global([dir="rtl"]) .closeButton {
   right: initial;
-  left: value(popoverPadding);
+  left: value(closeButtonPadding);
+}
+
+.closeButtonWhiteSecondary {
+  /* TODO: This should be from Button component [5.7-secondary-small] theme*/
+  background-color: transparent;
+  height: 24px;
+  border: none;
+}
+
+.closeIcon {
+  fill: white;
+  height: 8px;
+  width: 8px;
 }
 
 .innerContent {
