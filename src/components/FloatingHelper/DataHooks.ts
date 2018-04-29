@@ -1,3 +1,4 @@
 export const DataHooks = {
-  innerContent: 'inner-content'
+  innerContent: 'inner-content',
+  closeButton: 'close-button'
 };

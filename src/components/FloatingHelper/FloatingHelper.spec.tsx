@@ -41,8 +41,9 @@ describe('FloatingHelper', () => {
       const driver = createDriver(buildComponent());
       expect(driver.hasCloseButton()).toBeTruthy();
     });
+
     it('should NOT have a close-button', () => {
-      const driver = createDriver(buildComponent({withCloseButton: flase}));
+      const driver = createDriver(buildComponent({withCloseButton: false}));
       expect(driver.hasCloseButton()).toBeFalsy();
     });
   });

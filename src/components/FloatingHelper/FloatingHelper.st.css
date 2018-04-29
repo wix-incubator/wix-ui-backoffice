@@ -18,6 +18,7 @@
 
   /** background color D10 with opacity 0.95 */
   backgroundColor: rgba(22,45,61,0.95);
+  popoverPadding: 15px;
 }
 
 .root {
@@ -28,7 +29,7 @@
     contentBackgroundColor value(backgroundColor),
     contentBorderWidth 0,
     contentBorderRadius 8px,
-    contentPadding 30px 36px
+    contentPadding value(popoverPadding) value(popoverPadding)
     );
 }
 
@@ -36,14 +37,26 @@
  * but I split them.
 */
 .root::popoverContent {
-  padding: 36px 30px;
+  position: relative;
   box-sizing: border-box;
   box-shadow:
   0 6px 6px 0 rgba(22, 45, 60, 0.06),
   0 0 18px 0 rgba(22, 45, 60, 0.12);
 }
 
+.closeButton {
+  position: absolute;
+  right: value(popoverPadding);
+
+}
+
+:global([dir="rtl"]) .closeButton {
+  right: initial;
+  left: value(popoverPadding);
+}
+
 .innerContent {
+  padding: 36px 30px;
   font-family: value(fontRoman);
   color: value(backgroundSecondary);
   word-wrap: break-word;
@@ -51,3 +64,4 @@
   font-size: 14px;
   line-height: 1.29;
 }
+

@@ -4,7 +4,7 @@ import {Popover, PopoverProps} from 'wix-ui-core/Popover';
 import {withStylable} from 'wix-ui-core/withStylable';
 import style from './FloatingHelper.st.css';
 import {DataHooks} from './DataHooks';
-
+import {Button} from '../Button';
 /**
  * Adapts Popover API with Popover.Element, and Popover.Content into regular props
  */
@@ -17,9 +17,14 @@ export interface PopoverAdapterProps {
   content: React.ReactNode;
 }
 
-const PickedPopoverPropTypes = pick(Popover.propTypes, 'placement', 'shown', 'moveBy', 'hideDelay', 'showDelay', 'appendTo', 'timeout');
-export type PickedPopoverProps = Pick<PopoverProps,    'placement'| 'shown'| 'moveBy'| 'hideDelay'| 'showDelay'| 'appendTo' | 'timeout'>;
-export type FloatingHelperProps = PickedPopoverProps & PopoverAdapterProps;
+export interface FloatingHelperOwnProps {
+  /** Controls wether a close button will appear ot not */
+  withCloseButton?: boolean;
+}
+
+const PickedPopoverPropTypes = pick(Popover.propTypes, 'placement', 'shown', 'moveBy', 'hideDelay', 'showDelay', 'appendTo', 'appendToParent', 'timeout');
+export type PickedPopoverProps = Pick<PopoverProps,    'placement'| 'shown'| 'moveBy'| 'hideDelay'| 'showDelay'| 'appendTo'| 'appendToParent'| 'timeout'>;
+export type FloatingHelperProps = PickedPopoverProps & PopoverAdapterProps & FloatingHelperOwnProps;
 
 const FloatingHelperBO = withStylable<PopoverProps, {}>(
   Popover,
@@ -36,14 +41,21 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
     >
       <Popover.Element>
           {children}
-        </Popover.Element>
-        <Popover.Content>
-          <div data-hook={DataHooks.innerContent} className={style.innerContent}>
-            {content}
-          </div>
-        </Popover.Content>
+      </Popover.Element>
+      <Popover.Content>
+        {props.withCloseButton && (
+          <Button data-hook={DataHooks.closeButton} className={style.closeButton}/>
+        )}
+        <div data-hook={DataHooks.innerContent} className={style.innerContent}>
+          {content}
+        </div>
+      </Popover.Content>
     </FloatingHelperBO>
   );
+};
+
+FloatingHelper.defaultProps = {
+  withCloseButton: true
 };
 
 FloatingHelper.propTypes = {
