@@ -1,4 +1,5 @@
 export const DataHooks = {
   innerContent: 'inner-content',
-  closeButton: 'close-button'
+  closeButton: 'close-button',
+  contentWrapper: 'content-wrapper'
 };

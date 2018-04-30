@@ -10,6 +10,8 @@ export interface FloatingHelperDriver extends BaseDriver {
   getHelperContentDriver: () => HelperContentDriver;
   /** check wether the helper has a close button */
   hasCloseButton: () => boolean;
+  /** Get width of content's root element */
+  getWidth: () => string;
 }
 
 export const floatingHelperDriverFactory:
@@ -17,6 +19,7 @@ export const floatingHelperDriverFactory:
   ({wrapper, element, eventTrigger}) => {
   const innerContent = () => element.querySelector(`[data-hook='${DataHooks.innerContent}']`);
   const closeButton = () => element.querySelector(`[data-hook='${DataHooks.closeButton}']`);
+  const contentWrapper = () => element.querySelector(`[data-hook='${DataHooks.contentWrapper}']`);
 
   return {
     ...popoverDriverFactory({element, eventTrigger}),
@@ -24,6 +27,7 @@ export const floatingHelperDriverFactory:
     /** Get HelperContent driver */
     getHelperContentDriver: () => helperContentDriverFactory({wrapper, element: innerContent(), eventTrigger}),
     /** checks if the component exists */
-    exists: () => !!element
+    exists: () => !!element,
+    getWidth: () => window.getComputedStyle(contentWrapper()).width
   };
 };

@@ -36,6 +36,25 @@ describe('FloatingHelper', () => {
     expect(driver.getHelperContentDriver().getTitleContent()).toBe('my title');
   });
 
+  describe('width', () => {
+    it('should have default width of 444', () => {
+      const driver = createDriver(buildComponent());
+      expect(driver.getWidth()).toBe('444px');
+    });
+
+    it('should have a custom width (which is a string)', () => {
+      const width = '500px';
+      const driver = createDriver(buildComponent({width}));
+      expect(driver.getWidth()).toBe(width);
+    });
+
+    it('should have a custom width (which is a number)', () => {
+      const width = 600;
+      const driver = createDriver(buildComponent({width}));
+      expect(driver.getWidth()).toBe(`${width}px`);
+    });
+  });
+
   describe('close-button', () => {
     it('should have a close-button by default', () => {
       const driver = createDriver(buildComponent());

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import pick = require('lodash/pick');
+import {bool, string, number, oneOfType} from 'prop-types';
 import * as classnames from 'classnames';
 import {Popover, PopoverProps} from 'wix-ui-core/Popover';
 import {withStylable} from 'wix-ui-core/withStylable';
@@ -22,6 +23,8 @@ export interface PopoverAdapterProps {
 export interface FloatingHelperOwnProps {
   /** Controls wether a close button will appear ot not */
   withCloseButton?: boolean;
+  /** Width HTML attribute of the content. If a number is passed then it defaults to px. e.g width={400} => width="400px" */
+  width?: string | number;
 }
 
 const PickedPopoverPropTypes = pick(Popover.propTypes, 'placement', 'shown', 'moveBy', 'hideDelay', 'showDelay', 'appendTo', 'appendToParent', 'timeout');
@@ -35,7 +38,9 @@ const FloatingHelperBO = withStylable<PopoverProps, {}>(
 );
 
 export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
-  const {children, content, ...rest} = props;
+  const {children, content, width, ...rest} = props;
+  const contentWidth = (typeof width) === 'number' ? `${width}px` : width;
+
   return (
     <FloatingHelperBO
       {...rest}
@@ -45,16 +50,18 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
           {children}
       </Popover.Element>
       <Popover.Content>
-        {props.withCloseButton && (
-          <Button
-            data-hook={DataHooks.closeButton}
-            className={classnames(style.closeButton, style.closeButtonWhiteSecondary)}
-          >
-            <CloseIcon className={classnames(style.closeIcon)}/>
-          </Button>
-        )}
-        <div data-hook={DataHooks.innerContent} className={style.innerContent}>
-          {content}
+        <div data-hook={DataHooks.contentWrapper} style={{width: contentWidth}}>
+          {props.withCloseButton && (
+            <Button
+              data-hook={DataHooks.closeButton}
+              className={classnames(style.closeButton, style.closeButtonWhiteSecondary)}
+            >
+              <CloseIcon className={classnames(style.closeIcon)}/>
+            </Button>
+          )}
+          <div data-hook={DataHooks.innerContent} className={style.innerContent}>
+            {content}
+          </div>
         </div>
       </Popover.Content>
     </FloatingHelperBO>
@@ -62,9 +69,12 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
 };
 
 FloatingHelper.defaultProps = {
-  withCloseButton: true
+  withCloseButton: true,
+  width: '444px'
 };
 
 FloatingHelper.propTypes = {
-  ...PickedPopoverPropTypes
+  ...PickedPopoverPropTypes,
+  withCloseButton: bool,
+  width: oneOfType([string, number])
 };
