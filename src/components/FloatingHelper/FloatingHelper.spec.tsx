@@ -14,7 +14,7 @@ describe('FloatingHelper', () => {
 
   const element = (
     <FloatingHelper
-      shown={true}
+      shown
       placement="right"
       content={<HelperContent title="my title"/>}
     >

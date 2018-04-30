@@ -26,7 +26,7 @@ export default {
       <div style={{height: 300}}/>
       <FloatingHelper
         data-hook={storySettings.examples.textOnly.dataHook}
-        shown={true}
+        shown
         placement="bottom"
         content={ (
           <HelperContent
