@@ -1,19 +1,18 @@
 import * as React from 'react';
-import { string } from "prop-types";
+import { oneOf } from "prop-types";
 import {Button as CoreButton, ButtonProps as CoreButtonProps} from 'wix-ui-core/Button';
 import style from './Button.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
+import {Skin, Priority, Size} from './constants';
+import { enumValues } from '../../utils';
 
 export interface ButtonOwnProps extends CoreButtonProps {
-  skin?: 'standard';
-  priority?: 'primary';
-  size?: 'medium';
-}
-
-const defaultProps :Partial<CoreButtonProps & ButtonOwnProps> ={
-  skin: 'standard',
-  priority: 'primary',
-  size: 'medium'
+  /**Skin of the Button (Styling)*/
+  skin?: Skin;
+  /** Priority of the Button (Styling)*/
+  priority?: Priority;
+  /** Size of the button (Styling) */
+  size?: Size;
 }
 
 export type ButtonProps = ButtonOwnProps & CoreButtonProps;
@@ -24,19 +23,23 @@ export const Button : React.SFC<ButtonProps> = props => {
   return (
     <CoreButton 
       {...rest}
-      {...style('root',{skin,priority,size}, rest)}
+      {...style('root',{skin, priority, size}, rest)}
     >
       {children}
     </CoreButton>
   )
 }
 
-Button.defaultProps = defaultProps;
+Button.defaultProps = {
+  skin: Skin.standard,
+  priority: Priority.primary,
+  size: Size.medium
+}
 
 Button.propTypes =  {
-  skin: string,
-  priority: string,
-  size: string
+  skin: oneOf(enumValues(Skin)),
+  priority: oneOf(enumValues(Priority)),
+  size: oneOf(enumValues(Size))
 }
 
 
