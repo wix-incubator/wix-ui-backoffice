@@ -21,6 +21,15 @@ export default {
     children: <span>I am a FloatingHelper target</span>,
     placement: 'right'
   },
+  exampleProps: {
+    content: [
+      <HelperContent key="1" title='Title'/>,
+      <HelperContent key="2" body="My Body"/>,
+      <HelperContent key="3" title='Title' body="My Body"/>,
+      <HelperContent key="4" title='Title' body="My Body" actionText="Click Me!"/>,
+      <HelperContent key="5" body="My Body" actionText="Click Me!"/>,
+    ]
+  },
   examples: (
     <div>
       <div style={{height: 300}}/>
@@ -40,3 +49,4 @@ export default {
   )
 
 };
+

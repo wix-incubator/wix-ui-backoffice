@@ -32,4 +32,18 @@ describe('HelperContent', () => {
     });
   });
 
+  describe('action button', () => {
+    it('should not have action button by default', () => {
+      const driver = createDriver(<HelperContent />);
+      expect(driver.hasActionButton()).toBeFalsy();
+    });
+
+    it('should have action button when actionText prop is non-empty', () => {
+      const actionText = 'Click Me!'
+      const driver = createDriver(<HelperContent actionText={actionText} />);
+      expect(driver.hasActionButton()).toBeTruthy();
+      expect(driver.getActionButtonContent()).toBe(actionText);
+    });
+  });
+
 });
