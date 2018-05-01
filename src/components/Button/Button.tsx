@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { oneOf } from "prop-types";
 import {Button as CoreButton, ButtonProps as CoreButtonProps} from 'wix-ui-core/Button';
-import style from './Button.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
-import {Skin, Priority, Size} from './constants';
 import { enumValues } from '../../utils';
+import style from './Button.st.css';
+import {Skin, Priority, Size} from './constants';
 
 export interface ButtonOwnProps extends CoreButtonProps {
   /**Skin of the Button (Styling)*/

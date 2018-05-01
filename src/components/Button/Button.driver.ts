@@ -1,8 +1,8 @@
-import { Skin , Priority, Size} from './constants';
+import { StylableDOMUtil } from 'stylable/test-utils';
 import {buttonDriverFactory as coreButtonDriverFactory} from 'wix-ui-core/dist/src/components/Button/Button.driver';
 import { DriverFactory, BaseDriver } from 'wix-ui-test-utils/driver-factory';
-import { StylableDOMUtil } from 'stylable/test-utils';
 import style from './Button.st.css';
+import { Skin , Priority, Size} from './constants';
 
 export interface ButtonDriver extends BaseDriver {
   getSkin: ()=> Skin;

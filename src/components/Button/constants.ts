@@ -8,5 +8,4 @@ export enum Priority  {
 
 export enum Size {
   medium = 'medium',
-  small = 'small'
 }

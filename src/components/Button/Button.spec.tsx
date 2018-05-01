@@ -7,7 +7,7 @@ import {buttonTestkitFactory as enzymeButtonTestkitFactory} from '../../testkit/
 import {runTestkitExistsSuite} from '../../common/testkitTests';
 import {Button,ButtonProps} from './';
 import {Skin, Priority, Size} from './constants';
-import { enumValues } from '../../utils';
+import {enumValues} from '../../utils';
 
 
 describe('Button', () => {
