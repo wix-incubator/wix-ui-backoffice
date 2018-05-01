@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { helperContentDriverFactory } from './HelperContent.driver';
-import { HelperContent } from '.';
-import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
+import {helperContentDriverFactory} from './HelperContent.driver';
+import {HelperContent} from '.';
+import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
 
 describe('HelperContent', () => {
   const createDriver = createDriverFactory(helperContentDriverFactory);
@@ -13,7 +13,7 @@ describe('HelperContent', () => {
     });
 
     it('should have title with proper content', () => {
-      const driver = createDriver(<HelperContent title="title"/>);
+      const driver = createDriver(<HelperContent title="title" />);
       expect(driver.hasTitle()).toBeTruthy();
       expect(driver.getTitleContent()).toBe('title');
     });
