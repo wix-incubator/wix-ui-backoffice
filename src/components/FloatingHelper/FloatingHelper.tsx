@@ -22,7 +22,7 @@ export interface PopoverAdapterProps {
 
 export interface FloatingHelperOwnProps {
   /** Controls wether a close button will appear ot not */
-  withCloseButton?: boolean;
+  showCloseButton?: boolean;
   /** Width HTML attribute of the content. If a number is passed then it defaults to px. e.g width={400} => width="400px" */
   width?: string | number;
 }
@@ -51,12 +51,12 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
       </Popover.Element>
       <Popover.Content>
         <div data-hook={DataHooks.contentWrapper} style={{width: contentWidth}}>
-          {props.withCloseButton && (
+          {props.showCloseButton && (
             <Button
               data-hook={DataHooks.closeButton}
               className={classnames(style.closeButton, style.closeButtonWhiteSecondary)}
             >
-              <CloseIcon className={classnames(style.closeIcon)}/>
+              <CloseIcon className={style.closeIcon}/>
             </Button>
           )}
           <div data-hook={DataHooks.innerContent} className={style.innerContent}>
@@ -69,12 +69,12 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
 };
 
 FloatingHelper.defaultProps = {
-  withCloseButton: true,
+  showCloseButton: true,
   width: '444px'
 };
 
 FloatingHelper.propTypes = {
   ...PickedPopoverPropTypes,
-  withCloseButton: bool,
+  showCloseButton: bool,
   width: oneOfType([string, number])
 };

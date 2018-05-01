@@ -9,8 +9,8 @@
 }
 
 :import {
-  -st-from: "../../typography.st.css";
-  -st-named: fontRoman;
+  -st-from: "../../colors.st.css";
+  -st-named: WHITE;
 }
 
 :vars {
@@ -47,7 +47,10 @@
 .closeButton {
   position: absolute;
   top: value(closeButtonPadding);
+
+  /* default dir=ltr */
   right: value(closeButtonPadding);
+  left: initial;
 }
 
 :global([dir="rtl"]) .closeButton {
@@ -63,7 +66,7 @@
 }
 
 .closeIcon {
-  fill: white;
+  fill: value(WHITE);
   height: 8px;
   width: 8px;
 }
