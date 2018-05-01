@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { string } from "prop-types";
 import style from './HelperContent.st.css';
 import {Text} from '../../../components/Text';
 import {DataHooks} from './DataHooks';
@@ -30,3 +31,8 @@ export const HelperContent: React.SFC<HelperContentProps> = (props: HelperConten
     </div>
   );
 };
+
+HelperContent.propTypes = {
+  title: string,
+  body: string
+}

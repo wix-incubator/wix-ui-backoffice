@@ -28,6 +28,7 @@ export default {
         data-hook={storySettings.examples.textOnly.dataHook}
         shown
         placement="bottom"
+        width="666"
         content={ (
           <HelperContent
             body={storySettings.examples.textOnly.params.body}

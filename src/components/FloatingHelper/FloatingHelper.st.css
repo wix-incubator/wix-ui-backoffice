@@ -9,8 +9,8 @@
 }
 
 :import {
-  -st-from: "../../typography.st.css";
-  -st-named: fontRoman;
+  -st-from: "../../colors.st.css";
+  -st-named: WHITE;
 }
 
 :vars {
@@ -18,6 +18,7 @@
 
   /** background color D10 with opacity 0.95 */
   backgroundColor: rgba(22,45,61,0.95);
+  closeButtonPadding: 6px;
 }
 
 .root {
@@ -28,7 +29,7 @@
     contentBackgroundColor value(backgroundColor),
     contentBorderWidth 0,
     contentBorderRadius 8px,
-    contentPadding 30px 36px
+    contentPadding 0 0
     );
 }
 
@@ -36,14 +37,42 @@
  * but I split them.
 */
 .root::popoverContent {
-  padding: 36px 30px;
+  position: relative;
   box-sizing: border-box;
   box-shadow:
   0 6px 6px 0 rgba(22, 45, 60, 0.06),
   0 0 18px 0 rgba(22, 45, 60, 0.12);
 }
 
+.closeButton {
+  position: absolute;
+  top: value(closeButtonPadding);
+
+  /* default dir=ltr */
+  right: value(closeButtonPadding);
+  left: initial;
+}
+
+:global([dir="rtl"]) .closeButton {
+  right: initial;
+  left: value(closeButtonPadding);
+}
+
+.closeButtonWhiteSecondary {
+  /* TODO: This should be from Button component [5.7-secondary-small] theme*/
+  background-color: transparent;
+  height: 24px;
+  border: none;
+}
+
+.closeIcon {
+  fill: value(WHITE);
+  height: 8px;
+  width: 8px;
+}
+
 .innerContent {
+  padding: 36px 30px;
   font-family: value(fontRoman);
   color: value(backgroundSecondary);
   word-wrap: break-word;
@@ -51,3 +80,4 @@
   font-size: 14px;
   line-height: 1.29;
 }
+
