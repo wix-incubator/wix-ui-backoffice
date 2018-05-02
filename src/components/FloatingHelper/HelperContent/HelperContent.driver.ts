@@ -8,26 +8,28 @@ export interface HelperContentDriver extends BaseDriver {
   hasTitle: () => boolean;
   /** checks if text content exists */
   hasBody: () => boolean;
+  /** checks if the action button exists */
+  hasActionButton: () => boolean;
   /** Get the text content of the title */
   getTitleContent: () => string;
   /** Get the text content of the helper's text */
   getBodyContent: () => string;
+  /** Get the text content of the action button */
+  getActionButtonContent: () => string;
 }
 
 export const helperContentDriverFactory: DriverFactory<HelperContentDriver> = ({element}) => {
   const title = () => element.querySelector(`[data-hook='${DataHooks.title}']`);
   const body = () => element.querySelector(`[data-hook='${DataHooks.body}']`);
+  const actionButton = () => element.querySelector(`[data-hook='${DataHooks.actionButton}']`);
 
   return {
-    /** checks if the element exists */
     exists: () => !!element,
-    /** checks if title exists */
     hasTitle: () => !!title(),
-    /** checks if text content exists */
     hasBody: () => !!body(),
-    /** Get the text content of the title */
+    hasActionButton: () => !!actionButton(),
     getTitleContent: () => title().textContent,
-    /** Get the text content of the helper's body */
     getBodyContent: () => body().textContent,
+    getActionButtonContent: () => actionButton().textContent,
   };
 };

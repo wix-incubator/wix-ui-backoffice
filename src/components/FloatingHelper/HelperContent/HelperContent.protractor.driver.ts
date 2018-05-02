@@ -4,20 +4,15 @@ import {DriverFactory, BaseDriver} from 'wix-ui-core/dist/src/common/BaseDriver.
 import {textDriverFactory} from '../../../components/Text/Text.protractor.driver';
 
 export interface HelperContentDriver extends BaseDriver {
-  hasTitle: () => Promise<boolean>;
-  getTitleContent: () => Promise<string>;
-  getBodyContent: () => Promise<string>;
+  hasActionButton: () => Promise<boolean>;
 }
 
 export const helperContentDriverFactory: DriverFactory<HelperContentDriver> = element => {
-  const title = () => element.$(byDataHook(DataHooks.title));
-  const body = () => element.$(byDataHook(DataHooks.body));
+  const actionButton = () => element.$(byDataHook(DataHooks.actionButton));
 
   return {
     element: () => element,
-    hasTitle: async () => title().isPresent(),
-    getTitleContent: async () => textDriverFactory(title()).getText(),
-    getBodyContent: async () => textDriverFactory(body()).getText()
+    hasActionButton: async () => actionButton().isPresent(),
   };
 };
 
