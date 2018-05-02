@@ -9,7 +9,7 @@ describe('Button', () => {
 
   beforeEach(() => browser.get(storyUrl));
 
-  eyes.it('should render', async () => {
+  eyes.it('should render with default props', async () => {
     const driver = buttonTestkitFactory({dataHook});
     expect(await driver.element().isPresent()).toBeTruthy();
   });

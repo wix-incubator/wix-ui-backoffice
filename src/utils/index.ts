@@ -4,3 +4,8 @@ export const hexToRgba = (hex, opacity) => {
   const b = parseInt(hex.substring(5, 7), 16);
   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
 };
+
+export function enumValues(e: object) {
+  return Object.keys(e).map(k => e[k as any]);
+}
+

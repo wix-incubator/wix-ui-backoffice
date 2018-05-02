@@ -9,8 +9,9 @@ export const badgeTestkitFactory = testkitFactoryCreator(badgeDriverFactory);
 import {headingDriverFactory} from '../components/Heading/Heading.driver';
 export const headingTestkitFactory = testkitFactoryCreator(headingDriverFactory);
 
-import {buttonDriverFactory} from '../components/Button/Button.driver';
+import {buttonDriverFactory, ButtonDriver} from '../components/Button/Button.driver';
 export const buttonTestkitFactory = testkitFactoryCreator(buttonDriverFactory);
+export {ButtonDriver};
 
 import {checkboxDriverFactory} from '../components/Checkbox/Checkbox.driver';
 export const checkboxTestkitFactory = testkitFactoryCreator(checkboxDriverFactory);
