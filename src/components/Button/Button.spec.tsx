@@ -9,51 +9,50 @@ import {Button,ButtonProps} from './';
 import {Skin, Priority, Size} from './constants';
 import {enumValues} from '../../utils';
 
-
 describe('Button', () => {
   const createDriver = createDriverFactory(buttonDriverFactory);
-  const PButton = partialHOC(Button, 
+  const ButtonWithDefaults = withDefaultsHOC(Button, 
     {
       children: 'Click me!'
     });
 
   describe('skin prop', () => {
-    it(`should be '${Skin.standard}' by default`, () => {
-      const driver = createDriver(<PButton/>);
+    it('should be standard by default', () => {
+      const driver = createDriver(<ButtonWithDefaults/>);
       expect(driver.getSkin()).toBe(Skin.standard);
     });
 
     enumValues(Skin).forEach((skin: Skin) => {
       it(`should be '${skin}'`, () => {
-        const driver = createDriver(<PButton skin={skin}/>);
+        const driver = createDriver(<ButtonWithDefaults skin={skin}/>);
         expect(driver.getSkin()).toBe(skin);
       });
     });
   });
 
   describe('priority prop', () => {
-    it(`should be '${Priority.primary}' by default`, () => {
-      const driver = createDriver(<PButton/>);
+    it('should be primary by default', () => {
+      const driver = createDriver(<ButtonWithDefaults/>);
       expect(driver.getPriority()).toBe(Priority.primary);
     });
 
     enumValues(Priority).forEach((priority: Priority) => {
       it(`should be '${priority}'`, () => {
-        const driver = createDriver(<PButton priority={priority}/>);
+        const driver = createDriver(<ButtonWithDefaults priority={priority}/>);
         expect(driver.getPriority()).toBe(priority);
       });
     });
   });
 
   describe('size prop', () => {
-    it(`should be '${Size.medium}' by default`, () => {
-      const driver = createDriver(<PButton/>);
+    it('should be medium by default', () => {
+      const driver = createDriver(<ButtonWithDefaults/>);
       expect(driver.getSize()).toBe(Size.medium);
     });
 
     enumValues(Size).forEach((size: Size) => {
       it(`should be '${size}'`, () => {
-        const driver = createDriver(<PButton size={size}/>);
+        const driver = createDriver(<ButtonWithDefaults size={size}/>);
         expect(driver.getSize()).toBe(size);
       });
     });
@@ -72,7 +71,7 @@ describe('Button', () => {
  * Create a Component with applied default props.
  * The new component can receive Partial<P> instead of P.
  */
-function partialHOC<P>(Component: React.SFC<P>, defaultProps: P): React.SFC<Partial<P>> {
+function withDefaultsHOC<P>(Component: React.SFC<P>, defaultProps: P): React.SFC<Partial<P>> {
   return (partialProps?: Partial<P>) => {
     return React.createElement(Component, defaults({}, partialProps, defaultProps));
   }
