@@ -1,8 +1,21 @@
 import * as React from 'react';
-import {FloatingHelper} from '../../src/components/FloatingHelper';
+import {FloatingHelper, FloatingHelperProps} from '../../src/components/FloatingHelper';
 import {HelperContent} from '../../src/components/FloatingHelper/HelperContent/HelperContent';
 
 import {storySettings} from './StorySettings';
+
+
+// Should match the exampleDataHooks from storySettings
+const exampleProps = [
+  {content:<HelperContent key="0" title='Title'/>},
+  {content:<HelperContent key="1" body="My Body"/>},
+  {content:<HelperContent key="2" title='Title' body="My Body"/>},
+  {content:<HelperContent key="3" title='Title' body="My Body" actionText="Click Me!"/>},
+  {content:<HelperContent key="4" title="Title" actionText="Click Me!"/>},
+  {content:<HelperContent key="5" body="My Body" actionText="Click Me!"/>},
+];
+
+const examples = exampleProps.map((props,index) => renderExample(storySettings.exampleDataHooks[index], props));
 
 export default {
   category: storySettings.kind,
@@ -22,31 +35,31 @@ export default {
     placement: 'right'
   },
   exampleProps: {
-    content: [
-      <HelperContent key="1" title='Title'/>,
-      <HelperContent key="2" body="My Body"/>,
-      <HelperContent key="3" title='Title' body="My Body"/>,
-      <HelperContent key="4" title='Title' body="My Body" actionText="Click Me!"/>,
-      <HelperContent key="5" body="My Body" actionText="Click Me!"/>,
-    ]
+    content: exampleProps.map(p=> p.content)
   },
   examples: (
     <div>
-      <div style={{height: 300}}/>
-      <FloatingHelper
-        data-hook={storySettings.examples.textOnly.dataHook}
-        shown
-        placement="bottom"
-        width="666"
-        content={ (
-          <HelperContent
-            body={storySettings.examples.textOnly.params.body}
-          />)}
-        children={<span>I am a long long long long long long long long FloatingHelper target</span>}
-      />
-      <div style={{height: 300}}/>
+      <h1>Examples</h1>
+      {examples}
     </div>
   )
 
 };
+
+
+function renderExample(dataHook: string, props?: Partial<FloatingHelperProps> ) {
+  return (
+    <div style={{marginTop: 150, marginBottom: 150}}>
+      <FloatingHelper
+        data-hook={dataHook}
+        shown
+        placement="right"
+        width="666px"
+        content={<HelperContent/>}
+        children={<span>I am a long long long long long long long long FloatingHelper target</span>}
+        {...props}
+      />
+    </div>
+  );
+}
 
