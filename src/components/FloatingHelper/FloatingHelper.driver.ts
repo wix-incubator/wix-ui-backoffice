@@ -26,8 +26,7 @@ export const floatingHelperDriverFactory:
     hasCloseButton: () => !!closeButton(),
     /** Get HelperContent driver */
     getHelperContentDriver: () => helperContentDriverFactory({wrapper, element: innerContent(), eventTrigger}),
-    /** checks if the component exists */
-    exists: () => !!element,
+    /** returns the width of the coomponent */
     getWidth: () => window.getComputedStyle(contentWrapper()).width
   };
 };
