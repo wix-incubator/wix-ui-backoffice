@@ -11,8 +11,8 @@ describe('enumValues function', () => {
   
   it('should list enum values', () => {
     enum Foo {
-      AAA= "aaa",
-      BBB= "bbb"
+      AAA= 'aaa',
+      BBB= 'bbb'
     }
     expect(enumValues(Foo)).toEqual(['aaa','bbb']);
   });
