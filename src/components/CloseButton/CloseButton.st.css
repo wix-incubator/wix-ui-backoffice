@@ -1,0 +1,28 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/components/Button/Button.st.css";
+  -st-default: Button;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: main;
+}
+.root {
+  -st-extends: Button;
+  -st-states: skin(enum(standard)), priority(enum(primary)), size(enum(medium));
+
+  box-sizing: border-box;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.root:skin(standard) {
+  background-color: none;
+}
+
+.root:size(medium) {
+  width: 18;
+  height: 18px;
+}
