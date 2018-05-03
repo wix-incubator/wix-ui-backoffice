@@ -25,7 +25,6 @@ export default {
 
   componentProps: {
     'data-hook': storySettings.dataHook,
-    shown: true,
     content: (
       <HelperContent
         title="This is the title"
@@ -52,7 +51,6 @@ function renderExample(dataHook: string, props?: Partial<FloatingHelperProps> ) 
     <div style={{marginTop: 150, marginBottom: 150}}>
       <FloatingHelper
         data-hook={dataHook}
-        shown
         placement="right"
         width="666px"
         content={<HelperContent/>}
