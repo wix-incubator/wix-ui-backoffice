@@ -19,10 +19,27 @@
 }
 
 .root:skin(standard) {
-  background-color: none;
+  background-color: transparent;
+  border: none;
+}
+
+.root:size(small) {
+  width: 18px;
+  height: 18px;
+}
+
+/* svg sizing will be obsolete once we have 2 sets of icons which are based on 18x18 view and 24x24 view */
+.root:size(small) svg {
+  width: 6px;
+  height: 6px;
 }
 
 .root:size(medium) {
-  width: 18;
-  height: 18px;
+  width: 24px;
+  height: 24px;
 }
+.root:size(medium) svg {
+  width: 8px;
+  height: 8px;
+}
+

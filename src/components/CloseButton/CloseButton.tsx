@@ -4,6 +4,7 @@ import {Button as CoreButton, ButtonProps as CoreButtonProps} from 'wix-ui-core/
 import {enumValues} from '../../utils';
 import style from './CloseButton.st.css';
 import {Skin, Size} from './constants';
+import {Close as CloseIcon} from 'wix-ui-icons-common/system';
 
 export interface CloseButtonOwnProps extends CoreButtonProps {
   /**Skin of the Button (Styling)*/
@@ -15,6 +16,7 @@ export interface CloseButtonOwnProps extends CoreButtonProps {
 export type CloseButtonProps = CloseButtonOwnProps & CoreButtonProps;
 
 export const CloseButton : React.SFC<CloseButtonProps> = props => {
+  // children is ommited on purpose (and not used)
   const {children, skin, size, ...rest} = props;
 
   return (
@@ -22,19 +24,20 @@ export const CloseButton : React.SFC<CloseButtonProps> = props => {
       {...rest}
       {...style('root',{skin, size}, rest)}
     >
-      {children}
+      <CloseIcon/>
     </CoreButton>
   )
 }
 
 CloseButton.defaultProps = {
   skin: Skin.standard,
-  size: Size.medium
+  size: Size.small
 }
 
 CloseButton.propTypes =  {
   skin: oneOf(enumValues(Skin)),
-  size: oneOf(enumValues(Size))
+  size: oneOf(enumValues(Size)),
+  // TODO: can we validate here that children is NOT defined?
 }
 
 
