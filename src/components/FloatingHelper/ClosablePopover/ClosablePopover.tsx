@@ -4,8 +4,6 @@ import isBoolean = require('lodash/isBoolean');
 import pick = require('lodash/pick');
 import { Popover, PopoverProps } from 'wix-ui-core/Popover';
 
-const noop = () => void 0;
-
 export interface ClosableActions {
   /** Closes the popover content*/
   close: () => void;

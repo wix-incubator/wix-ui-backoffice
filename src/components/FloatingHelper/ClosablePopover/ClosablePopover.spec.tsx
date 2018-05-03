@@ -8,7 +8,7 @@ import {closablePopoverDriverFactory, ClosablePopoverDriver} from './ClosablePop
 import {ClosablePopover, ClosablePopoverProps} from './ClosablePopover';
 import defaults = require('lodash/defaults');
 
-describe('FloatingHelper', () => {
+describe('ClosablePopover', () => {
   const createDriver = createDriverFactory(closablePopoverDriverFactory);
   const createComponent= (partialProps?: Partial<ClosablePopoverProps>) => (
     <ClosablePopover
