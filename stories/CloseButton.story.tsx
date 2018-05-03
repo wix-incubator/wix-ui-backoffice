@@ -5,7 +5,7 @@ import {enumValues} from '../src/utils';
 import {Skin, Size} from '../src/components/CloseButton/constants';
 
 export default {
-  category: 'Components',
+  category: 'Internal',
   storyName: 'CloseButton',
   component: CloseButton,
   source: CloseButtonSource,
