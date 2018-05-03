@@ -4,5 +4,5 @@ export enum Skin {
 
 export enum Size {
   small = 'small',
-  medium = 'medium'
+  large = 'large'
 }

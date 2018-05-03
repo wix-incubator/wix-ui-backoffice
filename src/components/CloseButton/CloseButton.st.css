@@ -34,11 +34,11 @@
   height: 6px;
 }
 
-.root:size(medium) {
+.root:size(large) {
   width: 24px;
   height: 24px;
 }
-.root:size(medium) svg {
+.root:size(large) svg {
   width: 8px;
   height: 8px;
 }
