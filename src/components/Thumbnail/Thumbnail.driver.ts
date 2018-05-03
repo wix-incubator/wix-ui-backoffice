@@ -2,7 +2,7 @@ import {thumbnailDriverFactory as coreTuhmbnailDriverFactory, ThumbnailDriver as
 import {StylableDOMUtil} from 'stylable/test-utils';
 import style from './Thumbnail.st.css';
 import {textDriverFactory, TextDriver} from '../Text/Text.driver';
-import {BaseDriver, DriverFactory} from 'wix-ui-test-utils/driver-factory';
+import {DriverFactory} from 'wix-ui-test-utils/driver-factory';
 
 export interface ThumbnailDriver extends CoreThumbnailDriver {
   titleDriver: () => TextDriver; 
