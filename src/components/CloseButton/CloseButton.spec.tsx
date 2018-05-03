@@ -31,9 +31,9 @@ describe('CloseButton', () => {
   });
 
   describe('size prop', () => {
-    it('should be medium by default', () => {
+    it('should be small by default', () => {
       const driver = createDriver(<CloseButtonWithDefaults/>);
-      expect(driver.getSize()).toBe(Size.medium);
+      expect(driver.getSize()).toBe(Size.small);
     });
 
     enumValues(Size).forEach((size: Size) => {
