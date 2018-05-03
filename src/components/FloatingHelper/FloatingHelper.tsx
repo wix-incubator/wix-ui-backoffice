@@ -2,7 +2,7 @@ import * as React from 'react';
 import pick = require('lodash/pick');
 import { bool, string, number, oneOfType, node } from 'prop-types';
 import * as classnames from 'classnames';
-import { ClosablePopover, ClosablePopoverProps, ClosableActions } from './ClosablePopover';
+import { ClosablePopover, ClosablePopoverProps, ClosablePopoverActions } from './ClosablePopover';
 import { withStylable } from 'wix-ui-core/withStylable';
 import style from './FloatingHelper.st.css';
 import { DataHooks } from './DataHooks';
@@ -33,14 +33,12 @@ const pickedPopoverPropTypes = pick<
 export type FloatingHelperProps = PickedClosablePopoverProps & FloatingHelperOwnProps;
 
 export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
-  const { children, width, content, ...rest } = props;
+  const { children, width, content, showCloseButton, ...rest } = props;
   const contentWidth = (typeof width) === 'number' ? `${width}px` : width;
 
-  const closablePopoverProps: PickedClosablePopoverProps = pick(props, pickedPropNames);
-
-  const renderContent = (closableActions: ClosableActions) => (
+  const renderContent = (closableActions: ClosablePopoverActions) => (
     <div data-hook={DataHooks.contentWrapper} style={{ width: contentWidth }}>
-      {props.showCloseButton && (
+      {showCloseButton && (
         <CloseButton
           className={style.closeButton}
         />
@@ -56,7 +54,7 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
       showArrow
       target={children}
       content={renderContent}
-      {...closablePopoverProps}
+      {...rest}
       {...style('root', {}, props)}
     />
   );
