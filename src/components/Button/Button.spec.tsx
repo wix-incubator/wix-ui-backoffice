@@ -1,7 +1,7 @@
 import * as React from 'react';
 import defaults = require('lodash/defaults');
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
-import { buttonDriverFactory } from "./Button.driver";
+import { buttonDriverFactory } from './Button.driver';
 import {buttonTestkitFactory} from '../../testkit';
 import {buttonTestkitFactory as enzymeButtonTestkitFactory} from '../../testkit/enzyme';
 import {runTestkitExistsSuite} from '../../common/testkitTests';

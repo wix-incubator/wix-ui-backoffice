@@ -7,10 +7,10 @@ import {storySettings} from './StorySettings';
 
 // Should match the exampleDataHooks from storySettings
 const exampleProps = [
-  {content:<HelperContent key="0" title='Title'/>},
+  {content:<HelperContent key="0" title="Title"/>},
   {content:<HelperContent key="1" body="My Body"/>},
-  {content:<HelperContent key="2" title='Title' body="My Body"/>},
-  {content:<HelperContent key="3" title='Title' body="My Body" actionText="Click Me!"/>},
+  {content:<HelperContent key="2" title="Title" body="My Body"/>},
+  {content:<HelperContent key="3" title="Title" body="My Body" actionText="Click Me!"/>},
   {content:<HelperContent key="4" title="Title" actionText="Click Me!"/>},
   {content:<HelperContent key="5" body="My Body" actionText="Click Me!"/>},
 ];

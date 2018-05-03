@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { string } from "prop-types";
+import { string } from 'prop-types';
 import style from './HelperContent.st.css';
 import {Text} from '../../../components/Text';
 import {DataHooks} from './DataHooks';
-import { Button } from "../../Button";
+import { Button } from '../../Button';
 export interface HelperContentProps {
   /** Adds text as the title */
   title?: string;
