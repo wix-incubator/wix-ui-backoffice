@@ -19,8 +19,9 @@ export const checkboxTestkitFactory = enzymeTestkitFactoryCreator(checkboxDriver
 import {uiTextDriverFactory} from '../components/StylableUIText/UIText.driver';
 export const uiTextTestkitFactory = enzymeTestkitFactoryCreator(uiTextDriverFactory);
 
-import {textDriverFactory} from '../components/Text/Text.driver';
-export const textTestkitFactory = enzymeTestkitFactoryCreator(textDriverFactory);
+import {textDriverFactory, TextDriver} from '../components/Text/Text.driver';
+export const textTestkitFactory = enzymeTestkitFactoryCreator<TextDriver>(textDriverFactory);
+export {TextDriver};
 
 import {autocompleteDriverFactory} from '../components/Autocomplete/Autocomplete.driver';
 export const autocompleteTestkitFactory = enzymeTestkitFactoryCreator(autocompleteDriverFactory);
@@ -39,3 +40,7 @@ export const labelTestkitFactory = enzymeTestkitFactoryCreator(labelDriverFactor
 
 import {floatingHelperDriverFactory, FloatingHelperDriver} from '../components/FloatingHelper/FloatingHelper.driver';
 export const floatingHelperTestkitFactory = enzymeTestkitFactoryCreator<FloatingHelperDriver>(floatingHelperDriverFactory);
+
+import {thumbnailDriverFactory, ThumbnailDriver} from '../components/Thumbnail/Thumbnail.driver';
+export const thumbnailTestkitFactory = enzymeTestkitFactoryCreator<ThumbnailDriver>(thumbnailDriverFactory);
+export {ThumbnailDriver};
