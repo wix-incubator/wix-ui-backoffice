@@ -13,6 +13,10 @@ import {buttonDriverFactory, ButtonDriver} from '../components/Button/Button.dri
 export const buttonTestkitFactory = enzymeTestkitFactoryCreator(buttonDriverFactory);
 export {ButtonDriver};
 
+import {closeButtonDriverFactory, CloseButtonDriver} from '../components/CloseButton/CloseButton.driver';
+export const closeButtonTestkitFactory = enzymeTestkitFactoryCreator<CloseButtonDriver>(closeButtonDriverFactory);
+export {CloseButtonDriver};
+
 import {checkboxDriverFactory} from '../components/Checkbox/Checkbox.driver';
 export const checkboxTestkitFactory = enzymeTestkitFactoryCreator(checkboxDriverFactory);
 

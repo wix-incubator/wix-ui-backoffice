@@ -8,6 +8,10 @@ import {buttonDriverFactory, ButtonDriver} from '../components/Button/Button.pro
 export const buttonTestkitFactory = protractorTestkitFactoryCreator<ButtonDriver>(buttonDriverFactory);
 export {ButtonDriver};
 
+import {closeButtonDriverFactory, CloseButtonDriver} from '../components/CloseButton/CloseButton.protractor.driver';
+export const closeButtonTestkitFactory = protractorTestkitFactoryCreator<CloseButtonDriver>(closeButtonDriverFactory);
+export {CloseButtonDriver};
+
 import {badgeDriverFactory, BadgeDriver} from '../components/Badge/Badge.protractor.driver';
 export const badgeTestkitFactory = protractorTestkitFactoryCreator<BadgeDriver>(badgeDriverFactory);
 export {BadgeDriver};
