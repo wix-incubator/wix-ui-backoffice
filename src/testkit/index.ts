@@ -1,45 +1,50 @@
-import {testkitFactoryCreator} from 'wix-ui-test-utils/vanilla';
+import { testkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 
-import {counterBadgeDriverFactory} from '../components/CounterBadge/CounterBadge.driver';
+import { counterBadgeDriverFactory } from '../components/CounterBadge/CounterBadge.driver';
 export const counterBadgeTestkitFactory = testkitFactoryCreator(counterBadgeDriverFactory);
 
-import {badgeDriverFactory} from '../components/Badge/Badge.driver';
-export const badgeTestkitFactory = testkitFactoryCreator(badgeDriverFactory);
+import { badgeDriverFactory, BadgeDriver } from '../components/Badge/Badge.driver';
+export const badgeTestkitFactory = testkitFactoryCreator<BadgeDriver>(badgeDriverFactory);
+export { BadgeDriver };
 
-import {headingDriverFactory} from '../components/Heading/Heading.driver';
-export const headingTestkitFactory = testkitFactoryCreator(headingDriverFactory);
+import { headingDriverFactory, HeadingDriver } from '../components/Heading/Heading.driver';
+export const headingTestkitFactory = testkitFactoryCreator<HeadingDriver>(headingDriverFactory);
+export { HeadingDriver };
 
-import {buttonDriverFactory, ButtonDriver} from '../components/Button/Button.driver';
+import { buttonDriverFactory, ButtonDriver } from '../components/Button/Button.driver';
 export const buttonTestkitFactory = testkitFactoryCreator(buttonDriverFactory);
-export {ButtonDriver};
+export { ButtonDriver };
 
-import {closeButtonDriverFactory, CloseButtonDriver} from '../components/CloseButton/CloseButton.driver';
+import { closeButtonDriverFactory, CloseButtonDriver } from '../components/CloseButton/CloseButton.driver';
 export const closeButtonTestkitFactory = testkitFactoryCreator<CloseButtonDriver>(closeButtonDriverFactory);
-export {CloseButtonDriver};
+export { CloseButtonDriver };
 
-import {checkboxDriverFactory} from '../components/Checkbox/Checkbox.driver';
+import { checkboxDriverFactory } from '../components/Checkbox/Checkbox.driver';
 export const checkboxTestkitFactory = testkitFactoryCreator(checkboxDriverFactory);
 
-import {uiTextDriverFactory} from '../components/StylableUIText/UIText.driver';
-export const uiTextTestkitFactory = testkitFactoryCreator(uiTextDriverFactory);
+import { uiTextDriverFactory, UITextDriver } from '../components/StylableUIText/UIText.driver';
+export const uiTextTestkitFactory = testkitFactoryCreator<UITextDriver>(uiTextDriverFactory);
+export { UITextDriver };
 
-import {textDriverFactory} from '../components/Text/Text.driver';
-export const textTestkitFactory = testkitFactoryCreator(textDriverFactory);
+import { textDriverFactory, TextDriver } from '../components/Text/Text.driver';
+export const textTestkitFactory = testkitFactoryCreator<TextDriver>(textDriverFactory);
+export { TextDriver };
 
-import {autocompleteDriverFactory} from '../components/Autocomplete/Autocomplete.driver';
+import { autocompleteDriverFactory } from '../components/Autocomplete/Autocomplete.driver';
 export const autocompleteTestkitFactory = testkitFactoryCreator(autocompleteDriverFactory);
 
-import {toggleSwitchDriverFactory} from '../components/ToggleSwitch/ToggleSwitch.driver';
+import { toggleSwitchDriverFactory } from '../components/ToggleSwitch/ToggleSwitch.driver';
 export const toggleSwitchTestkitFactory = testkitFactoryCreator(toggleSwitchDriverFactory);
 
-import {counterBadgeDriverFactory as stylableCounterBadgeDriverFactory} from '../components/StylableCounterBadge/CounterBadge.driver';
-export const stylableCounterBadgeTestkitFactory = testkitFactoryCreator(stylableCounterBadgeDriverFactory);
+import { counterBadgeDriverFactory as stylableCounterBadgeDriverFactory, CounterBadgeDriver } from '../components/StylableCounterBadge/CounterBadge.driver';
+export const stylableCounterBadgeTestkitFactory = testkitFactoryCreator<CounterBadgeDriver>(stylableCounterBadgeDriverFactory);
+export { CounterBadgeDriver };
 
-import {labelWithOptionsDriverFactory} from '../components/LabelWithOptions/LabelWithOptions.driver';
+import { labelWithOptionsDriverFactory } from '../components/LabelWithOptions/LabelWithOptions.driver';
 export const labelWithOptionsTestkitFactory = testkitFactoryCreator(labelWithOptionsDriverFactory);
 
-import {labelDriverFactory} from '../components/Label/Label.driver';
+import { labelDriverFactory } from '../components/Label/Label.driver';
 export const labelTestkitFactory = testkitFactoryCreator(labelDriverFactory);
 
-import {floatingHelperDriverFactory, FloatingHelperDriver} from '../components/FloatingHelper/FloatingHelper.driver';
+import { floatingHelperDriverFactory, FloatingHelperDriver } from '../components/FloatingHelper/FloatingHelper.driver';
 export const floatingHelperTestkitFactory = testkitFactoryCreator<FloatingHelperDriver>(floatingHelperDriverFactory);
