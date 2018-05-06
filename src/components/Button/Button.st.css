@@ -69,7 +69,27 @@
 
 .root:skin(white):priority(secondary) {
   background-color: transparent;
-  border-color: value(WHITE);
+  border-color: value(skinWhiteColor);
+}
+
+.root:skin(destructive):priority(primary) {
+  background-color: value(skinDestructiveColor);
+  border-color: value(skinDestructiveColor);
+}
+
+.root:skin(destructive):priority(secondary) {
+  background-color: transparent;
+  border-color: value(skinDestructiveColor);
+}
+
+.root:skin(premium):priority(primary) {
+  background-color: value(skinPremiumColor);
+  border-color: value(skinPremiumColor);
+}
+
+.root:skin(premium):priority(secondary) {
+  background-color: transparent;
+  border-color: value(skinPremiumColor);
 }
 
 .root:size(medium) {
