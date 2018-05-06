@@ -4,6 +4,7 @@ import {Thumbnail} from './';
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
 import {isEnzymeTestkitExists} from 'wix-ui-test-utils/enzyme';
 import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
+import {runTestkitExistsSuite} from '../../common/testkitTests';
 import {mount} from 'enzyme';
 import Check from 'wix-ui-icons-common/Check';
 import {thumbnailTestkitFactory} from '../../testkit';
@@ -32,19 +33,21 @@ describe('Thumbnail', () => {
 
     it('should render the description', () => {
       const driver = createDriver(<Thumbnail title="hello" description="hey"/>);
+      expect(driver.hasDescription()).toBe(true);
       expect(driver.getDescription()).toEqual('hey');
     });
   });
 
   describe('image prop', () => {
-    it('not be visible by default', () => {
+    it('should not be visible by default', () => {
       const driver = createDriver(<Thumbnail title="hello"/>);
       expect(driver.hasImage()).toBe(false);
     });
 
-    it('be visible', () => {
+    it('should render the image', () => {
       const driver = createDriver(<Thumbnail title="hello" image={<div>🤔</div>}/>);
       expect(driver.hasImage()).toBe(true);
+      expect(driver.getImage()).toEqual(mount(<div>🤔</div>).getDOMNode());
     });
   });
 
@@ -55,15 +58,9 @@ describe('Thumbnail', () => {
     });
   });
 
-  describe('testkit', () => {
-    it('should exist', () => {
-      expect(isTestkitExists(<Thumbnail title="hello"/>, thumbnailTestkitFactory)).toBe(true);
-    });
-  });
-
-  describe('enzyme testkit', () => {
-    it('should exist', () => {
-      expect(isEnzymeTestkitExists(<Thumbnail title="hello"/>, enzymeThumbnailTestkitFactory, mount)).toBe(true);
-    });
+  runTestkitExistsSuite({
+    Element: <Thumbnail title="hello"/>,
+    testkitFactory: thumbnailTestkitFactory,
+    enzymeTestkitFactory: enzymeThumbnailTestkitFactory
   });
 });

@@ -18,8 +18,8 @@ export const textDriverFactory: DriverFactory<TextDriver> = ({element}) => {
 
   return {
     ...coreTextDriver,
-    getSize: () => <Size>stylableDOMUtil.getStyleState(element, 'size'),
-    getSkin: () => <Skin>stylableDOMUtil.getStyleState(element, 'skin'),
+    getSize: () => <Size | null>stylableDOMUtil.getStyleState(element, 'size'),
+    getSkin: () => <Skin | null>stylableDOMUtil.getStyleState(element, 'skin'),
     isLight: () => stylableDOMUtil.hasStyleState(element, 'light'),
     isBold: () => stylableDOMUtil.hasStyleState(element, 'bold'),
     isSecondary: () => stylableDOMUtil.hasStyleState(element, 'secondary')

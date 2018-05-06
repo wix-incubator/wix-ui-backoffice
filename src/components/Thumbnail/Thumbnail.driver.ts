@@ -10,6 +10,7 @@ export interface ThumbnailDriver extends CoreThumbnailDriver {
   hasDescription: () => boolean;
   getDescription: () => string;
   hasImage: () => boolean;
+  getImage: () => React.ReactElement<any>;
 }
 
 export const thumbnailDriverFactory: DriverFactory<ThumbnailDriver> = ({element, eventTrigger}) => {
@@ -17,6 +18,7 @@ export const thumbnailDriverFactory: DriverFactory<ThumbnailDriver> = ({element,
   const stylableDOMUtil = new StylableDOMUtil(style, element);
   const titleDriver = textDriverFactory({element: stylableDOMUtil.select('.title')});
   const descriptionDriver = textDriverFactory({element: stylableDOMUtil.select('.description')});
+  const image = element.querySelector('[data-hook="image"]');
 
   return {
     ...coreThumbnailDriver,
@@ -27,7 +29,9 @@ export const thumbnailDriverFactory: DriverFactory<ThumbnailDriver> = ({element,
     hasDescription: () => descriptionDriver.exists(),
     /** returns the description of the thumbnail */
     getDescription: () => descriptionDriver.getText(),
+    /** returns the image of the thumbnail */
+    getImage: () => image && image.childNodes[0],
     /** returns true if the thumbnail has an image */
-    hasImage: () => !!element.querySelector('[data-hook="image"]')
+    hasImage: () => !!image
   };
 };
