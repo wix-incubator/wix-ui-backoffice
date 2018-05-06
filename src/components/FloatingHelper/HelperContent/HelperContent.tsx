@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { string } from 'prop-types';
 import style from './HelperContent.st.css';
-import {Text} from '../../../components/Text';
-import {DataHooks} from './DataHooks';
-import { Button } from '../../Button';
+import { Text } from '../../../components/Text';
+import { DataHooks } from './DataHooks';
+import { Button, ButtonSkin, ButtonPriority, ButtonSize } from '../../Button';
 export interface HelperContentProps {
   /** Adds text as the title */
   title?: string;
@@ -31,7 +31,12 @@ export const HelperContent: React.SFC<HelperContentProps> = (props: HelperConten
         </div>
       }
       {props.actionText && props.actionText.length > 0 &&
-        <Button data-hook={DataHooks.actionButton}>
+        <Button
+          data-hook={DataHooks.actionButton}
+          skin={ButtonSkin.white}
+          priority={ButtonPriority.secondary}
+          size={ButtonSize.small}
+        >
           {props.actionText}
         </Button>
       }

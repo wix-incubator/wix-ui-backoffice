@@ -16,6 +16,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  border-radius: 18px; /* common to all but large */
 }
 
 .root:skin(standard):priority(primary) {
@@ -23,8 +25,15 @@
   border-color: value(main);
 }
 
+.root:skin(white):priority(secondary) {
+  background-color: transparent;
+  border-color: value(WHITE);
+}
+
 .root:size(medium) {
-  width: 95px;
   height: 36px;
-  border-radius: 18px;
+}
+
+.root:size(small) {
+  height: 30px;
 }
