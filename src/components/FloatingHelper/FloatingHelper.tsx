@@ -41,6 +41,8 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
       {showCloseButton && (
         <CloseButton
           className={style.closeButton}
+          data-hook={DataHooks.closeButton}
+          onClick={closableActions.close}
         />
       )}
       <div data-hook={DataHooks.innerContent} className={style.innerContent}>
