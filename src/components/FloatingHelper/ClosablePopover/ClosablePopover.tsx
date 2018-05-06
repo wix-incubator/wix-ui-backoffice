@@ -14,7 +14,11 @@ export interface ClosablePopoverOwnProps {
    * When undefined, then the component is Uncontrolled,
    * It is initially open, and it can be closed by close-action */
   opened?: boolean;
+  /** The popover's content, given as a function that receives control-actions and renders the contet.
+   * In Uncontrolled mode, this function is still called only once.
+  */
   content: (closable: ClosablePopoverActions) => React.ReactNode;
+  /** The popover's target element*/
   target: React.ReactNode;
 }
 
