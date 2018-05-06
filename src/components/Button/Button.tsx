@@ -5,6 +5,7 @@ import { withStylable } from 'wix-ui-core/withStylable';
 import { enumValues } from '../../utils';
 import style from './Button.st.css';
 import { Skin, Priority, Size } from './constants';
+import { Text, TEXT_SKINS, TEXT_SIZES } from '../Text';
 
 export interface ButtonOwnProps extends CoreButtonProps {
   /**Skin of the Button (Styling)*/
@@ -13,19 +14,40 @@ export interface ButtonOwnProps extends CoreButtonProps {
   priority?: Priority;
   /** Size of the button (Styling) */
   size?: Size;
+  /** The button's text */
+  children?: string;
 }
 
 export type ButtonProps = ButtonOwnProps & CoreButtonProps;
 
+const skinMap = {
+  [Skin.standard]: TEXT_SKINS.standard,
+  [Skin.white]: TEXT_SKINS.standard,
+  [Skin.destructive]: TEXT_SKINS.error,
+  [Skin.premium]: TEXT_SKINS.premium
+}
+
 export const Button: React.SFC<ButtonProps> = props => {
   const { children, skin, priority, size, ...rest } = props;
+
+  let textLight = priority === Priority.primary;
+  let textSkin: TEXT_SKINS = skinMap[skin];
+
+  if (skin === Skin.white) {
+    textLight = !textLight;
+  }
 
   return (
     <CoreButton
       {...rest}
       {...style('root', { skin, priority, size }, rest)}
     >
-      {children}
+      <Text
+        light={textLight}
+        skin={textSkin}
+      >
+        {children}
+      </Text>
     </CoreButton>
   )
 }

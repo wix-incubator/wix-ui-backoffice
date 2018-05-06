@@ -34,10 +34,12 @@ export default {
       <PButton skin={Skin.destructive} priority={Priority.primary} />
       <PButton skin={Skin.premium} priority={Priority.primary} />
       <h2>Secondary</h2>
-      <PButton skin={Skin.standard} priority={Priority.secondary} />
-      <PButton skin={Skin.white} priority={Priority.secondary} />
-      <PButton skin={Skin.destructive} priority={Priority.secondary} />
-      <PButton skin={Skin.premium} priority={Priority.secondary} />
+      <div style={{ backgroundColor: 'grey', marginTop: '20px' }}>
+        <PButton skin={Skin.standard} priority={Priority.secondary} />
+        <PButton skin={Skin.white} priority={Priority.secondary} />
+        <PButton skin={Skin.destructive} priority={Priority.secondary} />
+        <PButton skin={Skin.premium} priority={Priority.secondary} />
+      </div>
 
     </div>
   )
