@@ -7,7 +7,7 @@ function PButton(props: ButtonProps) {
   return (
     <div style={{ margin: '20px' }}>
       <Button {...props}>
-        Click me!
+        Click me please!
       </Button>
     </div>
   );
@@ -31,9 +31,13 @@ export default {
       <h2>Primary</h2>
       <PButton skin={Skin.standard} priority={Priority.primary} />
       <PButton skin={Skin.white} priority={Priority.primary} />
+      <PButton skin={Skin.destructive} priority={Priority.primary} />
+      <PButton skin={Skin.premium} priority={Priority.primary} />
       <h2>Secondary</h2>
       <PButton skin={Skin.standard} priority={Priority.secondary} />
       <PButton skin={Skin.white} priority={Priority.secondary} />
+      <PButton skin={Skin.destructive} priority={Priority.secondary} />
+      <PButton skin={Skin.premium} priority={Priority.secondary} />
 
     </div>
   )

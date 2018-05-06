@@ -1,6 +1,8 @@
 export enum Skin {
   standard = 'standard',
   white = 'white',
+  destructive = 'destructive',
+  premium = 'premium'
 };
 
 export enum Priority {
