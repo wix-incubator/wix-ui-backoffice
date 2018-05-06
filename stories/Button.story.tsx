@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button, ButtonProps, ButtonSkin as Skin, ButtonPriority as Priority, ButtonSize as Size } from '../src/components/Button';
 import * as ButtonSource from '!raw-loader!../src/components/Button/Button.tsx';
+import { enumValues } from '../src/utils';
 
 
 function PButton(props: ButtonProps) {
@@ -23,7 +24,10 @@ export default {
     children: ['Click me!'],
   }),
   exampleProps: {
-    skin: ['standard', 'white']
+    // FIXME: these don't seem to work )-:
+    skin: enumValues(Skin),
+    priority: enumValues(Priority),
+    size: enumValues(Size),
   },
   examples: (
     <div>
@@ -40,6 +44,12 @@ export default {
         <PButton skin={Skin.destructive} priority={Priority.secondary} />
         <PButton skin={Skin.premium} priority={Priority.secondary} />
       </div>
+
+      <h2>Sizes</h2>
+      <PButton size={Size.large} />
+      <PButton size={Size.medium} />
+      <PButton size={Size.small} />
+      <PButton size={Size.tiny} />
 
     </div>
   )

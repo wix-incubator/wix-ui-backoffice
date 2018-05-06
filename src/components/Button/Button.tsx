@@ -37,6 +37,8 @@ export const Button: React.SFC<ButtonProps> = props => {
     textLight = !textLight;
   }
 
+  const textSize = (size === Size.large || size === Size.medium) ? TEXT_SIZES.medium : TEXT_SIZES.small;
+
   return (
     <CoreButton
       {...rest}
@@ -45,6 +47,7 @@ export const Button: React.SFC<ButtonProps> = props => {
       <Text
         light={textLight}
         skin={textSkin}
+        size={textSize}
       >
         {children}
       </Text>

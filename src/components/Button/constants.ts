@@ -11,6 +11,8 @@ export enum Priority {
 };
 
 export enum Size {
+  large = 'large',
   medium = 'medium',
   small = 'small',
+  tiny = 'tiny',
 }
