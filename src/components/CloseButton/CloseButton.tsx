@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {oneOf} from "prop-types";
-import {Button as CoreButton, ButtonProps as CoreButtonProps} from 'wix-ui-core/Button';
-import {enumValues} from '../../utils';
+import { oneOf } from 'prop-types';
+import { Button as CoreButton, ButtonProps as CoreButtonProps } from 'wix-ui-core/Button';
+import { enumValues } from '../../utils';
 import style from './CloseButton.st.css';
-import {Skin, Size} from './constants';
-import {Close as CloseIcon} from 'wix-ui-icons-common/system';
+import { Skin, Size } from './constants';
+import { Close as CloseIcon } from 'wix-ui-icons-common/system';
 
 export interface CloseButtonOwnProps extends CoreButtonProps {
   /**Skin of the Button (Styling)*/
@@ -15,16 +15,16 @@ export interface CloseButtonOwnProps extends CoreButtonProps {
 
 export type CloseButtonProps = CloseButtonOwnProps & CoreButtonProps;
 
-export const CloseButton : React.SFC<CloseButtonProps> = props => {
+export const CloseButton: React.SFC<CloseButtonProps> = props => {
   // children is ommited on purpose (and not used)
-  const {children, skin, size, ...rest} = props;
+  const { children, skin, size, ...rest } = props;
 
   return (
-    <CoreButton 
+    <CoreButton
       {...rest}
-      {...style('root',{skin, size}, rest)}
+      {...style('root', { skin, size }, rest)}
     >
-      <CloseIcon/>
+      <CloseIcon />
     </CoreButton>
   )
 }
@@ -34,7 +34,7 @@ CloseButton.defaultProps = {
   size: Size.small
 }
 
-CloseButton.propTypes =  {
+CloseButton.propTypes = {
   skin: oneOf(enumValues(Skin)),
   size: oneOf(enumValues(Size)),
   // TODO: can we validate here that children is NOT defined?

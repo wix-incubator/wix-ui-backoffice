@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Requireable, bool, func, node } from "prop-types";
+import { Requireable, bool, func, node } from 'prop-types';
 import isBoolean = require('lodash/isBoolean');
 import pick = require('lodash/pick');
 import { Popover, PopoverProps } from 'wix-ui-core/Popover';
