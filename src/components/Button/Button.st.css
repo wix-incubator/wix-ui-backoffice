@@ -7,6 +7,7 @@
   -st-from: "../../palette.st.css";
   -st-named: main, backgroundSecondary, danger, premium ;
 }
+
 .root {
   -st-extends: Button;
   -st-states: skin(enum(standard)), priority(enum(primary)), size(enum(medium));
@@ -90,6 +91,11 @@
 .root:skin(premium):priority(secondary) {
   background-color: transparent;
   border-color: value(skinPremiumColor);
+}
+
+.root:skin(white):priority(secondary) {
+  background-color: transparent;
+  border-color: value(WHITE);
 }
 
 .root:size(large) {
