@@ -1,5 +1,6 @@
 export enum Skin {
-  standard= 'standard',
+  standard = 'standard',
+  white = 'white'
 };
 
 export enum Size {

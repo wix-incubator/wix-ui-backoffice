@@ -58,26 +58,8 @@
   left: value(closeButtonPadding);
 }
 
-.closeButtonWhiteSecondary {
-  /* TODO: This should be from Button component [5.7-secondary-small] theme*/
-  background-color: transparent;
-  height: 24px;
-  border: none;
-}
-
-.closeIcon {
-  fill: value(WHITE);
-  height: 8px;
-  width: 8px;
-}
-
 .innerContent {
   padding: 36px 30px;
-  font-family: value(fontRoman);
   color: value(backgroundSecondary);
-  word-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-size: 14px;
-  line-height: 1.29;
 }
 
