@@ -1,13 +1,20 @@
-import {textDriverFactory} from 'wix-ui-core/dist/src/components/StylableText/Text.driver';
-import {StylableDOMUtil} from 'stylable/test-utils';
+import { ComponentFactory } from 'wix-ui-test-utils/driver-factory';
+import { textDriverFactory, TextDriver } from 'wix-ui-core/dist/src/components/StylableText/Text.driver';
+import { StylableDOMUtil } from 'stylable/test-utils';
 import style from './UIText.st.css';
+import { Appearance } from './UIText';
 
-export const uiTextDriverFactory = ({element}) => {
-  const coreTextDriver = textDriverFactory({element});
+export interface UITextDriver extends TextDriver {
+  getAppearance: () => Appearance;
+}
+
+export const uiTextDriverFactory = (factoryParams: ComponentFactory): UITextDriver => {
+  const coreTextDriver = textDriverFactory(factoryParams);
   const stylableDOMUtil = new StylableDOMUtil(style);
+  const { element } = factoryParams;
 
   return {
     ...coreTextDriver,
-    getAppearance: () => stylableDOMUtil.getStyleState(element, 'appearance')
+    getAppearance: () => stylableDOMUtil.getStyleState(element, 'appearance') as Appearance
   };
 };
