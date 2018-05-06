@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {mount} from 'enzyme';
-import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
-import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
-import {isEnzymeTestkitExists} from 'wix-ui-test-utils/enzyme';
-import {floatingHelperTestkitFactory} from '../../testkit';
-import {floatingHelperTestkitFactory as enzymeFloatingHelperTestkitFactory} from '../../testkit/enzyme';
-import {floatingHelperDriverFactory, FloatingHelperDriver} from './FloatingHelper.driver';
-import {FloatingHelper, FloatingHelperProps} from './FloatingHelper';
-import {HelperContent, HelperContentProps} from '../../components/FloatingHelper/HelperContent';
+import { mount } from 'enzyme';
+import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
+import { isTestkitExists } from 'wix-ui-test-utils/vanilla';
+import { isEnzymeTestkitExists } from 'wix-ui-test-utils/enzyme';
+import { floatingHelperTestkitFactory } from '../../testkit';
+import { floatingHelperTestkitFactory as enzymeFloatingHelperTestkitFactory } from '../../testkit/enzyme';
+import { floatingHelperDriverFactory, FloatingHelperDriver } from './FloatingHelper.driver';
+import { FloatingHelper, FloatingHelperProps } from './FloatingHelper';
+import { HelperContent, HelperContentProps } from '../../components/FloatingHelper/HelperContent';
 import defaults = require('lodash/defaults');
 
 describe('FloatingHelper', () => {
@@ -15,13 +15,12 @@ describe('FloatingHelper', () => {
 
   const buildComponent = (props?: Partial<FloatingHelperProps>) => {
     const defaultProps: FloatingHelperProps = {
-      shown: true,
       placement: 'right',
-      content: <HelperContent title="my title"/>,
+      content: <HelperContent title="my title" />,
       children: <div>This is the target element</div>
     };
 
-    return <FloatingHelper {...defaults({}, props, defaultProps)}/>;
+    return <FloatingHelper {...defaults({}, props, defaultProps)} />;
   };
 
   // Skipped: need to add hasArrow() method to Popover driver.
@@ -44,13 +43,13 @@ describe('FloatingHelper', () => {
 
     it('should have a custom width (which is a string)', () => {
       const width = '500px';
-      const driver = createDriver(buildComponent({width}));
+      const driver = createDriver(buildComponent({ width }));
       expect(driver.getWidth()).toBe(width);
     });
 
     it('should have a custom width (which is a number)', () => {
       const width = 600;
-      const driver = createDriver(buildComponent({width}));
+      const driver = createDriver(buildComponent({ width }));
       expect(driver.getWidth()).toBe(`${width}px`);
     });
   });
@@ -62,8 +61,21 @@ describe('FloatingHelper', () => {
     });
 
     it('should NOT have a close-button', () => {
-      const driver = createDriver(buildComponent({showCloseButton: false}));
+      const driver = createDriver(buildComponent({ showCloseButton: false }));
       expect(driver.hasCloseButton()).toBeFalsy();
+    });
+  });
+
+  describe('close', () => {
+    it('should be opened by default', () => {
+      const driver = createDriver(buildComponent());
+      expect(driver.isOpened()).toBeTruthy();
+    });
+
+    it('should close popover when close-button is clicked', () => {
+      const driver = createDriver(buildComponent());
+      driver.clickCloseButton();
+      expect(driver.isOpened()).toBeFalsy();
     });
   });
 
