@@ -23,6 +23,7 @@ describe('Button', () => {
     });
 
     enumValues(Skin).forEach((skin: Skin) => {
+      const s = <ButtonWithDefaults skin={Skin.standard} />;
       it(`should be '${skin}'`, () => {
         const driver = createDriver(<ButtonWithDefaults skin={skin} />);
         expect(driver.getSkin()).toBe(skin);

@@ -67,6 +67,11 @@
   border-color: value(skinPremiumColor);
 }
 
+.root:skin(white):priority(secondary) {
+  background-color: transparent;
+  border-color: value(WHITE);
+}
+
 .root:size(medium) {
   height: 36px;
 }
