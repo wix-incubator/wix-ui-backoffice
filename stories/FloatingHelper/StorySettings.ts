@@ -1,9 +1,4 @@
-import {StoryUrlParams} from 'wix-ui-test-utils/dist/src/protractor/';
-
-export interface StorySettings extends StoryUrlParams {
-    dataHook: string;
-    exampleDataHooks: string[];
-}
+import { StorySettings } from '../storyTypes';
 
 export const storySettings: StorySettings = {
     kind: 'Components',
