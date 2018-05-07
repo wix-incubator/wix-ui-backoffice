@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button, ButtonProps, ButtonSkin as Skin, ButtonPriority as Priority, ButtonSize as Size } from '../src/components/Button';
 import * as ButtonSource from '!raw-loader!../src/components/Button/Button.tsx';
-
+import { storySettings } from './storySettings';
 
 function PButton(props: ButtonProps) {
   return (
@@ -12,14 +12,15 @@ function PButton(props: ButtonProps) {
     </div>
   );
 }
+
 export default {
-  category: 'Components',
-  storyName: 'Button',
+  category: storySettings.kind,
+  storyName: storySettings.story,
   component: Button,
   source: ButtonSource,
   componentPath: '../src/components/Button/Button.tsx',
   componentProps: setState => ({
-    'data-hook': 'storybook-button',
+    'data-hook': storySettings.dataHook,
     children: ['Click me!'],
   }),
   exampleProps: {

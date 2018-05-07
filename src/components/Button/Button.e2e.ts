@@ -1,13 +1,14 @@
+import { storySettings } from './../../../stories/Button/storySettings';
 import * as eyes from 'eyes.it';
 import { browser } from 'protractor';
-import { getStoryUrl } from 'wix-ui-test-utils/protractor';
+import { createStoryUrl } from 'wix-ui-test-utils/protractor';
 import { buttonTestkitFactory } from '../../testkit/protractor';
 import { Skin, Size, Priority } from './constants';
 import autoExampleDriver = require('wix-storybook-utils/AutoExampleDriver');
 import { enumValues } from '../../utils';
 
 describe('Button', () => {
-  const storyUrl = getStoryUrl('Components', 'Button');
+  const storyUrl = createStoryUrl({ kind: storySettings.kind, story: storySettings.story, withExamples: false });
   const dataHook = 'storybook-button';
 
   beforeAll(() => browser.get(storyUrl));
