@@ -8,7 +8,7 @@ import style from './FloatingHelper.st.css';
 import { DataHooks } from './DataHooks';
 import { Button } from '../Button';
 import { Skin, Size } from '../Button/constants';
-import { CloseButton } from '../CloseButton';
+import { CloseButton, CloseButtonSkin, CloseButtonSize } from '../CloseButton';
 
 export interface FloatingHelperOwnProps {
   /** Controls wether a close button will appear ot not */
@@ -43,6 +43,8 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
           className={style.closeButton}
           data-hook={DataHooks.closeButton}
           onClick={closableActions.close}
+          skin={CloseButtonSkin.white}
+          size={CloseButtonSize.large}
         />
       )}
       <div data-hook={DataHooks.innerContent} className={style.innerContent}>
