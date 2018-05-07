@@ -1,0 +1,49 @@
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: main, mainHover, focusShadow;
+}
+
+:import {
+  -st-from: "../Input/Input.st.css";
+  -st-default: Input;
+  -st-named: borderWidth;
+}
+
+:import {
+  -st-from: "../Input/InputStates.st.css";
+  -st-named: input-small;
+}
+
+:import {
+  -st-from: "wix-ui-core/dist/src/components/TimePicker/TimePicker.st.css";
+  -st-default: TimePicker;
+}
+
+:import {
+  -st-from: "wix-ui-core/dist/src/components/TimePicker/Tickers.st.css";
+  -st-default: Tickers;
+}
+
+.root {
+  -st-extends: TimePicker;
+  -st-mixin: Input, input-small;
+  font-family: "HelveticaNeueW01-55Roma";
+}
+
+.root::tickers {
+  -st-mixin: Tickers(tickerInset 12px);
+}
+
+/* TODO: when stylable EVER supports .root::tickers::ticker, change it to it */
+.root::tickers > button {
+  stroke: value(main) !important;
+}
+
+/* TODO: when stylable EVER supports .root::tickers::ticker, change it to it */
+.root::tickers > button:hover {
+  stroke: value(mainHover) !important;
+}
+
+.root:focus {
+	box-shadow: 0 0 0 3px value(focusShadow);
+}

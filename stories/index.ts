@@ -15,3 +15,4 @@ require('./Tooltip').story();
 require('./FloatingHelper');
 require('./UIText').story();
 require('./StylableUIText').story();
+require('./TimePicker').story();
