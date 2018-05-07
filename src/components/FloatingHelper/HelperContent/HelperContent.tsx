@@ -14,8 +14,9 @@ export interface HelperContentProps {
 }
 
 export const HelperContent: React.SFC<HelperContentProps> = (props: HelperContentProps) => {
+
   return (
-    <div {...style('root', {}, props)}>
+    <div {...style('root', { hasBody: !!props.body }, props)}>
       {props.title &&
         <div className={style.title}>
           <Text data-hook={DataHooks.title} bold light>
@@ -24,7 +25,7 @@ export const HelperContent: React.SFC<HelperContentProps> = (props: HelperConten
         </div>
       }
       {props.body &&
-        <div>
+        <div className={style.body}>
           <Text data-hook={DataHooks.body} light>
             {props.body}
           </Text>
@@ -32,6 +33,7 @@ export const HelperContent: React.SFC<HelperContentProps> = (props: HelperConten
       }
       {props.actionText && props.actionText.length > 0 &&
         <Button
+          className={style.action}
           data-hook={DataHooks.actionButton}
           skin={ButtonSkin.white}
           priority={ButtonPriority.secondary}

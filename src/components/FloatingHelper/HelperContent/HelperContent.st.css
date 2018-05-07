@@ -1,3 +1,11 @@
 .root {
+  -st-states: hasBody(boolean);
 }
 
+.root:hasBody .title {
+  margin-bottom: 6px;
+}
+
+.action {
+  margin-top: 18px;
+}
