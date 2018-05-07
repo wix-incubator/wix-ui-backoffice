@@ -5,8 +5,9 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: main;
+  -st-named: main, backgroundSecondary, danger, premium ;
 }
+
 .root {
   -st-extends: Button;
   -st-states: skin(enum(standard)), priority(enum(primary)), size(enum(medium));
@@ -16,15 +17,78 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  border-radius: 18px; /* common to all but large */
+}
+
+:vars {
+  skinStandardColor: value(main);
+  skinWhiteColor: value(backgroundSecondary);
+  skinDestructiveColor: value(danger);
+  skinPremiumColor: value(premium);
 }
 
 .root:skin(standard):priority(primary) {
-  background-color: value(main);
-  border-color: value(main);
+  background-color: value(skinStandardColor);
+  border-color: value(skinStandardColor);
+}
+
+.root:skin(standard):priority(secondary) {
+  background-color: transparent;
+  border-color: value(skinStandardColor);
+}
+
+.root:skin(white):priority(primary) {
+  background-color: value(skinWhiteColor);
+  border-color: value(skinWhiteColor);
+}
+
+.root:skin(white):priority(secondary) {
+  background-color: transparent;
+  border-color: value(skinWhiteColor);
+}
+
+.root:skin(destructive):priority(primary) {
+  background-color: value(skinDestructiveColor);
+  border-color: value(skinDestructiveColor);
+}
+
+.root:skin(destructive):priority(secondary) {
+  background-color: transparent;
+  border-color: value(skinDestructiveColor);
+}
+
+.root:skin(premium):priority(primary) {
+  background-color: value(skinPremiumColor);
+  border-color: value(skinPremiumColor);
+}
+
+.root:skin(premium):priority(secondary) {
+  background-color: transparent;
+  border-color: value(skinPremiumColor);
+}
+
+.root:size(large) {
+  height: 42px;
+  border-radius: 24px;
+  padding-right: 30px;
+  padding-left: 30px;
 }
 
 .root:size(medium) {
-  width: 95px;
   height: 36px;
-  border-radius: 18px;
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
+.root:size(small) {
+  height: 30px;
+  padding-right: 18px;
+  padding-left: 18px;
+}
+
+.root:size(tiny) {
+  height: 24;
+  padding-right: 12px;
+  padding-left: 12px;
 }

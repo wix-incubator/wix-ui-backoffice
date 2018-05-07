@@ -28,8 +28,9 @@
     "test:e2e": "yoshi test --protractor",
     "lint": "yoshi lint",
     "start": "yoshi start --no-test & npm run storybook",
-    "release": "yoshi release && gh-pages-auto-release --dist=storybook-static",
-    "storybook": "start-storybook -p 6006"
+    "release": "yoshi release && teamcity-surge-autorelease",
+    "storybook": "start-storybook -p 6006",
+    "pr-release": "teamcity-surge-autorelease"
   },
   "dependencies": {
     "lodash": "^4.17.5",
@@ -51,7 +52,6 @@
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.5",
     "eyes.it": "latest",
-    "gh-pages-auto-release": "latest",
     "identity-obj-proxy": "^3.0.0",
     "import-path": "latest",
     "prop-types": "^15.6.0",
@@ -60,7 +60,6 @@
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-test-renderer": "^16.3.1",
-    "surge-github-autorelease": "^1.0.23",
     "ts-jest": "^22.0.3",
     "tslint-config-prettier": "^1.12.0",
     "tslint-react": "^3.5.1",
@@ -70,6 +69,9 @@
     "wix-ui-icons-common": "latest",
     "wix-ui-test-utils": "latest",
     "yoshi": "^1.2.0"
+  },
+  "optionalDependencies": {
+    "teamcity-surge-autorelease": "^1.0.3"
   },
   "license": "MIT",
   "publishConfig": {

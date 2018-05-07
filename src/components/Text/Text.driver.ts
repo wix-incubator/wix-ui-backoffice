@@ -1,19 +1,19 @@
-import {textDriverFactory as coreTextDriverFctory, TextDriver as CoreTextDriver} from 'wix-ui-core/dist/src/components/StylableText/Text.driver';
-import {StylableDOMUtil} from 'stylable/test-utils';
+import { ComponentFactory } from 'wix-ui-test-utils/driver-factory';
+import { textDriverFactory as coreTextDriverFctory, TextDriver as CoreTextDriver } from 'wix-ui-core/dist/src/components/StylableText/Text.driver';
+import { StylableDOMUtil } from 'stylable/test-utils';
 import style from './Text.st.css';
-import {Size, Skin} from './constants';
-import {DriverFactory} from 'wix-ui-test-utils/driver-factory';
+import { Skin, Size } from './constants';
 
 export interface TextDriver extends CoreTextDriver {
-  getSize: () => Size;
-  getSkin: () => Skin;
-  isLight: () => boolean;
-  isBold: () => boolean;
-  isSecondary: () => boolean;
+  getSize: () => Size,
+  getSkin: () => Skin,
+  isLight: () => boolean,
+  isBold: () => boolean,
+  isSecondary: () => boolean
 }
 
-export const textDriverFactory: DriverFactory<TextDriver> = ({element}) => {
-  const coreTextDriver = coreTextDriverFctory({element});
+export const textDriverFactory = ({ element, eventTrigger, wrapper }: ComponentFactory): TextDriver => {
+  const coreTextDriver = coreTextDriverFctory({ element, eventTrigger, wrapper });
   const stylableDOMUtil = new StylableDOMUtil(style);
 
   return {
