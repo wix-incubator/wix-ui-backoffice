@@ -18,8 +18,8 @@ export const textDriverFactory = ({ element, eventTrigger, wrapper }: ComponentF
 
   return {
     ...coreTextDriver,
-    getSize: () => stylableDOMUtil.getStyleState(element, 'size') as Size,
-    getSkin: () => stylableDOMUtil.getStyleState(element, 'skin') as Skin,
+    getSize: () => <Size | null>stylableDOMUtil.getStyleState(element, 'size'),
+    getSkin: () => <Skin | null>stylableDOMUtil.getStyleState(element, 'skin'),
     isLight: () => stylableDOMUtil.hasStyleState(element, 'light'),
     isBold: () => stylableDOMUtil.hasStyleState(element, 'bold'),
     isSecondary: () => stylableDOMUtil.hasStyleState(element, 'secondary')
