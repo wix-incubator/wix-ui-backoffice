@@ -5,13 +5,16 @@ import { storySettings } from './StorySettings';
 
 
 // Should match the exampleDataHooks from storySettings
+const title = 'Don’t forget to setup payments';
+const body = 'In order to sell your music you need to choose a payment method.';
+const actionText = 'Ok, Take Me There';
 const exampleProps = [
-  { title: 'Title' },
-  { body: 'My Body' },
-  { title: 'Title', body: 'My Body' },
-  { title: 'Title', body: 'My Body', actionText: 'Click Me!' },
-  { title: 'Title', actionText: 'Click Me!' },
-  { body: 'My Body', actionText: 'Click Me!' },
+  { title },
+  { body },
+  { title, body },
+  { title, body, actionText },
+  { title, actionText },
+  { body, actionText }
 ];
 
 const examples = exampleProps.map((props, index) => renderExample(storySettings.exampleDataHooks[index], props));
