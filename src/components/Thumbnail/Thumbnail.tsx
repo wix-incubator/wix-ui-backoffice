@@ -28,8 +28,8 @@ export const Thumbnail: React.SFC<ThumbnailProps> = props => {
       <StyledThumbnail {...rest} selectedIcon={<Check size="24"/>}>
         <div className={style.container}>
           {image && <div data-hook="image">{image}</div>}
-          <Text className={style.title} bold>{title}</Text>
-          {description && <Text className={style.description}>{description}</Text>}
+          <Text className={style.title} data-hook="title" bold>{title}</Text>
+          {description && <Text className={style.description} data-hook="description">{description}</Text>}
         </div>
       </StyledThumbnail>
   );
@@ -39,10 +39,7 @@ Thumbnail.displayName = 'Thumbnail';
 
 Thumbnail.propTypes = {
   ...CoreThumbnail.propTypes,
-  /** image of the thumbnail */
   image: node,
-  /** title of the thumbnail */
   title: string.isRequired,
-  /** description of the thumbnail */
-  description: string,
+  description: string
 };
