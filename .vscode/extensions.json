@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "wix.stylable-intelligence",
-    "eg2.tslint"
+    "eg2.tslint",
+    "esbenp.prettier-vscode"
   ]
 }
