@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {helperContentDriverFactory} from './HelperContent.driver';
-import {HelperContent} from '.';
+import {HelperContent,ActionButtonTheme} from '.';
+import { ButtonSkin , ButtonPriority} from '../../Button';
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
 
 describe('HelperContent', () => {
@@ -42,8 +43,19 @@ describe('HelperContent', () => {
       const actionText = 'Click Me!'
       const driver = createDriver(<HelperContent actionText={actionText} />);
       expect(driver.hasActionButton()).toBeTruthy();
-      expect(driver.getActionButtonContent()).toBe(actionText);
+      expect(driver.getActionButtonDriver().getTextContent()).toBe(actionText);
+    });
+
+    it('should have white action-button skin by default', () => {
+      const driver = createDriver(<HelperContent actionText="Click me!" />);
+      expect(driver.getActionButtonDriver().getSkin()).toBe(ButtonSkin.white);
+      expect(driver.getActionButtonDriver().getPriority()).toBe(ButtonPriority.secondary);
+    });
+
+    it('should have premium action-button skin', () => {
+      const driver = createDriver(<HelperContent actionText="Click me!" actionTheme={ActionButtonTheme.premium}/>);
+      expect(driver.getActionButtonDriver().getSkin()).toBe(ButtonSkin.premium);
+      expect(driver.getActionButtonDriver().getPriority()).toBe(ButtonPriority.primary);
     });
   });
-
 });

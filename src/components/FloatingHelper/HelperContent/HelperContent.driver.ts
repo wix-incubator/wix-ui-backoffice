@@ -1,5 +1,7 @@
-import {DataHooks} from './DataHooks';
-import {BaseDriver, DriverFactory} from 'wix-ui-test-utils/driver-factory';
+import { DataHooks } from './DataHooks';
+import { BaseDriver, DriverFactory } from 'wix-ui-test-utils/driver-factory';
+import { buttonDriverFactory, ButtonDriver } from '../../Button/Button.driver';
+import { Skin } from '../../Button/constants';
 
 export interface HelperContentDriver extends BaseDriver {
   /** checks if the element exists */
@@ -14,22 +16,29 @@ export interface HelperContentDriver extends BaseDriver {
   getTitleContent: () => string;
   /** Get the text content of the helper's text */
   getBodyContent: () => string;
-  /** Get the text content of the action button */
-  getActionButtonContent: () => string;
+  /** Get the action button test driver */
+  getActionButtonDriver: () => ButtonDriver;
 }
 
-export const helperContentDriverFactory: DriverFactory<HelperContentDriver> = ({element}) => {
+export const helperContentDriverFactory: DriverFactory<
+  HelperContentDriver
+> = factoryParams => {
+  const { element } = factoryParams;
   const title = () => element.querySelector(`[data-hook='${DataHooks.title}']`);
   const body = () => element.querySelector(`[data-hook='${DataHooks.body}']`);
-  const actionButton = () => element.querySelector(`[data-hook='${DataHooks.actionButton}']`);
+  const actionButton = () =>
+    element.querySelector(`[data-hook='${DataHooks.actionButton}']`);
 
   return {
     exists: () => !!element,
     hasTitle: () => !!title(),
     hasBody: () => !!body(),
     hasActionButton: () => !!actionButton(),
+    getActionButtonDriver: () => buttonDriverFactory({
+      ...factoryParams,
+      element: actionButton()
+    }),
     getTitleContent: () => title().textContent,
     getBodyContent: () => body().textContent,
-    getActionButtonContent: () => actionButton().textContent,
   };
 };
