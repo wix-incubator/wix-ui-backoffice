@@ -11,8 +11,6 @@ export interface FloatingHelperDriver extends ClosablePopoverDriver {
   hasCloseButton: () => boolean;
   /** click the close button */
   clickCloseButton: () => void;
-  /** check wether the helper content is shown */
-  isOpened: () => boolean;
   /** Get width of content's root element */
   getWidth: () => string;
 }
@@ -20,10 +18,12 @@ export interface FloatingHelperDriver extends ClosablePopoverDriver {
 export const floatingHelperDriverFactory:
   DriverFactory<FloatingHelperDriver>  =
   ({wrapper, element, eventTrigger}) => {
-  const innerContent = () => element.querySelector(`[data-hook='${DataHooks.innerContent}']`);
-  const closeButton = () => element.querySelector(`[data-hook='${DataHooks.closeButton}']`);
-  const contentWrapper = () => element.querySelector(`[data-hook='${DataHooks.contentWrapper}']`);
   const closablePopoverDriver = closablePopoverDriverFactory({wrapper, element, eventTrigger});
+  const popoverContent = () => closablePopoverDriver.getContentElement();
+  const innerContent = () => popoverContent().querySelector(`[data-hook='${DataHooks.innerContent}']`);
+  const closeButton = () => popoverContent().querySelector(`[data-hook='${DataHooks.closeButton}']`);
+  const contentWrapper = () => popoverContent().querySelector(`[data-hook='${DataHooks.contentWrapper}']`);
+  
 
   return {
     ...closablePopoverDriver,

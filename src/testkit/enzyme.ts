@@ -48,6 +48,7 @@ export const labelTestkitFactory = enzymeTestkitFactoryCreator(labelDriverFactor
 
 import { floatingHelperDriverFactory, FloatingHelperDriver } from '../components/FloatingHelper/FloatingHelper.driver';
 export const floatingHelperTestkitFactory = enzymeTestkitFactoryCreator<FloatingHelperDriver>(floatingHelperDriverFactory);
+export {FloatingHelperDriver}
 
 import {thumbnailDriverFactory, ThumbnailDriver} from '../components/Thumbnail/Thumbnail.driver';
 export const thumbnailTestkitFactory = enzymeTestkitFactoryCreator<ThumbnailDriver>(thumbnailDriverFactory);
