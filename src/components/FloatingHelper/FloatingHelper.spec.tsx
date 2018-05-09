@@ -14,7 +14,6 @@ import { ClosablePopover } from './ClosablePopover';
 import { runTestkitExistsSuite } from '../../common/testkitTests';
 
 describe('FloatingHelper', () => {
-  // const createDriver = createDriverFactory(floatingHelperDriverFactory);
 
   const buildComponent = (props?: Partial<FloatingHelperProps>) => {
     const defaultProps: FloatingHelperProps = {
