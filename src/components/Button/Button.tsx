@@ -5,7 +5,7 @@ import { withStylable } from 'wix-ui-core/withStylable';
 import { enumValues } from '../../utils';
 import style from './Button.st.css';
 import { Skin, Priority, Size } from './constants';
-import { Text, TEXT_SKINS, TEXT_SIZES } from '../Text';
+import { Text, TextProps, TextSkin, TextSize } from '../Text';
 
 export interface ButtonOwnProps extends CoreButtonProps {
   /**Skin of the Button (Styling)*/
@@ -19,25 +19,25 @@ export interface ButtonOwnProps extends CoreButtonProps {
 }
 
 export type ButtonProps = ButtonOwnProps & CoreButtonProps;
-
-const skinMap = {
-  [Skin.standard]: TEXT_SKINS.standard,
-  [Skin.white]: TEXT_SKINS.standard,
-  [Skin.destructive]: TEXT_SKINS.error,
-  [Skin.premium]: TEXT_SKINS.premium
+const toTextColorProps : {[k in Priority]: {[y in Skin]: Pick<TextProps,'skin' | 'light'>}} = {
+  [Priority.primary]: {
+    [Skin.standard]:    {skin:TextSkin.standard, light: true},
+    [Skin.white]:       {skin:TextSkin.standard, light: false},
+    [Skin.destructive]: {skin:TextSkin.standard, light: true},
+    [Skin.premium]:     {skin:TextSkin.standard, light: true}
+  },
+  [Priority.secondary]: {
+    [Skin.standard]:    {skin:TextSkin.standard, light: false},
+    [Skin.white]:       {skin:TextSkin.standard, light: true},
+    [Skin.destructive]: {skin:TextSkin.error, light: false},
+    [Skin.premium]:     {skin:TextSkin.premium, light: false}
+  }
 }
 
 export const Button: React.SFC<ButtonProps> = props => {
   const { children, skin, priority, size, ...rest } = props;
-
-  let textLight = priority === Priority.primary;
-  let textSkin: TEXT_SKINS = skinMap[skin];
-
-  if (skin === Skin.white) {
-    textLight = !textLight;
-  }
-
-  const textSize = (size === Size.large || size === Size.medium) ? TEXT_SIZES.medium : TEXT_SIZES.small;
+  const textColorProps = toTextColorProps[priority][skin];
+  const textSize = (size === Size.large || size === Size.medium) ? TextSize.medium : TextSize.small;
 
   return (
     <CoreButton
@@ -45,8 +45,8 @@ export const Button: React.SFC<ButtonProps> = props => {
       {...style('root', { skin, priority, size }, rest)}
     >
       <Text
-        light={textLight}
-        skin={textSkin}
+        light={textColorProps.light}
+        skin={textColorProps.skin}
         size={textSize}
       >
         {children}

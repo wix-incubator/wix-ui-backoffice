@@ -5,17 +5,18 @@ import {Autocomplete} from '../../src/components/Autocomplete';
 import {Heading} from '../../src/components/Heading';
 import {Input} from '../../src/components/Input';
 import {Text} from '../../src/components/Text';
-import {SIZES, SKINS} from '../../src/components/Text/constants';
+import {Size, Skin} from '../../src/components/Text/constants';
 import styles from './Text.st.css';
+import { enumValues } from '../../src/utils';
 
-const skinOptions = Object.keys(SKINS).map(value => Autocomplete.createOption({id: value, value}));
-const sizeOptions = Object.keys(SIZES).map(value => Autocomplete.createOption({id: value, value}));
+const skinOptions = enumValues(Skin).map(value => Autocomplete.createOption({id: value, value}));
+const sizeOptions = enumValues(Size).map(value => Autocomplete.createOption({id: value, value}));
 
 class ControlleTextExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      size: SIZES.medium,
+      size: Size.medium,
       secondary: false,
       skin: 'standard',
       light: false,
