@@ -10,6 +10,8 @@ export interface HelperContentDriver extends BaseDriver {
   hasTitle: () => boolean;
   /** checks if text content exists */
   hasBody: () => boolean;
+  /** checks if an image exists */
+  hasImage: () => boolean;
   /** checks if the action button exists */
   hasActionButton: () => boolean;
   /** Get the text content of the title */
@@ -18,6 +20,8 @@ export interface HelperContentDriver extends BaseDriver {
   getBodyContent: () => string;
   /** Get the action button test driver */
   getActionButtonDriver: () => ButtonDriver;
+  /** Get image HTML element*/
+  getImage: () => HTMLElement;
 }
 
 export const helperContentDriverFactory: DriverFactory<
@@ -26,6 +30,7 @@ export const helperContentDriverFactory: DriverFactory<
   const { element } = factoryParams;
   const title = () => element.querySelector(`[data-hook='${DataHooks.title}']`);
   const body = () => element.querySelector(`[data-hook='${DataHooks.body}']`);
+  const image = () => element.querySelector(`[data-hook='${DataHooks.image}']`);
   const actionButton = () =>
     element.querySelector(`[data-hook='${DataHooks.actionButton}']`);
 
@@ -34,6 +39,8 @@ export const helperContentDriverFactory: DriverFactory<
     hasTitle: () => !!title(),
     hasBody: () => !!body(),
     hasActionButton: () => !!actionButton(),
+    hasImage: () => !!image(),
+    getImage: ()=> image() && image().childNodes[0] as HTMLElement,
     getActionButtonDriver: () => buttonDriverFactory({
       ...factoryParams,
       element: actionButton()

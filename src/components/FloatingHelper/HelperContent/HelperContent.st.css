@@ -1,5 +1,9 @@
 .root {
   -st-states: hasBody(boolean);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .root:hasBody .title {
@@ -8,4 +12,13 @@
 
 .action {
   margin-top: 18px;
+}
+
+.image {
+  margin-left: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
