@@ -10,7 +10,7 @@ export interface HelperContentProps {
   /** Adds text as the title */
   title?: string;
   /** Adds text as the body */
-  body?: string;
+  body: string;
   /** Sets the text of the action button. Needs to be a non-empty string (and onAction prop has to be passed) in order for the action button to appear */
   actionText?: string;
   /** Sets the theme of the action button */
@@ -69,7 +69,7 @@ export const HelperContent: React.SFC<HelperContentProps> = (
 
 HelperContent.propTypes = {
   title: string,
-  body: string,
+  body: string.isRequired,
   actionText: string,
   onAction: func,
   image: node
