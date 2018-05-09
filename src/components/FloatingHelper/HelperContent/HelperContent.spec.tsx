@@ -46,13 +46,13 @@ describe('HelperContent', () => {
       expect(driver.getActionButtonDriver().getTextContent()).toBe(actionText);
     });
 
-    it('should have white action-button skin by default', () => {
+    it('should have button with skin=white and priority=secondary by default', () => {
       const driver = createDriver(<HelperContent actionText="Click me!" />);
       expect(driver.getActionButtonDriver().getSkin()).toBe(ButtonSkin.white);
       expect(driver.getActionButtonDriver().getPriority()).toBe(ButtonPriority.secondary);
     });
 
-    it('should have premium action-button skin', () => {
+    it('should have button with skin=premium and priority=primary', () => {
       const driver = createDriver(<HelperContent actionText="Click me!" actionTheme={ActionButtonTheme.premium}/>);
       expect(driver.getActionButtonDriver().getSkin()).toBe(ButtonSkin.premium);
       expect(driver.getActionButtonDriver().getPriority()).toBe(ButtonPriority.primary);
