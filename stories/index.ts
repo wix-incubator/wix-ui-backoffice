@@ -3,6 +3,7 @@ require('./Checkbox.story');
 require('./Badge').story();
 require('./Button');
 require('./CloseButton');
+require('./CounterBadge').story();
 require('./FloatingHelper');
 require('./HelperContent');
 require('./StylableCounterBadge').story();

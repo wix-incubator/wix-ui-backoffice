@@ -1,5 +1,8 @@
 import { enzymeTestkitFactoryCreator, WrapperData } from 'wix-ui-test-utils/enzyme';
 
+import { counterBadgeDriverFactory } from '../components/CounterBadge/CounterBadge.driver';
+export const counterBadgeTestkitFactory = enzymeTestkitFactoryCreator(counterBadgeDriverFactory);
+
 import { badgeDriverFactory, BadgeDriver } from '../components/Badge/Badge.driver';
 export const badgeTestkitFactory = enzymeTestkitFactoryCreator<BadgeDriver>(badgeDriverFactory);
 export { BadgeDriver };
