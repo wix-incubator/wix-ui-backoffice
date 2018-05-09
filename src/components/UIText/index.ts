@@ -1,1 +1,0 @@
-export {UIText} from './UIText';
