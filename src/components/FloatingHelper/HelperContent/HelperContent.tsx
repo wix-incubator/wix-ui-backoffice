@@ -15,6 +15,8 @@ export interface HelperContentProps {
   actionText?: string;
   /** Sets the theme of the action button */
   actionTheme?: ActionButtonTheme;
+  /** Adds an image */
+  image?: React.ReactNode;
 }
 
 const themeToButtonProps : {[key in ActionButtonTheme]: Pick<ButtonProps, 'skin' | 'priority'>} = {
@@ -25,35 +27,39 @@ const themeToButtonProps : {[key in ActionButtonTheme]: Pick<ButtonProps, 'skin'
 export const HelperContent: React.SFC<HelperContentProps> = (
   props: HelperContentProps
 ) => {
-  const {title, body, actionText, actionTheme} = props;
+  const {title, body, actionText, actionTheme, image} = props;
+
   return (
     <div {...style('root', { hasBody: !!props.body }, props)}>
-      {title && (
-        <div className={style.title}>
-          <Text data-hook={DataHooks.title} bold light>
-            {title}
-          </Text>
-        </div>
-      )}
-      {body && (
-        <div className={style.body}>
-          <Text data-hook={DataHooks.body} light>
-            {body}
-          </Text>
-        </div>
-      )}
-      {actionText &&
-        actionText.length > 0 && (
-          <Button
-            className={style.action}
-            data-hook={DataHooks.actionButton}
-            skin={themeToButtonProps[actionTheme].skin}
-            priority={themeToButtonProps[actionTheme].priority}
-            size={ButtonSize.small}
-          >
-            {actionText}
-          </Button>
+      <div>
+        {title && (
+          <div className={style.title}>
+            <Text data-hook={DataHooks.title} bold light>
+              {title}
+            </Text>
+          </div>
         )}
+        {body && (
+          <div className={style.body}>
+            <Text data-hook={DataHooks.body} light>
+              {body}
+            </Text>
+          </div>
+        )}
+        {actionText &&
+          actionText.length > 0 && (
+            <Button
+              className={style.action}
+              data-hook={DataHooks.actionButton}
+              skin={themeToButtonProps[actionTheme].skin}
+              priority={themeToButtonProps[actionTheme].priority}
+              size={ButtonSize.small}
+            >
+              {actionText}
+            </Button>
+          )}
+      </div> 
+      {image && <div data-hook={DataHooks.image} className={style.image}>{image}</div>}
     </div>
   );
 };

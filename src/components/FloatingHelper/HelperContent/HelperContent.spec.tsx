@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {helperContentDriverFactory} from './HelperContent.driver';
-import {HelperContent,ActionButtonTheme} from '.';
+import {HelperContent, ActionButtonTheme} from '.';
 import { ButtonSkin , ButtonPriority} from '../../Button';
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
+import { mount } from 'enzyme';
 
 describe('HelperContent', () => {
   const createDriver = createDriverFactory(helperContentDriverFactory);
@@ -56,6 +57,19 @@ describe('HelperContent', () => {
       const driver = createDriver(<HelperContent actionText="Click me!" actionTheme={ActionButtonTheme.premium}/>);
       expect(driver.getActionButtonDriver().getSkin()).toBe(ButtonSkin.premium);
       expect(driver.getActionButtonDriver().getPriority()).toBe(ButtonPriority.primary);
+    });
+  });
+
+  describe('image prop', () => {
+    it('should not be visible by default', () => {
+      const driver = createDriver(<HelperContent/>);
+      expect(driver.hasImage()).toBe(false);
+    });
+
+    it('should render the image', () => {
+      const driver = createDriver(<HelperContent image={<div>🤔</div>}/>);
+      expect(driver.hasImage()).toBe(true);
+      expect(driver.getImage()).toEqual(mount(<div>🤔</div>).getDOMNode());
     });
   });
 });
