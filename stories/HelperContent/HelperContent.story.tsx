@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HelperContent, HelperContentProps } from '../../src/components/FloatingHelper/HelperContent/HelperContent';
+import { HelperContent, HelperContentProps, ActionButtonTheme } from '../../src/components/FloatingHelper/HelperContent';
 
 import { storySettings } from './StorySettings';
 
@@ -14,7 +14,8 @@ const exampleProps = [
   { title, body },
   { title, body, actionText },
   { title, actionText },
-  { body, actionText }
+  { body, actionText },
+  { title, body, actionText, actionTheme: ActionButtonTheme.premium }
 ];
 
 const examples = exampleProps.map((props, index) => renderExample(storySettings.exampleDataHooks[index], props));
