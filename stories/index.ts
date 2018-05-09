@@ -17,3 +17,5 @@ require('./Tooltip').story();
 require('./UIText').story();
 require('./StylableUIText').story();
 require('./Thumbnail.story');
+require('./HBox/index.story');
+require('./VBox/index.story');
