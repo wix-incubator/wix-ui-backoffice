@@ -1,1 +1,1 @@
-export {textDriverFactory as headingDriverFactory, TextDriver as HeadingDriver} from 'wix-ui-core/dist/src/components/StylableText/Text.protractor.driver';
+export {textDriverFactory as headingDriverFactory, TextDriver as HeadingDriver} from '../StylableUIText/CoreText/Text.protractor.driver';

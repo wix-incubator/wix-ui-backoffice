@@ -1,5 +1,5 @@
 import { ComponentFactory } from 'wix-ui-test-utils/driver-factory';
-import { textDriverFactory as coreTextDriverFctory, TextDriver as CoreTextDriver } from 'wix-ui-core/dist/src/components/StylableText/Text.driver';
+import { textDriverFactory as coreTextDriverFactory, TextDriver as CoreTextDriver } from '../StylableUIText/CoreText/Text.driver';
 import { StylableDOMUtil } from 'stylable/test-utils';
 import style from './Text.st.css';
 import { Skin, Size } from './constants';
@@ -13,7 +13,7 @@ export interface TextDriver extends CoreTextDriver {
 }
 
 export const textDriverFactory = ({ element, eventTrigger, wrapper }: ComponentFactory): TextDriver => {
-  const coreTextDriver = coreTextDriverFctory({ element, eventTrigger, wrapper });
+  const coreTextDriver = coreTextDriverFactory({ element, eventTrigger, wrapper });
   const stylableDOMUtil = new StylableDOMUtil(style);
 
   return {

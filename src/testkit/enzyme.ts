@@ -22,6 +22,10 @@ export { CloseButtonDriver };
 import { checkboxDriverFactory } from '../components/Checkbox/Checkbox.driver';
 export const checkboxTestkitFactory = enzymeTestkitFactoryCreator(checkboxDriverFactory);
 
+import { textDriverFactory as coreTextDriverFactory, TextDriver as CoreTextDriver } from '../components/StylableUIText/CoreText/Text.driver';
+export const coreTextTestkitFactory = enzymeTestkitFactoryCreator<CoreTextDriver>(coreTextDriverFactory);
+export { CoreTextDriver };
+
 import { uiTextDriverFactory, UITextDriver } from '../components/StylableUIText/UIText.driver';
 export const uiTextTestkitFactory = enzymeTestkitFactoryCreator<UITextDriver>(uiTextDriverFactory);
 export { UITextDriver };

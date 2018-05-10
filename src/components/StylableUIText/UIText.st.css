@@ -1,13 +1,13 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/StylableText/TextStyle.st.css";
+  -st-from: "./CoreText/TextStyle.st.css";
   -st-default: TextStyle;
 }
-  
+
 :import {
-  -st-from: "wix-ui-core/dist/src/components/StylableText/Text.st.css";
+  -st-from: "./CoreText/Text.st.css";
   -st-default: Text;
 }
-  
+
 :import {
   -st-from: "../../palette.st.css";
   -st-named: primaryText, secondaryText, primaryLightText, linkedText, disabledText, danger, premium, success, placeholderText;
