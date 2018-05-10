@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: primaryText, mainHover, main, disabledText, inputHover, inputDisabledColor, inputDisabledHoverBorderColor, primaryLightText, inputBorderColor, inputDisabledBorderColor, danger, backgroundSecondary, inputBackground;
+  -st-named: primaryText, mainHover, main, disabledText, inputHover, inputDisabledColor, inputDisabledHoverBorderColor, primaryLightText, inputBorderColor, inputDisabledBorderColor, danger, backgroundSecondary, inputBackground, dropdownShadow;
 }
 
 :import {
@@ -28,6 +28,10 @@
   -st-default: calc;
 }
 
+:vars {
+  arrowIconSize: 24px;
+}
+
 .root {
   -st-extends: LabelWithOptions;
   -st-states: size(enum(large, medium, small));
@@ -35,24 +39,26 @@
   width: 100%;
 }
 
-.root > [data-hook="popover-content"] {
+/*Dropdown*/
+
+.root::popoverContent {
   border: none;
   border-radius: 8px;
-  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
+  box-shadow: value(dropdownShadow);
   width: 100%;
   overflow: hidden;
 }
+
+/*Selection*/
 
 .root::selection {
   background-color: value(inputBackground);
   border-radius: 6px;
   border: 1px solid value(inputBorderColor);
-  background-color: value(inputBackground);
   padding: 0 6px;
   outline: none;
   width: 100%;
   display: flex;
-  align-items: center;
   cursor: pointer;
 }
 
@@ -71,33 +77,36 @@
   border-color: value(inputDisabledHoverBorderColor);
 }
 
+/*Label*/
+
+.root::label {
+  width: 100%;
+  cursor: pointer;
+}
+
 .root:size(large)::label {
-  height: value(largeHeight);
+  min-height: value(largeHeight);
   line-height: calc(value(largeHeight) - 2px);
   font-size: value(largeFont);
 }
 
 .root:size(medium)::label {
-  height: value(medHeight);
+  min-height: value(medHeight);
   line-height: calc(value(medHeight) - 2px);
   font-size: value(medFont);
 }
 
 .root:size(small)::label {
-  height: value(smallHeight);
+  min-height: value(smallHeight);
   line-height: calc(value(smallHeight) - 2px);
   font-size: value(smallFont);
-}
-
-.root::label {
-  width: 100%;
-  cursor: pointer;
-  cursor: default;
 }
 
 .root::placeholder {
   color: value(disabledText);
 }
+
+/*Option*/
 
 .root::dropdownContent::dropdownOption {
   white-space: nowrap;
@@ -130,6 +139,8 @@
   padding: 0;
 }
 
+/*Divider*/
+
 .root::divider {
   background-color: #e5e5e5;
   display: flex;
@@ -140,9 +151,22 @@
   padding: 8px 20px;
 }
 
+/*Arrow icon*/
+.root:size(large) .arrowIconSlot {
+  margin-top: calc(calc(value(largeHeight) - value(arrowIconSize)) / 2);
+}
+
+.root:size(medium) .arrowIconSlot {
+  margin-top: calc(calc(value(medHeight) - value(arrowIconSize)) / 2);
+}
+
+.root:size(small) .arrowIconSlot {
+  margin-top: calc(calc(value(smallHeight) - value(arrowIconSize)) / 2);
+}
+
 .arrowIcon {
-  width: 24px;
-  height: 24px;
+  width: value(arrowIconSize);
+  height: value(arrowIconSize);
   fill: value(inputBorderColor);
 }
 
