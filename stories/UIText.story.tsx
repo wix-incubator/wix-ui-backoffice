@@ -1,16 +1,15 @@
 import {UIText} from '../src/components/StylableUIText';
-import * as UITextSource from '!raw-loader!../src/components/StylableUIText/UIText.tsx';
 
 export default {
-  category: 'Internal Components',
+  category: 'Internal',
   storyName: 'UIText',
-  name: 'UIText',
+  displayName: 'UIText',
   component: UIText,
-  source: UITextSource,
   componentPath: '../src/components/StylableUIText/UIText.tsx',
-  componentProps: setState => ({
+
+  componentProps: {
     'data-hook': 'storybook-uiText',
     appearance: 'T1.1',
     children: 'Some text'
-  })
+  }
 };
