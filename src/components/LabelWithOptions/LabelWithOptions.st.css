@@ -28,6 +28,11 @@
   -st-default: calc;
 }
 
+:import {
+  -st-from: "../Checkbox/Checkbox.st.css";
+  -st-default: Checkbox;
+}
+
 :vars {
   arrowIconSize: 24px;
 }
@@ -37,16 +42,6 @@
   -st-states: size(enum(large, medium, small));
   font-family: value(fontRoman);
   width: 100%;
-}
-
-/*Dropdown*/
-
-.root::popoverContent {
-  border: none;
-  border-radius: 8px;
-  box-shadow: value(dropdownShadow);
-  width: 100%;
-  overflow: hidden;
 }
 
 /*Selection*/
@@ -109,11 +104,22 @@
   color: value(disabledText);
 }
 
-/*Option*/
+/*Dropdown*/
+
+.root::popoverContent {
+  border: none;
+  border-radius: 8px;
+  box-shadow: value(dropdownShadow);
+  width: 100%;
+  overflow: hidden;
+}
+
+
+/*Dropdown Option*/
 
 .root::dropdownContent::dropdownOption {
   white-space: nowrap;
-  padding: 8px 20px;
+  padding: 8px 24px;
   text-overflow: ellipsis;
   font-size: 16px;
   color: value(primaryText);
@@ -124,12 +130,12 @@
   background: value(inputHover);
 }
 
-.root::dropdownContent::dropdownOption:selected {
+.root::dropdownContent::dropdownOption:selected:not(:checkbox) {
   background: value(main);
   color: value(primaryLightText);
 }
 
-.root::dropdownContent::dropdownOption:selected:hovered {
+.root::dropdownContent::dropdownOption:selected:hovered:not(:checkbox) {
   background: value(mainHover);
   color: value(primaryLightText);
 }
@@ -141,6 +147,31 @@
 .root::dropdownContent::dropdownOption:not(:selectable) {
   padding: 0;
 }
+
+.root::checkbox {
+  -st-mixin: Checkbox;
+  border: unset;
+  margin-right: 12px;
+}
+.root::checkbox:checked {
+  background: unset;
+}
+
+/*TODO*/
+/*:global([dir="rtl"]) .root::checkbox {*/
+  /*margin-left: 12px;*/
+/*}*/
+
+/*.myCheckbox {*/
+  /*-st-mixin: Checkbox;*/
+  /*border: unset;*/
+/*}*/
+
+/*:global([dir="rtl"]) .myCheckbox {*/
+  /*margin-right: unset;*/
+  /*margin-left: 12px;*/
+/*}*/
+
 
 /*Divider*/
 
