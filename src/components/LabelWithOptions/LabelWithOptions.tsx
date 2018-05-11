@@ -5,7 +5,7 @@ import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import style from './LabelWithOptions.st.css';
 import {getInputSuffix} from '../Input/InputSuffixes';
 
-export interface LabelWithOptionsProps {
+export interface LabelWithOptionsExtendedProps {
   // The size of the LabelWithOptions
   size?: 'large' | 'medium' | 'small';
 }
@@ -14,13 +14,15 @@ const defaultProps = {
   size: 'medium'
 };
 
-const StyledLabelWithOptions = withStylable<CoreLabelWithOptionsProps, LabelWithOptionsProps>(
+export type LabelWithOptionsProps = CoreLabelWithOptionsProps & LabelWithOptionsExtendedProps;
+
+const StyledLabelWithOptions = withStylable<CoreLabelWithOptionsProps, LabelWithOptionsExtendedProps>(
   CoreLabelWithOptions,
   style,
   ({size}) => ({size}),
   defaultProps);
 
-export type LabelWithOptionsType = React.SFC<CoreLabelWithOptionsProps & LabelWithOptionsProps> & {
+export type LabelWithOptionsType = React.SFC<LabelWithOptionsProps> & {
   createOption: typeof CoreLabelWithOptions.createOption;
   createDivider: typeof CoreLabelWithOptions.createDivider;
 };
@@ -33,13 +35,12 @@ const renderSuffix =
     suffix: defaultSuffix});
 
 export const LabelWithOptions: LabelWithOptionsType =
-  ((props: CoreLabelWithOptionsProps & LabelWithOptionsProps) => {
-    const {multi, ...restProps} = props;
+  ((props: LabelWithOptionsProps) => {
     const {disabled} = props;
     return (
       <StyledLabelWithOptions
         renderSuffix={isError => renderSuffix({isError, disabled})}
-        {...restProps}
+        {...props}
       />
     );
   }) as LabelWithOptionsType;

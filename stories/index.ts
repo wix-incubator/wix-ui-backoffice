@@ -11,6 +11,7 @@ require('./Heading.story.tsx');
 require('./Label').story();
 require('./Input.story.tsx');
 require('./LabelWithOptions.story');
+require('./MultiSelect.story');
 require('./ToggleSwitch').story();
 require('./Tooltip').story();
 require('./Thumbnail.story');

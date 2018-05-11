@@ -55,11 +55,10 @@
   background-color: value(inputBackground);
   border-radius: 6px;
   border: 1px solid value(inputBorderColor);
-  padding: 0 6px;
+  padding: 0 12px;
   outline: none;
   width: 100%;
   display: flex;
-  cursor: pointer;
 }
 
 .root:error::selection {
@@ -69,7 +68,7 @@
 .root:disabled::selection {
   color: value(inputDisabledColor);
   border-color: value(inputDisabledBorderColor);
-  cursor: default;
+
 }
 
 .root:disabled:hover::selection {
@@ -82,6 +81,10 @@
 .root::label {
   width: 100%;
   cursor: pointer;
+}
+
+.root:disabled::label {
+  cursor: default;
 }
 
 .root:size(large)::label {
