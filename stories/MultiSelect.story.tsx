@@ -15,14 +15,8 @@ export default {
   },
 
   exampleProps: {
-    fixedFooter: [null, <div key="1">Fixed Footer</div>],
-    fixedHeader: [null, <div key="2">Fixed Header</div>],
     onSelect: (option: Option) => option.value,
-    initialSelectedId: [null, 1],
-    onManualInput: (value: string) => `Manual input: ${value}`,
-    onBlur: () => 'Triggered onBlur',
-    onFocus: () => 'Triggered onFocus',
+    initialSelectedIds: ['', [1]],
     onChange: evt => evt.target.value,
-    size: ['small', 'medium', 'large']
   }
 };
