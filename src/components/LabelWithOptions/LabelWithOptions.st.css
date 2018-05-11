@@ -114,7 +114,6 @@
   overflow: hidden;
 }
 
-
 /*Dropdown Option*/
 
 .root::dropdownContent::dropdownOption {
@@ -125,6 +124,11 @@
   color: value(primaryText);
   overflow: hidden;
 }
+
+.root::optionCotainer {
+  align-items: center;
+}
+
 
 .root::dropdownContent::dropdownOption:hovered {
   background: value(inputHover);
