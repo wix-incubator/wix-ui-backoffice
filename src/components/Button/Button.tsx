@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { oneOf, string } from 'prop-types';
-import { Button as CoreButton, ButtonProps as CoreButtonProps } from 'wix-ui-core/Button';
 import { withStylable } from 'wix-ui-core/withStylable';
 import { enumValues } from '../../utils';
 import style from './Button.st.css';
 import { Skin, Priority, Size } from './constants';
 import { Text, TextProps, TextSkin, TextSize } from '../Text';
 
-export interface ButtonOwnProps extends CoreButtonProps {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  type?: 'submit' | 'button' | 'reset';
   /**Skin of the Button (Styling)*/
   skin?: Skin;
   /** Priority of the Button (Styling)*/
@@ -18,7 +18,6 @@ export interface ButtonOwnProps extends CoreButtonProps {
   children?: string;
 }
 
-export type ButtonProps = ButtonOwnProps & CoreButtonProps;
 const toTextColorProps : {[k in Priority]: {[y in Skin]: Pick<TextProps,'skin' | 'light'>}} = {
   [Priority.primary]: {
     [Skin.standard]:    {skin:TextSkin.standard, light: true},
@@ -35,14 +34,15 @@ const toTextColorProps : {[k in Priority]: {[y in Skin]: Pick<TextProps,'skin' |
 }
 
 export const Button: React.SFC<ButtonProps> = props => {
-  const { children, skin, priority, size, ...rest } = props;
+  const { children, skin, priority, size, disabled, ...rest } = props;
   const textColorProps = toTextColorProps[priority][skin];
   const textSize = (size === Size.large || size === Size.medium) ? TextSize.medium : TextSize.small;
 
   return (
-    <CoreButton
+    <button
+      disabled={disabled}
       {...rest}
-      {...style('root', { skin, priority, size }, rest)}
+      {...style('root', { skin, priority, size, disabled }, rest)}
     >
       <Text
         light={textColorProps.light}
@@ -51,10 +51,11 @@ export const Button: React.SFC<ButtonProps> = props => {
       >
         {children}
       </Text>
-    </CoreButton>
+    </button>
   )
 }
 
+Button.displayName = 'Button';
 Button.defaultProps = {
   skin: Skin.standard,
   priority: Priority.primary,
@@ -62,6 +63,10 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
+  /** Wrapper class name */
+  className: string,
+  /** Type of the button - submit / button / reset */
+  type: oneOf(['submit', 'button', 'reset']),
   skin: oneOf(enumValues(Skin)),
   priority: oneOf(enumValues(Priority)),
   size: oneOf(enumValues(Size)),
