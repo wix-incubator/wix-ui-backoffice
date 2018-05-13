@@ -20,4 +20,3 @@ export const MultiSelect: React.SFC<MultiSelectProps> = ({...restProps}) => (
 MultiSelect.displayName = 'MultiSelect';
 export const createOption = LabelWithOptions.createOption;
 export const createDivider = LabelWithOptions.createDivider;
-

@@ -18,5 +18,6 @@ export default {
     onSelect: (option: Option) => option.value,
     initialSelectedIds: ['', [1]],
     onChange: evt => evt.target.value,
+    onDeselect: (option: Option) => option.value
   }
 };

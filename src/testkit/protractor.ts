@@ -44,6 +44,10 @@ import { labelWithOptionsDriverFactory, LabelWithOptionsDriver } from '../compon
 export const labelWithOptionsTestkitFactory = protractorTestkitFactoryCreator<LabelWithOptionsDriver>(labelWithOptionsDriverFactory);
 export { LabelWithOptionsDriver };
 
+import { multiSelectDriverFactory, MultiSelectDriver } from '../components/MultiSelect/MultiSelect.protractor.driver';
+export const multiSelectTestkitFactory = protractorTestkitFactoryCreator<MultiSelectDriver>(multiSelectDriverFactory);
+export { MultiSelectDriver };
+
 import { labelDriverFactory, LabelDriver } from '../components/Label/Label.protractor.driver';
 export const labelTestkitFactory = protractorTestkitFactoryCreator<LabelDriver>(labelDriverFactory);
 export { LabelDriver };
