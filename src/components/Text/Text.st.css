@@ -1,5 +1,5 @@
 :import {
-  -st-from: "../StylableUIText/CoreText/Text.st.css";
+  -st-from: "../core/CoreText/Text.st.css";
   -st-default: Text;
 }
 

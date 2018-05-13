@@ -1,1 +1,1 @@
-export {textDriverFactory as uiTextDriverFactory, TextDriver as UITextDriver} from './CoreText/Text.protractor.driver';
+export {textDriverFactory as uiTextDriverFactory, TextDriver as UITextDriver} from '../core/CoreText/Text.protractor.driver';

@@ -1,10 +1,10 @@
 :import {
-  -st-from: "./CoreText/TextStyle.st.css";
+  -st-from: "../core/CoreText/TextStyle.st.css";
   -st-default: TextStyle;
 }
 
 :import {
-  -st-from: "./CoreText/Text.st.css";
+  -st-from: "../core/CoreText/Text.st.css";
   -st-default: Text;
 }
 

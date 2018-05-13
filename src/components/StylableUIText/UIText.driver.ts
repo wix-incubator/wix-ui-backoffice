@@ -1,5 +1,5 @@
 import { ComponentFactory } from 'wix-ui-test-utils/driver-factory';
-import { textDriverFactory, TextDriver } from './CoreText/Text.driver';
+import { textDriverFactory, TextDriver } from '../core/CoreText/Text.driver';
 import { StylableDOMUtil } from 'stylable/test-utils';
 import style from './UIText.st.css';
 import { Appearance } from './UIText';

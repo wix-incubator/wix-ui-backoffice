@@ -1,1 +1,1 @@
-export {textDriverFactory, TextDriver} from '../StylableUIText/CoreText/Text.protractor.driver';
+export {textDriverFactory, TextDriver} from '../core/CoreText/Text.protractor.driver';
