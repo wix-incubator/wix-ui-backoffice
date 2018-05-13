@@ -34,10 +34,8 @@ export type FloatingHelperProps = PickedClosablePopoverProps & FloatingHelperOwn
 
 export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
   const { children, width, content, showCloseButton, ...rest } = props;
-  const contentWidth = (typeof width) === 'number' ? `${width}px` : width;
-
   const renderContent = (closableActions: ClosablePopoverActions) => (
-    <div data-hook={DataHooks.contentWrapper} style={{ width: contentWidth }}>
+    <div data-hook={DataHooks.contentWrapper} style={{ width }}>
       {showCloseButton && (
         <CloseButton
           className={style.closeButton}
@@ -66,6 +64,7 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
 
 FloatingHelper.defaultProps = {
   showCloseButton: true,
+  appendTo: 'window',
   width: '444px'
 };
 
