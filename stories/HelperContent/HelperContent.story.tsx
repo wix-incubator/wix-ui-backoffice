@@ -1,27 +1,22 @@
 import * as React from 'react';
 import { HelperContent, HelperContentProps, ActionButtonTheme } from '../../src/components/FloatingHelper/HelperContent';
-
 import { storySettings } from './StorySettings';
 import Image from 'wix-ui-icons-common/Image';
 
-
-// Should match the exampleDataHooks from storySettings
 const title = 'Don’t forget to setup payments';
 const body = 'In order to sell your music you need to choose a payment method.';
 const actionText = 'Ok, Take Me There';
 const image = <Image width="102" height="102" viewBox="4 4 18 18"/>;
-const exampleProps = [
-  { title },
+
+// Should match the exampleDataHooks from storySettings
+const exampleProps : HelperContentProps[]= [
   { body },
   { title, body },
   { title, body, actionText },
-  { title, actionText },
   { body, actionText },
   { title, body, actionText, actionTheme: ActionButtonTheme.premium },
   { title, body, actionText , image}
 ];
-
-const examples = exampleProps.map((props, index) => renderExample(storySettings.exampleDataHooks[index], props));
 
 export default {
   category: storySettings.kind,
@@ -37,10 +32,9 @@ export default {
   examples: (
     <div>
       <h1>Examples</h1>
-      {examples}
+      {exampleProps.map((props, index) => renderExample(storySettings.exampleDataHooks[index], props))}
     </div>
   )
-
 };
 
 
