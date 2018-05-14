@@ -11,12 +11,12 @@ export interface HelperContentProps {
   title?: string;
   /** Adds text as the body */
   body: string;
-  /** Sets the text of the action button. Needs to be a non-empty string (and onAction prop has to be passed) in order for the action button to appear */
+  /** Sets the text of the action button. Needs to be a non-empty string (and onActionClick prop has to be passed) in order for the action button to appear */
   actionText?: string;
   /** Sets the theme of the action button */
   actionTheme?: ActionButtonTheme;
-  /** When both onAction & actionText are provided, will make an action button appear and invoke onAction() upon click */
-  onAction?:() => void,
+  /** When both onActionClick & actionText are provided, will make an action button appear and invoke onAction() upon click */
+  onActionClick?:() => void,
   /** Adds an image */
   image?: React.ReactNode;
 }
@@ -29,7 +29,7 @@ const themeToButtonProps: { [key in ActionButtonTheme]: Pick<ButtonProps, 'skin'
 export const HelperContent: React.SFC<HelperContentProps> = (
   props: HelperContentProps
 ) => {
-  const { title, body, actionText, onAction, actionTheme, image } = props;
+  const { title, body, actionText, onActionClick, actionTheme, image } = props;
 
   return (
     <div {...style('root', { hasBody: !!props.body }, props)}>
@@ -48,7 +48,7 @@ export const HelperContent: React.SFC<HelperContentProps> = (
             </Text>
           </div>
         )}
-        {actionText && onAction &&
+        {actionText && onActionClick &&
           actionText.length > 0 && (
             <Button
               className={style.action}
@@ -56,7 +56,7 @@ export const HelperContent: React.SFC<HelperContentProps> = (
               skin={themeToButtonProps[actionTheme].skin}
               priority={themeToButtonProps[actionTheme].priority}
               size={ButtonSize.small}
-              onClick={onAction}
+              onClick={onActionClick}
             >
               {actionText}
             </Button>
@@ -71,7 +71,7 @@ HelperContent.propTypes = {
   title: string,
   body: string.isRequired,
   actionText: string,
-  onAction: func,
+  onActionClick: func,
   image: node
 };
 

@@ -38,7 +38,7 @@ describe('HelperContent', () => {
   });
 
   describe('action button', () => {
-    const actionProps = {actionText:'Click me !', onAction:noop};
+    const actionProps : Partial<HelperContentProps> = {actionText:'Click me !', onActionClick:noop};
 
     it('should not have action button by default', () => {
       const driver = createDriver(<HelperContentBuilder />);
@@ -50,19 +50,19 @@ describe('HelperContent', () => {
       expect(driver.hasActionButton()).toBeFalsy();
     });
 
-    it('should not have action button if only onAction is passed', () => {
-      const driver = createDriver(<HelperContentBuilder onAction={noop} />);
+    it('should not have action button if only onActionClick is passed', () => {
+      const driver = createDriver(<HelperContentBuilder onActionClick={noop} />);
       expect(driver.hasActionButton()).toBeFalsy();
     });
 
     it('should not have action button if actionText is an empty string', () => {
-      const driver = createDriver(<HelperContentBuilder onAction={noop} actionText=""/>);
+      const driver = createDriver(<HelperContentBuilder onActionClick={noop} actionText=""/>);
       expect(driver.hasActionButton()).toBeFalsy();
     });
 
     it('should have action button with correct text', () => {
       const actionText = 'Click Me!'
-      const driver = createDriver(<HelperContentBuilder actionText={actionText} onAction={noop}/>);
+      const driver = createDriver(<HelperContentBuilder actionText={actionText} onActionClick={noop}/>);
       expect(driver.hasActionButton()).toBeTruthy();
       expect(driver.getActionButtonDriver().getTextContent()).toBe(actionText);
     });
@@ -81,7 +81,7 @@ describe('HelperContent', () => {
 
     it('should call onClick when action button clicked', () => {
       const spy = jest.fn();
-      const driver = createDriver(<HelperContentBuilder actionText="Click me!" onAction={spy} />);
+      const driver = createDriver(<HelperContentBuilder actionText="Click me!" onActionClick={spy} />);
       driver.getActionButtonDriver().click();
       expect(spy).toHaveBeenCalledTimes(1);
     });
