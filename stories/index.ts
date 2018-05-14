@@ -1,6 +1,6 @@
 require('./Autocomplete.story');
 require('./Checkbox.story');
-require('./Badge').story();
+require('./Badge.story');
 require('./Button');
 require('./CloseButton');
 require('./CounterBadge').story();
