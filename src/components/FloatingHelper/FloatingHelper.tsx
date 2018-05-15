@@ -3,7 +3,6 @@ import pick = require('lodash/pick');
 import { bool, string, number, oneOfType, node } from 'prop-types';
 import * as classnames from 'classnames';
 import { ClosablePopover, ClosablePopoverProps, ClosablePopoverActions } from './ClosablePopover';
-import { withStylable } from 'wix-ui-core/withStylable';
 import style from './FloatingHelper.st.css';
 import { DataHooks } from './DataHooks';
 import { Button } from '../Button';
