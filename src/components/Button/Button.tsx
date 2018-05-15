@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { oneOf, string } from 'prop-types';
 import { Button as CoreButton, ButtonProps as CoreButtonProps } from 'wix-ui-core/Button';
-import { withStylable } from 'wix-ui-core/withStylable';
 import { enumValues } from '../../utils';
 import style from './Button.st.css';
 import { Skin, Priority, Size } from './constants';
