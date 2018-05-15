@@ -18,7 +18,7 @@ describe('FloatingHelper', () => {
   const buildComponent = (props?: Partial<FloatingHelperProps>) => {
     const defaultProps: FloatingHelperProps = {
       placement: 'right',
-      content: <HelperContent title="my title" />,
+      content: <HelperContent title="my title" body="this is the body"/>,
       children: <div>This is the target element</div>
     };
     

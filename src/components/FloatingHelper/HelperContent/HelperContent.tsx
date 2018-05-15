@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { string } from 'prop-types';
+import { string, func, node } from 'prop-types';
 import style from './HelperContent.st.css';
 import { Text } from '../../../components/Text';
 import { DataHooks } from './DataHooks';
@@ -10,24 +10,26 @@ export interface HelperContentProps {
   /** Adds text as the title */
   title?: string;
   /** Adds text as the body */
-  body?: string;
-  /** Sets the text of the action button. Needs to be a non-empty string in order for the action button to appear */
+  body: string;
+  /** Sets the text of the action button. Needs to be a non-empty string (and onActionClick prop has to be passed) in order for the action button to appear */
   actionText?: string;
   /** Sets the theme of the action button */
   actionTheme?: ActionButtonTheme;
+  /** When both onActionClick & actionText are provided, will make an action button appear and invoke onAction() upon click */
+  onActionClick?:() => void,
   /** Adds an image */
   image?: React.ReactNode;
 }
 
-const themeToButtonProps : {[key in ActionButtonTheme]: Pick<ButtonProps, 'skin' | 'priority'>} = {
-  [ActionButtonTheme.white]: {skin: ButtonSkin.white, priority: ButtonPriority.secondary},
-  [ActionButtonTheme.premium]: {skin: ButtonSkin.premium, priority: ButtonPriority.primary}
+const themeToButtonProps: { [key in ActionButtonTheme]: Pick<ButtonProps, 'skin' | 'priority'> } = {
+  [ActionButtonTheme.white]: { skin: ButtonSkin.white, priority: ButtonPriority.secondary },
+  [ActionButtonTheme.premium]: { skin: ButtonSkin.premium, priority: ButtonPriority.primary }
 }
 
 export const HelperContent: React.SFC<HelperContentProps> = (
   props: HelperContentProps
 ) => {
-  const {title, body, actionText, actionTheme, image} = props;
+  const { title, body, actionText, onActionClick, actionTheme, image } = props;
 
   return (
     <div {...style('root', { hasBody: !!props.body }, props)}>
@@ -46,7 +48,7 @@ export const HelperContent: React.SFC<HelperContentProps> = (
             </Text>
           </div>
         )}
-        {actionText &&
+        {actionText && onActionClick &&
           actionText.length > 0 && (
             <Button
               className={style.action}
@@ -54,11 +56,12 @@ export const HelperContent: React.SFC<HelperContentProps> = (
               skin={themeToButtonProps[actionTheme].skin}
               priority={themeToButtonProps[actionTheme].priority}
               size={ButtonSize.small}
+              onClick={onActionClick}
             >
               {actionText}
             </Button>
           )}
-      </div> 
+      </div>
       {image && <div data-hook={DataHooks.image} className={style.image}>{image}</div>}
     </div>
   );
@@ -66,8 +69,10 @@ export const HelperContent: React.SFC<HelperContentProps> = (
 
 HelperContent.propTypes = {
   title: string,
-  body: string,
-  actionText: string
+  body: string.isRequired,
+  actionText: string,
+  onActionClick: func,
+  image: node
 };
 
 HelperContent.defaultProps = {

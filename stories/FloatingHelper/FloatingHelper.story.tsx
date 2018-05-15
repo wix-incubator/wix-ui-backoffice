@@ -18,6 +18,7 @@ export default {
         title="Don’t forget to setup payments"
         body="In order to sell your music you need to choose a payment method."
         actionText="Ok, Take Me There"
+        onActionClick={()=> null}
         image={<Image width="102" height="102" viewBox="4 4 18 18"/>}
       />),
     children: <span>I am a FloatingHelper target</span>,

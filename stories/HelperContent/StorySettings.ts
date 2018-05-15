@@ -5,12 +5,11 @@ export const storySettings: StorySettings = {
     story: 'HelperContent',
     dataHook: 'story-helper-content',
     exampleDataHooks: [
-        'example-title',
         'example-body',
         'example-title-body',
         'example-title-body-action',
-        'example-title-action',
         'example-body-action',
         'example-title-body-action-premium',
+        'example-title-body-action-image',
     ]
 };
