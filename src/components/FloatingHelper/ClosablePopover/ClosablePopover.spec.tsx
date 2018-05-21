@@ -36,6 +36,56 @@ describe('ClosablePopover', () => {
     });
   });
 
+  describe('onShow/onHide callbacks', () => {
+    it('should call onHide when closed by close-action', () => {
+      let triggerClose;
+      let onHide = jest.fn();
+      const driver = createDriver(createComponent({
+        content: ({ close }) => {
+          triggerClose = close;
+          return <div>the content</div>;
+        },
+        onHide
+      }));
+      triggerClose();
+      
+      expect(onHide).toBeCalled();
+    });
+
+    it('should call onShow when hovered by mouse', () => {
+      let triggerClose;
+      let onShow = jest.fn();
+      const driver = createDriver(createComponent({
+        content: ({ close }) => {
+          triggerClose = close;
+          return <div>the content</div>;
+        },
+        onShow
+      }));
+
+      triggerClose();
+      driver.mouseEnter();
+      expect(onShow).toBeCalled();
+    });
+
+    it('should call onHide when mouse leaves after closed by close-action', () => {
+      let triggerClose;
+      let onHide = jest.fn();
+      const driver = createDriver(createComponent({
+        content: ({ close }) => {
+          triggerClose = close;
+          return <div>the content</div>;
+        },
+        onHide
+      }));
+      
+      triggerClose();
+      driver.mouseEnter();
+      driver.mouseLeave();
+      expect(onHide.mock.calls.length).toBe(2);
+    });
+  });
+
   describe('close', () => {
     it('should be opened by default', () => {
       const driver = createDriver(createComponent());
