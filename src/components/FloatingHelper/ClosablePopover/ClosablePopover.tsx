@@ -20,6 +20,11 @@ export interface ClosablePopoverOwnProps {
   content: (closable: ClosablePopoverActions) => React.ReactNode;
   /** The popover's target element*/
   target: React.ReactNode;
+  /** callback to call when the tooltip is shown */
+  onShow?: Function;
+  /** callback to call when the tooltip is being hidden */
+  onHide?: Function;
+  
 }
 
 export interface ClosablePopoverState {
@@ -37,24 +42,48 @@ export type ClosablePopoverProps = PickedPopoverProps & ClosablePopoverOwnProps;
  * calling a closeAction.
  */
 export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, ClosablePopoverState> {
-  state: ClosablePopoverState = { opened: true };
+  state: ClosablePopoverState;
 
   static propTypes: React.ValidationMap<ClosablePopoverProps> = {
     ...pickedPopoverPropTypes,
     opened: bool,
     content: func,
-    target: node
+    target: node,
+    onShow: func,
+    onHide: func,
   };
+
+  constructor(props: ClosablePopoverProps) {
+    super(props);
+
+    this.open = this.open.bind(this);
+    this.close = this.close.bind(this);
+
+    this.state = { opened: true };
+  }
 
   get isControlled() {
     return isBoolean(this.props.opened);
+  }
+
+  open() {
+    if (!this.state.opened) {
+      this.setState({opened: true},  ()=>{this.props.onShow && this.props.onShow()});
+    }
+  }
+
+  close() {
+    if (this.isControlled) {
+      throw new Error('ClosablePopover.close() can not be called when component is Controlled. (opened prop should be undefined)');
+    }
+    this.state.opened && this.setState({ opened: false }, ()=>{this.props.onHide && this.props.onHide()});
   }
 
   render() {
     // NOTE: we can not use pick, since there are unknown 'data-*' props coming from 
     // Stylabel (and the data-hook also). Also some variable constants are destructed from props
     // only to be 'omit' and are not in use. (Using lodash.omit is not type safe)
-    const { opened, content, target, children, ...rest } = this.props;
+    const { opened, content, target, children, onHide, onShow, ...rest } = this.props;
     const open = this.isControlled ? this.props.opened : this.state.opened;
 
     // Using createElement() in order to get ts props validation.
@@ -70,14 +99,8 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
     );
   }
 
-  public close = () => {
-    if (this.isControlled) {
-      throw new Error('ClosablePopover.close() can not be called when component is Controlled. (opened prop should be undefined)');
-    }
-    this.state.opened && this.setState({ opened: false });
-  }
-
   actions: ClosablePopoverActions = {
     close: this.close,
   };
 };
+

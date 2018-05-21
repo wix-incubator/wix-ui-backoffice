@@ -17,7 +17,8 @@ describe('ClosablePopover', () => {
       placement="right"
       {...partialProps}
     />
-  )
+  );
+  
   describe('close', () => {
     it('should be opened by default', () => {
       const driver = createDriver(createComponent());
