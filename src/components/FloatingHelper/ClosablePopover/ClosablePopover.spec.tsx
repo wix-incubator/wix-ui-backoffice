@@ -93,6 +93,20 @@ describe('ClosablePopover', () => {
       driver.mouseLeave();
       expect(onClose.mock.calls.length).toBe(2);
     });
+
+    it('should NOT close on mouse leave when initially opened', async () => {
+      let triggerClose;
+      const driver = createDriver(createComponent({
+        content: ({ close }) => {
+          triggerClose = close;
+          return <div>the content</div>;
+        }
+      }));
+
+      driver.mouseEnter();
+      driver.mouseLeave();
+      expect(driver.isContentElementExists()).toBeTruthy();
+    });
   });
 
   describe('onShow/onHide callbacks', () => {
