@@ -53,27 +53,25 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
     onHide: func,
   };
 
+
   constructor(props: ClosablePopoverProps) {
     super(props);
 
-    this.open = this.open.bind(this);
-    this.close = this.close.bind(this);
-
-    this.state = { opened: true };
+    this.state = { opened: true};
   }
 
-  get isControlled() {
+  isControlled() {
     return isBoolean(this.props.opened);
   }
 
-  open() {
+  open = () => {
     if (!this.state.opened) {
       this.setState({opened: true},  ()=>{this.props.onShow && this.props.onShow()});
     }
   }
 
-  close() {
-    if (this.isControlled) {
+  close = () => {
+    if (this.isControlled()) {
       throw new Error('ClosablePopover.close() can not be called when component is Controlled. (opened prop should be undefined)');
     }
     this.state.opened && this.setState({ opened: false }, ()=>{this.props.onHide && this.props.onHide()});
@@ -84,10 +82,11 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
     // Stylabel (and the data-hook also). Also some variable constants are destructed from props
     // only to be 'omit' and are not in use. (Using lodash.omit is not type safe)
     const { opened, content, target, children, onHide, onShow, ...rest } = this.props;
-    const open = this.isControlled ? this.props.opened : this.state.opened;
+    const open = this.isControlled() ? this.props.opened : this.state.opened;
+    const popoverProps: PopoverProps = {...rest, shown: open, onMouseEnter: this.open, onMouseLeave: this.close};
 
     // Using createElement() in order to get ts props validation.
-    return React.createElement(Popover, { shown: open, ...rest }, (
+    return React.createElement(Popover, popoverProps, (
       <Popover.Element>
         {target}
       </Popover.Element>
