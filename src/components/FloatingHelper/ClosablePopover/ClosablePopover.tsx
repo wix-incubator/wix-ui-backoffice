@@ -53,6 +53,9 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
     onClosed: func,
   };
 
+  static defaultProps: Partial<ClosablePopoverProps> = {
+    timeout: 150
+  }
 
   constructor(props: ClosablePopoverProps) {
     super(props);
