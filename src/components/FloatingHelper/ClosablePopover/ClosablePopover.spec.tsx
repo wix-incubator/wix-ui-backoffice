@@ -95,67 +95,60 @@ describe('ClosablePopover', () => {
     });
 
     it('should NOT close on mouse leave when initially opened', async () => {
-      let triggerClose;
-      const driver = createDriver(createComponent({
-        content: ({ close }) => {
-          triggerClose = close;
-          return <div>the content</div>;
-        }
-      }));
-
+      const driver = createDriver(createComponent());
       driver.mouseEnter();
       driver.mouseLeave();
       expect(driver.isContentElementExists()).toBeTruthy();
     });
   });
 
-  describe('onShow/onHide callbacks', () => {
-    it('should call onHide when closed by close-action', () => {
+  describe('onOpened/onClosed callbacks', () => {
+    it('should call onClosed when closed by close-action', () => {
       let triggerClose;
-      let onHide = jest.fn();
+      let onClosed = jest.fn();
       const driver = createDriver(createComponent({
         content: ({ close }) => {
           triggerClose = close;
           return <div>the content</div>;
         },
-        onHide
+        onClosed
       }));
       triggerClose();
       
-      expect(onHide).toBeCalled();
+      expect(onClosed).toBeCalled();
     });
 
-    it('should call onShow when hovered by mouse', () => {
+    it('should call onOpened when hovered by mouse', () => {
       let triggerClose;
-      let onShow = jest.fn();
+      let onOpened = jest.fn();
       const driver = createDriver(createComponent({
         content: ({ close }) => {
           triggerClose = close;
           return <div>the content</div>;
         },
-        onShow
+        onOpened
       }));
 
       triggerClose();
       driver.mouseEnter();
-      expect(onShow).toBeCalled();
+      expect(onOpened).toBeCalled();
     });
 
-    it('should call onHide when mouse leaves after closed by close-action', () => {
+    it('should call onClosed when mouse leaves after closed by close-action', () => {
       let triggerClose;
-      let onHide = jest.fn();
+      let onClosed = jest.fn();
       const driver = createDriver(createComponent({
         content: ({ close }) => {
           triggerClose = close;
           return <div>the content</div>;
         },
-        onHide
+        onClosed
       }));
       
       triggerClose();
       driver.mouseEnter();
       driver.mouseLeave();
-      expect(onHide.mock.calls.length).toBe(2);
+      expect(onClosed.mock.calls.length).toBe(2);
     });
   });
 
