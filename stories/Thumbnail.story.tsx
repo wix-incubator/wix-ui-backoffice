@@ -1,18 +1,29 @@
 import * as React from 'react';
-import {Thumbnail} from '../src/components/Thumbnail';
-import * as ThumbnailSource from '!raw-loader!../src/components/Thumbnail/Thumbnail.tsx';
+
 import Image from 'wix-ui-icons-common/Image';
+
+import {Thumbnail} from '../src/components/Thumbnail';
+
+const image = <Image width="240" height="180"/>;
 
 export default {
   category: 'Components',
   storyName: 'Thumbnail',
   component: Thumbnail,
-  source: ThumbnailSource,
   componentPath: '../src/components/Thumbnail/Thumbnail.tsx',
+
   componentProps: {
     'data-hook': 'storybook-thumbnail',
     title: 'Thumnbail Title',
     description: 'Description about this thumbnail option goes here',
-    image: <Image width="240" height="180"/>
+    image
+  },
+
+  exampleProps: {
+    image: [
+      { label: 'small image', value: <Image width="64" height="64"/> },
+      { label: 'normal image', value: image },
+      { label: 'big image', value: <Image width="400" height="400"/> }
+    ]
   }
 };

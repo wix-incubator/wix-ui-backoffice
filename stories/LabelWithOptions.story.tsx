@@ -12,16 +12,15 @@ export default {
   componentProps: {
     'data-hook': 'storybook-labelwithoptions',
     options: generateOptions((args: Partial<DividerArgs> = {}) => LabelWithOptions.createDivider(args.value)),
-    placeholder: 'With placeholder'
+    placeholder: 'With placeholder',
+    fixedFooter: 'Fixed Footer',
+    fixedHeader: 'Fixed Header',
+    initialSelectedIds: [1]
   },
 
   exampleProps: {
-    fixedFooter: [null, <div key="1">Fixed Footer</div>],
-    fixedHeader: [null, <div key="2">Fixed Header</div>],
     onSelect: (option: Option) => option.value,
     onDeselect: (option: Option) => option.value,
-    initialSelectedIds: [null, [1]],
-    placeholder: ['With placeholder', null],
     size: ['small', 'medium', 'large']
   }
 };
