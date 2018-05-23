@@ -156,6 +156,18 @@ describe('ClosablePopover', () => {
     });
   });
 
+  describe('initiallyOpened', () => {
+    it('should be initially opened', () => {
+      const driver = createDriver(createComponent({initiallyOpened:true}));
+      expect(driver.isOpened()).toBeTruthy();
+    });
+
+    it('should be initially closed', async () => {
+      const driver = createDriver(createComponent({initiallyOpened:false}));
+      expect(driver.isOpened()).toBeFalsy();
+    });
+  });
+
   describe('close', () => {
     it('should be opened by default', () => {
       const driver = createDriver(createComponent());

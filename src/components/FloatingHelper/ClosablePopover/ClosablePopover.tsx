@@ -14,6 +14,8 @@ export interface ClosablePopoverOwnProps {
    * When undefined, then the component is Uncontrolled,
    * It is initially open, and it can be closed by close-action */
   opened?: boolean;
+  /** Controls wether the popover's content is initially opened (in Uncontrolled mode) */
+  initiallyOpened?: boolean;
   /** The popover's content, given as a function that receives control-actions and renders the contet.
    * In Uncontrolled mode, this function is still called only once.
   */
@@ -42,7 +44,7 @@ export type ClosablePopoverProps = PickedPopoverProps & ClosablePopoverOwnProps;
  * calling a closeAction.
  */
 export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, ClosablePopoverState> {
-  state: ClosablePopoverState = { open: true, wasClosed: false };
+  state: ClosablePopoverState = { open: this.props.initiallyOpened, wasClosed: false };
 
   static propTypes: React.ValidationMap<ClosablePopoverProps> = {
     ...pickedPopoverPropTypes,
@@ -54,7 +56,8 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
   };
 
   static defaultProps: Partial<ClosablePopoverProps> = {
-    timeout: 150
+    timeout: 150,
+    initiallyOpened: true
   }
 
   isControlled() {
@@ -84,7 +87,7 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
   }
 
   render() {
-    const { opened, content, target, children, onClose, onOpen, ...rest } = this.props;
+    const { opened, content, target, children, onClose, onOpen, initiallyOpened, ...rest } = this.props;
     const open = this.isControlled() ? this.props.opened : this.state.open;
 
     const popoverProps: PopoverProps = {
