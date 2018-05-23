@@ -92,6 +92,7 @@ describe('ClosablePopover', () => {
       driver.mouseEnter();
       driver.mouseLeave();
       expect(onClose.mock.calls.length).toBe(2);
+<<<<<<< HEAD
     });
 
     it('should NOT close on mouse leave when initially opened', async () => {
@@ -150,6 +151,8 @@ describe('ClosablePopover', () => {
       driver.mouseEnter();
       driver.mouseLeave();
       expect(onClose.mock.calls.length).toBe(2);
+=======
+>>>>>>> Rename onOpened/onClosed to onOpen/onClose
     });
   });
 
