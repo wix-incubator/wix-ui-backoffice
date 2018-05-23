@@ -58,6 +58,8 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
     showArrow: true
   };
 
+  // TODO: hoist open/close method from ClosablePopover
+
   return (
     <ClosablePopover
       {...closablePopoverProps}
