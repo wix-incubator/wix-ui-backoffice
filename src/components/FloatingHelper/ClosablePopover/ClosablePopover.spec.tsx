@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
+import * as eventually from 'wix-eventually';
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { isTestkitExists } from 'wix-ui-test-utils/vanilla';
 import { isEnzymeTestkitExists } from 'wix-ui-test-utils/enzyme';
@@ -18,7 +19,7 @@ describe('ClosablePopover', () => {
     />
   );
 
-  describe('open/close on hover', () => {
+  describe('open/close on hover', async () => {
     it('should display content on hover and hide it on leave, after closed', async () => {
       let triggerClose;
       const driver = createDriver(createComponent({
@@ -32,13 +33,14 @@ describe('ClosablePopover', () => {
       driver.mouseEnter();
       expect(driver.isContentElementExists()).toBeTruthy();
       driver.mouseLeave();
-      expect(driver.isContentElementExists()).toBeFalsy();
+      await eventually(()=>expect(driver.isContentElementExists()).toBeFalsy());
     });
 
     it('should NOT close on mouse leave when initially opened', async () => {
       const driver = createDriver(createComponent());
       driver.mouseEnter();
       driver.mouseLeave();
+      await new Promise((res,rej)=> setTimeout(res,ClosablePopover.defaultProps.timeout * 2)); // * 2 as arbitrary safety 
       expect(driver.isContentElementExists()).toBeTruthy();
     });
   });
@@ -99,7 +101,7 @@ describe('ClosablePopover', () => {
       expect(driver.isOpened()).toBeTruthy();
     });
 
-    it('should close when closeAction called', () => {
+    it('should close when closeAction called', async () => {
       let triggerClose;
       const driver = createDriver(createComponent({
         content: ({ close }) => {
@@ -109,7 +111,7 @@ describe('ClosablePopover', () => {
       }));
       expect(driver.isOpened()).toBeTruthy();
       triggerClose();
-      expect(driver.isOpened()).toBeFalsy();
+      await eventually(()=> expect(driver.isOpened()).toBeFalsy());
     });
   });
 

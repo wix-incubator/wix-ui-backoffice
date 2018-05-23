@@ -22,7 +22,7 @@ export interface ClosablePopoverOwnProps {
   target: React.ReactNode;
   /** callback to call when the popover content was opened */
   onOpened?: Function;
-  /** callback to call when the popover content was closed */
+  /** callback to call when the popover content was closed. NOTE: this callback is called when the close timeout (if exists) starts */
   onClosed?: Function;
 }
 
