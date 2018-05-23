@@ -42,7 +42,7 @@ export type ClosablePopoverProps = PickedPopoverProps & ClosablePopoverOwnProps;
  * calling a closeAction.
  */
 export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, ClosablePopoverState> {
-  state: ClosablePopoverState = { opened: true, wasClosed: false};
+  state: ClosablePopoverState = { opened: true, wasClosed: false };
 
   static propTypes: React.ValidationMap<ClosablePopoverProps> = {
     ...pickedPopoverPropTypes,
@@ -66,7 +66,7 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
       throw new Error('ClosablePopover.open() can not be called when component is Controlled. (opened prop should be undefined)');
     }
     if (!this.state.opened) {
-      this.setState({opened: true},  ()=>{this.props.onOpened && this.props.onOpened()});
+      this.setState({ opened: true }, () => { this.props.onOpened && this.props.onOpened() });
     }
   }
 
@@ -74,7 +74,7 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
     if (this.isControlled()) {
       throw new Error('ClosablePopover.close() can not be called when component is Controlled. (opened prop should be undefined)');
     }
-    this.state.opened && this.setState({ opened: false, wasClosed: true }, ()=>{this.props.onClosed && this.props.onClosed()});
+    this.state.opened && this.setState({ opened: false, wasClosed: true }, () => { this.props.onClosed && this.props.onClosed() });
   }
 
   handleMouseLeave = () => {
@@ -84,23 +84,27 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
   }
 
   render() {
-    // NOTE: we can not use pick, since there are unknown 'data-*' props coming from 
-    // Stylabel (and the data-hook also). Also some variable constants are destructed from props
-    // only to be 'omit' and are not in use. (Using lodash.omit is not type safe)
     const { opened, content, target, children, onClosed, onOpened, ...rest } = this.props;
     const open = this.isControlled() ? this.props.opened : this.state.opened;
-    const popoverProps: PopoverProps = {...rest, shown: open, onMouseEnter: this.open, onMouseLeave: this.handleMouseLeave};
+    
+    const popoverProps: PopoverProps = {
+      ...rest,
+      shown: open,
+      onMouseEnter: this.open,
+      onMouseLeave: this.handleMouseLeave
+    };
 
-    // Using createElement() in order to get ts props validation.
-    return React.createElement(Popover, popoverProps, (
-      <Popover.Element>
-        {target}
-      </Popover.Element>
-    ), (
+    return (
+      <Popover
+        {...popoverProps}
+      >
+        <Popover.Element>
+          {target}
+        </Popover.Element>
         <Popover.Content>
           {content(this.actions)}
         </Popover.Content>
-      )
+      </Popover>
     );
   }
 
