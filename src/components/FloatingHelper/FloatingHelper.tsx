@@ -21,9 +21,9 @@ export interface FloatingHelperOwnProps {
 }
 
 export type PickedClosablePopoverProps = Pick<ClosablePopoverProps,
-  'placement' | 'moveBy' | 'hideDelay' | 'showDelay' | 'appendTo' | 'timeout' | 'className'>;
+  'initiallyOpened' | 'placement' | 'moveBy' | 'hideDelay' | 'showDelay' | 'appendTo'>;
 const pickedPropNames: Array<keyof PickedClosablePopoverProps> =
-  ['placement', 'moveBy', 'hideDelay', 'showDelay', 'appendTo', 'timeout', 'className'];
+  ['initiallyOpened', 'placement', 'moveBy', 'hideDelay', 'showDelay', 'appendTo'];
 
 const pickedPopoverPropTypes = pick<
   typeof ClosablePopover.propTypes, keyof PickedClosablePopoverProps>(
@@ -33,6 +33,7 @@ export type FloatingHelperProps = PickedClosablePopoverProps & FloatingHelperOwn
 
 export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
   const { children, width, content, showCloseButton, ...rest } = props;
+
   const renderContent = (closableActions: ClosablePopoverActions) => (
     <div data-hook={DataHooks.contentWrapper} style={{ width }}>
       {showCloseButton && (
@@ -49,13 +50,17 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
       </div>
     </div>
   )
+  
+  const closablePopoverProps : ClosablePopoverProps = {
+    ...rest,
+    content: renderContent,
+    target:children,
+    showArrow: true
+  };
 
   return (
     <ClosablePopover
-      showArrow
-      target={children}
-      content={renderContent}
-      {...rest}
+      {...closablePopoverProps}
       {...style('root', {}, props)}
     />
   );
@@ -64,7 +69,8 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
 FloatingHelper.defaultProps = {
   showCloseButton: true,
   appendTo: 'window',
-  width: '444px'
+  width: '444px',
+  initiallyOpened: true
 };
 
 FloatingHelper.propTypes = {
