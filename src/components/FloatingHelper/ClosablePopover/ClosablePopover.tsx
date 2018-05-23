@@ -21,9 +21,9 @@ export interface ClosablePopoverOwnProps {
   /** The popover's target element*/
   target: React.ReactNode;
   /** callback to call when the popover content was opened */
-  onOpened?: Function;
+  onOpen?: Function;
   /** callback to call when the popover content was closed. NOTE: this callback is called when the close timeout (if exists) starts */
-  onClosed?: Function;
+  onClose?: Function;
 }
 
 export interface ClosablePopoverState {
@@ -49,8 +49,8 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
     opened: bool,
     content: func,
     target: node,
-    onOpened: func,
-    onClosed: func,
+    onOpen: func,
+    onClose: func,
   };
 
   static defaultProps: Partial<ClosablePopoverProps> = {
@@ -66,7 +66,7 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
       throw new Error('ClosablePopover.open() can not be called when component is Controlled. (opened prop should be undefined)');
     }
     if (!this.state.opened) {
-      this.setState({ opened: true }, () => { this.props.onOpened && this.props.onOpened() });
+      this.setState({ opened: true }, () => { this.props.onOpen && this.props.onOpen() });
     }
   }
 
@@ -74,7 +74,7 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
     if (this.isControlled()) {
       throw new Error('ClosablePopover.close() can not be called when component is Controlled. (opened prop should be undefined)');
     }
-    this.state.opened && this.setState({ opened: false, wasClosed: true }, () => { this.props.onClosed && this.props.onClosed() });
+    this.state.opened && this.setState({ opened: false, wasClosed: true }, () => { this.props.onClose && this.props.onClose() });
   }
 
   handleMouseLeave = () => {
@@ -84,9 +84,9 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
   }
 
   render() {
-    const { opened, content, target, children, onClosed, onOpened, ...rest } = this.props;
+    const { opened, content, target, children, onClose, onOpen, ...rest } = this.props;
     const open = this.isControlled() ? this.props.opened : this.state.opened;
-    
+
     const popoverProps: PopoverProps = {
       ...rest,
       shown: open,
