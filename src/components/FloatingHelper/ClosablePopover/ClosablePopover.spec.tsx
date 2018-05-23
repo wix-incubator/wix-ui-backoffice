@@ -1,16 +1,18 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
 import * as eventually from 'wix-eventually';
-import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
-import { isTestkitExists } from 'wix-ui-test-utils/vanilla';
-import { isEnzymeTestkitExists } from 'wix-ui-test-utils/enzyme';
+import { createDriverFactory, DriverFactory, BaseDriver } from 'wix-ui-test-utils/driver-factory';
+import { enzymeTestkitFactoryCreator } from 'wix-ui-test-utils/enzyme';
 import { closablePopoverDriverFactory, ClosablePopoverDriver } from './ClosablePopover.driver';
 import { ClosablePopover, ClosablePopoverProps } from './ClosablePopover';
 import defaults = require('lodash/defaults');
 
 describe('ClosablePopover', () => {
   const createDriver = createDriverFactory(closablePopoverDriverFactory);
-  const createComponent = (partialProps?: Partial<ClosablePopoverProps>) => (
+  const createEnzymeDriver = createEnzymeDriverFactory<ClosablePopover, ClosablePopoverDriver>(closablePopoverDriverFactory);
+  const waitForClose = async () => new Promise((res, rej) => setTimeout(res, ClosablePopover.defaultProps.timeout * 2)); // * 2 as arbitrary safety 
+
+  const createComponent = (partialProps?: Partial<ClosablePopoverProps> & { 'data-hook'?: string }) => (
     <ClosablePopover
       target={<div>this is the target</div>}
       content={() => <div>this is the popover content</div>}
@@ -33,14 +35,14 @@ describe('ClosablePopover', () => {
       driver.mouseEnter();
       expect(driver.isContentElementExists()).toBeTruthy();
       driver.mouseLeave();
-      await eventually(()=>expect(driver.isContentElementExists()).toBeFalsy());
+      await eventually(() => expect(driver.isContentElementExists()).toBeFalsy());
     });
 
     it('should NOT close on mouse leave when initially opened', async () => {
       const driver = createDriver(createComponent());
       driver.mouseEnter();
       driver.mouseLeave();
-      await new Promise((res,rej)=> setTimeout(res,ClosablePopover.defaultProps.timeout * 2)); // * 2 as arbitrary safety 
+      await waitForClose();
       expect(driver.isContentElementExists()).toBeTruthy();
     });
   });
@@ -57,7 +59,7 @@ describe('ClosablePopover', () => {
         onClose
       }));
       triggerClose();
-      
+
       expect(onClose).toBeCalled();
     });
 
@@ -87,7 +89,7 @@ describe('ClosablePopover', () => {
         },
         onClose
       }));
-      
+
       triggerClose();
       driver.mouseEnter();
       driver.mouseLeave();
@@ -158,12 +160,12 @@ describe('ClosablePopover', () => {
 
   describe('initiallyOpened', () => {
     it('should be initially opened', () => {
-      const driver = createDriver(createComponent({initiallyOpened:true}));
+      const driver = createDriver(createComponent({ initiallyOpened: true }));
       expect(driver.isOpened()).toBeTruthy();
     });
 
     it('should be initially closed', async () => {
-      const driver = createDriver(createComponent({initiallyOpened:false}));
+      const driver = createDriver(createComponent({ initiallyOpened: false }));
       expect(driver.isOpened()).toBeFalsy();
     });
   });
@@ -184,8 +186,71 @@ describe('ClosablePopover', () => {
       }));
       expect(driver.isOpened()).toBeTruthy();
       triggerClose();
-      await eventually(()=> expect(driver.isOpened()).toBeFalsy());
+      await eventually(() => expect(driver.isOpened()).toBeFalsy());
     });
   });
 
+  describe('programatic open', () => {
+    it('should be opened by programatic open, when initially closed', () => {
+      const { wrapperInstance, driver } = createEnzymeDriver(createComponent({ initiallyOpened: false }));
+      expect(driver.isOpened()).toBeFalsy();
+      wrapperInstance.open();
+      expect(driver.isOpened()).toBeTruthy();
+    });
+
+    it('should be closed by programatic close, after initially opened', async () => {
+      const { wrapperInstance, driver } = createEnzymeDriver(createComponent({ initiallyOpened: true }));
+      expect(driver.isOpened()).toBeTruthy();
+      wrapperInstance.close();
+      await eventually(() => expect(driver.isOpened()).toBeFalsy());
+    });
+
+    it('should NOT close on mouseLeave, after programatic open', async () => {
+      const { wrapperInstance, driver } = createEnzymeDriver(createComponent({ initiallyOpened: false }));
+      expect(driver.isOpened()).toBeFalsy();
+      wrapperInstance.open();
+      expect(driver.isOpened()).toBeTruthy();
+      driver.mouseEnter();
+      driver.mouseLeave();
+      await waitForClose();
+      expect(driver.isContentElementExists()).toBeTruthy();
+    });
+
+    it('should open/close on hover after click to close, after programatic open', async () => {
+      let triggerClose;
+      const { wrapperInstance, driver } = createEnzymeDriver(
+        createComponent({
+          initiallyOpened: false,
+          content: ({ close }) => {
+            triggerClose = close;
+            return <div>the content</div>;
+          }
+        }));
+        
+      wrapperInstance.open();
+      triggerClose();
+
+      driver.mouseEnter();
+      expect(driver.isContentElementExists()).toBeTruthy();
+
+      driver.mouseLeave();
+      await waitForClose();
+      expect(driver.isContentElementExists()).toBeFalsy();
+    });
+
+  });
+
 });
+
+// TODO: Add this ti wix-ui-test-utils or to `utils` in this package.
+function createEnzymeDriverFactory<C extends React.Component<any, any>, T extends BaseDriver>(driverFactory: DriverFactory<T>) {
+  function createEnzymeDriver(element: React.ReactElement<any>) {
+    const dataHook = 'arbitrary-hook';
+    const enzymeTestkitFactory = enzymeTestkitFactoryCreator(driverFactory);
+    const wrapper = mount(React.cloneElement(element, { 'data-hook': dataHook }));
+    const driver = enzymeTestkitFactory({ wrapper, dataHook });
+    return { wrapper, driver, wrapperInstance: wrapper.instance() as C };
+  }
+
+  return createEnzymeDriver;
+}
