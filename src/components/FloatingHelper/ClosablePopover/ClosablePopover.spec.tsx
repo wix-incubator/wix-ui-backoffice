@@ -98,6 +98,7 @@ describe('ClosablePopover', () => {
       const driver = createDriver(createComponent());
       driver.mouseEnter();
       driver.mouseLeave();
+      await new Promise((res,rej)=> setTimeout(res,ClosablePopover.defaultProps.timeout * 2)); // * 2 as arbitrary safety 
       expect(driver.isContentElementExists()).toBeTruthy();
     });
   });
@@ -105,50 +106,50 @@ describe('ClosablePopover', () => {
   describe('onOpened/onClosed callbacks', () => {
     it('should call onClosed when closed by close-action', () => {
       let triggerClose;
-      let onClosed = jest.fn();
+      let onClose = jest.fn();
       const driver = createDriver(createComponent({
         content: ({ close }) => {
           triggerClose = close;
           return <div>the content</div>;
         },
-        onClosed
+        onClose
       }));
       triggerClose();
       
-      expect(onClosed).toBeCalled();
+      expect(onClose).toBeCalled();
     });
 
     it('should call onOpened when hovered by mouse', () => {
       let triggerClose;
-      let onOpened = jest.fn();
+      let onOpen = jest.fn();
       const driver = createDriver(createComponent({
         content: ({ close }) => {
           triggerClose = close;
           return <div>the content</div>;
         },
-        onOpened
+        onOpen
       }));
 
       triggerClose();
       driver.mouseEnter();
-      expect(onOpened).toBeCalled();
+      expect(onOpen).toBeCalled();
     });
 
     it('should call onClosed when mouse leaves after closed by close-action', () => {
       let triggerClose;
-      let onClosed = jest.fn();
+      let onClose = jest.fn();
       const driver = createDriver(createComponent({
         content: ({ close }) => {
           triggerClose = close;
           return <div>the content</div>;
         },
-        onClosed
+        onClose
       }));
       
       triggerClose();
       driver.mouseEnter();
       driver.mouseLeave();
-      expect(onClosed.mock.calls.length).toBe(2);
+      expect(onClose.mock.calls.length).toBe(2);
     });
   });
 
