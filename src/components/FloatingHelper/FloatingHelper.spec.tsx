@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
+import * as eventually from 'wix-eventually';
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { isTestkitExists } from 'wix-ui-test-utils/vanilla';
 import { isEnzymeTestkitExists } from 'wix-ui-test-utils/enzyme';
@@ -85,10 +86,10 @@ describe('FloatingHelper', () => {
       expect(driver.isOpened()).toBeTruthy();
     });
 
-    it('should close popover when close-button is clicked', () => {
+    it('should close popover when close-button is clicked',async () => {
       const driver = createEnzymeDriver(buildComponent());
       driver.clickCloseButton();
-      expect(driver.isOpened()).toBeFalsy();
+      await eventually(()=>expect(driver.isOpened()).toBeFalsy());
     });
   });
 
