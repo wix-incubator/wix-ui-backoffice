@@ -42,7 +42,7 @@ export type ClosablePopoverProps = PickedPopoverProps & ClosablePopoverOwnProps;
  * calling a closeAction.
  */
 export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, ClosablePopoverState> {
-  state: ClosablePopoverState;
+  state: ClosablePopoverState = { opened: true, wasClosed: false};
 
   static propTypes: React.ValidationMap<ClosablePopoverProps> = {
     ...pickedPopoverPropTypes,
@@ -55,12 +55,6 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
 
   static defaultProps: Partial<ClosablePopoverProps> = {
     timeout: 150
-  }
-
-  constructor(props: ClosablePopoverProps) {
-    super(props);
-
-    this.state = { opened: true, wasClosed: false};
   }
 
   isControlled() {
