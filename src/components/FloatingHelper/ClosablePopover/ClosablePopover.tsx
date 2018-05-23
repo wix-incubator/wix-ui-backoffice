@@ -27,7 +27,7 @@ export interface ClosablePopoverOwnProps {
 }
 
 export interface ClosablePopoverState {
-  opened?: boolean;
+  open?: boolean;
   wasClosed: boolean;
 }
 
@@ -42,7 +42,7 @@ export type ClosablePopoverProps = PickedPopoverProps & ClosablePopoverOwnProps;
  * calling a closeAction.
  */
 export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, ClosablePopoverState> {
-  state: ClosablePopoverState = { opened: true, wasClosed: false };
+  state: ClosablePopoverState = { open: true, wasClosed: false };
 
   static propTypes: React.ValidationMap<ClosablePopoverProps> = {
     ...pickedPopoverPropTypes,
@@ -65,8 +65,8 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
     if (this.isControlled()) {
       throw new Error('ClosablePopover.open() can not be called when component is Controlled. (opened prop should be undefined)');
     }
-    if (!this.state.opened) {
-      this.setState({ opened: true }, () => { this.props.onOpen && this.props.onOpen() });
+    if (!this.state.open) {
+      this.setState({ open: true }, () => { this.props.onOpen && this.props.onOpen() });
     }
   }
 
@@ -74,7 +74,7 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
     if (this.isControlled()) {
       throw new Error('ClosablePopover.close() can not be called when component is Controlled. (opened prop should be undefined)');
     }
-    this.state.opened && this.setState({ opened: false, wasClosed: true }, () => { this.props.onClose && this.props.onClose() });
+    this.state.open && this.setState({ open: false, wasClosed: true }, () => { this.props.onClose && this.props.onClose() });
   }
 
   handleMouseLeave = () => {
@@ -85,7 +85,7 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
 
   render() {
     const { opened, content, target, children, onClose, onOpen, ...rest } = this.props;
-    const open = this.isControlled() ? this.props.opened : this.state.opened;
+    const open = this.isControlled() ? this.props.opened : this.state.open;
 
     const popoverProps: PopoverProps = {
       ...rest,
