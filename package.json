@@ -9,6 +9,7 @@
   },
   "files": [
     "dist",
+    "src",
     "*.js",
     "*.d.ts",
     "!wallaby.js",
