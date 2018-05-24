@@ -104,26 +104,12 @@ describe('FloatingHelper', () => {
 
   describe('programatic open/close sanity', () => {
     it('should open and close programatically', async () => {
-      const dataHook = 'myhook';
-
-      class TestComp extends React.Component {
-        helper: any;
-        render() {
-          return buildComponent({
-            ref: instance => this.helper = instance,
-            initiallyOpened:false
-          });
-        }
-      }
-
-      wrapper = mount(<TestComp/>);
-      const driver = enzymeFloatingHelperTestkitFactory({ wrapper, dataHook });
-      const floatingHelperInstance = ((wrapper.instance() as TestComp).helper as FloatingHelper);
+      const {driver, wrapperInstance} = createEnzymeDriver(buildComponent({initiallyOpened:false}));
 
       expect(driver.isOpened()).toBeFalsy();
-      floatingHelperInstance.open();
+      wrapperInstance.open();
       expect(driver.isOpened()).toBeTruthy();
-      floatingHelperInstance.close();
+      wrapperInstance.close();
       await waitForClose(driver);
       expect(driver.isOpened()).toBeFalsy();
     });
