@@ -82,11 +82,6 @@ describe('FloatingHelper', () => {
       const { driver } = createEnzymeDriver(buildComponent());
       expect(driver.hasCloseButton()).toBeTruthy();
     });
-
-    it('should NOT have a close-button', () => {
-      const { driver } = createEnzymeDriver(buildComponent({ showCloseButton: false }));
-      expect(driver.hasCloseButton()).toBeFalsy();
-    });
   });
 
   describe('close', () => {
