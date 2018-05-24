@@ -13,7 +13,7 @@ export interface FloatingHelperOwnProps {
   /** Width HTML attribute of the content. If a number is passed then it defaults to px. e.g width={400} => width="400px" */
   width?: string | number;
   /** The target of the popover */
-  children?: React.ReactNode
+  target: React.ReactNode
   /** A <HelperContent> */
   content: React.ReactNode
 }
@@ -41,7 +41,7 @@ export class FloatingHelper extends React.Component<FloatingHelperProps> {
   static propTypes : ValidationMap<FloatingHelperProps>= {
     ...pickedPopoverPropTypes,
     width: oneOfType([string, number]),
-    children: node.isRequired,
+    target: node.isRequired,
     content: node.isRequired // TODO: validate it is a <HelperContent>
   };
 
@@ -74,7 +74,6 @@ export class FloatingHelper extends React.Component<FloatingHelperProps> {
     const closablePopoverProps: ClosablePopoverProps = {
       ...rest,
       content: renderContent,
-      target: children,
       showArrow: true
     };
 

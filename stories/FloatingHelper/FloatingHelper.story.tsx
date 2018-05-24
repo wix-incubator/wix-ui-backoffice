@@ -21,7 +21,7 @@ export default {
         onActionClick={()=> null}
         image={<Image width="102" height="102" viewBox="4 4 18 18"/>}
       />),
-    children: <span>I am a FloatingHelper target</span>,
+    target: <span>I am a FloatingHelper target</span>,
     placement: 'right'
   }
 };

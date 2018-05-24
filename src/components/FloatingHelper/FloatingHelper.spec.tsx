@@ -25,7 +25,7 @@ describe('FloatingHelper', () => {
     const defaultProps: FloatingHelperProps = {
       placement: 'right',
       content: <HelperContent title="my title" body="this is the body" />,
-      children: <div>This is the target element</div>
+      target: <div>This is the target element</div>
     };
 
     return <FloatingHelper {...defaults({}, props, defaultProps)} />;
