@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Image from 'wix-ui-icons-common/Image';
 import { FloatingHelper, FloatingHelperProps } from '../../src/components/FloatingHelper';
-import { HelperContent } from '../../src/components/FloatingHelper/HelperContent/HelperContent';
 
 import { storySettings } from './StorySettings';
 
@@ -14,7 +13,7 @@ export default {
   componentProps: {
     'data-hook': storySettings.dataHook,
     content: (
-      <HelperContent
+      <FloatingHelper.Content
         title="Don’t forget to setup payments"
         body="In order to sell your music you need to choose a payment method."
         actionText="Ok, Take Me There"
