@@ -33,10 +33,10 @@ describe('FloatingHelper', () => {
 
   let wrapper: ReactWrapper;
 
-  const createEnzymeDriverInternal = createEnzymeDriverFactory<FloatingHelper,FloatingHelperDriver>(floatingHelperDriverFactory);
   const createEnzymeDriver = (element: React.ReactElement<any>) => {
-    const {driver, wrapper : wrapper2, wrapperInstance}=createEnzymeDriverInternal(element);
-    wrapper = wrapper2;
+    const floatingHelperEnzymeDriverFactory = createEnzymeDriverFactory<FloatingHelper,FloatingHelperDriver>(floatingHelperDriverFactory);
+    const {driver, wrapper : wrapperTemp, wrapperInstance}=floatingHelperEnzymeDriverFactory(element);
+    wrapper = wrapperTemp;
     return {driver,wrapperInstance};
   }
 
