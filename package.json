@@ -39,6 +39,7 @@
     "wix-ui-theme": "latest"
   },
   "devDependencies": {
+    "@storybook/addon-links": "^3.4.5",
     "@storybook/addon-options": "^3.3.7",
     "@storybook/react": "^3.3.7",
     "@types/classnames": "^2.2.3",
