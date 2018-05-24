@@ -8,6 +8,7 @@ import { DataHooks } from './DataHooks';
 import { Button } from '../Button';
 import { Skin, Size } from '../Button/constants';
 import { CloseButton, CloseButtonSkin, CloseButtonSize } from '../CloseButton';
+import { HelperContent , HelperContentProps} from './HelperContent';
 
 export interface FloatingHelperOwnProps {
   /** Width HTML attribute of the content. If a number is passed then it defaults to px. e.g width={400} => width="400px" */
@@ -31,6 +32,8 @@ export type FloatingHelperProps = PickedClosablePopoverProps & FloatingHelperOwn
 
 export class FloatingHelper extends React.Component<FloatingHelperProps> {
   closablePopoverRef: ClosablePopover;
+  
+  static Content = HelperContent;
 
   static defaultProps: Partial<FloatingHelperProps> = {
     appendTo: 'window',
