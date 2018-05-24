@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
+import defaults = require('lodash/defaults');
 import * as eventually from 'wix-eventually';
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { isTestkitExists } from 'wix-ui-test-utils/vanilla';
@@ -10,31 +11,39 @@ import { floatingHelperTestkitFactory as enzymeFloatingHelperTestkitFactory } fr
 import { floatingHelperDriverFactory, FloatingHelperDriver } from './FloatingHelper.driver';
 import { FloatingHelper, FloatingHelperProps } from './FloatingHelper';
 import { HelperContent, HelperContentProps } from '../../components/FloatingHelper/HelperContent';
-import defaults = require('lodash/defaults');
 import { ClosablePopover } from './ClosablePopover';
 import { runTestkitExistsSuite } from '../../common/testkitTests';
+import { createEnzymeDriverFactory } from '../../../test/testkitUtils';
+
+export interface WithDataHook {
+  'data-hook'?: string
+}
 
 describe('FloatingHelper', () => {
 
-  const buildComponent = (props?: Partial<FloatingHelperProps>) => {
+  const buildComponent = (props?: Partial<FloatingHelperProps> & WithDataHook & {ref?: (instance:any)=>any}) => {
     const defaultProps: FloatingHelperProps = {
       placement: 'right',
-      content: <HelperContent title="my title" body="this is the body"/>,
+      content: <HelperContent title="my title" body="this is the body" />,
       children: <div>This is the target element</div>
     };
-    
+
     return <FloatingHelper {...defaults({}, props, defaultProps)} />;
   };
-  
+
   let wrapper: ReactWrapper;
 
-  const createEnzymeDriver = element=> {
-    wrapper = mount(element);
-    return floatingHelperDriverFactory({wrapper, element:undefined, eventTrigger: reactEventTrigger()})
-  };
+  const createEnzymeDriverInternal = createEnzymeDriverFactory<FloatingHelper,FloatingHelperDriver>(floatingHelperDriverFactory);
+  const createEnzymeDriver = (element: React.ReactElement<any>) => {
+    const {driver, wrapper : wrapper2, wrapperInstance}=createEnzymeDriverInternal(element);
+    wrapper = wrapper2;
+    return {driver,wrapperInstance};
+  }
+
+  const waitForClose = (driver: FloatingHelperDriver) => eventually(() => expect(driver.isOpened()).toBeFalsy());
 
   afterEach(() => {
-    wrapper.unmount();  
+    wrapper.unmount();
   });
 
   // Skipped: need to add hasArrow() method to Popover driver.
@@ -44,52 +53,79 @@ describe('FloatingHelper', () => {
   });
 
   it('should have helper content (with title)', () => {
-    const driver = createEnzymeDriver(buildComponent());
+    const { driver } = createEnzymeDriver(buildComponent());
     expect(driver.getHelperContentDriver().exists()).toBeTruthy();
     expect(driver.getHelperContentDriver().getTitleContent()).toBe('my title');
   });
 
   describe('width', () => {
     it('should have default width of 444', () => {
-      const driver = createEnzymeDriver(buildComponent());
+      const { driver } = createEnzymeDriver(buildComponent());
       expect(driver.getWidth()).toBe('444px');
     });
 
     it('should have a custom width (which is a string)', () => {
       const width = '500px';
-      const driver = createEnzymeDriver(buildComponent({ width }));
+      const { driver } = createEnzymeDriver(buildComponent({ width }));
       expect(driver.getWidth()).toBe(width);
     });
 
     it('should have a custom width (which is a number)', () => {
       const width = 600;
-      const driver = createEnzymeDriver(buildComponent({ width }));
+      const { driver } = createEnzymeDriver(buildComponent({ width }));
       expect(driver.getWidth()).toBe(`${width}px`);
     });
   });
 
   describe('close-button', () => {
     it('should have a close-button by default', () => {
-      const driver = createEnzymeDriver(buildComponent());
+      const { driver } = createEnzymeDriver(buildComponent());
       expect(driver.hasCloseButton()).toBeTruthy();
     });
 
     it('should NOT have a close-button', () => {
-      const driver = createEnzymeDriver(buildComponent({ showCloseButton: false }));
+      const { driver } = createEnzymeDriver(buildComponent({ showCloseButton: false }));
       expect(driver.hasCloseButton()).toBeFalsy();
     });
   });
 
   describe('close', () => {
     it('should be opened by default', () => {
-      const driver = createEnzymeDriver(buildComponent());
+      const { driver } = createEnzymeDriver(buildComponent());
       expect(driver.isOpened()).toBeTruthy();
     });
 
-    it('should close popover when close-button is clicked',async () => {
-      const driver = createEnzymeDriver(buildComponent());
+    it('should close popover when close-button is clicked', async () => {
+      const { driver } = createEnzymeDriver(buildComponent());
       driver.clickCloseButton();
-      await eventually(()=>expect(driver.isOpened()).toBeFalsy());
+      await waitForClose(driver);
+    });
+  });
+
+  describe('programatic open/close sanity', () => {
+    it('should open and close programatically', async () => {
+      const dataHook = 'myhook';
+
+      class TestComp extends React.Component {
+        helper: any;
+        render() {
+          return buildComponent({
+            ref: instance => this.helper = instance,
+            initiallyOpened:false
+          });
+        }
+      }
+
+      wrapper = mount(<TestComp/>);
+      const driver = enzymeFloatingHelperTestkitFactory({ wrapper, dataHook });
+      const floatingHelperInstance = ((wrapper.instance() as TestComp).helper as FloatingHelper);
+
+      expect(driver.isOpened()).toBeFalsy();
+      floatingHelperInstance.open();
+      expect(driver.isOpened()).toBeTruthy();
+      floatingHelperInstance.close();
+      await waitForClose(driver);
+      expect(driver.isOpened()).toBeFalsy();
     });
   });
 

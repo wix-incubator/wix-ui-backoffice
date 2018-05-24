@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
+import defaults = require('lodash/defaults');
 import * as eventually from 'wix-eventually';
 import { createDriverFactory, DriverFactory, BaseDriver } from 'wix-ui-test-utils/driver-factory';
 import { enzymeTestkitFactoryCreator } from 'wix-ui-test-utils/enzyme';
 import { closablePopoverDriverFactory, ClosablePopoverDriver } from './ClosablePopover.driver';
 import { ClosablePopover, ClosablePopoverProps } from './ClosablePopover';
-import defaults = require('lodash/defaults');
+import { createEnzymeDriverFactory  } from '../../../../test/testkitUtils';
 
 describe('ClosablePopover', () => {
   const createDriver = createDriverFactory(closablePopoverDriverFactory);
@@ -239,15 +240,3 @@ describe('ClosablePopover', () => {
 
 });
 
-// TODO: Add this ti wix-ui-test-utils or to `utils` in this package.
-function createEnzymeDriverFactory<C extends React.Component<any, any>, T extends BaseDriver>(driverFactory: DriverFactory<T>) {
-  function createEnzymeDriver(element: React.ReactElement<any>) {
-    const dataHook = 'arbitrary-hook';
-    const enzymeTestkitFactory = enzymeTestkitFactoryCreator(driverFactory);
-    const wrapper = mount(React.cloneElement(element, { 'data-hook': dataHook }));
-    const driver = enzymeTestkitFactory({ wrapper, dataHook });
-    return { wrapper, driver, wrapperInstance: wrapper.instance() as C };
-  }
-
-  return createEnzymeDriver;
-}
