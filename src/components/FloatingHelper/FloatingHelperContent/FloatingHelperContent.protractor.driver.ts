@@ -3,11 +3,11 @@ import {DataHooks} from './DataHooks';
 import {DriverFactory, BaseDriver} from 'wix-ui-core/dist/src/common/BaseDriver.protractor';
 import {textDriverFactory} from '../../../components/Text/Text.protractor.driver';
 
-export interface HelperContentDriver extends BaseDriver {
+export interface FloatingHelperContentDriver extends BaseDriver {
   hasActionButton: () => Promise<boolean>;
 }
 
-export const helperContentDriverFactory: DriverFactory<HelperContentDriver> = element => {
+export const floatingHelperContentDriverFactory: DriverFactory<FloatingHelperContentDriver> = element => {
   const actionButton = () => element.$(byDataHook(DataHooks.actionButton));
 
   return {

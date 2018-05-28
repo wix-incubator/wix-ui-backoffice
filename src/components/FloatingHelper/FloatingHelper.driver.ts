@@ -1,12 +1,12 @@
 import {BaseDriver, DriverFactory} from 'wix-ui-test-utils/driver-factory';
 import {closablePopoverDriverFactory,ClosablePopoverDriver} from './ClosablePopover/ClosablePopover.driver';
 import {DataHooks} from './DataHooks';
-import {helperContentDriverFactory, HelperContentDriver} from '../../components/FloatingHelper/HelperContent/HelperContent.driver';
+import {floatingHelperContentDriverFactory, FloatingHelperContentDriver} from '../../components/FloatingHelper/FloatingHelperContent/FloatingHelperContent.driver';
 
 // TODO: add interface of PopoverDriver
 export interface FloatingHelperDriver extends ClosablePopoverDriver {
   /** Get the driver for the helper's content */
-  getHelperContentDriver: () => HelperContentDriver;
+  getHelperContentDriver: () => FloatingHelperContentDriver;
   /** check wether the helper has a close button */
   hasCloseButton: () => boolean;
   /** click the close button */
@@ -29,7 +29,7 @@ export const floatingHelperDriverFactory:
     ...closablePopoverDriver,
     hasCloseButton: () => !!closeButton(),
     clickCloseButton: () => eventTrigger.click(closeButton()),
-    getHelperContentDriver: () => helperContentDriverFactory({wrapper, element: innerContent(), eventTrigger}),
+    getHelperContentDriver: () => floatingHelperContentDriverFactory({wrapper, element: innerContent(), eventTrigger}),
     getWidth: () => window.getComputedStyle(contentWrapper()).width
   };
 };

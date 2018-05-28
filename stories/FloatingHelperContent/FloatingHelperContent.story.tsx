@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HelperContent, HelperContentProps, ActionButtonTheme } from '../../src/components/FloatingHelper/HelperContent';
+import { FloatingHelperContent, FloatingHelperContentProps, ActionButtonTheme } from '../../src/components/FloatingHelper/FloatingHelperContent';
 import { storySettings } from './StorySettings';
 import Image from 'wix-ui-icons-common/Image';
 
@@ -9,7 +9,7 @@ const actionText = 'Ok, Take Me There';
 const image = <Image width="102" height="102" viewBox="4 4 18 18"/>;
 
 // Should match the exampleDataHooks from storySettings
-const exampleProps : HelperContentProps[]= [
+const exampleProps : FloatingHelperContentProps[]= [
   { body },
   { title, body },
   { title, body, actionText },
@@ -21,8 +21,8 @@ const exampleProps : HelperContentProps[]= [
 export default {
   category: storySettings.kind,
   storyName: storySettings.story,
-  component: HelperContent,
-  componentPath: '../../src/components/FloatingHelper/HelperContent/HelperContent.tsx',
+  component: FloatingHelperContent,
+  componentPath: '../../src/components/FloatingHelper/FloatingHelperContent/FloatingHelperContent.tsx',
 
   componentProps: {
     'data-hook': storySettings.dataHook,
@@ -38,10 +38,10 @@ export default {
 };
 
 
-function renderExample(dataHook: string, props?: HelperContentProps) {
+function renderExample(dataHook: string, props?: FloatingHelperContentProps) {
   return (
     <div style={{ marginTop: 20, marginBottom: 20, backgroundColor: 'black', width: '444px', padding: '36px 30px', borderRadius: '8px' }}>
-      <HelperContent
+      <FloatingHelperContent
         data-hook={dataHook}
         {...props}
       />

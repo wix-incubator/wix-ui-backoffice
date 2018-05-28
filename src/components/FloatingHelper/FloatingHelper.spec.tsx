@@ -10,7 +10,7 @@ import { floatingHelperTestkitFactory } from '../../testkit';
 import { floatingHelperTestkitFactory as enzymeFloatingHelperTestkitFactory } from '../../testkit/enzyme';
 import { floatingHelperDriverFactory, FloatingHelperDriver } from './FloatingHelper.driver';
 import { FloatingHelper, FloatingHelperProps } from './FloatingHelper';
-import { HelperContent, HelperContentProps } from '../../components/FloatingHelper/HelperContent';
+import { FloatingHelperContent, FloatingHelperContentProps } from '../../components/FloatingHelper/FloatingHelperContent';
 import { ClosablePopover } from './ClosablePopover';
 import { runTestkitExistsSuite } from '../../common/testkitTests';
 import { createEnzymeDriverFactory } from '../../../test/testkitUtils';
@@ -24,7 +24,7 @@ describe('FloatingHelper', () => {
   const buildComponent = (props?: Partial<FloatingHelperProps> & WithDataHook & {ref?: (instance:any)=>any}) => {
     const defaultProps: FloatingHelperProps = {
       placement: 'right',
-      content: <HelperContent title="my title" body="this is the body" />,
+      content: <FloatingHelperContent title="my title" body="this is the body" />,
       target: <div>This is the target element</div>
     };
 
