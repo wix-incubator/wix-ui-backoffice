@@ -5,7 +5,7 @@ require('./Button');
 require('./CloseButton');
 require('./CounterBadge').story();
 require('./FloatingHelper');
-require('./HelperContent');
+require('./FloatingHelperContent');
 require('./StylableCounterBadge').story();
 require('./Heading.story.tsx');
 require('./Label').story();

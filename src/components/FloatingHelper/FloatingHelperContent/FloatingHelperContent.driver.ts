@@ -3,7 +3,7 @@ import { BaseDriver, DriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { buttonDriverFactory, ButtonDriver } from '../../Button/Button.driver';
 import { Skin } from '../../Button/constants';
 
-export interface HelperContentDriver extends BaseDriver {
+export interface FloatingHelperContentDriver extends BaseDriver {
   /** checks if the element exists */
   exists: () => boolean;
   /** checks if title exists */
@@ -24,8 +24,8 @@ export interface HelperContentDriver extends BaseDriver {
   getImage: () => HTMLElement;
 }
 
-export const helperContentDriverFactory: DriverFactory<
-  HelperContentDriver
+export const floatingHelperContentDriverFactory: DriverFactory<
+  FloatingHelperContentDriver
 > = factoryParams => {
   const { element } = factoryParams;
   const title = () => element.querySelector(`[data-hook='${DataHooks.title}']`);

@@ -52,6 +52,7 @@ export const labelTestkitFactory = testkitFactoryCreator(labelDriverFactory);
 
 import { floatingHelperDriverFactory, FloatingHelperDriver } from '../components/FloatingHelper/FloatingHelper.driver';
 export const floatingHelperTestkitFactory = testkitFactoryCreator<FloatingHelperDriver>(floatingHelperDriverFactory);
+export {FloatingHelperDriver};
 
 import {thumbnailDriverFactory, ThumbnailDriver} from '../components/Thumbnail/Thumbnail.driver';
 export const thumbnailTestkitFactory = testkitFactoryCreator<ThumbnailDriver>(thumbnailDriverFactory);

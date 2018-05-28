@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { string, func, node } from 'prop-types';
-import style from './HelperContent.st.css';
+import style from './FloatingHelperContent.st.css';
 import { Text } from '../../../components/Text';
 import { DataHooks } from './DataHooks';
 import { Button, ButtonProps, ButtonSkin, ButtonPriority, ButtonSize } from '../../Button';
 import { ActionButtonTheme } from './constants';
 
-export interface HelperContentProps {
+export interface FloatingHelperContentProps {
   /** Adds text as the title */
   title?: string;
   /** Adds text as the body */
@@ -26,8 +26,8 @@ const themeToButtonProps: { [key in ActionButtonTheme]: Pick<ButtonProps, 'skin'
   [ActionButtonTheme.premium]: { skin: ButtonSkin.premium, priority: ButtonPriority.primary }
 }
 
-export const HelperContent: React.SFC<HelperContentProps> = (
-  props: HelperContentProps
+export const FloatingHelperContent: React.SFC<FloatingHelperContentProps> = (
+  props: FloatingHelperContentProps
 ) => {
   const { title, body, actionText, onActionClick, actionTheme, image } = props;
 
@@ -67,7 +67,7 @@ export const HelperContent: React.SFC<HelperContentProps> = (
   );
 };
 
-HelperContent.propTypes = {
+FloatingHelperContent.propTypes = {
   title: string,
   body: string.isRequired,
   actionText: string,
@@ -75,6 +75,6 @@ HelperContent.propTypes = {
   image: node
 };
 
-HelperContent.defaultProps = {
+FloatingHelperContent.defaultProps = {
   actionTheme: ActionButtonTheme.white
 };

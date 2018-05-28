@@ -4,17 +4,17 @@ import { ClosablePopover } from './ClosablePopover/ClosablePopover';
 import { FloatingHelperDriver } from './FloatingHelper.protractor.driver';
 import { closablePopoverDriverFactory, ClosablePopoverDriver } from './ClosablePopover/ClosablePopover.protractor.driver';
 import { DataHooks } from './DataHooks';
-import { helperContentDriverFactory, HelperContentDriver } from '../../components/FloatingHelper/HelperContent/HelperContent.protractor.driver';
+import {  floatingHelperContentDriverFactory, FloatingHelperContentDriver } from '../../components/FloatingHelper/FloatingHelperContent/FloatingHelperContent.protractor.driver';
 
 export interface FloatingHelperDriver extends ClosablePopoverDriver {
   /** Get HelperContent driver */
-  getHelperContentDriver: () => HelperContentDriver;
+  getHelperContentDriver: () => FloatingHelperContentDriver;
 }
 
 export const floatingHelperDriverFactory: DriverFactory<FloatingHelperDriver> = (element: ElementFinder): FloatingHelperDriver => {
   return {
     ...closablePopoverDriverFactory(element),
-    getHelperContentDriver: () => helperContentDriverFactory(element.$(byDataHook(DataHooks.innerContent))),
+    getHelperContentDriver: () => floatingHelperContentDriverFactory(element.$(byDataHook(DataHooks.innerContent))),
   };
 };
 
