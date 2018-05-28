@@ -34,6 +34,7 @@ export default {
   componentProps,
   exampleProps: {
     onActionClick: ()=>{/** see interactive preview*/ },
+    actionTheme: Object.keys(ActionButtonTheme).map(key=>ActionButtonTheme[key]),
     image: [{label: 'with image', value: image}]
   },
   examples: (

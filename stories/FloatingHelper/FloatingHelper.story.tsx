@@ -39,6 +39,32 @@ export default {
     target: <span>I am a FloatingHelper target</span>,
     placement: 'right'
   },
+  exampleProps: {
+    placement: ['right','bottom'],
+    target: [
+      {label: 'Simple text', value: 'I am simple text target'},
+      {label: 'Simple span', value: <span>I am a span target</span>},
+    ],
+    content: [
+      {label: 'with title & body only', value:
+      (
+        <FloatingHelper.Content
+          title="Don’t forget to setup payments"
+          body="In order to sell your music you need to choose a payment method."
+          actionText="Ok, Take Me There"
+          onActionClick={() => null}
+          image={<Image width="102" height="102" viewBox="4 4 18 18" />}
+        />
+      )},
+      {label: 'with all items', value:
+      (
+        <FloatingHelper.Content
+          title="Don’t forget to setup payments"
+          body="In order to sell your music you need to choose a payment method."
+        />
+      )}
+    ]
+  },
   examples: 
     (
       <div>
