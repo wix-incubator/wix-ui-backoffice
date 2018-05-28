@@ -1,6 +1,6 @@
 import * as React from 'react';
 import pick = require('lodash/pick');
-import { bool, string, number, oneOfType, node } from 'prop-types';
+import { bool, string, number, oneOfType, node, Requireable, ValidationMap} from 'prop-types'
 import * as classnames from 'classnames';
 import { ClosablePopover, ClosablePopoverProps, ClosablePopoverActions } from './ClosablePopover';
 import style from './FloatingHelper.st.css';
@@ -21,9 +21,9 @@ export interface FloatingHelperOwnProps {
 }
 
 export type PickedClosablePopoverProps = Pick<ClosablePopoverProps,
-  'placement' | 'moveBy' | 'hideDelay' | 'showDelay' | 'appendTo' | 'timeout' | 'className'>;
+  'initiallyOpened' | 'placement' | 'moveBy' | 'hideDelay' | 'showDelay' | 'appendTo'>;
 const pickedPropNames: Array<keyof PickedClosablePopoverProps> =
-  ['placement', 'moveBy', 'hideDelay', 'showDelay', 'appendTo', 'timeout', 'className'];
+  ['initiallyOpened', 'placement', 'moveBy', 'hideDelay', 'showDelay', 'appendTo'];
 
 const pickedPopoverPropTypes = pick<
   typeof ClosablePopover.propTypes, keyof PickedClosablePopoverProps>(
@@ -31,46 +31,65 @@ const pickedPopoverPropTypes = pick<
 
 export type FloatingHelperProps = PickedClosablePopoverProps & FloatingHelperOwnProps;
 
-export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
-  const { children, width, content, showCloseButton, ...rest } = props;
-  const renderContent = (closableActions: ClosablePopoverActions) => (
-    <div data-hook={DataHooks.contentWrapper} style={{ width }}>
-      {showCloseButton && (
-        <CloseButton
-          className={style.closeButton}
-          data-hook={DataHooks.closeButton}
-          onClick={closableActions.close}
-          skin={CloseButtonSkin.white}
-          size={CloseButtonSize.large}
-        />
-      )}
-      <div data-hook={DataHooks.innerContent} className={style.innerContent}>
-        {content}
+export class FloatingHelper extends React.Component<FloatingHelperProps> {
+  closablePopoverRef: ClosablePopover;
+
+  static defaultProps: Partial<FloatingHelperProps> = {
+    showCloseButton: true,
+    appendTo: 'window',
+    width: '444px',
+    initiallyOpened: true
+  };
+
+  static propTypes : ValidationMap<FloatingHelperProps>= {
+    ...pickedPopoverPropTypes,
+    showCloseButton: bool,
+    width: oneOfType([string, number]),
+    children: node.isRequired,
+    content: node.isRequired // TODO: validate it is a <HelperContent>
+  };
+
+  open = () => { this.closablePopoverRef.open() };
+
+  close = () => { this.closablePopoverRef.close() };
+
+  renderContent(closableActions: ClosablePopoverActions, {width, content, showCloseButton}) {
+    return (
+      <div data-hook={DataHooks.contentWrapper} style={{ width }}>
+        {showCloseButton && (
+          <CloseButton
+            className={style.closeButton}
+            data-hook={DataHooks.closeButton}
+            onClick={closableActions.close}
+            skin={CloseButtonSkin.white}
+            size={CloseButtonSize.large}
+          />
+        )}
+        <div data-hook={DataHooks.innerContent} className={style.innerContent}>
+          {content}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 
-  return (
-    <ClosablePopover
-      showArrow
-      target={children}
-      content={renderContent}
-      {...rest}
-      {...style('root', {}, props)}
-    />
-  );
-};
+  render() {
+    const { children, width, content, showCloseButton, ...rest } = this.props;
 
-FloatingHelper.defaultProps = {
-  showCloseButton: true,
-  appendTo: 'window',
-  width: '444px'
-};
+    const renderContent = (closableActions: ClosablePopoverActions)=>this.renderContent(closableActions,{width, content, showCloseButton});
 
-FloatingHelper.propTypes = {
-  ...pickedPopoverPropTypes,
-  showCloseButton: bool,
-  width: oneOfType([string, number]),
-  children: node.isRequired,
-  content: node.isRequired // TODO: validate it is a <HelperContent>
-};
+    const closablePopoverProps: ClosablePopoverProps = {
+      ...rest,
+      content: renderContent,
+      target: children,
+      showArrow: true
+    };
+
+    return (
+      <ClosablePopover
+        {...closablePopoverProps}
+        ref={ref => this.closablePopoverRef = ref}
+        {...style('root', {}, this.props)}
+      />
+    );
+  };
+}
