@@ -5,6 +5,7 @@ import { Button } from '../../src/components/Button';
 import { FloatingHelper, FloatingHelperProps } from '../../src/components/FloatingHelper';
 
 import { storySettings } from './StorySettings';
+import { storySettings as helperStorySettings } from '../FloatingHelperContent/StorySettings';
 
 import CodeExample from 'wix-storybook-utils/CodeExample';
 
@@ -44,7 +45,7 @@ export default {
         <h1>Examples</h1>
         <p>The 'content' property should receive a {`<FloatingHelper.Content>`} element.
           <br/><br/>
-          <Button onClick={linkTo('Internal','HelperContent')}>Open FloatingHelper.Content story </Button>
+          <Button onClick={linkTo(helperStorySettings.kind,helperStorySettings.story)}>Open FloatingHelper.Content story </Button>
         </p>
         <CodeExample title="Simple Example" code={SimpleExampleRaw}>
           <div style={exampleWrapperStyle}>
