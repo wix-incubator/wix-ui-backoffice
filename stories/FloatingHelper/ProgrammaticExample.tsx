@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { FloatingHelper } from 'wix-ui-backoffice/FloatingHelper';
+// import { FloatingHelper } from 'wix-ui-backoffice/FloatingHelper';
+import { FloatingHelper } from '../../src/components/FloatingHelper';
 
-export class ProgrammaticOpenExample extends React.Component {
+export class ProgrammaticExample extends React.Component {
   helperRef: FloatingHelper;
 
   render() {
