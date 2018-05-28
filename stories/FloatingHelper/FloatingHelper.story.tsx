@@ -43,8 +43,8 @@ export default {
       <div>
         <h1>Examples</h1>
         <p>The 'content' property should receive a {`<FloatingHelper.Content>`} element.
-         
-        <Button onClick={linkTo('Internal','HelperContent')}>Open FloatingHelper.Content story </Button>
+          <br/><br/>
+          <Button onClick={linkTo('Internal','HelperContent')}>Open FloatingHelper.Content story </Button>
         </p>
         <CodeExample title="Simple Example" code={SimpleExampleRaw}>
           <div style={exampleWrapperStyle}>
