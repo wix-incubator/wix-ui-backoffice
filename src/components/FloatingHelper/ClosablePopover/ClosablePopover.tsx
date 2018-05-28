@@ -79,9 +79,10 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
     if (this.isControlled()) {
       throw new Error(controlledErrorMsg('open'));
     }
-    if (!this.state.open) {
-      this.setState({ open: true , mode: nextMode}, () => { this.props.onOpen && this.props.onOpen() });
-    }
+    this.state.open && this.setState({
+        open: true,
+        mode: nextMode
+      }, () => { this.props.onOpen && this.props.onOpen() });
   }
 
   public close = () => {
