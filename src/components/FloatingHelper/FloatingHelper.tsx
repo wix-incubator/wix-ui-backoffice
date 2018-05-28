@@ -20,9 +20,9 @@ export interface FloatingHelperOwnProps {
 }
 
 export type PickedClosablePopoverProps = Pick<ClosablePopoverProps,
-  'initiallyOpened' | 'placement' | 'moveBy' | 'hideDelay' | 'showDelay' | 'appendTo'>;
+  'initiallyOpened' | 'target' | 'placement' | 'moveBy' | 'hideDelay' | 'showDelay' | 'appendTo'>;
 const pickedPropNames: Array<keyof PickedClosablePopoverProps> =
-  ['initiallyOpened', 'placement', 'moveBy', 'hideDelay', 'showDelay', 'appendTo'];
+  ['initiallyOpened', 'target', 'placement', 'moveBy', 'hideDelay', 'showDelay', 'appendTo'];
 
 const pickedPopoverPropTypes = pick<
   typeof ClosablePopover.propTypes, keyof PickedClosablePopoverProps>(
