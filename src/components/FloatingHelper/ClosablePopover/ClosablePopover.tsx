@@ -28,23 +28,30 @@ export interface ClosablePopoverOwnProps {
   onClose?: Function;
 }
 
+export enum Mode {
+  Hover = 'hover',
+  ClickToClose = 'click-to-close'
+} 
+
 export interface ClosablePopoverState {
   open?: boolean;
-  wasClosed: boolean;
+  mode?: Mode;
 }
 
 const pickedPopoverPropTypes = pick(Popover.propTypes, ['className', 'placement', 'showArrow', 'moveBy', 'hideDelay', 'showDelay', 'moveArrowTo', 'appendTo', 'timeout']);
 export type PickedPopoverProps = Pick<PopoverProps, 'className' | 'placement' | 'showArrow' | 'moveBy' | 'hideDelay' | 'showDelay' | 'moveArrowTo' | 'appendTo' | 'timeout'>;
 
 export type ClosablePopoverProps = PickedPopoverProps & ClosablePopoverOwnProps;
-
+const controlledErrorMsg = (method: string)=> `ClosablePopover.${method}() can not be called when component is Controlled. (opened prop should be undefined)`;
 /**
  * Closable Popover
  * Either a normal Controlled Popover, or a Popover that is inittialy opened and can be the closed by
  * calling a closeAction.
  */
 export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, ClosablePopoverState> {
-  state: ClosablePopoverState = { open: this.props.initiallyOpened, wasClosed: false };
+  state: ClosablePopoverState = { 
+    open: this.props.initiallyOpened,
+    mode: this.props.initiallyOpened? Mode.ClickToClose : Mode.Hover };
 
   static propTypes: ValidationMap<ClosablePopoverProps> = {
     ...pickedPopoverPropTypes,
@@ -60,28 +67,41 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
     initiallyOpened: true
   }
 
-  isControlled() {
+  private isControlled() {
     return isBoolean(this.props.opened);
   }
 
-  open = () => {
+  public open = () => {
+    this.doOpen(Mode.ClickToClose);
+  }
+
+  private doOpen = (nextMode: Mode) => {
     if (this.isControlled()) {
-      throw new Error('ClosablePopover.open() can not be called when component is Controlled. (opened prop should be undefined)');
+      throw new Error(controlledErrorMsg('open'));
     }
     if (!this.state.open) {
-      this.setState({ open: true }, () => { this.props.onOpen && this.props.onOpen() });
+      this.setState({ open: true , mode: nextMode}, () => { this.props.onOpen && this.props.onOpen() });
     }
   }
 
-  close = () => {
+  public close = () => {
     if (this.isControlled()) {
-      throw new Error('ClosablePopover.close() can not be called when component is Controlled. (opened prop should be undefined)');
+      throw new Error(controlledErrorMsg('close'));
     }
-    this.state.open && this.setState({ open: false, wasClosed: true }, () => { this.props.onClose && this.props.onClose() });
+    this.state.open && this.setState({
+        open: false,
+        mode: Mode.Hover
+      }, () => { this.props.onClose && this.props.onClose() });
   }
 
-  handleMouseLeave = () => {
-    if (this.state.wasClosed) {
+  private handleMouseEnter = () => {
+    if (this.state.mode === Mode.Hover) {
+      this.doOpen(Mode.Hover);
+    }
+  }
+
+  private handleMouseLeave = () => {
+    if (this.state.mode === Mode.Hover) {
       this.close();
     }
   }
@@ -93,7 +113,7 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
     const popoverProps: PopoverProps = {
       ...rest,
       shown: open,
-      onMouseEnter: this.open,
+      onMouseEnter: this.handleMouseEnter,
       onMouseLeave: this.handleMouseLeave
     };
 

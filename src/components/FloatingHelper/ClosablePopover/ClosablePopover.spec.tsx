@@ -46,63 +46,14 @@ describe('ClosablePopover', () => {
       await waitForClose();
       expect(driver.isContentElementExists()).toBeTruthy();
     });
-  });
 
-  describe('onOpened/onClosed callbacks', () => {
-    it('should call onClosed when closed by close-action', () => {
-      let triggerClose;
-      let onClose = jest.fn();
-      const driver = createDriver(createComponent({
-        content: ({ close }) => {
-          triggerClose = close;
-          return <div>the content</div>;
-        },
-        onClose
-      }));
-      triggerClose();
+    it('should display content on hover and hide it on leave, when initially closed', async () => {
+      const driver = createDriver(createComponent({initiallyOpened: false}));
 
-      expect(onClose).toBeCalled();
-    });
-
-    it('should call onOpened when hovered by mouse', () => {
-      let triggerClose;
-      let onOpen = jest.fn();
-      const driver = createDriver(createComponent({
-        content: ({ close }) => {
-          triggerClose = close;
-          return <div>the content</div>;
-        },
-        onOpen
-      }));
-
-      triggerClose();
       driver.mouseEnter();
-      expect(onOpen).toBeCalled();
-    });
-
-    it('should call onClosed when mouse leaves after closed by close-action', () => {
-      let triggerClose;
-      let onClose = jest.fn();
-      const driver = createDriver(createComponent({
-        content: ({ close }) => {
-          triggerClose = close;
-          return <div>the content</div>;
-        },
-        onClose
-      }));
-
-      triggerClose();
-      driver.mouseEnter();
-      driver.mouseLeave();
-      expect(onClose.mock.calls.length).toBe(2);
-    });
-
-    it('should NOT close on mouse leave when initially opened', async () => {
-      const driver = createDriver(createComponent());
-      driver.mouseEnter();
-      driver.mouseLeave();
-      await new Promise((res,rej)=> setTimeout(res,ClosablePopover.defaultProps.timeout * 2)); // * 2 as arbitrary safety 
       expect(driver.isContentElementExists()).toBeTruthy();
+      driver.mouseLeave();
+      await eventually(() => expect(driver.isContentElementExists()).toBeFalsy());
     });
   });
 
@@ -118,7 +69,7 @@ describe('ClosablePopover', () => {
         onClose
       }));
       triggerClose();
-      
+
       expect(onClose).toBeCalled();
     });
 
@@ -148,7 +99,7 @@ describe('ClosablePopover', () => {
         },
         onClose
       }));
-      
+
       triggerClose();
       driver.mouseEnter();
       driver.mouseLeave();
@@ -165,6 +116,14 @@ describe('ClosablePopover', () => {
     it('should be initially closed', async () => {
       const driver = createDriver(createComponent({ initiallyOpened: false }));
       expect(driver.isOpened()).toBeFalsy();
+    });
+
+    it('should NOT close on mouse leave when initially opened', async () => {
+      const driver = createDriver(createComponent());
+      driver.mouseEnter();
+      driver.mouseLeave();
+      await new Promise((res,rej)=> setTimeout(res,ClosablePopover.defaultProps.timeout * 2)); // * 2 as arbitrary safety 
+      expect(driver.isContentElementExists()).toBeTruthy();
     });
   });
 
@@ -235,8 +194,6 @@ describe('ClosablePopover', () => {
       await waitForClose();
       expect(driver.isContentElementExists()).toBeFalsy();
     });
-
   });
-
 });
 
