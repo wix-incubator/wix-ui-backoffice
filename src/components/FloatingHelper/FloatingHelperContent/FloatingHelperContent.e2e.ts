@@ -7,7 +7,7 @@ import { storySettings } from '../../../../stories/FloatingHelperContent/StorySe
 
 export const floatingHelperContentTestkitFactory = protractorTestkitFactoryCreator<FloatingHelperContentDriver>(floatingHelperContentDriverFactory);
 
-fdescribe('FloatingHelperContent', () => {
+describe('FloatingHelperContent', () => {
     const storyUrl = getStoryUrl(storySettings.kind, storySettings.story);
 
     beforeEach(async () => {
