@@ -6,7 +6,7 @@ import { createDriverFactory, DriverFactory, BaseDriver } from 'wix-ui-test-util
 import { enzymeTestkitFactoryCreator } from 'wix-ui-test-utils/enzyme';
 import { closablePopoverDriverFactory, ClosablePopoverDriver } from './ClosablePopover.driver';
 import { ClosablePopover, ClosablePopoverProps } from './ClosablePopover';
-import { createEnzymeDriverFactory  } from '../../../../test/testkitUtils';
+import { createEnzymeDriverFactory } from '../../../../test/testkitUtils';
 
 describe('ClosablePopover', () => {
   const createDriver = createDriverFactory(closablePopoverDriverFactory);
@@ -48,7 +48,7 @@ describe('ClosablePopover', () => {
     });
 
     it('should display content on hover and hide it on leave, when initially closed', async () => {
-      const driver = createDriver(createComponent({initiallyOpened: false}));
+      const driver = createDriver(createComponent({ initiallyOpened: false }));
 
       driver.mouseEnter();
       expect(driver.isContentElementExists()).toBeTruthy();
@@ -122,7 +122,7 @@ describe('ClosablePopover', () => {
       const driver = createDriver(createComponent());
       driver.mouseEnter();
       driver.mouseLeave();
-      await new Promise((res,rej)=> setTimeout(res,ClosablePopover.defaultProps.timeout * 2)); // * 2 as arbitrary safety 
+      await new Promise((res, rej) => setTimeout(res, ClosablePopover.defaultProps.timeout * 2)); // * 2 as arbitrary safety 
       expect(driver.isContentElementExists()).toBeTruthy();
     });
   });
@@ -183,7 +183,7 @@ describe('ClosablePopover', () => {
             return <div>the content</div>;
           }
         }));
-        
+
       wrapperInstance.open();
       triggerClose();
 
@@ -193,6 +193,18 @@ describe('ClosablePopover', () => {
       driver.mouseLeave();
       await waitForClose();
       expect(driver.isContentElementExists()).toBeFalsy();
+    });
+  });
+
+  describe('Controlled Error', () => {
+    it('should throw error on open', () => {
+      const { wrapperInstance, driver } = createEnzymeDriver(createComponent({ opened: false }));
+      expect(()=>wrapperInstance.open()).toThrow();
+    });
+
+    it('should throw error on close', () => {
+      const { wrapperInstance, driver } = createEnzymeDriver(createComponent({ opened: true }));
+      expect(()=>wrapperInstance.close()).toThrow();
     });
   });
 });
