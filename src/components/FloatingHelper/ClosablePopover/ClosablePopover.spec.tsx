@@ -122,7 +122,7 @@ describe('ClosablePopover', () => {
       const driver = createDriver(createComponent());
       driver.mouseEnter();
       driver.mouseLeave();
-      await new Promise((res, rej) => setTimeout(res, ClosablePopover.defaultProps.timeout * 2)); // * 2 as arbitrary safety 
+      await waitForClose();
       expect(driver.isContentElementExists()).toBeTruthy();
     });
   });

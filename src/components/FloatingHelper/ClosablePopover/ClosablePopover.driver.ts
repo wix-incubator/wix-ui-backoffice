@@ -1,4 +1,4 @@
-import { BaseDriver, DriverFactory,ComponentFactory } from 'wix-ui-test-utils/driver-factory';
+import { BaseDriver, DriverFactory, ComponentFactory } from 'wix-ui-test-utils/driver-factory';
 import { popoverDriverFactory } from 'wix-ui-core/dist/src/components/Popover/Popover.driver';
 
 // TODO: Move this interface to Core's PopoverDriver (big PR with dependencies)
