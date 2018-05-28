@@ -29,6 +29,9 @@ export default {
     title: 'This is the title',
     body: 'This is the a long text which is passed in the `text` propterty'
   },
+  exampleProps: {
+    onActionClick: [()=>{console.log('clicked');alert('clicked!')}]
+  },
   examples: (
     <div>
       <h1>Examples</h1>

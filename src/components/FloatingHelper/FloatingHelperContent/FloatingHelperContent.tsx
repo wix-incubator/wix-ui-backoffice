@@ -15,7 +15,7 @@ export interface FloatingHelperContentProps {
   actionText?: string;
   /** Sets the theme of the action button */
   actionTheme?: ActionButtonTheme;
-  /** When both onActionClick & actionText are provided, will make an action button appear and invoke onAction() upon click */
+  /** When both onActionClick & actionText are provided, will make an action button appear and invoke onActionClick() upon click */
   onActionClick?:() => void,
   /** Adds an image */
   image?: React.ReactNode;

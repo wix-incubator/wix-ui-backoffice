@@ -14,6 +14,9 @@ import * as SimpleExampleRaw from '!raw-loader!./SimpleExample.tsx';
 import {FullExample} from './FullExample';
 import * as FullExampleRaw from '!raw-loader!./FullExample.tsx';
 
+import {ProgrammaticOpenExample} from './ProgrammaticOpenExample';
+import * as ProgrammaticOpenExampleRaw from '!raw-loader!./ProgrammaticOpenExample.tsx';
+
 const exampleWrapperStyle = {marginTop: 100, marginBottom: 100};
 
 export default {
@@ -51,6 +54,11 @@ export default {
         <CodeExample title="Full Example" code={FullExampleRaw}>
           <div style={exampleWrapperStyle}>
             <FullExample/>
+          </div>
+        </CodeExample >
+        <CodeExample title="Programmatic Open Example" code={ProgrammaticOpenExampleRaw}>
+          <div style={exampleWrapperStyle}>
+            <ProgrammaticOpenExample/>
           </div>
         </CodeExample >
       </div>
