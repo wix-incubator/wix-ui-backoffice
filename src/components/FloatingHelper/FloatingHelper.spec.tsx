@@ -25,7 +25,7 @@ describe('FloatingHelper', () => {
     const defaultProps: FloatingHelperProps = {
       placement: 'right',
       content: <HelperContent title="my title" body="this is the body" />,
-      children: <div>This is the target element</div>
+      target: <div>This is the target element</div>
     };
 
     return <FloatingHelper {...defaults({}, props, defaultProps)} />;
@@ -81,11 +81,6 @@ describe('FloatingHelper', () => {
     it('should have a close-button by default', () => {
       const { driver } = createEnzymeDriver(buildComponent());
       expect(driver.hasCloseButton()).toBeTruthy();
-    });
-
-    it('should NOT have a close-button', () => {
-      const { driver } = createEnzymeDriver(buildComponent({ showCloseButton: false }));
-      expect(driver.hasCloseButton()).toBeFalsy();
     });
   });
 

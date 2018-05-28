@@ -17,14 +17,9 @@ describe('FloatingHelper', () => {
 
     afterEach(() => autoExampleDriver.reset());
 
-    describe('CloseButton', () => {
-        eyes.it('should have a close-button by default', async () => {
-            expect(await driver.hasCloseButton()).toBeTruthy();
-        });
-
-        eyes.it('should NOT have a close-button', async () => {
-            await autoExampleDriver.setProps({ showCloseButton: false });
-            expect(await driver.hasCloseButton()).toBeFalsy();
+    describe('default', () => {
+        eyes.it('should be opened by default', async () => {
+            expect(await driver.isOpened()).toBeTruthy();
         });
     });
 });
