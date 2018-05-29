@@ -36,7 +36,8 @@
   "dependencies": {
     "lodash": "^4.17.5",
     "wix-ui-core": "latest",
-    "wix-ui-theme": "latest"
+    "wix-ui-theme": "latest",
+    "wix-ui-icons-common": "latest"
   },
   "devDependencies": {
     "@storybook/addon-options": "^3.3.7",
@@ -68,7 +69,6 @@
     "wait-for-cond": "^1.5.1",
     "wix-eventually": "^2.2.0",
     "wix-storybook-utils": "latest",
-    "wix-ui-icons-common": "latest",
     "wix-ui-test-utils": "latest",
     "yoshi": "^1.2.0"
   },
