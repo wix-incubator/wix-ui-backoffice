@@ -1,12 +1,12 @@
 import * as eyes from 'eyes.it';
 import { browser, ElementFinder } from 'protractor';
-import { getStoryUrl, waitForVisibilityOf, scrollToElement } from 'wix-ui-test-utils/protractor';
+import { createStoryUrl, waitForVisibilityOf, scrollToElement } from 'wix-ui-test-utils/protractor';
 import autoExampleDriver = require('wix-storybook-utils/AutoExampleDriver');
 import { floatingHelperTestkitFactory, FloatingHelperDriver } from '../../testkit/protractor';
 import { storySettings } from '../../../stories/FloatingHelper/StorySettings';
 
 describe('FloatingHelper', () => {
-    const storyUrl = getStoryUrl(storySettings.kind, storySettings.story);
+    const storyUrl = createStoryUrl({kind:storySettings.kind, story:storySettings.story, withExamples:false});
     let driver: FloatingHelperDriver;
 
     beforeAll(async () => {
