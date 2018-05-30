@@ -30,5 +30,5 @@ export const closablePopoverDriverFactory: DriverFactory<ClosablePopoverDriver> 
   return {
     ...popoverDriver,
     isOpened: () => popoverDriver.isContentElementExists()
-  };
+  } as any;
 };
