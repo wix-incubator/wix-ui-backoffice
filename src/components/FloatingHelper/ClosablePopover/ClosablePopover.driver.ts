@@ -17,6 +17,7 @@ export interface PopoverDriver extends BaseDriver {
       right: string;
       bottom: string;
   };
+  inlineStyles: () => CSSStyleDeclaration;
 }
 
 export interface ClosablePopoverDriver extends PopoverDriver {
@@ -30,5 +31,5 @@ export const closablePopoverDriverFactory: DriverFactory<ClosablePopoverDriver> 
   return {
     ...popoverDriver,
     isOpened: () => popoverDriver.isContentElementExists()
-  } as any;
+  };
 };
