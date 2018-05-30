@@ -18,5 +18,5 @@ WUB will eventually replace WSR, but in the meantime, WSR will act as a proxy la
 
 ## Browser(e2e) tests (protractor)
 
-* If you want to tun only e2e tests, use `npm run test:e2e`
+* If you want to run only e2e tests, use `npm run test:e2e`
   * NOTE: You should run `npm test` or `npm pretest` before that, so that `build-storybook` would run, and we'll have the storybook statics under the `dist` folder. When you run `npm run test:e2e` it starts a statics server which serves the content of the `storybook_static` folder.
