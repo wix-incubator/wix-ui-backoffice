@@ -17,6 +17,7 @@ export interface PopoverDriver extends BaseDriver {
       right: string;
       bottom: string;
   };
+  inlineStyles: () => CSSStyleDeclaration;
 }
 
 export interface ClosablePopoverDriver extends PopoverDriver {
