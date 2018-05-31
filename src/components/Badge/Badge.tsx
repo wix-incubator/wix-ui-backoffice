@@ -11,6 +11,9 @@ export interface BadgeProps {
   skin?: Skin;
   prefixIcon?: React.ReactElement<any>;
   suffixIcon?: React.ReactElement<any>;
+
+  /** usually just text to be displayed */
+  children: React.ReactNode;
 }
 
 const defaultProps = {

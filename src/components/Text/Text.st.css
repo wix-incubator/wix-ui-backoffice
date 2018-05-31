@@ -1,5 +1,5 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/StylableText/Text.st.css";
+  -st-from: "../core/CoreText/Text.st.css";
   -st-default: Text;
 }
 

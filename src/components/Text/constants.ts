@@ -1,14 +1,11 @@
-export type Size = 'small' | 'medium';
-export type Skin = 'standard' | 'success' | 'danger' | 'premium';
-
-export enum SKINS {
+export enum Skin {
   standard = 'standard',
   error = 'error',
   success = 'success',
   premium = 'premium'
 }
 
-export enum SIZES {
+export enum Size {
   small = 'small',
   medium = 'medium'
 }

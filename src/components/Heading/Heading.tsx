@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {oneOf, bool, Requireable} from 'prop-types';
 import omit = require('lodash/omit');
-import {Text as CoreText, TextProps as CoreTextProps} from 'wix-ui-core/StylableText';
+import {Text as CoreText, TextProps as CoreTextProps} from '../core/CoreText';
 import style from './Heading.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 

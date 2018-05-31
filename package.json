@@ -9,6 +9,7 @@
   },
   "files": [
     "dist",
+    "src",
     "*.js",
     "*.d.ts",
     "!wallaby.js",
@@ -34,8 +35,9 @@
   },
   "dependencies": {
     "lodash": "^4.17.5",
-    "wix-ui-core": "latest",
-    "wix-ui-theme": "latest"
+    "wix-ui-core": "1.0.457",
+    "wix-ui-theme": "1.0.43",
+    "wix-ui-icons-common": "1.0.36"
   },
   "devDependencies": {
     "@storybook/addon-options": "^4.0.0-alpha.6",
@@ -51,7 +53,7 @@
     "@types/react-onclickoutside": "^6.0.2",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.5",
-    "eyes.it": "latest",
+    "eyes.it": "^2.0.6",
     "identity-obj-proxy": "^3.0.0",
     "import-path": "latest",
     "prop-types": "^15.6.0",
@@ -65,9 +67,9 @@
     "tslint-react": "^3.5.1",
     "typescript": "^2.6.2",
     "wait-for-cond": "^1.5.1",
-    "wix-storybook-utils": "latest",
-    "wix-ui-icons-common": "latest",
-    "wix-ui-test-utils": "latest",
+    "wix-eventually": "^2.2.0",
+    "wix-storybook-utils": "^1.0.85",
+    "wix-ui-test-utils": "^1.0.93",
     "yoshi": "^2.6.1"
   },
   "optionalDependencies": {

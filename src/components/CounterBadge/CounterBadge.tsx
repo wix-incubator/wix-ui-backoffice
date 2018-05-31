@@ -4,11 +4,18 @@ import {ThemedComponent} from 'wix-ui-theme';
 import {ThemedComponentProps} from 'wix-ui-jss';
 import {Badge as CoreBadge, BadgeProps as CoreBadgeProps} from 'wix-ui-core/Badge';
 import {theme} from './theme';
-import {UIText} from '../UIText';
 import {Skin} from './constants';
 import {WixComponentProps} from 'wix-ui-core/dist/src/createHOC';
 
 const maxContentLength = 2;
+
+const counterStyle = {
+  fontFamily: 'HelveticaNeueW01-65Medi, HelveticaNeueW02-65Medi, HelveticaNeueW10-65Medi, Helvetica Neue, Helvetica, Arial, sans-serif',
+  fontSize: '10px',
+  lineHeight: '12px',
+  letterSpacing: '1px',
+  margin: '0 -1px 0 0'
+};
 
 export interface CounterBadgeProps extends CoreBadgeProps {
   /** Type of the badge */
@@ -54,7 +61,7 @@ export class CounterBadge extends React.PureComponent<CounterBadgeProps> {
           {
             isIcon ?
               content :
-              <UIText appearance="T5" dataClass="badge-content">{content}</UIText>
+              <span style={counterStyle} data-class="badge-content">{content}</span>
           }
         </CoreBadge>
       </ThemedComponent>

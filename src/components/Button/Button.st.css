@@ -10,7 +10,7 @@
 
 .root {
   -st-extends: Button;
-  -st-states: skin(enum(standard)), priority(enum(primary)), size(enum(medium));
+  -st-states: skin(enum(standard,white,destructive,premium)), priority(enum(primary,secondary)), size(enum(large,medium,small,tiny));
 
   box-sizing: border-box;
   
