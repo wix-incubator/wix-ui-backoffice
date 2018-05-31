@@ -1,1 +1,1 @@
-export {HBox} from './HBox';
+export {HBox, HBoxProps} from './HBox';

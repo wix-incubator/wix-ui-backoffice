@@ -91,3 +91,7 @@
 .root:focus-visible::track {
 	box-shadow: 0 0 0 3px value(focusShadow);
 }
+
+.root::knob {
+  box-shadow: 0 2px 1px 0 rgba(32, 69, 94, 0.5);
+}

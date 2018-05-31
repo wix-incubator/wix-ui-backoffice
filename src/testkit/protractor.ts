@@ -55,3 +55,9 @@ export {FloatingHelperDriver};
 import { thumbnailDriverFactory, ThumbnailDriver } from '../components/Thumbnail/Thumbnail.protractor.driver';
 export const thumbnailTestkitFactory = protractorTestkitFactoryCreator<ThumbnailDriver>(thumbnailDriverFactory);
 export { ThumbnailDriver };
+
+import { hBoxDriverFactory } from '../components/HBox/HBox.protractor.driver';
+export const hBoxTestkitFactory = protractorTestkitFactoryCreator(hBoxDriverFactory);
+
+import { vBoxDriverFactory } from '../components/VBox/VBox.protractor.driver';
+export const vBoxTestkitFactory = protractorTestkitFactoryCreator(vBoxDriverFactory);

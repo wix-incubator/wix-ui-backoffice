@@ -1,30 +1,28 @@
 import * as React from 'react';
 import pick = require('lodash/pick');
-import { bool, string, number, oneOfType, node } from 'prop-types';
+import { string, number, oneOfType, node, Requireable, ValidationMap} from 'prop-types'
 import * as classnames from 'classnames';
 import { ClosablePopover, ClosablePopoverProps, ClosablePopoverActions } from './ClosablePopover';
-import { withStylable } from 'wix-ui-core/withStylable';
 import style from './FloatingHelper.st.css';
 import { DataHooks } from './DataHooks';
 import { Button } from '../Button';
 import { Skin, Size } from '../Button/constants';
 import { CloseButton, CloseButtonSkin, CloseButtonSize } from '../CloseButton';
+import { FloatingHelperContent , FloatingHelperContentProps} from './FloatingHelperContent';
 
 export interface FloatingHelperOwnProps {
-  /** Controls wether a close button will appear ot not */
-  showCloseButton?: boolean;
   /** Width HTML attribute of the content. If a number is passed then it defaults to px. e.g width={400} => width="400px" */
   width?: string | number;
   /** The target of the popover */
-  children?: React.ReactNode
+  target: React.ReactNode
   /** A <HelperContent> */
   content: React.ReactNode
 }
 
 export type PickedClosablePopoverProps = Pick<ClosablePopoverProps,
-  'placement' | 'moveBy' | 'hideDelay' | 'showDelay' | 'appendTo' | 'timeout' | 'className'>;
+  'initiallyOpened' | 'target' | 'placement' | 'moveBy' | 'hideDelay' | 'showDelay' | 'appendTo'>;
 const pickedPropNames: Array<keyof PickedClosablePopoverProps> =
-  ['placement', 'moveBy', 'hideDelay', 'showDelay', 'appendTo', 'timeout', 'className'];
+  ['initiallyOpened', 'target', 'placement', 'moveBy', 'hideDelay', 'showDelay', 'appendTo'];
 
 const pickedPopoverPropTypes = pick<
   typeof ClosablePopover.propTypes, keyof PickedClosablePopoverProps>(
@@ -32,13 +30,31 @@ const pickedPopoverPropTypes = pick<
 
 export type FloatingHelperProps = PickedClosablePopoverProps & FloatingHelperOwnProps;
 
-export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
-  const { children, width, content, showCloseButton, ...rest } = props;
-  const contentWidth = (typeof width) === 'number' ? `${width}px` : width;
+export class FloatingHelper extends React.Component<FloatingHelperProps> {
+  closablePopoverRef: ClosablePopover;
+  
+  static Content = FloatingHelperContent;
 
-  const renderContent = (closableActions: ClosablePopoverActions) => (
-    <div data-hook={DataHooks.contentWrapper} style={{ width: contentWidth }}>
-      {showCloseButton && (
+  static defaultProps: Partial<FloatingHelperProps> = {
+    appendTo: 'window',
+    width: '444px',
+    initiallyOpened: true
+  };
+
+  static propTypes : ValidationMap<FloatingHelperProps>= {
+    ...pickedPopoverPropTypes,
+    width: oneOfType([string, number]),
+    target: node.isRequired,
+    content: node.isRequired // TODO: validate it is a <HelperContent>
+  };
+
+  open = () => { this.closablePopoverRef.open() };
+
+  close = () => { this.closablePopoverRef.close() };
+
+  renderContent(closableActions: ClosablePopoverActions, {width, content}: Partial<FloatingHelperProps>) {
+    return (
+      <div data-hook={DataHooks.contentWrapper} style={{ width }}>
         <CloseButton
           className={style.closeButton}
           data-hook={DataHooks.closeButton}
@@ -46,33 +62,30 @@ export const FloatingHelper: React.SFC<FloatingHelperProps> = props => {
           skin={CloseButtonSkin.white}
           size={CloseButtonSize.large}
         />
-      )}
-      <div data-hook={DataHooks.innerContent} className={style.innerContent}>
-        {content}
+        <div data-hook={DataHooks.innerContent} className={style.innerContent}>
+          {content}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 
-  return (
-    <ClosablePopover
-      showArrow
-      target={children}
-      content={renderContent}
-      {...rest}
-      {...style('root', {}, props)}
-    />
-  );
-};
+  render() {
+    const { children, width, content, ...rest } = this.props;
 
-FloatingHelper.defaultProps = {
-  showCloseButton: true,
-  width: '444px'
-};
+    const renderContent = (closableActions: ClosablePopoverActions)=>this.renderContent(closableActions,{width, content});
 
-FloatingHelper.propTypes = {
-  ...pickedPopoverPropTypes,
-  showCloseButton: bool,
-  width: oneOfType([string, number]),
-  children: node.isRequired,
-  content: node.isRequired // TODO: validate it is a <HelperContent>
-};
+    const closablePopoverProps: ClosablePopoverProps = {
+      ...rest,
+      content: renderContent,
+      showArrow: true
+    };
+
+    return (
+      <ClosablePopover
+        {...closablePopoverProps}
+        ref={ref => this.closablePopoverRef = ref}
+        {...style('root', {}, this.props)}
+      />
+    );
+  };
+}

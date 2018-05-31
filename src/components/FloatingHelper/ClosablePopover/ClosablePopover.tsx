@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Requireable, bool, func, node } from 'prop-types';
+import { bool, func, node , ValidationMap} from 'prop-types';
 import isBoolean = require('lodash/isBoolean');
 import pick = require('lodash/pick');
 import { Popover, PopoverProps } from 'wix-ui-core/Popover';
@@ -14,70 +14,126 @@ export interface ClosablePopoverOwnProps {
    * When undefined, then the component is Uncontrolled,
    * It is initially open, and it can be closed by close-action */
   opened?: boolean;
+  /** Controls wether the popover's content is initially opened (in Uncontrolled mode) */
+  initiallyOpened?: boolean;
   /** The popover's content, given as a function that receives control-actions and renders the contet.
    * In Uncontrolled mode, this function is still called only once.
   */
   content: (closable: ClosablePopoverActions) => React.ReactNode;
   /** The popover's target element*/
   target: React.ReactNode;
+  /** callback to call when the popover content was opened */
+  onOpen?: Function;
+  /** callback to call when the popover content was closed. NOTE: this callback is called when the close timeout (if exists) starts */
+  onClose?: Function;
 }
 
+export enum Mode {
+  Hover = 'hover',
+  ClickToClose = 'click-to-close'
+} 
+
 export interface ClosablePopoverState {
-  opened?: boolean;
+  open?: boolean;
+  mode?: Mode;
 }
 
 const pickedPopoverPropTypes = pick(Popover.propTypes, ['className', 'placement', 'showArrow', 'moveBy', 'hideDelay', 'showDelay', 'moveArrowTo', 'appendTo', 'timeout']);
 export type PickedPopoverProps = Pick<PopoverProps, 'className' | 'placement' | 'showArrow' | 'moveBy' | 'hideDelay' | 'showDelay' | 'moveArrowTo' | 'appendTo' | 'timeout'>;
 
 export type ClosablePopoverProps = PickedPopoverProps & ClosablePopoverOwnProps;
-
+const controlledErrorMsg = (method: string)=> `ClosablePopover.${method}() can not be called when component is Controlled. (opened prop should be undefined)`;
 /**
  * Closable Popover
  * Either a normal Controlled Popover, or a Popover that is inittialy opened and can be the closed by
  * calling a closeAction.
  */
 export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, ClosablePopoverState> {
-  state: ClosablePopoverState = { opened: true };
+  state: ClosablePopoverState = { 
+    open: this.props.initiallyOpened,
+    mode: this.props.initiallyOpened? Mode.ClickToClose : Mode.Hover };
 
-  static propTypes: React.ValidationMap<ClosablePopoverProps> = {
+  static propTypes: ValidationMap<ClosablePopoverProps> = {
     ...pickedPopoverPropTypes,
     opened: bool,
     content: func,
-    target: node
+    target: node,
+    onOpen: func,
+    onClose: func,
   };
 
-  get isControlled() {
+  static defaultProps: Partial<ClosablePopoverProps> = {
+    timeout: 150,
+    initiallyOpened: true
+  }
+
+  private isControlled() {
     return isBoolean(this.props.opened);
   }
 
-  render() {
-    // NOTE: we can not use pick, since there are unknown 'data-*' props coming from 
-    // Stylabel (and the data-hook also). Also some variable constants are destructed from props
-    // only to be 'omit' and are not in use. (Using lodash.omit is not type safe)
-    const { opened, content, target, children, ...rest } = this.props;
-    const open = this.isControlled ? this.props.opened : this.state.opened;
+  public open = () => {
+    this.doOpen(Mode.ClickToClose);
+  }
 
-    // Using createElement() in order to get ts props validation.
-    return React.createElement(Popover, { shown: open, ...rest }, (
-      <Popover.Element>
-        {target}
-      </Popover.Element>
-    ), (
-        <Popover.Content>
-          {content(this.actions)}
-        </Popover.Content>
-      )
-    );
+  private doOpen = (nextMode: Mode) => {
+    if (this.isControlled()) {
+      throw new Error(controlledErrorMsg('open'));
+    }
+    !this.state.open && this.setState({
+        open: true,
+        mode: nextMode
+      }, () => { this.props.onOpen && this.props.onOpen() });
   }
 
   public close = () => {
-    if (this.isControlled) {
-      throw new Error('ClosablePopover.close() can not be called when component is Controlled. (opened prop should be undefined)');
+    if (this.isControlled()) {
+      throw new Error(controlledErrorMsg('close'));
     }
-    this.state.opened && this.setState({ opened: false });
+    this.state.open && this.setState({
+        open: false,
+        mode: Mode.Hover
+      }, () => { this.props.onClose && this.props.onClose() });
+  }
+
+  private handleMouseEnter = () => {
+    if (this.state.mode === Mode.Hover) {
+      this.doOpen(Mode.Hover);
+    }
+  }
+
+  private handleMouseLeave = () => {
+    if (this.state.mode === Mode.Hover) {
+      this.close();
+    }
+  }
+
+  render() {
+    const { opened, content, target, children, onClose, onOpen, initiallyOpened, ...rest } = this.props;
+    const open = this.isControlled() ? this.props.opened : this.state.open;
+
+    const popoverProps: PopoverProps = {
+      ...rest,
+      shown: open,
+      onMouseEnter: this.handleMouseEnter,
+      onMouseLeave: this.handleMouseLeave
+    };
+
+    return (
+      <Popover
+        {...popoverProps}
+      >
+        <Popover.Element>
+          {target}
+        </Popover.Element>
+        <Popover.Content>
+          {content(this.actions)}
+        </Popover.Content>
+      </Popover>
+    );
   }
 
   actions: ClosablePopoverActions = {
     close: this.close,
   };
 };
+

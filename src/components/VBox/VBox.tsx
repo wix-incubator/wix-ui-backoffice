@@ -1,21 +1,34 @@
 import * as React from 'react';
-import {VBox as CoreVBox, VBoxProps as CoreVBoxProps} from './coreVBox';
-import {ThemedComponent} from 'wix-ui-theme';
-import {theme} from './theme';
-import {Alignment} from './constants';
+import {number, any, oneOf, arrayOf} from 'prop-types';
+import style from './VBox.st.css';
+import {addSpacing} from './utils';
 
-export interface VBoxProps extends CoreVBoxProps {
-  spacing?: string;
+export interface VBoxProps {
+  children?: React.ReactNode;
   horizontalAlignment?: Alignment;
+  spacing?: number;
 }
 
-export class VBox extends React.PureComponent<VBoxProps> {
-  render() {
-    const {spacing, horizontalAlignment, ...coreProps} = this.props;
-    return (
-      <ThemedComponent {...{theme, spacing, horizontalAlignment}}>
-        <CoreVBox {...coreProps}/>
-      </ThemedComponent>
-    );
-  }
-}
+export type Alignment = 'left' | 'center' | 'right';
+
+const defaultProps: VBoxProps = {
+  children: null,
+  horizontalAlignment: 'left',
+  spacing: 0
+};
+
+/**
+ * VBox
+ */
+export const VBox: React.SFC<VBoxProps> = props => {
+  const {children, horizontalAlignment, spacing} = props;
+  return <div {...style('root', {horizontalAlignment}, props)}>{addSpacing(children, spacing)}</div>;
+};
+
+VBox.defaultProps = defaultProps;
+
+VBox.propTypes = {
+  children: any,
+  horizontalAlignment: oneOf(['left', 'center', 'right']),
+  spacing: number
+};
