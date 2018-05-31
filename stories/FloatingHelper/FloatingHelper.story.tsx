@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Image from 'wix-ui-icons-common/Image';
-import { LinkTo, linkTo } from '@storybook/addon-links';
+import { linkTo } from '@storybook/addon-links';
 import { Button } from '../../src/components/Button';
 import { FloatingHelper, FloatingHelperProps } from '../../src/components/FloatingHelper';
 
