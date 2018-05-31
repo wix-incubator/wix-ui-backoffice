@@ -3,6 +3,8 @@ import {Autocomplete} from '../src/components/Autocomplete';
 import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionsExample';
 import {Option, DividerArgs} from 'wix-ui-core/dist/src/baseComponents/DropdownOption';
 
+const options = generateOptions((args: Partial<DividerArgs> = {}) => Autocomplete.createDivider(args.value));
+
 export default {
   category: 'Components',
   storyName: 'Autocomplete',
@@ -11,18 +13,28 @@ export default {
 
   componentProps: {
     'data-hook': 'storybook-autocomplete',
-    options: generateOptions((args: Partial<DividerArgs> = {}) => Autocomplete.createDivider(args.value))
+    options,
+    fixedFooter: 'Fixed Footer',
+    fixedHeader: 'Fixed Header',
   },
 
   exampleProps: {
-    fixedFooter: [null, <div key="1">Fixed Footer</div>],
-    fixedHeader: [null, <div key="2">Fixed Header</div>],
     onSelect: (option: Option) => option.value,
-    initialSelectedId: [null, 1],
     onManualInput: (value: string) => `Manual input: ${value}`,
     onBlur: () => 'Triggered onBlur',
     onFocus: () => 'Triggered onFocus',
     onChange: evt => evt.target.value,
-    size: ['small', 'medium', 'large']
+    size: ['small', 'medium', 'large'],
+
+    options: [
+      { value: options.slice(0, 1), label: '1 example option' },
+      { value: options.slice(0, 5), label: '5 example options' },
+      { value: options, label: '20 example options' }
+    ],
+
+    initialSelectedId: [
+      { value: [1], label: '[1]' },
+      { value: [1, 2, 3], label: '[1, 2, 3]' }
+    ]
   }
 };

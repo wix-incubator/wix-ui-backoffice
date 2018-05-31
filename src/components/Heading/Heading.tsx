@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {oneOf, bool, Requireable} from 'prop-types';
-import {Text as CoreText, TextProps as CoreTextProps} from 'wix-ui-core/StylableText';
+import omit = require('lodash/omit');
+import {Text as CoreText, TextProps as CoreTextProps} from '../core/CoreText';
 import style from './Heading.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
-import * as omit from 'lodash/omit';
 
 export type Appearance = 'H1' | 'H2' | 'H3' | 'H4';
 export type TagName = 'h1' | 'h2' | 'h3' | 'h4';

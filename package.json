@@ -9,6 +9,7 @@
   },
   "files": [
     "dist",
+    "src",
     "*.js",
     "*.d.ts",
     "!wallaby.js",
@@ -28,27 +29,32 @@
     "test:e2e": "yoshi test --protractor",
     "lint": "yoshi lint",
     "start": "yoshi start --no-test & npm run storybook",
-    "release": "yoshi release && gh-pages-auto-release --dist=storybook-static",
-    "storybook": "start-storybook -p 6006"
+    "release": "yoshi release && teamcity-surge-autorelease",
+    "storybook": "start-storybook -p 6006",
+    "pr-release": "teamcity-surge-autorelease"
   },
   "dependencies": {
     "lodash": "^4.17.5",
-    "wix-ui-core": "latest",
-    "wix-ui-theme": "latest"
+    "wix-ui-core": "1.0.457",
+    "wix-ui-theme": "1.0.43",
+    "wix-ui-icons-common": "1.0.36"
   },
   "devDependencies": {
-    "@storybook/addon-options": "^3.3.7",
-    "@storybook/react": "^3.3.7",
+    "@storybook/addon-links": "^4.0.0-alpha.6",
+    "@storybook/addon-options": "^4.0.0-alpha.6",
+    "@storybook/react": "^4.0.0-alpha.6",
+    "@types/classnames": "^2.2.3",
     "@types/enzyme": "^3.1.9",
     "@types/jest": "^22.1.1",
+    "@types/lodash": "^4.14.107",
+    "@types/node": "^8.0.0",
     "@types/prop-types": "^15.5.2",
     "@types/react": "^16.3.8",
     "@types/react-dom": "^16.0.5",
     "@types/react-onclickoutside": "^6.0.2",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.5",
-    "eyes.it": "latest",
-    "gh-pages-auto-release": "latest",
+    "eyes.it": "^2.0.6",
     "identity-obj-proxy": "^3.0.0",
     "import-path": "latest",
     "prop-types": "^15.6.0",
@@ -57,15 +63,18 @@
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-test-renderer": "^16.3.1",
-    "surge-github-autorelease": "^1.0.23",
     "ts-jest": "^22.0.3",
+    "tslint-config-prettier": "^1.12.0",
     "tslint-react": "^3.5.1",
     "typescript": "^2.6.2",
     "wait-for-cond": "^1.5.1",
-    "wix-storybook-utils": "latest",
-    "wix-ui-icons-common": "latest",
-    "wix-ui-test-utils": "latest",
-    "yoshi": "^1.2.0"
+    "wix-eventually": "^2.2.0",
+    "wix-storybook-utils": "^1.0.85",
+    "wix-ui-test-utils": "^1.0.93",
+    "yoshi": "^2.6.1"
+  },
+  "optionalDependencies": {
+    "teamcity-surge-autorelease": "^1.0.3"
   },
   "license": "MIT",
   "publishConfig": {

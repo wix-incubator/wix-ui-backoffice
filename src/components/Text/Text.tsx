@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {oneOf, Requireable} from 'prop-types';
-import {Text as CoreText, TextProps as CoreTextProps} from 'wix-ui-core/StylableText';
+import {Text as CoreText, TextProps as CoreTextProps} from '../core/CoreText';
 import {withStylable} from 'wix-ui-core/withStylable';
-import {Skin, Size, SKINS, SIZES} from './constants';
+import {Skin, Size} from './constants';
 import style from './Text.st.css';
 
 export interface Props {
@@ -23,9 +23,9 @@ export interface Props {
 }
 
 const defaultProps: Props = {
-  size: SIZES.medium,
+  size: Size.medium,
   secondary: false,
-  skin: SKINS.standard,
+  skin: Skin.standard,
   light: false,
   bold: false
 };
@@ -37,7 +37,7 @@ export const Text = withStylable<CoreTextProps, Props>(
     size,
     secondary,
     skin,
-    light: light && skin === SKINS.standard,
+    light: light && skin === Skin.standard,
     bold
   }),
   defaultProps

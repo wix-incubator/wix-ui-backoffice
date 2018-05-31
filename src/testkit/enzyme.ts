@@ -1,34 +1,59 @@
-import {enzymeTestkitFactoryCreator, WrapperData} from 'wix-ui-test-utils/enzyme';
+import { enzymeTestkitFactoryCreator, WrapperData } from 'wix-ui-test-utils/enzyme';
 
-import {counterBadgeDriverFactory} from '../components/CounterBadge/CounterBadge.driver';
+import { counterBadgeDriverFactory } from '../components/CounterBadge/CounterBadge.driver';
 export const counterBadgeTestkitFactory = enzymeTestkitFactoryCreator(counterBadgeDriverFactory);
 
-import {badgeDriverFactory} from '../components/Badge/Badge.driver';
-export const badgeTestkitFactory = enzymeTestkitFactoryCreator(badgeDriverFactory);
+import { badgeDriverFactory, BadgeDriver } from '../components/Badge/Badge.driver';
+export const badgeTestkitFactory = enzymeTestkitFactoryCreator<BadgeDriver>(badgeDriverFactory);
+export { BadgeDriver };
 
-import {headingDriverFactory} from '../components/Heading/Heading.driver';
-export const headingTestkitFactory = enzymeTestkitFactoryCreator(headingDriverFactory);
+import { headingDriverFactory, HeadingDriver } from '../components/Heading/Heading.driver';
+export const headingTestkitFactory = enzymeTestkitFactoryCreator<HeadingDriver>(headingDriverFactory);
+export { HeadingDriver };
 
-import {checkboxDriverFactory} from '../components/Checkbox/Checkbox.driver';
+import { buttonDriverFactory, ButtonDriver } from '../components/Button/Button.driver';
+export const buttonTestkitFactory = enzymeTestkitFactoryCreator(buttonDriverFactory);
+export { ButtonDriver };
+
+import { closeButtonDriverFactory, CloseButtonDriver } from '../components/CloseButton/CloseButton.driver';
+export const closeButtonTestkitFactory = enzymeTestkitFactoryCreator<CloseButtonDriver>(closeButtonDriverFactory);
+export { CloseButtonDriver };
+
+import { checkboxDriverFactory } from '../components/Checkbox/Checkbox.driver';
 export const checkboxTestkitFactory = enzymeTestkitFactoryCreator(checkboxDriverFactory);
 
-import {uiTextDriverFactory} from '../components/StylableUIText/UIText.driver';
-export const uiTextTestkitFactory = enzymeTestkitFactoryCreator(uiTextDriverFactory);
+import { textDriverFactory as coreTextDriverFactory, TextDriver as CoreTextDriver } from '../components/core/CoreText/Text.driver';
+export const coreTextTestkitFactory = enzymeTestkitFactoryCreator<CoreTextDriver>(coreTextDriverFactory);
+export { CoreTextDriver };
 
-import {textDriverFactory} from '../components/Text/Text.driver';
-export const textTestkitFactory = enzymeTestkitFactoryCreator(textDriverFactory);
+import { uiTextDriverFactory, UITextDriver } from '../components/StylableUIText/UIText.driver';
+export const uiTextTestkitFactory = enzymeTestkitFactoryCreator<UITextDriver>(uiTextDriverFactory);
+export { UITextDriver };
 
-import {autocompleteDriverFactory} from '../components/Autocomplete/Autocomplete.driver';
+import {textDriverFactory, TextDriver} from '../components/Text/Text.driver';
+export const textTestkitFactory = enzymeTestkitFactoryCreator<TextDriver>(textDriverFactory);
+export {TextDriver};
+
+import { autocompleteDriverFactory } from '../components/Autocomplete/Autocomplete.driver';
 export const autocompleteTestkitFactory = enzymeTestkitFactoryCreator(autocompleteDriverFactory);
 
-import {toggleSwitchDriverFactory} from '../components/ToggleSwitch/ToggleSwitch.driver';
+import { toggleSwitchDriverFactory } from '../components/ToggleSwitch/ToggleSwitch.driver';
 export const toggleSwitchTestkitFactory = enzymeTestkitFactoryCreator(toggleSwitchDriverFactory);
 
-import {counterBadgeDriverFactory as stylableCounterBadgeDriverFactory} from '../components/StylableCounterBadge/CounterBadge.driver';
-export const stylableCounterBadgeTestkitFactory = enzymeTestkitFactoryCreator(stylableCounterBadgeDriverFactory);
+import { counterBadgeDriverFactory as stylableCounterBadgeDriverFactory, CounterBadgeDriver } from '../components/StylableCounterBadge/CounterBadge.driver';
+export const stylableCounterBadgeTestkitFactory = enzymeTestkitFactoryCreator<CounterBadgeDriver>(stylableCounterBadgeDriverFactory);
+export { CounterBadgeDriver };
 
-import {labelWithOptionsDriverFactory} from '../components/LabelWithOptions/LabelWithOptions.driver';
+import { labelWithOptionsDriverFactory } from '../components/LabelWithOptions/LabelWithOptions.driver';
 export const labelWithOptionsTestkitFactory = enzymeTestkitFactoryCreator(labelWithOptionsDriverFactory);
 
-import {labelDriverFactory} from '../components/Label/Label.driver';
+import { labelDriverFactory } from '../components/Label/Label.driver';
 export const labelTestkitFactory = enzymeTestkitFactoryCreator(labelDriverFactory);
+
+import { floatingHelperDriverFactory, FloatingHelperDriver } from '../components/FloatingHelper/FloatingHelper.driver';
+export const floatingHelperTestkitFactory = enzymeTestkitFactoryCreator<FloatingHelperDriver>(floatingHelperDriverFactory);
+export {FloatingHelperDriver}
+
+import {thumbnailDriverFactory, ThumbnailDriver} from '../components/Thumbnail/Thumbnail.driver';
+export const thumbnailTestkitFactory = enzymeTestkitFactoryCreator<ThumbnailDriver>(thumbnailDriverFactory);
+export {ThumbnailDriver};

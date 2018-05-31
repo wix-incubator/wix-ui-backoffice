@@ -3,7 +3,7 @@
 The wix-ui-backoffice (WUB) library is the themed version of wix-style-react (WSR) and is used for the business manager and premium areas of Wix.
 WUB will eventually replace WSR, but in the meantime, WSR will act as a proxy layer for each new component that is added to WUB. This way we can gradually migrate its components.
 
-> Storybook: [here](https://wix.github.io/wix-ui-backoffice)
+> Storybook: [here](https://wix-wix-ui-backoffice.surge.sh/)
 
 > Uses: [yoshi](https://github.com/wix-playground/yoshi) for build
 

@@ -1,15 +1,19 @@
 {
   "extends": [
     "tslint-config-wix",
-    "tslint-react"
+    "tslint-react",
+    "tslint-config-prettier"
   ],
   "rules": {
-    "space-in-brackets": ["error", "always"],
-    "array-bracket-spacing": [true, "never"],
     "comma-dangle": ["error", "never"],
-    "jsx-no-lambda": false,
     "jsx-no-multiline-js": false,
-    "jsx-boolean-value": false,
-    "arrow-parens": [true, "ban-single-arg-parens"]
+    "jsx-no-lambda": false,
+    "jsx-boolean-value": [true, "never"],
+    "jsx-alignment": true,
+    "jsx-wrap-multiline": true,
+    "space-in-brackets": ["error", "always"],
+    "arrow-parens": [true, "ban-single-arg-parens"],
+    "array-bracket-spacing": [true, "never"],
+    "quotemark": [true, "single", "jsx-double"]
   }
 }

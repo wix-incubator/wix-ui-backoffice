@@ -1,0 +1,77 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/components/Thumbnail/Thumbnail.st.css";
+  -st-default: Thumbnail;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: main, mainHover, mainMutedBackground, inputDisabledColor;
+}
+
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontRoman;
+}
+
+:import {
+  -st-from: "../../colors.st.css";
+  -st-named: WHITE;
+}
+
+.root {
+  -st-extends: Thumbnail;
+  margin: 19px 0;
+  border: 1px solid value(mainMutedBackground);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.root:selected {
+  border: 2px solid value(main);
+}
+
+.root:selected:hover {
+  border: 2px solid value(mainHover);
+}
+
+.root:selected:disabled {
+  border: 2px solid value(inputDisabledColor);
+}
+
+.root:disabled {
+  border: 1px solid value(inputDisabledColor);
+  cursor: default;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.root:selected::selectedIcon {
+  background: value(main);
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: value(WHITE);
+}
+
+.root:selected:hover:not(:disabled)::selectedIcon {
+  background: value(mainHover);
+}
+
+.root:disabled::selectedIcon {
+  background: value(inputDisabledColor);
+}
+
+.title {}
+
+.description {}
+
+.root:disabled .title, .root:disabled .description {
+  color: value(inputDisabledColor);
+}
