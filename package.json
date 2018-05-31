@@ -40,8 +40,8 @@
     "wix-ui-icons-common": "1.0.36"
   },
   "devDependencies": {
-    "@storybook/addon-options": "^3.3.7",
-    "@storybook/react": "^3.3.7",
+    "@storybook/addon-options": "^4.0.0-alpha.6",
+    "@storybook/react": "^4.0.0-alpha.6",
     "@types/classnames": "^2.2.3",
     "@types/enzyme": "^3.1.9",
     "@types/jest": "^22.1.1",
@@ -67,10 +67,10 @@
     "tslint-react": "^3.5.1",
     "typescript": "^2.6.2",
     "wait-for-cond": "^1.5.1",
+    "yoshi": "^2.6.1"
     "wix-eventually": "^2.2.0",
     "wix-storybook-utils": "^1.0.85",
-    "wix-ui-test-utils": "^1.0.93",
-    "yoshi": "^1.2.0"
+    "wix-ui-test-utils": "^1.0.93"
   },
   "optionalDependencies": {
     "teamcity-surge-autorelease": "^1.0.3"
