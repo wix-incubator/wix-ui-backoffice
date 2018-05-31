@@ -40,6 +40,7 @@
     "wix-ui-icons-common": "1.0.36"
   },
   "devDependencies": {
+    "@storybook/addon-links": "^4.0.0-alpha.6",
     "@storybook/addon-options": "^4.0.0-alpha.6",
     "@storybook/react": "^4.0.0-alpha.6",
     "@types/classnames": "^2.2.3",
