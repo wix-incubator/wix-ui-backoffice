@@ -3,7 +3,7 @@ This is a Popover helper component
 
 ### Open/Close behavior
 The default behavior is that the popover is initially opened.
-Once close by clicking on close button, it goes to "Hover" mode. (Opens on mouseEnter and closes on mouseLeave).
+Once closed by clicking on close button, it goes to "Hover" mode. (Opens on mouseEnter and closes on mouseLeave).
 
 ### Programatic Open/Close
 The popover can be initially closed, in which case it starts in "Hover" mode.
