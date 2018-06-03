@@ -12,7 +12,7 @@ import { FloatingHelperContent , FloatingHelperContentProps} from './FloatingHel
 
 export interface FloatingHelperOwnProps {
   /** Width HTML attribute of the content. If a number is passed then it defaults to px. e.g width={400} => width="400px" */
-  width?: string | number;
+  width?: string| number;
   /** The target of the popover */
   target: React.ReactNode
   /** A <HelperContent> */
@@ -20,9 +20,9 @@ export interface FloatingHelperOwnProps {
 }
 
 export type PickedClosablePopoverProps = Pick<ClosablePopoverProps,
-  'initiallyOpened' | 'target' | 'placement' | 'moveBy' | 'hideDelay' | 'showDelay' | 'appendTo'>;
+   'initiallyOpened'| 'target'| 'onClose'| 'onOpen'| 'placement'| 'moveBy'| 'hideDelay'| 'showDelay'| 'appendTo'>;
 const pickedPropNames: Array<keyof PickedClosablePopoverProps> =
-  ['initiallyOpened', 'target', 'placement', 'moveBy', 'hideDelay', 'showDelay', 'appendTo'];
+  ['initiallyOpened', 'target', 'onClose', 'onOpen', 'placement', 'moveBy', 'hideDelay', 'showDelay', 'appendTo'];
 
 const pickedPopoverPropTypes = pick<
   typeof ClosablePopover.propTypes, keyof PickedClosablePopoverProps>(
