@@ -12,7 +12,7 @@ import { FloatingHelperContent , FloatingHelperContentProps} from './FloatingHel
 
 export interface FloatingHelperOwnProps {
   /** Width HTML attribute of the content. If a number is passed then it defaults to px. e.g width={400} => width="400px" */
-  width?: string| number;
+  width?: string | number;
   /** The target of the popover */
   target: React.ReactNode
   /** A <HelperContent> */
