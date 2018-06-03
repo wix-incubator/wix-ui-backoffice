@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: primaryText, mainHover, main, disabledText, inputHover, inputDisabledColor, inputDisabledHoverBorderColor, primaryLightText, inputBorderColor, inputDisabledBorderColor, danger, backgroundSecondary, inputBackground;
+  -st-named: primaryText, mainHover, main, disabledText, inputHover, inputDisabledColor, inputDisabledHoverBorderColor, primaryLightText, inputBorderColor, inputDisabledBorderColor, danger, backgroundSecondary, inputBackground, dropdownShadow;
 }
 
 :import {
@@ -28,6 +28,15 @@
   -st-default: calc;
 }
 
+:import {
+  -st-from: "../Checkbox/Checkbox.st.css";
+  -st-default: Checkbox;
+}
+
+:vars {
+  arrowIconSize: 24px;
+}
+
 .root {
   -st-extends: LabelWithOptions;
   -st-states: size(enum(large, medium, small));
@@ -35,25 +44,16 @@
   width: 100%;
 }
 
-.root > [data-hook="popover-content"] {
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
-  width: 100%;
-  overflow: hidden;
-}
+/*Selection*/
 
 .root::selection {
   background-color: value(inputBackground);
   border-radius: 6px;
   border: 1px solid value(inputBorderColor);
-  background-color: value(inputBackground);
-  padding: 0 6px;
+  padding: 0 12px;
   outline: none;
   width: 100%;
   display: flex;
-  align-items: center;
-  cursor: pointer;
 }
 
 .root:error::selection {
@@ -63,7 +63,7 @@
 .root:disabled::selection {
   color: value(inputDisabledColor);
   border-color: value(inputDisabledBorderColor);
-  cursor: default;
+
 }
 
 .root:disabled:hover::selection {
@@ -71,53 +71,74 @@
   border-color: value(inputDisabledHoverBorderColor);
 }
 
+/*Label*/
+
+.root::label {
+  width: 100%;
+  cursor: pointer;
+}
+
+.root:disabled::label {
+  cursor: default;
+}
+
 .root:size(large)::label {
-  height: value(largeHeight);
+  min-height: value(largeHeight);
   line-height: calc(value(largeHeight) - 2px);
   font-size: value(largeFont);
 }
 
 .root:size(medium)::label {
-  height: value(medHeight);
+  min-height: value(medHeight);
   line-height: calc(value(medHeight) - 2px);
   font-size: value(medFont);
 }
 
 .root:size(small)::label {
-  height: value(smallHeight);
+  min-height: value(smallHeight);
   line-height: calc(value(smallHeight) - 2px);
   font-size: value(smallFont);
-}
-
-.root::label {
-  width: 100%;
-  cursor: pointer;
-  cursor: default;
 }
 
 .root::placeholder {
   color: value(disabledText);
 }
 
+/*Dropdown*/
+
+.root::popoverContent {
+  border: none;
+  border-radius: 8px;
+  box-shadow: value(dropdownShadow);
+  width: 100%;
+  overflow: hidden;
+}
+
+/*Dropdown Option*/
+
 .root::dropdownContent::dropdownOption {
   white-space: nowrap;
-  padding: 8px 20px;
+  padding: 8px 24px;
   text-overflow: ellipsis;
   font-size: 16px;
   color: value(primaryText);
   overflow: hidden;
 }
 
+.root::optionCotainer {
+  align-items: center;
+}
+
 .root::dropdownContent::dropdownOption:hovered {
   background: value(inputHover);
 }
 
-.root::dropdownContent::dropdownOption:selected {
+.root:not(:checkbox)::dropdownContent::dropdownOption:selected {
   background: value(main);
   color: value(primaryLightText);
 }
 
-.root::dropdownContent::dropdownOption:selected:hovered {
+.root:not(:checkbox)::dropdownContent::dropdownOption:selected:hovered {
   background: value(mainHover);
   color: value(primaryLightText);
 }
@@ -130,6 +151,33 @@
   padding: 0;
 }
 
+.root::checkbox {
+  -st-mixin: Checkbox;
+  border: unset;
+  margin-right: 12px;
+}
+.root::checkbox:checked {
+  background: unset;
+}
+
+/*TODO*/
+/*:global([dir="rtl"]) .root::checkbox {*/
+  /*margin-left: 12px;*/
+/*}*/
+
+/*.myCheckbox {*/
+  /*-st-mixin: Checkbox;*/
+  /*border: unset;*/
+/*}*/
+
+/*:global([dir="rtl"]) .myCheckbox {*/
+  /*margin-right: unset;*/
+  /*margin-left: 12px;*/
+/*}*/
+
+
+/*Divider*/
+
 .root::divider {
   background-color: #e5e5e5;
   display: flex;
@@ -140,9 +188,22 @@
   padding: 8px 20px;
 }
 
+/*Arrow icon*/
+.root:size(large) .arrowIconSlot {
+  margin-top: calc(calc(value(largeHeight) - value(arrowIconSize)) / 2);
+}
+
+.root:size(medium) .arrowIconSlot {
+  margin-top: calc(calc(value(medHeight) - value(arrowIconSize)) / 2);
+}
+
+.root:size(small) .arrowIconSlot {
+  margin-top: calc(calc(value(smallHeight) - value(arrowIconSize)) / 2);
+}
+
 .arrowIcon {
-  width: 24px;
-  height: 24px;
+  width: value(arrowIconSize);
+  height: value(arrowIconSize);
   fill: value(inputBorderColor);
 }
 

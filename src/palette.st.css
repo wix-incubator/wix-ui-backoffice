@@ -11,7 +11,8 @@
   GR20,
   O10,
   WHITE,
-  F00;
+  F00,
+  SH30;
 }
 
 /* main */
@@ -96,4 +97,5 @@
 /* shadow-box */
 :vars {
   focusShadow: value(F00);
+  dropdownShadow: value(SH30);
 }

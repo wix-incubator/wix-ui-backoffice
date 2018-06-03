@@ -47,6 +47,9 @@ export { CounterBadgeDriver };
 import { labelWithOptionsDriverFactory } from '../components/LabelWithOptions/LabelWithOptions.driver';
 export const labelWithOptionsTestkitFactory = enzymeTestkitFactoryCreator(labelWithOptionsDriverFactory);
 
+import { multiSelectDriverFactory } from '../components/MultiSelect/MultiSelect.driver';
+export const multiSelectTestkitFactory = enzymeTestkitFactoryCreator(multiSelectDriverFactory);
+
 import { labelDriverFactory } from '../components/Label/Label.driver';
 export const labelTestkitFactory = enzymeTestkitFactoryCreator(labelDriverFactory);
 

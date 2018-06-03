@@ -3,11 +3,9 @@ import {LabelWithOptions as CoreLabelWithOptions, LabelWithOptionsProps as CoreL
 import {withStylable} from 'wix-ui-core/withStylable';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import style from './LabelWithOptions.st.css';
-import {Tooltip} from '../Tooltip';
 import {getInputSuffix} from '../Input/InputSuffixes';
-import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 
-export interface LabelWithOptionsProps {
+export interface LabelWithOptionsExtendedProps {
   // The size of the LabelWithOptions
   size?: 'large' | 'medium' | 'small';
 }
@@ -16,18 +14,20 @@ const defaultProps = {
   size: 'medium'
 };
 
-const StyledLabelWithOptions = withStylable<CoreLabelWithOptionsProps, LabelWithOptionsProps>(
+export type LabelWithOptionsProps = CoreLabelWithOptionsProps & LabelWithOptionsExtendedProps;
+
+const StyledLabelWithOptions = withStylable<CoreLabelWithOptionsProps, LabelWithOptionsExtendedProps>(
   CoreLabelWithOptions,
   style,
   ({size}) => ({size}),
   defaultProps);
 
-export type LabelWithOptionsType = React.SFC<CoreLabelWithOptionsProps & LabelWithOptionsProps> & {
+export type LabelWithOptionsType = React.SFC<LabelWithOptionsProps> & {
   createOption: typeof CoreLabelWithOptions.createOption;
   createDivider: typeof CoreLabelWithOptions.createDivider;
 };
 
-const defaultSuffix = <ChevronDown className={style.arrowIcon} />;
+const defaultSuffix = <span className={style.arrowIconSlot}><ChevronDown className={style.arrowIcon} /></span>;
 const renderSuffix =
   ({isError, disabled}) => getInputSuffix({
     error: isError ? 'Selection is required!' : null,
@@ -35,7 +35,7 @@ const renderSuffix =
     suffix: defaultSuffix});
 
 export const LabelWithOptions: LabelWithOptionsType =
-  ((props: CoreLabelWithOptionsProps & LabelWithOptionsProps) => {
+  ((props: LabelWithOptionsProps) => {
     const {disabled} = props;
     return (
       <StyledLabelWithOptions

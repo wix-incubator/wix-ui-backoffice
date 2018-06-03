@@ -1,0 +1,1 @@
+export {labelWithOptionsDriverFactory as multiSelectDriverFactory, LabelWithOptionsDriver as MultiSelectDriver} from 'wix-ui-core/dist/src/components/LabelWithOptions/LabelWithOptions.protractor.driver';
