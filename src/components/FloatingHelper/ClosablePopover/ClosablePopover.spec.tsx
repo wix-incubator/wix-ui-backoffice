@@ -55,6 +55,24 @@ describe('ClosablePopover', () => {
       driver.mouseLeave();
       await eventually(() => expect(driver.isContentElementExists()).toBeFalsy());
     });
+
+    it('should not hide on mouse-leave, given closeOnMouseLeave is false', async () => {
+      let triggerClose;
+      const driver = createDriver(createComponent({
+        content: ({ close }) => {
+          triggerClose = close;
+          return <div>the content</div>;
+        },
+        initiallyOpened: true, closeOnMouseLeave: false
+      }));
+      triggerClose();
+      await eventually(() => expect(driver.isContentElementExists()).toBeFalsy());
+      driver.mouseEnter();
+      expect(driver.isContentElementExists()).toBeTruthy();
+      driver.mouseLeave();
+      await waitForClose();
+      expect(driver.isContentElementExists()).toBeTruthy();
+    });
   });
 
   describe('onOpened/onClosed callbacks', () => {

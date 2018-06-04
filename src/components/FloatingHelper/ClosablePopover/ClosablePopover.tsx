@@ -26,6 +26,8 @@ export interface ClosablePopoverOwnProps {
   onOpen?: Function;
   /** callback to call when the popover content was closed. NOTE: this callback is called when the close timeout (if exists) starts */
   onClose?: Function;
+  /** Disable close on mouseLeave */
+  closeOnMouseLeave?: boolean
 }
 
 export enum Mode {
@@ -64,7 +66,8 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
 
   static defaultProps: Partial<ClosablePopoverProps> = {
     timeout: 150,
-    initiallyOpened: true
+    initiallyOpened: true,
+    closeOnMouseLeave: true
   }
 
   private isControlled() {
@@ -102,13 +105,13 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
   }
 
   private handleMouseLeave = () => {
-    if (this.state.mode === Mode.Hover) {
+    if (this.state.mode === Mode.Hover && this.props.closeOnMouseLeave) {
       this.close();
     }
   }
 
   render() {
-    const { opened, content, target, children, onClose, onOpen, initiallyOpened, ...rest } = this.props;
+    const { opened, content, target, children, onClose, onOpen, initiallyOpened, closeOnMouseLeave, ...rest } = this.props;
     const open = this.isControlled() ? this.props.opened : this.state.open;
 
     const popoverProps: PopoverProps = {
