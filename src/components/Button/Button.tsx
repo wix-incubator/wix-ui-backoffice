@@ -6,7 +6,7 @@ import style from './Button.st.css';
 import { Skin, Priority, Size } from './constants';
 import { Text, TextProps, TextSkin, TextSize } from '../Text';
 
-export interface ButtonOwnProps {
+export interface ButtonOwnProps extends CoreButtonProps {
   /**Skin of the Button (Styling)*/
   skin?: Skin;
   /** Priority of the Button (Styling)*/
@@ -17,7 +17,7 @@ export interface ButtonOwnProps {
   children?: string;
 }
 
-export type ButtonProps = ButtonOwnProps;
+export type ButtonProps = ButtonOwnProps & CoreButtonProps;
 const toTextColorProps : {[k in Priority]: {[y in Skin]: Pick<TextProps,'skin' | 'light'>}} = {
   [Priority.primary]: {
     [Skin.standard]:    {skin:TextSkin.standard, light: true},
