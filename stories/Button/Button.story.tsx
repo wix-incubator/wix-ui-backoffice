@@ -27,7 +27,7 @@ export default {
     skin: ['standard', 'white']
   },
   examples: (
-    <div>
+    <div style={{backgroundColor: '#f6f8fa', margin: '10px', padding: '16px'}}>
       <h1>Examples</h1>
       <h2>Primary</h2>
       <PButton skin={Skin.standard} priority={Priority.primary} />

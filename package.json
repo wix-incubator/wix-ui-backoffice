@@ -31,7 +31,7 @@
     "start": "yoshi start --no-test & npm run storybook",
     "release": "yoshi release && teamcity-surge-autorelease",
     "storybook": "start-storybook -p 6006",
-    "pr-release": "teamcity-surge-autorelease"
+    "pr-postbuild": "teamcity-surge-autorelease"
   },
   "dependencies": {
     "lodash": "^4.17.5",
