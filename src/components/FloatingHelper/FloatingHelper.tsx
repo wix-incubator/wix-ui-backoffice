@@ -77,7 +77,8 @@ export class FloatingHelper extends React.Component<FloatingHelperProps> {
     const closablePopoverProps: ClosablePopoverProps = {
       ...rest,
       content: renderContent,
-      showArrow: true
+      showArrow: true,
+      closeOnMouseLeave: false // TODO: We pass this as a workaround because with React-15 the mouse-enter does not propagate from the Portal to the React-Popper's Manager
     };
 
     return (
