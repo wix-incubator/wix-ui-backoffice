@@ -20,8 +20,7 @@
     "url": "git+https://github.com/wix/wix-ui-backoffice.git"
   },
   "scripts": {
-    "build": "yoshi build && import-path --path src/components --dts",
-    "pretest": "build-storybook",
+    "build": "yoshi build && import-path --path src/components --dts && build-storybook",
     "test": "npm run test:unit && npm run test:e2e",
     "posttest": "npm run lint",
     "test:watch": "yoshi test --jest --watch",
