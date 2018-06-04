@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: main, WHITE;
+  -st-named: main, mainHover, mainMutedBackground, WHITE;
 }
 .root {
   -st-extends: Button;
@@ -19,14 +19,23 @@
 
   background-color: transparent;
   border: none;
+
+  cursor: pointer;
 }
 
 .root:skin(standard) {
   color: value(main);
 }
 
+.root:skin(standard):hover {
+  color: value(mainHover);
+}
+
 .root:skin(white) {
   color: value(WHITE);
+}
+.root:skin(white):hover {
+  color: value(mainMutedBackground);
 }
 
 .root:size(small) {
