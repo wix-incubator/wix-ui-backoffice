@@ -10,6 +10,7 @@ export class ProgrammaticExample extends React.Component {
       <div>
         <div>
           <button onClick={() => this.helperRef.open()}>Click to open</button>
+          <button onClick={() => this.helperRef.close()}>Click to close</button>
         </div>
         <FloatingHelper
           ref={ref => this.helperRef = ref}
