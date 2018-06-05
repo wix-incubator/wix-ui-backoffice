@@ -10,13 +10,13 @@ import { storySettings as helperStorySettings } from '../FloatingHelperContent/S
 import CodeExample from 'wix-storybook-utils/CodeExample';
 
 import {SimpleExample} from './SimpleExample';
-import SimpleExampleRaw from '!raw-loader!./SimpleExample';
+import * as SimpleExampleRaw from '!raw-loader!./SimpleExample';
 
 import {FullExample} from './FullExample';
-import FullExampleRaw from '!raw-loader!./FullExample';
+import * as FullExampleRaw from '!raw-loader!./FullExample';
 
 import {ProgrammaticExample} from './ProgrammaticExample';
-import ProgrammaticExampleRaw from '!raw-loader!./ProgrammaticExample';
+import * as ProgrammaticExampleRaw from '!raw-loader!./ProgrammaticExample';
 
 const exampleWrapperStyle = {marginTop: 100, marginBottom: 100};
 

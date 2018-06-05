@@ -29,8 +29,8 @@ export default {
   category: storySettings.kind,
   storyName: storySettings.story,
   component: FloatingHelperContent,
+  exampleImport: 'import ... - do not import directly, use FloatingHelper.Content',
   componentPath: '../../src/components/FloatingHelper/FloatingHelperContent/FloatingHelperContent.tsx',
-
   componentProps,
   exampleProps: {
     onActionClick: ()=>{/** see interactive preview*/ },
