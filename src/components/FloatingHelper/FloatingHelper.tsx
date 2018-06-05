@@ -19,12 +19,17 @@ export interface FloatingHelperOwnProps {
   target: React.ReactNode
   /** A `<FloatingHelper.Content>` component */
   content: React.ReactNode
+  /** In Controlled mode - called when the close button is clicked. In Uncontrolled mode - called when the popover is closed */
+  onClose?: Function;
 }
 
 // This HACK is only for AutoDocs to work - see issue - https://github.com/wix/wix-ui/issues/550
 export interface PickedClosablePopoverPropsHack {
-  /** Controls wether the popover's content is initially opened */
+  /** Controls wether the popover's content is initially opened (In Uncontrolled mode only) */
   initiallyOpened?: boolean;
+  /** Controls wether the popover's content is shown or not (aka Controlled mode). 
+   * When undefined, then the component is Uncontrolled. See open/close behaviour section in docs. */
+  opened?: boolean;
   /** The location to display the content. possible values: 'auto-start',
   'auto',
   'auto-end',
@@ -45,14 +50,12 @@ export interface PickedClosablePopoverPropsHack {
   appendTo?: AppendTo;
   /** callback to call when the popover content is requested to be opened */
   onOpen?: Function;
-  /** callback to call when the popover content is requested to be closed. NOTE: this callback is called when the close timeout (if exists) starts */
-  onClose?: Function;
 }
 
 export type PickedClosablePopoverProps = Pick<ClosablePopoverProps,
-   'initiallyOpened'| 'target'| 'onClose'| 'onOpen'| 'placement'| 'appendTo'>;
+   'initiallyOpened'| 'opened' | 'target'| 'onClose'| 'onOpen'| 'placement'| 'appendTo'>;
 const pickedPropNames: Array<keyof PickedClosablePopoverProps> =
-  ['initiallyOpened', 'target', 'onClose', 'onOpen', 'placement', 'appendTo'];
+  ['initiallyOpened', 'opened' , 'target', 'onClose', 'onOpen', 'placement', 'appendTo'];
 
 const pickedPopoverPropTypes = pick<
   typeof ClosablePopover.propTypes, keyof PickedClosablePopoverProps>(
@@ -82,13 +85,23 @@ export class FloatingHelper extends React.Component<FloatingHelperProps> {
 
   close = () => { this.closablePopoverRef.close() };
 
+  isControlled() {
+    return this.props.opened !== undefined;
+  }
+
+  getCloseButtonHandler(closableActions: ClosablePopoverActions) {
+    return this.isControlled()?
+      (this.props.onClose ? this.props.onClose : ()=>null) :
+      closableActions.close
+  }
+
   renderContent(closableActions: ClosablePopoverActions, {width, content}: Partial<FloatingHelperProps>) {
     return (
       <div data-hook={DataHooks.contentWrapper} style={{ width }}>
         <CloseButton
           className={style.closeButton}
           data-hook={DataHooks.closeButton}
-          onClick={closableActions.close}
+          onClick={()=>this.getCloseButtonHandler(closableActions)()}
           skin={CloseButtonSkin.white}
           size={CloseButtonSize.large}
         />

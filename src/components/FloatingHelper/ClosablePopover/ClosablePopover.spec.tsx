@@ -214,6 +214,18 @@ describe('ClosablePopover', () => {
     });
   });
 
+  describe('controlled', () => {
+    it('should be opened', () => {
+      const { wrapperInstance, driver } = createEnzymeDriver(createComponent({ opened:true }));
+      expect(driver.isOpened()).toBeTruthy();
+    });
+
+    it('should be closed', () => {
+      const { wrapperInstance, driver } = createEnzymeDriver(createComponent({ opened:false }));
+      expect(driver.isOpened()).toBeFalsy();
+    });
+  });
+
   describe('Controlled Error', () => {
     it('should throw error on open', () => {
       const { wrapperInstance, driver } = createEnzymeDriver(createComponent({ opened: false }));

@@ -18,6 +18,9 @@ import * as FullExampleRaw from '!raw-loader!./FullExample';
 import {ProgrammaticExample} from './ProgrammaticExample';
 import * as ProgrammaticExampleRaw from '!raw-loader!./ProgrammaticExample';
 
+import {ControlledExample} from './ControlledExample';
+import * as ControlledExampleRaw from '!raw-loader!./ControlledExample';
+
 const exampleWrapperStyle = {marginTop: 100, marginBottom: 100};
 
 export default {
@@ -86,6 +89,11 @@ export default {
         <CodeExample title="Programmatic Open Example" code={ProgrammaticExampleRaw}>
           <div style={exampleWrapperStyle}>
             <ProgrammaticExample/>
+          </div>
+        </CodeExample >
+        <CodeExample title="Controlled Example" code={ControlledExampleRaw}>
+          <div style={exampleWrapperStyle}>
+            <ControlledExample/>
           </div>
         </CodeExample >
       </div>

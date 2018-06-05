@@ -16,7 +16,7 @@ export interface ClosablePopoverOwnProps {
    * When undefined, then the component is Uncontrolled,
    * It is initially open, and it can be closed by close-action */
   opened?: boolean;
-  /** Controls wether the popover's content is initially opened (in Uncontrolled mode) */
+  /** Controls wether the popover's content is initially opened (in Uncontrolled mode only) */
   initiallyOpened?: boolean;
   /** The popover's content, given as a function that receives control-actions and renders the contet.
    * In Uncontrolled mode, this function is still called only once.

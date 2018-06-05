@@ -110,6 +110,22 @@ describe('FloatingHelper', () => {
     });
   });
 
+  describe('controlled', () => {
+    it('should call onClose but not close', async () => {
+      const onClose=jest.fn();
+      const {driver, wrapperInstance} = createEnzymeDriver(buildComponent({opened:true, onClose}));
+      driver.clickCloseButton();
+      expect(onClose).toBeCalled();
+      expect(driver.isOpened()).toBeTruthy();
+    });
+
+    it('should not throw error when closeButton clicked and there is no onClose callback', async () => {
+      const {driver, wrapperInstance} = createEnzymeDriver(buildComponent({opened:true}));
+      const click = ()=>driver.clickCloseButton();
+      expect(click).not.toThrowError();
+    });
+  });
+
   describe('appendTo', () => {
     it('should be window by default', () => {
       wrapper = mount(buildComponent());
