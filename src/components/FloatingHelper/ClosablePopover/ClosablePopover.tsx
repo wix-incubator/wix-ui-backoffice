@@ -2,7 +2,9 @@ import * as React from 'react';
 import { bool, func, node , ValidationMap} from 'prop-types';
 import isBoolean = require('lodash/isBoolean');
 import pick = require('lodash/pick');
-import { Popover, PopoverProps } from 'wix-ui-core/Popover';
+import { Popover, PopoverProps, Placement, AppendTo } from 'wix-ui-core/Popover';
+
+export {Placement, AppendTo};
 
 export interface ClosablePopoverActions {
   /** Closes the popover content*/
@@ -22,9 +24,9 @@ export interface ClosablePopoverOwnProps {
   content: (closable: ClosablePopoverActions) => React.ReactNode;
   /** The popover's target element*/
   target: React.ReactNode;
-  /** callback to call when the popover content was opened */
+  /** callback to call when the popover content is requested to be opened */
   onOpen?: Function;
-  /** callback to call when the popover content was closed. NOTE: this callback is called when the close timeout (if exists) starts */
+  /** callback to call when the popover content is requested to be closed. NOTE: this callback is called when the close timeout (if exists) starts */
   onClose?: Function;
   /** Disable close on mouseLeave */
   closeOnMouseLeave?: boolean
