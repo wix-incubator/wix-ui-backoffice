@@ -48,7 +48,7 @@ export interface PickedClosablePopoverPropsHack {
   placement: Placement;
   /** Enables calculations in relation to a dom element. possible values: 'scrollParent', 'viewport', 'window' or an Element. See PopperJs docs: https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.boundariesElement */
   appendTo?: AppendTo;
-  /** callback to call when the popover content is requested to be opened */
+  /** Callback to call when the popover content is requested to be opened (Uncontrolled mode only)*/
   onOpen?: Function;
 }
 

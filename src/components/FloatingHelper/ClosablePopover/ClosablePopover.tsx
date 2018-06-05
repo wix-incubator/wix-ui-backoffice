@@ -24,9 +24,9 @@ export interface ClosablePopoverOwnProps {
   content: (closable: ClosablePopoverActions) => React.ReactNode;
   /** The popover's target element*/
   target: React.ReactNode;
-  /** callback to call when the popover content is requested to be opened */
+  /** Callback to call when the popover content is requested to be opened (Uncontrolled mode only) */
   onOpen?: Function;
-  /** callback to call when the popover content is requested to be closed. NOTE: this callback is called when the close timeout (if exists) starts */
+  /** callback to call when the popover content is requested to be closed (Uncontrolled mode only). NOTE: this callback is called when the close timeout (if exists) starts */
   onClose?: Function;
   /** Disable close on mouseLeave */
   closeOnMouseLeave?: boolean
