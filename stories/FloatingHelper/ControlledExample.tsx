@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import { FloatingHelper } from 'wix-ui-backoffice/FloatingHelper';
 import { FloatingHelper } from '../../src/components/FloatingHelper';
 
 export class ControlledExample extends React.Component {
