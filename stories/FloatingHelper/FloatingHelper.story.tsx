@@ -39,14 +39,14 @@ export default {
         onActionClick={() => null}
         image={<Image width="102" height="102" viewBox="4 4 18 18" />}
       />),
-    target: <span>I am a FloatingHelper target</span>,
+    target: 'I am simple text target',
     placement: 'right'
   },
   exampleProps: {
     placement: ['right','bottom'],
     target: [
-      {label: 'Simple text', value: 'I am simple text target'},
-      {label: 'Simple span', value: <span>I am a span target</span>},
+      {label: 'a string - example', value: 'I am simple text target'},
+      {label: 'any node - example', value: <Button>I am a target</Button>},
     ],
     content: [
       {label: 'with title & body only', value:
