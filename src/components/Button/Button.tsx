@@ -47,6 +47,7 @@ export const Button: React.SFC<ButtonProps> = props => {
         light={textColorProps.light}
         skin={textColorProps.skin}
         size={textSize}
+        {...style('text')}
       >
         {children}
       </Text>

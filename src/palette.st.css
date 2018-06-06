@@ -76,6 +76,8 @@
   disabledText: value(D50);
   primaryLightText: value(WHITE);
   secondaryLightText: value(D50);
+
+  buttonSecondaryText: value(B10);
   
   linkedText: value(brandPrimary);
   linkedTextHover: value(brandPrimary);
