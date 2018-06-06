@@ -34,4 +34,16 @@ describe('Button', () => {
       }
     }
   });
+
+  eyes.it('should render in all skins and priorities when hovered', async () => {
+    for (let skin of enumValues(Skin)) {
+      for (let priority of enumValues(Priority)) {
+        await autoExampleDriver.setProps({ skin, priority });
+        const driver = buttonTestkitFactory({ dataHook });
+        await driver.mouseEnter();
+        await eyes.checkWindow(`[skin=${skin}, priority=${priority}`);
+        await driver.mouseLeave();
+      }
+    }
+  });
 });
