@@ -1,7 +1,7 @@
 import { storySettings } from './../../../stories/Button/storySettings';
 import * as eyes from 'eyes.it';
 import { browser } from 'protractor';
-import { createStoryUrl } from 'wix-ui-test-utils/protractor';
+import { createStoryUrl , mouseEnter, mouseLeave} from 'wix-ui-test-utils/protractor';
 import { buttonTestkitFactory } from '../../testkit/protractor';
 import { Skin, Size, Priority } from './constants';
 import autoExampleDriver = require('wix-storybook-utils/AutoExampleDriver');
@@ -40,9 +40,9 @@ describe('Button', () => {
       for (let priority of enumValues(Priority)) {
         await autoExampleDriver.setProps({ skin, priority });
         const driver = buttonTestkitFactory({ dataHook });
-        await driver.mouseEnter();
+        await mouseEnter(driver.element());
         await eyes.checkWindow(`[skin=${skin}, priority=${priority}]`);
-        await driver.mouseLeave();
+        await mouseLeave();
       }
     }
   });
