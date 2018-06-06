@@ -30,7 +30,7 @@ describe('Button', () => {
     for (let skin of enumValues(Skin)) {
       for (let priority of enumValues(Priority)) {
         await autoExampleDriver.setProps({ skin, priority });
-        eyes.checkWindow(`[skin=${skin}, priority=${priority}`);
+        eyes.checkWindow(`[skin=${skin}, priority=${priority}]`);
       }
     }
   });
@@ -41,7 +41,7 @@ describe('Button', () => {
         await autoExampleDriver.setProps({ skin, priority });
         const driver = buttonTestkitFactory({ dataHook });
         await driver.mouseEnter();
-        await eyes.checkWindow(`[skin=${skin}, priority=${priority}`);
+        await eyes.checkWindow(`[skin=${skin}, priority=${priority}]`);
         await driver.mouseLeave();
       }
     }
