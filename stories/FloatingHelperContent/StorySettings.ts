@@ -11,5 +11,6 @@ export const storySettings: StorySettings = {
         'example-body-action',
         'example-title-body-action-premium',
         'example-title-body-action-image',
+        'example-body-image',
     ]
 };
