@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Button, ButtonProps, ButtonSkin as Skin, ButtonPriority as Priority, ButtonSize as Size } from '../../src/components/Button';
 import * as ButtonSource from '!raw-loader!../../src/components/Button/Button.tsx';
 import { storySettings } from './storySettings';
+import {enumValues} from '../../src/utils';
 
 function PButton(props: ButtonProps) {
   return (
@@ -24,7 +25,9 @@ export default {
     children: ['Click me!'],
   }),
   exampleProps: {
-    skin: ['standard', 'white']
+    skin: enumValues(Skin),
+    priority: enumValues(Priority),
+    size: enumValues(Size)
   },
   examples: (
     <div style={{backgroundColor: '#f6f8fa', margin: '10px', padding: '16px'}}>

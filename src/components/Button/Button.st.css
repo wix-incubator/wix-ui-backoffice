@@ -4,8 +4,14 @@
 }
 
 :import {
+  -st-from: "../Text/Text.st.css";
+  -st-default: Text;
+}
+
+:import {
   -st-from: "../../palette.st.css";
-  -st-named: main, backgroundSecondary, danger, premium, mainHover, mainMutedBackground, premiumHover, dangerHover;
+  -st-named: main, backgroundSecondary, danger, premium, mainHover, mainMutedBackground, premiumHover, dangerHover,
+    buttonSecondaryText;
 }
 
 .root {
@@ -23,6 +29,9 @@
   cursor: pointer;
 }
 
+.text {
+  -st-extends: Text;
+}
 /*skins ans priority*/
 
 :vars {
@@ -54,6 +63,10 @@
 .root:skin(white):priority(secondary) {
   background-color: transparent;
   border-color: value(skinWhiteColor);
+}
+
+.root:skin(white):priority(secondary):hover .text{
+  color: value(buttonSecondaryText)
 }
 
 .root:skin(destructive):priority(primary) {
