@@ -5,17 +5,18 @@ import Image from 'wix-ui-icons-common/Image';
 
 const title = 'Don’t forget to setup payments';
 const body = 'In order to sell your music you need to choose a payment method.';
-const actionText = 'Ok, Take Me There';
-const image = <Image width="102" height="102" viewBox="4 4 18 18"/>;
+const action = {actionText: 'Ok, Take Me There', onActionClick: ()=>null};
+const image = <Image width="102" height="102"/>;
 
 // Should match the exampleDataHooks from storySettings
 const exampleProps : FloatingHelperContentProps[]= [
   { body },
   { title, body },
-  { title, body, actionText },
-  { body, actionText },
-  { title, body, actionText, actionTheme: ActionButtonTheme.premium },
-  { title, body, actionText , image}
+  { title, body, ...action },
+  { body, ...action },
+  { title, body, ...action, actionTheme: ActionButtonTheme.premium },
+  { title, body, ...action , image},
+  { body, image}
 ];
 
 const componentProps: FloatingHelperContentProps  & {'data-hook': string} = {
