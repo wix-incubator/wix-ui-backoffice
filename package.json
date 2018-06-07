@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.5",
-    "wix-ui-core": "1.0.466",
+    "wix-ui-core": "1.0.473",
     "wix-ui-theme": "1.0.43",
     "wix-ui-icons-common": "^1.0.36"
   },
