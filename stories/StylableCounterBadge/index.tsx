@@ -10,7 +10,7 @@ const skinOptions = Object.keys(SKIN).map(value => Autocomplete.createOption({id
 
 const iconsOptions = ['1', '12', 'Facebook'].map(value => Autocomplete.createOption({id: value, value}));
 
-class ControlleCounterdBadgeExample extends React.Component<any, any> {
+class ControlledCounterdBadgeExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,7 +41,5 @@ class ControlleCounterdBadgeExample extends React.Component<any, any> {
   }
 }
 
-export const story = () => storiesOf('Components', module)
-  .add('StylableCounterBadge', () => (
-    <ControlleCounterdBadgeExample/>
-  ));
+storiesOf('Components', module)
+  .add('StylableCounterBadge', () => <ControlledCounterdBadgeExample/>);

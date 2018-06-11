@@ -46,7 +46,5 @@ class ControlledLabelExample extends React.Component<any, any> {
   }
 }
 
-export const story = () => storiesOf('Components', module)
-  .add('Label', () => (
-    <ControlledLabelExample/>
-  ));
+storiesOf('Components', module)
+  .add('Label', () => <ControlledLabelExample/>);
