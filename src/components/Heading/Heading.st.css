@@ -102,3 +102,7 @@
     letterSpacing 1px
   );
 }
+
+.root {
+  font-weight: normal;
+}

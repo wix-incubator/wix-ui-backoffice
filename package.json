@@ -71,7 +71,7 @@
     "wix-eventually": "^2.2.0",
     "wix-storybook-utils": "^1.0.85",
     "wix-ui-test-utils": "^1.0.93",
-    "yoshi": "~2.7.0"
+    "yoshi": "^2.8.3"
   },
   "optionalDependencies": {
     "teamcity-surge-autorelease": "^1.0.3"
