@@ -8,11 +8,15 @@ export default {
 
   componentProps: setState => ({
     'data-hook': 'storybook-input',
-    value: '',
+    value: 'Hello, World',
+    placeholder: 'Greetings',
+    error: false,
     onChange: event => setState({value: event.target.value})
   }),
 
   exampleProps: {
+    prefix: ['Mrs.', 'Mr.', 'Prince'],
+    suffix: ['$', '€'],
     onClick: () => 'Triggered onClick',
     onChange: () => 'Triggered onChange',
     onDoubleClick: () => 'Triggered onDoubleClick',
