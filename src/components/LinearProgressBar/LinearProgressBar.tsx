@@ -3,7 +3,7 @@ import {LinearProgressBar as UiCoreLinearProgressBar} from 'wix-ui-core/LinearPr
 import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import style from './LinearProgressBar.st.css';
-import Check from 'wix-ui-icons-common/Check';
+import {Tooltip} from '../Tooltip';
 
 export interface LinearProgressBarProps {
   value: number;
@@ -13,13 +13,17 @@ export interface LinearProgressBarProps {
   light?: boolean;
 }
 
-const preDefinedProps = {
-  successIcon: <div className={style.successIcon}><FormFieldError /></div>,
-  errorIcon: <div className={style.errorIcon}><FormFieldError /></div>
-};
-
-
-
 export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (props) => {
-  return (<UiCoreLinearProgressBar {...style('root')} {...{...props, ...preDefinedProps}} />)
+
+  const iconProps = {
+    successIcon: <div className={style.successIcon}><ToggleOn /></div>,
+    errorIcon: <Tooltip placement="top" content={props.errorMessage}>
+                 <div className={style.errorIcon}><FormFieldError /></div>
+               </Tooltip>
+  };
+  return (
+      <div className={style.progressBarContainer}>
+        <UiCoreLinearProgressBar {...style('root', {light: props.light})} {...{...props, ...iconProps}} />
+      </div>
+    )
 }

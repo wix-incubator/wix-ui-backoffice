@@ -10,6 +10,7 @@
   Y10, Y20, Y30, Y40,
   GR20,
   O10,
+  R00,
   WHITE,
   F00;
 }
@@ -28,6 +29,7 @@
   success:	value(G10);
   warning:	value(Y10);
   danger:	value(R10);
+  error: value(R00);
   premium:	value(P10);
   urgent: value(O10);
   standard:  value(B20);
@@ -46,6 +48,7 @@
   warningMuted:	value(Y40);
   dangerMuted:	value(R40);
   premiumMuted:	value(P40);
+  progress: value(B00);
 
   mainMutedHover:	value(B30);
   successMutedHover:	value(G30);

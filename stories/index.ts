@@ -6,6 +6,7 @@ require('./CloseButton');
 require('./CounterBadge').story();
 require('./FloatingHelper');
 require('./FloatingHelperContent');
+require('./LinearProgressBar');
 require('./StylableCounterBadge').story();
 require('./Heading.story.tsx');
 require('./Label').story();

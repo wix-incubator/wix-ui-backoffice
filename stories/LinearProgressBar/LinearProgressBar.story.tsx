@@ -7,6 +7,8 @@ export default {
   component: LinearProgressBar,
   componentPath: '../../src/components/LinearProgressBar/LinearProgressBar.tsx',
 
-  exampleProps: {
+  componentProps: {
+    errorMessage: "You fucked up!!!",
+    value: 20
   }
 }
