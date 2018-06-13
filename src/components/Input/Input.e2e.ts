@@ -13,5 +13,5 @@ describe('Input', () => {
     const driver = inputTestkitFactory({dataHook});
 
     expect(driver.element().isDisplayed()).toBe(true);
-  });
+  }, {version: 'story with value'});
 });

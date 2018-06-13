@@ -9,7 +9,7 @@ export default {
   componentPath: '../src/components/Heading/Heading.tsx',
 
   componentProps: {
-    dataHook: 'storybook-heading',
+    'data-hook': 'storybook-heading',
     children: 'Some text',
     light: false
   },
