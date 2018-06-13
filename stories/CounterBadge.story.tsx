@@ -2,6 +2,8 @@ import * as React from 'react';
 import Add from 'wix-ui-icons-common/Add';
 
 import {CounterBadge} from '../src/components/CounterBadge';
+import {Skin} from '../src/components/CounterBadge/constants';
+import {enumValues} from '../src/utils';
 
 export default {
   category: 'Components',
@@ -16,6 +18,7 @@ export default {
   },
 
   exampleProps: {
-    children: ['1', '12', <Add/>]
+    children: ['1', '12', <Add key="0"/>],
+    skin: enumValues(Skin)
   }
 };
