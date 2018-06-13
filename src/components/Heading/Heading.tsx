@@ -27,7 +27,7 @@ export interface Props {
 export interface State { tagName: TagName; }
 
 const defaultProps: Props = {
-  appearance: 'H1',
+  appearance: Appearance.H1,
   light: false
 };
 
