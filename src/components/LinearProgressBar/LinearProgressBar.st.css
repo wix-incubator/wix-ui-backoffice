@@ -22,7 +22,6 @@
 
 .root:light {
   background: value(backgroundPrimary);
-  color: white;
 }
 
 .root:light::barBackground {
