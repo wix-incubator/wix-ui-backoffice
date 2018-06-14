@@ -16,14 +16,14 @@ export interface LinearProgressBarProps {
 export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (props) => {
 
   const iconProps = {
-    successIcon: <div className={style.successIcon}><ToggleOn /></div>,
-    errorIcon: <Tooltip placement="top" content={props.errorMessage}>
+    successIcon: <div data-hook="success-icon" className={style.successIcon}><ToggleOn /></div>,
+    errorIcon: <Tooltip data-hook="tooltip" placement="top" content={props.errorMessage}>
                  <div className={style.errorIcon}><FormFieldError /></div>
                </Tooltip>
   };
   return (
       <div className={style.progressBarContainer}>
-        <UiCoreLinearProgressBar {...style('root', {light: props.light})} {...{...props, ...iconProps}} />
+        <UiCoreLinearProgressBar data-hook="progress-bar" {...style('root', {light: props.light})} {...{...props, ...iconProps}} />
       </div>
     )
 }

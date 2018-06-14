@@ -7,6 +7,10 @@ import { badgeDriverFactory, BadgeDriver } from '../components/Badge/Badge.drive
 export const badgeTestkitFactory = enzymeTestkitFactoryCreator<BadgeDriver>(badgeDriverFactory);
 export { BadgeDriver };
 
+import { linearProgressBarDriverFactory, LinearProgressBarDriver } from '../components/LinearProgressBar/LinearProgressBar.driver';
+export const linearProgressBarTestkitFactory = enzymeTestkitFactoryCreator<LinearProgressBarDriver>(linearProgressBarDriverFactory);
+export { LinearProgressBarDriver };
+
 import { headingDriverFactory, HeadingDriver } from '../components/Heading/Heading.driver';
 export const headingTestkitFactory = enzymeTestkitFactoryCreator<HeadingDriver>(headingDriverFactory);
 export { HeadingDriver };
