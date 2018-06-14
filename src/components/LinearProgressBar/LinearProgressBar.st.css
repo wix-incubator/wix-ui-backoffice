@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: error, main, danger, focus, mainMutedHover, dangerMutedHover, brandSecondary;
+  -st-named: progress, error, main, danger, mainMutedHover, dangerMutedHover, backgroundPrimary;
 }
 
 :import {
@@ -21,7 +21,7 @@
 }
 
 .root:light {
-  background: value(brandSecondary);
+  background: value(backgroundPrimary);
   color: white;
 }
 
@@ -29,17 +29,20 @@
   background: value(WHITE);
 }
 
-.root:light::barBackground {
-  background: value(WHITE);
-}
-
 .root::barForeground {
+  background: value(progress);
   transition: width 0.5s ease-in-out;
-  background: value(focus);
 }
 
 .root::barBackground {
   background: value(mainMutedHover);
+}
+
+.root::barBackground,
+.root::barForeground
+ {
+  border-radius: 2px;
+  height: 4px;
 }
 
 .root:error::barForeground {
@@ -51,10 +54,10 @@
 }
 
 .root:light::barContainer {
-  background: value(brandSecondary);
+  background: value(backgroundPrimary);
 }
 
-.successIcon, .errorIcon {
+.root::indicationContainer {
   width: 18px;
   height: 18px;
   border-radius: 12px;
@@ -63,12 +66,16 @@
   align-items: center;
 }
 
-.successIcon {
+.root:success::indicationContainer {
   background: value(main);
-  color: value(WHITE);
 }
 
-.errorIcon {
+.root:error::indicationContainer {
   background: value(danger);
+}
+
+.root::indicationContainer svg {
+  height: 8px;
+  width: 10px;
   color: value(WHITE);
 }
