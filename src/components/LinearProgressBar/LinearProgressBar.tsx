@@ -16,12 +16,12 @@ export interface LinearProgressBarProps extends CoreLinearProgressBarProps{
 
 export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (props: LinearProgressBarProps) => {
 
-  const { errorMessage, ...otherProps } = props;
+  const { errorMessage, light, ...otherProps } = props;
 
   return (
     <CoreLinearProgressBar 
       data-hook="progress-bar"
-      {...style('root', { light: props.light })}
+      {...style('root', { light: light })}
       {...otherProps}
       successIcon={<ToggleOn />}
       errorIcon={(
