@@ -21,7 +21,7 @@ export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (props: Line
   return (
     <CoreLinearProgressBar 
       data-hook="progress-bar"
-      {...style('root', { light: light })}
+      {...style('root', { light })}
       {...otherProps}
       successIcon={<ToggleOn />}
       errorIcon={(
