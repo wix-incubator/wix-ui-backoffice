@@ -13,11 +13,6 @@ describe('LinearProgressBar', () => {
     const defaultProps = {
         value: 40
     }
-   
-    it('should exist', () => {
-      const driver = createDriver(<LinearProgressBar {...defaultProps}/>);
-      expect(driver.exists()).toBe(true);
-    });
 
     describe('on error', () => {
 
@@ -30,7 +25,7 @@ describe('LinearProgressBar', () => {
         it('should display tooltip text only on hover', () => {
             const driver = createDriver(<LinearProgressBar {...defaultProps} {...errorProps} />);
             expect(driver.isTooltipShown()).toBe(false);
-            driver.hoverOnTooltip();
+            driver.getTooltip().mouseEnter();
             expect(driver.isTooltipShown()).toBe(true);
         });
 

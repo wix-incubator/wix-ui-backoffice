@@ -7,6 +7,7 @@ import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import style from './LinearProgressBar.st.css';
 import { Tooltip } from '../Tooltip';
+import { bool } from 'prop-types';
 
 export interface LinearProgressBarProps extends CoreLinearProgressBarProps{
   errorMessage?: string;
@@ -24,9 +25,10 @@ export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (props: Line
       {...otherProps}
       successIcon={<ToggleOn />}
       errorIcon={(
-        <Tooltip data-hook="tooltip" placement="top" content={props.errorMessage}>
+        <Tooltip data-hook="tooltip" placement="top" content={errorMessage}>
           <FormFieldError />
         </Tooltip>)}
     />
   )
 }
+

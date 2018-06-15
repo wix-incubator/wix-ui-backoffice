@@ -5,7 +5,6 @@ export default {
   name: 'LinearProgressBar',
   storyName: 'LinearProgressBar',
   component: LinearProgressBar,
-  componentPath: '../../src/components/LinearProgressBar/LinearProgressBar.tsx',
 
   componentProps: {
     errorMessage: 'some error message',

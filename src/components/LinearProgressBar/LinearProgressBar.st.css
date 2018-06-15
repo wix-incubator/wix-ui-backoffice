@@ -5,13 +5,9 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: progress, error, main, danger, mainMutedHover, dangerMutedHover, backgroundPrimary;
+  -st-named: progress, error, main, danger, mainMutedHover, dangerMutedHover, backgroundPrimary, backgroundSecondary;
 }
 
-:import {
-  -st-from: "../../colors.st.css";
-  -st-named: WHITE;
-}
 
 .root {
    -st-states: light;
@@ -25,7 +21,7 @@
 }
 
 .root:light::barBackground {
-  background: value(WHITE);
+  background: value(backgroundSecondary);
 }
 
 .root::barForeground {
@@ -76,5 +72,5 @@
 .root::indicationContainer svg {
   height: 8px;
   width: 10px;
-  color: value(WHITE);
+  color: value(backgroundSecondary);
 }

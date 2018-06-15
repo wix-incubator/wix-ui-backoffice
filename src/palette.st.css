@@ -4,13 +4,12 @@
   B00, B10, B20, B30, B40, B50,
   G10, G20, G30, G40,
   GR10, GR20, GR30, GR40, GR50, GR60,
-  R10, R20, R30, R40,
+  R10, R20, R30, R40, R00,
   D10, D20, D40, D50, D55, D60, D70,
   P10, P20, P30, P40,
   Y10, Y20, Y30, Y40,
   GR20,
   O10,
-  R00,
   WHITE,
   F00;
 }
@@ -35,6 +34,7 @@
   standard:  value(B20);
   general: value(D20);
   neutral: value(D40);
+  white: value(WHITE);
 
   mainHover:	value(B20);
   successHover:	value(G20);
