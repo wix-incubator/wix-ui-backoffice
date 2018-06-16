@@ -18,15 +18,20 @@ export interface LinearProgressBarDriver extends CoreLinearProgressBarDriver {
 }
 
 export const linearProgressBarDriverFactory: DriverFactory<LinearProgressBarDriver> = ({ element, eventTrigger, wrapper }: ComponentFactory): LinearProgressBarDriver => {
-    const tooltipDriver = tooltipDriverFactory({element: element.querySelector(`[data-hook='tooltip']`), wrapper, eventTrigger});
     const coreProgressBarDriver = coreLinearProgressBarDriverFactory({element, wrapper, eventTrigger});
     const errorIcon = () => element.querySelector(`[data-hook='error-icon']`);
     const successIcon = () => element.querySelector(`[data-hook='success-icon']`);
+    const tooltipRootElement = () => element.querySelector(`[data-hook='tooltip']`);
+    const tooltipContent = () => tooltipRootElement().querySelector('[data-hook=\'tooltip-content\']');
+    const tooltipDriver = {...tooltipDriverFactory({element: element.querySelector(`[data-hook='tooltip']`), wrapper, eventTrigger}), 
+                            getContent: () => tooltipContent().innerHTML }
+    
+
 
     return {
         ...coreProgressBarDriver,
         isTooltipShown: () => tooltipDriver.isContentElementExists(),
-        getTooltip: () => tooltipDriver, 
+        getTooltip: () => tooltipDriver,
         isErrorIconShown: () => !!errorIcon(),
         isSuccessIconShown: () => !!successIcon()
     };

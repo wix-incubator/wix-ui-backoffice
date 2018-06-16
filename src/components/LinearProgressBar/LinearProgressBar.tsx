@@ -25,7 +25,7 @@ export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (props: Line
       {...otherProps}
       successIcon={<ToggleOn />}
       errorIcon={(
-        <Tooltip data-hook="tooltip" placement="top" content={errorMessage}>
+        <Tooltip data-hook="tooltip" placement="top" content={<div data-hook="tooltip-content">{errorMessage}</div>}>
           <FormFieldError />
         </Tooltip>)}
     />
