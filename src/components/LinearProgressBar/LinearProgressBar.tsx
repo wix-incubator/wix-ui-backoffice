@@ -35,7 +35,11 @@ export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (props: Line
 }
 
 LinearProgressBar.propTypes = {
-  ...CoreLinearProgressBar.propTypes,
+  value: PropTypes.number,
+  error: PropTypes.bool,
+  showProgressIndication: PropTypes.bool,
+  errorIcon: PropTypes.element,
+  successIcon: PropTypes.element,
   errorMessage: PropTypes.string,
-  light: PropTypes.bool
+  light: PropTypes.bool,
 };
