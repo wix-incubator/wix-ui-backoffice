@@ -27,7 +27,6 @@ describe('LinearProgressBar', () => {
             expect(driver.isTooltipShown()).toBe(false);
             driver.getTooltip().mouseEnter();
             expect(driver.isTooltipShown()).toBe(true);
-            expect(driver.getTooltip().getContent()).toEqual(errorProps.errorMessage);
         });
 
         it('should display error icon', () => {
