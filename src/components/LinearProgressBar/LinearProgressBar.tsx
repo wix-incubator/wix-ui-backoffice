@@ -10,7 +10,9 @@ import { Tooltip } from '../Tooltip';
 import * as PropTypes from 'prop-types';
 
 export interface LinearProgressBarProps extends CoreLinearProgressBarProps {
+  /** message to display when an error happens */
   errorMessage?: string;
+  /** use light theme instead of dark theme */
   light?: boolean;
 }
 
