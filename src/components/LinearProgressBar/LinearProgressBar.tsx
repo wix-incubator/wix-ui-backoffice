@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { 
+import {
   LinearProgressBar as CoreLinearProgressBar,
-  LinearProgressBarProps as CoreLinearProgressBarProps 
+  LinearProgressBarProps as CoreLinearProgressBarProps
   } from 'wix-ui-core/LinearProgressBar';
 import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
@@ -19,9 +19,9 @@ export interface LinearProgressBarProps extends CoreLinearProgressBarProps {
 export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (props: LinearProgressBarProps) => {
 
   const { errorMessage, light, ...otherProps } = props;
-  
+
   return (
-    <CoreLinearProgressBar 
+    <CoreLinearProgressBar
       data-hook="progress-bar"
       {...style('root', { light })}
       {...otherProps}
@@ -35,11 +35,7 @@ export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (props: Line
 }
 
 LinearProgressBar.propTypes = {
-  value: PropTypes.number,
-  error: PropTypes.bool,
-  showProgressIndication: PropTypes.bool,
-  errorIcon: PropTypes.element,
-  successIcon: PropTypes.element,
+  ...CoreLinearProgressBar.propTypes,
   errorMessage: PropTypes.string,
   light: PropTypes.bool,
 };
