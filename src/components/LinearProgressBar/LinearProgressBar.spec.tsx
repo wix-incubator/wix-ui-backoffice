@@ -27,13 +27,14 @@ describe('LinearProgressBar', () => {
             expect(driver.isTooltipShown()).toBe(false);
             driver.getTooltip().mouseEnter();
             expect(driver.isTooltipShown()).toBe(true);
+            expect(driver.getTooltip().getContentElement().innerHTML).toContain(errorProps.errorMessage);
         });
 
         it('should display error icon', () => {
             const driver = createDriver(<LinearProgressBar {...defaultProps} {...errorProps} />);
             expect(driver.isErrorIconShown()).toBe(true);
         });
-        
+
     });
 
     describe('on completion', () => {
@@ -47,7 +48,7 @@ describe('LinearProgressBar', () => {
             const driver = createDriver(<LinearProgressBar {...successProps}/>);
             expect(driver.isSuccessIconShown()).toBe(true);
         });
-        
+
     });
 
     runTestkitExistsSuite({
