@@ -35,6 +35,7 @@
     "pr-postbuild": "npx teamcity-surge-autorelease@^1.0.0 --dist=storybook-static"
   },
   "dependencies": {
+    "date-fns": "^1.29.0",
     "lodash": "^4.17.5",
     "wix-ui-core": "1.0.506",
     "wix-ui-icons-common": "^2.0.3",
