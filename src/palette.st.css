@@ -4,7 +4,7 @@
   B00, B10, B20, B30, B40, B50,
   G10, G20, G30, G40,
   GR10, GR20, GR30, GR40, GR50, GR60,
-  R10, R20, R30, R40,
+  R10, R20, R30, R40, R00,
   D10, D20, D40, D50, D55, D60, D70,
   P10, P20, P30, P40,
   Y10, Y20, Y30, Y40,
@@ -28,6 +28,7 @@
   success:	value(G10);
   warning:	value(Y10);
   danger:	value(R10);
+  error: value(R00);
   premium:	value(P10);
   urgent: value(O10);
   standard:  value(B20);
@@ -46,6 +47,7 @@
   warningMuted:	value(Y40);
   dangerMuted:	value(R40);
   premiumMuted:	value(P40);
+  progress: value(B00);
 
   mainMutedHover:	value(B30);
   successMutedHover:	value(G30);

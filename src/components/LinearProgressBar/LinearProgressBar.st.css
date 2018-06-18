@@ -1,0 +1,76 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/components/LinearProgressBar/LinearProgressBar.st.css";
+  -st-default: LinearProgressBar;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: progress, error, main, danger, mainMutedHover, dangerMutedHover, backgroundPrimary, backgroundSecondary;
+}
+
+
+.root {
+   -st-states: light;
+   -st-extends: LinearProgressBar;
+   padding: 0px 6px;
+   height: 30px;
+}
+
+.root:light {
+  background: value(backgroundPrimary);
+}
+
+.root:light::barBackground {
+  background: value(backgroundSecondary);
+}
+
+.root::barForeground {
+  background: value(progress);
+  transition: width 0.5s ease-in-out;
+}
+
+.root::barBackground {
+  background: value(mainMutedHover);
+}
+
+.root::barBackground,
+.root::barForeground
+ {
+  border-radius: 2px;
+  height: 4px;
+}
+
+.root:error::barForeground {
+  background: value(error);
+}
+
+.root:error::barBackground {
+  background: value(dangerMutedHover);
+}
+
+.root:light::barContainer {
+  background: value(backgroundPrimary);
+}
+
+.root::indicationContainer {
+  width: 18px;
+  height: 18px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.root:success::indicationContainer {
+  background: value(main);
+}
+
+.root:error::indicationContainer {
+  background: value(danger);
+}
+
+.root::indicationContainer svg {
+  height: 8px;
+  width: 10px;
+  color: value(backgroundSecondary);
+}

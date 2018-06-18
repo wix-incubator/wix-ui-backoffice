@@ -9,6 +9,7 @@ import './FloatingHelperContent/index.story';
 import './StylableCounterBadge';
 import './Heading.story';
 import './Label';
+import './LinearProgressBar';
 import './Input.story.tsx';
 import './LabelWithOptions.story';
 import './ToggleSwitch';

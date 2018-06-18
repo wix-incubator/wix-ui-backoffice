@@ -1,0 +1,1 @@
+export {linearProgressBarDriverFactory, LinearProgressBarDriver} from 'wix-ui-core/dist/src/components/LinearProgressBar/LinearProgressBar.protractor.driver';

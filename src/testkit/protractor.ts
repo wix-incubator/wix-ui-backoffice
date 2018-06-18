@@ -56,6 +56,10 @@ import { thumbnailDriverFactory, ThumbnailDriver } from '../components/Thumbnail
 export const thumbnailTestkitFactory = protractorTestkitFactoryCreator<ThumbnailDriver>(thumbnailDriverFactory);
 export { ThumbnailDriver };
 
+import { linearProgressBarDriverFactory, LinearProgressBarDriver } from '../components/LinearProgressBar/LinearProgressBar.protractor.driver';
+export const linearProgressBarTestkitFactory = protractorTestkitFactoryCreator<LinearProgressBarDriver>(linearProgressBarDriverFactory);
+export { LinearProgressBarDriver };
+
 import { hBoxDriverFactory } from '../components/HBox/HBox.protractor.driver';
 export const hBoxTestkitFactory = protractorTestkitFactoryCreator(hBoxDriverFactory);
 
