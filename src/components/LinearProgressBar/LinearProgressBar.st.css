@@ -16,10 +16,6 @@
    height: 30px;
 }
 
-.root:light {
-  background: value(backgroundPrimary);
-}
-
 .root:light::barBackground {
   background: value(backgroundSecondary);
 }
@@ -46,10 +42,6 @@
 
 .root:error::barBackground {
   background: value(dangerMutedHover);
-}
-
-.root:light::barContainer {
-  background: value(backgroundPrimary);
 }
 
 .root::indicationContainer {
