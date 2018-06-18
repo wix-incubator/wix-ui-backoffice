@@ -5,10 +5,18 @@ import {Text as CoreText, TextProps as CoreTextProps} from '../core/CoreText';
 import style from './Heading.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 
-export type Appearance = 'H1' | 'H2' | 'H3' | 'H4';
+export enum Appearance {
+  H1 = 'H1',
+  H2 = 'H2',
+  H3 = 'H3',
+  H4 = 'H4'
+};
 export type TagName = 'h1' | 'h2' | 'h3' | 'h4';
 
 export interface Props {
+  /** any nodes to be rendered (usually text nodes) */
+  children?: React.ReactNode;
+
   /** is the text has dark or light skin */
   light?: boolean;
 
@@ -19,7 +27,7 @@ export interface Props {
 export interface State { tagName: TagName; }
 
 const defaultProps: Props = {
-  appearance: 'H1',
+  appearance: Appearance.H1,
   light: false
 };
 

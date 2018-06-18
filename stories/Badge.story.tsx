@@ -1,10 +1,14 @@
+import * as React from 'react';
 import {Badge} from '../src/components/Badge';
 import {SKIN, TYPE} from '../src/components/Badge/constants';
 
 import Facebook from 'wix-ui-icons-common/Facebook';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 
-const icons = ['', ChevronDown, Facebook];
+const icons = [
+  <ChevronDown key="0"/>,
+  <Facebook key="0"/>
+];
 
 export default {
   category: 'Components',

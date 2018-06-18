@@ -5,6 +5,12 @@ import {Option, DividerArgs} from 'wix-ui-core/dist/src/baseComponents/DropdownO
 
 const options = generateOptions((args: Partial<DividerArgs> = {}) => Autocomplete.createDivider(args.value));
 
+const exampleOptions = [
+  { value: options, label: '20 example options' },
+  { value: options.slice(0, 1), label: '1 example option' },
+  { value: options.slice(0, 5), label: '5 example options' }
+];
+
 export default {
   category: 'Components',
   storyName: 'Autocomplete',
@@ -13,7 +19,7 @@ export default {
 
   componentProps: {
     'data-hook': 'storybook-autocomplete',
-    options,
+    options: exampleOptions[2].value,
     fixedFooter: 'Fixed Footer',
     fixedHeader: 'Fixed Header',
   },
@@ -26,11 +32,7 @@ export default {
     onChange: evt => evt.target.value,
     size: ['small', 'medium', 'large'],
 
-    options: [
-      { value: options.slice(0, 1), label: '1 example option' },
-      { value: options.slice(0, 5), label: '5 example options' },
-      { value: options, label: '20 example options' }
-    ],
+    options: exampleOptions,
 
     initialSelectedId: [
       { value: [1], label: '[1]' },
