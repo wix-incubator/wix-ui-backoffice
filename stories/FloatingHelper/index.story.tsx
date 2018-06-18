@@ -42,61 +42,71 @@ export default {
     target: 'I am simple text target',
     placement: 'right'
   },
+
   exampleProps: {
-    placement: ['right','bottom'],
+    placement: ['right', 'bottom'],
     target: [
       {label: 'a string - example', value: 'I am simple text target'},
       {label: 'any node - example', value: <Button>I am a target</Button>},
     ],
     content: [
-      {label: 'with title & body only', value:
-      (
-        <FloatingHelper.Content
-          title="Don’t forget to setup payments"
-          body="In order to sell your music you need to choose a payment method."
-          actionText="Ok, Take Me There"
-          onActionClick={() => null}
-          image={<Image width="102" height="102" viewBox="4 4 18 18" />}
-        />
-      )},
-      {label: 'with all items', value:
-      (
-        <FloatingHelper.Content
-          title="Don’t forget to setup payments"
-          body="In order to sell your music you need to choose a payment method."
-        />
-      )}
+      {
+        label: 'with title & body only',
+        value: (
+          <FloatingHelper.Content
+            title="Don’t forget to setup payments"
+            body="In order to sell your music you need to choose a payment method."
+            actionText="Ok, Take Me There"
+            onActionClick={() => null}
+            image={<Image width="102" height="102" viewBox="4 4 18 18" />}
+          />
+        )
+      },
+      {
+        label: 'with all items',
+        value: (
+          <FloatingHelper.Content
+            title="Don’t forget to setup payments"
+            body="In order to sell your music you need to choose a payment method."
+          />
+        )
+      }
     ]
   },
-  examples: 
-    (
-      <div>
-        <h1>Examples</h1>
-        <p>The 'content' property should receive a {`<FloatingHelper.Content>`} element.
-          <br/><br/>
-          <Button onClick={linkTo(helperStorySettings.kind,helperStorySettings.story)}>Open FloatingHelper.Content story </Button>
-        </p>
-        <CodeExample title="Simple Example" code={SimpleExampleRaw}>
-          <div style={exampleWrapperStyle}>
-            <SimpleExample/>
-          </div>
-        </CodeExample >
-        <CodeExample title="Full Example" code={FullExampleRaw}>
-          <div style={exampleWrapperStyle}>
-            <FullExample/>
-          </div>
-        </CodeExample >
-        <CodeExample title="Programmatic Open Example" code={ProgrammaticExampleRaw}>
-          <div style={exampleWrapperStyle}>
-            <ProgrammaticExample/>
-          </div>
-        </CodeExample >
-        <CodeExample title="Controlled Example" code={ControlledExampleRaw}>
-          <div style={exampleWrapperStyle}>
-            <ControlledExample/>
-          </div>
-        </CodeExample >
-      </div>
-    )
 
+  examples: (
+    <div>
+      <h1>Examples</h1>
+
+      <p>
+        The 'content' property should receive a {`<FloatingHelper.Content>`} element.
+        <br/><br/>
+        <Button onClick={linkTo(helperStorySettings.kind,helperStorySettings.story)}>Open FloatingHelper.Content story </Button>
+      </p>
+
+      <CodeExample title="Simple Example" code={SimpleExampleRaw}>
+        <div style={exampleWrapperStyle}>
+          <SimpleExample/>
+        </div>
+      </CodeExample >
+
+      <CodeExample title="Full Example" code={FullExampleRaw}>
+        <div style={exampleWrapperStyle}>
+          <FullExample/>
+        </div>
+      </CodeExample >
+
+      <CodeExample title="Programmatic Open Example" code={ProgrammaticExampleRaw}>
+        <div style={exampleWrapperStyle}>
+          <ProgrammaticExample/>
+        </div>
+      </CodeExample >
+
+      <CodeExample title="Controlled Example" code={ControlledExampleRaw}>
+        <div style={exampleWrapperStyle}>
+          <ControlledExample/>
+        </div>
+      </CodeExample >
+    </div>
+  )
 };

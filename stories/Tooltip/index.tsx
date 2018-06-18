@@ -25,7 +25,7 @@ class FullTooltip extends React.Component<{direction: string, bounce?: boolean}>
   }
 }
 
-export const story = () => storiesOf('Components', module)
+storiesOf('Components', module)
   .add('Tooltip', () => (
     <div>
       <FullTooltip direction="right"/>

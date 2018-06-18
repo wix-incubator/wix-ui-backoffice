@@ -9,7 +9,7 @@ import {SIZES, SKINS} from '../../src/components/ToggleSwitch/constants';
 const skinOptions = Object.keys(SKINS).map(value => Autocomplete.createOption({id: value, value}));
 const sizeOptions = Object.keys(SIZES).map(value => Autocomplete.createOption({id: value, value}));
 
-class ControlleToggleSwitchExample extends React.Component<any, any> {
+class ControlledToggleSwitchExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,7 +49,5 @@ class ControlleToggleSwitchExample extends React.Component<any, any> {
   }
 }
 
-export const story = () => storiesOf('Components', module)
-  .add('ToggleSwitch', () => (
-    <ControlleToggleSwitchExample/>
-  ));
+storiesOf('Components', module)
+  .add('ToggleSwitch', () => <ControlledToggleSwitchExample/>);

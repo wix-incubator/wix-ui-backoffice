@@ -9,13 +9,13 @@ const action = {actionText: 'Ok, Take Me There', onActionClick: ()=>null};
 const image = <Image width="102" height="102"/>;
 
 // Should match the exampleDataHooks from storySettings
-const exampleProps : FloatingHelperContentProps[]= [
+const exampleProps : FloatingHelperContentProps[] = [
   { body },
   { title, body },
   { title, body, ...action },
   { body, ...action },
   { title, body, ...action, actionTheme: ActionButtonTheme.premium },
-  { title, body, ...action , image},
+  { title, body, ...action, image},
   { body, image}
 ];
 
@@ -23,21 +23,23 @@ const componentProps: FloatingHelperContentProps  & {'data-hook': string} = {
   'data-hook': storySettings.dataHook,
   title: 'This is the title',
   body: 'This is the a long text which is passed in the `text` propterty',
-  actionText: 'Click me!',
-}
+  actionText: 'Click me!'
+};
 
 export default {
   category: storySettings.kind,
   storyName: storySettings.story,
   component: FloatingHelperContent,
-  exampleImport: 'import ... - do not import directly, use FloatingHelper.Content',
+  exampleImport: '// do not import directly, use FloatingHelper.Content',
   componentPath: '../../src/components/FloatingHelper/FloatingHelperContent/FloatingHelperContent.tsx',
   componentProps,
+
   exampleProps: {
-    onActionClick: ()=>{/** see interactive preview*/ },
+    onActionClick: () => 'action buton clicked!',
     actionTheme: Object.keys(ActionButtonTheme).map(key=>ActionButtonTheme[key]),
     image: [{label: 'with image', value: image}]
   },
+
   examples: (
     <div>
       <h1>Examples</h1>
@@ -57,4 +59,3 @@ function renderExample(dataHook: string, props?: FloatingHelperContentProps) {
     </div>
   );
 }
-
