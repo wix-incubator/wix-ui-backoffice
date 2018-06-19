@@ -31,14 +31,5 @@ export default {
     checkedIcon: iconExamples,
     uncheckedIcon: iconExamples,
     indeterminateIcon: iconExamples,
-  },
-  examples: (
-    <div>
-      <h1>Examples</h1>
-      <h2> 'text-align:center' should not affect the position of the checked icon</h2>
-      <div style={{textAlign: 'center'}} data-hook="storybook-checkbox-text-align">
-        <Checkbox checked/>
-      </div>
-    </div>
-  )
+  }
 };
