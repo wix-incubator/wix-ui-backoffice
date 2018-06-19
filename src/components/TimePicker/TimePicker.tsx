@@ -2,6 +2,9 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import omit = require('lodash/omit');
 import {format} from 'date-fns';
+import FormFieldSpinnerUp from 'wix-ui-icons-common/system/FormFieldSpinnerUp';
+import FormFieldSpinnerDown from 'wix-ui-icons-common/system/FormFieldSpinnerDown';
+import {withStylable} from 'wix-ui-core/withStylable';
 
 import {
     TimePicker as CoreTimePicker,
@@ -9,13 +12,13 @@ import {
     AmPmOptions
 } from 'wix-ui-core/TimePicker';
 import style from './TimePicker.st.css';
-import {withStylable} from 'wix-ui-core/withStylable';
 
 export interface TimePickerProps {
     size?: 'large' | 'medium' | 'small',
     defaultValue: Date;
     disableAmPm: boolean;
     error?: boolean;
+    disabled?: boolean;
 }
 
 const defaultProps = {
@@ -23,12 +26,14 @@ const defaultProps = {
     defaultValue: new Date(),
     disableAmPm: false,
     error: false,
+    tickerUpIcon: <FormFieldSpinnerUp />,
+    tickerDownIcon: <FormFieldSpinnerDown />,
 };
 
 const StyledTimePicker = withStylable<CoreTimePickerProps, TimePickerProps>(
     CoreTimePicker,
     style,
-    ({error, size}) => ({error, size}),
+    ({error, size, disabled}) => ({error, size, disabled}),
     defaultProps
 );
 

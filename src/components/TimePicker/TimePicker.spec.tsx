@@ -10,7 +10,7 @@ import {mount} from 'enzyme';
 import {timePickerTestkitFactory} from '../../testkit';
 import {timePickerTestkitFactory as enzymeTimePickerTestkitFactory} from '../../testkit/enzyme';
 
-describe.only('TimePicker', () => {
+describe('TimePicker', () => {
     const createDriver = createDriverFactory(timePickerDriverFactory);
     const format12Hours = date => format(date, 'hh:mm');
     const format24Hours = date => format(date, 'HH:mm');

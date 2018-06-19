@@ -6,12 +6,10 @@
 :import {
   -st-from: "../../palette.st.css";
   -st-named:
-    disabled, danger,
-    inputBorderColor, inputBackground, inputHover,
-    main, mainHover, mainMuted,
-    danger, dangerHover, dangerMutedHover,
-    success, successHover, successMutedHover,
-    focusShadow;
+    disabled,
+    buttonSecondaryText,
+    inputBorderColor, inputBackground,
+    inputHover, inputDisabledColor;
 }
 
 :import {
@@ -27,7 +25,7 @@
 .root {
   -st-extends: TimePicker;
   -st-mixin: Input;
-  -st-states: size(enum(large, medium, small));
+  -st-states: disabled, size(enum(large, medium, small));
 }
 
 .root:size(large) {
@@ -42,12 +40,19 @@
   -st-mixin: input-small;
 }
 
-/*.root:error,*/
-/*.root:error:focus {*/
-  /*background: lime !important;*/
-  /*border-color: value(danger);*/
-/*}*/
+.root::tickers::ticker {
+  padding: 5px 0;
+  color: value(buttonSecondaryText);
+  cursor: pointer;
+}
 
-/*.root:focus-visible::track {*/
-	/*box-shadow: 0 0 0 3px value(focusShadow);*/
-/*}*/
+.root::tickers::ticker > svg {
+  display: block;
+  width: 10px;
+  height: 5px;
+}
+
+.root:disabled::tickers::ticker {
+  cursor: default;
+  color: value(inputDisabledColor);
+}
