@@ -12,19 +12,23 @@ import style from './TimePicker.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 
 export interface TimePickerProps {
+    size?: 'large' | 'medium' | 'small',
     defaultValue: Date;
     disableAmPm: boolean;
+    error?: boolean;
 }
 
 const defaultProps = {
+    size: 'medium',
     defaultValue: new Date(),
     disableAmPm: false,
+    error: false,
 };
 
 const StyledTimePicker = withStylable<CoreTimePickerProps, TimePickerProps>(
     CoreTimePicker,
     style,
-    ({size, skin}) => ({size, skin}),
+    ({error, size}) => ({error, size}),
     defaultProps
 );
 

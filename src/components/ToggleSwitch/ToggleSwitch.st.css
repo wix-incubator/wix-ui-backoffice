@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "wix-ui-core/dist/src/components/ToggleSwitch/ToggleSwitchStyle.st.css";
-  -st-default: ToggleSwitchStyle;
+-st-default: ToggleSwitchStyle;
 }
 
 :import {
