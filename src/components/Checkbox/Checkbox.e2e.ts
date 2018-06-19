@@ -8,37 +8,28 @@ describe('Checkbox', () => {
   const storyUrl = getStoryUrl('Components', 'Checkbox');
   const dataHook = 'storybook-checkbox';
 
-  beforeEach(() => browser.get(storyUrl));
+  beforeAll(() => browser.get(storyUrl));
   afterEach(async () => {
     await autoExampleDriver.reset();
   });
 
   describe('not hovered', () => {
-    eyes.it('should be unchecked', () => {
+    eyes.it('should be unchecked', async () => {
       const driver = checkboxTestkitFactory({dataHook});
-      expect(driver.isChecked()).toBeFalsy();
+      expect(await driver.isChecked()).toBeFalsy();
     });
     
     eyes.it('should be checked', async () => {
-      autoExampleDriver.setProps({checked: true});
+      await autoExampleDriver.setProps({checked: true});
       const driver = checkboxTestkitFactory({dataHook});
-      await mouseLeave()
       expect(await driver.isChecked()).toBeTruthy();
     });
     
     eyes.it('should be indetermined', async () => {
-      autoExampleDriver.setProps({indeterminate: true});
+      await autoExampleDriver.setProps({indeterminate: true});
       const driver = checkboxTestkitFactory({dataHook});
-      await mouseLeave();
       // TODO: implement driver.isIndeterminate() in wix-ui-core
       // expect(await driver.isIndeterminate()).toBeTruthy();
-    });
-
-    eyes.it('should display checked icon in place. not be affected by text-align', async () => {
-      const driver = checkboxTestkitFactory({dataHook: 'storybook-checkbox-text-align'});
-      await scrollToElement(driver.element());
-      await mouseLeave()
-      expect(await driver.isChecked()).toBeTruthy();
     });
   });
 
