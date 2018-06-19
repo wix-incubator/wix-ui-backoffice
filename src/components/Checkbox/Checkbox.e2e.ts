@@ -1,34 +1,49 @@
 import * as eyes from 'eyes.it';
-import {getStoryUrl} from 'wix-ui-test-utils/protractor';
+import {getStoryUrl, scrollToElement, mouseLeave} from 'wix-ui-test-utils/protractor';
 import {checkboxTestkitFactory} from 'wix-ui-core/dist/src/testkit/protractor';
 import {browser} from 'protractor';
+import autoExampleDriver = require('wix-storybook-utils/AutoExampleDriver');
 
 describe('Checkbox', () => {
   const storyUrl = getStoryUrl('Components', 'Checkbox');
   const dataHook = 'storybook-checkbox';
 
-  beforeEach(() => browser.get(storyUrl));
-
-  eyes.it('should render', () => {
-    const driver = checkboxTestkitFactory({dataHook});
-
-    expect(driver.element()).toBeDefined();
+  beforeAll(() => browser.get(storyUrl));
+  afterEach(async () => {
+    await autoExampleDriver.reset();
   });
 
-  xit('should be unchecked and not disabled by default', () => {
-    const driver = checkboxTestkitFactory({dataHook});
-
-    expect(driver.isChecked()).toBe(false);
-    expect(driver.isDisabled()).toBe(false);
+  describe('not hovered', () => {
+    eyes.it('should be unchecked', async () => {
+      const driver = checkboxTestkitFactory({dataHook});
+      expect(await driver.isChecked()).toBeFalsy();
+    });
+    
+    eyes.it('should be checked', async () => {
+      await autoExampleDriver.setProps({checked: true});
+      const driver = checkboxTestkitFactory({dataHook});
+      expect(await driver.isChecked()).toBeTruthy();
+    });
+    
+    eyes.it('should be indetermined', async () => {
+      await autoExampleDriver.setProps({indeterminate: true});
+      const driver = checkboxTestkitFactory({dataHook});
+      // TODO: implement driver.isIndeterminate() in wix-ui-core
+      // expect(await driver.isIndeterminate()).toBeTruthy();
+    });
   });
 
-  xit('should become checked', () => {
+
+  it('should be unchecked and not disabled by default', async () => {
     const driver = checkboxTestkitFactory({dataHook});
+    expect(await driver.isChecked()).toBe(false);
+    expect(await driver.isDisabled()).toBe(false);
+  });
 
-    expect(driver.isChecked()).toBe(false);
-
-    driver.click();
-
-    expect(driver.isChecked()).toBe(true);
+  it('should be checked when clicked', async () => {
+    const driver = checkboxTestkitFactory({dataHook});
+    expect(await driver.isChecked()).toBe(false);
+    await driver.click();
+    expect(await driver.isChecked()).toBe(true);
   });
 });

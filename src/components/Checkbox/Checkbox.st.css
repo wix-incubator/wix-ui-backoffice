@@ -39,6 +39,9 @@
   box-sizing: border-box;
   width: value(boxSize);
   height: value(boxSize);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .root:disabled::box {
@@ -86,20 +89,15 @@
 
 .checkedIcon {
   width: 9px;
-  margin-left: 2.5px;
   height: 9px;
 }
 
 .indeterminateIcon {
   width: 8px;
-  margin-left: 3px;
   height: 8px;
 }
 
 .root::box svg {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   fill: value(backgroundSecondary);
 }
 
