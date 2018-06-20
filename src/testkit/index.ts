@@ -11,6 +11,10 @@ import { linearProgressBarDriverFactory, LinearProgressBarDriver } from '../comp
 export const linearProgressBarTestkitFactory = testkitFactoryCreator<LinearProgressBarDriver>(linearProgressBarDriverFactory);
 export { LinearProgressBarDriver };
 
+import { circularProgressBarDriverFactory, CircularProgressBarDriver } from '../components/CircularProgressBar/CircularProgressBar.driver';
+export const circularProgressBarTestkitFactory = testkitFactoryCreator<CircularProgressBarDriver>(circularProgressBarDriverFactory);
+export { CircularProgressBarDriver };
+
 import { headingDriverFactory, HeadingDriver } from '../components/Heading/Heading.driver';
 export const headingTestkitFactory = testkitFactoryCreator<HeadingDriver>(headingDriverFactory);
 export { HeadingDriver };
