@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import omit = require('lodash/omit');
 import {format} from 'date-fns';
 import FormFieldSpinnerUp from 'wix-ui-icons-common/system/FormFieldSpinnerUp';
@@ -36,8 +35,6 @@ const StyledTimePicker = withStylable<CoreTimePickerProps, TimePickerProps>(
     ({error, size, disabled}) => ({error, size, disabled}),
     defaultProps
 );
-
-const {styles, ...legalCorePropTypes} = CoreTimePicker.propTypes;
 
 export class TimePicker extends React.PureComponent<TimePickerProps & CoreTimePickerProps> {
     static defaultProps = defaultProps;
