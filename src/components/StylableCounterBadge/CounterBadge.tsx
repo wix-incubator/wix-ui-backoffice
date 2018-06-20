@@ -30,6 +30,8 @@ const StyledCounterBadge = withStylable<CoreBadgeProps, CounterBadgeProps & {wid
 );
 
 export class CounterBadge extends React.PureComponent<CounterBadgeProps> {
+  static displayName = 'CounterBadge';
+
   static propTypes = {
     ...CoreBadge.propTypes,
 

@@ -42,3 +42,5 @@ export const Text = withStylable<CoreTextProps, Props>(
   }),
   defaultProps
 );
+
+Text.displayName = 'Text';

@@ -64,8 +64,9 @@ const pickedPopoverPropTypes = pick<
 export type FloatingHelperProps = PickedClosablePopoverProps & FloatingHelperOwnProps & PickedClosablePopoverPropsHack;
 
 export class FloatingHelper extends React.Component<FloatingHelperProps> {
+  static displayName = 'FloatingHelper';
   closablePopoverRef: ClosablePopover;
-  
+
   static Content = FloatingHelperContent;
 
   static defaultProps: Partial<FloatingHelperProps> = {

@@ -27,6 +27,8 @@ export const HBox: React.SFC<HBoxProps> = props => {
   return <div {...style('root', {verticalAlignment}, props)}>{addSpacing(children, spacing, dir)}</div>;
 };
 
+HBox.displayName = 'HBox';
+
 HBox.defaultProps = defaultProps;
 
 HBox.propTypes = {

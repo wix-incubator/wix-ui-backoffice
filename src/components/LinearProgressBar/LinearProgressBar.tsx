@@ -34,6 +34,8 @@ export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (props: Line
   )
 }
 
+LinearProgressBar.displayName = 'LinearProgressBar';
+
 LinearProgressBar.propTypes = {
   ...CoreLinearProgressBar.propTypes,
   errorMessage: PropTypes.string,

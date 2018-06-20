@@ -16,3 +16,5 @@ export const Checkbox = withStylable<CoreCheckboxProps, {}>(
   () => null,
   defaultProps
 );
+
+Checkbox.displayName = 'Checkbox';

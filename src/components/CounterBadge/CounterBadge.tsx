@@ -26,6 +26,8 @@ export interface CounterBadgeProps extends CoreBadgeProps {
 }
 
 export class CounterBadge extends React.PureComponent<CounterBadgeProps> {
+  static displayName = 'CounterBadge';
+
   static propTypes = {
     /** Type of the badge */
     skin: oneOf(['default', 'standard', 'urgent', 'success']),

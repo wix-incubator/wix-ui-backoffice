@@ -42,6 +42,7 @@ const StyledToggleSwitch = withStylable<CoreToggleSwitchProps, ToggleSwitchProps
 const {checkedIcon, uncheckedIcon, styles, ...legalCorePropTypes} = CoreToggleSwitch.propTypes;
 
 export class ToggleSwitch extends React.PureComponent<ToggleSwitchProps & CoreToggleSwitchProps> {
+  static displayName = 'ToggleSwitch';
   static propTypes = {
     ...legalCorePropTypes,
     /** Size of the ToggleSwitch */

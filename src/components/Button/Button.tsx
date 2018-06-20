@@ -55,6 +55,8 @@ export const Button: React.SFC<ButtonProps> = props => {
   )
 }
 
+Button.displayName = 'Button';
+
 Button.defaultProps = {
   skin: Skin.standard,
   priority: Priority.primary,
@@ -67,5 +69,3 @@ Button.propTypes = {
   size: oneOf(enumValues(Size)),
   children: string
 }
-
-
