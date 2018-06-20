@@ -31,3 +31,5 @@ export const Input: React.SFC<CoreInputProps & InputProps> =
       />
     );
   };
+
+Input.displayName = 'Input';

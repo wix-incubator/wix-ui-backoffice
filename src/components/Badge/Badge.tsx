@@ -29,6 +29,8 @@ const StyledBadge = withStylable<CoreBadgeProps, BadgeProps>(
 );
 
 export class Badge extends React.PureComponent<BadgeProps> {
+  static displayName = 'Badge';
+
   static propTypes = {
     ...CoreBadge.propTypes,
     /** Type of the badge */

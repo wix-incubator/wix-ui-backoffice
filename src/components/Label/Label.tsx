@@ -21,6 +21,8 @@ export const Label = withStylable<CoreLabelProps, LabelProps>(
   defaultProps
 );
 
+Label.displayName = 'Label';
+
 Label.propTypes = {
   ...CoreLabel.propTypes,
   /** size of the label */

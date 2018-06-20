@@ -29,6 +29,8 @@ export const CloseButton: React.SFC<CloseButtonProps> = props => {
   )
 }
 
+CloseButton.displayName = 'CloseButton';
+
 CloseButton.defaultProps = {
   skin: Skin.standard,
   size: Size.small
@@ -39,5 +41,3 @@ CloseButton.propTypes = {
   size: oneOf(enumValues(Size)),
   // TODO: can we validate here that children is NOT defined?
 }
-
-
