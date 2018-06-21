@@ -18,10 +18,6 @@
    -st-extends: CircularProgressBar;
 }
 
-.root:light::backArc {
-  stroke: value(backgroundSecondary);
-}
-
 .root::foreArc {
   stroke: value(progress);
 }
@@ -36,6 +32,10 @@
 
 .root:error::backArc {
   stroke: value(dangerMutedHover);
+}
+
+.root:light::backArc {
+  stroke: value(backgroundSecondary);
 }
 
 .root::statusIndicator {

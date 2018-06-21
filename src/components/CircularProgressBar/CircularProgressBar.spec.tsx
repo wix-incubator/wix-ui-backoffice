@@ -49,9 +49,14 @@ describe('CircularProgressBar', () => {
   describe('size prop', () => {
     Object.keys(Size).forEach((size: Size) => {
       it(`should be ${size}`, () => {
-        const wrapper = createDriver(<CircularProgressBar {...defaultProps} size={size}/>);
-        expect(wrapper.getSize()).toBe(size);
+        const driver = createDriver(<CircularProgressBar {...defaultProps} size={size}/>);
+        expect(driver.getSize()).toBe(size);
       });
+    });
+
+    it(`should be default ${Size.medium}`, () => {
+      const driver = createDriver(<CircularProgressBar {...defaultProps} />);
+      expect(driver.getSize()).toBe(Size.medium);
     });
   });
 

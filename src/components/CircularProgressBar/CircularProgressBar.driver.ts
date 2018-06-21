@@ -17,7 +17,7 @@ export interface CircularProgressBarDriver extends CoreCircularProgressBarDriver
     /* Returns the tooltip driver */
     getTooltip: () => any;
     /* Returns bars size */
-    getSize: () => any;
+    getSize: () => string;
 
 }
 

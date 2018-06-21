@@ -9,7 +9,6 @@ export default {
   componentProps: {
     errorMessage: 'some error message',
     value: 20,
-    size: 'large',
   },
 
   exampleProps: {

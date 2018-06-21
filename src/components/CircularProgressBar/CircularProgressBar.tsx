@@ -47,3 +47,7 @@ CircularProgressBar.propTypes = {
   light: PropTypes.bool,
   size: PropTypes.oneOf(enumValues(Size)),
 };
+
+CircularProgressBar.defaultProps = {
+  size: Size.medium,
+}
