@@ -8,6 +8,11 @@
   -st-named: progress, error, danger, mainMutedHover, dangerMutedHover, backgroundPrimary, backgroundSecondary, secondaryText;
 }
 
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontMedium;
+}
+
 .root {
    -st-states: light, size(enum(small, medium, large));
    -st-extends: CircularProgressBar;
@@ -62,20 +67,8 @@
 
 .root::progressIndicator {
   color: value(secondaryText);
+  font-family: value(fontMedium);
+  font-size: 10px;
+  font-weight: 500;
   margin-top: 18px;
-}
-
-.root:size(small)::arcsContainer {
-  width: 30px;
-  height: 30px;
-}
-
-.root:size(medium)::arcsContainer {
-  width: 54px;
-  height: 54px;
-}
-
-.root:size(large)::arcsContainer {
-  width: 102px;
-  height: 102px;
 }
