@@ -5,6 +5,7 @@ import {CircularProgressBar, CircularProgressBarProps} from './CircularProgressB
 import {circularProgressBarTestkitFactory} from '../../testkit';
 import {circularProgressBarTestkitFactory as CircularLinearProgressBarTestkitFactory} from '../../testkit/enzyme';
 import {runTestkitExistsSuite} from '../../common/testkitTests';
+import {Size} from './constants';
 
 describe('CircularProgressBar', () => {
   const createDriver = createDriverFactory(circularProgressBarDriverFactory);
@@ -42,6 +43,15 @@ describe('CircularProgressBar', () => {
     it('should display success icon', () => {
       const driver = createDriver(<CircularProgressBar {...successProps}/>);
       expect(driver.isSuccessIconShown()).toBe(true);
+    });
+  });
+
+  describe('size prop', () => {
+    Object.keys(Size).forEach((size: Size) => {
+      it(`should be ${size}`, () => {
+        const wrapper = createDriver(<CircularProgressBar {...defaultProps} size={size}/>);
+        expect(wrapper.getSize()).toBe(size);
+      });
     });
   });
 

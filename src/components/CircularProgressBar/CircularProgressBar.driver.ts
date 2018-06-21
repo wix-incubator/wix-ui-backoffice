@@ -4,6 +4,8 @@ import {
   CircularProgressBarDriver as CoreCircularProgressBarDriver } from 'wix-ui-core/dist/src/components/CircularProgressBar/CircularProgressBar.driver';
 import {BaseDriver, DriverFactory} from 'wix-ui-test-utils/driver-factory';
 import {tooltipDriverFactory} from '../Tooltip/Tooltip.driver'
+import {StylableDOMUtil} from 'stylable/test-utils';
+import style from './CircularProgressBar.st.css';
 
 export interface CircularProgressBarDriver extends CoreCircularProgressBarDriver {
     /* Returns true if the tooltip is shown */
@@ -14,6 +16,8 @@ export interface CircularProgressBarDriver extends CoreCircularProgressBarDriver
     isSuccessIconShown: () => boolean;
     /* Returns the tooltip driver */
     getTooltip: () => any;
+    /* Returns bars size */
+    getSize: () => any;
 
 }
 
@@ -22,12 +26,14 @@ export const circularProgressBarDriverFactory: DriverFactory<CircularProgressBar
     const coreProgressBarDriver = coreCircularProgressBarDriverFactory({element, wrapper, eventTrigger});
     const errorIcon = () => element.querySelector(`[data-hook='error-icon']`);
     const successIcon = () => element.querySelector(`[data-hook='success-icon']`);
+    const stylableDOMUtil = new StylableDOMUtil(style, element);
 
     return {
         ...coreProgressBarDriver,
         isTooltipShown: () => tooltipDriver.isContentElementExists(),
         getTooltip: () => tooltipDriver, 
         isErrorIconShown: () => !!errorIcon(),
-        isSuccessIconShown: () => !!successIcon()
+        isSuccessIconShown: () => !!successIcon(),
+        getSize: () => stylableDOMUtil.getStyleState(element, 'size'),
     };
 }
