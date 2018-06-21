@@ -8,16 +8,11 @@
   -st-named: progress, error, main, danger, mainMutedHover, dangerMutedHover, backgroundPrimary, backgroundSecondary;
 }
 
-
 .root {
    -st-states: light;
    -st-extends: LinearProgressBar;
    padding: 0px 6px;
    height: 30px;
-}
-
-.root:light::barBackground {
-  background: value(backgroundSecondary);
 }
 
 .root::barForeground {
@@ -31,7 +26,7 @@
 
 .root::barBackground,
 .root::barForeground
- {
+{
   border-radius: 2px;
   height: 4px;
 }
@@ -42,6 +37,10 @@
 
 .root:error::barBackground {
   background: value(dangerMutedHover);
+}
+
+.root:light::barBackground {
+  background: value(backgroundSecondary);
 }
 
 .root::indicationContainer {
