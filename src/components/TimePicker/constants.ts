@@ -1,4 +1,5 @@
-export enum Skin {
-  standard = 'standard',
-  error = 'error'
+export enum Size {
+    large = 'large',
+    medium = 'medium',
+    small = 'small',
 }

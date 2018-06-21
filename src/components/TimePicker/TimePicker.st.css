@@ -25,7 +25,11 @@
 .root {
   -st-extends: TimePicker;
   -st-mixin: Input;
-  -st-states: disabled, size(enum(large, medium, small));
+  -st-states: disabled, size(enum(large, medium, small)),
+    inputWidth(enum(small, medium, large, small_ampm, medium_ampm, large_ampm));
+
+  display: inline-flex;
+  width: auto;
 }
 
 .root:size(large) {
@@ -38,6 +42,14 @@
 
 .root:size(small) {
   -st-mixin: input-small;
+}
+
+.root:inputWidth(medium)::nativeInput {
+  width: 53px;
+}
+
+.root:inputWidth(medium_ampm)::nativeInput {
+  width: 84px;
 }
 
 .root::tickers::ticker {
