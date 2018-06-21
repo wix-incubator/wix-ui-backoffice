@@ -60,6 +60,10 @@ import { linearProgressBarDriverFactory, LinearProgressBarDriver } from '../comp
 export const linearProgressBarTestkitFactory = protractorTestkitFactoryCreator<LinearProgressBarDriver>(linearProgressBarDriverFactory);
 export { LinearProgressBarDriver };
 
+import { circularProgressBarDriverFactory, CircularProgressBarDriver } from '../components/CircularProgressBar/CircularProgressBar.protractor.driver';
+export const circularProgressBarTestkitFactory = protractorTestkitFactoryCreator<CircularProgressBarDriver>(circularProgressBarDriverFactory);
+export { CircularProgressBarDriver };
+
 import { hBoxDriverFactory } from '../components/HBox/HBox.protractor.driver';
 export const hBoxTestkitFactory = protractorTestkitFactoryCreator(hBoxDriverFactory);
 

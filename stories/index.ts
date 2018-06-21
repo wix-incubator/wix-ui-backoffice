@@ -10,6 +10,7 @@ import './StylableCounterBadge';
 import './Heading.story';
 import './Label';
 import './LinearProgressBar';
+import './CircularProgressBar';
 import './Input.story.tsx';
 import './LabelWithOptions.story';
 import './ToggleSwitch';

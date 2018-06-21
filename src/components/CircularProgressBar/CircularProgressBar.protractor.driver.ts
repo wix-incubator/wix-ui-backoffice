@@ -1,0 +1,1 @@
+export {circularProgressBarDriverFactory, CircularProgressBarDriver} from 'wix-ui-core/dist/src/components/CircularProgressBar/CircularProgressBar.protractor.driver';

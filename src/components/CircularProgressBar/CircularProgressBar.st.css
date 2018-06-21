@@ -1,0 +1,74 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/components/CircularProgressBar/CircularProgressBar.st.css";
+  -st-default: CircularProgressBar;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: progress, error, danger, mainMutedHover, dangerMutedHover, backgroundPrimary, backgroundSecondary, secondaryText;
+}
+
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontMedium;
+}
+
+.root {
+   -st-states: light, size(enum(small, medium, large));
+   -st-extends: CircularProgressBar;
+}
+
+.root:light::backArc {
+  stroke: value(backgroundSecondary);
+}
+
+.root::foreArc {
+  stroke: value(progress);
+}
+
+.root::backArc {
+  stroke: value(mainMutedHover);
+}
+
+.root:error::foreArc {
+  stroke: value(error);
+}
+
+.root:error::backArc {
+  stroke: value(dangerMutedHover);
+}
+
+.root::statusIndicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.root:success::statusIndicator {
+  color: value(progress);
+}
+
+.root:error::statusIndicator {
+  color: value(danger);
+}
+
+.root::statusIndicator svg {
+  height: 15px;
+  width: 20px;
+}
+
+.root:size(small)::statusIndicator svg {
+  height: 9px;
+  width: 12px;
+}
+
+.root::progressIndicator {
+  color: value(secondaryText);
+  font-family: value(fontMedium);
+  font-size: 10px;
+  font-weight: 500;
+  margin-top: 18px;
+}
