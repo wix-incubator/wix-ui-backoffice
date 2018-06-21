@@ -44,12 +44,32 @@
   -st-mixin: input-small;
 }
 
+.root:inputWidth(small)::nativeInput {
+    width: 47px;
+}
+
 .root:inputWidth(medium)::nativeInput {
-  width: 53px;
+    width: 53px;
+}
+
+.root:inputWidth(large)::nativeInput {
+  width: 67px;
+}
+
+.root:inputWidth(small_ampm)::nativeInput {
+    width: 72px;
 }
 
 .root:inputWidth(medium_ampm)::nativeInput {
-  width: 84px;
+  width: 80px;
+}
+
+.root:inputWidth(large_ampm)::nativeInput {
+  width: 107px;
+}
+
+.root::tickers {
+  padding: 0 6px 0 12px;
 }
 
 .root::tickers::ticker {

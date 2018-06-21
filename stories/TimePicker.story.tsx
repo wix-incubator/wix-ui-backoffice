@@ -1,4 +1,6 @@
 import {TimePicker} from '../src/components/TimePicker/TimePicker';
+import {enumValues} from '../src/utils';
+import {Size} from '../src/components/TimePicker/constants';
 
 export default {
     category: 'Components',
@@ -11,4 +13,7 @@ export default {
         error: false,
         disableAmPm: false,
     },
+    exampleProps: {
+        size: enumValues(Size),
+    }
 };
