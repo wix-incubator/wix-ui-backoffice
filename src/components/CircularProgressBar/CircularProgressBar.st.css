@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: progress, error, main, danger, mainMutedHover, dangerMutedHover, backgroundPrimary, backgroundSecondary;
+  -st-named: progress, error, danger, mainMutedHover, dangerMutedHover, backgroundPrimary, backgroundSecondary, secondaryText;
 }
 
 .root {
@@ -33,7 +33,7 @@
   stroke: value(dangerMutedHover);
 }
 
-.root::indicationContainer {
+.root::statusIndicator {
   width: 18px;
   height: 18px;
   border-radius: 12px;
@@ -42,18 +42,27 @@
   align-items: center;
 }
 
-.root:success::indicationContainer {
-  background: value(main);
+.root:success::statusIndicator {
+  color: value(progress);
 }
 
-.root:error::indicationContainer {
-  background: value(danger);
+.root:error::statusIndicator {
+  color: value(danger);
 }
 
-.root::indicationContainer svg {
-  height: 8px;
-  width: 10px;
-  color: value(backgroundSecondary);
+.root::statusIndicator svg {
+  height: 15px;
+  width: 20px;
+}
+
+.root:size(small)::statusIndicator svg {
+  height: 9px;
+  width: 12px;
+}
+
+.root::progressIndicator {
+  color: value(secondaryText);
+  margin-top: 18px;
 }
 
 .root:size(small)::arcsContainer {
