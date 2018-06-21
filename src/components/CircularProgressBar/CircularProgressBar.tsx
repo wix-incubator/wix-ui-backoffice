@@ -8,8 +8,8 @@ import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import style from './CircularProgressBar.st.css';
 import {Tooltip} from '../Tooltip';
 import * as PropTypes from 'prop-types';
-import { Size, sizesMap } from './constants';
-import { enumValues } from '../../utils';
+import {Size, sizesMap} from './constants';
+import {enumValues} from '../../utils';
 
 export interface CircularProgressBarProps extends CoreCircularProgressBarProps {
   /** message to display when an error happens */
@@ -27,7 +27,7 @@ export const CircularProgressBar: React.SFC<CircularProgressBarProps> = (props: 
   return (
     <CoreCircularProgressBar
       data-hook="circular-progress-bar"
-      {...style('root', {light})}
+      {...style('root', {light, size})}
       {...otherProps}
       size={sizesMap[size]}
       successIcon={<ToggleOn />}
