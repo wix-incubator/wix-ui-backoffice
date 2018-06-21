@@ -3,7 +3,7 @@ import {
   CircularProgressBar as CoreCircularProgressBar,
   CircularProgressBarProps as CoreCircularProgressBarProps
   } from 'wix-ui-core/CircularProgressBar';
-import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
+import CircleLoaderCheck from 'wix-ui-icons-common/system/CircleLoaderCheck';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import style from './CircularProgressBar.st.css';
 import {Tooltip} from '../Tooltip';
@@ -30,7 +30,7 @@ export const CircularProgressBar: React.SFC<CircularProgressBarProps> = (props: 
       {...style('root', {light, size})}
       {...otherProps}
       size={sizesMap[size]}
-      successIcon={<ToggleOn />}
+      successIcon={<CircleLoaderCheck />}
       errorIcon={(
         <Tooltip data-hook="tooltip" placement="top" content={errorMessage}>
           <FormFieldError />
