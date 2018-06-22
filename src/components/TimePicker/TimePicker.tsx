@@ -57,12 +57,11 @@ export class TimePicker extends React.PureComponent<TimePickerProps> {
         size: propTypes.oneOf(Object.keys(Size)),
         value: propTypes.instanceOf(Date).isRequired,
         disableAmPm: propTypes.bool,
-        disabled: propTypes.bool,
     };
     static displayName = 'TimePicker';
 
     render() {
-        const {value, disableAmPm, size, disabled, error, width} = this.props;
+        const {value, disableAmPm, size, error, width} = this.props;
         const coreTimePickerProps = {
             ...omit(this.props, 'size', 'value', 'disableAmPm'),
             value: format(value, 'HH:mm'),
@@ -72,7 +71,7 @@ export class TimePicker extends React.PureComponent<TimePickerProps> {
         return (
             <CoreTimePicker
                 {...coreTimePickerProps}
-                {...style('root', { size, error, disabled, inputWidth: getInputWidthState(width, size, disableAmPm) }, coreTimePickerProps)}
+                {...style('root', { size, error, inputWidth: getInputWidthState(width, size, disableAmPm) }, coreTimePickerProps)}
             />
         );
     }
