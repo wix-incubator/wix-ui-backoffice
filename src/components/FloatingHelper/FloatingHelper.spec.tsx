@@ -129,7 +129,7 @@ describe('FloatingHelper', () => {
   describe('appendTo', () => {
     it('should be window by default', () => {
       wrapper = mount(buildComponent());
-      expect(wrapper.find(ClosablePopover).instance().props.appendTo).toBe('window');
+      expect(wrapper.find(ClosablePopover).props().appendTo).toBe('window');
     });
   });
 
