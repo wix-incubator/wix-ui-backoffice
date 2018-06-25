@@ -53,6 +53,7 @@ describe('CircularProgressBar', () => {
           .actions()
           .mouseMove(driver.element())
           .perform();
+
         eyes.checkWindow(`errorIcon tooltip ${size}`);
       });
     });
@@ -64,11 +65,9 @@ describe('CircularProgressBar', () => {
       expect(driver.element().isPresent()).toBe(true);
       eyes.checkWindow('light');
 
-      browser.sleep(2000);
       await autoExampleDriver.setProps({light: true, error: true, value: 60})
       expect(driver.element().isPresent()).toBe(true);
       eyes.checkWindow('light with error');
-      browser.sleep(2000);
     });
   });
 });
