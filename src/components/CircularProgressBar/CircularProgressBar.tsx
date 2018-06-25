@@ -3,13 +3,15 @@ import {
   CircularProgressBar as CoreCircularProgressBar,
   CircularProgressBarProps as CoreCircularProgressBarProps
   } from 'wix-ui-core/CircularProgressBar';
-import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
+import CircleLoaderCheck from 'wix-ui-icons-common/system/CircleLoaderCheck';
+import CircleLoaderCheckSmall from 'wix-ui-icons-common/system/CircleLoaderCheckSmall';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
+import FormFieldErrorSmall from 'wix-ui-icons-common/system/FormFieldErrorSmall';
 import style from './CircularProgressBar.st.css';
 import {Tooltip} from '../Tooltip';
 import * as PropTypes from 'prop-types';
-import { Size, sizesMap } from './constants';
-import { enumValues } from '../../utils';
+import {Size, sizesMap} from './constants';
+import {enumValues} from '../../utils';
 
 export interface CircularProgressBarProps extends CoreCircularProgressBarProps {
   /** message to display when an error happens */
@@ -20,24 +22,45 @@ export interface CircularProgressBarProps extends CoreCircularProgressBarProps {
   size?: Size;
 }
 
-export const CircularProgressBar: React.SFC<CircularProgressBarProps> = (props: CircularProgressBarProps) => {
+const sizeToSuccessIcon = {
+  [Size.small]: <CircleLoaderCheckSmall/>,
+  [Size.medium]: <CircleLoaderCheck/>,
+  [Size.large]: <CircleLoaderCheck/>
+};
 
+const sizeToErrorIcon = {
+  [Size.small]: <FormFieldErrorSmall/>,
+  [Size.medium]: <FormFieldError/>,
+  [Size.large]: <FormFieldError/>
+};
+
+export const CircularProgressBar: React.SFC<CircularProgressBarProps> = (props: CircularProgressBarProps) => {
   const { errorMessage, light, size, ...otherProps } = props;
+  
+  const ProgressBar = (
+    <CoreCircularProgressBar
+      {...style('progressBar', {light, size}, props)}
+      {...otherProps}
+      data-hook="circular-progress-bar"
+      size={sizesMap[size]}
+      successIcon={sizeToSuccessIcon[size]}
+      errorIcon={sizeToErrorIcon[size]}
+    />
+  );
 
   return (
-    <CoreCircularProgressBar
-      data-hook="circular-progress-bar"
-      {...style('root', {light})}
-      {...otherProps}
-      size={sizesMap[size]}
-      successIcon={<ToggleOn />}
-      errorIcon={(
-        <Tooltip data-hook="tooltip" placement="top" content={errorMessage}>
-          <FormFieldError />
-        </Tooltip>)}
-    />
-  )
-}
+    <div {...style('root', {}, props)}>
+      {
+        props.error && errorMessage ?
+          <Tooltip data-hook="tooltip" placement="top" content={errorMessage}>
+            {ProgressBar}
+          </Tooltip> :
+
+          ProgressBar
+      }
+    </div>
+  );
+};
 
 CircularProgressBar.displayName = 'CircularProgressBar';
 
@@ -47,3 +70,7 @@ CircularProgressBar.propTypes = {
   light: PropTypes.bool,
   size: PropTypes.oneOf(enumValues(Size)),
 };
+
+CircularProgressBar.defaultProps = {
+  size: Size.medium,
+}

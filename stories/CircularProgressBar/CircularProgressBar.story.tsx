@@ -1,4 +1,6 @@
 import { CircularProgressBar } from '../../src/components/CircularProgressBar'; 
+import {Size} from '../../src/components/CircularProgressBar/constants';
+import {enumValues} from '../../src/utils';
 
 export default {
   category: 'Components',
@@ -9,10 +11,10 @@ export default {
   componentProps: {
     errorMessage: 'some error message',
     value: 20,
-    size: 'large',
+    size: 'large'
   },
 
   exampleProps: {
-    size: ['small', 'medium', 'large'],
+    size: enumValues(Size)
   }
 }
