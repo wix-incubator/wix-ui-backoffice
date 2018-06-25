@@ -1,4 +1,3 @@
-import {$} from 'protractor';
 import * as eyes from 'eyes.it';
 import {browser} from 'protractor';
 import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
@@ -55,7 +54,7 @@ describe('CircularProgressBar', () => {
           .mouseMove(driver.element())
           .perform();
 
-        await waitForVisibilityOf($('[data-hook="tooltip"]'), 'Cannot find CircularProgressBar tooltip');
+        await waitForVisibilityOf(driver.getTooltip(), 'Cannot find CircularProgressBar tooltip');
         eyes.checkWindow(`errorIcon tooltip ${size}`);
       });
     });
