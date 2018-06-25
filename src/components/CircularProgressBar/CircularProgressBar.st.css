@@ -13,32 +13,32 @@
   -st-named: fontMedium;
 }
 
-.root {
+.progressBar {
    -st-states: light, size(enum(small, medium, large));
    -st-extends: CircularProgressBar;
 }
 
-.root::foreArc {
+.root .progressBar::foreArc {
   stroke: value(progress);
 }
 
-.root::backArc {
+.root .progressBar::backArc {
   stroke: value(mainMutedHover);
 }
 
-.root:error::foreArc {
+.root .progressBar:error::foreArc {
   stroke: value(error);
 }
 
-.root:error::backArc {
+.root .progressBar:error::backArc {
   stroke: value(dangerMutedHover);
 }
 
-.root:light::backArc {
+.root .progressBar:light::backArc {
   stroke: value(backgroundSecondary);
 }
 
-.root::statusIndicator {
+.root .progressBar::statusIndicator {
   width: 20px;
   height: 20px;
   display: flex;
@@ -47,25 +47,25 @@
   z-index: 1;
 }
 
-.root:success::statusIndicator {
+.root .progressBar:success::statusIndicator {
   color: value(progress);
 }
 
-.root:error::statusIndicator {
+.root .progressBar:error::statusIndicator {
   color: value(danger);
 }
 
-.root::statusIndicator svg {
+.root .progressBar::statusIndicator svg {
   height: 15px;
   width: 20px;
 }
 
-.root:size(small)::statusIndicator svg {
+.root .progressBar:size(small)::statusIndicator svg {
   height: 9px;
   width: 12px;
 }
 
-.root::progressIndicator {
+.root .progressBar::progressIndicator {
   color: value(secondaryText);
   font-family: value(fontMedium);
   font-size: 10px;

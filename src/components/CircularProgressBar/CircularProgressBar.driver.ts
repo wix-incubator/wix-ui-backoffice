@@ -27,6 +27,7 @@ export const circularProgressBarDriverFactory: DriverFactory<CircularProgressBar
     const coreProgressBarDriver = coreCircularProgressBarDriverFactory({element, wrapper, eventTrigger});
     const errorIcon = () => element.querySelector(`[data-hook='error-icon']`);
     const successIcon = () => element.querySelector(`[data-hook='success-icon']`);
+    const progressBar = () => element.querySelector(`[data-hook='circular-progress-bar']`);
     const stylableDOMUtil = new StylableDOMUtil(style, element);
 
     return {
@@ -35,6 +36,6 @@ export const circularProgressBarDriverFactory: DriverFactory<CircularProgressBar
         getTooltip: () => tooltipDriver, 
         isErrorIconShown: () => !!errorIcon(),
         isSuccessIconShown: () => !!successIcon(),
-        getSize: () => stylableDOMUtil.getStyleState(element, 'size') as Size,
+        getSize: () => stylableDOMUtil.getStyleState(progressBar(), 'size') as Size,
     };
 }

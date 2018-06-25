@@ -23,35 +23,44 @@ export interface CircularProgressBarProps extends CoreCircularProgressBarProps {
 }
 
 const sizeToSuccessIcon = {
-  'small': <CircleLoaderCheckSmall/>,
-  'medium': <CircleLoaderCheck/>,
-  'large': <CircleLoaderCheck/>
+  [Size.small]: <CircleLoaderCheckSmall/>,
+  [Size.medium]: <CircleLoaderCheck/>,
+  [Size.large]: <CircleLoaderCheck/>
 };
 
 const sizeToErrorIcon = {
-  'small': <FormFieldErrorSmall/>,
-  'medium': <FormFieldError/>,
-  'large': <FormFieldError/>
+  [Size.small]: <FormFieldErrorSmall/>,
+  [Size.medium]: <FormFieldError/>,
+  [Size.large]: <FormFieldError/>
 };
 
 export const CircularProgressBar: React.SFC<CircularProgressBarProps> = (props: CircularProgressBarProps) => {
-
   const { errorMessage, light, size, ...otherProps } = props;
-
-  return (
+  
+  const ProgressBar = (
     <CoreCircularProgressBar
-      data-hook="circular-progress-bar"
-      {...style('root', {light, size})}
+      {...style('progressBar', {light, size}, props)}
       {...otherProps}
+      data-hook="circular-progress-bar"
       size={sizesMap[size]}
       successIcon={sizeToSuccessIcon[size]}
-      errorIcon={(
-        <Tooltip data-hook="tooltip" placement="top" content={errorMessage}>
-          {sizeToErrorIcon[size]}
-        </Tooltip>)}
+      errorIcon={sizeToErrorIcon[size]}
     />
-  )
-}
+  );
+
+  return (
+    <div {...style('root', {}, props)}>
+      {
+        props.error && errorMessage ?
+          <Tooltip data-hook="tooltip" placement="top" content={errorMessage}>
+            {ProgressBar}
+          </Tooltip> :
+
+          ProgressBar
+      }
+    </div>
+  );
+};
 
 CircularProgressBar.displayName = 'CircularProgressBar';
 
