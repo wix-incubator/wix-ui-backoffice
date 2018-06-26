@@ -12,9 +12,9 @@ describe('CircularProgressBar', () => {
 
   beforeAll(async () => {
     await browser.get(storyUrl);
-    driver = circularProgressBarTestkitFactory({dataHook: 'circular-progress-bar'});
+    driver = circularProgressBarTestkitFactory({dataHook: 'circular-progress-bar-story'});
     await waitForVisibilityOf(driver.element(), 'Cannot find CircularProgressBar');
-});
+  });
 
   afterEach(() => autoExampleDriver.reset());
 

@@ -11,7 +11,8 @@ export default {
   componentProps: {
     errorMessage: 'some error message',
     value: 20,
-    size: 'large'
+    size: 'large',
+    'data-hook': 'circular-progress-bar-story'
   },
 
   exampleProps: {
