@@ -52,7 +52,7 @@ export const CircularProgressBar: React.SFC<CircularProgressBarProps> = (props: 
     <div {...style('root', {}, props)}>
       {
         props.error && errorMessage ?
-          <Tooltip data-hook="tooltip" placement="top" content={errorMessage}>
+          <Tooltip data-hook="circular-progressbar-tooltip" placement="top" content={errorMessage}>
             {ProgressBar}
           </Tooltip> :
 

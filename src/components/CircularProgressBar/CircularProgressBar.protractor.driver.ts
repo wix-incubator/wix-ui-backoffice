@@ -10,6 +10,6 @@ export interface CircularProgressBarDriver extends CoreCircularProgressBarDriver
 export const circularProgressBarDriverFactory: DriverFactory<CircularProgressBarDriver> = (element: ElementFinder): CircularProgressBarDriver => {
   return {
     ...coreCircularProgressBarDriverFactory($(`[data-hook='circular-progress-bar']`)),
-    getTooltip: () => $(`[data-hook='tooltip']`),
+    getTooltip: () => $(`[data-hook='circular-progressbar-tooltip']`),
   };
 };

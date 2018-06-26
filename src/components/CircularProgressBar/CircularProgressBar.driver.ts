@@ -23,7 +23,7 @@ export interface CircularProgressBarDriver extends CoreCircularProgressBarDriver
 }
 
 export const circularProgressBarDriverFactory: DriverFactory<CircularProgressBarDriver> = ({ element, eventTrigger, wrapper }: ComponentFactory): CircularProgressBarDriver => {
-    const tooltipDriver = tooltipDriverFactory({element: element.querySelector(`[data-hook='tooltip']`), wrapper, eventTrigger});
+    const tooltipDriver = tooltipDriverFactory({element: element.querySelector(`[data-hook='circular-progressbar-tooltip']`), wrapper, eventTrigger});
     const coreProgressBarDriver = coreCircularProgressBarDriverFactory({element, wrapper, eventTrigger});
     const errorIcon = () => element.querySelector(`[data-hook='error-icon']`);
     const successIcon = () => element.querySelector(`[data-hook='success-icon']`);

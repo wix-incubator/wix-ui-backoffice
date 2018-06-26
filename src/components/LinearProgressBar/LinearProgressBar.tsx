@@ -22,14 +22,14 @@ export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (props: Line
 
   return (
     <CoreLinearProgressBar
-      data-hook="progress-bar"
-      {...style('root', { light })}
+      {...style('root', {light}, props)}
       {...otherProps}
       successIcon={<ToggleOn />}
       errorIcon={(
-        <Tooltip data-hook="tooltip" placement="top" content={errorMessage}>
-          <FormFieldError />
-        </Tooltip>)}
+        <Tooltip data-hook="linear-progressbar-tooltip" placement="top" content={errorMessage}>
+          <FormFieldError data-hook="error-icon"/>
+        </Tooltip>
+      )}
     />
   )
 }

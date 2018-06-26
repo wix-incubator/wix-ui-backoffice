@@ -8,6 +8,7 @@ export default {
 
   componentProps: {
     errorMessage: 'some error message',
-    value: 20
+    value: 20,
+    'data-hook': 'linear-progress-bar-story'
   }
 }
