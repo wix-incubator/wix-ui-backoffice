@@ -12,8 +12,10 @@ import {Tooltip} from '../Tooltip';
 import * as PropTypes from 'prop-types';
 import {Size, sizesMap} from './constants';
 import {enumValues} from '../../utils';
+import omit = require('lodash/omit');
+import {Omit} from '../../types/common';
 
-export interface CircularProgressBarProps extends CoreCircularProgressBarProps {
+export interface CircularProgressBarProps extends Omit<CoreCircularProgressBarProps, 'successIcon' | 'errorIcon'> {
   /** message to display when an error happens */
   errorMessage?: string;
   /** use light theme instead of dark theme */
@@ -65,7 +67,7 @@ export const CircularProgressBar: React.SFC<CircularProgressBarProps> = (props: 
 CircularProgressBar.displayName = 'CircularProgressBar';
 
 CircularProgressBar.propTypes = {
-  ...CoreCircularProgressBar.propTypes,
+  ...omit<PropTypes.ValidationMap<CircularProgressBarProps>>(CoreCircularProgressBar.propTypes, ['successIcon', 'errorIcon']),
   errorMessage: PropTypes.string,
   light: PropTypes.bool,
   size: PropTypes.oneOf(enumValues(Size)),

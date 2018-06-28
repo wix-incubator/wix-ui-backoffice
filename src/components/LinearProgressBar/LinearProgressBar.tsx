@@ -8,8 +8,10 @@ import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import style from './LinearProgressBar.st.css';
 import { Tooltip } from '../Tooltip';
 import * as PropTypes from 'prop-types';
+import omit = require('lodash/omit');
+import {Omit} from '../../types/common';
 
-export interface LinearProgressBarProps extends CoreLinearProgressBarProps {
+export interface LinearProgressBarProps extends Omit<CoreLinearProgressBarProps, 'successIcon' | 'errorIcon'> {
   /** message to display when an error happens */
   errorMessage?: string;
   /** use light theme instead of dark theme */
@@ -37,7 +39,7 @@ export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (props: Line
 LinearProgressBar.displayName = 'LinearProgressBar';
 
 LinearProgressBar.propTypes = {
-  ...CoreLinearProgressBar.propTypes,
+  ...omit<PropTypes.ValidationMap<LinearProgressBarProps>>(CoreLinearProgressBar.propTypes, ['successIcon', 'errorIcon']),
   errorMessage: PropTypes.string,
   light: PropTypes.bool,
 };

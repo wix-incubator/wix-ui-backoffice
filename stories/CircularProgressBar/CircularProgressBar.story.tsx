@@ -12,7 +12,11 @@ export default {
     errorMessage: 'some error message',
     value: 20,
     size: 'large',
-    'data-hook': 'circular-progress-bar-story'
+    'data-hook': 'circular-progress-bar-story',
+    light: false,
+    error: false,
+    errorLabel: '',
+    showProgressIndication: false
   },
 
   exampleProps: {
