@@ -12,6 +12,6 @@ export default {
     'data-hook': 'linear-progress-bar-story',
     light: false,
     error: false,
-    showProgressIndication: false
+    showProgressIndication: true
   }
 }

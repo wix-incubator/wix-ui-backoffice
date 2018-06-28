@@ -43,6 +43,15 @@
   background: value(backgroundSecondary);
 }
 
+.root::progressIndicationSection {
+  margin-left: 18px;
+}
+
+:global([dir="rtl"]) .root::progressIndicationSection {
+  margin-right: 18px;
+  margin-left: 0;
+}
+
 .root::indicationContainer {
   width: 18px;
   height: 18px;
