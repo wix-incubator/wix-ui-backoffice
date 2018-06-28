@@ -55,10 +55,7 @@ export class Heading extends React.PureComponent<Props, State> {
 
   static defaultProps: Props = defaultProps;
 
-  constructor(props: Props) {
-    super(props);
-    this.state = {tagName: (props.appearance.toLowerCase()) as TagName};
-  }
+  state = {tagName: (this.props.appearance.toLowerCase()) as TagName}
 
   render() {
     return (
