@@ -1,22 +1,31 @@
-//import * as React from 'react';
-//import {FullTextView} from './FullTextView';
+import * as React from 'react';
+import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
+import {isEnzymeTestkitExists} from 'wix-ui-test-utils/enzyme';
+import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
+import {mount} from 'enzyme';
+import {fullTextViewDriverFactory} from './FullTextView.driver';
+import {FullTextView} from './FullTextView';
+
+import {fullTextViewTestkitFactory} from '../../testkit';
+import {fullTextViewTestkitFactory as enzymeFullTextViewTestkitFactory} from '../../testkit/enzyme';
 
 describe('FullTextView', () => {
-  // const createDriver = createDriverFactory(checkboxDriverFactory);
+  const createDriver = createDriverFactory(fullTextViewDriverFactory);
 
-  it('should be unchecked and not disabled by default', () => {
-    // const driver = createDriver(<FullTextView/>);
+  it('should render a span tag by default', () => {
+    const wrapper = createDriver(<FullTextView>Hello World</FullTextView>);
+    expect(wrapper.getTagName()).toBe('span');
   });
 
   describe('testkit', () => {
     it('should exist', () => {
-      // expect(isTestkitExists(<Checkbox>12</Checkbox>, checkboxTestkitFactory)).toBe(true);
+      expect(isTestkitExists(<FullTextView>Hello World</FullTextView>, fullTextViewTestkitFactory)).toBe(true);
     });
   });
 
   describe('enzyme testkit', () => {
     it('should exist', () => {
-      // expect(isEnzymeTestkitExists(<Checkbox>12</Checkbox>, enzymeCheckboxTestkitFactory, mount)).toBe(true);
+      expect(isEnzymeTestkitExists(<FullTextView>Hello World</FullTextView>, enzymeFullTextViewTestkitFactory, mount)).toBe(true);
     });
   });
 });

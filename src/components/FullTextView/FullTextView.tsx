@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import {string, bool, any} from 'prop-types';
 import * as shallowequal from 'shallowequal';
 import {Tooltip} from '../Tooltip';
 import {Text} from '../core/CoreText';
@@ -7,6 +8,7 @@ import styles from './FullTextView.st.css';
 
 export interface FullTextViewProps {
   children?: React.ReactNode;
+  dataHook?: string;
   maxWidth?: number | string;
 }
 
@@ -18,6 +20,15 @@ const isEllipsisActive = (node: HTMLElement) => node && node.offsetWidth < node.
 
 export class FullTextView extends React.Component<FullTextViewProps, FullTextViewState> {
   static displayName = 'FullTextView';
+
+  static propTypes = {
+    /** dataHook to find root element */
+    dataHook: string,
+    /** max width of the text */
+    maxWidth: bool,
+    /** any nodes to be rendered (usually text nodes) */
+    children: any
+  }
 
   private textNode: any;
 
@@ -44,6 +55,7 @@ export class FullTextView extends React.Component<FullTextViewProps, FullTextVie
   renderText() {
     return (
       <span
+        data-hook={this.props.dataHook}
         className={styles.root}
         style={{ maxWidth: this.props.maxWidth }}
       >

@@ -42,6 +42,10 @@ import {textDriverFactory, TextDriver} from '../components/Text/Text.driver';
 export const textTestkitFactory = enzymeTestkitFactoryCreator<TextDriver>(textDriverFactory);
 export {TextDriver};
 
+import { fullTextViewDriverFactory, FullTextViewDriver } from '../components/FullTextView/FullTextView.driver';
+export const fullTextViewTestkitFactory = enzymeTestkitFactoryCreator<FullTextViewDriver>(fullTextViewDriverFactory);
+export { FullTextViewDriver };
+
 import { autocompleteDriverFactory } from '../components/Autocomplete/Autocomplete.driver';
 export const autocompleteTestkitFactory = enzymeTestkitFactoryCreator(autocompleteDriverFactory);
 
