@@ -8,16 +8,18 @@ export interface TextProps {
   forceHideTitle?: boolean;
   tagName?: string;
   className?: string;
+  forwardedRef?: any;
 }
 /**
  * Text
  */
 export const Text: React.SFC<TextProps> = props => {
-  const {children, ellipsis, tagName, forceHideTitle} = props;
+  const {children, ellipsis, tagName, forceHideTitle, forwardedRef} = props;
   return React.createElement(
     tagName,
     {
       title: typeof children === 'string' && ellipsis && !forceHideTitle ? children : null,
+      ref: forwardedRef,
       ...style('root', {ellipsis}, props)
     },
     children

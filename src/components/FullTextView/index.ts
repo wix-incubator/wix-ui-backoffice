@@ -1,0 +1,1 @@
+export {FullTextView} from './FullTextView';
