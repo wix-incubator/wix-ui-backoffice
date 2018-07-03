@@ -28,6 +28,11 @@
     focusShadow;
 }
 
+:import {
+  -st-from: "../../shadows.st.css";
+  -st-named: shadow10;
+}
+
 .root {
   -st-extends: ToggleSwitch;
   -st-states:
@@ -93,5 +98,5 @@
 }
 
 .root::knob {
-  box-shadow: 0 2px 1px 0 rgba(32, 69, 94, 0.5);
+  box-shadow: value(shadow10);
 }

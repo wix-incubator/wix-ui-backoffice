@@ -28,6 +28,11 @@
   -st-default: calc;
 }
 
+:import {
+  -st-from: "../../shadows.st.css";
+  -st-named: shadow30;
+}
+
 .root {
   -st-extends: LabelWithOptions;
   -st-states: size(enum(large, medium, small));
@@ -38,7 +43,7 @@
 .root > [data-hook="popover-content"] {
   border: none;
   border-radius: 8px;
-  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.14);
+  box-shadow: value(shadow30);
   width: 100%;
   overflow: hidden;
 }
