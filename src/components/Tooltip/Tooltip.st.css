@@ -13,6 +13,11 @@
   -st-named: fontRoman;
 }
 
+:import {
+  -st-from: "../../shadows.st.css";
+  -st-named: shadow30;
+}
+
 .root {
   -st-states: bounce, placement-right, placement-left, placement-top, placement-bottom;
   -st-extends: Tooltip;
@@ -30,9 +35,7 @@
   box-sizing: border-box;
   font-size: 14px;
   line-height: 1.29;
-  box-shadow:
-    0 6px 6px 0 rgba(22, 45, 60, 0.06),
-    0 0 18px 0 rgba(22, 45, 60, 0.12);
+  box-shadow: value(shadow30);
 
   word-wrap: break-word;
   -webkit-font-smoothing: antialiased;

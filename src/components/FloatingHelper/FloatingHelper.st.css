@@ -5,12 +5,17 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: brandSecondary, backgroundSecondary
+  -st-named: brandSecondary, backgroundSecondary;
 }
 
 :import {
   -st-from: "../../colors.st.css";
   -st-named: WHITE;
+}
+
+:import {
+  -st-from: "../../shadows.st.css";
+  -st-named: shadow40;
 }
 
 :vars {
@@ -39,9 +44,7 @@
 .root::popoverContent {
   position: relative;
   box-sizing: border-box;
-  box-shadow:
-  0 6px 6px 0 rgba(22, 45, 60, 0.06),
-  0 0 18px 0 rgba(22, 45, 60, 0.12);
+  box-shadow: value(shadow40);
 }
 
 .closeButton {
