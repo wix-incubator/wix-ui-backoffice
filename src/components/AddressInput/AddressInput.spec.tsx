@@ -6,7 +6,7 @@ import {mount} from 'enzyme';
 import {GoogleMapsClientStub} from 'wix-ui-core/dist/src/components/AddressInput/GoogleMapsClientStub';
 import * as helper from 'wix-ui-core/dist/src/components/AddressInput/AddressInputTestHelper';
 import * as waitForCond from 'wait-for-cond';
-import {AddressInputProps} from "./AddressInput";
+import {AddressInputProps} from './AddressInput';
 import Search from 'wix-ui-icons-common/Search'
 
 GoogleMapsClientStub.setAddresses([helper.ADDRESS_1, helper.ADDRESS_2]);
@@ -16,7 +16,7 @@ const commonProps = {
     apiKey: '',
     Client: GoogleMapsClientStub,
     lang: 'ru',
-    onSelect: () => {}
+    onSelect: () => null
 };
 
 describe('AddressInput', () => {
