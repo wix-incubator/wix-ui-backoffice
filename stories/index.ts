@@ -1,3 +1,4 @@
+import './AddressInput.story';
 import './Autocomplete.story';
 import './Checkbox.story';
 import './Badge.story';

@@ -65,3 +65,6 @@ export {FloatingHelperDriver}
 import {thumbnailDriverFactory, ThumbnailDriver} from '../components/Thumbnail/Thumbnail.driver';
 export const thumbnailTestkitFactory = enzymeTestkitFactoryCreator<ThumbnailDriver>(thumbnailDriverFactory);
 export {ThumbnailDriver};
+
+import { addressInputDriverFactory } from '../components/AddressInput/AddressInput.driver';
+export const addressInputTestkitFactory = enzymeTestkitFactoryCreator(addressInputDriverFactory);
