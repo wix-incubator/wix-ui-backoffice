@@ -1,0 +1,105 @@
+:import {
+    -st-from: "wix-ui-core/dist/src/components/AddressInput/AddressInput.st.css";
+    -st-default: AddressInput;
+}
+
+:import {
+    -st-from: "../../palette.st.css";
+    -st-named: primaryText, mainHover, main, mainMuted, mainMutedHover, disabledText, inputHover, primaryLightText, inputBorderColor, inputDisabledBorderColor, inputDisabledBorderColor, inputDisabledHoverBorderColor, danger, backgroundSecondary;
+}
+
+:import {
+    -st-from: "../Input/Input.st.css";
+    -st-default: Input;
+}
+
+:import {
+    -st-from: "../Input/InputStates.st.css";
+    -st-named: input-large, input-medium, input-small;
+}
+
+:import {
+    -st-from: "../../typography.st.css";
+    -st-named: fontRoman;
+}
+
+:import {
+    -st-from: "../../shadows.st.css";
+    -st-named: shadow30;
+}
+
+.root {
+    -st-extends: AddressInput;
+    -st-states: size(enum(large, medium, small));
+    font-family: value(fontRoman);
+    width: 100%;
+}
+
+.root > [data-hook="popover-content"] {
+    border: none;
+    border-radius: 8px;
+    box-shadow: value(shadow30);
+    width: 100%;
+    overflow: hidden;
+}
+
+.root::inputComponent {
+    -st-mixin: Input;
+}
+
+.root:size(large)::inputComponent {
+    -st-mixin: input-large;
+}
+
+.root:size(medium)::inputComponent {
+    -st-mixin: input-medium;
+}
+
+.root:size(small)::inputComponent {
+    -st-mixin: input-small;
+}
+
+.root::dropdownContent::dropdownOption {
+    white-space: nowrap;
+    padding: 8px 20px;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    color: value(primaryText);
+    overflow: hidden;
+}
+
+.root::dropdownContent::dropdownOption:hovered {
+    background: value(inputHover);
+}
+
+.root::dropdownContent::dropdownOption:selected {
+    background: value(main);
+    color: value(primaryLightText);
+}
+
+.root::dropdownContent::dropdownOption:selected:hovered {
+    background: value(mainHover);
+    color: value(primaryLightText);
+}
+
+.root::dropdownContent::dropdownOption:disabled {
+    color: value(disabledText);
+}
+
+.root::dropdownContent::dropdownOption:not(:selectable) {
+    padding: 0;
+}
+
+.search {
+    width: 24px;
+    height: 24px;
+    fill: value(main);
+}
+
+.root::inputComponent:disabled .search {
+    fill: value(mainMuted);
+}
+
+.root::inputComponent:disabled:hover .search {
+    fill: value(mainMutedHover);
+}
