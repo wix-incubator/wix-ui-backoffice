@@ -18,6 +18,10 @@
    -st-extends: CircularProgressBar;
 }
 
+.root {
+  display: inline-block;
+}
+
 .root .progressBar::foreArc {
   stroke: value(progress);
 }
