@@ -1,12 +1,12 @@
 import * as eyes from 'eyes.it';
-import {$, browser} from 'protractor';
+import {$, browser, by} from 'protractor';
 import autoExampleDriver = require('wix-storybook-utils/AutoExampleDriver');
 import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
-import {addressInputTestkitFactory, AddressInputDriver} from '../../testkit/protractor';
+import {addressInputTestkitFactory} from '../../testkit/protractor';
 
 describe('AddressInput', () => {
     const storyUrl = getStoryUrl('Components', 'AddressInput');
-    let driver: AddressInputDriver;
+    let driver;
 
     beforeAll(async () => {
         await browser.get(storyUrl);
