@@ -69,3 +69,6 @@ export const hBoxTestkitFactory = protractorTestkitFactoryCreator(hBoxDriverFact
 
 import { vBoxDriverFactory } from '../components/VBox/VBox.protractor.driver';
 export const vBoxTestkitFactory = protractorTestkitFactoryCreator(vBoxDriverFactory);
+
+import { addressInputDriverFactory } from '../components/AddressInput/AddressInput.protractor.driver';
+export const addressInputTestkitFactory = protractorTestkitFactoryCreator(addressInputDriverFactory);
