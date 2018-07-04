@@ -72,3 +72,6 @@ export const vBoxTestkitFactory = protractorTestkitFactoryCreator(vBoxDriverFact
 
 import { addressInputDriverFactory } from '../components/AddressInput/AddressInput.protractor.driver';
 export const addressInputTestkitFactory = protractorTestkitFactoryCreator(addressInputDriverFactory);
+
+import { timePickerDriverFactory, TimePickerDriver } from '../components/TimePicker/TimePicker.protractor.driver';
+export const timePickerTestkitFactory = protractorTestkitFactoryCreator<TimePickerDriver>(timePickerDriverFactory);
