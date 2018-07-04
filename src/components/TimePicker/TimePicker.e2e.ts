@@ -28,7 +28,7 @@ describe('TimePicker', () => {
     expect(isDisabled).toBeTruthy();
   });
 
-  it('should display the error state', async () => {
+  eyes.it('should display the error state', async () => {
     autoExampleDriver.setProps({ error: true });
     eyes.checkWindow('Error state');
   });
