@@ -9,7 +9,7 @@ export default {
   displayName: 'TimePicker',
 
   componentProps: {
-    dataHook: 'storybook-timepicker',
+    'data-hook': 'storybook-timepicker',
   },
 
   exampleProps: {
