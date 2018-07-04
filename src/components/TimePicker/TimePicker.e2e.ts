@@ -4,7 +4,7 @@ import autoExampleDriver = require('wix-storybook-utils/AutoExampleDriver');
 import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
 import {timePickerTestkitFactory} from '../../testkit/protractor';
 
-fdescribe('TimePicker', () => {
+describe('TimePicker', () => {
   const storyUrl = getStoryUrl('Components', 'TimePicker');
   let driver;
 
