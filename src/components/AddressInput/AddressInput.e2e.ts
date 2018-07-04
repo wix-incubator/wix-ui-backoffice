@@ -4,7 +4,7 @@ import autoExampleDriver = require('wix-storybook-utils/AutoExampleDriver');
 import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
 import {addressInputTestkitFactory, AddressInputDriver} from '../../testkit/protractor';
 
-fdescribe('AddressInput', () => {
+describe('AddressInput', () => {
     const storyUrl = getStoryUrl('Components', 'AddressInput');
     let driver: AddressInputDriver;
 
