@@ -13,6 +13,7 @@
 
   /* BLUE - Brand */
   B00: #2B81CB; /* Button Focus */
+  B05: #308DDD; /* CTA */
   B10: #3899EC; /* Main, Button */
   B20: #4EB7F5; /* Hover for elements with B10, buttons, Notifications */
   B25: #A1D7FB;
@@ -38,6 +39,7 @@
 
   /* RED - Danger or Destructive */
   R00: #D6453D;
+  R05: #D8504C; /* CTA */
   R10: #EE5951; /* Main, Destructive Button */
   R20: #FF6666; /* Notifications */
   R30: #FFD7D7;
@@ -56,6 +58,7 @@
 
   /* GREEN - Success */
   G00: #44823F;
+  G05: #61AD5A; /* CTA */
   G10: #60BC57; /* Main, Button */
   G20: #80C979; /* Notifications */
   G30: #C9EEBC;
@@ -65,6 +68,7 @@
 
   /* YELLOW - Warning */
   Y00: #C68801;
+  Y05: #EDA200; /* CTA */
   Y10: #FDB10C; /* Notification */
   Y20: #FAC249;
   Y30: #FEF0BA;
