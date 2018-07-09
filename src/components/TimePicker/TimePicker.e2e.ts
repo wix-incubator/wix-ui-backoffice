@@ -2,7 +2,7 @@ import * as eyes from 'eyes.it';
 import {browser} from 'protractor';
 import {createStoryUrl, mouseLeave, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
 import {TimePickerDriver, timePickerTestkitFactory} from '../../testkit/protractor';
-import autoExampleDriver = require('wix-storybook-utils/AutoExampleDriver');
+import * as autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 
 async function checkFocusAndHoverStates(driver: TimePickerDriver, contextState?: string) {
   // 1.

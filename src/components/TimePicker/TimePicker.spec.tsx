@@ -64,10 +64,9 @@ describe('TimePicker', () => {
   });
 
   describe('`width` prop', () => {
-    // TODO: skipping for now, because it requires update in wix-ui-core TimePicker to support width prop too
-    it.skip('should not pass inline styles prop', () => {
+    it('should not pass inline styles prop', () => {
       const driver = createDriver(<TimePicker width="432px"/>);
-      expect(driver.getInputElement().style.width).toEqual('432px');
+      expect(driver.getInputElement().parentNode.style.width).toEqual('432px');
     });
   });
 
