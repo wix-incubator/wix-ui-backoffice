@@ -17,7 +17,7 @@ export interface TimePickerPropsExtended {
   size?: Size,
   value?: String;
   disableAmPm?: boolean;
-  width?: String;
+  width?: string;
 }
 
 /*
@@ -70,13 +70,10 @@ export class TimePicker extends React.PureComponent<TimePickerProps> {
       useAmPm: disableAmPm ? AmPmOptions.None : AmPmOptions.Uppercase,
     };
 
-    const inlineStyle = width ? {width} : {};
-
     return (
       <CoreTimePicker
         {...coreTimePickerProps}
         {...style('root', { size, error, inputWidth: getInputWidthState(width, size, disableAmPm) }, coreTimePickerProps)}
-        style={inlineStyle}
       />
     );
   }

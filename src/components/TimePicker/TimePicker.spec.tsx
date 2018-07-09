@@ -66,7 +66,7 @@ describe('TimePicker', () => {
   describe('`width` prop', () => {
     it('should not pass inline styles prop', () => {
       const driver = createDriver(<TimePicker width="432px"/>);
-      expect(driver.getInputElement().parentNode.style.width).toEqual('432px');
+      expect(driver.getInlineWidth()).toEqual('432px');
     });
   });
 
