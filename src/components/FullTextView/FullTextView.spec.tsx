@@ -17,6 +17,22 @@ describe('FullTextView', () => {
     expect(wrapper.getTagName()).toBe('span');
   });
 
+  it('should display full content on hover and hide it on leave in tooltip', async () => {
+    const content = (
+      <div>
+        <span>Delete this super awesome thing</span>
+        <i>?</i>
+      </div>
+    );
+    const component = mount(<FullTextView maxWidth={0}>{content}</FullTextView>);
+
+    expect(component.find('[data-hook="popover-content"]').length).toBe(0);
+    component.setState({isEllipsisActive: true});
+    component.simulate('mouseEnter');
+    expect(component.find('[data-hook="popover-content"]').at(0).text()).toBe('Delete this super awesome thing?');
+  });
+});
+
   describe('testkit', () => {
     it('should exist', () => {
       expect(isTestkitExists(<FullTextView>Hello World</FullTextView>, fullTextViewTestkitFactory)).toBe(true);
