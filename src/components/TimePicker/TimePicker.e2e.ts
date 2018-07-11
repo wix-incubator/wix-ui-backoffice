@@ -23,14 +23,14 @@ async function checkFocusAndHoverStates(driver: TimePickerDriver, contextState?:
   eyes.checkWindow(`Focused, non-hovered. ${contextState}`);
 }
 
-fdescribe('TimePicker', () => {
+describe('TimePicker', () => {
   const storyUrl = createStoryUrl({
     kind: 'Components',
     story: 'TimePicker',
     withExamples: false
   });
   const dataHook = 'storybook-timePicker';
-  const defaultValue = new Date('2014-04-25T13:00:00.00Z');
+  const defaultValue = '13:00';
 
   beforeEach(() => browser.get(storyUrl));
 

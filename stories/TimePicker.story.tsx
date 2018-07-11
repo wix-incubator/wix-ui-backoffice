@@ -11,13 +11,13 @@ export default {
   component: TimePicker,
   componentPath: '../src/components/TimePicker/TimePicker.tsx',
 
-  componentProps: {
+  componentProps: setState => ({
     'data-hook': 'storybook-timePicker',
     error: false,
     disableAmPm: false,
-    value: new Date(),
-    onChange: value => console.log(value)
-  },
+    value: '12:43',
+    onChange: value => setState({value})
+  }),
 
   exampleProps: {
     size: enumValues(Size),

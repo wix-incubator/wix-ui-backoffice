@@ -74,6 +74,7 @@ export class TimePicker extends React.PureComponent<TimePickerProps> {
       <CoreTimePicker
         {...coreTimePickerProps}
         {...style('root', { size, error, inputWidth: getInputWidthState(width, size, disableAmPm) }, coreTimePickerProps)}
+        style={{width}}
       />
     );
   }
