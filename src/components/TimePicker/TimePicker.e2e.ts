@@ -72,6 +72,6 @@ describe('TimePicker', () => {
     await driver.focus();
     await driver.pressKeyArrowRight();
 
-    eyes.checkWindow();
+    eyes.checkWindow('pressKeyArrowRight');
   });
 });
