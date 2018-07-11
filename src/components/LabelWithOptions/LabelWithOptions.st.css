@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: primaryText, mainHover, main, disabledText, inputHover, inputDisabledColor, inputDisabledHoverBorderColor, primaryLightText, inputBorderColor, inputDisabledBorderColor, danger, backgroundSecondary, inputBackground;
+  -st-named: primaryText, mainHover, main, disabledText, inputHover, inputDisabledColor, inputDisabledHoverBorderColor, primaryLightText, inputBorderColor, inputDisabledBorderColor, danger, backgroundSecondary, inputBackground, dropdownOptionDivider;
 }
 
 :import {
@@ -136,7 +136,7 @@
 }
 
 .root::divider {
-  background-color: #e5e5e5;
+  background-color: value(dropdownOptionDivider);
   display: flex;
   flex: 1;
 }

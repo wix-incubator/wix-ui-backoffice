@@ -1,82 +1,86 @@
 :vars {
 
   /* DARK - Primary */
-  D10: #162d3d; /* Primary Text */
+  D10: #162D3D; /* Primary Text */
   D20: #32536A; /* Secondary Text */
   D30: #577083;
-  D40: #7a92a5; /* Placeholder Text */
-  D50: #b6c1cd; /* Disabled - Text + System Icons */
-  D55: #cbd3dc; /* Disabled button - new version */
-  D60: #dfe5eb; /* Dividers, Disabled - Borders */
-  D70: #f0f4f7; /* Page Background, Disabled - Background */
-  D80: #ffffff; /* Content box background */
+  D40: #7A92A5; /* Placeholder Text */
+  D50: #B6C1CD; /* Disabled - Text + System Icons */
+  D55: #CBD3DC; /* Disabled button - new version */
+  D60: #DFE5EB; /* Dividers, Disabled - Borders */
+  D70: #F0F4F7; /* Page Background, Disabled - Background */
+  D80: #FFFFFF; /* Content box background */
 
   /* BLUE - Brand */
-  B00: #2b81cb; /* Button Focus */
-  B10: #3899ec; /* Main, Button */
-  B20: #4eb7f5; /* Hover for elements with B10, buttons, Notifications */
+  B00: #2B81CB; /* Button Focus */
+  B05: #308DDD; /* CTA */
+  B10: #3899EC; /* Main, Button */
+  B20: #4EB7F5; /* Hover for elements with B10, buttons, Notifications */
   B25: #A1D7FB;
-  B27: #b3e0fb;
-  B30: #c1e4fe;
-  B40: #daeffe;
-  B50: #eaf7ff;
-  B60: #f4fafe;
+  B27: #B3E0FB;
+  B30: #C1E4FE;
+  B40: #DAEFFE;
+  B50: #EAF7FF;
+  B60: #F4FAFE;
 
   /* PURPLE - Premium */
-  P00: #8e21b1;
-  P10: #aa4dc8;
-  P20: #cd68ed;
-  P30: #e5c9ee;
-  P40: #eedbf4;
+  P00: #8E21B1;
+  P10: #AA4DC8;
+  P20: #CD68ED;
+  P30: #E5C9EE;
+  P40: #EEDBF4;
   P50: #FAEEFF;
   P60: #FAF7FC;
 
   /* ORANGE - Used ONLY in Labels */
-  O00: #ea5f0e;
-  O10: #fb7d33;
-  O20: #ff9a48;
+  O00: #EA5F0E;
+  O10: #FB7D33;
+  O20: #FF9A48;
 
   /* RED - Danger or Destructive */
-  R00: #d6453d;
-  R10: #ee5951; /* Main, Destructive Button */
-  R20: #ff6666; /* Notifications */
-  R30: #ffd7d7;
-  R40: #ffe1e1;
-  R50: #ffebeb;
-  R60: #fff5f5;
+  R00: #D6453D;
+  R05: #D8504C; /* CTA */
+  R10: #EE5951; /* Main, Destructive Button */
+  R20: #FF6666; /* Notifications */
+  R30: #FFD7D7;
+  R40: #FFE1E1;
+  R50: #FFEBEB;
+  R60: #FFF5F5;
 
   /* GREY - disabled */
-  GR10: #c8c8c8; /* Disabled buttons */
-  GR20: #dadada; /* Disabled fields */
-  GR30: #f1f1f1; /* Disabled background */
-  GR40: #cbd3dc; /* Disabled button - new version - naming not final */
-  GR50: #eff1f2;
-  GR60: #a3abb0; /* placeholder for InputArea theme="amaterial" */
+  GR10: #C8C8C8; /* Disabled buttons */
+  GR20: #DADADA; /* Disabled fields */
+  GR30: #F1F1F1; /* Disabled background */
+  GR40: #CBD3DC; /* Disabled button - new version - naming not final */
+  GR50: #EFF1F2;
+  GR60: #A3ABB0; /* placeholder for InputArea theme="amaterial" */
 
 
   /* GREEN - Success */
-  G00: #44823f;
-  G10: #60bc57; /* Main, Button */
-  G20: #80c979; /* Notifications */
-  G30: #c9eebc;
+  G00: #44823F;
+  G05: #61AD5A; /* CTA */
+  G10: #60BC57; /* Main, Button */
+  G20: #80C979; /* Notifications */
+  G30: #C9EEBC;
   G40: #DEF4D4;
   G50: #EDF9E5;
-  G60: #f2fbef;
+  G60: #F2FBEF;
 
   /* YELLOW - Warning */
-  Y00: #c68801;
-  Y10: #fdb10c; /* Notification */
-  Y20: #fac249;
-  Y30: #fef0ba;
-  Y40: #fef4cd;
-  Y50: #fdf7df;
+  Y00: #C68801;
+  Y05: #EDA200; /* CTA */
+  Y10: #FDB10C; /* Notification */
+  Y20: #FAC249;
+  Y30: #FEF0BA;
+  Y40: #FEF4CD;
+  Y50: #FDF7DF;
   Y60: #FFFCF0;
 
   /* Focus */
-  F00: #aadbfc;
+  F00: #AADBFC;
 
   /* Helpers */
   TRANSPARENT: transparent;
-  WHITE: #ffffff;
+  WHITE: #FFFFFF;
   BLACK: #000000;
 }
