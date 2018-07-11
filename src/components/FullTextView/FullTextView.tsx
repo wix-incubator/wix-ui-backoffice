@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {string, number, any, oneOfType} from 'prop-types';
+import {string, number, any, oneOfType, Requireable} from 'prop-types';
 import * as shallowequal from 'shallowequal';
 import {Tooltip} from '../Tooltip';
 import style from './FullTextView.st.css';
