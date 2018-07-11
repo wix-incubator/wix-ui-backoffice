@@ -1,18 +1,17 @@
-import { ComponentFactory } from 'wix-ui-test-utils/driver-factory';
-import { textDriverFactory, TextDriver } from '../core/CoreText/Text.driver';
-import { StylableDOMUtil } from 'stylable/test-utils';
-import style from './FullTextView.st.css';
-import { Appearance } from './Heading';
+import {BaseDriver, DriverFactory} from 'wix-ui-test-utils/driver-factory';
 
-export interface FullTextViewDriver extends TextDriver {
+export interface FullTextViewDriver extends BaseDriver {
+  getText: () => string;
+  getTagName: () => string;
 }
 
-export const fullTextViewDriverFactory = (factoryParams: ComponentFactory): FullTextViewDriver => {
-  const coreTextDriver = textDriverFactory(factoryParams);
-  const stylableDOMUtil = new StylableDOMUtil(style);
-  const { element } = factoryParams;
-
+export const fullTextViewDriverFactory: DriverFactory<FullTextViewDriver> = ({element}) => {
   return {
-    ...coreTextDriver,
+    /** check if element exists */
+    exists: () => !!element,
+    /** get the rendered content */
+    getText: () => element.innerHTML,
+    /** get the rendered tag name */
+    getTagName: () => element.tagName.toLowerCase(),
   };
 };

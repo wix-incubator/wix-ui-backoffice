@@ -31,7 +31,6 @@ describe('FullTextView', () => {
     component.simulate('mouseEnter');
     expect(component.find('[data-hook="popover-content"]').at(0).text()).toBe('Delete this super awesome thing?');
   });
-});
 
   describe('testkit', () => {
     it('should exist', () => {

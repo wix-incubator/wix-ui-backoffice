@@ -1,10 +1,8 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import {string, bool, any} from 'prop-types';
+import {string, number, any, oneOfType} from 'prop-types';
 import * as shallowequal from 'shallowequal';
 import {Tooltip} from '../Tooltip';
-import {Text} from '../core/CoreText';
-import styles from './FullTextView.st.css';
+import style from './FullTextView.st.css';
 
 export interface FullTextViewProps {
   children?: React.ReactNode;
@@ -25,18 +23,20 @@ export class FullTextView extends React.Component<FullTextViewProps, FullTextVie
     /** dataHook to find root element */
     dataHook: string,
     /** max width of the text */
-    maxWidth: bool,
+    maxWidth: oneOfType([number, string]),
     /** any nodes to be rendered (usually text nodes) */
     children: any
   }
 
   private textNode: any;
+  private ellipsesTimeout: any;
 
   state = {
     isEllipsisActive: false
   }
 
   componentDidMount() {
+    window.addEventListener('resize', this.updateEllipsesState);
     this.updateEllipsesState();
   }
 
@@ -48,24 +48,27 @@ export class FullTextView extends React.Component<FullTextViewProps, FullTextVie
     }
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateEllipsesState);
+  }
+
   handleTextRef = node => this.textNode = node;
 
-  updateEllipsesState = () => this.setState({isEllipsisActive: isEllipsisActive(this.textNode)});
+  updateEllipsesState = () => {
+    clearTimeout(this.ellipsesTimeout);
+    this.ellipsesTimeout = setTimeout(() => {
+      this.setState({isEllipsisActive: isEllipsisActive(this.textNode)})
+    }, 30);
+  };
 
   renderText() {
     return (
       <span
-        data-hook={this.props.dataHook}
-        className={styles.root}
+        {...style('root', {}, this.props)}
         style={{ maxWidth: this.props.maxWidth }}
+        ref={this.handleTextRef}
       >
-        <Text
-          ellipsis
-          forceHideTitle
-          forwardedRef={this.handleTextRef}
-        >
-          {this.props.children}
-        </Text>
+        {this.props.children}
       </span>
     );
   }
