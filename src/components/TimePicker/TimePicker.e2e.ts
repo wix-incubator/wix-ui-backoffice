@@ -7,20 +7,20 @@ import * as autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 async function checkFocusAndHoverStates(driver: TimePickerDriver, contextState?: string) {
   // 1.
   await driver.blur();
-  eyes.checkWindow(`Non-focused, non-hovered. ${contextState}`);
+  await eyes.checkWindow(`Non-focused, non-hovered. ${contextState}`);
 
   // 2.
   await driver.mouseEnter();
-  eyes.checkWindow(`Non-focused, hovered. ${contextState}`);
+  await eyes.checkWindow(`Non-focused, hovered. ${contextState}`);
 
   // 3.
   await driver.focus();
-  eyes.checkWindow(`Focused, hovered. ${contextState}`);
+  await eyes.checkWindow(`Focused, hovered. ${contextState}`);
 
   // 4.
   await driver.blur();
   await mouseLeave();
-  eyes.checkWindow(`Focused, non-hovered. ${contextState}`);
+  await eyes.checkWindow(`Focused, non-hovered. ${contextState}`);
 }
 
 describe('TimePicker', () => {
@@ -43,7 +43,7 @@ describe('TimePicker', () => {
   eyes.it('should render in all sizes', async () => {
     for (let size of ['large', 'medium', 'small']) {
       await autoExampleDriver.setProps({defaultValue, size});
-      eyes.checkWindow(`size=${size}`);
+      await eyes.checkWindow(`size=${size}`);
     }
   });
 
@@ -52,7 +52,7 @@ describe('TimePicker', () => {
 
     for (let error of [true, false]) {
       await autoExampleDriver.setProps({defaultValue, error});
-      checkFocusAndHoverStates(driver, `props.error=${error}`);
+      await checkFocusAndHoverStates(driver, `props.error=${error}`);
     }
   });
 
@@ -61,7 +61,7 @@ describe('TimePicker', () => {
 
     for (let disabled of [true, false]) {
       await autoExampleDriver.setProps({defaultValue, disabled});
-      checkFocusAndHoverStates(driver, `props.disabled=${disabled}`);
+      await checkFocusAndHoverStates(driver, `props.disabled=${disabled}`);
     }
   });
 
@@ -72,6 +72,6 @@ describe('TimePicker', () => {
     await driver.focus();
     await driver.pressKeyArrowRight();
 
-    eyes.checkWindow('pressKeyArrowRight');
+    await eyes.checkWindow('pressKeyArrowRight');
   });
 });
