@@ -8,8 +8,11 @@
   -st-named:
     disabled,
     buttonSecondaryText,
-    inputBorderColor, inputBackground,
-    inputHover, inputDisabledColor;
+    inputBorderColor,
+    inputBackground,
+    inputHover,
+    inputDisabledColor,
+    mainMutedHover;
 }
 
 :import {
@@ -42,6 +45,10 @@
 
 .root:size(small) {
   -st-mixin: input-small;
+}
+
+.root::nativeInput::selection {
+  background: value(mainMutedHover);
 }
 
 .root:inputWidth(small)::nativeInput {
