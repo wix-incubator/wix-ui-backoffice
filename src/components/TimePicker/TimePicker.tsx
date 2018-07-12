@@ -65,7 +65,7 @@ export class TimePicker extends React.PureComponent<TimePickerProps> {
   render() {
     const {value, disableAmPm, size, error, width} = this.props;
     const coreTimePickerProps = {
-      ...omit(this.props, 'size', 'value', 'disableAmPm'),
+      ...omit(this.props, 'size', 'value', 'disableAmPm', 'width'),
       value,
       useAmPm: disableAmPm ? AmPmOptions.None : AmPmOptions.Uppercase,
     };
