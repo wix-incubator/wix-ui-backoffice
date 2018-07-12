@@ -6,7 +6,6 @@ import style from './FullTextView.st.css';
 
 export interface FullTextViewProps {
   children?: React.ReactNode;
-  dataHook?: string;
   maxWidth?: number | string;
 }
 
@@ -20,8 +19,6 @@ export class FullTextView extends React.Component<FullTextViewProps, FullTextVie
   static displayName = 'FullTextView';
 
   static propTypes = {
-    /** dataHook to find root element */
-    dataHook: string,
     /** max width of the text */
     maxWidth: oneOfType([number, string]),
     /** any nodes to be rendered (usually text nodes) */
