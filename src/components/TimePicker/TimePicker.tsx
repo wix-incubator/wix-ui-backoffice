@@ -63,7 +63,7 @@ export class TimePicker extends React.PureComponent<TimePickerProps> {
   };
 
   render() {
-    const {value, disableAmPm, size, error, width} = this.props;
+    const {value, disableAmPm, size, error, width, disabled} = this.props;
     const coreTimePickerProps = {
       ...omit(this.props, 'size', 'value', 'disableAmPm', 'width'),
       value,
@@ -73,7 +73,7 @@ export class TimePicker extends React.PureComponent<TimePickerProps> {
     return (
       <CoreTimePicker
         {...coreTimePickerProps}
-        {...style('root', { size, error, inputWidth: getInputWidthState(width, size, disableAmPm) }, coreTimePickerProps)}
+        {...style('root', { size, error, disabled, inputWidth: getInputWidthState(width, size, disableAmPm) }, coreTimePickerProps)}
         style={{width}}
       />
     );
