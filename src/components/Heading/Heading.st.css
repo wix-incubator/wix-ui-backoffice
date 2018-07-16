@@ -15,7 +15,7 @@
 
 :import {
   -st-from: "../../typography.st.css";
-  -st-named: fontUltraThin, fontThin, fontLight, fontMedium;
+  -st-named: fontLight, fontMedium, fontRoman;
 }
   
 .root {
