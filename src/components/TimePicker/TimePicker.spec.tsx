@@ -6,6 +6,7 @@ import {timePickerDriverFactory} from './TimePicker.driver';
 import {TimePicker} from './';
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
 import {isEnzymeTestkitExists} from 'wix-ui-test-utils/enzyme';
+import {ReactDOMTestContainer} from 'wix-ui-core/dist/test/dom-test-container';
 import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
 import {mount} from 'enzyme';
 import {timePickerTestkitFactory} from '../../testkit';
@@ -68,6 +69,19 @@ describe('TimePicker', () => {
       const driver = createDriver(<TimePicker width="432px"/>);
       expect(driver.getInlineStyle().width).toEqual('432px');
     });
+  });
+
+  it('should support focus() and blur() methods', async () => {
+    const container = new ReactDOMTestContainer().unmountAfterEachTest();
+    container.create();
+    const reactInstance = await container.renderWithRef(<TimePicker/>);
+    const inputElement = container.componentNode.querySelector('input');
+
+    expect(document.activeElement).not.toBe(inputElement);
+    reactInstance.focus();
+    expect(document.activeElement).toBe(inputElement);
+    reactInstance.blur();
+    expect(document.activeElement).not.toBe(inputElement);
   });
 
   describe('testkits', () => {

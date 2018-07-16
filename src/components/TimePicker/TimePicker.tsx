@@ -53,6 +53,7 @@ function getInputWidthState(timePickerWidth: string | undefined, size: Size, dis
 export class TimePicker extends React.PureComponent<TimePickerProps> {
   static displayName = 'TimePicker';
   static defaultProps = defaultProps;
+  coreTimePickerRef;
 
   static propTypes = {
     ...omit(CoreTimePicker.propTypes, 'useAmPm'),
@@ -61,6 +62,14 @@ export class TimePicker extends React.PureComponent<TimePickerProps> {
     disableAmPm: propTypes.bool,
     width: propTypes.string
   };
+
+  focus() {
+    this.coreTimePickerRef.focus();
+  }
+
+  blur() {
+    this.coreTimePickerRef.blur();
+  }
 
   render() {
     const {value, disableAmPm, size, error, width, disabled} = this.props;
@@ -72,6 +81,7 @@ export class TimePicker extends React.PureComponent<TimePickerProps> {
 
     return (
       <CoreTimePicker
+        ref={ref => this.coreTimePickerRef = ref}
         {...coreTimePickerProps}
         {...style('root', { size, error, disabled, inputWidth: getInputWidthState(width, size, disableAmPm) }, coreTimePickerProps)}
         style={{width}}
