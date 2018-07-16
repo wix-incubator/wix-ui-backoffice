@@ -8,7 +8,7 @@ export default {
 
   componentProps: setState => ({
     'data-hook': 'storybook-fullTextView',
-    children: 'some very long text',
-    maxWidth: '50px'
+    children: 'Very long fancy and hardly fitting tab',
+    maxWidth: '172px'
   }),
 };
