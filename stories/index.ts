@@ -7,6 +7,7 @@ import './CloseButton/index.story';
 import './CounterBadge.story';
 import './FloatingHelper/index.story';
 import './FloatingHelperContent/index.story';
+import './FullTextView.story';
 import './StylableCounterBadge';
 import './Heading.story';
 import './Label';

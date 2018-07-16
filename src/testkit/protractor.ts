@@ -12,6 +12,10 @@ import { closeButtonDriverFactory, CloseButtonDriver } from '../components/Close
 export const closeButtonTestkitFactory = protractorTestkitFactoryCreator<CloseButtonDriver>(closeButtonDriverFactory);
 export { CloseButtonDriver };
 
+import { fullTextViewDriverFactory, FullTextViewDriver } from '../components/FullTextView/FullTextView.protractor.driver';
+export const fullTextViewTestkitFactory = protractorTestkitFactoryCreator<FullTextViewDriver>(fullTextViewDriverFactory);
+export { FullTextViewDriver };
+
 import { badgeDriverFactory, BadgeDriver } from '../components/Badge/Badge.protractor.driver';
 export const badgeTestkitFactory = protractorTestkitFactoryCreator<BadgeDriver>(badgeDriverFactory);
 export { BadgeDriver };
