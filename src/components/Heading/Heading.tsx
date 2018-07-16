@@ -5,7 +5,7 @@ import {Omit} from '../../types/common';
 import {Text as CoreText, TextProps as CoreTextProps} from '../core/CoreText';
 import style from './Heading.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
-import { enumValues } from '../../utils';
+import {enumValues} from '../../utils';
 
 export enum Appearance {
   H1 = 'H1',
