@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Tooltip as CoreTooltip, TooltipProps as CoreTooltipProps} from 'wix-ui-core/Tooltip';
+import {AppendTo} from 'wix-ui-core/Popover';
 import style from './Tooltip.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
 import {TextAlignProperty} from 'csstype';
@@ -7,6 +8,7 @@ import {TextAlignProperty} from 'csstype';
 const noop = () => null;
 
 export interface TooltipProps {
+  appendTo?: AppendTo;
   className?: string;
   textAlign?: TextAlignProperty;
   theme?: 'light' | 'dark' | 'error';
@@ -25,6 +27,7 @@ export interface TooltipProps {
 }
 
 const defaultProps = {
+  appendTo: 'scrollParent',
   placement: 'top',
   alignment: 'center',
   showTrigger: 'mouseenter',
@@ -50,10 +53,10 @@ const defaultProps = {
 const TooltipBO = withStylable<CoreTooltipProps, TooltipProps>(
   CoreTooltip,
   style,
-  ({placement, alignment, theme, showTrigger, hideTrigger, active,
-    bounce, disabled, appendToParent, size, relative, shouldUpdatePosition}) => ({
+  ({appendTo, placement, alignment, theme, showTrigger, hideTrigger, active,
+    bounce, disabled, size, relative, shouldUpdatePosition}) => ({
       [`placement-${placement}`]: true, [alignment]: true, [theme]: true, [showTrigger]: true, [hideTrigger]: true,
-      active, bounce, disabled, appendToParent, [size]: true, relative, shouldUpdatePosition
+      active, bounce, disabled, appendTo, [size]: true, relative, shouldUpdatePosition
     }),
   defaultProps
 );
