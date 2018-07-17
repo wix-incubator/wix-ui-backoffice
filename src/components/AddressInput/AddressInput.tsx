@@ -21,6 +21,7 @@ export interface AddressInputProps extends Omit<CoreAddressInputProps, excludePr
 
 export class AddressInput extends React.PureComponent<AddressInputProps> {
     static displayName = 'AddressInput';
+    addressInputRef;
 
     static propTypes = {
         ...omit<ValidationMap<AddressInputProps>>(CoreAddressInput.propTypes, excludePropsArray),
@@ -34,6 +35,14 @@ export class AddressInput extends React.PureComponent<AddressInputProps> {
         magnifyingGlass: true
     };
 
+    focus() {
+        this.addressInputRef.focus();
+    }
+
+    blur() {
+        this.addressInputRef.blur();
+    }
+
     render() {
         const {size, showLocationIcon, magnifyingGlass, ...rest} = this.props;
         return (
@@ -45,6 +54,7 @@ export class AddressInput extends React.PureComponent<AddressInputProps> {
                 throttleInterval={THROTTLE_INTERVAL}
                 locationIcon={showLocationIcon && <Location/>}
                 suffix={magnifyingGlass && <Search className={style.search}/>}
+                ref={ref => this.addressInputRef = ref}
             />
         );
     }

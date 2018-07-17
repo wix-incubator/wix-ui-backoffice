@@ -44,6 +44,19 @@ describe('AddressInput', () => {
         expect(throttleInterval).toBe(150);
     });
 
+    it('Should have a focus and blur method', () => {
+        const wrapper = mount(<AddressInput {...commonProps}/>);
+
+        const input = wrapper.find('input').getDOMNode();
+        const instance = wrapper.instance() as AddressInput;
+
+        expect(document.activeElement).not.toBe(input);
+        instance.focus();
+        expect(document.activeElement).toBe(input);
+        instance.blur();
+        expect(document.activeElement).not.toBe(input);
+    });
+
     describe('locationIcon', () => {
         it('should use LocationIcon when showLocationIcon=true', async () => {
             const driver = createDriver(<AddressInput {...commonProps} showLocationIcon/>);
@@ -80,5 +93,5 @@ describe('AddressInput', () => {
             const wrapper = mount(<AddressInput {...commonProps} magnifyingGlass={false}/>);
             expect(wrapper.find(Search).exists()).toBeFalsy();
         });
-    })
+    });
 });
