@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as propTypes from 'prop-types';
 import omit = require('lodash/omit');
+import {Omit} from '../../types/common';
 
 import FormFieldSpinnerUp from 'wix-ui-icons-common/system/FormFieldSpinnerUp';
 import FormFieldSpinnerDown from 'wix-ui-icons-common/system/FormFieldSpinnerDown';
@@ -13,19 +14,12 @@ import {AmPmOptions} from 'wix-ui-core/dist/src/components/TimePicker/constants'
 import style from './TimePicker.st.css';
 import {Size} from './constants';
 
-export interface TimePickerPropsExtended {
+export interface TimePickerProps extends Omit<CoreTimePickerProps, 'useAmPm'> {
   size?: Size,
   value?: String;
   disableAmPm?: boolean;
   width?: string;
 }
-
-/*
-  'CoreTimePickerProps.useAmPm' prop must not be included in TimePickerProps.
-  Use type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>> to omit it from CoreTimePickerProps.
-  TODO: after typescript is updated to ^2.9 omit 'useAmPm' prop
- */
-export type TimePickerProps = CoreTimePickerProps & TimePickerPropsExtended;
 
 const defaultProps = {
   size: Size.medium,
