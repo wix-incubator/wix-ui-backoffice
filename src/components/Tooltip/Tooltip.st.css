@@ -21,7 +21,6 @@
 .root {
   -st-states: bounce, placement-right, placement-left, placement-top, placement-bottom;
   -st-extends: Tooltip;
-  white-space: nowrap;
 }
 
 .root::popoverContent {
@@ -29,7 +28,6 @@
 }
 
 .tooltipContent {
-  white-space: normal;
   font-family: value(fontRoman);
   border-radius: 8px;
   padding: 12px 24px;
