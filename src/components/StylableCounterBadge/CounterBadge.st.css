@@ -14,9 +14,17 @@
 }
 
 :import {
-  -st-from: "../../palette.st.css";
-  -st-named: secondaryText, brandPrimary, danger, warning, urgent, success;
+  -st-from: "../../colors.st.css";
+  -st-named: 
+  B10,
+  D20,
+  G10,
+  O10,
+  R10,
+  Y10,
+WHITE;
 }
+
 
 .root {
   -st-extends: Badge;
@@ -35,43 +43,43 @@
 
 .root:skin(general) {
   -st-mixin: BadgeStyle(
-    backgroundColor value(secondaryText),
-    borderColor value(secondaryText)
+    backgroundColor value(D20),
+    borderColor value(D20)
   );
 }
 
 .root:skin(standard) {
   -st-mixin: BadgeStyle(
-    backgroundColor value(brandPrimary),
-    borderColor value(brandPrimary)
+    backgroundColor value(B10),
+    borderColor value(B10)
   );
 }
 
 .root:skin(danger) {
   -st-mixin: BadgeStyle(
-    backgroundColor value(danger),
-    borderColor value(danger)
+    backgroundColor value(R10),
+    borderColor value(R10)
   );
 }
 
 .root:skin(warning) {
   -st-mixin: BadgeStyle(
-    backgroundColor value(warning),
-    borderColor value(warning)
+    backgroundColor value(Y10),
+    borderColor value(Y10)
   );
 }
 
 .root:skin(urgent) {
   -st-mixin: BadgeStyle(
-    backgroundColor value(urgent),
-    borderColor value(urgent)
+    backgroundColor value(O10),
+    borderColor value(O10)
   );
 }
 
 .root:skin(success) {
   -st-mixin: BadgeStyle(
-    backgroundColor value(success),
-    borderColor value(success)
+    backgroundColor value(G10),
+    borderColor value(G10)
   );
 }
 

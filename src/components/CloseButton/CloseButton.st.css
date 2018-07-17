@@ -4,14 +4,13 @@
 }
 
 :import {
-  -st-from: "../../palette.st.css";
-  -st-named: main, mainHover, mainMutedBackground, WHITE;
+  -st-from: "../../colors.st.css";
+  -st-named: 
+  B10, B20, B50,
+  D10, D20,
+WHITE;
 }
 
-:import {
-  -st-from: "../../colors.st.css";
-  -st-named: D10, D20;
-}
 .root {
   -st-extends: Button;
   -st-states: skin(enum(standard, white, dark)), size(enum(small, large));
@@ -29,18 +28,18 @@
 }
 
 .root:skin(standard) {
-  color: value(main);
+  color: value(B10);
 }
 
 .root:skin(standard):hover {
-  color: value(mainHover);
+  color: value(B20);
 }
 
 .root:skin(white) {
   color: value(WHITE);
 }
 .root:skin(white):hover {
-  color: value(mainMutedBackground);
+  color: value(B50);
 }
 
 .root:skin(dark) {

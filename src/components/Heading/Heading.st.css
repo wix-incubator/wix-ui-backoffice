@@ -9,15 +9,24 @@
 }
 
 :import {
-  -st-from: "../../palette.st.css";
-  -st-named: headingText, subheadingText, lightHeadingText, lightSubheadingText;
+  -st-from: "../../colors.st.css";
+  -st-named: 
+  D10, D20, D50,
+WHITE;
 }
 
 :import {
   -st-from: "../../typography.st.css";
   -st-named: fontUltraThin, fontThin, fontLight;
 }
-  
+
+:vars {
+  headingText: value(D10);
+  subheadingText: value(D20);
+  lightHeadingText: value(WHITE);
+  lightSubheadingText: value(D50);
+}
+
 .root {
   -st-extends: Text;
   -st-states: appearance(string), light;
@@ -52,7 +61,7 @@
 
 .root:appearance(H2):light {
   -st-mixin: TextStyle(
-    color value(lightHeadingText),
+    color value(lightHeadingText2),
     fontFamily value(fontLight),
     fontSize 20px,
     lineHeight 24px

@@ -5,23 +5,12 @@
 
 :import {
   -st-from: "../../colors.st.css";
-  -st-named: B40;
-}
-
-:import {
-  -st-from: "../../palette.st.css";
-  -st-named:
-    primaryText,
-    inputBackground,
-    inputBorderColor,
-    inputHover,
-    inputFocusBorderColor,
-    inputDisabledColor,
-    inputDisabledBorderColor,
-    inputDisabledHoverBorderColor,
-    backgroundSecondary,
-    disabledText,
-    danger;
+  -st-named: 
+    B20, B30, B40, B50,
+    D10, D50, D55, D60,
+    GR20,
+    R10,
+    WHITE
 }
 
 :import {
@@ -34,6 +23,17 @@
   -st-named: input-large, input-medium, input-small;
 }
 
+/* Input colors */
+:vars {
+  inputBackground: value(WHITE);
+  inputBorderColor: value(B30);
+  inputHover: value(B50);
+  inputFocusBorderColor: value(B20);
+  inputDisabledColor: value(D55);
+  inputDisabledBorderColor: value(D60);
+  inputDisabledHoverBorderColor: value(GR20);
+}
+
 .root {
   -st-extends: Input;
   -st-states: size(enum(large, medium, small));
@@ -42,7 +42,7 @@
   align-items: center;
   position: relative;
   box-sizing: border-box;
-  color: value(primaryText);
+  color: value(D10);
   width: 100%;
   border-radius: 6px;
   border: 1px solid value(inputBorderColor);
@@ -52,7 +52,7 @@
 
 .root:error,
 .root:error:focus {
-  border-color: value(danger);
+  border-color: value(R10);
 }
 
 .root:hover {
@@ -85,10 +85,10 @@
   padding: 0 6px;
 }
 
-.root::nativeInput::-webkit-input-placeholder { color: value(disabledText); }
-.root::nativeInput:-moz-placeholder           { color: value(disabledText); }
-.root::nativeInput::-moz-placeholder          { color: value(disabledText); }
-.root::nativeInput:-ms-input-placeholder      { color: value(disabledText); }
+.root::nativeInput::-webkit-input-placeholder { color: value(D50); }
+.root::nativeInput:-moz-placeholder           { color: value(D50); }
+.root::nativeInput::-moz-placeholder          { color: value(D50); }
+.root::nativeInput:-ms-input-placeholder      { color: value(D50); }
 
 .root::nativeInput::selection                 { background: value(B40); }
 .root::nativeInput:-moz-selection             { background: value(B40); }

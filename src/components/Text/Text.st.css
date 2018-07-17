@@ -4,10 +4,12 @@
 }
 
 :import {
-  -st-from: "../../palette.st.css";
+  -st-from: "../../colors.st.css";
   -st-named: 
-    primaryText, secondaryText, primaryLightText, secondaryLightText,
-    success, danger, premium;
+  D10, D20, D50,
+  G10,P10,
+  R10,
+  WHITE,
 }
 
 :import {
@@ -42,37 +44,37 @@
 }
 
 .root:size(medium), .root:size(small) {
-  color: value(primaryText);
+  color: value(D10);
 }
 
 .root:size(medium):light, .root:size(small):light {
-  color: value(primaryLightText);
+  color: value(WHITE);
 }
 
 .root:size(medium):secondary, .root:size(small):secondary {
-  color: value(secondaryText);
+  color: value(D20);
 }
 
 .root:size(medium):secondary:light, .root:size(small):secondary:light {
-  color: value(secondaryLightText);
+  color: value(D50);
 }
 
 .root:skin(success),
 .root:skin(success):light,
 .root:skin(success):secondary {
-  color: value(success);
+  color: value(G10);
 }
 
 .root:skin(error),
 .root:skin(error):light,
 .root:skin(error):secondary {
-  color: value(danger);
+  color: value(R10);
 }
 
 .root:skin(premium),
 .root:skin(premium):light,
 .root:skin(premium):secondary {
-  color: value(premium);
+  color: value(P10);
 }
 
 .root:bold {

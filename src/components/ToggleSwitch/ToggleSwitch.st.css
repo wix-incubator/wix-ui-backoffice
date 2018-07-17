@@ -19,13 +19,14 @@
 }
 
 :import {
-  -st-from: "../../palette.st.css";
-  -st-named:
-    disabled,
-    main, mainHover, mainMuted,
-    danger, dangerHover, dangerMutedHover,
-    success, successHover, successMutedHover,
-    focusShadow;
+  -st-from: "../../colors.st.css";
+  -st-named: 
+  B10, B20, B40, B50,
+  D50,
+  F00,
+  G10, G20, G30,
+  R10, R20, R30,
+    WHITE;
 }
 
 :import {
@@ -65,36 +66,36 @@
 
 .root:skin(standard) {
   -st-mixin: ToggleSwitchColor(
-    colorUnchecked      value(mainMuted),
-    colorChecked        value(main),
-    colorUncheckedHover value(mainHover),
-    colorCheckedHover   value(mainHover),
-    colorDisabled       value(disabled)
+    colorUnchecked      value(B40),
+    colorChecked        value(B10),
+    colorUncheckedHover value(B20),
+    colorCheckedHover   value(B20),
+    colorDisabled       value(D50)
   );
 }
 
 .root:skin(success) {
   -st-mixin: ToggleSwitchColor(
-    colorUnchecked      value(successMutedHover),
-    colorChecked        value(success),
-    colorUncheckedHover value(successHover),
-    colorCheckedHover   value(successHover),
-    colorDisabled       value(disabled)
+    colorUnchecked      value(G30),
+    colorChecked        value(G10),
+    colorUncheckedHover value(G20),
+    colorCheckedHover   value(G20),
+    colorDisabled       value(D50)
   );
 }
 
 .root:skin(error) {
   -st-mixin: ToggleSwitchColor(
-    colorUnchecked      value(dangerMutedHover),
-    colorChecked        value(danger),
-    colorUncheckedHover value(dangerHover),
-    colorCheckedHover   value(dangerHover),
-    colorDisabled       value(disabled)
+    colorUnchecked      value(R30),
+    colorChecked        value(R10),
+    colorUncheckedHover value(R20),
+    colorCheckedHover   value(R20),
+    colorDisabled       value(D50)
   );
 }
 
 .root:focus-visible::track {
-	box-shadow: 0 0 0 3px value(focusShadow);
+	box-shadow: 0 0 0 3px value(F00);
 }
 
 .root::knob {

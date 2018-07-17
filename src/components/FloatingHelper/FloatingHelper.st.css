@@ -20,11 +20,6 @@
 }
 
 :import {
-  -st-from: "../../palette.st.css";
-  -st-named: brandSecondary, backgroundSecondary;
-}
-
-:import {
   -st-from: "../../colors.st.css";
   -st-named: D80;
 }
@@ -97,6 +92,6 @@
 
 .innerContent {
   padding: 30px 36px;
-  color: value(backgroundSecondary);
+  color: value(WHITE);
 }
 

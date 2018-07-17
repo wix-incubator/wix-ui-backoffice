@@ -4,8 +4,10 @@
 }
 
 :import {
-  -st-from: "../../palette.st.css";
-  -st-named: brandSecondary, backgroundSecondary, main, mainHover, disabled, danger, successHover, dangerHover;
+  -st-from: "../../colors.st.css";
+  -st-named: 
+  D10,
+WHITE;
 }
 
 :import {
@@ -36,8 +38,8 @@
   word-wrap: break-word;
   -webkit-font-smoothing: antialiased;
 
-  color: value(backgroundSecondary);
-  background: value(brandSecondary);
+  color: value(WHITE);
+  background: value(D10);
   font-size: 14px;
   line-height: 18px;
   text-align: center;
