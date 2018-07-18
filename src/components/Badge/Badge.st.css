@@ -5,8 +5,13 @@
 
 :import {
   -st-from: "../../colors.st.css";
-  -st-named: 
-  D20,
+  -st-named:
+    B20, B30,
+    D20, D40,
+    G10, G30,
+    O10,
+    R10, R30,
+    Y10,
 WHITE,
 }
 

@@ -61,7 +61,7 @@ WHITE;
 
 .root:appearance(H2):light {
   -st-mixin: TextStyle(
-    color value(lightHeadingText2),
+    color value(lightHeadingText),
     fontFamily value(fontLight),
     fontSize 20px,
     lineHeight 24px
