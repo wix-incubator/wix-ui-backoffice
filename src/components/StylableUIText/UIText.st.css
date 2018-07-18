@@ -45,7 +45,7 @@ WHITE,
   );
 }
 
-.root:appearance(T1.1) {
+.root:appearance("T1.1") {
   -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
@@ -54,7 +54,7 @@ WHITE,
   );
 }
 
-.root:appearance(T1.2) {
+.root:appearance("T1.2") {
   -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
@@ -63,7 +63,7 @@ WHITE,
   );
 }
 
-.root:appearance(T1.3) {
+.root:appearance("T1.3") {
   -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
@@ -72,7 +72,7 @@ WHITE,
   );
 }
 
-.root:appearance(T1.4) {
+.root:appearance("T1.4") {
   -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
@@ -81,7 +81,7 @@ WHITE,
   );
 }
 
-.root:appearance(T1.5) {
+.root:appearance("T1.5") {
   -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
@@ -90,7 +90,7 @@ WHITE,
   );
 }
 
-.root:appearance(T1.6) {
+.root:appearance("T1.6") {
   -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
@@ -99,7 +99,7 @@ WHITE,
   );
 }
 
-.root:appearance(T1.7) {
+.root:appearance("T1.7") {
   -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 16px,
@@ -117,7 +117,7 @@ WHITE,
   );
 }
 
-.root:appearance(T2.1) {
+.root:appearance("T2.1") {
   -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 16px,
@@ -126,7 +126,7 @@ WHITE,
   );
 }
 
-.root:appearance(T2.2) {
+.root:appearance("T2.2") {
   -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 16px,
@@ -135,7 +135,7 @@ WHITE,
   );
 }
 
-.root:appearance(T2.3) {
+.root:appearance("T2.3") {
   -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 16px,
@@ -144,7 +144,7 @@ WHITE,
   );
 }
 
-.root:appearance(T2.4) {
+.root:appearance("T2.4") {
   -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 16px,
@@ -162,7 +162,7 @@ WHITE,
   );
 }
 
-.root:appearance(T3.1) {
+.root:appearance("T3.1") {
   -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
@@ -171,7 +171,7 @@ WHITE,
   );
 }
 
-.root:appearance(T3.2) {
+.root:appearance("T3.2") {
   -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
@@ -180,7 +180,7 @@ WHITE,
   );
 }
 
-.root:appearance(T3.3) {
+.root:appearance("T3.3") {
   -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
@@ -189,7 +189,7 @@ WHITE,
   );
 }
 
-.root:appearance(T3.4) {
+.root:appearance("T3.4") {
   -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
@@ -198,7 +198,7 @@ WHITE,
   );
 }
 
-.root:appearance(T3.5) {
+.root:appearance("T3.5") {
   -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
@@ -207,7 +207,7 @@ WHITE,
   );
 }
 
-.root:appearance(T3.6) {
+.root:appearance("T3.6") {
   -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
@@ -216,7 +216,7 @@ WHITE,
   );
 }
 
-.root:appearance(T3.7) {
+.root:appearance("T3.7") {
   -st-mixin: TextStyle(
     fontFamily value(fontLight),
     fontSize 14px,
@@ -234,7 +234,7 @@ WHITE,
   );
 }
 
-.root:appearance(T4.1) {
+.root:appearance("T4.1") {
   -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
@@ -243,7 +243,7 @@ WHITE,
   );
 }
 
-.root:appearance(T4.2) {
+.root:appearance("T4.2") {
   -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
@@ -252,7 +252,7 @@ WHITE,
   );
 }
 
-.root:appearance(T4.3) {
+.root:appearance("T4.3") {
   -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
@@ -261,7 +261,7 @@ WHITE,
   );
 }
 
-.root:appearance(T4.4) {
+.root:appearance("T4.4") {
   -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
@@ -270,7 +270,7 @@ WHITE,
   );
 }
 
-.root:appearance(T4.5) {
+.root:appearance("T4.5") {
   -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
@@ -279,7 +279,7 @@ WHITE,
   );
 }
 
-.root:appearance(T4.6) {
+.root:appearance("T4.6") {
   -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
@@ -288,7 +288,7 @@ WHITE,
   );
 }
 
-.root:appearance(T4.7) {
+.root:appearance("T4.7") {
   -st-mixin: TextStyle(
     fontFamily value(fontRoman),
     fontSize 14px,
@@ -308,7 +308,7 @@ WHITE,
   );
 }
 
-.root:appearance(T5.1) {
+.root:appearance("T5.1") {
   -st-mixin: TextStyle(
     fontFamily value(fontMedium),
     fontSize 10px,
