@@ -22,3 +22,4 @@ import './HBox/index.story';
 import './VBox/index.story';
 import './Text.story';
 import './UIText.story';
+import './TimePicker.story';

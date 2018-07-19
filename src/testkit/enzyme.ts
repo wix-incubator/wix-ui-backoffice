@@ -72,3 +72,6 @@ export {ThumbnailDriver};
 
 import { addressInputDriverFactory } from '../components/AddressInput/AddressInput.driver';
 export const addressInputTestkitFactory = enzymeTestkitFactoryCreator(addressInputDriverFactory);
+
+import { timePickerDriverFactory } from '../components/TimePicker/TimePicker.driver';
+export const timePickerTestkitFactory = enzymeTestkitFactoryCreator(timePickerDriverFactory);

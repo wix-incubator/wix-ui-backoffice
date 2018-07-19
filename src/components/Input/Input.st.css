@@ -60,13 +60,16 @@
 }
 
 .root:disabled {
+  background-color: inherit;
+}
+
+.root:disabled {
   color: value(inputDisabledColor);
   border-color: value(inputDisabledBorderColor);
 }
 
-.root:disabled:hover {
-  background-color: value(inputBackground);
-  border-color: value(inputDisabledHoverBorderColor);
+.root:disabled::nativeInput {
+  color: value(inputDisabledColor);
 }
 
 .root:focus {

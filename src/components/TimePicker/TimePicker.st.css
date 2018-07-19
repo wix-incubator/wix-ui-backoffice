@@ -1,0 +1,97 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/components/TimePicker/TimePicker.st.css";
+  -st-default: TimePicker;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named:
+    disabled,
+    buttonSecondaryText,
+    inputBorderColor,
+    inputBackground,
+    inputHover,
+    inputDisabledColor,
+    mainMutedHover;
+}
+
+:import {
+  -st-from: "../Input/Input.st.css";
+  -st-default: Input;
+}
+
+:import {
+  -st-from: "../Input/InputStates.st.css";
+  -st-named: input-large, input-medium, input-small;
+}
+
+.root {
+  -st-extends: TimePicker;
+  -st-mixin: Input;
+  -st-states: disabled, size(enum(large, medium, small)),
+    inputWidth(enum(small, medium, large, small_ampm, medium_ampm, large_ampm));
+
+  display: inline-flex;
+  width: auto;
+}
+
+.root:size(large) {
+  -st-mixin: input-large;
+}
+
+.root:size(medium) {
+  -st-mixin: input-medium;
+}
+
+.root:size(small) {
+  -st-mixin: input-small;
+}
+
+.root::nativeInput::selection {
+  background: value(mainMutedHover);
+}
+
+.root:inputWidth(small)::nativeInput {
+    width: 47px;
+}
+
+.root:inputWidth(medium)::nativeInput {
+    width: 53px;
+}
+
+.root:inputWidth(large)::nativeInput {
+  width: 67px;
+}
+
+.root:inputWidth(small_ampm)::nativeInput {
+    width: 72px;
+}
+
+.root:inputWidth(medium_ampm)::nativeInput {
+  width: 80px;
+}
+
+.root:inputWidth(large_ampm)::nativeInput {
+  width: 107px;
+}
+
+.root::tickers {
+  padding: 0 6px 0 12px;
+}
+
+.root::tickers::ticker {
+  padding: 5px 0;
+  color: value(buttonSecondaryText);
+  cursor: pointer;
+}
+
+.root::tickers::ticker > svg {
+  display: block;
+  width: 10px;
+  height: 5px;
+}
+
+.root:disabled::tickers::ticker {
+  cursor: default;
+  color: value(inputDisabledColor);
+}
