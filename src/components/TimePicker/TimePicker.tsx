@@ -16,7 +16,7 @@ import {Size} from './constants';
 
 export interface TimePickerProps extends Omit<CoreTimePickerProps, 'useAmPm'> {
   size?: Size,
-  value?: String;
+  value?: string;
   disableAmPm?: boolean;
   width?: string;
 }
