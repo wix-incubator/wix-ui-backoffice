@@ -71,6 +71,18 @@ describe('TimePicker', () => {
     });
   });
 
+  describe('`style` prop', () => {
+    it('should pass through the style prop', () => {
+      const driver = createDriver(<TimePicker style={{width: 543}}/>);
+      expect(driver.getInlineStyle().width).toEqual('543px');
+    });
+
+    it('should not override the width prop (if passed)', () => {
+      const driver = createDriver(<TimePicker style={{width: 543}} width="111px" />);
+      expect(driver.getInlineStyle().width).toEqual('111px');
+    });
+  });
+
   it('should support focus() and blur() methods', async () => {
     const container = new ReactDOMTestContainer().unmountAfterEachTest();
     container.create();
