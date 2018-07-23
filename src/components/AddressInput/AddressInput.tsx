@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {bool, oneOf, ValidationMap} from 'prop-types';
+import {bool, oneOf, ValidationMap, Requireable} from 'prop-types';
 import {AddressInput as CoreAddressInput, AddressInputProps as CoreAddressInputProps} from 'wix-ui-core/AddressInput';
 import style from './AddressInput.st.css';
 import Location from 'wix-ui-icons-common/Location';
@@ -19,31 +19,43 @@ export interface AddressInputProps extends Omit<CoreAddressInputProps, excludePr
 }
 
 
-export const AddressInput: React.SFC<AddressInputProps> = props => {
-    const {size, showLocationIcon, magnifyingGlass, ...rest} = props;
-    return (
-        <CoreAddressInput
-            {...rest}
-            {...style('root', {size}, rest)}
-            forceContentElementVisibility={false}
-            forceOptions={null}
-            throttleInterval={THROTTLE_INTERVAL}
-            locationIcon={showLocationIcon && <Location/>}
-            suffix={magnifyingGlass && <Search className={style.search}/>}
-        />
-    );
-};
+export class AddressInput extends React.PureComponent<AddressInputProps> {
+    static displayName = 'AddressInput';
+    addressInputRef;
 
-AddressInput.displayName = 'AddressInput';
+    static propTypes = {
+        ...omit<ValidationMap<AddressInputProps>>(CoreAddressInput.propTypes, excludePropsArray),
+        size: oneOf(['large', 'medium', 'small']),
+        showLocationIcon: bool,
+        magnifyingGlass: bool
+    };
 
-AddressInput.propTypes = {
-    ...omit<ValidationMap<AddressInputProps>>(CoreAddressInput.propTypes, excludePropsArray),
-    size: oneOf(['large', 'medium', 'small']),
-    showLocationIcon: bool,
-    magnifyingGlass: bool
-};
+    static defaultProps = {
+        size: 'medium',
+        magnifyingGlass: true
+    };
 
-AddressInput.defaultProps = {
-    size: 'medium',
-    magnifyingGlass: true
-};
+    focus() {
+        this.addressInputRef.focus();
+    }
+
+    blur() {
+        this.addressInputRef.blur();
+    }
+
+    render() {
+        const {size, showLocationIcon, magnifyingGlass, ...rest} = this.props;
+        return (
+            <CoreAddressInput
+                {...rest}
+                {...style('root', {size}, rest)}
+                forceContentElementVisibility={false}
+                forceOptions={null}
+                throttleInterval={THROTTLE_INTERVAL}
+                locationIcon={showLocationIcon && <Location/>}
+                suffix={magnifyingGlass && <Search className={style.search}/>}
+                ref={ref => this.addressInputRef = ref}
+            />
+        );
+    }
+}
