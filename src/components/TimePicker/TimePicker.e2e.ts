@@ -36,7 +36,7 @@ describe('TimePicker', () => {
 
   eyes.it('should render with default props', async () => {
     const driver = timePickerTestkitFactory({dataHook});
-    await autoExampleDriver.setProps({defaultValue});
+    await autoExampleDriver.setProps({value: '12:43'});
     return waitForVisibilityOf(driver.element(), 'Cannot find TimePicker');
   });
 
