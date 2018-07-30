@@ -16,7 +16,6 @@ import {Size} from './constants';
 
 export interface TimePickerProps extends Omit<CoreTimePickerProps, 'useAmPm'> {
   size?: Size,
-  value?: string;
   disableAmPm?: boolean;
   width?: string;
   style?: object;
@@ -29,6 +28,7 @@ const defaultProps = {
   style: {},
   tickerUpIcon: <FormFieldSpinnerUp/>,
   tickerDownIcon: <FormFieldSpinnerDown/>,
+  value: CoreTimePicker.defaultProps.value
 };
 
 function getInputWidthState(timePickerWidth: string | undefined, size: Size, disableAmPm: boolean): string {
@@ -47,14 +47,13 @@ function getInputWidthState(timePickerWidth: string | undefined, size: Size, dis
 
 
 export class TimePicker extends React.PureComponent<TimePickerProps> {
-  static displayName = 'TimePicker';
+  static displayName = 'TimePickerBackoffice';
   static defaultProps = defaultProps;
   coreTimePickerRef;
 
   static propTypes = {
     ...omit(CoreTimePicker.propTypes, 'useAmPm'),
     size: propTypes.oneOf(Object.keys(Size)),
-    value: propTypes.string,
     disableAmPm: propTypes.bool,
     width: propTypes.string,
     style: propTypes.object
@@ -69,11 +68,10 @@ export class TimePicker extends React.PureComponent<TimePickerProps> {
   }
 
   render() {
-    const {value, disableAmPm, size, error, width, disabled, style: inlineStyle} = this.props;
+    const {disableAmPm, size, error, width, disabled, style: inlineStyle} = this.props;
     const styleObj = width ? {...inlineStyle, width} : inlineStyle;
     const coreTimePickerProps = {
-      ...omit(this.props, 'size', 'value', 'disableAmPm', 'width', 'style'),
-      value,
+      ...omit(this.props, 'size', 'disableAmPm', 'width', 'style'),
       useAmPm: disableAmPm ? AmPmOptions.None : AmPmOptions.Uppercase,
     };
 

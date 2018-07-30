@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 import {timePickerDriverFactory} from './TimePicker.driver';
-import {TimePicker} from './';
+import {TimePicker} from './TimePicker';
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
 import {isEnzymeTestkitExists} from 'wix-ui-test-utils/enzyme';
 import {ReactDOMTestContainer} from 'wix-ui-core/dist/test/dom-test-container';
