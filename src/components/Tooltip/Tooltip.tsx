@@ -63,7 +63,7 @@ const TooltipBO = withStylable<CoreTooltipProps, TooltipProps>(
 
 export const Tooltip: React.SFC<CoreTooltipProps & TooltipProps> = props => {
   const {minWidth, textAlign, maxWidth, color, lineHeight, zIndex, padding, content, ...rest} = props;
-  const wrappedContent = <div className={style.tooltipContent} style={{minWidth, textAlign, maxWidth, color, lineHeight, zIndex, padding}}>{content}</div>;
+  const wrappedContent = <div style={{minWidth, textAlign, maxWidth, color, lineHeight, zIndex, padding}}>{content}</div>;
   return <TooltipBO {...rest} content={wrappedContent} />;
 };
 
