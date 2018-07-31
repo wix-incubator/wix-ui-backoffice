@@ -64,6 +64,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: value(secondaryText);
+  font-size: 10px;
+  font-family: value(fontMedium);
 }
 
 .root:success::indicationContainer {
@@ -78,10 +81,4 @@
   height: 8px;
   width: 10px;
   color: value(backgroundSecondary);
-}
-
-.root::indicationContainer span {
-  color: value(secondaryText);
-  font-size: 10px;
-  font-family: value(fontMedium);
 }
