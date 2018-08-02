@@ -29,7 +29,7 @@ describe('AddressInput', () => {
     });
 
     eyes.it('should display the disabled state', async () => {
-        autoExampleDriver.setProps({readOnly: true});
+        await autoExampleDriver.setProps({disabled: true});
         const element = await driver.element();
         const input = await element.element(by.css('input'));
         const isDisabled = await input.getAttribute('disabled');
