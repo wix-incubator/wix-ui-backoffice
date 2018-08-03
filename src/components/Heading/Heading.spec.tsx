@@ -8,6 +8,7 @@ import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
 import {mount} from 'enzyme';
 import {headingTestkitFactory} from '../../testkit';
 import {headingTestkitFactory as enzymeHeadingTestkitFactory} from '../../testkit/enzyme';
+import {enumValues} from '../../utils';
 
 describe('Heading', () => {
   const createDriver = createDriverFactory(headingDriverFactory);
@@ -19,7 +20,7 @@ describe('Heading', () => {
       expect(wrapper.getAppearance()).toBe('H1');
     });
 
-    ['H2', 'H3', 'H4'].forEach((appearance: Appearance) => {
+    enumValues(Appearance).forEach((appearance: Appearance) => {
       it(`should render a ${appearance.toLowerCase()} tag`, () => {
         const wrapper = createDriver(<Heading appearance={appearance}>Hello</Heading>);
         expect(wrapper.getTagName()).toBe(appearance.toLocaleLowerCase());

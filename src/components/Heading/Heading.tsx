@@ -1,22 +1,24 @@
 import * as React from 'react';
-import {oneOf, bool, Requireable} from 'prop-types';
+import {oneOf, bool, Requireable, ValidationMap} from 'prop-types';
 import omit = require('lodash/omit');
+import {Omit} from '../../types/common';
 import {Text as CoreText, TextProps as CoreTextProps} from '../core/CoreText';
 import style from './Heading.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
+import {enumValues} from '../../utils';
 
 export enum Appearance {
   H1 = 'H1',
   H2 = 'H2',
   H3 = 'H3',
-  H4 = 'H4'
+  H4 = 'H4',
+  H5 = 'H5',
+  H6 = 'H6'
 };
-export type TagName = 'h1' | 'h2' | 'h3' | 'h4';
 
-export interface Props {
-  /** any nodes to be rendered (usually text nodes) */
-  children?: React.ReactNode;
+export type TagName = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
+export interface Props extends Omit<CoreTextProps, 'tagName'> {
   /** is the text has dark or light skin */
   light?: boolean;
 
@@ -38,19 +40,17 @@ const StyledText = withStylable<CoreTextProps, Props>(
   defaultProps
 );
 
-const legalPropTypes = omit(CoreText.propTypes, 'tagName');
-
 export class Heading extends React.PureComponent<Props, State> {
   static displayName = 'Heading';
 
   static propTypes = {
-    ...legalPropTypes,
+    ...omit<ValidationMap<CoreTextProps>>(CoreText.propTypes, ['tagName']),
 
     /** is the text has dark or light skin */
     light: bool,
 
     /** typography of the heading */
-    appearance: oneOf(['H1', 'H2', 'H3', 'H4'])
+    appearance: oneOf(enumValues(Appearance))
   };
 
   static defaultProps: Props = defaultProps;
