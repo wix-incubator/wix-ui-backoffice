@@ -5,7 +5,12 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: progress, error, main, danger, mainMutedHover, dangerMutedHover, backgroundPrimary, backgroundSecondary;
+  -st-named: progress, error, main, danger, mainMutedHover, dangerMutedHover, backgroundPrimary, backgroundSecondary, secondaryText;
+}
+
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontMedium;
 }
 
 .root {
@@ -59,6 +64,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: value(secondaryText);
+  font-size: 10px;
+  font-family: value(fontMedium);
 }
 
 .root:success::indicationContainer {
