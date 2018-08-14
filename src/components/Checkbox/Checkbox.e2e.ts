@@ -18,13 +18,14 @@ describe('Checkbox', () => {
       const driver = checkboxTestkitFactory({dataHook});
       expect(await driver.isChecked()).toBeFalsy();
     });
-    
+
     eyes.it('should be checked', async () => {
+      console.log('I am logger from a test, here is your env', process.env);
       await autoExampleDriver.setProps({checked: true});
       const driver = checkboxTestkitFactory({dataHook});
       expect(await driver.isChecked()).toBeTruthy();
     });
-    
+
     eyes.it('should be indetermined', async () => {
       await autoExampleDriver.setProps({indeterminate: true});
       const driver = checkboxTestkitFactory({dataHook});
