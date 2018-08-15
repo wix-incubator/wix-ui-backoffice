@@ -20,7 +20,7 @@ describe('Checkbox', () => {
     });
 
     eyes.it('should be checked', async () => {
-      console.log('I am logger from a test, here is your env', process.env);
+      console.log('I am logger from a test, here is your env1', process.env);
       await autoExampleDriver.setProps({checked: true});
       const driver = checkboxTestkitFactory({dataHook});
       expect(await driver.isChecked()).toBeTruthy();
