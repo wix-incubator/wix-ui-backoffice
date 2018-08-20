@@ -1,11 +1,11 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/StylableBadge/BadgeStyle.st.css";
-  -st-default: BadgeStyle;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: BadgeStyle;
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/components/StylableBadge/Badge.st.css";
-  -st-default: Badge;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Badge;
 }
 
 :import {

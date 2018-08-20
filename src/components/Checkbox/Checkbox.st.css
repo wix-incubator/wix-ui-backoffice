@@ -1,6 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/Checkbox/Checkbox.st.css";
-  -st-default: Checkbox;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Checkbox;
 }
 
 :import {

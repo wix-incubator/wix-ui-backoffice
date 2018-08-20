@@ -1,6 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/Thumbnail/Thumbnail.st.css";
-  -st-default: Thumbnail;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Thumbnail;
 }
 
 :import {
