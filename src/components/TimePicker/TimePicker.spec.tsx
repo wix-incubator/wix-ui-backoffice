@@ -5,12 +5,10 @@ import * as React from 'react';
 import {timePickerDriverFactory} from './TimePicker.driver';
 import {TimePicker} from './TimePicker';
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
-import {isEnzymeTestkitExists} from 'wix-ui-test-utils/enzyme';
 import {ReactDOMTestContainer} from 'wix-ui-core/dist/test/dom-test-container';
-import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
-import {mount} from 'enzyme';
 import {timePickerTestkitFactory} from '../../testkit';
 import {timePickerTestkitFactory as enzymeTimePickerTestkitFactory} from '../../testkit/enzyme';
+import {runTestkitExistsSuite} from '../../common/testkitTests';
 
 describe('TimePicker', () => {
   const createDriver = createDriverFactory(timePickerDriverFactory);
@@ -96,13 +94,9 @@ describe('TimePicker', () => {
     expect(document.activeElement).not.toBe(inputElement);
   });
 
-  describe('testkits', () => {
-    it('should exist', () => {
-      expect(isTestkitExists(<TimePicker/>, timePickerTestkitFactory)).toBe(true);
-    });
-
-    it('should exist for enzyme', () => {
-      expect(isEnzymeTestkitExists(<TimePicker/>, enzymeTimePickerTestkitFactory, mount)).toBe(true);
-    });
+  runTestkitExistsSuite({
+    Element: <TimePicker/>,
+    testkitFactory: timePickerTestkitFactory,
+    enzymeTestkitFactory: enzymeTimePickerTestkitFactory
   });
 });

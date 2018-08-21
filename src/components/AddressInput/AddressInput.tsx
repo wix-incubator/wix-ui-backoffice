@@ -53,7 +53,7 @@ export class AddressInput extends React.PureComponent<AddressInputProps> {
                 forceOptions={null}
                 throttleInterval={THROTTLE_INTERVAL}
                 locationIcon={showLocationIcon && <Location/>}
-                suffix={magnifyingGlass && <Search className={style.search}/>}
+                suffix={magnifyingGlass ? <Search className={style.search}/> : undefined}
                 ref={ref => this.addressInputRef = ref}
             />
         );
