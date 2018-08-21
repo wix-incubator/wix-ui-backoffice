@@ -1,8 +1,8 @@
 import {LabelWithOptions} from '../src/components/LabelWithOptions';
-import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionsExample';
+import {generateDropdownOptions} from './helpers';
 import {Option, DividerArgs} from 'wix-ui-core/DropdownOption';
 
-const options = generateOptions((args: Partial<DividerArgs> = {}) => LabelWithOptions.createDivider(args.value));
+const options = generateDropdownOptions((args: Partial<DividerArgs> = {}) => LabelWithOptions.createDivider(args.value));
 
 export default {
   category: 'Components',
