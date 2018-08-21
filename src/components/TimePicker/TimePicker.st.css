@@ -1,6 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/TimePicker/TimePicker.st.css";
-  -st-default: TimePicker;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: TimePicker;
 }
 
 :import {

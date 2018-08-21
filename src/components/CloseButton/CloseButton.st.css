@@ -1,6 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/Button/Button.st.css";
-  -st-default: Button;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Button;
 }
 
 :import {

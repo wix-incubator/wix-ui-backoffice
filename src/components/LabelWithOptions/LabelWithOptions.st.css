@@ -1,6 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/LabelWithOptions/LabelWithOptions.st.css";
-  -st-default: LabelWithOptions;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: LabelWithOptions;
 }
 
 :import {
