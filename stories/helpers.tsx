@@ -1,4 +1,4 @@
-import {OptionFactory} from "wix-ui-core/DropdownOption";
+import {OptionFactory} from 'wix-ui-core/DropdownOption';
 
 export const generateDropdownOptions = (dividerFactory = OptionFactory.createDivider) => {
   const optionsExample =
