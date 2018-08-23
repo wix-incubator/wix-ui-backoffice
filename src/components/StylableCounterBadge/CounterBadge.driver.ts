@@ -2,7 +2,7 @@ import { Skin } from './constants';
 import { ComponentFactory, BaseDriver } from 'wix-ui-test-utils/driver-factory';
 import { badgeDriverFactory as coreBadgeDriverFactory, BadgeDriver as CoreBadgeDriver } from 'wix-ui-core/dist/src/components/StylableBadge/Badge.driver';
 import { uiTextDriverFactory, UITextDriver } from '../StylableUIText/UIText.driver';
-import { StylableDOMUtil } from 'stylable/test-utils';
+import { StylableDOMUtil } from '@stylable/dom-test-kit';
 import style from './CounterBadge.st.css';
 
 export interface CounterBadgeDriver extends CoreBadgeDriver {

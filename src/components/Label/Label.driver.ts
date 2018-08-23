@@ -1,5 +1,5 @@
 import {labelDriverFactory as CoreLabelDriverFactory} from 'wix-ui-core/dist/src/components/Label/Label.driver';
-import {StylableDOMUtil} from 'stylable/test-utils';
+import {StylableDOMUtil} from '@stylable/dom-test-kit';
 import style from './Label.st.css';
 
 export const labelDriverFactory = ({element, eventTrigger}) => {

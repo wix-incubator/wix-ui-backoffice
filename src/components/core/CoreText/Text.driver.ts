@@ -1,4 +1,4 @@
-import {StylableDOMUtil} from 'stylable/test-utils';
+import {StylableDOMUtil} from '@stylable/dom-test-kit';
 import style from './Text.st.css';
 import {BaseDriver, DriverFactory} from 'wix-ui-test-utils/driver-factory';
 

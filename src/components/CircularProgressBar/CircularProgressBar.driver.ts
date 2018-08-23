@@ -4,7 +4,7 @@ import {
   CircularProgressBarDriver as CoreCircularProgressBarDriver } from 'wix-ui-core/dist/src/components/CircularProgressBar/CircularProgressBar.driver';
 import {BaseDriver, DriverFactory} from 'wix-ui-test-utils/driver-factory';
 import {tooltipDriverFactory} from '../Tooltip/Tooltip.driver'
-import {StylableDOMUtil} from 'stylable/test-utils';
+import {StylableDOMUtil} from '@stylable/dom-test-kit';
 import style from './CircularProgressBar.st.css';
 import {Size} from './constants';
 
