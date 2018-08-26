@@ -1,7 +1,7 @@
 import { ComponentFactory } from 'wix-ui-test-utils/driver-factory';
 import { badgeDriverFactory as coreBadgeDriverFactory, BadgeDriver as CoreBadgeDriver } from 'wix-ui-core/dist/src/components/StylableBadge/Badge.driver';
 import { uiTextDriverFactory, UITextDriver } from '../StylableUIText/UIText.driver';
-import { StylableDOMUtil } from 'stylable/test-utils';
+import { StylableDOMUtil } from '@stylable/dom-test-kit';
 import style from './Badge.st.css';
 import { Type, Skin } from './constants';
 

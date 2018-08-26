@@ -1,6 +1,6 @@
 import { ComponentFactory } from 'wix-ui-test-utils/driver-factory';
 import { textDriverFactory as coreTextDriverFactory, TextDriver as CoreTextDriver } from '../core/CoreText/Text.driver';
-import { StylableDOMUtil } from 'stylable/test-utils';
+import { StylableDOMUtil } from '@stylable/dom-test-kit';
 import style from './Text.st.css';
 import { Skin, Size } from './constants';
 

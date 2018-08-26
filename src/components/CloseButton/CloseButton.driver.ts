@@ -1,4 +1,4 @@
-import { StylableDOMUtil } from 'stylable/test-utils';
+import { StylableDOMUtil } from '@stylable/dom-test-kit';
 import { buttonDriverFactory, ButtonDriver } from 'wix-ui-core/dist/src/components/Button/Button.driver';
 import { DriverFactory, BaseDriver, ComponentFactory } from 'wix-ui-test-utils/driver-factory';
 import style from './CloseButton.st.css';
