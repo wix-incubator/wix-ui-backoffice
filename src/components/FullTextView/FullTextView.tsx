@@ -65,7 +65,7 @@ export class FullTextView extends React.Component<FullTextViewProps, FullTextVie
         style={{ maxWidth: this.props.maxWidth }}
         ref={this.handleTextRef}
       >
-        {this.props.children}
+        {this.props.children}Broke e2e test
       </span>
     );
   }
