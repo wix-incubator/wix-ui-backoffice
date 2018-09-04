@@ -7,7 +7,7 @@ import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
 import {mount} from 'enzyme';
 import {badgeTestkitFactory} from '../../testkit';
 import {badgeTestkitFactory as enzymeBadgeTestkitFactory} from '../../testkit/enzyme';
-import {SKIN, TYPE, Skin, Type} from './constants';
+import {SKIN, TYPE, SIZE, Skin, Type, Size} from './constants';
 import Email from 'wix-ui-icons-common/Email';
 
 describe('Badge', () => {
@@ -37,6 +37,20 @@ describe('Badge', () => {
       it(`should be ${skin}`, () => {
         const wrapper = createDriver(<Badge skin={skin}>Hello</Badge>);
         expect(wrapper.getSkin()).toBe(skin);
+      });
+    });
+  });
+
+  describe('size prop', () => {
+    it('should be medium by default', () => {
+      const wrapper = createDriver(<Badge>Hello</Badge>);
+      expect(wrapper.getSize()).toBe(SIZE.medium);
+    });
+
+    Object.keys(SIZE).forEach((size: Size) => {
+      it(`should be ${size}`, () => {
+        const wrapper = createDriver(<Badge size={size}>Hello</Badge>);
+        expect(wrapper.getSize()).toBe(size);
       });
     });
   });

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Badge} from '../src/components/Badge';
-import {SKIN, TYPE} from '../src/components/Badge/constants';
+import {SIZE, SKIN, TYPE} from '../src/components/Badge/constants';
 
 import Facebook from 'wix-ui-icons-common/Facebook';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
@@ -19,12 +19,14 @@ export default {
   componentProps: {
     children: 'I\'M A BADGE!',
     skin: 'general',
-    type: 'solid'
+    type: 'solid',
+    size: 'medium'
   },
 
   exampleProps: {
     skin: Object.keys(SKIN),
     type: Object.keys(TYPE),
+    size: Object.keys(SIZE),
     prefixIcon: icons,
     suffixIcon: icons
   }

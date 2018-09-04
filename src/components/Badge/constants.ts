@@ -2,6 +2,8 @@ export type Skin = 'general' | 'standard' | 'danger' | 'success' | 'neutral' | '
 
 export type Type = 'solid' | 'outlined' | 'transparent';
 
+export type Size = 'medium' | 'small';
+
 export const SKIN = {
   general: 'general',
   standard: 'standard',
@@ -19,4 +21,9 @@ export const TYPE = {
   solid: 'solid',
   outlined: 'outlined',
   transparent: 'transparent'
+};
+
+export const SIZE = {
+  medium: 'medium',
+  small: 'small'
 };
