@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {oneOf, node} from 'prop-types';
-import {UIText} from '../StylableUIText';
 import {SKIN, TYPE, SIZE, Type, Skin, Size} from './constants';
 import style from './Badge.st.css';
 
@@ -12,6 +11,8 @@ export interface BadgeProps {
   prefixIcon?: React.ReactElement<any>;
   suffixIcon?: React.ReactElement<any>;
   onClick?: React.EventHandler<React.MouseEvent<HTMLElement>>;
+  uppercase?: boolean;
+
   /** usually just text to be displayed */
   children: React.ReactNode;
 }
@@ -19,7 +20,8 @@ export interface BadgeProps {
 const defaultProps = {
   type: TYPE.solid,
   skin: SKIN.general,
-  size: SIZE.medium
+  size: SIZE.medium,
+  uppercase: true
 };
 
 export class Badge extends React.PureComponent<BadgeProps> {
@@ -39,17 +41,19 @@ export class Badge extends React.PureComponent<BadgeProps> {
     /** The suffix icon of the badge */
     suffixIcon: node,
     /* onClick Event handler */
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    /** Uppercase */
+    uppercase: PropTypes.bool
   };
 
   static defaultProps = defaultProps;
 
   render() {
-    const {children, prefixIcon, suffixIcon, onClick,  ...rest} = this.props;
+    const {children, prefixIcon, suffixIcon, onClick, ...rest} = this.props;
     return (
       <div onClick={onClick} {...style('root', {hasOnClickHandler: !!onClick, ...rest}, rest)}>
           {prefixIcon && React.cloneElement(prefixIcon, {className: style.prefix})}
-          <UIText className={style.text} appearance="T5">{children}</UIText>
+          <span className={style.text}>{children}</span>
           {suffixIcon && React.cloneElement(suffixIcon, {className: style.suffix})}
       </div>
     );
