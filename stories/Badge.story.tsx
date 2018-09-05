@@ -29,6 +29,6 @@ export default {
     size: Object.keys(SIZE),
     prefixIcon: icons,
     suffixIcon: icons,
-    onClick: () => alert("Badge Clicked")
+    onClick: () => alert('Badge Clicked')
   }
 };

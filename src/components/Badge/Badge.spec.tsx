@@ -62,7 +62,7 @@ describe('Badge', () => {
     });
 
     it('cursor should be pointer when onClick set', () => {
-      const wrapper = createDriver(<Badge onClick={()=>{}}>Hello</Badge>);
+      const wrapper = createDriver(<Badge onClick={e=>e}>Hello</Badge>);
       expect(wrapper.getHasClickCursor()).toBeTruthy();
     });
 
