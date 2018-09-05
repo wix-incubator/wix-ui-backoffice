@@ -17,10 +17,11 @@ export default {
   componentPath: '../src/components/Badge/Badge.tsx',
 
   componentProps: {
-    children: 'I\'M A BADGE!',
+    children: 'I\'m a badge!',
     skin: 'general',
     type: 'solid',
-    size: 'medium'
+    size: 'medium',
+    uppercase: false
   },
 
   exampleProps: {

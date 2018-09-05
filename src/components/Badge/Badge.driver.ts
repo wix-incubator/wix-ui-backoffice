@@ -9,6 +9,7 @@ export interface BadgeDriver extends CoreBadgeDriver {
   getType: () => Type,
   getSkin: () => Skin,
   getSize: () => Size,
+  getUppercase: () => boolean,
   getHasClickCursor: () => boolean,
   getUIText: () => UITextDriver,
   getPrefixIcon: () => Element | null,
@@ -28,8 +29,8 @@ export const badgeDriverFactory = (factoryParams: ComponentFactory): BadgeDriver
     getType: () => stylableDOMUtil.getStyleState(element, 'type') as Type,
     getSkin: () => stylableDOMUtil.getStyleState(element, 'skin') as Skin,
     getSize: () => stylableDOMUtil.getStyleState(element, 'size') as Size,
-    getHasClickCursor: () =>
-      stylableDOMUtil.getStyleState(element, 'hasOnClickHandler') === 'true',
+    getUppercase: () => stylableDOMUtil.getStyleState(element, 'uppercase') === 'true',
+    getHasClickCursor: () => stylableDOMUtil.getStyleState(element, 'hasOnClickHandler') === 'true',
     getUIText: () => uiTextDriver,
     getPrefixIcon: () => stylableDOMUtil.select('.prefix'),
     getSuffixIcon: () => stylableDOMUtil.select('.suffix'),

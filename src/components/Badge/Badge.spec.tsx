@@ -41,6 +41,18 @@ describe('Badge', () => {
     });
   });
 
+  describe('uppercase prop', () => {
+    it('should be uppercase by default', () => {
+      const wrapper = createDriver(<Badge>Hello</Badge>);
+      expect(wrapper.getUppercase()).toBeTruthy();
+    });
+
+    it('should be freecase when value is false', () => {
+      const wrapper = createDriver(<Badge uppercase={false}>Hello</Badge>);
+      expect(wrapper.getUppercase()).toBeFalsy();
+    });
+  });
+
   describe('size prop', () => {
     it('should be medium by default', () => {
       const wrapper = createDriver(<Badge>Hello</Badge>);
@@ -71,13 +83,6 @@ describe('Badge', () => {
       const wrapper = createDriver(<Badge onClick={()=>handler()}>Hello</Badge>);
       wrapper.click();
       expect(handler).toHaveBeenCalled();
-    });
-  });
-
-  describe('UIText', () => {
-    it('should be rendered with T5 appearance', () => {
-      const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.getUIText().getAppearance()).toBe('T5');
     });
   });
 

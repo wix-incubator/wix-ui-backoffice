@@ -8,6 +8,11 @@
   -st-named: secondaryText, primaryLightText, danger, success, warning, urgent, general, standard, neutral, mainMutedHover, successMutedHover, dangerMutedHover, backgroundSecondary;
 }
 
+:import {
+    -st-from: "../../typography.st.css";
+    -st-named: fontMedium;
+}
+
 :vars {
   backgroundColor: grey;
   borderColor: grey;
@@ -16,7 +21,7 @@
 }
 
 .root {
-  -st-states: skin(string), type(string), size(string), hasOnClickHandler(boolean);
+  -st-states: skin(string), type(string), size(string), hasOnClickHandler(boolean), uppercase(boolean);
   cursor: default;
   border: 1px solid;
   border-radius: 2px;
@@ -47,15 +52,22 @@
   fill: currentColor;
 }
 
-.text {
-  -st-extends: UIText;
-  color: currentColor;
-}
-
 .BadgeStyle {
   border-color: value(borderColor);
   color: value(color);
   background: value(backgroundColor);
+}
+
+.root .text {
+  font-family: value(fontMedium);
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 1px;
+  color: currentColor;
+}
+
+.root:uppercase .text {
+  text-transform: uppercase;
 }
 
 /* type = transparent */
