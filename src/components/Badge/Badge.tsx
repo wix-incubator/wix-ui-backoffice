@@ -11,6 +11,7 @@ export interface BadgeProps {
   size?: Size;
   prefixIcon?: React.ReactElement<any>;
   suffixIcon?: React.ReactElement<any>;
+  onClick?: React.EventHandler<React.MouseEvent<HTMLElement>>;
   /** usually just text to be displayed */
   children: React.ReactNode;
 }
@@ -36,7 +37,9 @@ export class Badge extends React.PureComponent<BadgeProps> {
     /** The prefix icon of the badge */
     prefixIcon: node,
     /** The suffix icon of the badge */
-    suffixIcon: node
+    suffixIcon: node,
+    /* onClick Event handler */
+    onClick: PropTypes.func
   };
 
   static defaultProps = defaultProps;

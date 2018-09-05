@@ -55,6 +55,25 @@ describe('Badge', () => {
     });
   });
 
+  describe('onClick prop', () => {
+    it('cursor should be default when no onClick', () => {
+      const wrapper = createDriver(<Badge>Hello</Badge>);
+      expect(wrapper.getHasClickCursor()).toBeFalsy();
+    });
+
+    it('cursor should be pointer when onClick set', () => {
+      const wrapper = createDriver(<Badge onClick={()=>{}}>Hello</Badge>);
+      expect(wrapper.getHasClickCursor()).toBeTruthy();
+    });
+
+    it('should call event handler on badge click', () => {
+      const handler = jest.fn();
+      const wrapper = createDriver(<Badge onClick={()=>handler()}>Hello</Badge>);
+      wrapper.click();
+      expect(handler).toHaveBeenCalled();
+    });
+  });
+
   describe('UIText', () => {
     it('should be rendered with T5 appearance', () => {
       const wrapper = createDriver(<Badge>Hello</Badge>);

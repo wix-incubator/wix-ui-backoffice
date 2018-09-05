@@ -9,14 +9,17 @@ export interface BadgeDriver extends CoreBadgeDriver {
   getType: () => Type,
   getSkin: () => Skin,
   getSize: () => Size,
+  getHasClickCursor: () => boolean,
   getUIText: () => UITextDriver,
   getPrefixIcon: () => Element | null,
-  getSuffixIcon: () => Element | null
+  getSuffixIcon: () => Element | null,
+  click: () => void
 }
+
 
 export const badgeDriverFactory = (factoryParams: ComponentFactory): BadgeDriver => {
   const coreBadgeDriver = coreBadgeDriverFactory(factoryParams);
-  const { element } = factoryParams;
+  const { element, eventTrigger } = factoryParams;
   const stylableDOMUtil = new StylableDOMUtil(style, element);
   const uiTextDriver = uiTextDriverFactory({ ...factoryParams, element: stylableDOMUtil.select('.text') });
 
@@ -25,8 +28,11 @@ export const badgeDriverFactory = (factoryParams: ComponentFactory): BadgeDriver
     getType: () => stylableDOMUtil.getStyleState(element, 'type') as Type,
     getSkin: () => stylableDOMUtil.getStyleState(element, 'skin') as Skin,
     getSize: () => stylableDOMUtil.getStyleState(element, 'size') as Size,
+    getHasClickCursor: () =>
+      stylableDOMUtil.getStyleState(element, 'hasOnClickHandler') === 'true',
     getUIText: () => uiTextDriver,
     getPrefixIcon: () => stylableDOMUtil.select('.prefix'),
-    getSuffixIcon: () => stylableDOMUtil.select('.suffix')
+    getSuffixIcon: () => stylableDOMUtil.select('.suffix'),
+    click: () => eventTrigger.click(element)
   };
 };
