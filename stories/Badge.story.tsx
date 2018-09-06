@@ -21,7 +21,7 @@ export default {
     skin: 'general',
     type: 'solid',
     size: 'medium',
-    uppercase: false
+    uppercase: true
   },
 
   exampleProps: {
