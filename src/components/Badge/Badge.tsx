@@ -51,7 +51,7 @@ export class Badge extends React.PureComponent<BadgeProps> {
   render() {
     const {children, prefixIcon, suffixIcon, onClick, ...rest} = this.props;
     return (
-      <div onClick={onClick} {...style('root', {clickable: !!onClick, ...rest}, rest)}>
+      <div onClick={onClick} {...style('root', {clickable: !!onClick, ...rest}, rest)} {...rest}>
           {prefixIcon && React.cloneElement(prefixIcon, {className: style.prefix})}
           <span className={style.text}>{children}</span>
           {suffixIcon && React.cloneElement(suffixIcon, {className: style.suffix})}

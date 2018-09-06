@@ -26,7 +26,8 @@ export default {
     skin: 'general',
     type: 'solid',
     size: 'medium',
-    uppercase: true
+    uppercase: true,
+    'data-hook': 'storybook-badge'
   },
 
   exampleProps: {
