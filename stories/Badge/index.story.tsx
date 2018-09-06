@@ -1,9 +1,14 @@
 import * as React from 'react';
-import {Badge} from '../src/components/Badge';
-import {SIZE, SKIN, TYPE} from '../src/components/Badge/constants';
+import CodeExample from 'wix-storybook-utils/CodeExample';
+
+import * as ExampleBadgesRaw from '!raw-loader!./ExampleBadges';
+import ExampleBadges from './ExampleBadges';
+
+import {SIZE, SKIN, TYPE} from '../../src/components/Badge/constants';
 
 import Facebook from 'wix-ui-icons-common/Facebook';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
+import {Badge} from '../../src/components/Badge/Badge';
 
 const icons = [
   <ChevronDown key="0"/>,
@@ -14,7 +19,7 @@ export default {
   category: 'Components',
   storyName: 'Badge',
   component: Badge,
-  componentPath: '../src/components/Badge/Badge.tsx',
+  componentPath: '../../src/components/Badge/Badge.tsx',
 
   componentProps: {
     children: 'I\'m a badge!',
@@ -31,5 +36,13 @@ export default {
     prefixIcon: icons,
     suffixIcon: icons,
     onClick: () => alert('Badge Clicked')
-  }
+  },
+
+  examples: (
+    <div>
+      <CodeExample title="Variations" code={ExampleBadgesRaw}>
+        <ExampleBadges data-hook={'badge-variations'}/>
+      </CodeExample>
+    </div>
+  )
 };
