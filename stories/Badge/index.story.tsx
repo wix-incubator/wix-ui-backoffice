@@ -27,7 +27,7 @@ export default {
     type: 'solid',
     size: 'medium',
     uppercase: true,
-    'data-hook': 'storybook-badge'
+    dataHook: 'storybook-badge'
   },
 
   exampleProps: {
@@ -42,7 +42,7 @@ export default {
   examples: (
     <div>
       <CodeExample title="Variations" code={ExampleBadgesRaw}>
-        <ExampleBadges data-hook={'badge-variations'}/>
+        <ExampleBadges dataHook={'badge-variations'}/>
       </CodeExample>
     </div>
   )

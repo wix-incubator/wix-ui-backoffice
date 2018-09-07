@@ -3,8 +3,8 @@ import * as styles from './ExampleBadges.scss';
 import {Badge} from '../../src/components/Badge';
 import {SIZE, SKIN, TYPE} from '../../src/components/Badge/constants';
 
-export default () => (
-  <div>
+export default (props) => (
+  <div data-hook={props.dataHook}>
     {Object.keys(SKIN).map(skin => (
       <div className={styles.wrapper}>
         {renderSizes({skin})}

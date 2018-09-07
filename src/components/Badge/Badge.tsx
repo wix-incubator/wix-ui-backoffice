@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {oneOf, node} from 'prop-types';
-import {SKIN, TYPE, SIZE, Type, Skin, Size} from './constants';
+import {node, oneOf} from 'prop-types';
+import {SIZE, Size, Skin, SKIN, TYPE, Type} from './constants';
 import style from './Badge.st.css';
 
 export interface BadgeProps {
@@ -53,10 +53,12 @@ export class Badge extends React.PureComponent<BadgeProps> {
   render() {
     const {children, prefixIcon, suffixIcon, onClick, dataHook, ...rest} = this.props;
     return (
-      <div data-hook={dataHook} onClick={onClick} {...style('root', {clickable: !!onClick, ...rest})}>
+      <div data-hook={dataHook}>
+        <div onClick={onClick} {...style('root', {clickable: !!onClick, ...rest})}>
           {prefixIcon && React.cloneElement(prefixIcon, {className: style.prefix})}
           <span className={style.text}>{children}</span>
           {suffixIcon && React.cloneElement(suffixIcon, {className: style.suffix})}
+        </div>
       </div>
     );
   }
