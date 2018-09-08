@@ -42,7 +42,7 @@ export default {
   examples: (
     <div>
       <CodeExample title="Variations" code={ExampleBadgesRaw}>
-        <ExampleBadges dataHook={'badge-variations'}/>
+        <ExampleBadges/>
       </CodeExample>
     </div>
   )
