@@ -15,7 +15,7 @@ async function verifyItem(dataHook) {
 describe('Badge', () => {
   const storyUrl = getStoryUrl('Components', 'Badge');
 
-  beforeAll(() => browser.get(storyUrl));
+  beforeEach(() => browser.get(storyUrl));
 
   eyes.it('should display correct content', async () => {
     const driver = badgeTestkitFactory({dataHook: 'storybook-badge'});
