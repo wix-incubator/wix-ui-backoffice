@@ -15,17 +15,15 @@ async function verifyItem(dataHook) {
 describe('Badge', () => {
   const storyUrl = getStoryUrl('Components', 'Badge');
 
-  beforeEach(() => browser.get(storyUrl));
-  eyes.it('should display correct content', () => {
-    const dataHook = 'storybook-badge';
-    const driver = badgeTestkitFactory({dataHook});
+  beforeAll(() => browser.get(storyUrl));
 
-    return waitForVisibilityOf(driver.element(), 'Cannot find Badge')
-      .then(() => expect(driver.text()).toBe('I\'M A BADGE!'));
+  eyes.it('should display correct content', async () => {
+    const driver = badgeTestkitFactory({dataHook: 'storybook-badge'});
+    await waitForVisibilityOf(driver.element(), 'Cannot find Badge');
+    expect(await driver.text()).toBe('I\'M A BADGE!');
   });
 
   eyes.it('should not break design', async () => {
-    const dataHook = 'badge-variations';
-    await verifyItem(dataHook);
+    await verifyItem('badge-variations');
   });
 });
