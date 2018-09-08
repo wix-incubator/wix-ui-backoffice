@@ -1,26 +1,35 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: BadgeStyle;
-}
-
-:import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: Badge;
-}
-
-:import {
-  -st-from: "../StylableUIText/UIText.st.css";
-  -st-default: UIText;
-}
-
-:import {
   -st-from: "../../palette.st.css";
   -st-named: secondaryText, primaryLightText, danger, success, warning, urgent, general, standard, neutral, mainMutedHover, successMutedHover, dangerMutedHover, backgroundSecondary;
 }
 
+:import {
+    -st-from: "../../typography.st.css";
+    -st-named: fontMedium;
+}
+
+:vars {
+  backgroundColor: grey;
+  borderColor: grey;
+  color: white;
+  padding: 5px 12px;
+}
+
 .root {
-  -st-extends: Badge;
-  -st-states: skin(string), type(string);
+  -st-states: skin(string), type(string), size(string), clickable(boolean), uppercase(boolean);
+  cursor: default;
+  border: 1px solid;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+:vars {
+  medium: 5px 12px;
+  small: 2px 6px;
 }
 
 .root >:not(:last-child) {
@@ -38,9 +47,22 @@
   fill: currentColor;
 }
 
-.text {
-  -st-extends: UIText;
+.BadgeStyle {
+  border-color: value(borderColor);
+  color: value(color);
+  background: value(backgroundColor);
+}
+
+.root .text {
+  font-family: value(fontMedium);
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 1px;
   color: currentColor;
+}
+
+.root:uppercase .text {
+  text-transform: uppercase;
 }
 
 /* type = transparent */
@@ -205,7 +227,6 @@
   );
 }
 
-
 /* type = outlined */
 .root:type(outlined):skin(general) {
   -st-mixin: BadgeStyle(
@@ -285,4 +306,19 @@
     backgroundColor value(backgroundSecondary),
     color value(secondaryText)
   );
+}
+
+/* size = medium */
+.root:size(medium) {
+  padding: value(medium);
+}
+
+/* size = small */
+.root:size(small) {
+  padding: value(small);
+}
+
+/* cursor = pointer */
+.root:clickable {
+  cursor: pointer;
 }

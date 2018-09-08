@@ -1,7 +1,7 @@
 import './AddressInput.story';
 import './Autocomplete.story';
 import './Checkbox.story';
-import './Badge.story';
+import './Badge/index.story';
 import './Button/index.story';
 import './CloseButton/index.story';
 import './CounterBadge.story';

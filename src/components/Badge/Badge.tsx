@@ -1,16 +1,18 @@
 import * as React from 'react';
-import {oneOf, node, Requireable} from 'prop-types';
-import {Badge as CoreBadge, BadgeProps as CoreBadgeProps} from 'wix-ui-core/StylableBadge';
-import {withStylable} from 'wix-ui-core/withStylable';
-import {UIText} from '../StylableUIText';
-import {SKIN, TYPE, Type, Skin} from './constants';
+import * as PropTypes from 'prop-types';
+import {oneOf, node} from 'prop-types';
+import {SKIN, TYPE, SIZE, Type, Skin, Size} from './constants';
 import style from './Badge.st.css';
 
 export interface BadgeProps {
   type?: Type;
   skin?: Skin;
+  size?: Size;
   prefixIcon?: React.ReactElement<any>;
   suffixIcon?: React.ReactElement<any>;
+  onClick?: React.EventHandler<React.MouseEvent<HTMLElement>>;
+  uppercase?: boolean;
+  dataHook?: string;
 
   /** usually just text to be displayed */
   children: React.ReactNode;
@@ -18,41 +20,44 @@ export interface BadgeProps {
 
 const defaultProps = {
   type: TYPE.solid,
-  skin: SKIN.general
+  skin: SKIN.general,
+  size: SIZE.medium,
+  uppercase: true
 };
-
-const StyledBadge = withStylable<CoreBadgeProps, BadgeProps>(
-  CoreBadge,
-  style,
-  ({skin, type}) => ({skin, type}),
-  defaultProps
-);
 
 export class Badge extends React.PureComponent<BadgeProps> {
   static displayName = 'Badge';
 
   static propTypes = {
-    ...CoreBadge.propTypes,
+    /** Any node to be rendered (usually text node) */
+    children: PropTypes.any,
     /** Type of the badge */
     type: oneOf(Object.keys(TYPE)),
     /** Skin of the badge */
     skin: oneOf(Object.keys(SKIN)),
+    /** Size of the badge */
+    size: oneOf(Object.keys(SIZE)),
     /** The prefix icon of the badge */
     prefixIcon: node,
     /** The suffix icon of the badge */
-    suffixIcon: node
+    suffixIcon: node,
+    /* onClick Event handler */
+    onClick: PropTypes.func,
+    /** Uppercase */
+    uppercase: PropTypes.bool,
+    dataHook: PropTypes.string
   };
 
   static defaultProps = defaultProps;
 
   render() {
-    const {children, prefixIcon, suffixIcon, ...rest} = this.props;
+    const {children, prefixIcon, suffixIcon, onClick, dataHook, ...rest} = this.props;
     return (
-      <StyledBadge {...rest}>
-        {prefixIcon && React.cloneElement(prefixIcon, {className: style.prefix})}
-        <UIText className={style.text} appearance="T5">{children}</UIText>
-        {suffixIcon && React.cloneElement(suffixIcon, {className: style.suffix})}
-      </StyledBadge>
+      <div data-hook={dataHook} onClick={onClick} {...style('root', {clickable: !!onClick, ...rest})}>
+          {prefixIcon && React.cloneElement(prefixIcon, {className: style.prefix})}
+          <span className={style.text}>{children}</span>
+          {suffixIcon && React.cloneElement(suffixIcon, {className: style.suffix})}
+      </div>
     );
   }
 }
