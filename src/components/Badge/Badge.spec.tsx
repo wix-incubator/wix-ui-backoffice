@@ -44,12 +44,12 @@ describe('Badge', () => {
   describe('uppercase prop', () => {
     it('should be uppercase by default', () => {
       const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.getUppercase()).toBeTruthy();
+      expect(wrapper.isUppercase()).toBeTruthy();
     });
 
     it('should be freecase when value is false', () => {
       const wrapper = createDriver(<Badge uppercase={false}>Hello</Badge>);
-      expect(wrapper.getUppercase()).toBeFalsy();
+      expect(wrapper.isUppercase()).toBeFalsy();
     });
   });
 
@@ -70,12 +70,12 @@ describe('Badge', () => {
   describe('onClick prop', () => {
     it('cursor should be default when no onClick', () => {
       const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.getHasClickCursor()).toBeFalsy();
+      expect(wrapper.hasClickCursor()).toBeFalsy();
     });
 
     it('cursor should be pointer when onClick set', () => {
       const wrapper = createDriver(<Badge onClick={e=>e}>Hello</Badge>);
-      expect(wrapper.getHasClickCursor()).toBeTruthy();
+      expect(wrapper.hasClickCursor()).toBeTruthy();
     });
 
     it('should call event handler on badge click', () => {
@@ -89,7 +89,7 @@ describe('Badge', () => {
   describe('children prop', () => {
     it('should render the text given as a children prop', () => {
       const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.text()).toBe('Hello');
+      expect(wrapper.getText()).toBe('Hello');
     });
 
     it('should not have any icons by default', () => {
