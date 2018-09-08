@@ -5,13 +5,6 @@ import {badgeTestkitFactory} from '../../testkit/protractor';
 
 const byDataHook = dataHook => $(`[data-hook="${dataHook}"]`);
 
-async function verifyItem(dataHook) {
-  const element = byDataHook(dataHook);
-  await waitForVisibilityOf(element, `Cannot find ${dataHook}`);
-  await scrollToElement(element);
-  await eyes.checkWindow(dataHook);
-}
-
 describe('Badge', () => {
   const storyUrl = getStoryUrl('Components', 'Badge');
 
@@ -24,6 +17,9 @@ describe('Badge', () => {
   });
 
   eyes.it('should not break design', async () => {
-    await verifyItem('badge-variations');
+    const dataHook = 'badge-variations';
+    const element = byDataHook(dataHook);
+    await waitForVisibilityOf(element, `Cannot find ${dataHook}`);
+    await scrollToElement(element);
   });
 });
