@@ -1,6 +1,6 @@
 import * as React from 'react';
 import pick = require('lodash/pick');
-import { string, number, oneOfType, node, Requireable, ValidationMap} from 'prop-types'
+import { string, number, oneOfType, oneOf, node, Requireable, ValidationMap} from 'prop-types'
 import * as classnames from 'classnames';
 import { ClosablePopover, ClosablePopoverProps, ClosablePopoverActions, Placement, AppendTo } from './ClosablePopover';
 import style from './FloatingHelper.st.css';
@@ -9,8 +9,9 @@ import { Button } from '../Button';
 import { Skin, Size } from '../Button/constants';
 import { CloseButton, CloseButtonSkin, CloseButtonSize } from '../CloseButton';
 import { FloatingHelperContent , FloatingHelperContentProps} from './FloatingHelperContent';
-
+import { Appearance } from "./constants";
 export {Placement, AppendTo};
+import { enumValues } from '../../utils';
 
 export interface FloatingHelperOwnProps {
   /** Width HTML attribute of the content. If a number is passed then it defaults to px. e.g width={400} => width="400px" */
@@ -21,6 +22,8 @@ export interface FloatingHelperOwnProps {
   content: React.ReactNode
   /** In Controlled mode - called when the close button is clicked. In Uncontrolled mode - called when the popover is closed */
   onClose?: Function;
+  /* Appearance : `dark` or `light`. */
+  appearance?: Appearance;
 }
 
 // This HACK is only for AutoDocs to work - see issue - https://github.com/wix/wix-ui/issues/550
@@ -72,14 +75,17 @@ export class FloatingHelper extends React.Component<FloatingHelperProps> {
   static defaultProps: Partial<FloatingHelperProps> = {
     appendTo: 'window',
     width: '444px',
-    initiallyOpened: true
+    initiallyOpened: true,
+    appearance: Appearance.dark
   };
 
-  static propTypes : ValidationMap<FloatingHelperProps>= {
+  static propTypes : ValidationMap<FloatingHelperProps> = {
     ...pickedPopoverPropTypes,
     width: oneOfType([string, number]),
     target: node.isRequired,
-    content: node.isRequired // TODO: validate it is a <HelperContent>
+    content: node.isRequired, // TODO: validate it is a <HelperContent>
+    appearance: oneOf(enumValues(Appearance))
+
   };
 
   open = () => { this.closablePopoverRef.open() };
@@ -96,7 +102,7 @@ export class FloatingHelper extends React.Component<FloatingHelperProps> {
       closableActions.close
   }
 
-  renderContent(closableActions: ClosablePopoverActions, {width, content}: Partial<FloatingHelperProps>) {
+  renderContent(closableActions: ClosablePopoverActions, {width, content, appearance}: Partial<FloatingHelperProps>) {
     return (
       <div data-hook={DataHooks.contentWrapper} style={{ width }}>
         <CloseButton
@@ -107,16 +113,16 @@ export class FloatingHelper extends React.Component<FloatingHelperProps> {
           size={CloseButtonSize.large}
         />
         <div data-hook={DataHooks.innerContent} className={style.innerContent}>
-          {content}
+          {React.cloneElement(content as React.ReactElement<any>, {appearance})}
         </div>
       </div>
     )
   }
 
   render() {
-    const { children, width, content, ...rest } = this.props;
+    const { children, width, content, appearance, ...rest } = this.props;
 
-    const renderContent = (closableActions: ClosablePopoverActions)=>this.renderContent(closableActions,{width, content});
+    const renderContent = (closableActions: ClosablePopoverActions)=>this.renderContent(closableActions,{width, content, appearance});
 
     const closablePopoverProps: ClosablePopoverProps = {
       ...rest,
@@ -129,7 +135,7 @@ export class FloatingHelper extends React.Component<FloatingHelperProps> {
       <ClosablePopover
         {...closablePopoverProps}
         ref={ref => this.closablePopoverRef = ref}
-        {...style('root', {}, this.props)}
+        {...style('root', {appearance}, this.props)}
       />
     );
   };

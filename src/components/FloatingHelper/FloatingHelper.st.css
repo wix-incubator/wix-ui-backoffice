@@ -4,6 +4,21 @@
 }
 
 :import {
+  -st-from: "./FloatingHelperContent/FloatingHelperContent.st.css";
+  -st-default: FloatingHelperContent;
+}
+
+:import {
+  -st-from: "../Text/Text.st.css";
+  -st-default: Text;
+}
+
+:import {
+  -st-from: "../Button/Button.st.css";
+  -st-default: Button;
+}
+
+:import {
   -st-from: "../../palette.st.css";
   -st-named: brandSecondary, backgroundSecondary;
 }
@@ -22,16 +37,30 @@
   /* TODO: create and use a fade function */
 
   /** background color D10 with opacity 0.95 */
-  backgroundColor: rgba(22,45,61,0.95);
+  backgroundColorDark: rgba(22,45,61,0.95);
+  backgroundColorLight: WHITE;
   closeButtonPadding: 6px;
 }
 
 .root {
-  -st-states: bounce, placement-right, placement-left, placement-top, placement-bottom;
+  -st-states: bounce, placement-right, placement-left, placement-top, placement-bottom, appearance(enum(dark,light));
   -st-extends: Popover;
+}
+
+.root:appearance(dark) {
   -st-mixin: Popover(
-    contentBorderColor value(backgroundColor),
-    contentBackgroundColor value(backgroundColor),
+    contentBorderColor value(backgroundColorDark),
+    contentBackgroundColor value(backgroundColorDark),
+    contentBorderWidth 0,
+    contentBorderRadius 8px,
+    contentPadding 0 0
+    );
+}
+
+.root:appearance(light) {
+  -st-mixin: Popover(
+    contentBorderColor value(backgroundColorLight),
+    contentBackgroundColor value(backgroundColorLight),
     contentBorderWidth 0,
     contentBorderRadius 8px,
     contentPadding 0 0

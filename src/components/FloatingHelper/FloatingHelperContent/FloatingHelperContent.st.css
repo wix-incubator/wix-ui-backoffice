@@ -1,5 +1,5 @@
 .root {
-  -st-states: hasBody(boolean);
+  -st-states: hasBody(boolean), appearance(enum(dark,light));
 
   display: flex;
   flex-direction: row;
