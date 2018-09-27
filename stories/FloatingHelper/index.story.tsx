@@ -27,6 +27,7 @@ import {enumValues} from '../../src/utils';
 import {Appearance} from '../../src/components/FloatingHelper/constants';
 
 const exampleWrapperStyle = {marginTop: 100, marginBottom: 100};
+const exampleWrapperStyleLight = {paddingTop: 100, paddingBottom: 100, backgroundColor: '#F0F4F7'};
 
 export default {
   category: storySettings.kind,
@@ -115,7 +116,7 @@ export default {
       </CodeExample >
 
       <CodeExample title="Simple Example Appearance=Light" code={SimpleExampleLightRaw}>
-        <div style={exampleWrapperStyle}>
+        <div style={exampleWrapperStyleLight}>
           <SimpleExampleLight/>
         </div>
       </CodeExample >
