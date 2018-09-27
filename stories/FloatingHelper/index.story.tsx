@@ -116,7 +116,7 @@ export default {
       </CodeExample >
 
       <CodeExample title="Simple Example Appearance=Light" code={SimpleExampleLightRaw}>
-        <div style={exampleWrapperStyleLight}>
+        <div style={exampleWrapperStyleLight} data-hook="appearance-light-example-container">
           <SimpleExampleLight/>
         </div>
       </CodeExample >

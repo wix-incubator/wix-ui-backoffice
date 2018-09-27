@@ -7,6 +7,7 @@ export class SimpleExampleLight extends React.Component {
   render() {
     return (
       <FloatingHelper
+        data-hook="story-floating-helper-light"
         target={<span>I am a FloatingHelper target</span>}
         content={
           <FloatingHelper.Content
