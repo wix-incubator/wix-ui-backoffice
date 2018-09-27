@@ -109,7 +109,7 @@ export class FloatingHelper extends React.Component<FloatingHelperProps> {
           className={style.closeButton}
           data-hook={DataHooks.closeButton}
           onClick={()=>this.getCloseButtonHandler(closableActions)()}
-          skin={CloseButtonSkin.white}
+          skin={appearance === Appearance.dark ? CloseButtonSkin.white: CloseButtonSkin.dark}
           size={CloseButtonSize.large}
         />
         <div data-hook={DataHooks.innerContent} className={style.innerContent}>
