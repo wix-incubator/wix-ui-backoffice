@@ -1,8 +1,8 @@
 :import {
   -st-from: "wix-ui-core/index.st.css";
-  -st-named: Label, LabelStyle;
+  -st-named: Label;
 }
-  
+
 :import {
   -st-from: "../../palette.st.css";
   -st-named: secondaryText;
@@ -14,7 +14,7 @@
 }
 
 .root {
-  -st-extends: Label, LabelStyle;
+  -st-extends: Label;
   -st-states: size(enum(small, medium));
   color: value(secondaryText);
   font-family: value(fontLight);

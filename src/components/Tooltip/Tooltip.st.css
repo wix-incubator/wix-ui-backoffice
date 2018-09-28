@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: tableSelected, brandSecondary, backgroundSecondary, main, mainHover, disabled, successNotifications, dangerNotifications, ctaHover, danger, successHover, dangerHover, disabledDividers;
+  -st-named: brandSecondary, backgroundSecondary, main, mainHover, disabled, danger, successHover, dangerHover;
 }
 
 :import {
