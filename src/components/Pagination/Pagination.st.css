@@ -1,0 +1,61 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/components/Pagination/Pagination.st.css";
+  -st-default: Pagination;
+}
+
+:import {
+  -st-from: "../../typography.st.css";
+  -st-named: fontLight;
+}
+
+:import {
+  -st-from: "../../palette.st.css";
+  -st-named: standard, brandPrimary, brandSecondary, backgroundPrimary, primaryLightText, focusShadow;
+}
+
+.root {
+  -st-extends: Pagination;
+}
+
+.button-common-mixin {
+  align-items: center;
+  justify-content: center;
+  margin: 3px;
+  min-width: 30px;
+  min-height: 30px;
+  font: 14px/18px value(fontLight);
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.root::pageButton {
+  -st-mixin: button-common-mixin;
+  color: value(brandSecondary);
+}
+
+.root::pageButton:hover, .root::navButton:hover {
+  color: value(primaryLightText);
+  background-color: value(standard);
+}
+
+.root::pageButton:focus, .root::navButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px value(focusShadow);
+  border-radius: 50%;
+}
+
+.root::currentPage {
+  -st-mixin: button-common-mixin;
+  color: value(primaryLightText);
+  background-color: value(brandPrimary);
+}
+
+.root::navButton {
+  -st-mixin: button-common-mixin;
+  color: value(standard);
+}
+
+.root::gap {
+  -st-mixin: button-common-mixin;
+  color: value(brandSecondary);
+}

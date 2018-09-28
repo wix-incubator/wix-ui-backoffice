@@ -75,3 +75,6 @@ export const addressInputTestkitFactory = enzymeTestkitFactoryCreator(addressInp
 
 import { timePickerDriverFactory } from '../components/TimePicker/TimePicker.driver';
 export const timePickerTestkitFactory = enzymeTestkitFactoryCreator(timePickerDriverFactory);
+
+import { paginationDriverFactory } from '../components/Pagination/Pagination.driver';
+export const paginationTestkitFactory = enzymeTestkitFactoryCreator(paginationDriverFactory);

@@ -23,3 +23,4 @@ import './VBox/index.story';
 import './Text.story';
 import './UIText.story';
 import './TimePicker.story';
+import './Pagination/index.story';

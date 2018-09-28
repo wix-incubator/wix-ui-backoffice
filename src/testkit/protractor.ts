@@ -80,3 +80,6 @@ export const addressInputTestkitFactory = protractorTestkitFactoryCreator(addres
 import { timePickerDriverFactory, TimePickerDriver } from '../components/TimePicker/TimePicker.protractor.driver';
 export const timePickerTestkitFactory = protractorTestkitFactoryCreator<TimePickerDriver>(timePickerDriverFactory);
 export { TimePickerDriver };
+
+import { paginationDriverFactory } from '../components/Pagination/Pagination.protractor.driver';
+export const paginationTestkitFactory = protractorTestkitFactoryCreator(paginationDriverFactory);
