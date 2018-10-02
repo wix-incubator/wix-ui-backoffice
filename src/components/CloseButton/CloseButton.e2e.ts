@@ -16,7 +16,7 @@ describe('CloseButton', () => {
     const driver = closeButtonTestkitFactory({ dataHook });
     await waitForVisibilityOf(driver.element());
     for (let skin in enumValues(Skin)) {
-      eyes.checkWindow(`skin=${skin}`);
+      await eyes.checkWindow(`skin=${skin}`);
     }
   });
 
