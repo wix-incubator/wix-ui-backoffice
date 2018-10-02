@@ -9,7 +9,7 @@ import { Button } from '../Button';
 import { Skin, Size } from '../Button/constants';
 import { CloseButton, CloseButtonSkin, CloseButtonSize } from '../CloseButton';
 import { FloatingHelperContent , FloatingHelperContentProps} from './FloatingHelperContent';
-import { Appearance } from "./constants";
+import { Appearance } from './constants';
 export {Placement, AppendTo};
 import { enumValues } from '../../utils';
 
