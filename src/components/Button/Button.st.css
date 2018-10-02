@@ -14,6 +14,11 @@
     buttonSecondaryText;
 }
 
+:import {
+  -st-from: "../../colors.st.css";
+  -st-named: B10, WHITE;
+}
+
 .root {
   -st-extends: Button;
   -st-states: skin(enum(standard, white, destructive, premium)), priority(enum(primary, secondary)), size(enum(large, medium, small, tiny));
@@ -53,6 +58,14 @@
 .root:skin(standard):priority(secondary) {
   background-color: transparent;
   border-color: value(skinStandardColor);
+}
+
+.root:skin(standard):priority(secondary) .text{
+  color: value(B10);
+}
+
+.root:skin(standard):priority(secondary):hover .text{
+  color: value(WHITE);
 }
 
 .root:skin(white):priority(primary) {

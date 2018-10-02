@@ -12,6 +12,9 @@ import CodeExample from 'wix-storybook-utils/CodeExample';
 import {SimpleExample} from './SimpleExample';
 import * as SimpleExampleRaw from '!raw-loader!./SimpleExample';
 
+import {SimpleExampleLight} from './SimpleExampleLight';
+import * as SimpleExampleLightRaw from '!raw-loader!./SimpleExampleLight';
+
 import {FullExample} from './FullExample';
 import * as FullExampleRaw from '!raw-loader!./FullExample';
 
@@ -20,8 +23,11 @@ import * as ProgrammaticExampleRaw from '!raw-loader!./ProgrammaticExample';
 
 import {ControlledExample} from './ControlledExample';
 import * as ControlledExampleRaw from '!raw-loader!./ControlledExample';
+import {enumValues} from '../../src/utils';
+import {Appearance} from '../../src/components/FloatingHelper/constants';
 
 const exampleWrapperStyle = {marginTop: 100, marginBottom: 100};
+const exampleWrapperStyleLight = {paddingTop: 100, paddingBottom: 100, backgroundColor: '#F0F4F7'};
 
 export default {
   category: storySettings.kind,
@@ -71,7 +77,8 @@ export default {
           />
         )
       }
-    ]
+    ],
+    appearance: enumValues(Appearance)
   },
 
   examples: (
@@ -105,6 +112,12 @@ export default {
       <CodeExample title="Controlled Example" code={ControlledExampleRaw}>
         <div style={exampleWrapperStyle}>
           <ControlledExample/>
+        </div>
+      </CodeExample >
+
+      <CodeExample title="Simple Example Appearance=Light" code={SimpleExampleLightRaw}>
+        <div style={exampleWrapperStyleLight} data-hook="appearance-light-example-container">
+          <SimpleExampleLight/>
         </div>
       </CodeExample >
     </div>
