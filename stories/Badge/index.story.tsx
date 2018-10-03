@@ -8,7 +8,7 @@ import {SIZE, SKIN, TYPE} from '../../src/components/Badge/constants';
 
 import Facebook from 'wix-ui-icons-common/Facebook';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
-import {Badge} from '../../src/components/Badge/Badge';
+import {Badge} from '../../src/components/Badge';
 
 const icons = [
   <ChevronDown key="0"/>,
@@ -36,7 +36,10 @@ export default {
     size: Object.keys(SIZE),
     prefixIcon: icons,
     suffixIcon: icons,
-    onClick: () => alert('Badge Clicked')
+    onClick: [
+      {label: 'Not clickable', value: false},
+      {label: 'Clickable', value: () => alert('Badge Clicked!')},
+    ]
   },
 
   examples: (

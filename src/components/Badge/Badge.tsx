@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {oneOf, node} from 'prop-types';
+import {withFocusable} from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 import {SKIN, TYPE, SIZE, Type, Skin, Size} from './constants';
 import style from './Badge.st.css';
 
@@ -14,6 +15,11 @@ export interface BadgeProps {
   uppercase?: boolean;
   dataHook?: string;
 
+  focusableOnFocus: any;
+  focusableOnBlur: any;
+  focusableIsFocusVisible: boolean;
+  focusableIsFocused: boolean;
+
   /** usually just text to be displayed */
   children: React.ReactNode;
 }
@@ -25,7 +31,7 @@ const defaultProps = {
   uppercase: true
 };
 
-export class Badge extends React.PureComponent<BadgeProps> {
+class BaseBadge extends React.PureComponent<BadgeProps> {
   static displayName = 'Badge';
 
   static propTypes = {
@@ -52,8 +58,20 @@ export class Badge extends React.PureComponent<BadgeProps> {
 
   render() {
     const {children, prefixIcon, suffixIcon, onClick, dataHook, ...rest} = this.props;
+
+    const focusableProps = onClick ? {
+      onFocus: rest.focusableOnFocus,
+      onBlur: rest.focusableOnBlur,
+      'tabIndex': 0
+    } : {};
+
     return (
-      <div data-hook={dataHook} onClick={onClick} {...style('root', {clickable: !!onClick, ...rest})}>
+      <div
+        data-hook={dataHook}
+        onClick={onClick}
+        {...focusableProps}
+        {...style('root', {clickable: !!onClick, ...rest}, this.props)}
+      >
           {prefixIcon && React.cloneElement(prefixIcon, {className: style.prefix})}
           <span className={style.text}>{children}</span>
           {suffixIcon && React.cloneElement(suffixIcon, {className: style.suffix})}
@@ -61,3 +79,5 @@ export class Badge extends React.PureComponent<BadgeProps> {
     );
   }
 }
+
+export const Badge = withFocusable(BaseBadge);

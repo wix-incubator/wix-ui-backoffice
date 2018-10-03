@@ -1,11 +1,17 @@
 :import {
   -st-from: "../../palette.st.css";
-  -st-named: secondaryText, primaryLightText, danger, success, warning, urgent, general, standard, neutral, mainMutedHover, successMutedHover, dangerMutedHover, backgroundSecondary;
+  -st-named: secondaryText, primaryLightText, danger, success, warning, urgent, general, standard, neutral, mainMutedHover, successMutedHover, dangerMutedHover, backgroundSecondary, focusShadow, main;
 }
 
 :import {
     -st-from: "../../typography.st.css";
     -st-named: fontMedium;
+}
+
+:import {
+  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
+  -st-default: Focusable;
+  -st-named: focus-box;
 }
 
 :vars {
@@ -16,6 +22,7 @@
 }
 
 .root {
+  -st-extends: Focusable;
   -st-states: skin(string), type(string), size(string), clickable(boolean), uppercase(boolean);
   cursor: default;
   border: 1px solid;
@@ -25,6 +32,17 @@
   justify-content: center;
   box-sizing: border-box;
   line-height: 1;
+}
+
+/* Focus when clickable */
+.root:focus {
+  -st-mixin: focus-box;
+}
+
+.root:focus-visible {
+  -st-mixin: focus-box;
+  border-color: value(main);
+  box-shadow: 0 0 0 3px value(focusShadow);
 }
 
 :vars {
