@@ -21,7 +21,7 @@
 
 :import {
   -st-from: "../../colors.st.css";
-  -st-named: D80;
+  -st-named: D80, WHITE;
 }
 
 :import {
