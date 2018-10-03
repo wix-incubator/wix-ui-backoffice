@@ -4,18 +4,6 @@
 }
 
 :import {
-  -st-from: "../../palette.st.css";
-  -st-named:
-    disabled,
-    buttonSecondaryText,
-    inputBorderColor,
-    inputBackground,
-    inputHover,
-    inputDisabledColor,
-    mainMutedHover;
-}
-
-:import {
   -st-from: "../Input/Input.st.css";
   -st-default: Input;
 }
@@ -23,6 +11,12 @@
 :import {
   -st-from: "../Input/InputStates.st.css";
   -st-named: input-large, input-medium, input-small;
+}
+
+:import {
+  -st-from: "../../colors.st.css";
+  -st-named: 
+  B30, B10, D55;
 }
 
 .root {
@@ -48,7 +42,7 @@
 }
 
 .root::nativeInput::selection {
-  background: value(mainMutedHover);
+  background: value(B30);
 }
 
 .root:inputWidth(small)::nativeInput {
@@ -81,7 +75,7 @@
 
 .root::tickers::ticker {
   padding: 5px 0;
-  color: value(buttonSecondaryText);
+  color: value(B10);
   cursor: pointer;
 }
 
@@ -93,5 +87,5 @@
 
 .root:disabled::tickers::ticker {
   cursor: default;
-  color: value(inputDisabledColor);
+  color: value(D55);
 }
