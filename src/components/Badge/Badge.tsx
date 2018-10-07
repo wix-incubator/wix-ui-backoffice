@@ -12,10 +12,9 @@ export interface BadgeProps {
   suffixIcon?: React.ReactElement<any>;
   onClick?: React.EventHandler<React.MouseEvent<HTMLElement>>;
   uppercase?: boolean;
-  dataHook?: string;
 
-  focusableOnFocus: any;
-  focusableOnBlur: any;
+  focusableOnFocus?: () => void;
+  focusableOnBlur?: () => void;
 
   /** usually just text to be displayed */
   children: React.ReactNode;
@@ -48,7 +47,6 @@ export class Badge extends React.PureComponent<BadgeProps> {
     onClick: PropTypes.func,
     /** Uppercase */
     uppercase: PropTypes.bool,
-    dataHook: PropTypes.string
   };
 
   static defaultProps = defaultProps;
@@ -59,7 +57,6 @@ export class Badge extends React.PureComponent<BadgeProps> {
       prefixIcon,
       suffixIcon,
       onClick,
-      dataHook,
       focusableOnFocus,
       focusableOnBlur,
       ...rest
@@ -73,7 +70,6 @@ export class Badge extends React.PureComponent<BadgeProps> {
 
     return (
       <div
-        data-hook={dataHook}
         onClick={onClick}
         {...focusableProps}
         {...style('root', {clickable: !!onClick, ...rest}, this.props)}

@@ -9,9 +9,8 @@
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
-  -st-default: Focusable;
-  -st-named: focus-box;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Focusable;
 }
 
 :vars {
@@ -36,11 +35,11 @@
 
 /* Focus when clickable */
 .root:focus {
-  -st-mixin: focus-box;
+  outline: none;
 }
 
 .root:focus-visible {
-  -st-mixin: focus-box;
+  outline: none;
   border-color: value(main);
   box-shadow: 0 0 0 3px value(focusShadow);
 }
