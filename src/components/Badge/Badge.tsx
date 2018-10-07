@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {oneOf, node} from 'prop-types';
-import {withFocusable} from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 import {SKIN, TYPE, SIZE, Type, Skin, Size} from './constants';
 import style from './Badge.st.css';
 
@@ -17,8 +16,6 @@ export interface BadgeProps {
 
   focusableOnFocus: any;
   focusableOnBlur: any;
-  focusableIsFocusVisible: boolean;
-  focusableIsFocused: boolean;
 
   /** usually just text to be displayed */
   children: React.ReactNode;
@@ -31,7 +28,7 @@ const defaultProps = {
   uppercase: true
 };
 
-class BaseBadge extends React.PureComponent<BadgeProps> {
+export class Badge extends React.PureComponent<BadgeProps> {
   static displayName = 'Badge';
 
   static propTypes = {
@@ -79,5 +76,3 @@ class BaseBadge extends React.PureComponent<BadgeProps> {
     );
   }
 }
-
-export const Badge = withFocusable(BaseBadge);

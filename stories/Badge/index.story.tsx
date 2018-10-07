@@ -36,10 +36,7 @@ export default {
     size: Object.keys(SIZE),
     prefixIcon: icons,
     suffixIcon: icons,
-    onClick: [
-      {label: 'Not clickable', value: false},
-      {label: 'Clickable', value: () => alert('Badge Clicked!')},
-    ]
+    onClick: () => 'Clicked!'
   },
 
   examples: (
