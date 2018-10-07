@@ -54,11 +54,20 @@ export class Badge extends React.PureComponent<BadgeProps> {
   static defaultProps = defaultProps;
 
   render() {
-    const {children, prefixIcon, suffixIcon, onClick, dataHook, ...rest} = this.props;
+    const {
+      children,
+      prefixIcon,
+      suffixIcon,
+      onClick,
+      dataHook,
+      focusableOnFocus,
+      focusableOnBlur,
+      ...rest
+    } = this.props;
 
     const focusableProps = onClick ? {
-      onFocus: rest.focusableOnFocus,
-      onBlur: rest.focusableOnBlur,
+      onFocus: focusableOnFocus,
+      onBlur: focusableOnBlur,
       'tabIndex': 0
     } : {};
 
