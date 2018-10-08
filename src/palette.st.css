@@ -1,7 +1,7 @@
 /*
  This file is DEPRECATED.
  It's use was removed from wix-style-react, but it is still here because wix-style-react's version of wix-ui-backoffice is not locked,
- and older version of wix-style-react sitll use it.
+ and older version of wix-style-react still use it.
 */
 :import {
   -st-from: "./colors.st.css";
