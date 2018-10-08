@@ -4,8 +4,12 @@
 }
 
 :import {
-  -st-from: "../../palette.st.css";
-  -st-named: progress, error, danger, mainMutedHover, dangerMutedHover, backgroundPrimary, backgroundSecondary, secondaryText;
+  -st-from: "../../colors.st.css";
+  -st-named: 
+  B00, B30,
+  D20,
+  R00, R10, R30, 
+  WHITE,
 }
 
 :import {
@@ -23,23 +27,23 @@
 }
 
 .root .progressBar::foreArc {
-  stroke: value(progress);
+  stroke: value(B00);
 }
 
 .root .progressBar::backArc {
-  stroke: value(mainMutedHover);
+  stroke: value(B30);
 }
 
 .root .progressBar:error::foreArc {
-  stroke: value(error);
+  stroke: value(R00);
 }
 
 .root .progressBar:error::backArc {
-  stroke: value(dangerMutedHover);
+  stroke: value(R30);
 }
 
 .root .progressBar:light::backArc {
-  stroke: value(backgroundSecondary);
+  stroke: value(WHITE);
 }
 
 .root .progressBar::statusIndicator {
@@ -52,11 +56,11 @@
 }
 
 .root .progressBar:success::statusIndicator {
-  color: value(progress);
+  color: value(B00);
 }
 
 .root .progressBar:error::statusIndicator {
-  color: value(danger);
+  color: value(R10);
 }
 
 .root .progressBar::statusIndicator svg {
@@ -70,7 +74,7 @@
 }
 
 .root .progressBar::progressIndicator {
-  color: value(secondaryText);
+  color: value(D20);
   font-family: value(fontMedium);
   font-size: 10px;
   font-weight: 500;

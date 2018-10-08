@@ -9,9 +9,12 @@
 }
 
 :import {
-  -st-from: "../../palette.st.css";
-  -st-named: main, backgroundSecondary, danger, premium, mainHover, mainMutedBackground, premiumHover, dangerHover,
-    buttonSecondaryText;
+  -st-from: "../../colors.st.css";
+  -st-named: 
+  B10, B20, B30, B40, B50,
+  R10, R20,
+  P10, P20,
+  WHITE,
 }
 
 :import {
@@ -40,14 +43,14 @@
 /*skins ans priority*/
 
 :vars {
-  skinStandardColor: value(main);
-  skinStandardHoverColor: value(mainHover);
-  skinWhiteColor: value(backgroundSecondary);
-  skinWhiteHoverColor: value(mainMutedBackground);
-  skinDestructiveColor: value(danger);
-  skinDestructiveHoverColor: value(dangerHover);
-  skinPremiumColor: value(premium);
-  skinPremiumHoverColor: value(premiumHover);
+  skinStandardColor: value(B10);
+  skinStandardHoverColor: value(B20);
+  skinWhiteColor: value(WHITE);
+  skinWhiteHoverColor: value(B50);
+  skinDestructiveColor: value(R10);
+  skinDestructiveHoverColor: value(R20);
+  skinPremiumColor: value(P10);
+  skinPremiumHoverColor: value(P20);
 }
 
 .root:skin(standard):priority(primary) {
@@ -79,7 +82,7 @@
 }
 
 .root:skin(white):priority(secondary):hover .text{
-  color: value(buttonSecondaryText)
+  color: value(B10)
 }
 
 .root:skin(destructive):priority(primary) {

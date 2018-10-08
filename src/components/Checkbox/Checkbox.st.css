@@ -4,8 +4,14 @@
 }
 
 :import {
-  -st-from: "../../palette.st.css";
-  -st-named: backgroundPrimary, backgroundSecondary, mainMutedBackground, mainMuted, main, mainHover, dangerMutedHover, danger, disabledField, disabledCheck, inputDisabledBorderColor, focusShadow, dangerMutedHover;
+  -st-from: "../../colors.st.css";
+  -st-named: 
+    B10, B20, B50,
+    D50,  D60, D70,
+    GR20,
+    R10, R30,
+  WHITE,
+    F00;   
 }
 
 :vars {
@@ -29,13 +35,13 @@
 }
 
 .root:disabled::childContainer {
-  color: value(backgroundPrimary);
+  color: value(D70);
 }
 
 .root::box {
-  background: value(backgroundSecondary);
+  background: value(WHITE);
   border-radius: 4px;
-  border: solid 1px value(mainHover);
+  border: solid 1px value(B20);
   box-sizing: border-box;
   width: value(boxSize);
   height: value(boxSize);
@@ -45,46 +51,46 @@
 }
 
 .root:disabled::box {
-  background-color: value(backgroundPrimary);
-  border-color: value(disabledField);
+  background-color: value(D70);
+  border-color: value(GR20);
 }
 
 .root:disabled:checked::box {
-  border-color: value(inputDisabledBorderColor);
+  border-color: value(D60);
 }
 
 .root::box:active {
-  background-color: value(mainHover);
+  background-color: value(B20);
 }
 
 .root:error::box {
-  border-color: value(danger);
+  border-color: value(R10);
 }
 
 .root:focus-visible::box {
-  box-shadow: value(focusVisibleShadow) value(focusShadow);
-  border-color: value(main);
+  box-shadow: value(focusVisibleShadow) value(F00);
+  border-color: value(B10);
 }
 
 .root:error:focus-visible::box {
-  border-color: value(danger);
-  box-shadow: value(focusVisibleShadow) value(dangerMutedHover);
+  border-color: value(R10);
+  box-shadow: value(focusVisibleShadow) value(R30);
 }
 
 .root:hover:not(:disabled):not(:checked):not(:active)::box {
-  background-color: value(mainMutedBackground);
+  background-color: value(B50);
 }
 
 .root:checked:not(:active):not(:disabled)::box {
-  background-color: value(main);
+  background-color: value(B10);
 }
 
 .root:indeterminate:not(:disabled):not(:checked):not(:active)::box {
-  background-color: value(main);
+  background-color: value(B10);
 }
 
 .root:hover:indeterminate:not(:disabled):not(:checked):not(:active)::box {
-  color: value(mainMutedBackground);
+  color: value(B50);
 }
 
 .checkedIcon {
@@ -98,9 +104,9 @@
 }
 
 .root::box svg {
-  fill: value(backgroundSecondary);
+  fill: value(WHITE);
 }
 
 .root:disabled::box svg {
-  fill: value(disabledCheck);
+  fill: value(D50);
 }

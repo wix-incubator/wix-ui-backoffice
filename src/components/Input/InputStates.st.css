@@ -1,11 +1,12 @@
 :import {
-  -st-from: "../../palette.st.css";
-  -st-named: danger;
+  -st-from: "./Input.st.css";
+  -st-named: Input;
 }
 
 :import {
-  -st-from: "./Input.st.css";
-  -st-named: Input;
+  -st-from: "../../colors.st.css";
+  -st-named: 
+  R10,
 }
 
 :import {
@@ -24,8 +25,8 @@
 }
 
 .input-error {
-  color: value(danger);
-  border-color: value(danger);
+  color: value(R10);
+  border-color: value(R10);
 }
 
 .input-large {
