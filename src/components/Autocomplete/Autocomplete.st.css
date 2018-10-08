@@ -4,13 +4,13 @@
 }
 
 :import {
-  -st-from: "../../palette.st.css";
-  -st-named: primaryText, mainHover, main, disabledText, inputHover, primaryLightText, inputBorderColor, inputDisabledBorderColor, inputDisabledBorderColor, inputDisabledHoverBorderColor, danger, backgroundSecondary, dropdownOptionDivider;
-}
-
-:import {
   -st-from: "../Input/Input.st.css";
   -st-default: Input;
+  -st-named: 
+    inputDisabledHoverBorderColor,
+    inputDisabledBorderColor,
+    inputBorderColor,
+    inputHover;
 }
 
 :import {
@@ -21,6 +21,14 @@
 :import {
   -st-from: "../../typography.st.css";
   -st-named: fontRoman;
+}
+
+:import {
+  -st-from: "../../colors.st.css";
+  -st-named: 
+    B10, B20,
+    D10, D50, D60,
+    WHITE
 }
 
 :import {
@@ -64,7 +72,7 @@
   padding: 8px 20px;
   text-overflow: ellipsis;
   font-size: 16px;
-  color: value(primaryText);
+  color: value(D10);
   overflow: hidden;
 }
 
@@ -73,17 +81,17 @@
 }
 
 .root::dropdownContent::dropdownOption:selected {
-  background: value(main);
-  color: value(primaryLightText);
+  background: value(B10);
+  color: value(WHITE);
 }
 
 .root::dropdownContent::dropdownOption:selected:hovered {
-  background: value(mainHover);
-  color: value(primaryLightText);
+  background: value(B20);
+  color: value(WHITE);
 }
 
 .root::dropdownContent::dropdownOption:disabled {
-  color: value(disabledText);
+  color: value(D50);
 }
 
 .root::dropdownContent::dropdownOption:not(:selectable) {
@@ -91,7 +99,7 @@
 }
 
 .root::divider {
-  background-color: value(dropdownOptionDivider);
+  background-color: value(D60);
   display: flex;
   flex: 1;
 }

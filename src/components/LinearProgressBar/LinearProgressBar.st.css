@@ -4,13 +4,17 @@
 }
 
 :import {
-  -st-from: "../../palette.st.css";
-  -st-named: progress, error, main, danger, mainMutedHover, dangerMutedHover, backgroundPrimary, backgroundSecondary, secondaryText;
+  -st-from: "../../typography.st.css";
+  -st-named: fontMedium;
 }
 
 :import {
-  -st-from: "../../typography.st.css";
-  -st-named: fontMedium;
+  -st-from: "../../colors.st.css";
+  -st-named: 
+  B00, B10, B30,
+  D20,
+  R00, R10, R30,
+  WHITE,
 }
 
 .root {
@@ -21,12 +25,12 @@
 }
 
 .root::barForeground {
-  background: value(progress);
+  background: value(B00);
   transition: width 0.5s ease-in-out;
 }
 
 .root::barBackground {
-  background: value(mainMutedHover);
+  background: value(B30);
 }
 
 .root::barBackground,
@@ -37,15 +41,15 @@
 }
 
 .root:error::barForeground {
-  background: value(error);
+  background: value(R00);
 }
 
 .root:error::barBackground {
-  background: value(dangerMutedHover);
+  background: value(R30);
 }
 
 .root:light::barBackground {
-  background: value(backgroundSecondary);
+  background: value(WHITE);
 }
 
 .root::progressIndicationSection {
@@ -64,21 +68,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: value(secondaryText);
+  color: value(D20);
   font-size: 10px;
   font-family: value(fontMedium);
 }
 
 .root:success::indicationContainer {
-  background: value(main);
+  background: value(B10);
 }
 
 .root:error::indicationContainer {
-  background: value(danger);
+  background: value(R10);
 }
 
 .root::indicationContainer svg {
   height: 8px;
   width: 10px;
-  color: value(backgroundSecondary);
+  color: value(WHITE);
 }

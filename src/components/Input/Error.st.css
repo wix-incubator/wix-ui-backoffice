@@ -1,8 +1,8 @@
 :import {
-  -st-from: "../../palette.st.css";
-  -st-named:
-    backgroundSecondary,
-    danger;
+  -st-from: "../../colors.st.css";
+  -st-named: 
+  R10,
+WHITE;
 }
 
 .root {
@@ -12,9 +12,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: value(danger);
+  background: value(R10);
 }
 
 .root svg {
-  fill: value(backgroundSecondary);
+  fill: value(WHITE);
 }
