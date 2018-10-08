@@ -12,7 +12,9 @@ export interface BadgeProps {
   suffixIcon?: React.ReactElement<any>;
   onClick?: React.EventHandler<React.MouseEvent<HTMLElement>>;
   uppercase?: boolean;
-  dataHook?: string;
+
+  focusableOnFocus?: () => void;
+  focusableOnBlur?: () => void;
 
   /** usually just text to be displayed */
   children: React.ReactNode;
@@ -45,15 +47,33 @@ export class Badge extends React.PureComponent<BadgeProps> {
     onClick: PropTypes.func,
     /** Uppercase */
     uppercase: PropTypes.bool,
-    dataHook: PropTypes.string
   };
 
   static defaultProps = defaultProps;
 
   render() {
-    const {children, prefixIcon, suffixIcon, onClick, dataHook, ...rest} = this.props;
+    const {
+      children,
+      prefixIcon,
+      suffixIcon,
+      onClick,
+      focusableOnFocus,
+      focusableOnBlur,
+      ...rest
+    } = this.props;
+
+    const focusableProps = onClick ? {
+      onFocus: focusableOnFocus,
+      onBlur: focusableOnBlur,
+      'tabIndex': 0
+    } : {};
+
     return (
-      <div data-hook={dataHook} onClick={onClick} {...style('root', {clickable: !!onClick, ...rest})}>
+      <div
+        onClick={onClick}
+        {...focusableProps}
+        {...style('root', {clickable: !!onClick, ...rest}, this.props)}
+      >
           {prefixIcon && React.cloneElement(prefixIcon, {className: style.prefix})}
           <span className={style.text}>{children}</span>
           {suffixIcon && React.cloneElement(suffixIcon, {className: style.suffix})}

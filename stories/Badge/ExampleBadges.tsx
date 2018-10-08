@@ -16,9 +16,9 @@ const typesString = types.join(', ');
 export default () => (
   <div data-hook="badge-variations">
     {skins.map(skin => (
-        <div>
+        <div key={skin}>
           skin: {skin} | sizes: {sizesString} | types: {typesString} | upppercase: true, false
-          <div className={styles.wrapper} key={skin}>
+          <div className={styles.wrapper}>
             {renderSizes({skin})}
             {renderBadge({uppercase: false, skin})}
           </div>
@@ -31,7 +31,7 @@ const renderSizes = props => (sizes.map(size => renderTypes({size, ...props})));
 const renderTypes = props => (types.map(type => renderBadge({type, ...props})));
 
 const renderBadge = props => (
-  <span className={styles.option}>
+  <span className={styles.option} key={props.size + props.type}>
     <Badge {...props}>Some Badge</Badge>
   </span>);
 

@@ -4,19 +4,26 @@
 }
 
 :import {
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Focusable;
+}
+
+:import {
   -st-from: "../../colors.st.css";
   -st-named:
-    B20, B30,
+    B10, B20, B30,
     D20, D40,
+    F00,
     G10, G30,
     O10,
     R10, R30,
     Y10,
-WHITE,
+    WHITE,
 }
 
 
 .root {
+  -st-extends: Focusable;
   -st-states: skin(string), type(string), size(string), clickable(boolean), uppercase(boolean);
   cursor: default;
   border: 1px solid;
@@ -26,6 +33,17 @@ WHITE,
   justify-content: center;
   box-sizing: border-box;
   line-height: 1;
+}
+
+/* Focus when clickable */
+.root:focus {
+  outline: none;
+}
+
+.root:focus-visible {
+  outline: none;
+  border-color: value(B10);
+  box-shadow: 0 0 0 3px value(F00);
 }
 
 :vars {
