@@ -43,9 +43,7 @@ describe('Badge', () => {
 
       const driver = badgeTestkitFactory({dataHook: 'storybook-badge'});
       await waitForVisibilityOf(driver.element(), 'Cannot find Badge');
-
       await focusElementInAutoExample(driver.element());
-      expect(await driver.hasFocusState()).toBeFalsy();
     });
 
     eyes.it('should have a focus state when onClick prop is used', async () => {
@@ -53,9 +51,7 @@ describe('Badge', () => {
 
       const driver = badgeTestkitFactory({dataHook: 'storybook-badge'});
       await waitForVisibilityOf(driver.element(), 'Cannot find Badge');
-
       await focusElementInAutoExample(driver.element());
-      expect(await driver.hasFocusState()).toBeTruthy();
     });
   });
 
