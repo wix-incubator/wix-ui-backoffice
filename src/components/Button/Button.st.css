@@ -17,11 +17,6 @@
   WHITE,
 }
 
-:import {
-  -st-from: "../../colors.st.css";
-  -st-named: B10, WHITE;
-}
-
 .root {
   -st-extends: Button;
   -st-states: skin(enum(standard, white, destructive, premium)), priority(enum(primary, secondary)), size(enum(large, medium, small, tiny));
