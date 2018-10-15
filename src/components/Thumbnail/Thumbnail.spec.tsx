@@ -53,7 +53,7 @@ describe('Thumbnail', () => {
 
   describe('selectedIcon', () => {
     it('should be built-in Check icon', () => {
-      const driver = createDriver(<Thumbnail title="hello"/>);
+      const driver = createDriver(<Thumbnail selected title="hello"/>);
       expect(driver.getSelectedIcon()).toEqual(mount(<Check size="24"/>).getDOMNode());
     });
   });
