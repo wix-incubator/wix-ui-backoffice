@@ -51,7 +51,7 @@ export class CounterBadge extends React.PureComponent<CounterBadgeProps> {
         {
           isIcon(children) ?
             React.cloneElement(children as React.ReactElement<any>, {className: style.icon}) :
-            <UIText className={style.text} appearance="T5">{children}</UIText>
+            <span className={style.text}>{children}</span>
         }
       </StyledCounterBadge>
     );
