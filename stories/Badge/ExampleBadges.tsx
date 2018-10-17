@@ -2,10 +2,10 @@ import * as React from 'react';
 import * as styles from './ExampleBadges.scss';
 
 //import {Badge} from 'wix-ui-backoffice/Badge';
-import {Badge} from '../../src/components/Badge';
+import {Badge} from '../../src/components/deprecated/Badge';
 
 //import {SIZE, SKIN, TYPE} from 'wix-ui-backoffice/Badge';
-import {SIZE, SKIN, TYPE} from '../../src/components/Badge';
+import {SIZE, SKIN, TYPE} from '../../src/components/deprecated/Badge';
 
 const skins = Object.keys(SKIN);
 const sizes = Object.keys(SIZE);

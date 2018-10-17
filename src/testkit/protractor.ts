@@ -16,7 +16,7 @@ import { fullTextViewDriverFactory, FullTextViewDriver } from '../components/Ful
 export const fullTextViewTestkitFactory = protractorTestkitFactoryCreator<FullTextViewDriver>(fullTextViewDriverFactory);
 export { FullTextViewDriver };
 
-import { badgeDriverFactory, BadgeDriver } from '../components/Badge/Badge.protractor.driver';
+import { badgeDriverFactory, BadgeDriver } from '../components/deprecated/Badge/Badge.protractor.driver';
 export const badgeTestkitFactory = protractorTestkitFactoryCreator<BadgeDriver>(badgeDriverFactory);
 export { BadgeDriver };
 

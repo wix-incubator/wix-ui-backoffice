@@ -7,11 +7,11 @@ import ExampleBadgeOnClick from './ExampleBadgeOnClick';
 import * as ExampleBadgesRaw from '!raw-loader!./ExampleBadges';
 import ExampleBadges from './ExampleBadges';
 
-import {SIZE, SKIN, TYPE} from '../../src/components/Badge/constants';
+import {SIZE, SKIN, TYPE} from '../../src/components/deprecated/Badge/constants';
 
 import Facebook from 'wix-ui-icons-common/Facebook';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
-import {Badge} from '../../src/components/Badge';
+import {Badge} from '../../src/components/deprecated/Badge';
 
 const icons = [
   <ChevronDown key="0"/>,
@@ -22,7 +22,7 @@ export default {
   category: 'Components',
   storyName: 'Badge',
   component: Badge,
-  componentPath: '../../src/components/Badge/Badge.tsx',
+  componentPath: '../../src/components/deprecated/Badge/Badge.tsx',
 
   componentProps: {
     children: 'I\'m a badge!',
