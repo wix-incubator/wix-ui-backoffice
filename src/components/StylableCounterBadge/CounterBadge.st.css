@@ -9,8 +9,8 @@
 }
 
 :import {
-  -st-from: "../StylableUIText/UIText.st.css";
-  -st-default: UIText;
+  -st-from: "../../typography.st.css";
+  -st-named: fontMedium;
 }
 
 :import {
@@ -25,15 +25,18 @@
 WHITE;
 }
 
-
 .root {
   -st-extends: Badge;
   -st-states: skin(string), wide;
 }
 
 .text {
-  -st-extends: UIText;
+  font-family: value(fontMedium);
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 1px;
   color: currentColor;
+  text-transform: uppercase;
 }
 
 .icon {

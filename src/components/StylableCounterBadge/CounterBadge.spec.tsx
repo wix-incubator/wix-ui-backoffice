@@ -67,13 +67,6 @@ describe('CounterBadge', () => {
     });
   });
 
-  describe('UIText', () => {
-    it('should be rendered with T5 appearance', () => {
-      const wrapper = createDriver(<CounterBadge>12</CounterBadge>);
-      expect(wrapper.getUIText().getAppearance()).toBe('T5');
-    });
-  });
-
   describe('validations', () => {
     it.skip('should throw when children length is more than 2', () => {
       expect(
