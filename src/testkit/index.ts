@@ -34,10 +34,6 @@ import { textDriverFactory as coreTextDriverFactory, TextDriver as CoreTextDrive
 export const coreTextTestkitFactory = testkitFactoryCreator<CoreTextDriver>(coreTextDriverFactory);
 export { CoreTextDriver };
 
-import { uiTextDriverFactory, UITextDriver } from '../components/StylableUIText/UIText.driver';
-export const uiTextTestkitFactory = testkitFactoryCreator<UITextDriver>(uiTextDriverFactory);
-export { UITextDriver };
-
 import {textDriverFactory, TextDriver} from '../components/Text/Text.driver';
 export const textTestkitFactory = testkitFactoryCreator<TextDriver>(textDriverFactory);
 export {TextDriver};
