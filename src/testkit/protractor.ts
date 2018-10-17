@@ -24,10 +24,6 @@ import { headingDriverFactory, HeadingDriver } from '../components/Heading/Headi
 export const headingTestkitFactory = protractorTestkitFactoryCreator<HeadingDriver>(headingDriverFactory);
 export { HeadingDriver };
 
-import { uiTextDriverFactory, UITextDriver } from '../components/StylableUIText/UIText.protractor.driver';
-export const uiTextTestkitFactory = protractorTestkitFactoryCreator<UITextDriver>(uiTextDriverFactory);
-export { UITextDriver };
-
 import { textDriverFactory, TextDriver } from '../components/Text/Text.protractor.driver';
 export const textTestkitFactory = protractorTestkitFactoryCreator<TextDriver>(textDriverFactory);
 export { TextDriver };
