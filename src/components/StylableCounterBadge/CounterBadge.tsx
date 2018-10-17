@@ -2,7 +2,6 @@ import * as React from 'react';
 import {oneOf, node, Requireable} from 'prop-types';
 import {withStylable} from 'wix-ui-core/withStylable';
 import {Badge as CoreBadge, BadgeProps as CoreBadgeProps} from 'wix-ui-core/StylableBadge';
-import {UIText} from '../StylableUIText';
 import {Skin, SKIN} from './constants';
 import {isIcon, isWide} from './utils';
 import style from './CounterBadge.st.css';
