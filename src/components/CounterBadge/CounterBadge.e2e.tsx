@@ -2,10 +2,10 @@
 import * as eyes from 'eyes.it';
 import {browser} from 'protractor';
 import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
-import {stylableCounterBadgeTestkitFactory as counterBadgeTestkitFactory} from '../../testkit/protractor';
+import {counterBadgeTestkitFactory} from '../../testkit/protractor';
 
 describe('CounterBadge', () => {
-  const storyUrl = getStoryUrl('Components', 'StylableCounterBadge');
+  const storyUrl = getStoryUrl('Components', 'CounterBadge');
 
   beforeEach(() => browser.get(storyUrl));
   eyes.it('should display correct content', () => {

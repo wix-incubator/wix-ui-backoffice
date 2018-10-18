@@ -45,8 +45,8 @@ export const autocompleteTestkitFactory = enzymeTestkitFactoryCreator(autocomple
 import { toggleSwitchDriverFactory } from '../components/ToggleSwitch/ToggleSwitch.driver';
 export const toggleSwitchTestkitFactory = enzymeTestkitFactoryCreator(toggleSwitchDriverFactory);
 
-import { counterBadgeDriverFactory as stylableCounterBadgeDriverFactory, CounterBadgeDriver } from '../components/StylableCounterBadge/CounterBadge.driver';
-export const stylableCounterBadgeTestkitFactory = enzymeTestkitFactoryCreator<CounterBadgeDriver>(stylableCounterBadgeDriverFactory);
+import { counterBadgeDriverFactory, CounterBadgeDriver } from '../components/CounterBadge/CounterBadge.driver';
+export const counterBadgeTestkitFactory = enzymeTestkitFactoryCreator<CounterBadgeDriver>(counterBadgeDriverFactory);
 export { CounterBadgeDriver };
 
 import { labelWithOptionsDriverFactory } from '../components/LabelWithOptions/LabelWithOptions.driver';

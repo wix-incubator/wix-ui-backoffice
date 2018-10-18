@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-import {CounterBadge} from '../../src/components/StylableCounterBadge';
-import {SKIN} from '../../src/components/StylableCounterBadge/constants';
+import {CounterBadge} from '../../src/components/CounterBadge';
+import {SKIN} from '../../src/components/CounterBadge/constants';
 import Facebook from 'wix-ui-icons-common/Facebook';
 import {Autocomplete} from '../../src/components/Autocomplete';
 import {Heading} from '../../src/components/Heading';
@@ -42,4 +42,4 @@ class ControlledCounterdBadgeExample extends React.Component<any, any> {
 }
 
 storiesOf('Components', module)
-  .add('StylableCounterBadge', () => <ControlledCounterdBadgeExample/>);
+  .add('CounterBadge', () => <ControlledCounterdBadgeExample/>);

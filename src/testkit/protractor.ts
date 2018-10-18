@@ -32,9 +32,9 @@ import { toggleSwitchDriverFactory, ToggleSwitchDriver } from '../components/Tog
 export const toggleSwitchTestkitFactory = protractorTestkitFactoryCreator<ToggleSwitchDriver>(toggleSwitchDriverFactory);
 export { ToggleSwitchDriver };
 
-import { counterBadgeDriverFactory as stylableCounterBadgeDriverFactory, BadgeDriver as StylableCounterBadgeDriver } from '../components/StylableCounterBadge/CounterBadge.protractor.driver';
-export const stylableCounterBadgeTestkitFactory = protractorTestkitFactoryCreator<StylableCounterBadgeDriver>(stylableCounterBadgeDriverFactory);
-export { StylableCounterBadgeDriver };
+import { counterBadgeDriverFactory, BadgeDriver as CounterBadgeDriver } from '../components/CounterBadge/CounterBadge.protractor.driver';
+export const counterBadgeTestkitFactory = protractorTestkitFactoryCreator<CounterBadgeDriver>(counterBadgeDriverFactory);
+export { CounterBadgeDriver };
 
 import { labelWithOptionsDriverFactory, LabelWithOptionsDriver } from '../components/LabelWithOptions/LabelWithOptions.protractor.driver';
 export const labelWithOptionsTestkitFactory = protractorTestkitFactoryCreator<LabelWithOptionsDriver>(labelWithOptionsDriverFactory);
