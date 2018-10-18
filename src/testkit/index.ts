@@ -1,8 +1,5 @@
 import { testkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 
-import { counterBadgeDriverFactory } from '../components/CounterBadge/CounterBadge.driver';
-export const counterBadgeTestkitFactory = testkitFactoryCreator(counterBadgeDriverFactory);
-
 import { badgeDriverFactory, BadgeDriver } from '../components/Badge/Badge.driver';
 export const badgeTestkitFactory = testkitFactoryCreator<BadgeDriver>(badgeDriverFactory);
 export { BadgeDriver };

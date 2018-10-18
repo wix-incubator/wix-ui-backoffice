@@ -1,1 +1,0 @@
-export {CounterBadge} from './CounterBadge';
