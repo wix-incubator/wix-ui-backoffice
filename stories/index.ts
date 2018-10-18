@@ -4,7 +4,6 @@ import './Checkbox.story';
 import './Badge/index.story';
 import './Button/index.story';
 import './CloseButton/index.story';
-import './CounterBadge.story';
 import './FloatingHelper/index.story';
 import './FloatingHelperContent/index.story';
 import './FullTextView.story';
