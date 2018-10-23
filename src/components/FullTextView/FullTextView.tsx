@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {string, number, any, oneOfType, Requireable} from 'prop-types';
 import * as shallowequal from 'shallowequal';
 import {Tooltip} from '../Tooltip';
 import style from './FullTextView.st.css';
@@ -17,13 +16,6 @@ const isEllipsisActive = (node: HTMLElement) => node && node.offsetWidth < node.
 
 export class FullTextView extends React.Component<FullTextViewProps, FullTextViewState> {
   static displayName = 'FullTextView';
-
-  static propTypes = {
-    /** max width of the text */
-    maxWidth: oneOfType([number, string]),
-    /** any nodes to be rendered (usually text nodes) */
-    children: any
-  }
 
   private textNode: any;
   private ellipsesTimeout: any;

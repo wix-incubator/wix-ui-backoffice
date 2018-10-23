@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { bool, func, node} from 'prop-types';
 import isBoolean = require('lodash/isBoolean');
 import pick = require('lodash/pick');
 import { Popover, PopoverProps, Placement, AppendTo } from 'wix-ui-core/Popover';
@@ -57,15 +56,6 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
   state: ClosablePopoverState = { 
     open: this.props.initiallyOpened,
     mode: this.props.initiallyOpened? Mode.ClickToClose : Mode.Hover };
-
-  static propTypes: React.ValidationMap<ClosablePopoverProps> = {
-    ...pickedPopoverPropTypes,
-    opened: bool,
-    content: func,
-    target: node,
-    onOpen: func,
-    onClose: func,
-  };
 
   static defaultProps: Partial<ClosablePopoverProps> = {
     timeout: 150,

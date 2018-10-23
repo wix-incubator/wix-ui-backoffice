@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {string, node, oneOf} from 'prop-types';
 import style from './Thumbnail.st.css';
 import Check from 'wix-ui-icons-common/Check';
 import {Thumbnail as CoreThumbnail, ThumbnailProps as CoreThumbnailProps} from 'wix-ui-core/Thumbnail';
@@ -36,10 +35,3 @@ export const Thumbnail: React.SFC<ThumbnailProps> = props => {
 };
 
 Thumbnail.displayName = 'Thumbnail';
-
-Thumbnail.propTypes = {
-  ...CoreThumbnail.propTypes,
-  image: node,
-  title: string.isRequired,
-  description: string
-};

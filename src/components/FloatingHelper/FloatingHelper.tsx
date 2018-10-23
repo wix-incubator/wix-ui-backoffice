@@ -1,6 +1,5 @@
 import * as React from 'react';
 import pick = require('lodash/pick');
-import { string, number, oneOfType, oneOf, node, Requireable, ValidationMap} from 'prop-types'
 import * as classnames from 'classnames';
 import { ClosablePopover, ClosablePopoverProps, ClosablePopoverActions, Placement, AppendTo } from './ClosablePopover';
 import style from './FloatingHelper.st.css';
@@ -60,10 +59,6 @@ export type PickedClosablePopoverProps = Pick<ClosablePopoverProps,
 const pickedPropNames: Array<keyof PickedClosablePopoverProps> =
   ['initiallyOpened', 'opened' , 'target', 'onClose', 'onOpen', 'placement', 'appendTo'];
 
-const pickedPopoverPropTypes = pick<
-  typeof ClosablePopover.propTypes, keyof PickedClosablePopoverProps>(
-    ClosablePopover.propTypes, ...pickedPropNames);
-
 export type FloatingHelperProps = PickedClosablePopoverProps & FloatingHelperOwnProps & PickedClosablePopoverPropsHack;
 
 export class FloatingHelper extends React.Component<FloatingHelperProps> {
@@ -79,14 +74,6 @@ export class FloatingHelper extends React.Component<FloatingHelperProps> {
     appearance: Appearance.dark
   };
 
-  static propTypes : ValidationMap<FloatingHelperProps> = {
-    ...pickedPopoverPropTypes,
-    width: oneOfType([string, number]),
-    target: node.isRequired,
-    content: node.isRequired, // TODO: validate it is a <HelperContent>
-    appearance: oneOf(enumValues(Appearance))
-
-  };
 
   open = () => { this.closablePopoverRef.open() };
 
