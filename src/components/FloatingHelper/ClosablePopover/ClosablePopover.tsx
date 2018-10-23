@@ -42,7 +42,6 @@ export interface ClosablePopoverState {
 }
 
 export type PickedPopoverProps = Pick<PopoverProps, 'className' | 'placement' | 'showArrow' | 'moveBy' | 'hideDelay' | 'showDelay' | 'moveArrowTo' | 'appendTo' | 'timeout'>;
-const pickedPopoverPropTypes : React.ValidationMap<PickedPopoverProps>= pick(Popover.propTypes, ['className', 'placement', 'showArrow', 'moveBy', 'hideDelay', 'showDelay', 'moveArrowTo', 'appendTo', 'timeout']);
 
 export type ClosablePopoverProps = PickedPopoverProps & ClosablePopoverOwnProps;
 const controlledErrorMsg = (method: string)=> `ClosablePopover.${method}() can not be called when component is Controlled. (opened prop should be undefined)`;

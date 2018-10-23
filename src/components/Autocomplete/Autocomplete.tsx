@@ -50,4 +50,3 @@ Autocomplete.displayName = 'Autocomplete';
 
 Autocomplete.createOption = CoreAutocomplete.createOption;
 Autocomplete.createDivider = CoreAutocomplete.createDivider;
-Autocomplete.propTypes = CoreAutocomplete.propTypes;

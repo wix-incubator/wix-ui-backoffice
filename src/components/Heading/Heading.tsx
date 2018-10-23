@@ -37,7 +37,6 @@ const StyledText = withStylable<CoreTextProps, Props>(
   defaultProps
 );
 
-const legalPropTypes = omit(CoreText.propTypes, 'tagName');
 
 export class Heading extends React.PureComponent<Props, State> {
   static displayName = 'Heading';
