@@ -9,7 +9,6 @@ import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import FormFieldErrorSmall from 'wix-ui-icons-common/system/FormFieldErrorSmall';
 import style from './CircularProgressBar.st.css';
 import {Tooltip} from '../Tooltip';
-import * as PropTypes from 'prop-types';
 import {Size, sizesMap} from './constants';
 import {enumValues} from '../../utils';
 import omit = require('lodash/omit');
@@ -65,13 +64,6 @@ export const CircularProgressBar: React.SFC<CircularProgressBarProps> = (props: 
 };
 
 CircularProgressBar.displayName = 'CircularProgressBar';
-
-CircularProgressBar.propTypes = {
-  ...omit<PropTypes.ValidationMap<CircularProgressBarProps>>(CoreCircularProgressBar.propTypes, ['successIcon', 'errorIcon']),
-  errorMessage: PropTypes.string,
-  light: PropTypes.bool,
-  size: PropTypes.oneOf(enumValues(Size)),
-};
 
 CircularProgressBar.defaultProps = {
   size: Size.medium,

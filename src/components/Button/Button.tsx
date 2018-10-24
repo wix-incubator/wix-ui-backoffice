@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { oneOf, string } from 'prop-types';
 import { Button as CoreButton, ButtonProps as CoreButtonProps } from 'wix-ui-core/Button';
 import { enumValues } from '../../utils';
 import style from './Button.st.css';
@@ -61,11 +60,4 @@ Button.defaultProps = {
   skin: Skin.standard,
   priority: Priority.primary,
   size: Size.medium
-}
-
-Button.propTypes = {
-  skin: oneOf(enumValues(Skin)),
-  priority: oneOf(enumValues(Priority)),
-  size: oneOf(enumValues(Size)),
-  children: string
 }

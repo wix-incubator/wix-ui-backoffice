@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { string, func, node, oneOf } from 'prop-types';
 import style from './FloatingHelperContent.st.css';
 import { Text } from '../../../components/Text';
 import { DataHooks } from './DataHooks';
@@ -70,15 +69,6 @@ export const FloatingHelperContent: React.SFC<FloatingHelperContentProps> = (
       {image && <div data-hook={DataHooks.image} className={style.image}>{image}</div>}
     </div>
   );
-};
-
-FloatingHelperContent.propTypes = {
-  title: string,
-  body: string.isRequired,
-  actionText: string,
-  onActionClick: func,
-  image: node,
-  appearance: oneOf(enumValues(Appearance))
 };
 
 FloatingHelperContent.defaultProps = {

@@ -1,6 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {oneOf, node} from 'prop-types';
 import {SKIN, TYPE, SIZE, Type, Skin, Size} from './constants';
 import style from './Badge.st.css';
 
@@ -29,25 +27,6 @@ const defaultProps = {
 
 export class Badge extends React.PureComponent<BadgeProps> {
   static displayName = 'Badge';
-
-  static propTypes = {
-    /** Any node to be rendered (usually text node) */
-    children: PropTypes.any,
-    /** Type of the badge */
-    type: oneOf(Object.keys(TYPE)),
-    /** Skin of the badge */
-    skin: oneOf(Object.keys(SKIN)),
-    /** Size of the badge */
-    size: oneOf(Object.keys(SIZE)),
-    /** The prefix icon of the badge */
-    prefixIcon: node,
-    /** The suffix icon of the badge */
-    suffixIcon: node,
-    /* onClick Event handler */
-    onClick: PropTypes.func,
-    /** Uppercase */
-    uppercase: PropTypes.bool,
-  };
 
   static defaultProps = defaultProps;
 

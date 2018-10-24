@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as propTypes from 'prop-types';
 import omit = require('lodash/omit');
 import {Omit} from '../../types/common';
 
@@ -50,14 +49,6 @@ export class TimePicker extends React.PureComponent<TimePickerProps> {
   static displayName = 'TimePickerBackoffice';
   static defaultProps = defaultProps;
   coreTimePickerRef;
-
-  static propTypes = {
-    ...omit(CoreTimePicker.propTypes, 'useAmPm'),
-    size: propTypes.oneOf(Object.keys(Size)),
-    disableAmPm: propTypes.bool,
-    width: propTypes.string,
-    style: propTypes.object
-  };
 
   focus() {
     this.coreTimePickerRef.focus();

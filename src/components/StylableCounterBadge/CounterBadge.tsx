@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {oneOf, node, Requireable} from 'prop-types';
 import {withStylable} from 'wix-ui-core/withStylable';
 import {Badge as CoreBadge, BadgeProps as CoreBadgeProps} from 'wix-ui-core/StylableBadge';
 import {Skin, SKIN} from './constants';
@@ -30,15 +29,6 @@ const StyledCounterBadge = withStylable<CoreBadgeProps, CounterBadgeProps & {wid
 
 export class CounterBadge extends React.PureComponent<CounterBadgeProps> {
   static displayName = 'CounterBadge';
-
-  static propTypes = {
-    ...CoreBadge.propTypes,
-
-    /** Skin of the badge */
-    skin: oneOf(Object.keys(SKIN)),
-    /** Content of the badge */
-    children: node
-  };
 
   static defaultProps = defaultProps;
 

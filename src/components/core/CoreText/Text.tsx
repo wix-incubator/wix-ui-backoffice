@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {bool, func, object, string, any} from 'prop-types';
 import style from './Text.st.css';
 
 export interface TextProps {
@@ -27,15 +26,4 @@ export const Text: React.SFC<TextProps> = props => {
 Text.displayName = 'Text';
 Text.defaultProps = {
   tagName: 'span'
-};
-
-Text.propTypes = {
-  /** should the text be ellipsed or not */
-  ellipsis: bool,
-  /** should hide the title tooltip that is shown on mouse hover when using the ellipsis prop */
-  forceHideTitle: bool,
-  /** tag name that will be rendered */
-  tagName: string,
-  /** any nodes to be rendered (usually text nodes) */
-  children: any
 };

@@ -7,7 +7,6 @@ import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import style from './LinearProgressBar.st.css';
 import { Tooltip } from '../Tooltip';
-import * as PropTypes from 'prop-types';
 import omit = require('lodash/omit');
 import {Omit} from '../../types/common';
 
@@ -37,9 +36,3 @@ export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (props: Line
 }
 
 LinearProgressBar.displayName = 'LinearProgressBar';
-
-LinearProgressBar.propTypes = {
-  ...omit<PropTypes.ValidationMap<LinearProgressBarProps>>(CoreLinearProgressBar.propTypes, ['successIcon', 'errorIcon']),
-  errorMessage: PropTypes.string,
-  light: PropTypes.bool,
-};

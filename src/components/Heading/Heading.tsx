@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {oneOf, bool, Requireable} from 'prop-types';
 import omit = require('lodash/omit');
 import {Text as CoreText, TextProps as CoreTextProps} from '../core/CoreText';
 import style from './Heading.st.css';
@@ -38,20 +37,9 @@ const StyledText = withStylable<CoreTextProps, Props>(
   defaultProps
 );
 
-const legalPropTypes = omit(CoreText.propTypes, 'tagName');
 
 export class Heading extends React.PureComponent<Props, State> {
   static displayName = 'Heading';
-
-  static propTypes = {
-    ...legalPropTypes,
-
-    /** is the text has dark or light skin */
-    light: bool,
-
-    /** typography of the heading */
-    appearance: oneOf(['H1', 'H2', 'H3', 'H4'])
-  };
 
   static defaultProps: Props = defaultProps;
 

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {number, bool, any, oneOf, arrayOf} from 'prop-types';
 import style from './HBox.st.css';
 import {addSpacing} from './utils';
 
@@ -30,10 +29,3 @@ export const HBox: React.SFC<HBoxProps> = props => {
 HBox.displayName = 'HBox';
 
 HBox.defaultProps = defaultProps;
-
-HBox.propTypes = {
-  children: any,
-  verticalAlignment: oneOf(['top', 'center', 'bottom']),
-  spacing: number,
-  dir: oneOf(['ltr', 'rtl'])
-};

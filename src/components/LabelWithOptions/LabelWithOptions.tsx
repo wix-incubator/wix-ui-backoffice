@@ -48,4 +48,3 @@ export const LabelWithOptions: LabelWithOptionsType =
 LabelWithOptions.displayName = 'LabelWithOptions';
 LabelWithOptions.createOption = CoreLabelWithOptions.createOption;
 LabelWithOptions.createDivider = CoreLabelWithOptions.createDivider;
-LabelWithOptions.propTypes = CoreLabelWithOptions.propTypes;

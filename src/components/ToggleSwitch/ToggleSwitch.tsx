@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import omit = require('lodash/omit');
 import {
   ToggleSwitch as CoreToggleSwitch,
@@ -39,17 +38,8 @@ const StyledToggleSwitch = withStylable<CoreToggleSwitchProps, ToggleSwitchProps
   defaultProps
 );
 
-const {checkedIcon, uncheckedIcon, styles, ...legalCorePropTypes} = CoreToggleSwitch.propTypes;
-
 export class ToggleSwitch extends React.PureComponent<ToggleSwitchProps & CoreToggleSwitchProps> {
   static displayName = 'ToggleSwitch';
-  static propTypes = {
-    ...legalCorePropTypes,
-    /** Size of the ToggleSwitch */
-    size: PropTypes.oneOf(Object.keys(SIZES)),
-    /** Skin of the ToggleSwitch */
-    skin: PropTypes.oneOf(Object.keys(SKINS))
-  };
 
   static defaultProps = defaultProps;
 

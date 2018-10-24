@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { bool, func, node} from 'prop-types';
 import isBoolean = require('lodash/isBoolean');
 import pick = require('lodash/pick');
 import { Popover, PopoverProps, Placement, AppendTo } from 'wix-ui-core/Popover';
@@ -43,7 +42,6 @@ export interface ClosablePopoverState {
 }
 
 export type PickedPopoverProps = Pick<PopoverProps, 'className' | 'placement' | 'showArrow' | 'moveBy' | 'hideDelay' | 'showDelay' | 'moveArrowTo' | 'appendTo' | 'timeout'>;
-const pickedPopoverPropTypes : React.ValidationMap<PickedPopoverProps>= pick(Popover.propTypes, ['className', 'placement', 'showArrow', 'moveBy', 'hideDelay', 'showDelay', 'moveArrowTo', 'appendTo', 'timeout']);
 
 export type ClosablePopoverProps = PickedPopoverProps & ClosablePopoverOwnProps;
 const controlledErrorMsg = (method: string)=> `ClosablePopover.${method}() can not be called when component is Controlled. (opened prop should be undefined)`;
@@ -57,15 +55,6 @@ export class ClosablePopover extends React.PureComponent<ClosablePopoverProps, C
   state: ClosablePopoverState = { 
     open: this.props.initiallyOpened,
     mode: this.props.initiallyOpened? Mode.ClickToClose : Mode.Hover };
-
-  static propTypes: React.ValidationMap<ClosablePopoverProps> = {
-    ...pickedPopoverPropTypes,
-    opened: bool,
-    content: func,
-    target: node,
-    onOpen: func,
-    onClose: func,
-  };
 
   static defaultProps: Partial<ClosablePopoverProps> = {
     timeout: 150,

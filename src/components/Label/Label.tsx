@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Label as CoreLabel, LabelProps as CoreLabelProps} from 'wix-ui-core/Label';
 import style from './Label.st.css';
 import {withStylable} from 'wix-ui-core/withStylable';
-import {oneOf} from 'prop-types';
 import {Size, SIZES} from './constants';
 
 export interface LabelProps {
@@ -22,9 +21,3 @@ export const Label = withStylable<CoreLabelProps, LabelProps>(
 );
 
 Label.displayName = 'Label';
-
-Label.propTypes = {
-  ...CoreLabel.propTypes,
-  /** size of the label */
-  size: oneOf(Object.keys(SIZES))
-};
