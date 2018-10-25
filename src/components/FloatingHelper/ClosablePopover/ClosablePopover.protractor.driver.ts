@@ -1,5 +1,5 @@
 import { ElementFinder } from 'protractor';
-import { popoverDriverFactory, PopoverDriver } from 'wix-ui-core/dist/src/components/Popover/Popover.protractor.driver';
+import { popoverDriverFactory, PopoverDriver } from 'wix-ui-core/drivers/protractorDrivers';
 import { DriverFactory, BaseDriver } from 'wix-ui-core/dist/src/common/BaseDriver.protractor';
 
 export interface ClosablePopoverDriver extends PopoverDriver {

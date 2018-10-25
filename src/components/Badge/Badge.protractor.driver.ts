@@ -1,5 +1,5 @@
 import {isFocused} from 'wix-ui-test-utils/protractor';
-import {BaseDriver, DriverFactory} from 'wix-ui-core/dist/src/common/BaseDriver.protractor';
+import {BaseDriver, DriverFactory} from 'wix-ui-core/drivers/protractorDrivers';
 
 export interface BadgeDriver extends BaseDriver {
   text: () => Promise<string>;
