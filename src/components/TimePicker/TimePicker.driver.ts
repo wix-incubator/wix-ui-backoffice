@@ -1,6 +1,6 @@
 import {
   timePickerDriverFactory as coreTimePickerDriverFactory
-} from 'wix-ui-core/dist/src/components/TimePicker/TimePicker.driver';
+} from 'wix-ui-core/drivers/drivers';
 
 export const timePickerDriverFactory = ({element, eventTrigger}) => {
   const coreTimePickerDriver = coreTimePickerDriverFactory({element, eventTrigger});

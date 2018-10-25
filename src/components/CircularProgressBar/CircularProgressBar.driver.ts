@@ -1,7 +1,7 @@
 import {ComponentFactory} from 'wix-ui-test-utils/driver-factory';
 import {
   circularProgressBarDriverFactory as coreCircularProgressBarDriverFactory,
-  CircularProgressBarDriver as CoreCircularProgressBarDriver } from 'wix-ui-core/dist/src/components/CircularProgressBar/CircularProgressBar.driver';
+  CircularProgressBarDriver as CoreCircularProgressBarDriver } from 'wix-ui-core/drivers/drivers';
 import {BaseDriver, DriverFactory} from 'wix-ui-test-utils/driver-factory';
 import {tooltipDriverFactory} from '../Tooltip/Tooltip.driver'
 import {StylableDOMUtil} from '@stylable/dom-test-kit';

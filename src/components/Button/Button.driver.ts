@@ -1,5 +1,5 @@
 import { StylableDOMUtil } from '@stylable/dom-test-kit';
-import { buttonDriverFactory as coreButtonDriverFactory, ButtonDriver as CoreButtonDriver } from 'wix-ui-core/dist/src/components/Button/Button.driver';
+import { buttonDriverFactory as coreButtonDriverFactory, ButtonDriver as CoreButtonDriver } from 'wix-ui-core/drivers/drivers';
 import { DriverFactory, BaseDriver, ComponentFactory } from 'wix-ui-test-utils/driver-factory';
 import style from './Button.st.css';
 import { Skin, Priority, Size } from './constants';
