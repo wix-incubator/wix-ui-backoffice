@@ -1,1 +1,1 @@
-export {buttonDriverFactory as closeButtonDriverFactory, ButtonDriver as CloseButtonDriver} from 'wix-ui-core/drivers/vanilla';
+export {buttonDriverFactory as closeButtonDriverFactory, ButtonDriver as CloseButtonDriver} from 'wix-ui-core/drivers/protractor';
