@@ -1,6 +1,6 @@
 import {$, ElementFinder} from 'protractor';
 import {DriverFactory} from 'wix-ui-core/dist/src/common/BaseDriver.protractor';
-import {circularProgressBarDriverFactory as coreCircularProgressBarDriverFactory, CircularProgressBarDriver as CoreCircularProgressBarDriver} from 'wix-ui-core/dist/src/components/CircularProgressBar/CircularProgressBar.protractor.driver';
+import {circularProgressBarDriverFactory as coreCircularProgressBarDriverFactory, CircularProgressBarDriver as CoreCircularProgressBarDriver} from 'wix-ui-core/drivers/protractor';
 
 export interface CircularProgressBarDriver extends CoreCircularProgressBarDriver {
   /** Get tooltip that appears on error icons */

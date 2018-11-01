@@ -1,4 +1,4 @@
-import {toggleSwitchDriverFactory as coreToggleSwitchDriverFactory} from 'wix-ui-core/dist/src/components/ToggleSwitch/ToggleSwitch.driver';
+import {toggleSwitchDriverFactory as coreToggleSwitchDriverFactory} from 'wix-ui-core/drivers/vanilla';
 import {StylableDOMUtil} from '@stylable/dom-test-kit';
 import style from './ToggleSwitch.st.css';
 
