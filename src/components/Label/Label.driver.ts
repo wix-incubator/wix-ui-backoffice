@@ -1,4 +1,4 @@
-import {labelDriverFactory as CoreLabelDriverFactory} from 'wix-ui-core/dist/src/components/Label/Label.driver';
+import {labelDriverFactory as CoreLabelDriverFactory} from 'wix-ui-core/drivers/vanilla';
 import {StylableDOMUtil} from '@stylable/dom-test-kit';
 import style from './Label.st.css';
 

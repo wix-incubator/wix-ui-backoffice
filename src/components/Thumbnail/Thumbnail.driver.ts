@@ -1,5 +1,5 @@
 import {ComponentFactory} from 'wix-ui-test-utils/driver-factory';
-import {thumbnailDriverFactory as coreTuhmbnailDriverFactory, ThumbnailDriver as CoreThumbnailDriver} from 'wix-ui-core/dist/src/components/Thumbnail/Thumbnail.driver';
+import {thumbnailDriverFactory as coreTuhmbnailDriverFactory, ThumbnailDriver as CoreThumbnailDriver} from 'wix-ui-core/drivers/vanilla';
 import {StylableDOMUtil} from '@stylable/dom-test-kit';
 import style from './Thumbnail.st.css';
 import {textDriverFactory, TextDriver} from '../Text/Text.driver';
