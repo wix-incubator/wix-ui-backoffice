@@ -34,7 +34,7 @@ WHITE;
   font-family: value(fontMedium);
   font-size: 10px;
   line-height: 12px;
-  letter-spacing: 1px;
+  letter-spacing: 0;
   color: currentColor;
   text-transform: uppercase;
 }
@@ -101,4 +101,8 @@ WHITE;
 
 .root:wide {
   padding: 2px 6px;
+}
+
+.root:wide .text {
+  letter-spacing: 1px;
 }
