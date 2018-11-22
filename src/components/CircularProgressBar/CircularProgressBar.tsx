@@ -11,7 +11,6 @@ import style from './CircularProgressBar.st.css';
 import {Tooltip} from '../Tooltip';
 import {Size, sizesMap} from './constants';
 import {enumValues} from '../../utils';
-import omit = require('lodash/omit');
 import {Omit} from '../../types/common';
 
 export interface CircularProgressBarProps extends Omit<CoreCircularProgressBarProps, 'successIcon' | 'errorIcon'> {

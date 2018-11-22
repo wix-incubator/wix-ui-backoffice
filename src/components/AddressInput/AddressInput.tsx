@@ -2,7 +2,6 @@ import * as React from 'react';
 import {AddressInput as CoreAddressInput, AddressInputProps as CoreAddressInputProps} from 'wix-ui-core/AddressInput';
 import style from './AddressInput.st.css';
 import Location from 'wix-ui-icons-common/Location';
-import omit = require('lodash/omit');
 import {Omit} from '../../types/common';
 import Search from 'wix-ui-icons-common/Search';
 

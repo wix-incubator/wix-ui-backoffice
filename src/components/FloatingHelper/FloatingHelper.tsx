@@ -1,5 +1,4 @@
 import * as React from 'react';
-import pick = require('lodash/pick');
 import * as classnames from 'classnames';
 import { ClosablePopover, ClosablePopoverProps, ClosablePopoverActions, Placement, AppendTo } from './ClosablePopover';
 import style from './FloatingHelper.st.css';
