@@ -7,7 +7,6 @@ import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import style from './LinearProgressBar.st.css';
 import { Tooltip } from '../Tooltip';
-import omit = require('lodash/omit');
 import {Omit} from '../../types/common';
 
 export interface LinearProgressBarProps extends Omit<CoreLinearProgressBarProps, 'successIcon' | 'errorIcon'> {

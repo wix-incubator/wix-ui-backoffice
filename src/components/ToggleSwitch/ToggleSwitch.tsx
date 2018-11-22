@@ -1,5 +1,4 @@
 import * as React from 'react';
-import omit = require('lodash/omit');
 import {
   ToggleSwitch as CoreToggleSwitch,
   ToggleSwitchProps as CoreToggleSwitchProps
@@ -44,7 +43,7 @@ export class ToggleSwitch extends React.PureComponent<ToggleSwitchProps & CoreTo
   static defaultProps = defaultProps;
 
   render() {
-    const desiredProps = omit(this.props, 'styles');
+    const {styles, ...desiredProps} = this.props;
 
     return (
       <StyledToggleSwitch

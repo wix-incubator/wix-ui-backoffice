@@ -1,5 +1,4 @@
 import * as React from 'react';
-import omit = require('lodash/omit');
 import {Omit} from '../../types/common';
 
 import FormFieldSpinnerUp from 'wix-ui-icons-common/system/FormFieldSpinnerUp';
@@ -61,8 +60,9 @@ export class TimePicker extends React.PureComponent<TimePickerProps> {
   render() {
     const {disableAmPm, size, error, width, disabled, style: inlineStyle} = this.props;
     const styleObj = width ? {...inlineStyle, width} : inlineStyle;
+    const {size: sizeProp, disableAmPm: disableAmPmProp, width: widthProp, style: styleProp, ...otherProps} = this.props;
     const coreTimePickerProps = {
-      ...omit(this.props, 'size', 'disableAmPm', 'width', 'style'),
+      ...otherProps,
       useAmPm: disableAmPm ? AmPmOptions.None : AmPmOptions.Uppercase,
     };
 
