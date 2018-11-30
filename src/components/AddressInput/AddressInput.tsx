@@ -20,7 +20,7 @@ export interface AddressInputProps extends Omit<CoreAddressInputProps, excludePr
 export class AddressInput extends React.PureComponent<AddressInputProps> {
     static displayName = 'AddressInput';
     addressInputRef;
-
+    static bypassDefaultPropsTypecheck
     static defaultProps = {
         size: 'medium',
         magnifyingGlass: true
