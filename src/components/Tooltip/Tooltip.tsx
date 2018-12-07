@@ -1,9 +1,12 @@
 import * as React from 'react';
-import {Tooltip as CoreTooltip, TooltipProps as CoreTooltipProps} from 'wix-ui-core/Tooltip';
-import {AppendTo} from 'wix-ui-core/Popover';
+import {
+  Tooltip as CoreTooltip,
+  TooltipProps as CoreTooltipProps
+} from 'wix-ui-core/tooltip';
+import { AppendTo } from 'wix-ui-core/popover';
 import style from './Tooltip.st.css';
-import {withStylable} from 'wix-ui-core/withStylable';
-import {TextAlignProperty} from 'csstype';
+import { withStylable } from 'wix-ui-core/withStylable';
+import { TextAlignProperty } from 'csstype';
 
 const noop = () => null;
 
@@ -53,17 +56,63 @@ const defaultProps = {
 const TooltipBO = withStylable<CoreTooltipProps, TooltipProps>(
   CoreTooltip,
   style,
-  ({appendTo, placement, alignment, theme, showTrigger, hideTrigger, active,
-    bounce, disabled, size, relative, shouldUpdatePosition}) => ({
-      [`placement-${placement}`]: true, [alignment]: true, [theme]: true, [showTrigger]: true, [hideTrigger]: true,
-      active, bounce, disabled, appendTo, [size]: true, relative, shouldUpdatePosition
-    }),
+  ({
+    appendTo,
+    placement,
+    alignment,
+    theme,
+    showTrigger,
+    hideTrigger,
+    active,
+    bounce,
+    disabled,
+    size,
+    relative,
+    shouldUpdatePosition
+  }) => ({
+    [`placement-${placement}`]: true,
+    [alignment]: true,
+    [theme]: true,
+    [showTrigger]: true,
+    [hideTrigger]: true,
+    active,
+    bounce,
+    disabled,
+    appendTo,
+    [size]: true,
+    relative,
+    shouldUpdatePosition
+  }),
   defaultProps
 );
 
 export const Tooltip: React.SFC<CoreTooltipProps & TooltipProps> = props => {
-  const {minWidth, textAlign, maxWidth, color, lineHeight, zIndex, padding, content, ...rest} = props;
-  const wrappedContent = <div style={{minWidth, textAlign, maxWidth, color, lineHeight, zIndex, padding}}>{content}</div>;
+  const {
+    minWidth,
+    textAlign,
+    maxWidth,
+    color,
+    lineHeight,
+    zIndex,
+    padding,
+    content,
+    ...rest
+  } = props;
+  const wrappedContent = (
+    <div
+      style={{
+        minWidth,
+        textAlign,
+        maxWidth,
+        color,
+        lineHeight,
+        zIndex,
+        padding
+      }}
+    >
+      {content}
+    </div>
+  );
   return <TooltipBO {...rest} content={wrappedContent} />;
 };
 

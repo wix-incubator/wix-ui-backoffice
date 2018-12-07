@@ -1,5 +1,8 @@
 import * as React from 'react';
-import { Button as CoreButton, ButtonProps as CoreButtonProps } from 'wix-ui-core/Button';
+import {
+  Button as CoreButton,
+  ButtonProps as CoreButtonProps
+} from 'wix-ui-core/button';
 import { enumValues } from '../../utils';
 import style from './Button.st.css';
 import { Skin, Priority, Size } from './constants';
@@ -17,31 +20,33 @@ export interface ButtonOwnProps extends CoreButtonProps {
 }
 
 export type ButtonProps = ButtonOwnProps & CoreButtonProps;
-const toTextColorProps : {[k in Priority]: {[y in Skin]: Pick<TextProps,'skin' | 'light'>}} = {
+const toTextColorProps: {
+  [k in Priority]: { [y in Skin]: Pick<TextProps, 'skin' | 'light'> }
+} = {
   [Priority.primary]: {
-    [Skin.standard]:    {skin:TextSkin.standard, light: true},
-    [Skin.white]:       {skin:TextSkin.standard, light: false},
-    [Skin.destructive]: {skin:TextSkin.standard, light: true},
-    [Skin.premium]:     {skin:TextSkin.standard, light: true}
+    [Skin.standard]: { skin: TextSkin.standard, light: true },
+    [Skin.white]: { skin: TextSkin.standard, light: false },
+    [Skin.destructive]: { skin: TextSkin.standard, light: true },
+    [Skin.premium]: { skin: TextSkin.standard, light: true }
   },
   [Priority.secondary]: {
-    [Skin.standard]:    {skin:TextSkin.standard, light: false},
-    [Skin.white]:       {skin:TextSkin.standard, light: true},
-    [Skin.destructive]: {skin:TextSkin.error, light: false},
-    [Skin.premium]:     {skin:TextSkin.premium, light: false}
+    [Skin.standard]: { skin: TextSkin.standard, light: false },
+    [Skin.white]: { skin: TextSkin.standard, light: true },
+    [Skin.destructive]: { skin: TextSkin.error, light: false },
+    [Skin.premium]: { skin: TextSkin.premium, light: false }
   }
-}
+};
 
 export const Button: React.SFC<ButtonProps> = props => {
   const { children, skin, priority, size, ...rest } = props;
   const textColorProps = toTextColorProps[priority][skin];
-  const textSize = (size === Size.large || size === Size.medium) ? TextSize.medium : TextSize.small;
+  const textSize =
+    size === Size.large || size === Size.medium
+      ? TextSize.medium
+      : TextSize.small;
 
   return (
-    <CoreButton
-      {...rest}
-      {...style('root', { skin, priority, size }, rest)}
-    >
+    <CoreButton {...rest} {...style('root', { skin, priority, size }, rest)}>
       <Text
         light={textColorProps.light}
         skin={textColorProps.skin}
@@ -51,8 +56,8 @@ export const Button: React.SFC<ButtonProps> = props => {
         {children}
       </Text>
     </CoreButton>
-  )
-}
+  );
+};
 
 Button.displayName = 'Button';
 
@@ -60,4 +65,4 @@ Button.defaultProps = {
   skin: Skin.standard,
   priority: Priority.primary,
   size: Size.medium
-}
+};
