@@ -1,9 +1,11 @@
 import * as React from 'react';
-import {Autocomplete} from '../src/components/Autocomplete';
-import {generateDropdownOptions} from './helpers';
-import {Option, DividerArgs} from 'wix-ui-core/DropdownOption';
+import { Autocomplete } from '../src/components/Autocomplete';
+import { generateDropdownOptions } from './helpers';
+import { Option, DividerArgs } from 'wix-ui-core/dropdown-option';
 
-const options = generateDropdownOptions((args: Partial<DividerArgs> = {}) => Autocomplete.createDivider(args.value));
+const options = generateDropdownOptions((args: Partial<DividerArgs> = {}) =>
+  Autocomplete.createDivider(args.value)
+);
 
 const exampleOptions = [
   { value: options, label: '20 example options' },
@@ -21,7 +23,7 @@ export default {
     'data-hook': 'storybook-autocomplete',
     options: exampleOptions[2].value,
     fixedFooter: 'Fixed Footer',
-    fixedHeader: 'Fixed Header',
+    fixedHeader: 'Fixed Header'
   },
 
   exampleProps: {
