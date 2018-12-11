@@ -1,9 +1,9 @@
-import {TimePicker} from '../src/components/TimePicker/TimePicker';
-import {enumValues} from '../src/utils';
-import {Size} from '../src/components/TimePicker/constants';
-import {TimePickerUtils} from 'wix-ui-core/TimePicker';
+import { TimePicker } from '../src/components/TimePicker/TimePicker';
+import { enumValues } from '../src/utils';
+import { Size } from '../src/components/TimePicker/constants';
+import { TimePickerUtils } from 'wix-ui-core/time-picker';
 
-const {leftpad} = TimePickerUtils;
+const { leftpad } = TimePickerUtils;
 const now = new Date();
 const formattedNow = `${leftpad(now.getHours())}:${leftpad(now.getMinutes())}`;
 
@@ -18,7 +18,7 @@ export default {
     'data-hook': 'storybook-timePicker',
     error: false,
     disableAmPm: false,
-    onChange: value => setState({value})
+    onChange: value => setState({ value })
   }),
 
   exampleProps: {

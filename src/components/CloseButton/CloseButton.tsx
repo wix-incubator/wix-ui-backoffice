@@ -1,5 +1,8 @@
 import * as React from 'react';
-import { Button as CoreButton, ButtonProps as CoreButtonProps } from 'wix-ui-core/Button';
+import {
+  Button as CoreButton,
+  ButtonProps as CoreButtonProps
+} from 'wix-ui-core/button';
 import { enumValues } from '../../utils';
 import style from './CloseButton.st.css';
 import { Skin, Size } from './constants';
@@ -19,18 +22,15 @@ export const CloseButton: React.SFC<CloseButtonProps> = props => {
   const { children, skin, size, ...rest } = props;
 
   return (
-    <CoreButton
-      {...rest}
-      {...style('root', { skin, size }, rest)}
-    >
+    <CoreButton {...rest} {...style('root', { skin, size }, rest)}>
       <CloseIcon />
     </CoreButton>
-  )
-}
+  );
+};
 
 CloseButton.displayName = 'CloseButton';
 
 CloseButton.defaultProps = {
   skin: Skin.standard,
   size: Size.small
-}
+};

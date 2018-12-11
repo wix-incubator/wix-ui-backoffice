@@ -1,9 +1,12 @@
 import * as React from 'react';
 import style from './Thumbnail.st.css';
 import Check from 'wix-ui-icons-common/Check';
-import {Thumbnail as CoreThumbnail, ThumbnailProps as CoreThumbnailProps} from 'wix-ui-core/Thumbnail';
-import {withStylable} from 'wix-ui-core/withStylable';
-import {Text} from '../Text';
+import {
+  Thumbnail as CoreThumbnail,
+  ThumbnailProps as CoreThumbnailProps
+} from 'wix-ui-core/thumbnail';
+import { withStylable } from 'wix-ui-core/withStylable';
+import { Text } from '../Text';
 
 export interface ThumbnailProps extends CoreThumbnailProps {
   /** image of the thumbnail */
@@ -21,16 +24,22 @@ const StyledThumbnail = withStylable<CoreThumbnailProps>(
 );
 
 export const Thumbnail: React.SFC<ThumbnailProps> = props => {
-  const {children, title, image, description, ...rest} = props;
+  const { children, title, image, description, ...rest } = props;
 
   return (
-      <StyledThumbnail {...rest} selectedIcon={<Check size="24"/>}>
-        <div className={style.container}>
-          {image && <div data-hook="image">{image}</div>}
-          <Text className={style.title} data-hook="title" bold>{title}</Text>
-          {description && <Text className={style.description} data-hook="description">{description}</Text>}
-        </div>
-      </StyledThumbnail>
+    <StyledThumbnail {...rest} selectedIcon={<Check size="24" />}>
+      <div className={style.container}>
+        {image && <div data-hook="image">{image}</div>}
+        <Text className={style.title} data-hook="title" bold>
+          {title}
+        </Text>
+        {description && (
+          <Text className={style.description} data-hook="description">
+            {description}
+          </Text>
+        )}
+      </div>
+    </StyledThumbnail>
   );
 };
 
