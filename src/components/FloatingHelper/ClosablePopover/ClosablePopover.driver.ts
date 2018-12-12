@@ -11,6 +11,7 @@ export interface PopoverDriver extends BaseDriver {
   mouseEnter: () => any;
   mouseLeave: () => any;
   click: () => any;
+  clickOutside: () => void;
   getArrowOffset: () => {
       top: string;
       left: string;
