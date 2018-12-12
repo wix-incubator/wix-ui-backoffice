@@ -4,6 +4,10 @@ import autoExampleDriver = require('wix-storybook-utils/AutoExampleDriver');
 import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
 import {addressInputTestkitFactory} from '../../testkit/protractor';
 
+// TEMP - ADDED BY EREZ - FOR INVESTIGATING EYES FAILURES
+const ConsoleLogHandler = require('eyes.selenium').ConsoleLogHandler;
+eyes.setLogHandler(new ConsoleLogHandler(true));
+
 describe('AddressInput', () => {
     const storyUrl = getStoryUrl('Components', 'AddressInput');
     let driver;
