@@ -39,8 +39,7 @@
     "lodash": "^4.17.5",
     "shallowequal": "^1.1.0",
     "wix-ui-core": "^2.0.0",
-    "wix-ui-icons-common": "^2.0.3",
-    "wix-ui-theme": "1.0.43"
+    "wix-ui-icons-common": "^2.0.3"
   },
   "devDependencies": {
     "@storybook/addon-links": "4.0.0-alpha.14",
