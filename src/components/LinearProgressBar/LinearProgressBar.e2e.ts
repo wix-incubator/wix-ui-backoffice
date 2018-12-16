@@ -26,7 +26,7 @@ describe('LinearProgressBar', () => {
     expect(driver.element().isPresent()).toBe(true);
   });
 
-  eyes.xit('should render correct error state', async () => {
+  eyes.it('should render correct error state', async () => {
     await autoExampleDriver.setProps({value: 30, showProgressIndication: true, error: true, errorMessage: 'Some error'});
     expect(driver.element().isPresent()).toBe(true);
 
