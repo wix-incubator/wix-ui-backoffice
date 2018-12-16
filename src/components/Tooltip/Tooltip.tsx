@@ -50,7 +50,8 @@ const defaultProps = {
   shouldCloseOnClickOutside: false,
   textAlign: 'left',
   relative: false,
-  bounce: false
+  bounce: false,
+  timeout: 0,
 };
 
 const TooltipBO = withStylable<CoreTooltipProps, TooltipProps>(
