@@ -11,7 +11,7 @@ import { createEnzymeDriverFactory } from '../../../../test/testkitUtils';
 describe('ClosablePopover', () => {
   const createDriver = createDriverFactory(closablePopoverDriverFactory);
   const createEnzymeDriver = createEnzymeDriverFactory<ClosablePopover, ClosablePopoverDriver>(closablePopoverDriverFactory);
-  const waitForClose = async () => new Promise((res, rej) => setTimeout(res, ClosablePopover.defaultProps.timeout * 2)); // * 2 as arbitrary safety 
+  const waitForClose = async () => new Promise((res, rej) => setTimeout(res, ClosablePopover.defaultProps.timeout as number * 2)); // * 2 as arbitrary safety 
 
   const createComponent = (partialProps?: Partial<ClosablePopoverProps> & { 'data-hook'?: string }) => (
     <ClosablePopover
