@@ -1,15 +1,11 @@
 import * as React from 'react';
-import * as classnames from 'classnames';
 import { ClosablePopover, ClosablePopoverProps, ClosablePopoverActions, Placement, AppendTo } from './ClosablePopover';
 import style from './FloatingHelper.st.css';
 import { DataHooks } from './DataHooks';
-import { Button } from '../Button';
-import { Skin, Size } from '../Button/constants';
 import { CloseButton, CloseButtonSkin, CloseButtonSize } from '../CloseButton';
-import { FloatingHelperContent , FloatingHelperContentProps} from './FloatingHelperContent';
+import { FloatingHelperContent } from './FloatingHelperContent';
 import { Appearance } from './constants';
 export {Placement, AppendTo};
-import { enumValues } from '../../utils';
 
 export interface FloatingHelperOwnProps {
   /** Width HTML attribute of the content. If a number is passed then it defaults to px. e.g width={400} => width="400px" */
