@@ -12,10 +12,11 @@
   -st-from: "../../colors.st.css";
   -st-named:
     B10, B20, B30,
-    D20, D40,
+    D20, D40, D80,
     F00,
     G10, G30,
     O10,
+    P10,
     R10, R30,
     Y10,
     WHITE,
@@ -171,6 +172,14 @@
   );
 }
 
+.root:type(transparent):skin(premium) {
+  -st-mixin: BadgeStyle(
+          backgroundColor transparent,
+          borderColor transparent,
+          color value(P10)
+  );
+}
+
 /* type = solid */
 .root:type(solid):skin(general) {
   -st-mixin: BadgeStyle(
@@ -252,6 +261,14 @@
   );
 }
 
+.root:type(solid):skin(premium) {
+  -st-mixin: BadgeStyle(
+          backgroundColor value(P10),
+          borderColor value(P10),
+          color value(D80)
+  );
+}
+
 /* type = outlined */
 .root:type(outlined):skin(general) {
   -st-mixin: BadgeStyle(
@@ -330,6 +347,14 @@
     borderColor value(R30),
     backgroundColor value(WHITE),
     color value(secondaryText)
+  );
+}
+
+.root:type(outlined):skin(premium) {
+  -st-mixin: BadgeStyle(
+          borderColor value(P10),
+          backgroundColor value(WHITE),
+          color value(P10)
   );
 }
 
