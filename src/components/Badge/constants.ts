@@ -10,12 +10,14 @@ export const SKIN = {
   danger: 'danger',
   success: 'success',
   neutral: 'neutral',
+  neutralLight: 'neutralLight',
   warning: 'warning',
+  warningLight: 'warningLight',
   urgent: 'urgent',
   neutralStandard: 'neutralStandard',
   neutralSuccess: 'neutralSuccess',
   neutralDanger: 'neutralDanger',
-  premium: 'premium'
+  premium: 'premium',
 };
 
 export const TYPE = {
