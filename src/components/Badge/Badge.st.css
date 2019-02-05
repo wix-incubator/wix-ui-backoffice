@@ -12,13 +12,13 @@
   -st-from: "../../colors.st.css";
   -st-named:
     B10, B20, B30,
-    D20, D40, D80,
+    D20, D40, D70, D80,
     F00,
     G10, G30,
     O10,
     P10,
     R10, R30,
-    Y10,
+    Y10, Y30,
     WHITE,
 }
 
@@ -180,6 +180,22 @@
   );
 }
 
+.root:type(transparent):skin(neutralLight) {
+  -st-mixin: BadgeStyle(
+          backgroundColor transparent,
+          borderColor transparent,
+          color value(D70)
+  );
+}
+
+.root:type(transparent):skin(warningLight) {
+  -st-mixin: BadgeStyle(
+          backgroundColor transparent,
+          borderColor transparent,
+          color value(Y30)
+  );
+}
+
 /* type = solid */
 .root:type(solid):skin(general) {
   -st-mixin: BadgeStyle(
@@ -269,6 +285,22 @@
   );
 }
 
+.root:type(solid):skin(neutralLight) {
+  -st-mixin: BadgeStyle(
+          backgroundColor value(D70),
+          borderColor value(D70),
+          color value(secondaryText)
+  );
+}
+
+.root:type(solid):skin(warningLight) {
+  -st-mixin: BadgeStyle(
+          backgroundColor value(Y30),
+          borderColor value(Y30),
+          color value(secondaryText)
+  );
+}
+
 /* type = outlined */
 .root:type(outlined):skin(general) {
   -st-mixin: BadgeStyle(
@@ -355,6 +387,22 @@
           borderColor value(P10),
           backgroundColor value(WHITE),
           color value(P10)
+  );
+}
+
+.root:type(outlined):skin(neutralLight) {
+  -st-mixin: BadgeStyle(
+          borderColor value(D70),
+          backgroundColor value(WHITE),
+          color value(secondaryText)
+  );
+}
+
+.root:type(outlined):skin(warningLight) {
+  -st-mixin: BadgeStyle(
+          borderColor value(Y30),
+          backgroundColor value(WHITE),
+          color value(secondaryText)
   );
 }
 
