@@ -20,7 +20,7 @@ export class StylableUnidriverUtil {
    *
    * @returns state or null if not found
    */
-  async getStyleState(base: UniDriver, stateName: string) {
+  public async getStyleState(base: UniDriver, stateName: string) {
     const { stateKey } = this.getStateDataAttrKey(stateName);
     return base.attr(stateKey);
   }
