@@ -1,5 +1,6 @@
 import {UniDriver} from 'unidriver';
-import {StylableUnidriverUtil} from '../../../test/utils/unidriver';
+
+import {StylableUnidriverUtil} from 'wix-ui-test-utils/unidriver';
 import {labelUniDriverFactory as coreLabelUniDriverFactory,LabelDriver as CoreLabelDriver} from 'wix-ui-core/dist/src/components/deprecated/label/Label.uni.driver';
 
 import {Size} from './constants';
