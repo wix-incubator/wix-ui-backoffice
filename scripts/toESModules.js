@@ -1,12 +1,20 @@
 const fs = require('fs');
 const glob = require('glob');
 const path = require('path');
+const ProgressBar = require('progress');
 
-const targetDir = path.resolve(__dirname, '..', 'dist/src/components');
+const targetDir = path.resolve(__dirname, '..', 'dist/es/src/components');
 
 const STYLABLE_PATTERN = '/**/*.st.css';
 const STYLABLE_ES_PATTERN = '/**/*.es.st.css';
 const files = glob.sync(targetDir + STYLABLE_PATTERN, { ignore: [ targetDir + STYLABLE_ES_PATTERN ] });
+
+const progress = new ProgressBar(
+  'Transpiling es style import paths in `dist/es` :bar :percent',
+  {
+    total: files.length,
+  },
+);
 
 files.forEach(filepath => {
   fs.readFile(filepath, 'utf-8', function (e, content) {
@@ -15,13 +23,12 @@ files.forEach(filepath => {
       return;
     }
     const codeWithEsImport = content.replace(/wix\-ui\-core\/index\.st\.css/g, 'wix-ui-core/index.es.st.css');
-    const esFilename = filepath.replace('st.css', 'es.st.css');
-    fs.writeFile(esFilename, codeWithEsImport, function (e) {
+    fs.writeFile(filepath, codeWithEsImport, function (e) {
       if (e) {
         console.warn(e);
         return;
       }
-      console.log(filepath, '->', esFilename);
+      progress.tick(1);
     });
   });
 });

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import defaults = require('lodash/defaults');
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { buttonDriverFactory } from './Button.driver';
 import { buttonTestkitFactory } from '../../testkit';
@@ -8,6 +7,7 @@ import { runTestkitExistsSuite } from '../../common/testkitTests';
 import { Button, ButtonProps } from './';
 import { Skin, Priority, Size } from './constants';
 import { enumValues } from '../../utils';
+const defaults = require('lodash/defaults');
 
 describe('Button', () => {
   const createDriver = createDriverFactory(buttonDriverFactory);

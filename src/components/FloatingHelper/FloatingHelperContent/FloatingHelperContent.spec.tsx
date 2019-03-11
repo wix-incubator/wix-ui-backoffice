@@ -1,10 +1,10 @@
 import * as React from 'react';
-import defaults = require('lodash/defaults');
 import { floatingHelperContentDriverFactory } from './FloatingHelperContent.driver';
 import { FloatingHelperContent, FloatingHelperContentProps, ActionButtonTheme } from '.';
 import { ButtonSkin, ButtonPriority } from '../../Button';
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { mount } from 'enzyme';
+const defaults = require('lodash/defaults');
 
 const noop = ()=> null;
 

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import isBoolean = require('lodash/isBoolean');
 import {
   Popover,
   PopoverProps,
   Placement,
   AppendTo
 } from 'wix-ui-core/popover';
+const isBoolean = require('lodash/isBoolean');
 
 export { Placement, AppendTo };
 

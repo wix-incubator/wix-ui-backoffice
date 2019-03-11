@@ -1,5 +1,4 @@
 import * as React from 'react';
-import defaults = require('lodash/defaults');
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { closeButtonDriverFactory } from './CloseButton.driver';
 import { closeButtonTestkitFactory } from '../../testkit';
@@ -8,6 +7,7 @@ import { runTestkitExistsSuite } from '../../common/testkitTests';
 import { CloseButton, CloseButtonProps } from './CloseButton';
 import { Skin, Size } from './constants';
 import { enumValues } from '../../utils';
+const defaults = require('lodash/defaults');
 
 describe('CloseButton', () => {
   const createDriver = createDriverFactory(closeButtonDriverFactory);

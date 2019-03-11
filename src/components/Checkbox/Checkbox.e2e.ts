@@ -2,7 +2,7 @@ import * as eyes from 'eyes.it';
 import {getStoryUrl, scrollToElement, mouseLeave} from 'wix-ui-test-utils/protractor';
 import {checkboxTestkitFactory} from 'wix-ui-core/dist/src/testkit/protractor';
 import {browser} from 'protractor';
-import autoExampleDriver = require('wix-storybook-utils/AutoExampleDriver');
+import * as autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 
 describe('Checkbox', () => {
   const storyUrl = getStoryUrl('Components', 'Checkbox');
