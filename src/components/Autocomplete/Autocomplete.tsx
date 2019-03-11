@@ -2,8 +2,8 @@ import * as React from 'react';
 import {
   Autocomplete as CoreAutocomplete,
   AutocompleteProps as CoreAutocompleteProps
-} from 'wix-ui-core/autocomplete';
-import { withStylable } from 'wix-ui-core/withStylable';
+} from 'wix-ui-core/dist/src/components/autocomplete';
+import { withStylable } from 'wix-ui-core/dist/src/utils/withStylable';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import style from './Autocomplete.st.css';
 import { getInputSuffix } from '../Input';

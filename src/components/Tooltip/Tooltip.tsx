@@ -2,10 +2,10 @@ import * as React from 'react';
 import {
   Tooltip as CoreTooltip,
   TooltipProps as CoreTooltipProps
-} from 'wix-ui-core/tooltip';
-import { AppendTo } from 'wix-ui-core/popover';
+} from 'wix-ui-core/dist/src/components/tooltip';
+import { AppendTo } from 'wix-ui-core/dist/src/components/popover';
 import style from './Tooltip.st.css';
-import { withStylable } from 'wix-ui-core/withStylable';
+import { withStylable } from 'wix-ui-core/dist/src/utils/withStylable';
 import { TextAlignProperty } from 'csstype';
 
 const noop = () => null;

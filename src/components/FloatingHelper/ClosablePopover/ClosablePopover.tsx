@@ -4,7 +4,7 @@ import {
   PopoverProps,
   Placement,
   AppendTo
-} from 'wix-ui-core/popover';
+} from 'wix-ui-core/dist/src/components/popover';
 const isBoolean = require('lodash/isBoolean');
 
 export { Placement, AppendTo };
