@@ -32,7 +32,7 @@
     "start": "yoshi start --no-test & npm run storybook",
     "release": "yoshi release",
     "convert-modules": "node ./scripts/toESModules.js",
-    "postpublish": "npm install teamcity-surge-autorelease@^1.0.0 --no-save && teamcity-surge-autorelease --dist=storybook-static",
+    "postpublish": "npm install @wix/teamcity-surge-autorelease@^1.0.0 --no-save && teamcity-surge-autorelease --dist=storybook-static",
     "storybook": "start-storybook -p 6006",
     "storybook:static": "start-storybook -p 6006 -s storybook-static",
     "pr-postbuild": "npm install teamcity-surge-autorelease@^1.0.0 --no-save && teamcity-surge-autorelease --dist=storybook-static"

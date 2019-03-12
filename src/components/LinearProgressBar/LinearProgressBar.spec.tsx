@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
-import {linearProgressBarDriverFactory} from './LinearProgressBar.driver';
-import {LinearProgressBar, LinearProgressBarProps} from './LinearProgressBar';
+import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
+import { linearProgressBarDriverFactory } from './LinearProgressBar.driver';
+import { LinearProgressBar, LinearProgressBarProps } from './LinearProgressBar';
 import { linearProgressBarTestkitFactory } from '../../testkit';
-import {linearProgressBarTestkitFactory as enzymeLinearProgressBarTestkitFactory} from '../../testkit/enzyme';
+import { linearProgressBarTestkitFactory as enzymeLinearProgressBarTestkitFactory } from '../../testkit/enzyme';
 import { runTestkitExistsSuite } from '../../common/testkitTests';
 
 describe('LinearProgressBar', () => {
@@ -45,10 +45,20 @@ describe('LinearProgressBar', () => {
         }
 
         it('should display success icon', () => {
-            const driver = createDriver(<LinearProgressBar {...successProps}/>);
+            const driver = createDriver(<LinearProgressBar {...successProps} />);
             expect(driver.isSuccessIconShown()).toBe(true);
         });
 
+    });
+
+    it(`should not throw an error when component isn't rendered`, () => {
+        const driverFactoryWrapper = { createDriver }
+        const isComponentRendered = false;
+
+        jest.spyOn(driverFactoryWrapper, 'createDriver');
+        driverFactoryWrapper.createDriver(<div>{isComponentRendered && <LinearProgressBar />}</div>);
+
+        expect(driverFactoryWrapper.createDriver).not.toThrow();
     });
 
     runTestkitExistsSuite({
