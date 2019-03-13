@@ -24,10 +24,12 @@ describe('LinearProgressBar', () => {
 
         it('should display tooltip text only on hover', () => {
             const driver = createDriver(<LinearProgressBar {...defaultProps} {...errorProps} />);
-            expect(driver.isTooltipShown()).toBe(false);
-            driver.getTooltip().mouseEnter();
-            expect(driver.isTooltipShown()).toBe(true);
-            expect(driver.getTooltip().getContentElement().innerHTML).toContain(errorProps.errorMessage);
+            setTimeout(() => {
+                expect(driver.isTooltipShown()).toBe(false);
+                driver.getTooltip().mouseEnter();
+                expect(driver.isTooltipShown()).toBe(true);
+                expect(driver.getTooltip().getContentElement().innerHTML).toContain(errorProps.errorMessage);
+            });
         });
 
         it('should display error icon', () => {
