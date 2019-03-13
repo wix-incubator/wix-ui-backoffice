@@ -3,6 +3,9 @@ const wixStorybookConfig = require('yoshi/config/webpack.config.storybook');
 module.exports = (config, env, defaultConfig) => {
   const newConfig = wixStorybookConfig(defaultConfig);
 
+  const tsLoaderOpts = newConfig.module.rules[0].use[1].options;
+  tsLoaderOpts.compilerOptions.module = 'commonjs';
+
   newConfig.module.rules.push({
     test: /\.story\.[j|t]sx?$/,
     loader: 'wix-storybook-utils/loader',
