@@ -22,7 +22,7 @@ describe('LinearProgressBar', () => {
             showProgressIndication: true
         }
 
-        it('should display tooltip text only on hover', (done) => {
+        it('should display tooltip text only on hover', done => {
             const driver = createDriver(<LinearProgressBar {...defaultProps} {...errorProps} />);
             setTimeout(() => {
                 expect(driver.isTooltipShown()).toBe(false);
