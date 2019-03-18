@@ -4,7 +4,6 @@ module.exports = (config, env, defaultConfig) => {
   const newConfig = wixStorybookConfig(defaultConfig);
 
   const tsLoaderOpts = newConfig.module.rules[0].use[1].options;
-  tsLoaderOpts.compilerOptions.module = 'commonjs';
 
   newConfig.module.rules.push({
     test: /\.story\.[j|t]sx?$/,
@@ -12,10 +11,12 @@ module.exports = (config, env, defaultConfig) => {
     options: {
       storyConfig: {
         moduleName: 'wix-ui-backoffice',
-        repoBaseURL: 'https://github.com/wix/wix-ui-backoffice/tree/master/src/components/',
-        importFormat: "import {%componentName} from '%moduleName/%componentName'"
-      }
-    }
+        repoBaseURL:
+          'https://github.com/wix/wix-ui-backoffice/tree/master/src/components/',
+        importFormat:
+          "import {%componentName} from '%moduleName/%componentName'",
+      },
+    },
   });
 
   return newConfig;
