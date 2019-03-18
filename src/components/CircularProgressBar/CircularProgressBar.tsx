@@ -45,7 +45,7 @@ export class CircularProgressBar extends React.Component<
 > {
   displayName = 'CircularProgressBar';
 
-  defaultProps = {
+  static defaultProps = {
     size: Size.medium,
   };
 
@@ -53,7 +53,7 @@ export class CircularProgressBar extends React.Component<
     Tooltip: null,
   };
 
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.error) {
       this.loadTooltip();
     }
