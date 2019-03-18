@@ -31,7 +31,7 @@ export class LinearProgressBar extends React.Component<
     Tooltip: null,
   };
 
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.error) {
       this.loadTooltip();
     }
