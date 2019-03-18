@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {
   LinearProgressBar as CoreLinearProgressBar,
-  LinearProgressBarProps as CoreLinearProgressBarProps
+  LinearProgressBarProps as CoreLinearProgressBarProps,
 } from 'wix-ui-core/dist/src/components/linear-progress-bar';
 import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
@@ -21,15 +21,17 @@ export interface LinearProgressBarState {
   Tooltip?: React.FunctionComponent | React.Component;
 }
 
-
-export class LinearProgressBar extends React.Component<LinearProgressBarProps,LinearProgressBarState> {
+export class LinearProgressBar extends React.Component<
+  LinearProgressBarProps,
+  LinearProgressBarState
+> {
   static displayName = 'LinearProgressBar';
 
   state = {
     Tooltip: null,
   };
 
-  componentDidMount() {
+  componentWillMount() {
     if (this.props.error) {
       this.loadTooltip();
     }
@@ -56,18 +58,20 @@ export class LinearProgressBar extends React.Component<LinearProgressBarProps,Li
         {...otherProps}
         error={error}
         successIcon={<ToggleOn />}
-        errorIcon={Tooltip
-          ? <Tooltip
-            data-hook="linear-progressbar-tooltip"
-            placement="top"
-            content={errorMessage}
-          >
+        errorIcon={
+          Tooltip ? (
+            <Tooltip
+              data-hook="linear-progressbar-tooltip"
+              placement="top"
+              content={errorMessage}
+            >
+              <FormFieldError data-hook="error-icon" />
+            </Tooltip>
+          ) : (
             <FormFieldError data-hook="error-icon" />
-          </Tooltip>
-          : <FormFieldError data-hook="error-icon" />
+          )
         }
       />
     );
   }
 }
-
