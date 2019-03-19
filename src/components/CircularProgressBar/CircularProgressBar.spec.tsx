@@ -23,7 +23,7 @@ describe('CircularProgressBar', () => {
       showProgressIndication: true,
     };
 
-    it('should display tooltip text only on hover', () => {
+    it('should display tooltip text only on hover', done => {
       const driver = createDriver(
         <CircularProgressBar {...defaultProps} {...errorProps} />,
       );
@@ -34,6 +34,7 @@ describe('CircularProgressBar', () => {
         expect(driver.getTooltip().getContentElement().innerHTML).toContain(
           errorProps.errorMessage,
         );
+        done();
       });
     });
 
