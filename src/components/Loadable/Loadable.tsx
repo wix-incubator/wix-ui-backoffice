@@ -1,35 +1,40 @@
 import * as React from 'react';
 
-type LoadedComponent<Props> = { [key: string]: React.ComponentType<Props> };
+type LoadedComponentModule<Props> = {
+  [key: string]: React.ComponentType<Props>;
+};
 
 export interface LoadableProps<Props> {
   /** loader for a component. `import('./Component')` */
   loader():
-    | Promise<LoadedComponent<Props>>
-    | LoadedComponent<Props>
+    | Promise<LoadedComponentModule<Props>>
+    | LoadedComponentModule<Props>
     | React.ComponentType<Props>;
 
+  children(component: React.ComponentType<Props>): JSX.Element;
+
   /** component to show while not loading and `shouldLoadComponent` is false */
-  defaultComponent?: React.ComponentType<Props> | (() => null);
+  defaultComponent: JSX.Element;
 
   /** component to show while loading */
-  loadingComponent: React.ComponentType<Props> | (() => null);
+  loadingComponent?: JSX.Element;
 
   /** key to access the field inside module. `default` by default */
   componentKey?: string;
 
   /** key to trigger lazy-loading */
   shouldLoadComponent?: boolean;
+
 }
 
-export interface LoadableState {
-  Component: React.ComponentType;
+export interface LoadableState<Props> {
+  Component: React.ComponentType<Props>;
   isLoading: boolean;
 }
 
 export class Loadable<Props> extends React.Component<
-  Props & LoadableProps<Props>,
-  LoadableState
+  LoadableProps<Props>,
+  LoadableState<Props>
 > {
   constructor(props) {
     super(props);
@@ -39,10 +44,11 @@ export class Loadable<Props> extends React.Component<
     if (props.shouldLoadComponent) {
       Component = this.loadSyncOrAsync();
     }
+    const isLoading = props.shouldLoadComponent && !Component;
 
     this.state = {
       Component,
-      isLoading: !Component,
+      isLoading,
     };
   }
   componentDidUpdate(prevProps) {
@@ -71,6 +77,9 @@ export class Loadable<Props> extends React.Component<
     if (Component instanceof Promise) {
       Component.then(resolvedModule => {
         const ModuleComponent = resolvedModule[componentKey];
+        if (resolvedModule && !ModuleComponent) {
+          console.warn(`You have used <Loadable />, but module you are accessing via 'loader' prop has different exports. Use componentKey="${Object.keys(resolvedModule).slice(0)}" to access exported component property. `)
+        }
         this.setState({ Component: ModuleComponent, isLoading: false });
       }).catch(() => {
         this.setState({ Component: null, isLoading: false });
@@ -89,10 +98,7 @@ export class Loadable<Props> extends React.Component<
       shouldLoadComponent,
       defaultComponent,
       loadingComponent,
-      componentKey,
-      loader,
       children,
-      ...otherProps
     } = this.props;
 
     // Handling loader. Using defaultComponent if no loader was specified.
@@ -103,6 +109,6 @@ export class Loadable<Props> extends React.Component<
       return defaultComponent;
     }
     // Rendering original loaded component.
-    return React.createElement(Component, otherProps, children);
+    return children(Component);
   }
 }

@@ -1,12 +1,17 @@
 import * as React from 'react';
 import {
   LinearProgressBar as CoreLinearProgressBar,
-  LinearProgressBarProps as CoreLinearProgressBarProps,
-} from 'wix-ui-core/dist/src/components/linear-progress-bar';
+  LinearProgressBarProps as CoreLinearProgressBarProps
+} from 'wix-ui-core/linear-progress-bar';
 import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import style from './LinearProgressBar.st.css';
 import { Omit } from '../../types/common';
+import { Loadable } from '../Loadable';
+import { TooltipProps } from '../Tooltip';
+import { TooltipProps as CoreTooltipProps } from 'wix-ui-core/dist/src/components/tooltip';
+
+class LoadableTooltip extends Loadable<CoreTooltipProps & TooltipProps> {};
 
 export interface LinearProgressBarProps
   extends Omit<CoreLinearProgressBarProps, 'successIcon' | 'errorIcon'> {
@@ -14,52 +19,29 @@ export interface LinearProgressBarProps
   errorMessage?: string;
   /** use light theme instead of dark theme */
   light?: boolean;
+  /** load Tooltip async using dynamic import */
+  shouldLoadAsync?: boolean;
 }
 
-export interface LinearProgressBarState {
-  /** Tooltip component loaded via lazy loading */
-  Tooltip?: React.FunctionComponent | React.Component;
-}
+export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (
+  props: LinearProgressBarProps
+) => {
+  const { errorMessage, light, error, shouldLoadAsync, ...otherProps } = props;
 
-export class LinearProgressBar extends React.Component<
-  LinearProgressBarProps,
-  LinearProgressBarState
-> {
-  static displayName = 'LinearProgressBar';
-
-  state = {
-    Tooltip: null,
-  };
-
-  componentDidMount() {
-    if (this.props.error) {
-      this.loadTooltip();
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (!prevProps.error && this.props.error && !this.state.Tooltip) {
-      this.loadTooltip();
-    }
-  }
-
-  async loadTooltip() {
-    const { Tooltip } = await import('../Tooltip');
-    this.setState({ Tooltip });
-  }
-
-  render() {
-    const { errorMessage, light, error, ...otherProps } = this.props;
-    const { Tooltip } = this.state;
-
-    return (
-      <CoreLinearProgressBar
-        {...style('root', { light }, this.props)}
-        {...otherProps}
-        error={error}
-        successIcon={<ToggleOn />}
-        errorIcon={
-          Tooltip ? (
+  return (
+    <CoreLinearProgressBar
+      {...style('root', { light }, props)}
+      {...otherProps}
+      error={error}
+      successIcon={<ToggleOn />}
+      errorIcon={<LoadableTooltip
+        loader={() => shouldLoadAsync ? import('../Tooltip') : require('../Tooltip')}
+        defaultComponent={<FormFieldError data-hook="error-icon" />}
+        componentKey="Tooltip"
+        shouldLoadComponent={!!error}
+      >
+        {Tooltip => {
+          return (
             <Tooltip
               data-hook="linear-progressbar-tooltip"
               placement="top"
@@ -67,11 +49,16 @@ export class LinearProgressBar extends React.Component<
             >
               <FormFieldError data-hook="error-icon" />
             </Tooltip>
-          ) : (
-            <FormFieldError data-hook="error-icon" />
-          )
-        }
-      />
-    );
-  }
-}
+          );
+        }}
+      </LoadableTooltip>
+      }
+    />
+  );
+};
+
+LinearProgressBar.displayName = 'LinearProgressBar';
+
+LinearProgressBar.defaultProps = {
+  shouldLoadAsync: false,
+};
