@@ -8,6 +8,7 @@ import {FullTextView} from './FullTextView';
 
 import {fullTextViewTestkitFactory} from '../../testkit';
 import {fullTextViewTestkitFactory as enzymeFullTextViewTestkitFactory} from '../../testkit/enzyme';
+import { sleep } from 'wix-ui-test-utils/react-helpers';
 
 describe('FullTextView', () => {
   const createDriver = createDriverFactory(fullTextViewDriverFactory);
@@ -28,6 +29,22 @@ describe('FullTextView', () => {
 
     expect(component.find('[data-hook="popover-content"]').length).toBe(0);
     component.setState({isEllipsisActive: true});
+    component.simulate('mouseEnter');
+    expect(component.find('[data-hook="popover-content"]').at(0).text()).toBe('Delete this super awesome thing?');
+  });
+
+  it('should dynamically load and display full content on hover and hide it on leave in tooltip using `shouldLoadAsync` prop', async () => {
+    const content = (
+      <div>
+        <span>Delete this super awesome thing</span>
+        <i>?</i>
+      </div>
+    );
+    const component = mount(<FullTextView shouldLoadAsync maxWidth={0}>{content}</FullTextView>);
+
+    expect(component.find('[data-hook="popover-content"]').length).toBe(0);
+    component.setState({isEllipsisActive: true});
+    await sleep(0);
     component.simulate('mouseEnter');
     expect(component.find('[data-hook="popover-content"]').at(0).text()).toBe('Delete this super awesome thing?');
   });
