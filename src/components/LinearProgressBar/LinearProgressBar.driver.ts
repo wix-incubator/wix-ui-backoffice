@@ -15,7 +15,8 @@ export interface LinearProgressBarDriver extends CoreLinearProgressBarDriver {
     isSuccessIconShown: () => boolean;
     /* Returns the tooltip driver */
     getTooltip: () => any;
-
+    /* Returns Tooltip error message */
+    getTooltipErrorMessage: () => string;
 }
 
 export const linearProgressBarDriverFactory: DriverFactory<LinearProgressBarDriver> = ({ element, eventTrigger, wrapper }: ComponentFactory): LinearProgressBarDriver => {
@@ -28,6 +29,7 @@ export const linearProgressBarDriverFactory: DriverFactory<LinearProgressBarDriv
         ...coreProgressBarDriver,
         isTooltipShown: () => createTooltipDriver().isContentElementExists(),
         getTooltip: () => createTooltipDriver(),
+        getTooltipErrorMessage: () => createTooltipDriver().getContentElement().innerHTML,
         isErrorIconShown: () => !!errorIcon(),
         isSuccessIconShown: () => !!successIcon()
     };

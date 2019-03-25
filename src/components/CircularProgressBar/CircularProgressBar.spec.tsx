@@ -9,6 +9,8 @@ import { circularProgressBarTestkitFactory } from '../../testkit';
 import { circularProgressBarTestkitFactory as CircularLinearProgressBarTestkitFactory } from '../../testkit/enzyme';
 import { runTestkitExistsSuite } from '../../common/testkitTests';
 import { Size } from './constants';
+import * as eventually from 'wix-eventually';
+
 
 describe('CircularProgressBar', () => {
   const createDriver = createDriverFactory(circularProgressBarDriverFactory);
@@ -33,6 +35,23 @@ describe('CircularProgressBar', () => {
       expect(driver.getTooltipErrorMessage()).toContain(
         errorProps.errorMessage,
       );
+      driver.getTooltip().mouseLeave();
+    });
+
+    it('should display load and tooltip text only on hover with `shouldLoadAsync` prop', async () => {
+      const driver = createDriver(
+        <CircularProgressBar shouldLoadAsync {...defaultProps} {...errorProps} />,
+      );
+      await eventually(() => {
+        expect(driver.getTooltip().exists()).toBe(true);
+        expect(driver.isTooltipShown()).toBe(false);
+        driver.getTooltip().mouseEnter();
+        expect(driver.isTooltipShown()).toBe(true);
+        expect(driver.getTooltipErrorMessage()).toContain(
+          errorProps.errorMessage,
+        );
+        driver.getTooltip().mouseLeave();
+      });
     });
 
     it('should display error icon', () => {
