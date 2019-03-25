@@ -5,6 +5,7 @@ import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
 import {mount} from 'enzyme';
 import {fullTextViewDriverFactory} from './FullTextView.driver';
 import {FullTextView} from './FullTextView';
+import * as eventually from 'wix-eventually';
 
 import {fullTextViewTestkitFactory} from '../../testkit';
 import {fullTextViewTestkitFactory as enzymeFullTextViewTestkitFactory} from '../../testkit/enzyme';
@@ -44,9 +45,10 @@ describe('FullTextView', () => {
 
     expect(component.find('[data-hook="popover-content"]').length).toBe(0);
     component.setState({isEllipsisActive: true});
-    await sleep(0);
-    component.simulate('mouseEnter');
-    expect(component.find('[data-hook="popover-content"]').at(0).text()).toBe('Delete this super awesome thing?');
+    await eventually(() => {
+      component.simulate('mouseEnter');
+      expect(component.find('[data-hook="popover-content"]').at(0).text()).toBe('Delete this super awesome thing?');
+    });
   });
 
   describe('testkit', () => {
