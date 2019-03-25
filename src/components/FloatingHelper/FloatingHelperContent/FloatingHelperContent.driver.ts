@@ -33,7 +33,7 @@ export interface FloatingHelperContentDriver extends BaseDriver {
   getActionButtonText(): string;
 
   /** naive way to check for stylable class */
-  matchesActionButtonClassName(): boolean;
+  matchesActionButtonClassName(className: string): boolean;
 
   /** click on the action button */
   clickActionButton(): void;
@@ -58,15 +58,9 @@ export const floatingHelperContentDriverFactory: DriverFactory<
     getImage: () => image() && (image().childNodes[0] as HTMLElement),
     getTitleContent: () => title().textContent,
     getBodyContent: () => body().textContent,
-    getActionButtonText: () => actionButton().textContent
-    matchesActionButtonClassName: className => !!Array.from(actionButton().classList).find(c => c.includes(className)),
-    clickActionButton: () => {
-      const button = actionButton();
-      if(button) {
-        factoryParams.eventTrigger.click(button);
-      } else {
-        throw new Error('Error: Unable to click action button, unable to find it', element.outerHTML)
-      }
-    }
+    getActionButtonText: () => actionButton().textContent,
+    matchesActionButtonClassName: className =>
+      !!Array.from(actionButton().classList).find(c => c.includes(className)),
+    clickActionButton: () => factoryParams.eventTrigger.click(actionButton())
   };
 };

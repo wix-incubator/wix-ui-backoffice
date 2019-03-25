@@ -8,6 +8,7 @@ import {
 import { ButtonSkin, ButtonPriority } from '../../Button';
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { mount } from 'enzyme';
+import defaults = require('lodash/defaults');
 
 const noop = () => null;
 
@@ -152,9 +153,10 @@ function withDefaultsHOC<P>({
   component: React.SFC<P>;
   defaultProps: P;
 }): React.SFC<Partial<P>> {
-  return (partialProps?: Partial<P>) =>
-    React.createElement(component, {
-      ...defaultProps,
-      ...partialProps
-    });
+  return (partialProps?: Partial<P>) => {
+    return React.createElement(
+      component,
+      defaults({}, partialProps, defaultProps)
+    );
+  };
 }
