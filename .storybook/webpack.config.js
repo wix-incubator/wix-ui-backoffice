@@ -9,10 +9,6 @@ module.exports = (config, env, defaultConfig) => {
     options: {
       storyConfig: {
         moduleName: 'wix-ui-backoffice',
-        repoBaseURL:
-          'https://github.com/wix/wix-ui-backoffice/tree/master/src/components/',
-        importFormat:
-          "import {%componentName} from '%moduleName/%componentName'",
       },
     },
   });
