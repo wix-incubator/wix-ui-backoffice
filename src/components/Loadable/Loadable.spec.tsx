@@ -2,28 +2,15 @@ import * as React from 'react';
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { TooltipProps as CoreTooltipProps } from 'wix-ui-core/dist/src/components/tooltip';
 import { mount } from 'enzyme';
-import { tooltipDriverFactory } from '../Tooltip/Tooltip.driver';
-import { loadableDriverFactory } from './Loadable.driver';
+import { loadableDriverFactoryWithTooltip } from './Loadable.driver';
 import { Loadable } from './Loadable';
 import { TooltipProps } from '../Tooltip';
 import * as eventually from 'wix-eventually';
 
 class LoadableTooltip extends Loadable<CoreTooltipProps & TooltipProps> {}
 
-const childSelector = element => {
-  if (element.dataset.hook === 'linear-progressbar-tooltip') {
-    return element;
-  }
-  return element.querySelector(`[data-hook='linear-progressbar-tooltip']`);
-};
-
 describe('Loadable with sync loader', () => {
-  const createDriver = createDriverFactory(
-    loadableDriverFactory({
-      childFactory: tooltipDriverFactory,
-      childSelector,
-    }),
-  );
+  const createDriver = createDriverFactory(loadableDriverFactoryWithTooltip);
 
   it('should load modules initially', () => {
     const fallBackElement = <span data-hook="error-icon">Hey!</span>;
@@ -81,12 +68,7 @@ describe('Loadable with sync loader', () => {
 });
 
 describe('Loadable with async loader', () => {
-  const createDriver = createDriverFactory(
-    loadableDriverFactory({
-      childFactory: tooltipDriverFactory,
-      childSelector,
-    }),
-  );
+  const createDriver = createDriverFactory(loadableDriverFactoryWithTooltip);
 
   it('should load modules initially', async () => {
     const fallBackElement = <span data-hook="error-icon">Hey!</span>;
