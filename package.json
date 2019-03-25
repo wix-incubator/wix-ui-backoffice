@@ -42,9 +42,9 @@
     "wix-ui-icons-common": "^2.0.3"
   },
   "devDependencies": {
-    "@storybook/addon-links": "4.0.0-alpha.14",
-    "@storybook/addon-options": "4.0.0-alpha.14",
-    "@storybook/react": "4.0.0-alpha.14",
+    "@storybook/addon-links": "^4.1.11",
+    "@storybook/addon-options": "^4.1.11",
+    "@storybook/react": "^4.1.11",
     "terser": "3.14.0",
     "@stylable/dom-test-kit": "^0.1.0",
     "@types/classnames": "^2.2.3",
