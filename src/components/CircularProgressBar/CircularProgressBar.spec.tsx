@@ -30,7 +30,7 @@ describe('CircularProgressBar', () => {
       expect(driver.isTooltipShown()).toBe(false);
       driver.getTooltip().mouseEnter();
       expect(driver.isTooltipShown()).toBe(true);
-      expect(driver.getTooltip().getContentElement().innerHTML).toContain(
+      expect(driver.getTooltipErrorMessage()).toContain(
         errorProps.errorMessage,
       );
     });

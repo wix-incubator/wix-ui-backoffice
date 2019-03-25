@@ -4,9 +4,9 @@ import { circularProgressBarDriverFactory } from './CircularProgressBar.driver';
 import {
   CircularProgressBar,
 } from './CircularProgressBar';
-import { sleep } from 'wix-ui-test-utils/react-helpers';
+import * as eventually from 'wix-eventually';
 
-describe('CircularProgressBar', () => {
+describe('CircularProgressBar', async () => {
   const createDriver = createDriverFactory(circularProgressBarDriverFactory);
   const defaultProps = {
     value: 40,
@@ -23,13 +23,14 @@ describe('CircularProgressBar', () => {
       const driver = createDriver(
         <CircularProgressBar shouldLoadAsync {...defaultProps} {...errorProps} />,
       );
-      await sleep(0);
-      expect(driver.isTooltipShown()).toBe(false);
-      driver.getTooltip().mouseEnter();
-      expect(driver.isTooltipShown()).toBe(true);
-      expect(driver.getTooltip().getContentElement().innerHTML).toContain(
-        errorProps.errorMessage,
-      );
+      await eventually(() => {
+        expect(driver.isTooltipShown()).toBe(false);
+        driver.getTooltip().mouseEnter();
+        expect(driver.isTooltipShown()).toBe(true);
+        expect(driver.getTooltipErrorMessage()).toContain(
+          errorProps.errorMessage,
+        );
+      });
     });
   });
 });

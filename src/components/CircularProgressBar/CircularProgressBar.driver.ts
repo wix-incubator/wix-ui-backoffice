@@ -3,7 +3,7 @@ import {
   circularProgressBarDriverFactory as coreCircularProgressBarDriverFactory,
   CircularProgressBarDriver as CoreCircularProgressBarDriver,
 } from 'wix-ui-core/drivers/vanilla';
-import { BaseDriver, DriverFactory } from 'wix-ui-test-utils/driver-factory';
+import { DriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { tooltipDriverFactory } from '../Tooltip/Tooltip.driver';
 import { StylableDOMUtil } from '@stylable/dom-test-kit';
 import style from './CircularProgressBar.st.css';
@@ -21,6 +21,8 @@ export interface CircularProgressBarDriver
   getTooltip: () => any;
   /* Returns bars size */
   getSize: () => Size;
+  /* Returns Tooltip error message */
+  getTooltipErrorMessage: () => string;
 }
 
 export const circularProgressBarDriverFactory: DriverFactory<
@@ -53,6 +55,7 @@ export const circularProgressBarDriverFactory: DriverFactory<
     ...coreProgressBarDriver,
     isTooltipShown: () => createTooltipDriver().isContentElementExists(),
     getTooltip: () => createTooltipDriver(),
+    getTooltipErrorMessage: () => createTooltipDriver().getContentElement().innerHTML,
     isErrorIconShown: () => !!errorIcon(),
     isSuccessIconShown: () => !!successIcon(),
     getSize: () => stylableDOMUtil.getStyleState(progressBar(), 'size') as Size,

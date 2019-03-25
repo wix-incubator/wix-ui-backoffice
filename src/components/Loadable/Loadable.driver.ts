@@ -3,7 +3,6 @@ import { BaseDriver } from 'wix-ui-test-utils/driver-factory';
 
 export interface LoadableDriver extends BaseDriver {
   isLoaded: () => boolean;
-  toggleShouldLoadComponents: () => {}
 }
 
 export const loadableDriverFactory = ({
@@ -28,7 +27,6 @@ export const loadableDriverFactory = ({
 
   return {
     exists: () => !!element,
-    toggleShouldLoadComponents: () => component.props(),
     isLoaded: () => getChildFactory().exists(),
   };
 };
