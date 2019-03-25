@@ -1,27 +1,42 @@
 import { DataHooks } from './DataHooks';
 import { BaseDriver, DriverFactory } from 'wix-ui-test-utils/driver-factory';
-import { buttonDriverFactory, ButtonDriver } from '../../Button/Button.driver';
 import { Skin } from '../../Button/constants';
+
+import style from './FloatingHelperContent.st.css';
 
 export interface FloatingHelperContentDriver extends BaseDriver {
   /** checks if the element exists */
-  exists: () => boolean;
+  exists(): boolean;
+
   /** checks if title exists */
-  hasTitle: () => boolean;
+  hasTitle(): boolean;
+
   /** checks if text content exists */
-  hasBody: () => boolean;
+  hasBody(): boolean;
+
   /** checks if an image exists */
-  hasImage: () => boolean;
+  hasImage(): boolean;
+
   /** checks if the action button exists */
-  hasActionButton: () => boolean;
+  hasActionButton(): boolean;
+
   /** Get the text content of the title */
-  getTitleContent: () => string;
+  getTitleContent(): string;
+
   /** Get the text content of the helper's text */
-  getBodyContent: () => string;
-  /** Get the action button test driver */
-  getActionButtonDriver: () => ButtonDriver;
+  getBodyContent(): string;
+
   /** Get image HTML element*/
-  getImage: () => HTMLElement;
+  getImage(): HTMLElement;
+
+  /** Get text of action button */
+  getActionButtonText(): string;
+
+  /** naive way to check for stylable class */
+  matchesActionButtonClassName(): boolean;
+
+  /** click on the action button */
+  clickActionButton(): void;
 }
 
 export const floatingHelperContentDriverFactory: DriverFactory<
@@ -40,12 +55,18 @@ export const floatingHelperContentDriverFactory: DriverFactory<
     hasBody: () => !!body(),
     hasActionButton: () => !!actionButton(),
     hasImage: () => !!image(),
-    getImage: ()=> image() && image().childNodes[0] as HTMLElement,
-    getActionButtonDriver: () => buttonDriverFactory({
-      ...factoryParams,
-      element: actionButton()
-    }),
+    getImage: () => image() && (image().childNodes[0] as HTMLElement),
     getTitleContent: () => title().textContent,
     getBodyContent: () => body().textContent,
+    getActionButtonText: () => actionButton().textContent
+    matchesActionButtonClassName: className => !!Array.from(actionButton().classList).find(c => c.includes(className)),
+    clickActionButton: () => {
+      const button = actionButton();
+      if(button) {
+        factoryParams.eventTrigger.click(button);
+      } else {
+        throw new Error('Error: Unable to click action button, unable to find it', element.outerHTML)
+      }
+    }
   };
 };
