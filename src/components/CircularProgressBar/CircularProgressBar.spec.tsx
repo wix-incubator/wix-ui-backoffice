@@ -90,6 +90,16 @@ describe('CircularProgressBar', () => {
     });
   });
 
+  it(`should not throw an error when component isn't rendered`, () => {
+    const driverFactoryWrapper = { createDriver }
+    const isComponentRendered = false;
+
+    jest.spyOn(driverFactoryWrapper, 'createDriver');
+    driverFactoryWrapper.createDriver(<div>{isComponentRendered && <CircularProgressBar />}</div>);
+
+    expect(driverFactoryWrapper.createDriver).not.toThrow();
+  });
+
   runTestkitExistsSuite({
     Element: <CircularProgressBar {...defaultProps} />,
     testkitFactory: circularProgressBarTestkitFactory,
