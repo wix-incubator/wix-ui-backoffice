@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as shallowequal from 'shallowequal';
-// import {Tooltip} from '../Tooltip';
 import style from './FullTextView.st.css';
 import { Loadable } from '../Loadable';
 import { TooltipProps } from '../Tooltip';
