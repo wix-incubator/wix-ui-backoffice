@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
-import {circularProgressBarDriverFactory} from './CircularProgressBar.driver';
-import {CircularProgressBar, CircularProgressBarProps} from './CircularProgressBar';
-import {circularProgressBarTestkitFactory} from '../../testkit';
-import {circularProgressBarTestkitFactory as CircularLinearProgressBarTestkitFactory} from '../../testkit/enzyme';
-import {runTestkitExistsSuite} from '../../common/testkitTests';
-import {Size} from './constants';
+import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
+import { circularProgressBarDriverFactory } from './CircularProgressBar.driver';
+import { CircularProgressBar, CircularProgressBarProps } from './CircularProgressBar';
+import { circularProgressBarTestkitFactory } from '../../testkit';
+import { circularProgressBarTestkitFactory as CircularLinearProgressBarTestkitFactory } from '../../testkit/enzyme';
+import { runTestkitExistsSuite } from '../../common/testkitTests';
+import { Size } from './constants';
 
 describe('CircularProgressBar', () => {
   const createDriver = createDriverFactory(circularProgressBarDriverFactory);
@@ -41,7 +41,7 @@ describe('CircularProgressBar', () => {
     }
 
     it('should display success icon', () => {
-      const driver = createDriver(<CircularProgressBar {...successProps}/>);
+      const driver = createDriver(<CircularProgressBar {...successProps} />);
       expect(driver.isSuccessIconShown()).toBe(true);
     });
   });
@@ -49,7 +49,7 @@ describe('CircularProgressBar', () => {
   describe('size prop', () => {
     Object.keys(Size).forEach((size: Size) => {
       it(`should be ${size}`, () => {
-        const driver = createDriver(<CircularProgressBar {...defaultProps} size={size}/>);
+        const driver = createDriver(<CircularProgressBar {...defaultProps} size={size} />);
         expect(driver.getSize()).toBe(size);
       });
     });
@@ -58,6 +58,16 @@ describe('CircularProgressBar', () => {
       const driver = createDriver(<CircularProgressBar {...defaultProps} />);
       expect(driver.getSize()).toBe(Size.medium);
     });
+  });
+
+  it(`should not throw an error when component isn't rendered`, () => {
+    const driverFactoryWrapper = { createDriver }
+    const isComponentRendered = false;
+
+    jest.spyOn(driverFactoryWrapper, 'createDriver');
+    driverFactoryWrapper.createDriver(<div>{isComponentRendered && <CircularProgressBar />}</div>);
+
+    expect(driverFactoryWrapper.createDriver).not.toThrow();
   });
 
   runTestkitExistsSuite({

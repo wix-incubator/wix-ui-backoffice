@@ -1,12 +1,13 @@
-import {ComponentFactory} from 'wix-ui-test-utils/driver-factory';
+import { ComponentFactory } from 'wix-ui-test-utils/driver-factory';
 import {
-  circularProgressBarDriverFactory as coreCircularProgressBarDriverFactory,
-  CircularProgressBarDriver as CoreCircularProgressBarDriver } from 'wix-ui-core/drivers/vanilla';
-import {BaseDriver, DriverFactory} from 'wix-ui-test-utils/driver-factory';
-import {tooltipDriverFactory} from '../Tooltip/Tooltip.driver'
-import {StylableDOMUtil} from '@stylable/dom-test-kit';
+    circularProgressBarDriverFactory as coreCircularProgressBarDriverFactory,
+    CircularProgressBarDriver as CoreCircularProgressBarDriver
+} from 'wix-ui-core/drivers/vanilla';
+import { BaseDriver, DriverFactory } from 'wix-ui-test-utils/driver-factory';
+import { tooltipDriverFactory } from '../Tooltip/Tooltip.driver'
+import { StylableDOMUtil } from '@stylable/dom-test-kit';
 import style from './CircularProgressBar.st.css';
-import {Size} from './constants';
+import { Size } from './constants';
 
 export interface CircularProgressBarDriver extends CoreCircularProgressBarDriver {
     /* Returns true if the tooltip is shown */
@@ -23,8 +24,8 @@ export interface CircularProgressBarDriver extends CoreCircularProgressBarDriver
 }
 
 export const circularProgressBarDriverFactory: DriverFactory<CircularProgressBarDriver> = ({ element, eventTrigger, wrapper }: ComponentFactory): CircularProgressBarDriver => {
-    const tooltipDriver = tooltipDriverFactory({element: element.querySelector(`[data-hook='circular-progressbar-tooltip']`), wrapper, eventTrigger});
-    const coreProgressBarDriver = coreCircularProgressBarDriverFactory({element, wrapper, eventTrigger});
+    const createTooltipDriver = () => tooltipDriverFactory({ element: element.querySelector(`[data-hook='circular-progressbar-tooltip']`), wrapper, eventTrigger });
+    const coreProgressBarDriver = coreCircularProgressBarDriverFactory({ element, wrapper, eventTrigger });
     const errorIcon = () => element.querySelector(`[data-hook='error-icon']`);
     const successIcon = () => element.querySelector(`[data-hook='success-icon']`);
     const progressBar = () => element.querySelector(`[data-hook='circular-progress-bar']`);
@@ -32,8 +33,8 @@ export const circularProgressBarDriverFactory: DriverFactory<CircularProgressBar
 
     return {
         ...coreProgressBarDriver,
-        isTooltipShown: () => tooltipDriver.isContentElementExists(),
-        getTooltip: () => tooltipDriver, 
+        isTooltipShown: () => createTooltipDriver().isContentElementExists(),
+        getTooltip: () => createTooltipDriver(),
         isErrorIconShown: () => !!errorIcon(),
         isSuccessIconShown: () => !!successIcon(),
         getSize: () => stylableDOMUtil.getStyleState(progressBar(), 'size') as Size,
