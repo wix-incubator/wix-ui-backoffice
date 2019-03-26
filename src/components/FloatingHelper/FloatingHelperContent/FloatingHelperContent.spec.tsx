@@ -8,7 +8,7 @@ import {
 import { ButtonSkin, ButtonPriority } from '../../Button';
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { mount } from 'enzyme';
-import defaults = require('lodash/defaults');
+const defaults = require('lodash/defaults');
 
 const noop = () => null;
 

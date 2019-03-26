@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
-import defaults = require('lodash/defaults');
 import * as eventually from 'wix-eventually';
 import { createDriverFactory, DriverFactory, BaseDriver } from 'wix-ui-test-utils/driver-factory';
 import { enzymeTestkitFactoryCreator } from 'wix-ui-test-utils/enzyme';
 import { closablePopoverDriverFactory, ClosablePopoverDriver } from './ClosablePopover.driver';
 import { ClosablePopover, ClosablePopoverProps } from './ClosablePopover';
 import { createEnzymeDriverFactory } from '../../../../test/testkitUtils';
+const defaults = require('lodash/defaults');
 
 describe('ClosablePopover', () => {
   const createDriver = createDriverFactory(closablePopoverDriverFactory);

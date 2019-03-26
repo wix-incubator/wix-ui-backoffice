@@ -2,7 +2,7 @@ import * as eyes from 'eyes.it';
 import {$, browser, Key} from 'protractor';
 import {getStoryUrl, scrollToElement, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
 import {badgeTestkitFactory} from '../../testkit/protractor';
-import autoExampleDriver = require('wix-storybook-utils/AutoExampleDriver');
+import * as autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 
 const byDataHook = dataHook => $(`[data-hook="${dataHook}"]`);
 

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
-import defaults = require('lodash/defaults');
 import * as eventually from 'wix-eventually';
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { isTestkitExists } from 'wix-ui-test-utils/vanilla';
@@ -14,6 +13,7 @@ import { FloatingHelperContent, FloatingHelperContentProps } from '../../compone
 import { ClosablePopover } from './ClosablePopover';
 import { runTestkitExistsSuite } from '../../common/testkitTests';
 import { createEnzymeDriverFactory } from '../../../test/testkitUtils';
+const defaults = require('lodash/defaults');
 
 export interface WithDataHook {
   'data-hook'?: string

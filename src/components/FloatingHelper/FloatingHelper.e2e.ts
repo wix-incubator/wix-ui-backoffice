@@ -1,7 +1,7 @@
 import * as eyes from 'eyes.it';
 import { browser, ElementFinder , $} from 'protractor';
 import { createStoryUrl, waitForVisibilityOf, scrollToElement } from 'wix-ui-test-utils/protractor';
-import autoExampleDriver = require('wix-storybook-utils/AutoExampleDriver');
+import * as autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 import { floatingHelperTestkitFactory, FloatingHelperDriver } from '../../testkit/protractor';
 import { storySettings } from '../../../stories/FloatingHelper/StorySettings';
 

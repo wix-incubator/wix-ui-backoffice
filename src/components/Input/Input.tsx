@@ -2,8 +2,8 @@ import * as React from 'react';
 import {
   Input as CoreInput,
   InputProps as CoreInputProps
-} from 'wix-ui-core/input';
-import { withStylable } from 'wix-ui-core/withStylable';
+} from 'wix-ui-core/dist/src/components/input';
+import { withStylable } from 'wix-ui-core/dist/src/utils/withStylable';
 import style from './Input.st.css';
 import { getInputSuffix } from './InputSuffixes';
 
