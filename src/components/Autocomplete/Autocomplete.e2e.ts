@@ -1,7 +1,7 @@
 import * as eyes from 'eyes.it';
-import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
-import {autocompleteTestkitFactory} from '../../testkit/protractor';
-import {browser} from 'protractor';
+import { getStoryUrl, waitForVisibilityOf } from 'wix-ui-test-utils/protractor';
+import { browser } from 'protractor';
+import { autocompleteTestkitFactory } from '../../testkit/protractor';
 
 describe('Autocomplete', () => {
   const storyUrl = getStoryUrl('Components', 'Autocomplete');
@@ -10,7 +10,7 @@ describe('Autocomplete', () => {
   beforeEach(() => browser.get(storyUrl));
 
   eyes.it('should render autocomplete', async () => {
-    const driver = autocompleteTestkitFactory({dataHook});
+    const driver = autocompleteTestkitFactory({ dataHook });
     await waitForVisibilityOf(driver.element(), 'Cannot find Autocomplete');
     expect(driver.element()).toBeDefined();
   });
