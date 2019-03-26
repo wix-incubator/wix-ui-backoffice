@@ -5,11 +5,9 @@ import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
 import {mount} from 'enzyme';
 import {fullTextViewDriverFactory} from './FullTextView.driver';
 import {FullTextView} from './FullTextView';
-import * as eventually from 'wix-eventually';
 
 import {fullTextViewTestkitFactory} from '../../testkit';
 import {fullTextViewTestkitFactory as enzymeFullTextViewTestkitFactory} from '../../testkit/enzyme';
-import { sleep } from 'wix-ui-test-utils/react-helpers';
 
 describe('FullTextView', () => {
   const createDriver = createDriverFactory(fullTextViewDriverFactory);
@@ -32,23 +30,6 @@ describe('FullTextView', () => {
     component.setState({isEllipsisActive: true});
     component.simulate('mouseEnter');
     expect(component.find('[data-hook="popover-content"]').at(0).text()).toBe('Delete this super awesome thing?');
-  });
-
-  it('should dynamically load and display full content on hover and hide it on leave in tooltip using `shouldLoadAsync` prop', async () => {
-    const content = (
-      <div>
-        <span>Delete this super awesome thing</span>
-        <i>?</i>
-      </div>
-    );
-    const component = mount(<FullTextView shouldLoadAsync maxWidth={0}>{content}</FullTextView>);
-
-    expect(component.find('[data-hook="popover-content"]').length).toBe(0);
-    component.setState({isEllipsisActive: true});
-    await eventually(() => {
-      component.simulate('mouseEnter');
-      expect(component.find('[data-hook="popover-content"]').at(0).text()).toBe('Delete this super awesome thing?');
-    });
   });
 
   describe('testkit', () => {
