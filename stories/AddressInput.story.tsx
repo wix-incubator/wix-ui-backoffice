@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { AddressInput } from '../src/components/AddressInput';
-import { Option } from 'wix-ui-core/dropdown-option';
+import { Option } from 'wix-ui-core/dist/src/components/dropdown-option';
 import { GoogleMapsClientStub } from 'wix-ui-core/dist/src/components/address-input/GoogleMapsClientStub';
 import * as helper from 'wix-ui-core/dist/src/components/address-input/AddressInputTestHelper';
 

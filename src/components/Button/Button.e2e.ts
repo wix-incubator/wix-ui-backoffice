@@ -4,7 +4,7 @@ import { browser } from 'protractor';
 import { createStoryUrl , mouseEnter, mouseLeave} from 'wix-ui-test-utils/protractor';
 import { buttonTestkitFactory } from '../../testkit/protractor';
 import { Skin, Size, Priority } from './constants';
-import autoExampleDriver = require('wix-storybook-utils/AutoExampleDriver');
+import * as autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 import { enumValues } from '../../utils';
 
 describe('Button', () => {

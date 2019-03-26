@@ -1,6 +1,6 @@
 import { LabelWithOptions } from '../src/components/LabelWithOptions';
 import { generateDropdownOptions } from './helpers';
-import { Option, DividerArgs } from 'wix-ui-core/dropdown-option';
+import { Option, DividerArgs } from 'wix-ui-core/dist/src/components/dropdown-option';
 
 const options = generateDropdownOptions((args: Partial<DividerArgs> = {}) =>
   LabelWithOptions.createDivider(args.value)

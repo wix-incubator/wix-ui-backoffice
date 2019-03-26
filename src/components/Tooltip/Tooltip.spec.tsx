@@ -11,6 +11,17 @@ describe('Tooltip', () => {
     expect(tooltip.exists()).toBeTruthy();
   });
 
+  it('closing when hovered out', () => {
+    const tooltip = createDriver(<Tooltip />);
+    expect(tooltip.isContentElementExists()).toBeFalsy();
+
+    tooltip.mouseEnter();
+    expect(tooltip.isContentElementExists()).toBeTruthy();
+
+    tooltip.mouseLeave();
+    expect(tooltip.isContentElementExists()).toBeFalsy();
+  });
+
   it('remains open when hovered out if relevant property is provided', () => {
     const tooltip = createDriver(<Tooltip shouldCloseOnClickOutside/>);
     expect(tooltip.isContentElementExists()).toBeFalsy();
