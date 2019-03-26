@@ -1,17 +1,21 @@
 import * as React from 'react';
 import {
   CircularProgressBar as CoreCircularProgressBar,
-  CircularProgressBarProps as CoreCircularProgressBarProps
+  CircularProgressBarProps as CoreCircularProgressBarProps,
 } from 'wix-ui-core/circular-progress-bar';
 import CircleLoaderCheck from 'wix-ui-icons-common/system/CircleLoaderCheck';
 import CircleLoaderCheckSmall from 'wix-ui-icons-common/system/CircleLoaderCheckSmall';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import FormFieldErrorSmall from 'wix-ui-icons-common/system/FormFieldErrorSmall';
 import style from './CircularProgressBar.st.css';
-import { Tooltip } from '../Tooltip';
 import { Size, sizesMap } from './constants';
 import { enumValues } from '../../utils';
 import { Omit } from '../../types/common';
+import { Loadable } from '../Loadable';
+import { TooltipProps } from '../Tooltip';
+import { TooltipProps as CoreTooltipProps } from 'wix-ui-core/dist/src/components/tooltip';
+
+class LoadableTooltip extends Loadable<CoreTooltipProps & TooltipProps> {};
 
 export interface CircularProgressBarProps
   extends Omit<CoreCircularProgressBarProps, 'successIcon' | 'errorIcon'> {
@@ -21,24 +25,26 @@ export interface CircularProgressBarProps
   light?: boolean;
   /** size of the bar */
   size?: Size;
+  /** load Tooltip async using dynamic import */
+  shouldLoadAsync?: boolean;
 }
 
 const sizeToSuccessIcon = {
   [Size.small]: <CircleLoaderCheckSmall />,
   [Size.medium]: <CircleLoaderCheck />,
-  [Size.large]: <CircleLoaderCheck />
+  [Size.large]: <CircleLoaderCheck />,
 };
 
 const sizeToErrorIcon = {
   [Size.small]: <FormFieldErrorSmall />,
   [Size.medium]: <FormFieldError />,
-  [Size.large]: <FormFieldError />
+  [Size.large]: <FormFieldError />,
 };
 
 export const CircularProgressBar: React.SFC<CircularProgressBarProps> = (
-  props: CircularProgressBarProps
+  props: CircularProgressBarProps,
 ) => {
-  const { errorMessage, light, size, ...otherProps } = props;
+  const { errorMessage, light, size, error, ...otherProps } = props;
 
   const ProgressBar = (
     <CoreCircularProgressBar
@@ -48,22 +54,30 @@ export const CircularProgressBar: React.SFC<CircularProgressBarProps> = (
       size={sizesMap[size]}
       successIcon={sizeToSuccessIcon[size]}
       errorIcon={sizeToErrorIcon[size]}
+      error={error}
     />
   );
 
   return (
     <div {...style('root', {}, props)}>
-      {props.error && errorMessage ? (
-        <Tooltip
-          data-hook="circular-progressbar-tooltip"
-          placement="top"
-          content={errorMessage}
-        >
-          {ProgressBar}
-        </Tooltip>
-      ) : (
-        ProgressBar
-      )}
+      <LoadableTooltip
+        loader={() => props.shouldLoadAsync ? import('../Tooltip') : require('../Tooltip')}
+        defaultComponent={ProgressBar}
+        componentKey="Tooltip"
+        shouldLoadComponent={error && !!errorMessage}
+      >
+        {Tooltip => {
+          return (
+            <Tooltip
+              data-hook="circular-progressbar-tooltip"
+              content={errorMessage}
+              placement="top"
+            >
+              {ProgressBar}
+            </Tooltip>
+          );
+        }}
+      </LoadableTooltip>
     </div>
   );
 };
@@ -71,5 +85,6 @@ export const CircularProgressBar: React.SFC<CircularProgressBarProps> = (
 CircularProgressBar.displayName = 'CircularProgressBar';
 
 CircularProgressBar.defaultProps = {
-  size: Size.medium
+  size: Size.medium,
+  shouldLoadAsync: false,
 };
