@@ -1,6 +1,6 @@
 import * as eyes from 'eyes.it';
 import {$, browser} from 'protractor';
-import autoExampleDriver = require('wix-storybook-utils/AutoExampleDriver');
+import * as autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
 import {linearProgressBarTestkitFactory, LinearProgressBarDriver} from '../../testkit/protractor';
 import {enumValues} from '../../utils';
