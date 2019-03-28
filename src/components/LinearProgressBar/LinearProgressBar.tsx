@@ -1,17 +1,20 @@
 import * as React from 'react';
 import {
   LinearProgressBar as CoreLinearProgressBar,
-  LinearProgressBarProps as CoreLinearProgressBarProps
+  LinearProgressBarProps as CoreLinearProgressBarProps,
 } from 'wix-ui-core/linear-progress-bar';
 import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
+import { Loadable } from 'wix-ui-core/dist/es/src/components/loadable';
 import style from './LinearProgressBar.st.css';
 import { Omit } from '../../types/common';
-import { Loadable } from '../Loadable';
 import { TooltipProps } from '../Tooltip';
 import { TooltipProps as CoreTooltipProps } from 'wix-ui-core/dist/src/components/tooltip';
 
-class LoadableTooltip extends Loadable<CoreTooltipProps & TooltipProps> {};
+class LoadableTooltip extends Loadable<
+  CoreTooltipProps & TooltipProps,
+  { Tooltip: React.ComponentType<CoreTooltipProps & TooltipProps> }
+> {}
 
 export interface LinearProgressBarProps
   extends Omit<CoreLinearProgressBarProps, 'successIcon' | 'errorIcon'> {
@@ -24,7 +27,7 @@ export interface LinearProgressBarProps
 }
 
 export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (
-  props: LinearProgressBarProps
+  props: LinearProgressBarProps,
 ) => {
   const { errorMessage, light, error, shouldLoadAsync, ...otherProps } = props;
 
@@ -34,24 +37,27 @@ export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (
       {...otherProps}
       error={error}
       successIcon={<ToggleOn />}
-      errorIcon={<LoadableTooltip
-        loader={() => shouldLoadAsync ? import('../Tooltip') : require('../Tooltip')}
-        defaultComponent={<FormFieldError data-hook="error-icon" />}
-        componentKey="Tooltip"
-        shouldLoadComponent={!!error}
-      >
-        {Tooltip => {
-          return (
-            <Tooltip
-              data-hook="linear-progressbar-tooltip"
-              placement="top"
-              content={errorMessage}
-            >
-              <FormFieldError data-hook="error-icon" />
-            </Tooltip>
-          );
-        }}
-      </LoadableTooltip>
+      errorIcon={
+        <LoadableTooltip
+          loader={() =>
+            shouldLoadAsync ? import('../Tooltip') : require('../Tooltip')
+          }
+          defaultComponent={<FormFieldError data-hook="error-icon" />}
+          componentKey="Tooltip"
+          shouldLoadComponent={!!error}
+        >
+          {Tooltip => {
+            return (
+              <Tooltip
+                data-hook="linear-progressbar-tooltip"
+                placement="top"
+                content={errorMessage}
+              >
+                <FormFieldError data-hook="error-icon" />
+              </Tooltip>
+            );
+          }}
+        </LoadableTooltip>
       }
     />
   );

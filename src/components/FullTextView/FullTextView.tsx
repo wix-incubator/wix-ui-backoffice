@@ -1,11 +1,14 @@
 import * as React from 'react';
 import * as shallowequal from 'shallowequal';
 import style from './FullTextView.st.css';
-import { Loadable } from '../Loadable';
+import { Loadable } from 'wix-ui-core/dist/es/src/components/loadable';
 import { TooltipProps } from '../Tooltip';
 import { TooltipProps as CoreTooltipProps } from 'wix-ui-core/dist/src/components/tooltip';
 
-class LoadableTooltip extends Loadable<CoreTooltipProps & TooltipProps> {}
+class LoadableTooltip extends Loadable<
+  CoreTooltipProps & TooltipProps,
+  { Tooltip: React.ComponentType<CoreTooltipProps & TooltipProps> }
+> {}
 
 export interface FullTextViewProps {
   children?: React.ReactNode;

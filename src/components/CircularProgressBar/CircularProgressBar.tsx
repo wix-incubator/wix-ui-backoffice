@@ -7,15 +7,18 @@ import CircleLoaderCheck from 'wix-ui-icons-common/system/CircleLoaderCheck';
 import CircleLoaderCheckSmall from 'wix-ui-icons-common/system/CircleLoaderCheckSmall';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import FormFieldErrorSmall from 'wix-ui-icons-common/system/FormFieldErrorSmall';
+import { Loadable } from 'wix-ui-core/dist/es/src/components/loadable';
 import style from './CircularProgressBar.st.css';
 import { Size, sizesMap } from './constants';
 import { enumValues } from '../../utils';
 import { Omit } from '../../types/common';
-import { Loadable } from '../Loadable';
 import { TooltipProps } from '../Tooltip';
 import { TooltipProps as CoreTooltipProps } from 'wix-ui-core/dist/src/components/tooltip';
 
-class LoadableTooltip extends Loadable<CoreTooltipProps & TooltipProps> {};
+class LoadableTooltip extends Loadable<
+  CoreTooltipProps & TooltipProps,
+  { Tooltip: React.ComponentType<CoreTooltipProps & TooltipProps> }
+> {}
 
 export interface CircularProgressBarProps
   extends Omit<CoreCircularProgressBarProps, 'successIcon' | 'errorIcon'> {
