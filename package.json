@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "yoshi build && npm run convert-modules && import-path --path src/components --dts && build-storybook",
-    "test": ":",
+    "test": "npm run test:unit && npm run test:e2e",
     "posttest": "npm run lint",
     "test:watch": "yoshi test --jest --watch",
     "test:unit": "yoshi test --jest",
@@ -44,7 +44,7 @@
     "date-fns": "^1.29.0",
     "lodash": "^4.17.5",
     "shallowequal": "^1.1.0",
-    "wix-ui-core": "^2.0.63",
+    "wix-ui-core": "^2.0.95",
     "wix-ui-icons-common": "^2.0.3"
   },
   "devDependencies": {
