@@ -5,5 +5,5 @@ export const CounterBadge = createHOC(CounterBadgeComponent);
 export {
   Skin as CounterBadgeSkin,
   SKIN as COUNTER_BADGE_SKIN,
-  maxContentLength as CounterBadgeMaxContentLength,
+  maxContentLength as counterBadgeMaxContentLength,
 } from './constants';
