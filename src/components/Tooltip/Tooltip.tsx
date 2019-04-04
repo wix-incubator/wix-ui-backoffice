@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {
   Tooltip as CoreTooltip,
-  TooltipProps as CoreTooltipProps
+  TooltipProps as CoreTooltipProps,
 } from 'wix-ui-core/dist/src/components/tooltip';
 import { AppendTo } from 'wix-ui-core/dist/src/components/popover';
 import style from './Tooltip.st.css';
@@ -35,7 +35,7 @@ const defaultProps = {
   alignment: 'center',
   showTrigger: 'mouseenter',
   hideTrigger: 'mouseleave',
-  showDelay: 200,
+  showDelay: 0,
   hideDelay: 0,
   zIndex: 2000,
   maxWidth: '204px',
@@ -69,7 +69,7 @@ const TooltipBO = withStylable<CoreTooltipProps, TooltipProps>(
     disabled,
     size,
     relative,
-    shouldUpdatePosition
+    shouldUpdatePosition,
   }) => ({
     [`placement-${placement}`]: true,
     [alignment]: true,
@@ -82,7 +82,7 @@ const TooltipBO = withStylable<CoreTooltipProps, TooltipProps>(
     appendTo,
     [size]: true,
     relative,
-    shouldUpdatePosition
+    shouldUpdatePosition,
   }),
   defaultProps
 );
@@ -108,7 +108,7 @@ export const Tooltip: React.SFC<CoreTooltipProps & TooltipProps> = props => {
         color,
         lineHeight,
         zIndex,
-        padding
+        padding,
       }}
     >
       {content}
