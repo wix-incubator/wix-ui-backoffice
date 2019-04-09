@@ -10,3 +10,5 @@ export enum SKIN {
 }
 
 export const maxContentLength = 2;
+
+export const maxNumberBeforeTruncation = 99;

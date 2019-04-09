@@ -8,7 +8,7 @@ import {Heading} from '../../src/components/Heading';
 
 const skinOptions = Object.keys(SKIN).map(value => Autocomplete.createOption({id: value, value}));
 
-const iconsOptions = ['1', '12', 'Facebook'].map(value => Autocomplete.createOption({id: value, value}));
+const iconsOptions = ['1', '12', '777', 'Facebook'].map(value => Autocomplete.createOption({id: value, value}));
 
 class ControlledCounterdBadgeExample extends React.Component<any, any> {
   constructor(props) {
