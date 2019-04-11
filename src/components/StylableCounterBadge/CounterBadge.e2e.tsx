@@ -1,8 +1,7 @@
-
 import * as eyes from 'eyes.it';
-import {browser} from 'protractor';
-import {getStoryUrl, waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
-import {stylableCounterBadgeTestkitFactory as counterBadgeTestkitFactory} from '../../testkit/protractor';
+import { browser } from 'protractor';
+import { getStoryUrl, waitForVisibilityOf } from 'wix-ui-test-utils/protractor';
+import { stylableCounterBadgeTestkitFactory as counterBadgeTestkitFactory } from '../../testkit/protractor';
 
 describe('CounterBadge', () => {
   const storyUrl = getStoryUrl('Components', 'StylableCounterBadge');
@@ -10,9 +9,21 @@ describe('CounterBadge', () => {
   beforeEach(() => browser.get(storyUrl));
   eyes.it('should display correct content', () => {
     const dataHook = 'storybook-counterBadge';
-    const driver = counterBadgeTestkitFactory({dataHook});
+    const driver = counterBadgeTestkitFactory({ dataHook });
 
-    return waitForVisibilityOf(driver.element(), 'Cannot find CounterBadge')
-      .then(() => expect(driver.text()).toBe('12'));
+    return waitForVisibilityOf(
+      driver.element(),
+      'Cannot find CounterBadge'
+    ).then(() => expect(driver.text()).toBe('12'));
+  });
+
+  eyes.it('should display "99+" when number > 99', () => {
+    const dataHook = 'storybook-counterBadge';
+    const driver = counterBadgeTestkitFactory({ dataHook });
+
+    return waitForVisibilityOf(
+      driver.element(),
+      'Cannot find CounterBadge'
+    ).then(() => expect(driver.text()).toBe('99+'));
   });
 });
