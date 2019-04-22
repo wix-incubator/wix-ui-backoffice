@@ -21,11 +21,11 @@
 :import {
   -st-from: "../../colors.st.css";
   -st-named:
-  B10, B20, B40, B50,
+  B10, B20, B30, B40, B50,
   D50,
   F00,
-  G10, G20, G30,
-  R10, R20, R30,
+  G10, G20, G30, G40,
+  R10, R20, R30, R40,
     WHITE;
 }
 
@@ -74,7 +74,7 @@
   -st-mixin: ToggleSwitchColor(
     colorUnchecked      value(B40),
     colorChecked        value(B10),
-    colorUncheckedHover value(B20),
+    colorUncheckedHover value(B30),
     colorCheckedHover   value(B20),
     colorDisabled       value(D50)
   );
@@ -82,9 +82,9 @@
 
 .root:skin(success) {
   -st-mixin: ToggleSwitchColor(
-    colorUnchecked      value(G30),
+    colorUnchecked      value(G40),
     colorChecked        value(G10),
-    colorUncheckedHover value(G20),
+    colorUncheckedHover value(G30),
     colorCheckedHover   value(G20),
     colorDisabled       value(D50)
   );
@@ -92,9 +92,9 @@
 
 .root:skin(error) {
   -st-mixin: ToggleSwitchColor(
-    colorUnchecked      value(R30),
+    colorUnchecked      value(R40),
     colorChecked        value(R10),
-    colorUncheckedHover value(R20),
+    colorUncheckedHover value(R30),
     colorCheckedHover   value(R20),
     colorDisabled       value(D50)
   );
