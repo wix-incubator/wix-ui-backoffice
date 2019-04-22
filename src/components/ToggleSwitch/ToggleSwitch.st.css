@@ -45,7 +45,7 @@
 
 .root:size(small) {
   -st-mixin: ToggleSwitchLayout(
-    rootWidth 29px,
+    rootWidth 30px,
     rootHeight 16px,
     knobWidth 14px,
     knobHeight 14px
@@ -63,7 +63,7 @@
 
 .root:size(large) {
   -st-mixin: ToggleSwitchLayout(
-    rootWidth 45px,
+    rootWidth 48px,
     rootHeight 24px,
     knobWidth 22px,
     knobHeight 22px
