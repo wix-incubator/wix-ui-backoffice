@@ -20,7 +20,7 @@
 
 :import {
   -st-from: "../../colors.st.css";
-  -st-named: 
+  -st-named:
   B10, B20, B40, B50,
   D50,
   F00,
@@ -45,22 +45,28 @@
 
 .root:size(small) {
   -st-mixin: ToggleSwitchLayout(
-    rootWidth 28px,
-    rootHeight 16px
+    rootWidth 29px,
+    rootHeight 16px,
+    knobWidth 14px,
+    knobHeight 14px
   );
 }
 
 .root:size(medium) {
   -st-mixin: ToggleSwitchLayout(
     rootWidth 36px,
-    rootHeight 20px
+    rootHeight 20px,
+    knobWidth 18px,
+    knobHeight 18px
   );
 }
 
 .root:size(large) {
   -st-mixin: ToggleSwitchLayout(
     rootWidth 45px,
-    rootHeight 24px
+    rootHeight 24px,
+    knobWidth 22px,
+    knobHeight 22px
   );
 }
 
