@@ -1,6 +1,6 @@
 export enum Skin {
   standard = 'standard',
-  white = 'light',
+  light = 'light',
   destructive = 'destructive',
   premium = 'premium'
 }

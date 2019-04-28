@@ -25,13 +25,13 @@ const toTextColorProps: {
 } = {
   [Priority.primary]: {
     [Skin.standard]: { skin: TextSkin.standard, light: true },
-    [Skin.white]: { skin: TextSkin.standard, light: false },
+    [Skin.light]: { skin: TextSkin.standard, light: false },
     [Skin.destructive]: { skin: TextSkin.standard, light: true },
     [Skin.premium]: { skin: TextSkin.standard, light: true }
   },
   [Priority.secondary]: {
     [Skin.standard]: { skin: TextSkin.standard, light: false },
-    [Skin.white]: { skin: TextSkin.standard, light: true },
+    [Skin.light]: { skin: TextSkin.standard, light: true },
     [Skin.destructive]: { skin: TextSkin.error, light: false },
     [Skin.premium]: { skin: TextSkin.premium, light: false }
   }
