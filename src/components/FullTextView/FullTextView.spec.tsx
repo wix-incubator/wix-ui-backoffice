@@ -44,9 +44,11 @@ describe('FullTextView', () => {
     const component = mount(<FullTextView shouldLoadAsync maxWidth={0}>{content}</FullTextView>);
 
     expect(component.find('[data-hook="popover-content"]').length).toBe(0);
-    component.setState({isEllipsisActive: true});
+
     await eventually(() => {
       component.simulate('mouseEnter');
+      component.setState({isEllipsisActive: true});
+      expect(component.find('[data-hook="popover-content"]').length).toBe(1);
       expect(component.find('[data-hook="popover-content"]').at(0).text()).toBe('Delete this super awesome thing?');
     });
   });
