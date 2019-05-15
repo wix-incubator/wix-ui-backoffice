@@ -5,10 +5,9 @@ import { Loadable } from 'wix-ui-core/dist/es/src/components/loadable';
 import { TooltipProps } from '../Tooltip';
 import { TooltipProps as CoreTooltipProps } from 'wix-ui-core/dist/src/components/tooltip';
 
-class LoadableTooltip extends Loadable<
-  CoreTooltipProps & TooltipProps,
-  { Tooltip: React.ComponentType<CoreTooltipProps & TooltipProps> }
-> {}
+class LoadableTooltip extends Loadable<{
+  Tooltip: React.ComponentType<CoreTooltipProps & TooltipProps>
+}> {}
 
 export interface FullTextViewProps {
   children?: React.ReactNode;
@@ -77,16 +76,18 @@ export class FullTextView extends React.Component<
   render() {
     return (
       <LoadableTooltip
-        loader={() =>
-          this.props.shouldLoadAsync
+        loader={{
+          Tooltip: () => this.props.shouldLoadAsync
             ? import('../Tooltip')
             : require('../Tooltip')
-        }
+        }}
         defaultComponent={this.renderText()}
-        componentKey="Tooltip"
+        namedExports={{
+          Tooltip: 'Tooltip',
+        }}
         shouldLoadComponent={this.state.isEllipsisActive}
       >
-        {Tooltip => {
+        {({ Tooltip }) => {
           return (
             <Tooltip content={this.props.children}>{this.renderText()}</Tooltip>
           );

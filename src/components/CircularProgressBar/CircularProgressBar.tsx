@@ -15,10 +15,9 @@ import { Omit } from '../../types/common';
 import { TooltipProps } from '../Tooltip';
 import { TooltipProps as CoreTooltipProps } from 'wix-ui-core/dist/src/components/tooltip';
 
-class LoadableTooltip extends Loadable<
-  CoreTooltipProps & TooltipProps,
-  { Tooltip: React.ComponentType<CoreTooltipProps & TooltipProps> }
-> {}
+class LoadableTooltip extends Loadable<{
+  Tooltip: React.ComponentType<CoreTooltipProps & TooltipProps>
+}> {}
 
 export interface CircularProgressBarProps
   extends Omit<CoreCircularProgressBarProps, 'successIcon' | 'errorIcon'> {
@@ -64,12 +63,16 @@ export const CircularProgressBar: React.SFC<CircularProgressBarProps> = (
   return (
     <div {...style('root', {}, props)}>
       <LoadableTooltip
-        loader={() => props.shouldLoadAsync ? import('../Tooltip') : require('../Tooltip')}
+        loader={{
+          Tooltip: () => props.shouldLoadAsync ? import('../Tooltip') : require('../Tooltip')}
+        }
         defaultComponent={ProgressBar}
-        componentKey="Tooltip"
+        namedExports={{
+          Tooltip: 'Tooltip',
+        }}
         shouldLoadComponent={error && !!errorMessage}
       >
-        {Tooltip => {
+        {({ Tooltip }) => {
           return (
             <Tooltip
               data-hook="circular-progressbar-tooltip"

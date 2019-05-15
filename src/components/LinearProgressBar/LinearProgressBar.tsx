@@ -11,10 +11,9 @@ import { Omit } from '../../types/common';
 import { TooltipProps } from '../Tooltip';
 import { TooltipProps as CoreTooltipProps } from 'wix-ui-core/dist/src/components/tooltip';
 
-class LoadableTooltip extends Loadable<
-  CoreTooltipProps & TooltipProps,
-  { Tooltip: React.ComponentType<CoreTooltipProps & TooltipProps> }
-> {}
+class LoadableTooltip extends Loadable<{
+  Tooltip: React.ComponentType<CoreTooltipProps & TooltipProps>
+}> {}
 
 export interface LinearProgressBarProps
   extends Omit<CoreLinearProgressBarProps, 'successIcon' | 'errorIcon'> {
@@ -39,14 +38,16 @@ export const LinearProgressBar: React.SFC<LinearProgressBarProps> = (
       successIcon={<ToggleOn />}
       errorIcon={
         <LoadableTooltip
-          loader={() =>
-            shouldLoadAsync ? import('../Tooltip') : require('../Tooltip')
-          }
+          loader={{
+            Tooltip: () => shouldLoadAsync ? import('../Tooltip') : require('../Tooltip'),
+          }}
           defaultComponent={<FormFieldError data-hook="error-icon" />}
-          componentKey="Tooltip"
+          namedExports={{
+            Tooltip: 'Tooltip',
+          }}
           shouldLoadComponent={!!error}
         >
-          {Tooltip => {
+          {({ Tooltip }) => {
             return (
               <Tooltip
                 data-hook="linear-progressbar-tooltip"
