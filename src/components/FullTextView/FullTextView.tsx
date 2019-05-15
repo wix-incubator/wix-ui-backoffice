@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as shallowequal from 'shallowequal';
+import { Loadable } from 'wix-ui-core/dist/src/components/loadable';
 import style from './FullTextView.st.css';
-import { Loadable } from 'wix-ui-core/dist/es/src/components/loadable';
 import { TooltipProps } from '../Tooltip';
 import { TooltipProps as CoreTooltipProps } from 'wix-ui-core/dist/src/components/tooltip';
 

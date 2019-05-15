@@ -5,7 +5,7 @@ import {
 } from 'wix-ui-core/linear-progress-bar';
 import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
-import { Loadable } from 'wix-ui-core/dist/es/src/components/loadable';
+import { Loadable } from 'wix-ui-core/dist/src/components/loadable';
 import style from './LinearProgressBar.st.css';
 import { Omit } from '../../types/common';
 import { TooltipProps } from '../Tooltip';
