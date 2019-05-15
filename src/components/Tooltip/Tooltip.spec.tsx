@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {tooltipDriverFactory} from './Tooltip.driver';
-import {Tooltip} from './';
-import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
+import { tooltipDriverFactory } from './Tooltip.driver';
+import { Tooltip } from './';
+import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 
 describe('Tooltip', () => {
   const createDriver = createDriverFactory(tooltipDriverFactory);
@@ -12,7 +12,7 @@ describe('Tooltip', () => {
   });
 
   it('closing when hovered out', () => {
-    const tooltip = createDriver(<Tooltip />);
+    const tooltip = createDriver(<Tooltip content="something" />);
     expect(tooltip.isContentElementExists()).toBeFalsy();
 
     tooltip.mouseEnter();
@@ -23,7 +23,7 @@ describe('Tooltip', () => {
   });
 
   it('remains open when hovered out if relevant property is provided', () => {
-    const tooltip = createDriver(<Tooltip shouldCloseOnClickOutside/>);
+    const tooltip = createDriver(<Tooltip shouldCloseOnClickOutside />);
     expect(tooltip.isContentElementExists()).toBeFalsy();
 
     tooltip.mouseEnter();
