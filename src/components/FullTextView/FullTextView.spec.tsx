@@ -9,7 +9,7 @@ import {FullTextView} from './FullTextView';
 
 import {fullTextViewTestkitFactory} from '../../testkit';
 import {fullTextViewTestkitFactory as enzymeFullTextViewTestkitFactory} from '../../testkit/enzyme';
-import {createUniDriverFactory} from "wix-ui-test-utils/dist/src/uni-driver-factory";
+import {createUniDriverFactory} from 'wix-ui-test-utils/dist/src/uni-driver-factory';
 
 describe('FullTextView', () => {
   describe('[sync]', () => {
@@ -43,15 +43,15 @@ describe('FullTextView', () => {
 
     describe('testkit', () => {
       it('should exist', () => {
-        expect(isTestkitExists(<FullTextView>Hello
-          World</FullTextView>, fullTextViewTestkitFactory)).toBe(true);
+        expect(isTestkitExists(<FullTextView>Hello World</FullTextView>,
+          fullTextViewTestkitFactory)).toBe(true);
       });
     });
 
     describe('enzyme testkit', () => {
       it('should exist', () => {
-        expect(isEnzymeTestkitExists(<FullTextView>Hello
-          World</FullTextView>, enzymeFullTextViewTestkitFactory, mount)).toBe(true);
+        expect(isEnzymeTestkitExists(<FullTextView>Hello World</FullTextView>,
+          enzymeFullTextViewTestkitFactory, mount)).toBe(true);
       });
     });
   }
