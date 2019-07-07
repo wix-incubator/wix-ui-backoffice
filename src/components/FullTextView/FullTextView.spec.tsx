@@ -17,7 +17,7 @@ describe('FullTextView', () => {
   });
 
   describe('[async]', () => {
-    runTests(createUniDriverFactory(fullTextViewUniDriverFactory);
+    runTests(createUniDriverFactory(fullTextViewUniDriverFactory));
   });
 
   function runTests(createDriver) {
