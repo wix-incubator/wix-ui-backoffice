@@ -1,5 +1,9 @@
-:vars {
+:import {
+  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-named: D10-30;
+}
 
+:vars {
   /* DARK - Primary */
   D10: #162D3D; /* Primary Text */
   D20: #32536A; /* Secondary Text */
