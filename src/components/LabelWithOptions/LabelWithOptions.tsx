@@ -2,8 +2,8 @@ import * as React from 'react';
 import {
   LabelWithOptions as CoreLabelWithOptions,
   LabelWithOptionsProps as CoreLabelWithOptionsProps
-} from 'wix-ui-core/dist/src/components/label-with-options';
-import { withStylable } from 'wix-ui-core/dist/src/utils/withStylable';
+} from 'wix-ui-core/dist/standalone/src/components/label-with-options';
+import { withStylable } from 'wix-ui-core/dist/standalone/src/utils/withStylable';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import style from './LabelWithOptions.st.css';
 import { Tooltip } from '../Tooltip';

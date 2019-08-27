@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   Button as CoreButton,
   ButtonProps as CoreButtonProps
-} from 'wix-ui-core/dist/src/components/deprecated/button';
+} from 'wix-ui-core/dist/standalone/src/components/deprecated/button';
 import { enumValues } from '../../utils';
 import style from './Button.st.css';
 import { Skin, Priority, Size } from './constants';

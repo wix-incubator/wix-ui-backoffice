@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { withStylable } from 'wix-ui-core/dist/src/utils/withStylable';
+import { withStylable } from 'wix-ui-core/dist/standalone/src/utils/withStylable';
 import {
   Badge as CoreBadge,
   BadgeProps as CoreBadgeProps
-} from 'wix-ui-core/dist/src/components/deprecated/stylable-badge';
+} from 'wix-ui-core/dist/standalone/src/components/deprecated/stylable-badge';
 import { Skin, SKIN, maxNumberBeforeTruncation } from './constants';
 import { isIcon, isWide } from './utils';
 import style from './CounterBadge.st.css';

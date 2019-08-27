@@ -1,4 +1,4 @@
-import { OptionFactory } from 'wix-ui-core/dist/src/components/dropdown-option';
+import { OptionFactory } from 'wix-ui-core/dist/standalone/src/components/dropdown-option';
 
 export const generateDropdownOptions = (
   dividerFactory = OptionFactory.createDivider

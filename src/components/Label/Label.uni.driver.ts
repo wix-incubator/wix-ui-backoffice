@@ -1,5 +1,5 @@
 import {StylableUnidriverUtil, UniDriver} from 'wix-ui-test-utils/unidriver';
-import {labelUniDriverFactory as coreLabelUniDriverFactory,LabelDriver as CoreLabelDriver} from 'wix-ui-core/dist/src/components/deprecated/label/Label.uni.driver';
+import {labelUniDriverFactory as coreLabelUniDriverFactory,LabelDriver as CoreLabelDriver} from 'wix-ui-core/dist/standalone/src/components/deprecated/label/Label.uni.driver';
 
 import {Size} from './constants';
 import styles from './Label.st.css';

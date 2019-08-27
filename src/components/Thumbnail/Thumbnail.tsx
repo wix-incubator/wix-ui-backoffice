@@ -4,8 +4,8 @@ import Check from 'wix-ui-icons-common/Check';
 import {
   Thumbnail as CoreThumbnail,
   ThumbnailProps as CoreThumbnailProps
-} from 'wix-ui-core/dist/src/components/thumbnail';
-import { withStylable } from 'wix-ui-core/dist/src/utils/withStylable';
+} from 'wix-ui-core/dist/standalone/src/components/thumbnail';
+import { withStylable } from 'wix-ui-core/dist/standalone/src/utils/withStylable';
 import { Text } from '../Text';
 
 export interface ThumbnailProps extends CoreThumbnailProps {

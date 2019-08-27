@@ -1,5 +1,5 @@
 import {promise, browser, $, ElementFinder} from 'protractor';
-import {DriverFactory} from 'wix-ui-core/dist/src/common/BaseDriver.protractor';
+import {DriverFactory} from 'wix-ui-core/dist/standalone/src/common/BaseDriver.protractor';
 import {linearProgressBarDriverFactory as coreLinearProgressBarDriverFactory, LinearProgressBarDriver as CoreLinearProgressBarDriver} from 'wix-ui-core/drivers/protractor';
 
 export interface LinearProgressBarDriver extends CoreLinearProgressBarDriver {

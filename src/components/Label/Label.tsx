@@ -2,9 +2,9 @@ import * as React from 'react';
 import {
   Label as CoreLabel,
   LabelProps as CoreLabelProps
-} from 'wix-ui-core/dist/src/components/deprecated/label';
+} from 'wix-ui-core/dist/standalone/src/components/deprecated/label';
 import style from './Label.st.css';
-import { withStylable } from 'wix-ui-core/dist/src/utils/withStylable';
+import { withStylable } from 'wix-ui-core/dist/standalone/src/utils/withStylable';
 import { Size, SIZES } from './constants';
 
 export interface LabelProps {

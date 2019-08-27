@@ -1,5 +1,5 @@
 import { $, ElementFinder, by } from 'protractor';
-import { DriverFactory } from 'wix-ui-core/dist/src/common/BaseDriver.protractor';
+import { DriverFactory } from 'wix-ui-core/dist/standalone/src/common/BaseDriver.protractor';
 import { ClosablePopover } from './ClosablePopover/ClosablePopover';
 import { closablePopoverDriverFactory, ClosablePopoverDriver } from './ClosablePopover/ClosablePopover.protractor.driver';
 import { DataHooks } from './DataHooks';

@@ -7,8 +7,8 @@ import FormFieldSpinnerDown from 'wix-ui-icons-common/system/FormFieldSpinnerDow
 import {
   TimePicker as CoreTimePicker,
   TimePickerProps as CoreTimePickerProps
-} from 'wix-ui-core/dist/src/components/time-picker';
-import { AmPmOptions } from 'wix-ui-core/dist/src/components/time-picker/constants';
+} from 'wix-ui-core/dist/standalone/src/components/time-picker';
+import { AmPmOptions } from 'wix-ui-core/dist/standalone/src/components/time-picker/constants';
 import style from './TimePicker.st.css';
 import { Size } from './constants';
 
