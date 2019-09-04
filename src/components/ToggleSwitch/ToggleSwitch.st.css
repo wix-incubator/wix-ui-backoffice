@@ -1,20 +1,20 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
+  -st-from: "wix-ui-core/src/components/toggle-switch/ToggleSwitch.st.css";
   -st-named: ToggleSwitch;
 }
 
 :import {
-  -st-from: "wix-ui-core/index.st.css";
+  -st-from: "wix-ui-core/src/components/toggle-switch/ToggleSwitchStyle.st.css";
   -st-named: ToggleSwitchStyle;
 }
 
 :import {
-  -st-from: "wix-ui-core/index.st.css";
+  -st-from: "wix-ui-core/src/components/toggle-switch/ToggleSwitchLayout.st.css";
   -st-named: ToggleSwitchLayout;
 }
 
 :import {
-  -st-from: "wix-ui-core/index.st.css";
+  -st-from: "wix-ui-core/src/components/toggle-switch/ToggleSwitchColor.st.css";
   -st-named: ToggleSwitchColor;
 }
 
