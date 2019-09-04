@@ -101,7 +101,7 @@
       "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "moduleNameMapper": {
-      "(?<!st)\\.(css|less|scss)$": "identity-obj-proxy"
+      "(?<!st)\\.(css|scss)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [
       "ts",
