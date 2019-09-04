@@ -12,8 +12,8 @@ import {
   ButtonSize
 } from '../../Button';
 
-import { ButtonNext } from 'wix-ui-core/button-next';
-import { button } from 'wix-ui-core/themes/backoffice';
+import { ButtonNext } from 'wix-ui-core/dist/standalone/src/components/button-next';
+import { button } from 'wix-ui-core/dist/standalone/src/themes/backoffice';
 
 import { ActionButtonTheme } from './constants';
 import { Appearance } from '../constants';

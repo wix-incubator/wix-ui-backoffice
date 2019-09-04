@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   LinearProgressBar as CoreLinearProgressBar,
   LinearProgressBarProps as CoreLinearProgressBarProps
-} from 'wix-ui-core/linear-progress-bar';
+} from 'wix-ui-core/dist/standalone/src/components/linear-progress-bar';
 import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import style from './LinearProgressBar.st.css';
