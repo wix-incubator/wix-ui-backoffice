@@ -1,6 +1,6 @@
 :import {
     -st-from: "wix-ui-core/src/components/address-input/AddressInput.st.css";
-    -st-named: AddressInput;
+    -st-default: AddressInput;
 }
 
 :import {

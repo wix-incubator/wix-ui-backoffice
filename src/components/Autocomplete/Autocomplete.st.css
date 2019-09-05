@@ -1,6 +1,6 @@
 :import {
   -st-from: "wix-ui-core/src/components/autocomplete/Autocomplete.st.css";
-  -st-named: Autocomplete;
+  -st-default: Autocomplete;
 }
 
 :import {

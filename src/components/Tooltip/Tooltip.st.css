@@ -1,6 +1,6 @@
 :import {
   -st-from: "wix-ui-core/src/components/tooltip/Tooltip.st.css";
-  -st-named: Tooltip;
+  -st-default: Tooltip;
 }
 
 :import {

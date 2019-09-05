@@ -1,6 +1,6 @@
 :import {
   -st-from: "wix-ui-core/src/components/deprecated/label/Label.st.css";
-  -st-named: Label;
+  -st-default: Label;
 }
 
 :import {
