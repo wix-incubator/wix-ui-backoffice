@@ -39,7 +39,6 @@
   -st-states:
     size(enum(small, medium, large)),
     skin(enum(standard, success, error));
-
   -st-mixin: ToggleSwitchStyle;
 }
 

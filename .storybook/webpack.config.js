@@ -10,12 +10,12 @@ module.exports = (config, env, defaultConfig) => {
 
   const stylableWebpackPlugin = new StylableWebpackPlugin({
     filename: '[name].stylable.bundle.css',
-    optimize: { classNameOptimizations: false, shortNamespaces: false },
+    optimize: { classNameOptimizations: false, shortNamespaces: false, removeUnusedComponents: false },
     generate: {
       runtimeStylesheetId: 'namespace',
     },
     legacyRuntime: true,
-    unsafeBuildNamespace: true 
+    unsafeBuildNamespace: true,
   });
 
   newConfig.plugins.push(stylableWebpackPlugin);
