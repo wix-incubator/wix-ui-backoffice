@@ -52,7 +52,7 @@
     "@storybook/addon-links": "^4.1.11",
     "@storybook/addon-options": "^4.1.11",
     "@storybook/react": "^4.1.11",
-    "@stylable/cli": "^2.2.7",
+    "@stylable/cli": "^2.2.8-alpha.0",
     "@stylable/core": "^2.1.5-alpha.0",
     "@stylable/runtime": "^2.1.4-alpha.0",
     "@stylable/webpack-plugin": "^2.1.9-alpha.0",
