@@ -32,8 +32,8 @@ export const badgeDriverFactory = (factoryParams: ComponentFactory): BadgeDriver
     getType: () => stylableDOMUtil.getStyleState(element, 'type') as Type,
     getSkin: () => stylableDOMUtil.getStyleState(element, 'skin') as Skin,
     getSize: () => stylableDOMUtil.getStyleState(element, 'size') as Size,
-    isUppercase: () => stylableDOMUtil.getStyleState(element, 'uppercase') === 'true',
-    hasClickCursor: () => stylableDOMUtil.getStyleState(element, 'clickable') === 'true',
+    isUppercase: () => stylableDOMUtil.getStyleState(element, 'uppercase') === true,
+    hasClickCursor: () => stylableDOMUtil.getStyleState(element, 'clickable') === true,
     getPrefixIcon: () => stylableDOMUtil.select('.prefix'),
     getSuffixIcon: () => stylableDOMUtil.select('.suffix'),
     click: () => eventTrigger.click(element)

@@ -8,7 +8,7 @@
       "name": "Unit Test Debug",
       "type": "node",
       "request": "launch",
-      "args" : ["test", "--jest", "--debug-brk"],
+      "args" : ["test", "--jest",  "--debug-brk", "--no-cache"],
       "port": 9229,
       "program": "${workspaceFolder}/node_modules/.bin/yoshi"
     },
