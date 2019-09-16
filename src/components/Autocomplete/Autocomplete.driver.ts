@@ -1,1 +1,1 @@
-export {autocompleteDriverFactory} from 'wix-ui-core/drivers/vanilla';
+export {autocompleteDriverFactory} from 'wix-ui-core/drivers-standalone/vanilla';

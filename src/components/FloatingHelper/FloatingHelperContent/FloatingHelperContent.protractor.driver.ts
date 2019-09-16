@@ -1,6 +1,6 @@
 import {ElementFinder} from 'protractor';
 import {DataHooks} from './DataHooks';
-import {DriverFactory, BaseDriver} from 'wix-ui-core/dist/src/common/BaseDriver.protractor';
+import {DriverFactory, BaseDriver} from 'wix-ui-core/dist/standalone/src/common/BaseDriver.protractor';
 import {textDriverFactory} from '../../../components/Text/Text.protractor.driver';
 
 export interface FloatingHelperContentDriver extends BaseDriver {

@@ -1,6 +1,6 @@
 import { Skin } from './constants';
 import { ComponentFactory, BaseDriver } from 'wix-ui-test-utils/driver-factory';
-import { badgeDriverFactory as coreBadgeDriverFactory, BadgeDriver as CoreBadgeDriver } from 'wix-ui-core/drivers/vanilla';
+import { badgeDriverFactory as coreBadgeDriverFactory, BadgeDriver as CoreBadgeDriver } from 'wix-ui-core/drivers-standalone/vanilla';
 import { StylableDOMUtilCompat } from '@stylable/dom-test-kit';
 import style from './CounterBadge.st.css';
 

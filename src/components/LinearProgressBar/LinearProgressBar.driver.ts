@@ -2,7 +2,7 @@ import { ComponentFactory } from 'wix-ui-test-utils/driver-factory';
 import {
     linearProgressBarDriverFactory as coreLinearProgressBarDriverFactory,
     LinearProgressBarDriver as CoreLinearProgressBarDriver
-} from 'wix-ui-core/drivers/vanilla';
+} from 'wix-ui-core/drivers-standalone/vanilla';
 import { BaseDriver, DriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { tooltipDriverFactory } from '../Tooltip/Tooltip.driver'
 

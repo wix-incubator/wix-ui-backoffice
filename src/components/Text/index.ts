@@ -1,5 +1,5 @@
 import { Text as TextComponent , Props } from './Text';
-import { createHOC } from 'wix-ui-core/dist/src/createHOC';
+import { createHOC } from 'wix-ui-core/dist/standalone/src/createHOC';
 
 export const Text = createHOC(TextComponent);
 export { Props as TextProps }

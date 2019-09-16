@@ -1,6 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: LabelWithOptions;
+  -st-from: "wix-ui-core/src/components/label-with-options/LabelWithOptions.st.css";
+  -st-default: LabelWithOptions;
 }
 
 :import {
@@ -35,7 +35,7 @@
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/mixins/calc";
+  -st-from: "wix-ui-core/src/mixins/calc";
   -st-default: calc;
 }
 

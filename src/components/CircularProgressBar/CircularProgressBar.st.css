@@ -1,6 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: CircularProgressBar;
+  -st-from: "wix-ui-core/src/components/circular-progress-bar/CircularProgressBar.st.css";
+  -st-default: CircularProgressBar;
 }
 
 :import {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   AddressInput as CoreAddressInput,
   AddressInputProps as CoreAddressInputProps
-} from 'wix-ui-core/dist/src/components/address-input';
+} from 'wix-ui-core/dist/standalone/src/components/address-input';
 import style from './AddressInput.st.css';
 import Location from 'wix-ui-icons-common/Location';
 import { Omit } from '../../types/common';

@@ -42,17 +42,21 @@
     "pr-postbuild": "npm install teamcity-surge-autorelease@^1.0.0 --no-save && teamcity-surge-autorelease --dist=storybook-static"
   },
   "dependencies": {
+    "@stylable/dom-test-kit": "^2.3.1-alpha.2",
     "date-fns": "^1.29.0",
     "lodash": "^4.17.5",
     "shallowequal": "^1.1.0",
-    "wix-ui-core": "^2.0.95",
+    "wix-ui-core": "2.0.248",
     "wix-ui-icons-common": "^2.0.3"
   },
   "devDependencies": {
     "@storybook/addon-links": "^4.1.11",
     "@storybook/addon-options": "^4.1.11",
     "@storybook/react": "^4.1.11",
-    "@stylable/cli": "^2.2.7",
+    "@stylable/cli": "^2.2.8-alpha.0",
+    "@stylable/core": "^2.1.5-alpha.0",
+    "@stylable/jest": "^2.3.1-alpha.1",
+    "@stylable/webpack-plugin": "^2.1.9-alpha.0",
     "@stylable/dom-test-kit": "^2.3.1-alpha.4",
     "@types/classnames": "^2.2.3",
     "@types/enzyme": "^3.1.9",
@@ -86,8 +90,8 @@
     "wait-for-cond": "^1.5.1",
     "wix-eventually": "^2.2.0",
     "wix-storybook-utils": "^2.0.0",
-    "wix-ui-test-utils": "^1.0.147",
-    "yoshi": "^4.1.0-alpha.7",
+    "wix-ui-test-utils": "^1.0.167",
+    "yoshi": "^4.14.0",
     "yoshi-runtime": "^1.0.42",
     "yoshi-style-dependencies": "^4.1.0-alpha.7"
   },
@@ -97,10 +101,11 @@
   },
   "jest": {
     "transform": {
-      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
+      "\\.st.css?$": "<rootDir>/node_modules/@stylable/jest/cjs/index-legacy.js"
     },
     "moduleNameMapper": {
-      "\\.(scss)$": "identity-obj-proxy"
+      "(?<!st)\\.(css|scss)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [
       "ts",

@@ -1,7 +1,7 @@
 import { TimePicker } from '../src/components/TimePicker/TimePicker';
 import { enumValues } from '../src/utils';
 import { Size } from '../src/components/TimePicker/constants';
-import { TimePickerUtils } from 'wix-ui-core/dist/src/components/time-picker';
+import { TimePickerUtils } from 'wix-ui-core/dist/standalone/src/components/time-picker';
 
 const { leftpad } = TimePickerUtils;
 const now = new Date();

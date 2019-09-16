@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { AddressInput } from '../src/components/AddressInput';
-import { Option } from 'wix-ui-core/dist/src/components/dropdown-option';
-import { GoogleMapsClientStub } from 'wix-ui-core/dist/src/components/address-input/GoogleMapsClientStub';
-import * as helper from 'wix-ui-core/dist/src/components/address-input/AddressInputTestHelper';
+import { Option } from 'wix-ui-core/dist/standalone/src/components/dropdown-option';
+import { GoogleMapsClientStub } from 'wix-ui-core/dist/standalone/src/components/address-input/GoogleMapsClientStub';
+import * as helper from 'wix-ui-core/dist/standalone/src/components/address-input/AddressInputTestHelper';
 
 GoogleMapsClientStub.setAddresses([helper.ADDRESS_1, helper.ADDRESS_2]);
 GoogleMapsClientStub.setGeocode(helper.GEOCODE_1);

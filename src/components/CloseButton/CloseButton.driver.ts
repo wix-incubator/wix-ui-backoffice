@@ -1,5 +1,6 @@
+
+import { buttonDriverFactory, ButtonDriver } from 'wix-ui-core/drivers-standalone/vanilla';
 import { StylableDOMUtilCompat } from '@stylable/dom-test-kit';
-import { buttonDriverFactory, ButtonDriver } from 'wix-ui-core/drivers/vanilla';
 import { DriverFactory, BaseDriver, ComponentFactory } from 'wix-ui-test-utils/driver-factory';
 import style from './CloseButton.st.css';
 import { Skin, Size } from './constants';

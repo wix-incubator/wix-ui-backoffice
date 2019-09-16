@@ -1,6 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: Input;
+  -st-from: "wix-ui-core/src/components/input/Input.st.css";
+  -st-default: Input;
 }
 
 :import {

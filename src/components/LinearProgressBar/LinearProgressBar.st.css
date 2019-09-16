@@ -1,6 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: LinearProgressBar;
+  -st-from: "wix-ui-core/src/components/linear-progress-bar/LinearProgressBar.st.css";
+  -st-default: LinearProgressBar;
 }
 
 :import {

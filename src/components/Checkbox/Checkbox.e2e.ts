@@ -1,6 +1,6 @@
 import * as eyes from 'eyes.it';
 import {getStoryUrl, scrollToElement, mouseLeave} from 'wix-ui-test-utils/protractor';
-import {checkboxTestkitFactory} from 'wix-ui-core/dist/src/testkit/protractor';
+import {checkboxTestkitFactory} from 'wix-ui-core/dist/standalone/src/testkit/protractor';
 import {browser} from 'protractor';
 import * as autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 

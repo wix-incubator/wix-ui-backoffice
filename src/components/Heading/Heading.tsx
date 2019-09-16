@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Text as CoreText, TextProps as CoreTextProps} from '../core/CoreText';
 import style from './Heading.st.css';
-import {withStylable} from 'wix-ui-core/dist/src/utils/withStylable';
+import {withStylable} from 'wix-ui-core/dist/standalone/src/utils/withStylable';
 
 export enum Appearance {
   H1 = 'H1',

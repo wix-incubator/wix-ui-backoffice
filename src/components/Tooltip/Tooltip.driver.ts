@@ -1,1 +1,1 @@
-export {tooltipDriverFactory} from 'wix-ui-core/drivers/vanilla';
+export {tooltipDriverFactory} from 'wix-ui-core/drivers-standalone/vanilla';

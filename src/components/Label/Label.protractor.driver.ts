@@ -1,1 +1,1 @@
-export {labelDriverFactory, LabelDriver} from 'wix-ui-core/drivers/protractor';
+export {labelDriverFactory, LabelDriver} from 'wix-ui-core/drivers-standalone/protractor';

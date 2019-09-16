@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   ToggleSwitch as CoreToggleSwitch,
   ToggleSwitchProps as CoreToggleSwitchProps
-} from 'wix-ui-core/dist/src/components/toggle-switch';
+} from 'wix-ui-core/dist/standalone/src/components/toggle-switch';
 import style from './ToggleSwitch.st.css';
 import { Skin, Size, SKINS, SIZES } from './constants';
 import {
@@ -11,7 +11,7 @@ import {
   ToggleOffSmall,
   ToggleOnSmall
 } from 'wix-ui-icons-common/system';
-import { withStylable } from 'wix-ui-core/dist/src/utils/withStylable';
+import { withStylable } from 'wix-ui-core/dist/standalone/src/utils/withStylable';
 
 export interface ToggleSwitchProps {
   skin?: Skin;

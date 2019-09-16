@@ -1,4 +1,4 @@
-import {checkboxDriverFactory as CheckboxDriverFactory} from 'wix-ui-core/drivers/vanilla';
+import {checkboxDriverFactory as CheckboxDriverFactory} from 'wix-ui-core/drivers-standalone/vanilla';
 
 export const checkboxDriverFactory = ({element, eventTrigger}) => {
   return {
