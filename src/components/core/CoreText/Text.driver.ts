@@ -1,4 +1,4 @@
-import {StylableDOMUtil} from '@stylable/dom-test-kit';
+import {StylableDOMUtilCompat} from '@stylable/dom-test-kit';
 import style from './Text.st.css';
 import {BaseDriver, DriverFactory} from 'wix-ui-test-utils/driver-factory';
 
@@ -11,7 +11,7 @@ export interface TextDriver extends BaseDriver {
 }
 
 export const textDriverFactory: DriverFactory<TextDriver> = ({element}) => {
-  const stylableDOMUtil = new StylableDOMUtil(style);
+  const stylableDOMUtil = new StylableDOMUtilCompat(style);
 
   return {
     /** check if element exists */
