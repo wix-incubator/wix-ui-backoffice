@@ -1,4 +1,4 @@
-import {StylableDOMUtil} from '@stylable/dom-test-kit';
+import {StylableDOMUtilCompat} from '@stylable/dom-test-kit';
 import style from './Text.st.css';
 import {BaseDriver, DriverFactory} from 'wix-ui-test-utils/driver-factory';
 
@@ -11,13 +11,13 @@ export interface TextDriver extends BaseDriver {
 }
 
 export const textDriverFactory: DriverFactory<TextDriver> = ({element}) => {
-  const StylableDOMUtil = new StylableDOMUtil(style);
+  const stylableDOMUtil = new StylableDOMUtilCompat(style);
 
   return {
     /** check if element exists */
     exists: () => !!element,
     /** check if component has ellipsis */
-    hasEllipsis: () => StylableDOMUtil.hasStyleState(element, 'ellipsis'),
+    hasEllipsis: () => stylableDOMUtil.hasStyleState(element, 'ellipsis'),
     /** check if element has title attribute */
     hasTitleAttribute: () => element.getAttribute('title') !== null,
     /** check if element has title attribute */
