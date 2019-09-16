@@ -14,14 +14,14 @@ export interface TextDriver extends CoreTextDriver {
 
 export const textDriverFactory = ({ element, eventTrigger, wrapper }: ComponentFactory): TextDriver => {
   const coreTextDriver = coreTextDriverFactory({ element, eventTrigger, wrapper });
-  const stylableDOMUtil = new StylableDOMUtil(style);
+  const StylableDOMUtil = new StylableDOMUtil(style);
 
   return {
     ...coreTextDriver,
-    getSize: () => <Size | null>stylableDOMUtil.getStyleState(element, 'size'),
-    getSkin: () => <Skin | null>stylableDOMUtil.getStyleState(element, 'skin'),
-    isLight: () => stylableDOMUtil.hasStyleState(element, 'light'),
-    isBold: () => stylableDOMUtil.hasStyleState(element, 'bold'),
-    isSecondary: () => stylableDOMUtil.hasStyleState(element, 'secondary')
+    getSize: () => <Size | null>StylableDOMUtil.getStyleState(element, 'size'),
+    getSkin: () => <Skin | null>StylableDOMUtil.getStyleState(element, 'skin'),
+    isLight: () => StylableDOMUtil.hasStyleState(element, 'light'),
+    isBold: () => StylableDOMUtil.hasStyleState(element, 'bold'),
+    isSecondary: () => StylableDOMUtil.hasStyleState(element, 'secondary')
   };
 };

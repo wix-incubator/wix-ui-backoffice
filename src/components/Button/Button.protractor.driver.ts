@@ -1,1 +1,1 @@
-export {buttonDriverFactory, ButtonDriver} from 'wix-ui-core/drivers/protractor';
+export {buttonDriverFactory, ButtonDriver} from 'wix-ui-core/drivers-standalone/protractor';

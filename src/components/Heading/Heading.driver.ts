@@ -11,12 +11,12 @@ export interface HeadingDriver extends TextDriver {
 
 export const headingDriverFactory = (factoryParams: ComponentFactory): HeadingDriver => {
   const coreTextDriver = textDriverFactory(factoryParams);
-  const stylableDOMUtil = new StylableDOMUtil(style);
+  const StylableDOMUtil = new StylableDOMUtil(style);
   const { element } = factoryParams;
 
   return {
     ...coreTextDriver,
-    getAppearance: () => stylableDOMUtil.getStyleState(element, 'appearance') as Appearance,
-    isLight: () => stylableDOMUtil.hasStyleState(element, 'light'),
+    getAppearance: () => StylableDOMUtil.getStyleState(element, 'appearance') as Appearance,
+    isLight: () => StylableDOMUtil.hasStyleState(element, 'light'),
   };
 };

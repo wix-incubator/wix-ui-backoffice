@@ -1,5 +1,5 @@
 import {ComponentFactory} from 'wix-ui-test-utils/driver-factory';
-import {thumbnailDriverFactory as coreTuhmbnailDriverFactory, ThumbnailDriver as CoreThumbnailDriver} from 'wix-ui-core/drivers/vanilla';
+import {thumbnailDriverFactory as coreTuhmbnailDriverFactory, ThumbnailDriver as CoreThumbnailDriver} from 'wix-ui-core/drivers-standalone/vanilla';
 import {StylableDOMUtil} from '@stylable/dom-test-kit';
 import style from './Thumbnail.st.css';
 import {textDriverFactory, TextDriver} from '../Text/Text.driver';
@@ -16,9 +16,9 @@ export interface ThumbnailDriver extends CoreThumbnailDriver {
 
 export const thumbnailDriverFactory = ({ element, eventTrigger, wrapper }: ComponentFactory): ThumbnailDriver => {
   const coreThumbnailDriver = coreTuhmbnailDriverFactory({element, eventTrigger, wrapper});
-  const stylableDOMUtil = new StylableDOMUtil(style, element);
-  const titleDriver = textDriverFactory({element: stylableDOMUtil.select('.title'), wrapper, eventTrigger});
-  const descriptionDriver = textDriverFactory({element: stylableDOMUtil.select('.description'), wrapper, eventTrigger});
+  const StylableDOMUtil = new StylableDOMUtil(style, element);
+  const titleDriver = textDriverFactory({element: StylableDOMUtil.select('.title'), wrapper, eventTrigger});
+  const descriptionDriver = textDriverFactory({element: StylableDOMUtil.select('.description'), wrapper, eventTrigger});
   const image = element.querySelector('[data-hook="image"]');
 
   return {

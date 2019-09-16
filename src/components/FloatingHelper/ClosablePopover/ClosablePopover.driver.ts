@@ -3,7 +3,7 @@ import {
   DriverFactory,
   ComponentFactory
 } from 'wix-ui-test-utils/driver-factory';
-import { popoverDriverFactory } from 'wix-ui-core/drivers/vanilla';
+import { popoverDriverFactory } from 'wix-ui-core/drivers-standalone/vanilla';
 
 // TODO: Move this interface to Core's PopoverDriver (big PR with dependencies)
 export interface PopoverDriver extends BaseDriver {

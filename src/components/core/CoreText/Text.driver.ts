@@ -11,13 +11,13 @@ export interface TextDriver extends BaseDriver {
 }
 
 export const textDriverFactory: DriverFactory<TextDriver> = ({element}) => {
-  const stylableDOMUtil = new StylableDOMUtil(style);
+  const StylableDOMUtil = new StylableDOMUtil(style);
 
   return {
     /** check if element exists */
     exists: () => !!element,
     /** check if component has ellipsis */
-    hasEllipsis: () => stylableDOMUtil.hasStyleState(element, 'ellipsis'),
+    hasEllipsis: () => StylableDOMUtil.hasStyleState(element, 'ellipsis'),
     /** check if element has title attribute */
     hasTitleAttribute: () => element.getAttribute('title') !== null,
     /** check if element has title attribute */

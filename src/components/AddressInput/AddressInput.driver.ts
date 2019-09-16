@@ -1,1 +1,1 @@
-export {addressInputDriverFactory} from 'wix-ui-core/drivers/vanilla';
+export {addressInputDriverFactory} from 'wix-ui-core/drivers-standalone/vanilla';

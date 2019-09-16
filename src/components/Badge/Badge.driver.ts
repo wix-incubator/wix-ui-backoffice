@@ -20,7 +20,7 @@ export interface BadgeDriver {
 
 export const badgeDriverFactory = (factoryParams: ComponentFactory): BadgeDriver => {
   const { element, eventTrigger } = factoryParams;
-  const stylableDOMUtil = new StylableDOMUtil(style, element);
+  const StylableDOMUtil = new StylableDOMUtil(style, element);
 
   return {
     /** checks if element exists */
@@ -29,13 +29,13 @@ export const badgeDriverFactory = (factoryParams: ComponentFactory): BadgeDriver
     getContent: () => element.innerHTML,
     /** returns elements text */
     text: () => element.textContent,
-    getType: () => stylableDOMUtil.getStyleState(element, 'type') as Type,
-    getSkin: () => stylableDOMUtil.getStyleState(element, 'skin') as Skin,
-    getSize: () => stylableDOMUtil.getStyleState(element, 'size') as Size,
-    isUppercase: () => stylableDOMUtil.getStyleState(element, 'uppercase') === true,
-    hasClickCursor: () => stylableDOMUtil.getStyleState(element, 'clickable') === true,
-    getPrefixIcon: () => stylableDOMUtil.select('.prefix'),
-    getSuffixIcon: () => stylableDOMUtil.select('.suffix'),
+    getType: () => StylableDOMUtil.getStyleState(element, 'type') as Type,
+    getSkin: () => StylableDOMUtil.getStyleState(element, 'skin') as Skin,
+    getSize: () => StylableDOMUtil.getStyleState(element, 'size') as Size,
+    isUppercase: () => StylableDOMUtil.getStyleState(element, 'uppercase') === true,
+    hasClickCursor: () => StylableDOMUtil.getStyleState(element, 'clickable') === true,
+    getPrefixIcon: () => StylableDOMUtil.select('.prefix'),
+    getSuffixIcon: () => StylableDOMUtil.select('.suffix'),
     click: () => eventTrigger.click(element)
   };
 };

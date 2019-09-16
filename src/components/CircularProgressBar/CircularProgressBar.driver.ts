@@ -2,7 +2,7 @@ import { ComponentFactory } from 'wix-ui-test-utils/driver-factory';
 import {
     circularProgressBarDriverFactory as coreCircularProgressBarDriverFactory,
     CircularProgressBarDriver as CoreCircularProgressBarDriver
-} from 'wix-ui-core/drivers/vanilla';
+} from 'wix-ui-core/drivers-standalone/vanilla';
 import { BaseDriver, DriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { tooltipDriverFactory } from '../Tooltip/Tooltip.driver'
 import { StylableDOMUtil } from '@stylable/dom-test-kit';
@@ -29,7 +29,7 @@ export const circularProgressBarDriverFactory: DriverFactory<CircularProgressBar
     const errorIcon = () => element.querySelector(`[data-hook='error-icon']`);
     const successIcon = () => element.querySelector(`[data-hook='success-icon']`);
     const progressBar = () => element.querySelector(`[data-hook='circular-progress-bar']`);
-    const stylableDOMUtil = new StylableDOMUtil(style, element);
+    const StylableDOMUtil = new StylableDOMUtil(style, element);
 
     return {
         ...coreProgressBarDriver,
@@ -37,6 +37,6 @@ export const circularProgressBarDriverFactory: DriverFactory<CircularProgressBar
         getTooltip: () => createTooltipDriver(),
         isErrorIconShown: () => !!errorIcon(),
         isSuccessIconShown: () => !!successIcon(),
-        getSize: () => stylableDOMUtil.getStyleState(progressBar(), 'size') as Size,
+        getSize: () => StylableDOMUtil.getStyleState(progressBar(), 'size') as Size,
     };
 }
