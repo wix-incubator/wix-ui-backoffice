@@ -1,10 +1,10 @@
 import {toggleSwitchDriverFactory as coreToggleSwitchDriverFactory} from 'wix-ui-core/drivers/vanilla';
-import {StylableDOMUtilCompat} from '@stylable/dom-test-kit';
+import {StylableDOMUtil} from '@stylable/dom-test-kit';
 import style from './ToggleSwitch.st.css';
 
 export const toggleSwitchDriverFactory = ({element, eventTrigger}) => {
   const coreToggleSwitchDriver = coreToggleSwitchDriverFactory({element, eventTrigger});
-  const stylableDOMUtil = new StylableDOMUtilCompat(style, element);
+  const stylableDOMUtil = new StylableDOMUtil(style, element);
 
   return {
     ...coreToggleSwitchDriver,

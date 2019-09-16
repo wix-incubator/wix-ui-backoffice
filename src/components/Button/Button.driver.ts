@@ -1,4 +1,4 @@
-import { StylableDOMUtilCompat } from '@stylable/dom-test-kit';
+import { StylableDOMUtil } from '@stylable/dom-test-kit';
 import { buttonDriverFactory as coreButtonDriverFactory, ButtonDriver as CoreButtonDriver } from 'wix-ui-core/drivers/vanilla';
 import { DriverFactory, BaseDriver, ComponentFactory } from 'wix-ui-test-utils/driver-factory';
 import style from './Button.st.css';
@@ -12,7 +12,7 @@ export interface ButtonDriver extends CoreButtonDriver {
 
 export const buttonDriverFactory: DriverFactory<ButtonDriver> = (factoryParams: ComponentFactory): ButtonDriver => {
   const { element } = factoryParams;
-  const stylableDOMUtil = new StylableDOMUtilCompat(style, element);
+  const stylableDOMUtil = new StylableDOMUtil(style, element);
   const getStyleState = <T>(stateName: string) => stylableDOMUtil.getStyleState(element, stateName) as any as T | null;
 
   return {

@@ -1,4 +1,4 @@
-import { StylableDOMUtilCompat } from '@stylable/dom-test-kit';
+import { StylableDOMUtil } from '@stylable/dom-test-kit';
 import { buttonDriverFactory, ButtonDriver } from 'wix-ui-core/drivers/vanilla';
 import { DriverFactory, BaseDriver, ComponentFactory } from 'wix-ui-test-utils/driver-factory';
 import style from './CloseButton.st.css';
@@ -11,7 +11,7 @@ export interface CloseButtonDriver extends ButtonDriver {
 
 export const closeButtonDriverFactory = (factoryParams: ComponentFactory): CloseButtonDriver => {
   const { element } = factoryParams;
-  const stylableDOMUtil = new StylableDOMUtilCompat(style, element);
+  const stylableDOMUtil = new StylableDOMUtil(style, element);
   const getStyleState = <T>(stateName: string) => stylableDOMUtil.getStyleState(element, stateName) as any as T | null;
 
   return {

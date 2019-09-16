@@ -1,7 +1,7 @@
 import { Skin } from './constants';
 import { ComponentFactory, BaseDriver } from 'wix-ui-test-utils/driver-factory';
 import { badgeDriverFactory as coreBadgeDriverFactory, BadgeDriver as CoreBadgeDriver } from 'wix-ui-core/drivers/vanilla';
-import { StylableDOMUtilCompat } from '@stylable/dom-test-kit';
+import { StylableDOMUtil } from '@stylable/dom-test-kit';
 import style from './CounterBadge.st.css';
 
 export interface CounterBadgeDriver extends CoreBadgeDriver {
@@ -16,7 +16,7 @@ export interface CounterBadgeDriver extends CoreBadgeDriver {
 export const counterBadgeDriverFactory = (factoryParams: ComponentFactory): CounterBadgeDriver => {
   const coreBadgeDriver = coreBadgeDriverFactory(factoryParams);
   const { element } = factoryParams;
-  const stylableDOMUtil = new StylableDOMUtilCompat(style, element);
+  const stylableDOMUtil = new StylableDOMUtil(style, element);
 
   return {
     ...coreBadgeDriver,
