@@ -1,5 +1,5 @@
 import { ComponentFactory } from 'wix-ui-test-utils/driver-factory';
-import { StylableDOMUtil } from '@stylable/dom-test-kit';
+import { StylableDOMUtilCompat } from '@stylable/dom-test-kit';
 import style from './Badge.st.css';
 import { Type, Skin, Size } from './constants';
 
@@ -20,7 +20,7 @@ export interface BadgeDriver {
 
 export const badgeDriverFactory = (factoryParams: ComponentFactory): BadgeDriver => {
   const { element, eventTrigger } = factoryParams;
-  const stylableDOMUtil = new StylableDOMUtil(style, element);
+  const stylableDOMUtil = new StylableDOMUtilCompat(style, element);
 
   return {
     /** checks if element exists */

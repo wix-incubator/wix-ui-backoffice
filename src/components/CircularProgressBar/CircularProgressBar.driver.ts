@@ -5,7 +5,7 @@ import {
 } from 'wix-ui-core/drivers/vanilla';
 import { BaseDriver, DriverFactory } from 'wix-ui-test-utils/driver-factory';
 import { tooltipDriverFactory } from '../Tooltip/Tooltip.driver'
-import { StylableDOMUtil } from '@stylable/dom-test-kit';
+import { StylableDOMUtilCompat } from '@stylable/dom-test-kit';
 import style from './CircularProgressBar.st.css';
 import { Size } from './constants';
 
@@ -29,7 +29,7 @@ export const circularProgressBarDriverFactory: DriverFactory<CircularProgressBar
     const errorIcon = () => element.querySelector(`[data-hook='error-icon']`);
     const successIcon = () => element.querySelector(`[data-hook='success-icon']`);
     const progressBar = () => element.querySelector(`[data-hook='circular-progress-bar']`);
-    const stylableDOMUtil = new StylableDOMUtil(style, element);
+    const stylableDOMUtil = new StylableDOMUtilCompat(style, element);
 
     return {
         ...coreProgressBarDriver,
