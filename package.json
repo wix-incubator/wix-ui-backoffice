@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "wix-ui-backoffice",
-  "description": "Components for Wix backoffice applications",
+  "description": "Components for Wix backoffice applicationssss",
   "version": "1.0.0",
   "module": "./dist/es/src",
   "sideEffects": [
