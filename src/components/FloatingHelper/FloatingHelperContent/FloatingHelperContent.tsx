@@ -50,6 +50,10 @@ const themeToButtonProps: {
   [ActionButtonTheme.premium]: {
     skin: ButtonSkin.premium,
     priority: ButtonPriority.primary
+  },
+  [ActionButtonTheme.lightPrimary]: {
+    skin: ButtonSkin.white,
+    priority: ButtonPriority.primary
   }
 };
 
