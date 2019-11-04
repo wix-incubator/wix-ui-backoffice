@@ -99,6 +99,13 @@ describe('FloatingHelperContent', () => {
       ).toBe(true);
     });
 
+    it('should have button with skin=white and priority=primary when actionTheme=lightPrimary is selected', () => {
+      const driver = createDriver(
+        <FloatingHelperContentBuilder {...actionProps} actionTheme={ActionButtonTheme.lightPrimary}/>
+      );
+      expect(driver.matchesActionButtonClassName(ButtonSkin.white)).toBe(true);
+    });
+
     it('should have button with skin=premium and priority=primary', () => {
       const driver = createDriver(
         <FloatingHelperContentBuilder
