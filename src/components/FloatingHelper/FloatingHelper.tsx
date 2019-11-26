@@ -16,7 +16,7 @@ export interface FloatingHelperOwnProps {
   content: React.ReactNode
   /** In Controlled mode - called when the close button is clicked. In Uncontrolled mode - called when the popover is closed */
   onClose?: Function;
-  /* Appearance : `dark` or `light`. */
+  /** Appearance : `dark` or `light` */
   appearance?: Appearance;
 }
 
