@@ -13,6 +13,10 @@
   margin-top: 18px;
 }
 
+.secondaryAction {
+  margin-right: 12px;
+}
+
 .image {
   margin-left: 18px;
   display: flex;

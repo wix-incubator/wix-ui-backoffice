@@ -6,6 +6,7 @@ import Image from 'wix-ui-icons-common/Image';
 const title = 'Don’t forget to setup payments';
 const body = 'In order to sell your music you need to choose a payment method.';
 const action = {actionText: 'Ok, Take Me There', onActionClick: ()=>null};
+const secondaryAction = {secondaryActionText: 'Show more info', onSecondaryActionClick: ()=>null};
 const image = <Image width="102" height="102"/>;
 
 // Should match the exampleDataHooks from storySettings
@@ -15,6 +16,7 @@ const exampleProps : FloatingHelperContentProps[] = [
   { title, body, ...action },
   { body, ...action },
   { title, body, ...action, actionTheme: ActionButtonTheme.premium },
+  { title, body, ...action, secondaryAction, actionTheme: ActionButtonTheme.premium, secondaryActionTheme: ActionButtonTheme.premiumSecondary },
   { title, body, ...action, image},
   { body, image}
 ];
@@ -23,7 +25,8 @@ const componentProps: FloatingHelperContentProps  & {'data-hook': string} = {
   'data-hook': storySettings.dataHook,
   title: 'This is the title',
   body: 'This is the a long text which is passed in the `text` propterty',
-  actionText: 'Click me!'
+  actionText: 'Click me!',
+  secondaryActionText: ''
 };
 
 export default {
@@ -36,7 +39,9 @@ export default {
 
   exampleProps: {
     onActionClick: () => 'action buton clicked!',
-    actionTheme: Object.keys(ActionButtonTheme).map(key=>ActionButtonTheme[key]),
+    onSecondaryActionClick: () => 'secondary action buton clicked!',
+    actionTheme:  Object.keys(ActionButtonTheme).map(key=>ActionButtonTheme[key]),
+    seconcdaryActionTheme:  Object.keys(ActionButtonTheme).map(key=>ActionButtonTheme[key]),
     image: [{label: 'with image', value: image}]
   },
 

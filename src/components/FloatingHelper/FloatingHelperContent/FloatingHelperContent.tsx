@@ -26,10 +26,16 @@ export interface FloatingHelperContentProps {
   body: string;
   /** Sets the text of the action button. Needs to be a non-empty string (and onActionClick prop has to be passed) in order for the action button to appear */
   actionText?: string;
+  /** Sets the text of the secondary action button. Needs to be a non-empty string (and onSecondaryActionClick prop has to be passed) in order for the secondary action button to appear */
+  secondaryActionText?: string;
   /** Sets the theme of the action button */
   actionTheme?: ActionButtonTheme;
+  /** Sets the theme of the secondary action button */
+  secondaryActionTheme?: ActionButtonTheme;
   /** When both onActionClick & actionText are provided, will make an action button appear and invoke onActionClick() upon click */
   onActionClick?: () => void;
+  /** When both onSecondaryActionClick & secondaryActionText are provided, will make a secondary action button appear and invoke onSecondaryActionClick() upon click */
+  onSecondaryActionClick?: () => void;
   /** Adds an image */
   image?: React.ReactNode;
   /* Appearance : `dark` or `light`. */
@@ -51,6 +57,10 @@ const themeToButtonProps: {
     skin: ButtonSkin.premium,
     priority: ButtonPriority.primary
   },
+  [ActionButtonTheme.premiumSecondary]: {
+    skin: ButtonSkin.premium,
+    priority: ButtonPriority.secondary
+  },
   [ActionButtonTheme.lightPrimary]: {
     skin: ButtonSkin.white,
     priority: ButtonPriority.primary
@@ -65,7 +75,10 @@ export const FloatingHelperContent: React.SFC<FloatingHelperContentProps> = (
     body,
     actionText,
     onActionClick,
+    secondaryActionText,
+    onSecondaryActionClick,
     actionTheme,
+    secondaryActionTheme,
     image,
     appearance
   } = props;
@@ -94,6 +107,27 @@ export const FloatingHelperContent: React.SFC<FloatingHelperContentProps> = (
             </Text>
           </div>
         )}
+
+        {secondaryActionText &&
+          onSecondaryActionClick &&
+          secondaryActionText.length > 0 && (
+            <ButtonNext
+              className={classnames(
+                style.action,
+                style.secondaryAction,
+                button(
+                  themeToButtonProps[secondaryActionTheme].skin,
+                  themeToButtonProps[secondaryActionTheme].priority,
+                  ButtonSize.small
+                )
+              )}
+              data-hook={DataHooks.secondaryActionButton}
+              onClick={onSecondaryActionClick}
+            >
+              {secondaryActionText}
+            </ButtonNext>
+          )}
+
         {actionText && onActionClick && actionText.length > 0 && (
           <ButtonNext
             className={classnames(
@@ -122,5 +156,6 @@ export const FloatingHelperContent: React.SFC<FloatingHelperContentProps> = (
 
 FloatingHelperContent.defaultProps = {
   actionTheme: ActionButtonTheme.white,
+  secondaryActionTheme: ActionButtonTheme.premiumSecondary,
   appearance: Appearance.dark
 };

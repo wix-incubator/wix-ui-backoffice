@@ -1,84 +1,84 @@
-import * as React from 'react';
-import { floatingHelperContentDriverFactory } from './FloatingHelperContent.driver';
+import * as React from "react";
+import { floatingHelperContentDriverFactory } from "./FloatingHelperContent.driver";
 import {
   FloatingHelperContent,
   FloatingHelperContentProps,
   ActionButtonTheme
-} from '.';
-import { ButtonSkin, ButtonPriority } from '../../Button';
-import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
-import { mount } from 'enzyme';
-const defaults = require('lodash/defaults');
+} from ".";
+import { ButtonSkin, ButtonPriority } from "../../Button";
+import { createDriverFactory } from "wix-ui-test-utils/driver-factory";
+import { mount } from "enzyme";
+const defaults = require("lodash/defaults");
 
 const noop = () => null;
 
-describe('FloatingHelperContent', () => {
+describe("FloatingHelperContent", () => {
   const createDriver = createDriverFactory(floatingHelperContentDriverFactory);
 
   const FloatingHelperContentBuilder = withDefaultsHOC<
     FloatingHelperContentProps
   >({
     component: FloatingHelperContent,
-    defaultProps: { body: 'this is the body' }
+    defaultProps: { body: "this is the body" }
   });
 
-  describe('title prop', () => {
-    it('should not have title by default', () => {
+  describe("title prop", () => {
+    it("should not have title by default", () => {
       const driver = createDriver(<FloatingHelperContentBuilder />);
       expect(driver.hasTitle()).toBeFalsy();
     });
 
-    it('should have title with proper content', () => {
+    it("should have title with proper content", () => {
       const driver = createDriver(
         <FloatingHelperContentBuilder title="title" />
       );
       expect(driver.hasTitle()).toBeTruthy();
-      expect(driver.getTitleContent()).toBe('title');
+      expect(driver.getTitleContent()).toBe("title");
     });
   });
 
-  describe('body prop', () => {
-    it('should have body with simple text content', () => {
+  describe("body prop", () => {
+    it("should have body with simple text content", () => {
       const driver = createDriver(<FloatingHelperContentBuilder body="body" />);
       expect(driver.hasBody()).toBeTruthy();
-      expect(driver.getBodyContent()).toBe('body');
+      expect(driver.getBodyContent()).toBe("body");
     });
   });
 
-  describe('action button', () => {
+  describe("action button", () => {
     const actionProps: Partial<FloatingHelperContentProps> = {
-      actionText: 'Click me !',
+      actionText: "Click me !",
       onActionClick: noop
     };
 
-    it('should not have action button by default', () => {
+    it("should not have action button by default", () => {
       const driver = createDriver(<FloatingHelperContentBuilder />);
       expect(driver.hasActionButton()).toBeFalsy();
     });
 
-    it('should not have action button if only actionText is passed', () => {
+    it("should not have action button if only actionText is passed", () => {
       const driver = createDriver(
         <FloatingHelperContentBuilder actionText="Click Me!" />
       );
       expect(driver.hasActionButton()).toBeFalsy();
     });
 
-    it('should not have action button if only onActionClick is passed', () => {
+    it("should not have action button if only onActionClick is passed", () => {
       const driver = createDriver(
         <FloatingHelperContentBuilder onActionClick={noop} />
       );
       expect(driver.hasActionButton()).toBeFalsy();
     });
 
-    it('should not have action button if actionText is an empty string', () => {
+    it("should not have action button if actionText is an empty string", () => {
       const driver = createDriver(
         <FloatingHelperContentBuilder onActionClick={noop} actionText="" />
       );
       expect(driver.hasActionButton()).toBeFalsy();
     });
 
-    it('should have action button with correct text', () => {
-      const actionText = 'Click Me!';
+    it("should have action button with correct text", () => {
+      const actionText = "Click Me!";
       const driver = createDriver(
         <FloatingHelperContentBuilder
           actionText={actionText}
@@ -89,7 +89,7 @@ describe('FloatingHelperContent', () => {
       expect(driver.getActionButtonText()).toBe(actionText);
     });
 
-    it('should have button with skin=white and priority=secondary by default', () => {
+    it("should have button with skin=white and priority=secondary by default", () => {
       const driver = createDriver(
         <FloatingHelperContentBuilder {...actionProps} />
       );
@@ -99,14 +99,17 @@ describe('FloatingHelperContent', () => {
       ).toBe(true);
     });
 
-    it('should have button with skin=white and priority=primary when actionTheme=lightPrimary is selected', () => {
+    it("should have button with skin=white and priority=primary when actionTheme=lightPrimary is selected", () => {
       const driver = createDriver(
-        <FloatingHelperContentBuilder {...actionProps} actionTheme={ActionButtonTheme.lightPrimary}/>
+        <FloatingHelperContentBuilder
+          {...actionProps}
+          actionTheme={ActionButtonTheme.lightPrimary}
+        />
       );
       expect(driver.matchesActionButtonClassName(ButtonSkin.white)).toBe(true);
     });
 
-    it('should have button with skin=premium and priority=primary', () => {
+    it("should have button with skin=premium and priority=primary", () => {
       const driver = createDriver(
         <FloatingHelperContentBuilder
           {...actionProps}
@@ -118,7 +121,7 @@ describe('FloatingHelperContent', () => {
       );
     });
 
-    it('should call onClick when action button clicked', () => {
+    it("should call onClick when action button clicked", () => {
       const spy = jest.fn();
       const driver = createDriver(
         <FloatingHelperContentBuilder
@@ -131,15 +134,82 @@ describe('FloatingHelperContent', () => {
     });
   });
 
-  describe('image prop', () => {
-    it('should not be visible by default', () => {
+  describe("secondary action button", () => {
+    const actionProps: Partial<FloatingHelperContentProps> = {
+      secondaryActionText: "Click Me!",
+      onSecondaryActionClick: noop
+    };
+
+    it("should not have secondary action button by default", () => {
+      const driver = createDriver(<FloatingHelperContentBuilder />);
+      expect(driver.hasSecondaryActionButton()).toBeFalsy();
+    });
+
+    it("should not have secondary action button if only actionText is passed", () => {
+      const driver = createDriver(
+        <FloatingHelperContentBuilder secondaryActionText="Click Me!" />
+      );
+      expect(driver.hasSecondaryActionButton()).toBeFalsy();
+    });
+
+    it("should not have secondary action button if only onActionClick is passed", () => {
+      const driver = createDriver(
+        <FloatingHelperContentBuilder onSecondaryActionClick={noop} />
+      );
+      expect(driver.hasSecondaryActionButton()).toBeFalsy();
+    });
+
+    it("should not have secondary action button if actionText is an empty string", () => {
+      const driver = createDriver(
+        <FloatingHelperContentBuilder
+          onSecondaryActionClick={noop}
+          secondaryActionText=""
+        />
+      );
+      expect(driver.hasSecondaryActionButton()).toBeFalsy();
+    });
+
+    it("should have secondary action button with correct text", () => {
+      const driver = createDriver(
+        <FloatingHelperContentBuilder {...actionProps} />
+      );
+      expect(driver.hasSecondaryActionButton()).toBeTruthy();
+      expect(driver.getSecondaryActionButtonText()).toBe("Click Me!");
+    });
+
+    it("should have button with skin=premium and priority=secondary by default", () => {
+      const driver = createDriver(
+        <FloatingHelperContentBuilder
+          {...actionProps}
+        />
+      );
+      expect(
+        driver.matchesSecondaryActionButtonClassName(ButtonSkin.premium)
+      ).toBe(true);
+    });
+
+    it("should call onClick when action button clicked", () => {
+      const spy = jest.fn();
+      const driver = createDriver(
+        <FloatingHelperContentBuilder
+          {...actionProps}
+          onSecondaryActionClick={spy}
+        />
+      );
+      driver.clickSecondaryActionButton();
+      expect(spy).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe("image prop", () => {
+    it("should not be visible by default", () => {
       const driver = createDriver(
         <FloatingHelperContentBuilder actionText="Click me!" />
       );
       expect(driver.hasImage()).toBeFalsy();
     });
 
-    it('should render the image', () => {
+    it("should render the image", () => {
       const driver = createDriver(
         <FloatingHelperContentBuilder image={<div>🤔</div>} />
       );

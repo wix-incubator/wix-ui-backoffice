@@ -20,6 +20,9 @@ export interface FloatingHelperContentDriver extends BaseDriver {
   /** checks if the action button exists */
   hasActionButton(): boolean;
 
+  /** checks if the secondary action button exists */
+  hasSecondaryActionButton(): boolean;
+
   /** Get the text content of the title */
   getTitleContent(): string;
 
@@ -32,11 +35,20 @@ export interface FloatingHelperContentDriver extends BaseDriver {
   /** Get text of action button */
   getActionButtonText(): string;
 
+  /** Get text of secondary action button */
+  getSecondaryActionButtonText(): string;
+
   /** naive way to check for stylable class */
   matchesActionButtonClassName(className: string): boolean;
 
+  /** naive way to check for stylable class */
+  matchesSecondaryActionButtonClassName(className: string): boolean;
+
   /** click on the action button */
   clickActionButton(): void;
+
+  /** click on the secondary action button */
+  clickSecondaryActionButton(): void;
 }
 
 export const floatingHelperContentDriverFactory: DriverFactory<
@@ -48,19 +60,28 @@ export const floatingHelperContentDriverFactory: DriverFactory<
   const image = () => element.querySelector(`[data-hook='${DataHooks.image}']`);
   const actionButton = () =>
     element.querySelector(`[data-hook='${DataHooks.actionButton}']`);
+  const secondaryActionButton = () =>
+    element.querySelector(`[data-hook='${DataHooks.secondaryActionButton}']`);
 
   return {
     exists: () => !!element,
     hasTitle: () => !!title(),
     hasBody: () => !!body(),
     hasActionButton: () => !!actionButton(),
+    hasSecondaryActionButton: () => !!secondaryActionButton(),
     hasImage: () => !!image(),
     getImage: () => image() && (image().childNodes[0] as HTMLElement),
     getTitleContent: () => title().textContent,
     getBodyContent: () => body().textContent,
     getActionButtonText: () => actionButton().textContent,
+    getSecondaryActionButtonText: () => secondaryActionButton().textContent,
     matchesActionButtonClassName: className =>
       !!Array.from(actionButton().classList).find(c => c.includes(className)),
-    clickActionButton: () => factoryParams.eventTrigger.click(actionButton())
+    matchesSecondaryActionButtonClassName: className =>
+      !!Array.from(secondaryActionButton().classList).find(c =>
+        c.includes(className)
+      ),
+    clickActionButton: () => factoryParams.eventTrigger.click(actionButton()),
+    clickSecondaryActionButton: () => factoryParams.eventTrigger.click(secondaryActionButton())
   };
 };
