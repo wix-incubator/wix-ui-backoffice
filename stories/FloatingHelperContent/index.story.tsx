@@ -2,6 +2,7 @@ import * as React from 'react';
 import { FloatingHelperContent, FloatingHelperContentProps, ActionButtonTheme } from '../../src/components/FloatingHelper/FloatingHelperContent';
 import { storySettings } from './StorySettings';
 import Image from 'wix-ui-icons-common/Image';
+import { Button } from "../../src/components/Button";
 
 const title = 'Don’t forget to setup payments';
 const body = 'In order to sell your music you need to choose a payment method.';
@@ -23,7 +24,15 @@ const componentProps: FloatingHelperContentProps  & {'data-hook': string} = {
   'data-hook': storySettings.dataHook,
   title: 'This is the title',
   body: 'This is the a long text which is passed in the `text` propterty',
-  actionText: 'Click me!'
+  actionText: '',
+  footer: (
+    <React.Fragment>
+      <Button size="small" style={{ marginRight: "12px" }}>
+        First
+      </Button>
+      <Button size="small" skin="light">Second</Button>
+    </React.Fragment>
+  )
 };
 
 export default {

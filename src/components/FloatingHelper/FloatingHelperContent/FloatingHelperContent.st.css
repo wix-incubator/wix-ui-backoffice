@@ -13,7 +13,16 @@
   margin-top: 18px;
 }
 
+.secondaryAction {
+  margin-right: 12px;
+}
+
 .image {
   margin-left: 18px;
   display: flex;
+}
+
+.footer {
+   margin-top: 12px;
+   display: flex;
 }

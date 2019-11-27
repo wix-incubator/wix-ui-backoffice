@@ -28,6 +28,8 @@ export interface FloatingHelperContentProps {
   actionText?: string;
   /** Sets the theme of the action button */
   actionTheme?: ActionButtonTheme;
+  /** Custom footer node */
+  footer?: React.ReactNode;
   /** When both onActionClick & actionText are provided, will make an action button appear and invoke onActionClick() upon click */
   onActionClick?: () => void;
   /** Adds an image */
@@ -67,7 +69,8 @@ export const FloatingHelperContent: React.SFC<FloatingHelperContentProps> = (
     onActionClick,
     actionTheme,
     image,
-    appearance
+    appearance,
+    footer
   } = props;
 
   return (
@@ -94,6 +97,7 @@ export const FloatingHelperContent: React.SFC<FloatingHelperContentProps> = (
             </Text>
           </div>
         )}
+
         {actionText && onActionClick && actionText.length > 0 && (
           <ButtonNext
             className={classnames(
@@ -109,6 +113,11 @@ export const FloatingHelperContent: React.SFC<FloatingHelperContentProps> = (
           >
             {actionText}
           </ButtonNext>
+        )}
+        {footer && (
+          <div data-hook={DataHooks.footer} className={style.footer}>
+            {footer}
+          </div>
         )}
       </div>
       {image && (

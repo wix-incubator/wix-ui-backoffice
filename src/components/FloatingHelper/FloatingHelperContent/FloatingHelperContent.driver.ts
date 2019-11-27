@@ -20,6 +20,9 @@ export interface FloatingHelperContentDriver extends BaseDriver {
   /** checks if the action button exists */
   hasActionButton(): boolean;
 
+  /** checks if the footer exists */
+  hasFooter(): boolean;
+
   /** Get the text content of the title */
   getTitleContent(): string;
 
@@ -28,6 +31,9 @@ export interface FloatingHelperContentDriver extends BaseDriver {
 
   /** Get image HTML element*/
   getImage(): HTMLElement;
+
+  /** Get footer HTML element*/
+  getFooter(): HTMLElement;
 
   /** Get text of action button */
   getActionButtonText(): string;
@@ -48,14 +54,17 @@ export const floatingHelperContentDriverFactory: DriverFactory<
   const image = () => element.querySelector(`[data-hook='${DataHooks.image}']`);
   const actionButton = () =>
     element.querySelector(`[data-hook='${DataHooks.actionButton}']`);
+  const footer = () => element.querySelector(`[data-hook='${DataHooks.footer}']`)
 
   return {
     exists: () => !!element,
     hasTitle: () => !!title(),
     hasBody: () => !!body(),
     hasActionButton: () => !!actionButton(),
+    hasFooter: () => !!footer(),
     hasImage: () => !!image(),
     getImage: () => image() && (image().childNodes[0] as HTMLElement),
+    getFooter: () => footer() && (footer().childNodes[0] as HTMLElement),
     getTitleContent: () => title().textContent,
     getBodyContent: () => body().textContent,
     getActionButtonText: () => actionButton().textContent,
