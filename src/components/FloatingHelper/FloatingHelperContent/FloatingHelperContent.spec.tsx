@@ -131,6 +131,23 @@ describe('FloatingHelperContent', () => {
     });
   });
 
+  describe('footer prop', () => {
+    it('should not be visible by default', () => {
+      const driver = createDriver(
+        <FloatingHelperContentBuilder />
+      );
+      expect(driver.hasFooter()).toBeFalsy();
+    });
+
+    it('should display footer contents', () => {
+      const driver = createDriver(
+        <FloatingHelperContentBuilder footer={<div>footer</div>}/>
+      );
+      expect(driver.hasFooter()).toBeTruthy();
+      expect(driver.getFooter()).toEqual(mount(<div>footer</div>).getDOMNode());
+    });
+  });
+
   describe('image prop', () => {
     it('should not be visible by default', () => {
       const driver = createDriver(

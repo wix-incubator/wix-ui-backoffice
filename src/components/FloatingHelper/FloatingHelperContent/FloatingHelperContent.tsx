@@ -5,7 +5,6 @@ import style from './FloatingHelperContent.st.css';
 import { Text } from '../../../components/Text';
 import { DataHooks } from './DataHooks';
 import {
-  Button,
   ButtonProps,
   ButtonSkin,
   ButtonPriority,
@@ -17,7 +16,6 @@ import { button } from 'wix-ui-core/themes/backoffice';
 
 import { ActionButtonTheme } from './constants';
 import { Appearance } from '../constants';
-import { enumValues } from '../../../utils';
 
 export interface FloatingHelperContentProps {
   /** Adds text as the title */
@@ -28,6 +26,8 @@ export interface FloatingHelperContentProps {
   actionText?: string;
   /** Sets the theme of the action button */
   actionTheme?: ActionButtonTheme;
+  /** Custom footer node */
+  footer?: React.ReactNode;
   /** When both onActionClick & actionText are provided, will make an action button appear and invoke onActionClick() upon click */
   onActionClick?: () => void;
   /** Adds an image */
@@ -37,7 +37,7 @@ export interface FloatingHelperContentProps {
 }
 
 const themeToButtonProps: {
-  [key in ActionButtonTheme]: Pick<ButtonProps, 'skin' | 'priority'>
+  [key in ActionButtonTheme]: Pick<ButtonProps, 'skin' | 'priority'>;
 } = {
   [ActionButtonTheme.white]: {
     skin: ButtonSkin.white,
@@ -67,7 +67,8 @@ export const FloatingHelperContent: React.SFC<FloatingHelperContentProps> = (
     onActionClick,
     actionTheme,
     image,
-    appearance
+    appearance,
+    footer
   } = props;
 
   return (
@@ -94,6 +95,7 @@ export const FloatingHelperContent: React.SFC<FloatingHelperContentProps> = (
             </Text>
           </div>
         )}
+
         {actionText && onActionClick && actionText.length > 0 && (
           <ButtonNext
             className={classnames(
@@ -109,6 +111,11 @@ export const FloatingHelperContent: React.SFC<FloatingHelperContentProps> = (
           >
             {actionText}
           </ButtonNext>
+        )}
+        {footer && (
+          <div data-hook={DataHooks.footer} className={style.footer}>
+            {footer}
+          </div>
         )}
       </div>
       {image && (
