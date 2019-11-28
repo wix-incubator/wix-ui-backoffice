@@ -5,7 +5,6 @@ import style from './FloatingHelperContent.st.css';
 import { Text } from '../../../components/Text';
 import { DataHooks } from './DataHooks';
 import {
-  Button,
   ButtonProps,
   ButtonSkin,
   ButtonPriority,
@@ -17,7 +16,6 @@ import { button } from 'wix-ui-core/themes/backoffice';
 
 import { ActionButtonTheme } from './constants';
 import { Appearance } from '../constants';
-import { enumValues } from '../../../utils';
 
 export interface FloatingHelperContentProps {
   /** Adds text as the title */
@@ -39,7 +37,7 @@ export interface FloatingHelperContentProps {
 }
 
 const themeToButtonProps: {
-  [key in ActionButtonTheme]: Pick<ButtonProps, 'skin' | 'priority'>
+  [key in ActionButtonTheme]: Pick<ButtonProps, 'skin' | 'priority'>;
 } = {
   [ActionButtonTheme.white]: {
     skin: ButtonSkin.white,
