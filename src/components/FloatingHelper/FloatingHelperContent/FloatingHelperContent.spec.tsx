@@ -149,7 +149,7 @@ describe('FloatingHelperContent', () => {
   });
 
   describe('image prop', () => {
-    it("should not be visible by default", () => {
+    it('should not be visible by default', () => {
       const driver = createDriver(
         <FloatingHelperContentBuilder actionText="Click me!" />
       );
