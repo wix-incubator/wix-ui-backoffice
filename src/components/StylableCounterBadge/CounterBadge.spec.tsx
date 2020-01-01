@@ -77,7 +77,7 @@ describe('CounterBadge', () => {
     });
   });
 
-  describe('behavior', async () => {
+  describe('behavior', () => {
     it('should display 99+ when content is a number > 99', () => {
       const wrapper = createDriver(<CounterBadge>777</CounterBadge>);
       expect(wrapper.text()).toBe('99+');
