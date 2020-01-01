@@ -22,7 +22,7 @@ describe('ClosablePopover', () => {
     />
   );
 
-  describe('open/close on hover', async () => {
+  describe('open/close on hover', () => {
     it('should display content on hover and hide it on leave, after closed', async () => {
       let triggerClose;
       const driver = createDriver(createComponent({
