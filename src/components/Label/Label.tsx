@@ -12,7 +12,7 @@ export interface LabelProps {
 }
 
 export const Label: React.SFC<CoreLabelProps & LabelProps> = (props: CoreLabelProps & LabelProps) => {
-  const {size, ...rest} = props;
+  const {size, className,...rest} = props;
   return <CoreLabel {...style('root', {size}, props)} data-size={size} {...rest}/>
 };
 
