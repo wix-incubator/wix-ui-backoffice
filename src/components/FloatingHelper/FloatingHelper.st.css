@@ -1,7 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/components/popover/Popover.st.css";
-  -st-default: Popover;
-  -st-named: withArrow, arrow;
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: Popover;
 }
 
 :import {
@@ -63,7 +62,7 @@
     );
 }
 
-.root::popover.withArrow .arrow {
+.root::arrow {
   z-index: 2;
 }
 
@@ -94,4 +93,5 @@
   padding: 30px 36px;
   color: value(WHITE);
 }
+
 
